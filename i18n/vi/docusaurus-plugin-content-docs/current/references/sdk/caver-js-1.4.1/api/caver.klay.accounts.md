@@ -1285,24 +1285,24 @@ Hàm băm thông báo đã cho để chuyển thông báo đó đến [caver.kla
 Dữ liệu sẽ được giải mã UTF-8 HEX và được bọc như sau:
 
 ```
-và hàm băm bằng keccak256.
+"\x19Klaytn Signed Message:\n" + message.length + message
 ```
+
+và hàm băm bằng keccak256.
 
 **Tham số**
 
-Tên
+| Tên       | Loại | Mô tả                                                                    |
+| --------- | ----- | ------------------------------------------------------------------------ |
+| thông báo | Chuỗi | Thông báo hàm băm.  Nếu là chuỗi số HEX, nó sẽ được giải mã UTF-8 trước. |
 
-| Loại | Mô tả              | thông báo                                                                |
-| ----- | ------------------ | ------------------------------------------------------------------------ |
-| Chuỗi | Thông báo hàm băm. | Nếu là chuỗi số HEX, nó sẽ được giải mã UTF-8 trước.  **Giá trị trả về** |
+**Giá trị trả về**
 
-Loại
+| Loại | Mô tả             |
+| ----- | ----------------- |
+| Chuỗi | Thông báo hàm băm |
 
-| Mô tả             | Chuỗi       |
-| ----------------- | ----------- |
-| Thông báo hàm băm | **Ví dụ** |
-
-ký <a id="sign"></a>
+**Ví dụ**
 
 ```javascript
 > caver.klay.accounts.hashMessage("Hello World")
@@ -1313,39 +1313,39 @@ ký <a id="sign"></a>
 '0xf334bf277b674260e85f1a3d2565d76463d63d29549ef4fa6d6833207576b5ba'
 ```
 
-## Ký dữ liệu tùy ý.
+## ký <a id="sign"></a>
 
 ```javascript
 caver.klay.accounts.sign(data, privateKey)
 ```
 
-Dữ liệu này trước khi UTF-8 HEX được giải mã và được bọc như sau: **Tham số**
+Ký dữ liệu tùy ý. Dữ liệu này trước khi UTF-8 HEX được giải mã và được bọc như sau:
 
 ```
-Tên
+"\x19Klaytn Signed Message:\n" + message.length + message
 ```
 
-Loại
+**Tham số**
 
-| Mô tả                     | data               | Chuỗi                                                |
-| ------------------------- | ------------------ | ---------------------------------------------------- |
-| Các dữ liệu để ký.        | privateKey         | Chuỗi                                                |
-| Khóa riêng tư dùng để ký. | **Giá trị trả về** | `Chuỗi\|Đối tượng`: Chữ ký mã hóa RLP dữ liệu đã ký. |
+| Tên        | Loại | Mô tả                     |
+| ---------- | ----- | ------------------------- |
+| data       | Chuỗi | Các dữ liệu để ký.        |
+| privateKey | Chuỗi | Khóa riêng tư dùng để ký. |
 
-Các giá trị chữ ký như sau:
+**Giá trị trả về**
 
-Tên Loại
+`Chuỗi|Đối tượng`: Chữ ký mã hóa RLP dữ liệu đã ký. Các giá trị chữ ký như sau:
 
-| Mô tả                         | thông báo   | Chuỗi                          |
-| ----------------------------- | ----------- | ------------------------------ |
-| Thông điệp đã cho.            | messageHash | Chuỗi                          |
-| Hàm băm của thông báo đã cho. | r           | Chuỗi                          |
-| Chữ ký ECDSA r.               | s           | Chuỗi                          |
-| Chữ ký ECDSA s.               | v           | Chuỗi                          |
-| Mã khôi phục ECDSA.           | chữ ký      | Chuỗi                          |
-| Chữ ký được tạo.              | **Ví dụ** | khôi phục <a id="recover"></a> |
+| Tên         | Loại | Mô tả                         |
+| ----------- | ----- | ----------------------------- |
+| thông báo   | Chuỗi | Thông điệp đã cho.            |
+| messageHash | Chuỗi | Hàm băm của thông báo đã cho. |
+| r           | Chuỗi | Chữ ký ECDSA r.               |
+| s           | Chuỗi | Chữ ký ECDSA s.               |
+| v           | Chuỗi | Mã khôi phục ECDSA.           |
+| chữ ký      | Chuỗi | Chữ ký được tạo.              |
 
-Khôi phục địa chỉ Klaytn đã được sử dụng để ký dữ liệu đã cho.
+**Ví dụ**
 
 ```javascript
 > caver.klay.accounts.sign('Some data', '0x{private key}');
@@ -1359,7 +1359,7 @@ Khôi phục địa chỉ Klaytn đã được sử dụng để ký dữ liệu
 }
 ```
 
-## **Tham số**
+## khôi phục <a id="recover"></a>
 
 ```javascript
 caver.klay.accounts.recover(signatureObject)
@@ -1367,33 +1367,33 @@ caver.klay.accounts.recover(message, signature [, preFixed])
 caver.klay.accounts.recover(message, v, r, s [, preFixed])
 ```
 
-Tên
+Khôi phục địa chỉ Klaytn đã được sử dụng để ký dữ liệu đã cho.
 
-Loại
+**Tham số**
 
-| Mô tả                                                                                                                                                                                                                       | thông báo \| signatureObject                                           | Chuỗi \| Đối tượng |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- | ------------------ |
-| Thông báo đã ký hoặc hàm băm.                                                                                                                                                                                               | Để biết thông tin chi tiết về đối tượng chữ ký, hãy xem bảng bên dưới. | messageHash Chuỗi  |
-| Hàm băm của thông báo đã cho.                                                                                                                                                                                               | chữ ký                                                                 | Chuỗi              |
-| Chữ ký được mã hóa RLP thô, HOẶC tham số 2-4 dưới dạng giá trị v, r, s.                                                                                                                                                     | preFixed                                                               | Boolean            |
-| (tùy chọn, mặc định: `false`) Nếu tham số cuối cùng là `true`, thông báo đã cho sẽ KHÔNG tự động có tiền tố là `"\x19Klaytn Signed Message:\n" + message.length + message` và được cho là đã có tiền tố. | Đối tượng chữ ký có các giá trị sau:                                   | Tên                |
+| Tên                          | Loại              | Mô tả                                                                                                                                                                                                                       |
+| ---------------------------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| thông báo \| signatureObject | Chuỗi \| Đối tượng | Thông báo đã ký hoặc hàm băm. Để biết thông tin chi tiết về đối tượng chữ ký, hãy xem bảng bên dưới.                                                                                                                        |
+| messageHash                  | Chuỗi              | Hàm băm của thông báo đã cho.                                                                                                                                                                                               |
+| chữ ký                       | Chuỗi              | Chữ ký được mã hóa RLP thô, HOẶC tham số 2-4 dưới dạng giá trị v, r, s.                                                                                                                                                     |
+| preFixed                     | Boolean            | (tùy chọn, mặc định: `false`) Nếu tham số cuối cùng là `true`, thông báo đã cho sẽ KHÔNG tự động có tiền tố là `"\x19Klaytn Signed Message:\n" + message.length + message` và được cho là đã có tiền tố. |
 
-Loại
+Đối tượng chữ ký có các giá trị sau:
 
-| Mô tả                                                                                                      | messageHash        | Chuỗi |
-| ---------------------------------------------------------------------------------------------------------- | ------------------ | ----- |
-| Hàm băm của thông báo đã cho đã có tiền tố là `"\x19Klaytn Signed Message:\n" + message.length + message`. | r                  | Chuỗi |
-| Chữ ký ECDSA r.                                                                                            | s                  | Chuỗi |
-| Chữ ký ECDSA s.                                                                                            | v                  | Chuỗi |
-| Mã khôi phục ECDSA.                                                                                        | **Giá trị trả về** | type  |
+| Tên         | Loại | Mô tả                                                                                                      |
+| ----------- | ----- | ---------------------------------------------------------------------------------------------------------- |
+| messageHash | Chuỗi | Hàm băm của thông báo đã cho đã có tiền tố là `"\x19Klaytn Signed Message:\n" + message.length + message`. |
+| r           | Chuỗi | Chữ ký ECDSA r.                                                                                            |
+| s           | Chuỗi | Chữ ký ECDSA s.                                                                                            |
+| v           | Chuỗi | Mã khôi phục ECDSA.                                                                                        |
 
-Mô tả
+**Giá trị trả về**
 
-| Chuỗi       | Địa chỉ Klaytn được sử dụng để ký dữ liệu này.   |
-| ----------- | ------------------------------------------------ |
-| **Ví dụ** | combineSignatures <a id="combinesignatures"></a> |
+| type  | Mô tả                                          |
+| ----- | ---------------------------------------------- |
+| Chuỗi | Địa chỉ Klaytn được sử dụng để ký dữ liệu này. |
 
-Kết hợp mảng các chuỗi giao dịch được mã hóa RLP thành một chuỗi giao dịch được mã hóa RLP duy nhất.
+**Ví dụ**
 
 ```javascript
 > caver.klay.accounts.recover({
@@ -1413,39 +1413,39 @@ Kết hợp mảng các chuỗi giao dịch được mã hóa RLP thành một c
 '0x2c7536E3605D9C16a7a3D7b1898e529396a65c23'
 ```
 
-## Tất cả chuỗi giao dịch được mã hóa RLP mà bạn muốn kết hợp đều phải ký cùng một giao dịch.
+## combineSignatures <a id="combinesignatures"></a>
 
 ```javascript
 caver.klay.accounts.combineSignatures(rawTransactions)
 ```
 
-combineSignatures loại bỏ các bản sao trong chữ ký hoặc feePayerSignatures. **Lưu ý** `caver.klay.tài khoảns.combineSignatures` được hỗ trợ kể từ caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+Kết hợp mảng các chuỗi giao dịch được mã hóa RLP thành một chuỗi giao dịch được mã hóa RLP duy nhất. Tất cả chuỗi giao dịch được mã hóa RLP mà bạn muốn kết hợp đều phải ký cùng một giao dịch.
+
+combineSignatures loại bỏ các bản sao trong chữ ký hoặc feePayerSignatures.
+
+**Lưu ý** `caver.klay.tài khoảns.combineSignatures` được hỗ trợ kể từ caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
 **Tham số**
 
-Tên
+| Tên            | Loại | Mô tả                                                                             |
+| -------------- | ----- | --------------------------------------------------------------------------------- |
+| rawTransaction | Mảng  | Một mảng các chuỗi giao dịch được mã hóa RLP (rawTransaction). |
 
-Loại
+**Giá trị trả về**
 
-| Mô tả                                                                             | rawTransaction     | Mảng                                                         |
-| --------------------------------------------------------------------------------- | ------------------ | ------------------------------------------------------------ |
-| Một mảng các chuỗi giao dịch được mã hóa RLP (rawTransaction). | **Giá trị trả về** | `Promise` trả về `Đối tượng`: Một giao dịch được mã hóa RLP. |
+`Promise` trả về `Đối tượng`: Một giao dịch được mã hóa RLP. Các thuộc tính đối tượng như sau:
 
-Các thuộc tính đối tượng như sau:
+| Tên                | Loại         | Mô tả                                                                                                                                                                                                                                                   |
+| ------------------ | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| rawTransaction     | Chuỗi         | Giao dịch được mã hóa RLP, sẵn sàng được gửi bằng cách sử dụng caver.klay.sendSignedTransaction.                                                                                                                                                        |
+| txHash             | Chuỗi 32 byte | Hàm băm của giao dịch.                                                                                                                                                                                                                                  |
+| senderTxHash       | Chuỗi 32 byte | Hàm băm của một giao dịch chỉ được người gửi ký. Xem [SenderTxHash](../../../../learn/transactions/transactions.md#sendertxhash)                                                                                                                        |
+| chữ ký             | Mảng          | (tùy chọn) Tất cả các chữ ký trong giao dịch được mã hóa RLP kết hợp (rawTransaction). Nếu không có chữ ký, thuộc tính `signatures` sẽ không được trả về trong đối tượng kết quả.                                 |
+| feePayerSignatures | Mảng          | (tùy chọn) Tất cả các feePayerSignatures trong giao dịch được mã hóa RLP kết hợp (rawTransaction). Nếu không có feePayerSignatures, thuộc tính `feePayerSignatures` sẽ không được trả về trong đối tượng kết quả. |
 
-Tên Loại
+**LƯU Ý** `txHash` và `senderTxHash` trong đối tượng kết quả có thể không phải là giá trị cuối cùng. Nếu chữ ký của người gửi khác được thêm vào, txHash và người gửiTxHash sẽ thay đổi. Nếu chữ ký của người trả phí được thêm vào, txHash sẽ thay đổi.
 
-| Mô tả                                                                                                                                    | rawTransaction                                                                                                 | Chuỗi                                                                                                                                                                                    |
-| ---------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Giao dịch được mã hóa RLP, sẵn sàng được gửi bằng cách sử dụng caver.klay.sendSignedTransaction.                                         | txHash                                                                                                         | Chuỗi 32 byte                                                                                                                                                                            |
-| Hàm băm của giao dịch.                                                                                                                   | senderTxHash                                                                                                   | Chuỗi 32 byte                                                                                                                                                                            |
-| Hàm băm của một giao dịch chỉ được người gửi ký.                                                                                         | Xem [SenderTxHash](../../../../learn/transactions/transactions.md#sendertxhash)                                | chữ ký Mảng                                                                                                                                                                              |
-| (tùy chọn) Tất cả các chữ ký trong giao dịch được mã hóa RLP kết hợp (rawTransaction).             | Nếu không có chữ ký, thuộc tính `signatures` sẽ không được trả về trong đối tượng kết quả.                     | feePayerSignatures Mảng                                                                                                                                                                  |
-| (tùy chọn) Tất cả các feePayerSignatures trong giao dịch được mã hóa RLP kết hợp (rawTransaction). | Nếu không có feePayerSignatures, thuộc tính `feePayerSignatures` sẽ không được trả về trong đối tượng kết quả. | **LƯU Ý** `txHash` và `senderTxHash` trong đối tượng kết quả có thể không phải là giá trị cuối cùng. Nếu chữ ký của người gửi khác được thêm vào, txHash và người gửiTxHash sẽ thay đổi. |
-
-Nếu chữ ký của người trả phí được thêm vào, txHash sẽ thay đổi. **Ví dụ** getRawTransactionWithSignatures <a id="getrawtransactionwithsignatures"></a>
-
-Trả về chuỗi giao dịch được mã hóa RLP đã ký từ một đối tượng giao dịch nhất định.
+**Ví dụ**
 
 ```javascript
 > caver.klay.accounts.combineSignatures([
@@ -1488,37 +1488,37 @@ Trả về chuỗi giao dịch được mã hóa RLP đã ký từ một đối 
 }
 ```
 
-## Đối tượng giao dịch phải cung cấp chữ ký và feePayerSignatures.
+## getRawTransactionWithSignatures <a id="getrawtransactionwithsignatures"></a>
 
 ```javascript
 caver.klay.accounts.getRawTransactionWithSignatures(tx [, callback])
 ```
 
-**Lưu ý** `caver.klay.tài khoảns.getRawTransactionWithSignatures` được hỗ trợ kể từ caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0). **Tham số**
+Trả về chuỗi giao dịch được mã hóa RLP đã ký từ một đối tượng giao dịch nhất định. Đối tượng giao dịch phải cung cấp chữ ký và feePayerSignatures.
 
-Tên
+**Lưu ý** `caver.klay.tài khoảns.getRawTransactionWithSignatures` được hỗ trợ kể từ caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
-Loại
+**Tham số**
 
-| Mô tả                                                         | tx                                                                                 | Đối tượng                                                                                                                                                                                                            |
-| ------------------------------------------------------------- | ---------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Một đối tượng giao dịch bao gồm chữ ký và feePayerSignatures. | Các thuộc tính của một đối tượng giao dịch khác nhau tùy thuộc vào loại giao dịch. | Để biết mô tả về từng loại giao dịch, hãy xem [caver.klay.sendTransaction](./caver.klay/transaction/transaction.md#sendtransaction). **Giá trị trả về** `Promise` trả về `Đối tượng`: Một giao dịch được mã hóa RLP. |
+| Tên | Loại     | Mô tả                                                                                                                                                                                                                                                                                 |
+| --- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| tx  | Đối tượng | Một đối tượng giao dịch bao gồm chữ ký và feePayerSignatures. Các thuộc tính của một đối tượng giao dịch khác nhau tùy thuộc vào loại giao dịch. Để biết mô tả về từng loại giao dịch, hãy xem [caver.klay.sendTransaction](./caver.klay/transaction/transaction.md#sendtransaction). |
 
-Các thuộc tính đối tượng như sau:
+**Giá trị trả về**
 
-Tên Loại
+`Promise` trả về `Đối tượng`: Một giao dịch được mã hóa RLP. Các thuộc tính đối tượng như sau:
 
-| Mô tả                                                                                                                            | rawTransaction                                                                                                 | Chuỗi                                                                                                                                                                                     |
-| -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Giao dịch được mã hóa RLP, sẵn sàng được gửi bằng cách sử dụng caver.klay.sendSignedTransaction.                                 | txHash                                                                                                         | Chuỗi 32 byte                                                                                                                                                                             |
-| Hàm băm của giao dịch.                                                                                                           | senderTxHash                                                                                                   | Chuỗi 32 byte                                                                                                                                                                             |
-| Hàm băm của một giao dịch chỉ được người gửi ký.                                                                                 | Xem [SenderTxHash](../../../../learn/transactions/transactions.md#sendertxhash)                                | chữ ký Mảng                                                                                                                                                                               |
-| (tùy chọn) Tất cả các chữ ký trong giao dịch được mã hóa RLP (rawTransaction).             | Nếu không có chữ ký, thuộc tính `signatures` sẽ không được trả về trong đối tượng kết quả.                     | feePayerSignatures Mảng                                                                                                                                                                   |
-| (tùy chọn) Tất cả các feePayerSignatures trong giao dịch được mã hóa RLP (rawTransaction). | Nếu không có feePayerSignatures, thuộc tính `feePayerSignatures` sẽ không được trả về trong đối tượng kết quả. | **LƯU Ý** `txHash` và `senderTxHash` chứa trong đối tượng kết quả có thể không phải là giá trị cuối cùng. Nếu chữ ký của người gửi được thêm vào, txHash và người gửiTxHash sẽ khác nhau. |
+| Tên                | Loại         | Mô tả                                                                                                                                                                                                                                           |
+| ------------------ | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| rawTransaction     | Chuỗi         | Giao dịch được mã hóa RLP, sẵn sàng được gửi bằng cách sử dụng caver.klay.sendSignedTransaction.                                                                                                                                                |
+| txHash             | Chuỗi 32 byte | Hàm băm của giao dịch.                                                                                                                                                                                                                          |
+| senderTxHash       | Chuỗi 32 byte | Hàm băm của một giao dịch chỉ được người gửi ký. Xem [SenderTxHash](../../../../learn/transactions/transactions.md#sendertxhash)                                                                                                                |
+| chữ ký             | Mảng          | (tùy chọn) Tất cả các chữ ký trong giao dịch được mã hóa RLP (rawTransaction). Nếu không có chữ ký, thuộc tính `signatures` sẽ không được trả về trong đối tượng kết quả.                                 |
+| feePayerSignatures | Mảng          | (tùy chọn) Tất cả các feePayerSignatures trong giao dịch được mã hóa RLP (rawTransaction). Nếu không có feePayerSignatures, thuộc tính `feePayerSignatures` sẽ không được trả về trong đối tượng kết quả. |
 
-Nếu chữ ký của người trả phí được thêm vào, txHash sẽ khác. **Ví dụ** mã hóa <a id="encrypt"></a>
+**LƯU Ý** `txHash` và `senderTxHash` chứa trong đối tượng kết quả có thể không phải là giá trị cuối cùng. Nếu chữ ký của người gửi được thêm vào, txHash và người gửiTxHash sẽ khác nhau. Nếu chữ ký của người trả phí được thêm vào, txHash sẽ khác.
 
-Mã hóa tài khoản theo tiêu chuẩn lưu trữ khóa Klaytn.
+**Ví dụ**
 
 ```javascript
 // get rawTransaction with signatures
@@ -1641,38 +1641,38 @@ Mã hóa tài khoản theo tiêu chuẩn lưu trữ khóa Klaytn.
 }
 ```
 
-## Để biết thêm thông tin, vui lòng tham khảo [KIP-3](https://kips.klaytn.foundation/KIPs/kip-3).
+## mã hóa <a id="encrypt"></a>
 
 ```javascript
 caver.klay.accounts.encrypt(encryptTarget, password [, options])
 ```
 
+Mã hóa tài khoản theo tiêu chuẩn lưu trữ khóa Klaytn. Để biết thêm thông tin, vui lòng tham khảo [KIP-3](https://kips.klaytn.foundation/KIPs/kip-3).
+
 **LƯU Ý** Vì caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0), `caver.klay.tài khoảns.encrypt` mã hóa bằng cách sử dụng tiêu chuẩn kho khóa v4 để mã hóa các loại AccountKey khác nhau (AccountKeyPublic, AccountKeyMultiSig, AccountKeyRoleBased). Nếu bạn muốn mã hóa tài khoản bằng kho khóa v3, vui lòng sử dụng [caver.klay.tài khoảns.encryptV3](#encryptv3).
 
-**Tham số** Tên
+**Tham số**
 
-Loại
+| Tên           | Loại                      | Mô tả                                                                                                                                                                                                                                                                                                                                                                      |
+| ------------- | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| encryptTarget | Chuỗi \| Mảng \| Đối tượng | Khóa riêng tư hoặc khóa ví Klaytn dùng để mã hóa. Vì caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0), nên EncryptTarget cũng có thể là một phiên bản của Account hoặc AccountKey (AccountKeyPublic, AccountKeyMultiSig hoặc AccountKeyRoleBased), một mảng các chuỗi khóa riêng tư hoặc một đối tượng xác định các khóa theo vai trò. |
+| mật khẩu      | Chuỗi                      | Mật khẩu được sử dụng cho việc mã hóa.                                                                                                                                                                                                                                                                                                                                     |
+| tùy chọn      | Đối tượng                  | (tùy chọn) Tham số `options` cho phép bạn chỉ định các giá trị sẽ sử dụng khi sử dụng mã hóa. Bạn cũng có thể sử dụng đối tượng tùy chọn để mã hóa các tài khoản tách rời. Xem ví dụ bên dưới để biết cách sử dụng `options`.                                                                                                                           |
 
-| Mô tả                                                                                                            | encryptTarget                                                                                                                                                                                                                                                                                                            | Chuỗi \| Mảng \| Đối tượng                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Khóa riêng tư hoặc khóa ví Klaytn dùng để mã hóa.                                                                | Vì caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0), nên EncryptTarget cũng có thể là một phiên bản của Account hoặc AccountKey (AccountKeyPublic, AccountKeyMultiSig hoặc AccountKeyRoleBased), một mảng các chuỗi khóa riêng tư hoặc một đối tượng xác định các khóa theo vai trò. | mật khẩu Chuỗi                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| Mật khẩu được sử dụng cho việc mã hóa.                                                                           | tùy chọn                                                                                                                                                                                                                                                                                                                 | Đối tượng                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| (tùy chọn) Tham số `options` cho phép bạn chỉ định các giá trị sẽ sử dụng khi sử dụng mã hóa. | Bạn cũng có thể sử dụng đối tượng tùy chọn để mã hóa các tài khoản tách rời.                                                                                                                                                                                                                                             | Xem ví dụ bên dưới để biết cách sử dụng `options`. **LƯU Ý** Nếu không thể trích xuất địa chỉ tài khoản từ EncryptTarget (khi AccountKeyMultiSig, AccountKeyRoleBased, một mảng các chuỗi khóa riêng tư hoặc một đối tượng xác định các khóa theo vai trò) hoặc nếu tài khoản là riêng tư khóa được tách rời khỏi địa chỉ, bạn phải chỉ định địa chỉ trong đối tượng tùy chọn. **LƯU Ý**: Có hai cách mã hóa khóa riêng tư khi tài khoản có khóa riêng tư tách rời khỏi địa chỉ. |
+**LƯU Ý** Nếu không thể trích xuất địa chỉ tài khoản từ EncryptTarget (khi AccountKeyMultiSig, AccountKeyRoleBased, một mảng các chuỗi khóa riêng tư hoặc một đối tượng xác định các khóa theo vai trò) hoặc nếu tài khoản là riêng tư khóa được tách rời khỏi địa chỉ, bạn phải chỉ định địa chỉ trong đối tượng tùy chọn.
 
-Sử dụng định dạng [KlaytnWalletKey](../../../../learn/accounts.md#klaytn-wallet-key-format) với tham số privateKey.
+**LƯU Ý**: Có hai cách mã hóa khóa riêng tư khi tài khoản có khóa riêng tư tách rời khỏi địa chỉ.
 
-Sử dụng `options.address` để gửi địa chỉ dưới dạng tham số.
+1. Sử dụng định dạng [KlaytnWalletKey](../../../../learn/accounts.md#klaytn-wallet-key-format) với tham số privateKey.
+2. Sử dụng `options.address` để gửi địa chỉ dưới dạng tham số.
 
-1. **Giá trị trả về**
-2. Loại
+**Giá trị trả về**
 
-Mô tả
+| Loại     | Mô tả                                                                                                                                                                          |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Đối tượng | Kho khóa được mã hóa JSON. Vì caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0) nên kho khóa v4 sẽ được sử dụng. Ví dụ dưới đây minh họa cả kho khóa v3 và v4. |
 
-| Đối tượng                                                                                             | Kho khóa được mã hóa JSON.                                                                 |
-| ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Vì caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0) nên kho khóa v4 sẽ được sử dụng. | Ví dụ dưới đây minh họa cả kho khóa v3 và v4. **Ví dụ** encryptV3 <a id="encryptv3"></a> |
-
-Mã hóa tài khoản theo tiêu chuẩn kho khóa v3 Klaytn.
+**Ví dụ**
 
 ```javascript
 // encrypt to keystore v4 JSON.
@@ -1878,36 +1878,36 @@ Mã hóa tài khoản theo tiêu chuẩn kho khóa v3 Klaytn.
 }
 ```
 
-## **LƯU Ý** `caver.klay.tài khoảns.encryptV3` được hỗ trợ kể từ caver-js [v1.3.2-rc.1](https://www.npmjs.com/package/caver-js/v/1.3.2-rc.1).
+## encryptV3 <a id="encryptv3"></a>
 
 ```javascript
 caver.klay.accounts.encryptV3(encryptTarget, password [, options])
 ```
 
+Mã hóa tài khoản theo tiêu chuẩn kho khóa v3 Klaytn.
+
+**LƯU Ý** `caver.klay.tài khoảns.encryptV3` được hỗ trợ kể từ caver-js [v1.3.2-rc.1](https://www.npmjs.com/package/caver-js/v/1.3.2-rc.1).
+
 **Tham số**
 
-Tên
+| Tên           | Loại              | Mô tả                                                                                                                                                                                                                                                      |
+| ------------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| encryptTarget | Chuỗi \| Đối tượng | Khóa riêng tư, khóa ví Klaytn hoặc phiên bản Tài khoản hoặc AccountKeyPublic dùng để mã hóa.                                                                                                                                                               |
+| mật khẩu      | Chuỗi              | Mật khẩu được sử dụng cho việc mã hóa.                                                                                                                                                                                                                     |
+| tùy chọn      | Đối tượng          | (tùy chọn) Tham số `options` cho phép bạn chỉ định các giá trị sẽ sử dụng khi sử dụng mã hóa. Bạn cũng có thể sử dụng đối tượng `tùy chọn` để mã hóa các tài khoản tách rời. Xem ví dụ thứ ba bên dưới để biết cách sử dụng `tùy chọn`. |
 
-Loại
+**LƯU Ý**: Có hai cách mã hóa khóa riêng tư khi tài khoản có khóa riêng tư tách rời khỏi địa chỉ.
 
-| Mô tả                                                                                                            | encryptTarget                                                                  | Chuỗi \| Đối tượng                                                                                                                                                                                                                                                          |
-| ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Khóa riêng tư, khóa ví Klaytn hoặc phiên bản Tài khoản hoặc AccountKeyPublic dùng để mã hóa.                     | mật khẩu                                                                       | Chuỗi                                                                                                                                                                                                                                                                       |
-| Mật khẩu được sử dụng cho việc mã hóa.                                                                           | tùy chọn                                                                       | Đối tượng                                                                                                                                                                                                                                                                   |
-| (tùy chọn) Tham số `options` cho phép bạn chỉ định các giá trị sẽ sử dụng khi sử dụng mã hóa. | Bạn cũng có thể sử dụng đối tượng `tùy chọn` để mã hóa các tài khoản tách rời. | Xem ví dụ thứ ba bên dưới để biết cách sử dụng `tùy chọn`. **LƯU Ý**: Có hai cách mã hóa khóa riêng tư khi tài khoản có khóa riêng tư tách rời khỏi địa chỉ. Sử dụng [KlaytnWalletKey](../../../../learn/accounts.md#klaytn-wallet-key-format) làm tham số `encryptTarget`. |
+1. Sử dụng [KlaytnWalletKey](../../../../learn/accounts.md#klaytn-wallet-key-format) làm tham số `encryptTarget`.
+2. Sử dụng địa chỉ làm tham số `options.address` để gửi địa chỉ dưới dạng một trong các tham số. Xem ví dụ thứ ba bên dưới để biết cách sử dụng.
 
-Sử dụng địa chỉ làm tham số `options.address` để gửi địa chỉ dưới dạng một trong các tham số.
+**Giá trị trả về**
 
-1. Xem ví dụ thứ ba bên dưới để biết cách sử dụng.
-2. **Giá trị trả về** Loại
+| Loại     | Mô tả                         |
+| --------- | ----------------------------- |
+| Đối tượng | Kho khóa được mã hóa v3 JSON. |
 
-Mô tả
-
-| Đối tượng   | Kho khóa được mã hóa v3 JSON. |
-| ----------- | ----------------------------- |
-| **Ví dụ** | giải mã <a id="decrypt"></a>  |
-
-Giải mã JSON kho khóa v3 hoặc v4 và trả về đối tượng tài khoản đã giải mã.
+**Ví dụ**
 
 ```javascript
 // encrypt to keystore v3 JSON with single private key string.
@@ -1959,30 +1959,30 @@ Giải mã JSON kho khóa v3 hoặc v4 và trả về đối tượng tài kho�
 }
 ```
 
-## **LƯU Ý** Vì caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0), `caver.klay.tài khoảns.decrypt` có thể giải mã kho khóa v4.
+## giải mã <a id="decrypt"></a>
 
 ```javascript
 caver.klay.accounts.decrypt(keystoreJsonV3, password)
 ```
 
+Giải mã JSON kho khóa v3 hoặc v4 và trả về đối tượng tài khoản đã giải mã.
+
+**LƯU Ý** Vì caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0), `caver.klay.tài khoảns.decrypt` có thể giải mã kho khóa v4.
+
 **Tham số**
 
-Tên
+| Tên          | Loại | Mô tả                                                  |
+| ------------ | ----- | ------------------------------------------------------ |
+| keystoreJson | Chuỗi | Chuỗi JSON chứa tài khoản được mã hóa dùng để giải mã. |
+| mật khẩu     | Chuỗi | Mật khẩu được sử dụng cho việc mã hóa.                 |
 
-Loại
+**Giá trị trả về**
 
-| Mô tả                                                  | keystoreJson       | Chuỗi |
-| ------------------------------------------------------ | ------------------ | ----- |
-| Chuỗi JSON chứa tài khoản được mã hóa dùng để giải mã. | mật khẩu           | Chuỗi |
-| Mật khẩu được sử dụng cho việc mã hóa.                 | **Giá trị trả về** | Loại |
+| Loại     | Mô tả                   |
+| --------- | ----------------------- |
+| Đối tượng | Tài khoản được giải mã. |
 
-Mô tả
-
-| Đối tượng   | Tài khoản được giải mã.              |
-| ----------- | ------------------------------------ |
-| **Ví dụ** | isDecoupled <a id="isdecoupled"></a> |
-
-Xác định xem khóa có được tách rời khỏi địa chỉ hay không.
+**Ví dụ**
 
 ```javascript
 // Decrypt keystore v4 JSON
@@ -2042,28 +2042,28 @@ Account {
 }
 ```
 
-## **Tham số**
+## isDecoupled <a id="isdecoupled"></a>
 
 ```javascript
 caver.klay.accounts.isDecoupled(key, address)
 ```
 
-Tên
+Xác định xem khóa có được tách rời khỏi địa chỉ hay không.
 
-Loại
+**Tham số**
 
-| Mô tả                                                                                          | khóa                                                                                                                       | Chuỗi                    |
-| ---------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
-| Khóa dùng để xác định xem có tách rời khỏi địa chỉ hay không.                                  | Khóa có thể là khóa riêng tư chuỗi 32 byte hoặc [KlaytnWalletKey](../../../../learn/accounts.md#klaytn-wallet-key-format). | address Chuỗi            |
-| (tùy chọn) Địa chỉ được sử dụng để xác định xem có được tách rời hay không. | Nếu không có địa chỉ nào được cung cấp, thì địa chỉ được lấy từ khóa.                                                      | **Giá trị trả về** Loại |
+| Tên     | Loại | Mô tả                                                                                                                                                                                    |
+| ------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| khóa    | Chuỗi | Khóa dùng để xác định xem có tách rời khỏi địa chỉ hay không. Khóa có thể là khóa riêng tư chuỗi 32 byte hoặc [KlaytnWalletKey](../../../../learn/accounts.md#klaytn-wallet-key-format). |
+| address | Chuỗi | (tùy chọn) Địa chỉ được sử dụng để xác định xem có được tách rời hay không. Nếu không có địa chỉ nào được cung cấp, thì địa chỉ được lấy từ khóa.                     |
 
-Mô tả
+**Giá trị trả về**
 
-| Boolean                               | `true` nếu khóa được tách rời khỏi địa chỉ.                |
-| ------------------------------------- | ---------------------------------------------------------- |
-| `false` nếu khóa không được tách rời. | **Ví dụ** getLegacyAccount <a id="getlegacyaccount"></a> |
+| Loại   | Mô tả                                                                             |
+| ------- | --------------------------------------------------------------------------------- |
+| Boolean | `true` nếu khóa được tách rời khỏi địa chỉ. `false` nếu khóa không được tách rời. |
 
-Trả về một tài khoản có địa chỉ suy ra từ khóa riêng tư đã cho.
+**Ví dụ**
 
 ```javascript
 > caver.klay.accounts.isDecoupled('0x{private key}', '0x{address in hex}')
@@ -2079,27 +2079,27 @@ false
 false
 ```
 
-## Xem [AccountKeyLegacy](../../../../learn/accounts.md#accountkeylegacy).
+## getLegacyAccount <a id="getlegacyaccount"></a>
 
 ```javascript
 caver.klay.accounts.getLegacyAccount(key)
 ```
 
-**Tham số** Tên
+Trả về một tài khoản có địa chỉ suy ra từ khóa riêng tư đã cho. Xem [AccountKeyLegacy](../../../../learn/accounts.md#accountkeylegacy).
 
-Loại
+**Tham số**
 
-| Mô tả                                                       | khóa                                                                                                                       | Chuỗi                                                                                              |
-| ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| Tham số được sử dụng để lấy tài khoản có khóa tài khoản cũ. | Khóa có thể là khóa riêng tư chuỗi 32 byte hoặc [KlaytnWalletKey](../../../../learn/accounts.md#klaytn-wallet-key-format). | Trong KlaytnWalletKey, chỉ phần tương ứng với khóa riêng tư được sử dụng. **Giá trị trả về** Loại |
+| Tên  | Loại | Mô tả                                                                                                                                                                                                                                                            |
+| ---- | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| khóa | Chuỗi | Tham số được sử dụng để lấy tài khoản có khóa tài khoản cũ. Khóa có thể là khóa riêng tư chuỗi 32 byte hoặc [KlaytnWalletKey](../../../../learn/accounts.md#klaytn-wallet-key-format). Trong KlaytnWalletKey, chỉ phần tương ứng với khóa riêng tư được sử dụng. |
 
-Mô tả
+**Giá trị trả về**
 
-| Đối tượng                                                                             | Đối tượng tài khoản có khóa tài khoản cũ của giá trị đã cho. |
-| ------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
-| Nếu có thông tin địa chỉ được trích xuất từ khóa này thì nó sẽ được trả về cùng nhau. | **Ví dụ** ví <a id="wallet"></a>                           |
+| Loại     | Mô tả                                                                                                                                              |
+| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Đối tượng | Đối tượng tài khoản có khóa tài khoản cũ của giá trị đã cho. Nếu có thông tin địa chỉ được trích xuất từ khóa này thì nó sẽ được trả về cùng nhau. |
 
-Chứa ví trong bộ nhớ với nhiều tài khoản.
+**Ví dụ**
 
 ```javascript
 // getLegacyAccount with raw private key format
@@ -2133,16 +2133,16 @@ Chứa ví trong bộ nhớ với nhiều tài khoản.
 }
 ```
 
-## Các tài khoản này có thể được sử dụng khi sử dụng [caver.klay.sendTransaction](./caver.klay/transaction/transaction.md#sendtransaction).
+## ví <a id="wallet"></a>
 
 ```javascript
 caver.klay.accounts.wallet
 ```
 
-**Ví dụ**  wallet.create  <a id="wallet-create"></a>
+Chứa ví trong bộ nhớ với nhiều tài khoản.  Các tài khoản này có thể được sử dụng khi sử dụng [caver.klay.sendTransaction](./caver.klay/transaction/transaction.md#sendtransaction).
 when using [caver.klay.sendTransaction](./caver.klay/transaction/transaction.md#sendtransaction).
 
-Tạo một hoặc nhiều tài khoản trong ví bằng các cặp khóa được tạo ngẫu nhiên.
+**Ví dụ**
 
 ```javascript
 > caver.klay.accounts.wallet;
@@ -2164,28 +2164,28 @@ Wallet {
 }
 ```
 
-## Nếu ví đã tồn tại, chúng sẽ không bị ghi đè.
+## wallet.create  <a id="wallet-create"></a>
 
 ```javascript
 caver.klay.accounts.wallet.create([numberOfAccounts] [, entropy])
 ```
 
-**Tham số** Tên
+Tạo một hoặc nhiều tài khoản trong ví bằng các cặp khóa được tạo ngẫu nhiên. Nếu ví đã tồn tại, chúng sẽ không bị ghi đè.
 
-Loại
+**Tham số**
 
-| Mô tả                                                                     | numberOfAccounts                                                                                                                        | Số                       |
-| ------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
-| (tùy chọn) Số lượng tài khoản cần tạo.                 | Để trống để tạo ví trống.                                                                                                               | độ nhiễu loạn Chuỗi      |
-| (tùy chọn) Một chuỗi ngẫu nhiên để tăng độ nhiễu loạn. | Nếu không có chuỗi nào được cung cấp, một chuỗi ngẫu nhiên sẽ được tạo bằng cách sử dụng [randomHex](./caver.utils_1.4.1.md#randomhex). | **Giá trị trả về** Loại |
+| Tên              | Loại | Mô tả                                                                                                                                                                                                             |
+| ---------------- | ----- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| numberOfAccounts | Số    | (tùy chọn) Số lượng tài khoản cần tạo. Để trống để tạo ví trống.                                                                                                                               |
+| độ nhiễu loạn    | Chuỗi | (tùy chọn) Một chuỗi ngẫu nhiên để tăng độ nhiễu loạn. Nếu không có chuỗi nào được cung cấp, một chuỗi ngẫu nhiên sẽ được tạo bằng cách sử dụng [randomHex](./caver.utils_1.4.1.md#randomhex). |
 
-Mô tả
+**Giá trị trả về**
 
-| Đối tượng   | Đối tượng ví.                      |
-| ----------- | ---------------------------------- |
-| **Ví dụ** | wallet.add <a id="wallet-add"></a> |
+| Loại     | Mô tả         |
+| --------- | ------------- |
+| Đối tượng | Đối tượng ví. |
 
-Thêm một tài khoản sử dụng khóa riêng tư hoặc đối tượng tài khoản vào ví.
+**Ví dụ**
 
 ```javascript
 > caver.klay.accounts.wallet.create(1, 'entropy');
@@ -2199,34 +2199,34 @@ Wallet {
   '0xC89cDD4258e17471fBaf75283b6A952451Eb7f54': { ... }
 ```
 
-## **LƯU Ý**: Nếu có cùng một địa chỉ tồn tại bên trong ví, hệ thống sẽ trả về lỗi.
+## wallet.add <a id="wallet-add"></a>
 
 ```javascript
 caver.klay.accounts.wallet.add(account [, targetAddress])
 ```
 
+Thêm một tài khoản sử dụng khóa riêng tư hoặc đối tượng tài khoản vào ví.
+
+**LƯU Ý**: Nếu có cùng một địa chỉ tồn tại bên trong ví, hệ thống sẽ trả về lỗi.
 Nếu bạn muốn thay đổi khóa riêng tư được liên kết với tài khoản trong ví, vui lòng sử dụng [caver.klay.tài khoảns.wallet.updatePrivateKey](#wallet-updateprivatekey).
 
 **Tham số**
-Tên
 
-Loại
+| Tên           | Loại              | Mô tả                                                                                         |
+| ------------- | ------------------ | --------------------------------------------------------------------------------------------- |
+| tài khoản     | Chuỗi \| Đối tượng | Khóa riêng tư hoặc đối tượng tài khoản được tạo bằng [caver.klay.tài khoảns.create](#create). |
+| targetAddress | Chuỗi              | Một địa chỉ đích sẽ được sử dụng với một khóa riêng tư đã cho.                                |
 
-| Mô tả                                                                                         | tài khoản                                                    | Chuỗi \| Đối tượng                                                                                                                                           |
-| --------------------------------------------------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Khóa riêng tư hoặc đối tượng tài khoản được tạo bằng [caver.klay.tài khoảns.create](#create). | targetAddress                                                | Chuỗi                                                                                                                                                        |
-| Một địa chỉ đích sẽ được sử dụng với một khóa riêng tư đã cho.                                | **LƯU Ý**: caver-js hỗ trợ hai loại định dạng khóa riêng tư. | Một là định dạng khóa riêng tư thô của loại chuỗi 32 byte và định dạng còn lại là [KlaytnWalletKey](../../../../learn/accounts.md#klaytn-wallet-key-format). |
+**LƯU Ý**: caver-js hỗ trợ hai loại định dạng khóa riêng tư.
+Một là định dạng khóa riêng tư thô của loại chuỗi 32 byte và định dạng còn lại là [KlaytnWalletKey](../../../../learn/accounts.md#klaytn-wallet-key-format).
 
 **Giá trị trả về**
-Loại
 
-Mô tả
+| Loại     | Mô tả              |
+| --------- | ------------------ |
+| Đối tượng | Tài khoản đã thêm. |
 
-| Đối tượng   | Tài khoản đã thêm.                               |
-| ----------- | ------------------------------------------------ |
-| **Ví dụ** | wallet.getAccount <a id="wallet-getaccount"></a> |
-
-Trả về tài khoản tương ứng với địa chỉ trong `caver.klay.tài khoảns.wallet`.
+**Ví dụ**
 
 ```javascript
 > caver.klay.accounts.wallet.add('0x{private key}');
@@ -2280,27 +2280,27 @@ Trả về tài khoản tương ứng với địa chỉ trong `caver.klay.tài 
 }
 ```
 
-## **Tham số**
+## wallet.getAccount <a id="wallet-getaccount"></a>
 
 ```javascript
 caver.klay.accounts.wallet.getAccount(addressOrIndex)
 ```
 
-Tên
+Trả về tài khoản tương ứng với địa chỉ trong `caver.klay.tài khoảns.wallet`.
 
-Loại
+**Tham số**
 
-| Mô tả                                                                          | addressOrIndex                                 | Chuỗi \| Số              |
-| ------------------------------------------------------------------------------ | ---------------------------------------------- | ------------------------ |
-| Một chỉ mục trong danh sách địa chỉ ví, hoặc một địa chỉ ở dạng thập lục phân. | Giá trị đã cho phải tồn tại trong ví caver-js. | **Giá trị trả về** Loại |
+| Tên            | Loại       | Mô tả                                                                                                                         |
+| -------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| addressOrIndex | Chuỗi \| Số | Một chỉ mục trong danh sách địa chỉ ví, hoặc một địa chỉ ở dạng thập lục phân. Giá trị đã cho phải tồn tại trong ví caver-js. |
 
-Mô tả
+**Giá trị trả về**
 
-| Đối tượng   | Tài khoản trong ví.                      |
-| ----------- | ---------------------------------------- |
-| **Ví dụ** | wallet.remove <a id="wallet-remove"></a> |
+| Loại     | Mô tả               |
+| --------- | ------------------- |
+| Đối tượng | Tài khoản trong ví. |
 
-Xóa tài khoản khỏi ví.
+**Ví dụ**
 
 ```javascript
 > caver.klay.accounts.wallet.getAccount('0x{address in hex}')
@@ -2330,27 +2330,27 @@ Account {
 }
 ```
 
-## **Tham số**
+## wallet.remove <a id="wallet-remove"></a>
 
 ```javascript
 caver.klay.accounts.wallet.remove(account)
 ```
 
-Tên
+Xóa tài khoản khỏi ví.
 
-Loại
+**Tham số**
 
-| Mô tả                                    | tài khoản          | Chuỗi \| Số |
-| ---------------------------------------- | ------------------ | ----------- |
-| Địa chỉ tài khoản hoặc chỉ mục trong ví. | **Giá trị trả về** | Loại       |
+| Tên       | Loại       | Mô tả                                    |
+| --------- | ----------- | ---------------------------------------- |
+| tài khoản | Chuỗi \| Số | Địa chỉ tài khoản hoặc chỉ mục trong ví. |
 
-Mô tả
+**Giá trị trả về**
 
-| Boolean                     | `true` nếu ví đã bị xóa.                           |
-| --------------------------- | -------------------------------------------------- |
-| `false` nếu không tìm thấy. | **Ví dụ** wallet.clear <a id="wallet-clear"></a> |
+| Loại   | Mô tả                                                |
+| ------- | ---------------------------------------------------- |
+| Boolean | `true` nếu ví đã bị xóa. `false` nếu không tìm thấy. |
 
-Làm trống ví một cách an toàn và xóa tất cả các tài khoản của ví.
+**Ví dụ**
 
 ```javascript
 > caver.klay.accounts.wallet;
@@ -2371,25 +2371,25 @@ true
 false
 ```
 
-## **Tham số**
+## wallet.clear <a id="wallet-clear"></a>
 
 ```javascript
 caver.klay.accounts.wallet.clear()
 ```
 
+Làm trống ví một cách an toàn và xóa tất cả các tài khoản của ví.
+
+**Tham số**
+
 Không có
 
 **Giá trị trả về**
 
-Loại
+| Loại     | Mô tả         |
+| --------- | ------------- |
+| Đối tượng | Đối tượng ví. |
 
-Mô tả
-
-| Đối tượng   | Đối tượng ví.                              |
-| ----------- | ------------------------------------------ |
-| **Ví dụ** | wallet.encrypt <a id="wallet-encrypt"></a> |
-
-Mã hóa tất cả các tài khoản ví và trả về một mảng các đối tượng kho khóa v3 được mã hóa.
+**Ví dụ**
 
 ```javascript
 > caver.klay.accounts.wallet.clear();
@@ -2400,27 +2400,27 @@ Wallet {
 }
 ```
 
-## **Tham số**
+## wallet.encrypt <a id="wallet-encrypt"></a>
 
 ```javascript
 caver.klay.accounts.wallet.encrypt(password)
 ```
 
-Tên
+Mã hóa tất cả các tài khoản ví và trả về một mảng các đối tượng kho khóa v3 được mã hóa.
 
-Loại
+**Tham số**
 
-| Mô tả                                  | mật khẩu           | Chuỗi |
-| -------------------------------------- | ------------------ | ----- |
-| Mật khẩu được sử dụng cho việc mã hóa. | **Giá trị trả về** | Loại |
+| Tên      | Loại | Mô tả                                  |
+| -------- | ----- | -------------------------------------- |
+| mật khẩu | Chuỗi | Mật khẩu được sử dụng cho việc mã hóa. |
 
-Mô tả
+**Giá trị trả về**
 
-| Mảng        | Các đối tượng kho khóa v3 được mã hóa.     |
-| ----------- | ------------------------------------------ |
-| **Ví dụ** | wallet.decrypt <a id="wallet-decrypt"></a> |
+| Loại | Mô tả                                  |
+| ----- | -------------------------------------- |
+| Mảng  | Các đối tượng kho khóa v3 được mã hóa. |
 
-Giải mã các đối tượng kho khóa v3.
+**Ví dụ**
 
 ```javascript
 > caver.klay.accounts.wallet.encrypt('test');
@@ -2466,28 +2466,28 @@ Giải mã các đối tượng kho khóa v3.
 ]
 ```
 
-## **Tham số**
+## wallet.decrypt <a id="wallet-decrypt"></a>
 
 ```javascript
 caver.klay.accounts.wallet.decrypt(keystoreArray, password)
 ```
 
-Tên
+Giải mã các đối tượng kho khóa v3.
 
-Loại
+**Tham số**
 
-| Mô tả                                                  | keystoreArray      | Mảng  |
-| ------------------------------------------------------ | ------------------ | ----- |
-| Các đối tượng kho khóa v3 được mã hóa dùng để giải mã. | mật khẩu           | Chuỗi |
-| Mật khẩu đã được sử dụng cho việc mã hóa.              | **Giá trị trả về** | Loại |
+| Tên           | Loại | Mô tả                                                  |
+| ------------- | ----- | ------------------------------------------------------ |
+| keystoreArray | Mảng  | Các đối tượng kho khóa v3 được mã hóa dùng để giải mã. |
+| mật khẩu      | Chuỗi | Mật khẩu đã được sử dụng cho việc mã hóa.              |
 
-Mô tả
+**Giá trị trả về**
 
-| Đối tượng   | Đối tượng ví.                                                    |
-| ----------- | ---------------------------------------------------------------- |
-| **Ví dụ** | wallet.getKlaytnWalletKey <a id="wallet-getklaytnwalletkey"></a> |
+| Loại     | Mô tả         |
+| --------- | ------------- |
+| Đối tượng | Đối tượng ví. |
 
-Trả lại khóa ví Klaytn cho tài khoản trên ví của caver-js.
+**Ví dụ**
 
 ```javascript
 > caver.klay.accounts.wallet.decrypt([ 
@@ -2545,28 +2545,28 @@ Wallet {
 }
 ```
 
-## **Tham số**
+## wallet.getKlaytnWalletKey <a id="wallet-getklaytnwalletkey"></a>
 
 ```javascript
 caver.klay.accounts.wallet.getKlaytnWalletKey(index)
 caver.klay.accounts.wallet.getKlaytnWalletKey(address)
 ```
 
-Tên
+Trả lại khóa ví Klaytn cho tài khoản trên ví của caver-js.
 
-Loại
+**Tham số**
 
-| Mô tả                                                                     | indexOrAddress                                 | Số \| Chuỗi              |
-| ------------------------------------------------------------------------- | ---------------------------------------------- | ------------------------ |
-| Một chỉ mục trong danh sách địa chỉ ví, một địa chỉ ở dạng thập lục phân. | Giá trị đã cho phải tồn tại trong ví caver-js. | **Giá trị trả về** Loại |
+| Tên            | Loại       | Mô tả                                                                                                                    |
+| -------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------ |
+| indexOrAddress | Số \| Chuỗi | Một chỉ mục trong danh sách địa chỉ ví, một địa chỉ ở dạng thập lục phân. Giá trị đã cho phải tồn tại trong ví caver-js. |
 
-Mô tả
+**Giá trị trả về**
 
-| Chuỗi                                      | KlaytnWalletKey khớp với tài khoản.                                      |
-| ------------------------------------------ | ------------------------------------------------------------------------ |
-| Giá trị này cho phép bạn đăng nhập vào ví. | **Ví dụ** wallet.updatePrivateKey <a id="wallet-updateprivatekey"></a> |
+| Loại | Mô tả                                                                          |
+| ----- | ------------------------------------------------------------------------------ |
+| Chuỗi | KlaytnWalletKey khớp với tài khoản. Giá trị này cho phép bạn đăng nhập vào ví. |
 
-Cập nhật thông tin khóa riêng tư của tài khoản được lưu trữ trong ví.
+**Ví dụ**
 
 ```javascript
 // With non-human-readable address
@@ -2586,33 +2586,33 @@ Cập nhật thông tin khóa riêng tư của tài khoản được lưu trữ 
 Error: Failed to find account
 ```
 
-## **LƯU Ý**: Hàm này chỉ thay đổi thông tin được lưu trữ trong ví của caver-js.
+## wallet.updatePrivateKey <a id="wallet-updateprivatekey"></a>
 
 ```javascript
 caver.klay.accounts.wallet.updatePrivateKey(privateKey, address)
 ```
 
-Hàm này không ảnh hưởng đến thông tin quan trọng được lưu trữ trên mạng lưới Klaytn.
+Cập nhật thông tin khóa riêng tư của tài khoản được lưu trữ trong ví.
 
-Có thể thay đổi các khóa trong mạng lưới Klaytn bằng cách gửi một giao dịch ['ACCOUNT_UPDATE'](./caver.klay/transaction/sendtx-account-update.md#sendtransaction-account_update). **LƯU Ý** `updatePrivateKey` chỉ hoạt động nếu tài khoảnKey của tài khoản là AccountKeyPublic. Vì caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0) hỗ trợ AccountKeys (AccountKeyPublic, AccountKeyMultiSig, AccountKeyRoleBased), `privateKey` trở thành thuộc tính chỉ đọc tham chiếu đến defaultKey của tài khoảnKey.
+**LƯU Ý**: Hàm này chỉ thay đổi thông tin được lưu trữ trong ví của caver-js. Hàm này không ảnh hưởng đến thông tin quan trọng được lưu trữ trên mạng lưới Klaytn. Có thể thay đổi các khóa trong mạng lưới Klaytn bằng cách gửi một giao dịch ['ACCOUNT_UPDATE'](./caver.klay/transaction/sendtx-account-update.md#sendtransaction-account_update).
 
-Phương thức này không trực tiếp cập nhật `privateKey`, thay vào đó cập nhật tài khoảnKey.
-Phương thức này được duy trì để tương thích ngược. Hiện tại, nên sử dụng [caver.klay.tài khoảns.wallet.updateAccountKey](#wallet-updateaccountkey) chung chung hơn. **Tham số** Tên
+**LƯU Ý** `updatePrivateKey` chỉ hoạt động nếu tài khoảnKey của tài khoản là AccountKeyPublic.
+Vì caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0) hỗ trợ AccountKeys (AccountKeyPublic, AccountKeyMultiSig, AccountKeyRoleBased), `privateKey` trở thành thuộc tính chỉ đọc tham chiếu đến defaultKey của tài khoảnKey. Phương thức này không trực tiếp cập nhật `privateKey`, thay vào đó cập nhật tài khoảnKey. Phương thức này được duy trì để tương thích ngược. Hiện tại, nên sử dụng [caver.klay.tài khoảns.wallet.updateAccountKey](#wallet-updateaccountkey) chung chung hơn.
 
-Loại
+**Tham số**
 
-| Mô tả                                          | privateKey         | Chuỗi |
-| ---------------------------------------------- | ------------------ | ----- |
-| Khóa riêng tư mới sẽ được sử dụng để cập nhật. | address            | Chuỗi |
-| Địa chỉ tài khoản trong ví.                    | **Giá trị trả về** | Loại |
+| Tên        | Loại | Mô tả                                          |
+| ---------- | ----- | ---------------------------------------------- |
+| privateKey | Chuỗi | Khóa riêng tư mới sẽ được sử dụng để cập nhật. |
+| address    | Chuỗi | Địa chỉ tài khoản trong ví.                    |
 
-Mô tả
+**Giá trị trả về**
 
-| Đối tượng                                               | Phiên bản tài khoản với tài khoảnKey mới.                                |
-| ------------------------------------------------------- | ------------------------------------------------------------------------ |
-| Phiên bản Tài khoản nằm trong ví caver-js trong bộ nhớ. | **Ví dụ** wallet.updateAccountKey <a id="wallet-updateaccountkey"></a> |
+| Loại     | Mô tả                                                                                             |
+| --------- | ------------------------------------------------------------------------------------------------- |
+| Đối tượng | Phiên bản tài khoản với tài khoảnKey mới. Phiên bản Tài khoản nằm trong ví caver-js trong bộ nhớ. |
 
-Cập nhật thông tin khóa tài khoản của tài khoản được lưu trữ trong ví.
+**Ví dụ**
 
 ```javascript
 > caver.klay.accounts.wallet.updatePrivateKey('0x{private key}', '0xf2e2565629c7763dc0b595e8e531a31371a95f95');
@@ -2628,34 +2628,34 @@ Account {
 }
 ```
 
-## Khi bạn cập nhật tài khoảnKey của tài khoản, privateKey cũng sẽ được cập nhật thành defaultKey của tài khoảnKey mới.
+## wallet.updateAccountKey <a id="wallet-updateaccountkey"></a>
 
 ```javascript
 caver.klay.accounts.wallet.updateAccountKey(address, accountKey)
 ```
 
-Nếu tham số tài khoảnKey là một chuỗi khóa riêng tư, thì tài khoảnKey của tài khoản được cập nhật bằng phiên bản `AccountKeyPublic`. Nếu tham số tài khoảnKey là một mảng có nhiều chuỗi khóa riêng tư, thì tài khoảnKey của tài khoản được cập nhật bằng phiên bản `AccountKeyMultiSig`.
+Cập nhật thông tin khóa tài khoản của tài khoản được lưu trữ trong ví. Khi bạn cập nhật tài khoảnKey của tài khoản, privateKey cũng sẽ được cập nhật thành defaultKey của tài khoảnKey mới.
 
-Nếu tham số tài khoảnKey là một đối tượng có các khóa được xác định theo vai trò, thì tài khoảnKey của tài khoản được cập nhật bằng phiên bản `AccountKeyRoleBased`. **LƯU Ý**: Hàm này chỉ thay đổi thông tin được lưu trữ trong ví của caver-js. Hàm này không ảnh hưởng đến thông tin quan trọng được lưu trữ trên mạng lưới Klaytn.
+Nếu tham số tài khoảnKey là một chuỗi khóa riêng tư, thì tài khoảnKey của tài khoản được cập nhật bằng phiên bản `AccountKeyPublic`. Nếu tham số tài khoảnKey là một mảng có nhiều chuỗi khóa riêng tư, thì tài khoảnKey của tài khoản được cập nhật bằng phiên bản `AccountKeyMultiSig`. Nếu tham số tài khoảnKey là một đối tượng có các khóa được xác định theo vai trò, thì tài khoảnKey của tài khoản được cập nhật bằng phiên bản `AccountKeyRoleBased`.
 
-Có thể thay đổi các khóa trong mạng lưới Klaytn bằng cách gửi một giao dịch ['ACCOUNT_UPDATE'](./caver.klay/transaction/sendtx-account-update.md#sendtransaction-account_update). **LƯU Ý** `caver.klay.tài khoảns.wallet.updateAccountKey` được hỗ trợ kể từ caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0). **Tham số**
+**LƯU Ý**: Hàm này chỉ thay đổi thông tin được lưu trữ trong ví của caver-js. Hàm này không ảnh hưởng đến thông tin quan trọng được lưu trữ trên mạng lưới Klaytn. Có thể thay đổi các khóa trong mạng lưới Klaytn bằng cách gửi một giao dịch ['ACCOUNT_UPDATE'](./caver.klay/transaction/sendtx-account-update.md#sendtransaction-account_update).
 
-Tên
+**LƯU Ý** `caver.klay.tài khoảns.wallet.updateAccountKey` được hỗ trợ kể từ caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
-Loại
+**Tham số**
 
-| Mô tả                                                                                                                                                                                                                                                                         | address            | Chuỗi                      |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | -------------------------- |
-| Địa chỉ tài khoản trong ví.                                                                                                                                                                                                                                                   | tài khoảnKey       | Chuỗi \| Mảng \| Đối tượng |
-| Phiên bản AccountKey (`AccountKeyPublic`, `AccountKeyMultiSig` hoặc `AccountKeyRoleBased`) hoặc cấu trúc dữ liệu chứa thông tin khóa (chuỗi khóa riêng tư, mảng chuỗi khóa riêng tư hoặc một đối tượng xác định khóa cho từng vai trò). | **Giá trị trả về** | Loại                      |
+| Tên          | Loại                      | Mô tả                                                                                                                                                                                                                                                                         |
+| ------------ | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address      | Chuỗi                      | Địa chỉ tài khoản trong ví.                                                                                                                                                                                                                                                   |
+| tài khoảnKey | Chuỗi \| Mảng \| Đối tượng | Phiên bản AccountKey (`AccountKeyPublic`, `AccountKeyMultiSig` hoặc `AccountKeyRoleBased`) hoặc cấu trúc dữ liệu chứa thông tin khóa (chuỗi khóa riêng tư, mảng chuỗi khóa riêng tư hoặc một đối tượng xác định khóa cho từng vai trò). |
 
-Mô tả
+**Giá trị trả về**
 
-| Đối tượng                                               | Phiên bản tài khoản với tài khoảnKey mới. |
-| ------------------------------------------------------- | ----------------------------------------- |
-| Phiên bản Tài khoản nằm trong ví caver-js trong bộ nhớ. | **Ví dụ** AAA                           |
+| Loại     | Mô tả                                                                                             |
+| --------- | ------------------------------------------------------------------------------------------------- |
+| Đối tượng | Phiên bản tài khoản với tài khoảnKey mới. Phiên bản Tài khoản nằm trong ví caver-js trong bộ nhớ. |
 
-BBB
+**Ví dụ**
 
 ```javascript
 // Update to AccountKeyPublic with a private key string
