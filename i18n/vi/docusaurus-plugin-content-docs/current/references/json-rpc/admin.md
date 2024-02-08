@@ -1,39 +1,39 @@
 ---
-description: APIs to control Klaytn node.
+description: API dùng để kiểm soát nút Klaytn.
 ---
 
 # admin
 
-The namespace `admin` gives you access to several non-standard RPC methods. They will allow you to have
+`Quản trị viên` namespace cung cấp cho bạn quyền truy cập vào một số phương pháp RPC phi tiêu chuẩn. Họ sẽ cho phép bạn quyền kiểm soát chi tiết đối với phiên bản Klaytn của bạn, bao gồm nhưng không giới hạn đối với mạng ngang hàng và quản lý điểm cuối RPC.
 fine-grained control over your Klaytn instance, including but not limited to network peer and RPC
 endpoint management.
 
 ## admin_nodeInfo <a id="admin_nodeinfo"></a>
 
-The `nodeInfo` administrative property can be queried for all the information known about the running
-Klaytn node at the networking granularity. These include general information about the node itself as a
+Có thể truy vấn thuộc tính quản trị `nodeInfo` đối với tất cả thông tin đã biết về nút Klaytn đang chạy ở mức độ chi tiết của mạng.
+Klaytn node at the networking granularity. Thuộc tính này bao gồm thông tin chung về nút như một thành phần tham gia của giao thức phủ P2P [devp2p](https://github.com/ethereum/devp2p/blob/master/README.md), cũng như thông tin chuyên biệt được thêm vào bởi mỗi giao thức ứng dụng đang chạy, ví dụ như `klay`.
 participant of the [devp2p](https://github.com/ethereum/devp2p/blob/master/README.md) P2P
 overlay protocol, as well as specialized information added by each of the running application protocols,
 e.g., `klay`.
 
-|  Client | Method invocation              |
-| :-----: | ------------------------------ |
-| Console | `admin.nodeInfo`               |
-|   RPC   | `{"method": "admin_nodeInfo"}` |
+|    Máy khách    | Gọi phương pháp                |
+| :-------------: | ------------------------------ |
+| Bảng điều khiển | `admin.nodeInfo`               |
+|       RPC       | `{"method": "admin_nodeInfo"}` |
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị trả về**
 
-| Type        | Description           |
-| ----------- | --------------------- |
-| JSON string | The node information. |
+| Loại      | Mô tả          |
+| ---------- | -------------- |
+| Chuỗi JSON | Thông tin nút. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 
 ```javascript
 > admin.nodeInfo
@@ -127,28 +127,28 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_datadir <a id="admin_datadir"></a>
 
-The `datadir` administrative property can be queried for the absolute path the running Klaytn node
-currently uses to store all its databases. The default path is different depending on the node types
+Có thể truy vấn thuộc tính quản trị `datadir` cho đường dẫn tuyệt đối của nút Klaytn đang chạy hiện đang sử dụng để lưu trữ tất cả các cơ sở dữ liệu của nó.
+currently uses to store all its databases. Đường dẫn mặc định khác nhau tùy thuộc vào loại nút (kcn, kpn và ken) và loại hệ điều hành.
 (kcn, kpn, and ken) and the OS type.
 
-|  Client | Method invocation             |
-| :-----: | ----------------------------- |
-| Console | `admin.datadir`               |
-|   RPC   | `{"method": "admin_datadir"}` |
+|    Máy khách    | Gọi phương pháp               |
+| :-------------: | ----------------------------- |
+| Bảng điều khiển | `admin.datadir`               |
+|       RPC       | `{"method": "admin_datadir"}` |
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị trả về**
 
-| Type   | Description         |
-| ------ | ------------------- |
-| string | The `datadir` path. |
+| type  | Mô tả                |
+| ----- | -------------------- |
+| chuỗi | Đường dẫn `datadir`. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 
 ```javascript
 > admin.datadir
@@ -164,26 +164,26 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_peers <a id="admin_peers"></a>
 
-The `peers` administrative property can be queried for all the information known about the connected remote nodes at the networking granularity. These include general information about the nodes themselves as participants of the [devp2p](https://github.com/ethereum/devp2p/blob/master/README.md) P2P overlay protocol, as well as specialized information added by each of the running application protocols.
+Có thể truy vấn thuộc tính quản trị `peers` đối với tất cả thông tin đã biết về các nút từ xa được kết nối ở mức độ chi tiết của mạng. Thuộc tính này bao gồm thông tin chung về nút như một thành phần tham gia của giao thức phủ P2P [devp2p](https://github.com/ethereum/devp2p/blob/master/README.md), cũng như thông tin chuyên biệt được thêm vào bởi mỗi giao thức ứng dụng đang chạy.
 
-|  Client | Method invocation           |
-| :-----: | --------------------------- |
-| Console | `admin.peers`               |
-|   RPC   | `{"method": "admin_peers"}` |
+|    Máy khách    | Gọi phương pháp             |
+| :-------------: | --------------------------- |
+| Bảng điều khiển | `admin.peers`               |
+|       RPC       | `{"method": "admin_peers"}` |
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị trả về**
 
-| Type        | Description                                |
-| ----------- | ------------------------------------------ |
-| JSON string | The information about all connected peers. |
+| type       | Mô tả                                                 |
+| ---------- | ----------------------------------------------------- |
+| Chuỗi JSON | Thông tin về tất cả các mạng ngang hàng được kết nối. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 
 ```javascript
 > admin.peers
@@ -230,7 +230,7 @@ Console
 
 HTTP RPC
 
-**NOTE**: All IP addresses below are shown as examples. Please replace them with the actual IP addresses in your execution environment.
+**LƯU Ý**: Tất cả các địa chỉ IP bên dưới là các ví dụ minh họa. Vui lòng thay thế chúng bằng địa chỉ IP thực trong môi trường thực thi của bạn.
 
 ```shell
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admin_peers","id":1}' https://public-en-baobab.klaytn.net
@@ -239,35 +239,35 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"admi
 
 ## admin_addPeer <a id="admin_addpeer"></a>
 
-The `addPeer` is an administrative method that requests adding a new remote node to the list of tracked static
-nodes. The node will try to maintain connectivity to these nodes at all times, reconnecting every
+`addPeer` là một phương pháp quản trị yêu cầu thêm nút từ xa mới vào danh sách các nút tĩnh được theo dõi.
+nodes. Nút đó sẽ cố gắng duy trì kết nối liên tục với các nút này, thỉnh thoảng kết nối lại nếu kết nối từ xa gặp sự cố.
 once in a while if the remote connection goes down.
 
-The method accepts a single argument kni, which means "Klaytn Network Identifier". It is similar to
-the [`enode`](https://github.com/ethereum/wiki/wiki/enode-url-format) concept in the geth. It is URL
+Phương thức này chấp nhận một đối số duy nhất kni, nghĩa là "Mã định danh mạng lưới Klaytn". Tương tự với khái niệm [`enode`](https://github.com/ethereum/wiki/wiki/enode-url-format) trong geth.
+the [`enode`](https://github.com/ethereum/wiki/wiki/enode-url-format) concept in the geth. Đó là URL của máy ngang hàng từ xa để bắt đầu theo dõi và trả về `BOOL` cho biết máy ngang hàng đó có được chấp nhận để theo dõi hoặc đã có lỗi xảy ra hay không.
 of the remote peer to start tracking and returns a `BOOL` indicating whether the peer was accepted for
 tracking or some error occurred.
 
-|  Client | Method invocation                              |
-| :-----: | ---------------------------------------------- |
-| Console | `admin.addPeer(url)`                           |
-|   RPC   | `{"method": "admin_addPeer", "params": [url]}` |
+|    Máy khách    | Gọi phương pháp                                |
+| :-------------: | ---------------------------------------------- |
+| Bảng điều khiển | `admin.addPeer(url)`                           |
+|       RPC       | `{"method": "admin_addPeer", "params": [url]}` |
 
-**Parameters**
+**Tham số**
 
-| Name | Type   | Description       |
-| ---- | ------ | ----------------- |
-| url  | string | Peer's `kni` URL. |
+| Tên | type  | Mô tả                         |
+| --- | ----- | ----------------------------- |
+| url | chuỗi | URL `kni` của máy ngang hàng. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type | Description                                         |
-| ---- | --------------------------------------------------- |
-| bool | `true` if the peer was accepted, `false` otherwise. |
+| type | Mô tả                                                              |
+| ---- | ------------------------------------------------------------------ |
+| bool | `true` nếu máy ngang hàng được chấp nhận, ngược lại sẽ là `false`. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 
 ```javascript
 > admin.addPeer("kni://a979fb575495b8d6db44f750317d0f4622bf4c2aa3365d6af7c284339968eef29b69ad0dce72a4d8db5ebb4968de0e3bec910127f134779fbcb0cb6d3331163c@10.0.0.1:32323") //This is an example address.
@@ -283,33 +283,33 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_removePeer <a id="admin_removepeer"></a>
 
-The `removePeer` is an administrative method that requests removing a node from the list of tracked static
+`removePeer` là một phương pháp quản trị yêu cầu xóa một nút khỏi danh sách nút tĩnh được theo dõi.
 nodes.
 
-The method accepts a single argument kni, which means "Klaytn Network Identifier". It is similar to
-the [`enode`](https://github.com/ethereum/wiki/wiki/enode-url-format) concept in the geth. It is URL
+Phương thức này chấp nhận một đối số duy nhất kni, nghĩa là "Mã định danh mạng lưới Klaytn". Tương tự với khái niệm [`enode`](https://github.com/ethereum/wiki/wiki/enode-url-format) trong geth.
+the [`enode`](https://github.com/ethereum/wiki/wiki/enode-url-format) concept in the geth. Đó là URL của máy ngang hàng từ xa sẽ bị xóa khỏi danh sách và trả về `BOOL` cho biết liệu máy ngang hàng đã bị xóa hay xảy ra lỗi nào đó.
 of the remote peer to be removed from a list and returns a `BOOL` indicating whether the peer was removed or some error occurred.
 
-|  Client | Method invocation                                 |
-| :-----: | ------------------------------------------------- |
-| Console | `admin.removePeer(url)`                           |
-|   RPC   | `{"method": "admin_removePeer", "params": [url]}` |
+|    Máy khách    | Gọi phương pháp                                   |
+| :-------------: | ------------------------------------------------- |
+| Bảng điều khiển | `admin.removePeer(url)`                           |
+|       RPC       | `{"method": "admin_removePeer", "params": [url]}` |
 
-**Parameters**
+**Tham số**
 
-| Name | Type   | Description       |
-| ---- | ------ | ----------------- |
-| url  | string | Peer's `kni` URL. |
+| Tên | type  | Mô tả                         |
+| --- | ----- | ----------------------------- |
+| url | chuỗi | URL `kni` của máy ngang hàng. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type | Description                                         |
-| ---- | --------------------------------------------------- |
-| bool | `true` if the peer was accepted, `false` otherwise. |
+| type | Mô tả                                                              |
+| ---- | ------------------------------------------------------------------ |
+| bool | `true` nếu máy ngang hàng được chấp nhận, ngược lại sẽ là `false`. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 
 ```javascript
 > admin.removePeer("kni://a979fb575495b8d6db44f750317d0f4622bf4c2aa3365d6af7c284339968eef29b69ad0dce72a4d8db5ebb4968de0e3bec910127f134779fbcb0cb6d3331163c@10.0.0.1:32323") //This is an example address.
@@ -325,36 +325,35 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_startHTTP <a id="admin_starthttp"></a>
 
-**NOTE**: This API replaces `admin_startRPC`. The `admin_startRPC` will be deprecated soon.
+**LƯU Ý**: API này sẽ thay thế cho `admin_startRPC`. `admin_startRPC` sẽ sớm ngừng hoạt động.
 
-The `startHTTP` is an administrative method that starts an HTTP based [JSON RPC](http://www.jsonrpc.org/specification)
-API webserver to handle client requests.
+`startWS` là phương pháp quản trị khởi chạy máy chủ web API [JSON RPC](http://www.jsonrpc.org/specification) dựa trên WebSocket để xử lý các yêu cầu của máy khách.
 
-The method returns a boolean flag specifying whether the HTTP RPC listener was opened or not. Please note, only one HTTP endpoint is allowed to be active at any time.
+Phương thức này sẽ trả về một cờ boolean để xác định xem trình nghe HTTP RPC đã được mở hay chưa. Xin lưu ý rằng chỉ có một điểm cuối HTTP được phép hoạt động bất kỳ lúc nào.
 
-|  Client | Method invocation                                                   |
-| :-----: | ------------------------------------------------------------------- |
-| Console | `admin.startHTTP(host, port, cors, apis)`                           |
-|   RPC   | `{"method": "admin_startHTTP", "params": [host, port, cors, apis]}` |
+|    Máy khách    | Gọi phương pháp                                                     |
+| :-------------: | ------------------------------------------------------------------- |
+| Bảng điều khiển | `admin.startHTTP(host, port, cors, apis)`                           |
+|       RPC       | `{"method": "admin_startHTTP", "params": [host, port, cors, apis]}` |
 
-**Parameters**
+**Tham số**
 
-| Name | Type   | Description                                                                                                                                                                   |
-| ---- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| host | string | (optional) network interface to open the listener socket on (default:  `"localhost"`).                                                  |
-| port | int    | (optional) network port to open the listener socket on (default:  `8551`).                                                              |
-| cors | string | (optional) [cross-origin resource sharing](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) header to use (default:  `""`). |
-| apis | string | (optional) API modules to offer over this interface (default:  `"klay,net,rpc"`).                                                       |
+| Tên     | type  | Mô tả                                                                                                                                                                                     |
+| ------- | ----- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| máy chủ | chuỗi | (tùy chọn) giao diện mạng để mở socket trình nghe (mặc định: `"localhost"`).                                                                        |
+| cổng    | int   | (tùy chọn) cổng mạng để mở socket trình nghe (mặc định: `8551`).                                                                                    |
+| cors    | chuỗi | (tùy chọn) [Tiêu đề chia sẻ tài nguyên trên nhiều nguồn](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) cần sử dụng (mặc định: `""`). |
+| apis    | chuỗi | (tùy chọn) các mô-đun API để cung cấp trên giao diện này (mặc định: `"klay,net,rpc"`).                                                              |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type | Description                                                 |
-| ---- | ----------------------------------------------------------- |
-| bool | `true` if the HTTP RPC listener was opened, `false` if not. |
+| Loại | Mô tả                                                               |
+| ----- | ------------------------------------------------------------------- |
+| bool  | `true` nếu trình nghe HTTP RPC đã được mở, ngược lại sẽ là `false`. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 
 ```javascript
 > admin.startHTTP("127.0.0.1", 8551)
@@ -370,28 +369,28 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_stopHTTP <a id="admin_stophttp"></a>
 
-**NOTE**: This API replaces `admin_stopRPC`. The `admin_stopRPC` will be deprecated soon.
+**LƯU Ý**: API này sẽ thay thế cho `admin_stopRPC`. `admin_stopRPC` sẽ sớm ngừng hoạt động.
 
-The `stopHTTP` is an administrative method that closes the currently open HTTP RPC endpoint. As the node can only have a single HTTP endpoint running, this method takes no parameters, returning a boolean whether the endpoint was closed or not.
+`stopHTTP` là một phương pháp quản trị đóng điểm cuối HTTP RPC hiện đang mở. Vì nút này chỉ có thể có một điểm cuối HTTP duy nhất đang chạy, nên phương pháp này không nhận tham số mà trả về giá trị boolean cho dù điểm cuối có bị đóng hay không.
 
-|  Client | Method invocation              |
-| :-----: | ------------------------------ |
-| Console | `admin.stopHTTP()`             |
-|   RPC   | `{"method": "admin_stopHTTP"}` |
+|    Máy khách    | Gọi phương pháp                |
+| :-------------: | ------------------------------ |
+| Bảng điều khiển | `admin.stopHTTP()`             |
+|       RPC       | `{"method": "admin_stopHTTP"}` |
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị trả về**
 
-| Type | Description                                        |
-| ---- | -------------------------------------------------- |
-| bool | `true` if the endpoint was closed, `false` if not. |
+| type | Mô tả                                                  |
+| ---- | ------------------------------------------------------ |
+| bool | `true` nếu điểm cuối đã đóng, ngược lại sẽ là `false`. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 
 ```javascript
 > admin.stopHTTP()
@@ -407,34 +406,34 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_startWS <a id="admin_startws"></a>
 
-The `startWS` is an administrative method that starts an WebSocket based [JSON RPC](http://www.jsonrpc.org/specification)
+`startWS` là phương pháp quản trị khởi chạy máy chủ web API [JSON RPC](http://www.jsonrpc.org/specification) dựa trên WebSocket để xử lý các yêu cầu của máy khách.
 API webserver to handle client requests.
 
-The method returns a boolean flag specifying whether the WebSocket RPC listener was opened or not. Please note, only one WebSocket endpoint is allowed to be active at any time.
+Phương thức này sẽ trả về một cờ boolean để xác định xem trình nghe WebSocket RPC đã được mở hay chưa. Xin lưu ý rằng chỉ có một điểm cuối WebSocket được phép hoạt động bất kỳ lúc nào.
 
-|  Client | Method invocation                                                 |
-| :-----: | ----------------------------------------------------------------- |
-| Console | `admin.startWS(host, port, cors, apis)`                           |
-|   RPC   | `{"method": "admin_startWS", "params": [host, port, cors, apis]}` |
+|    Máy khách    | Gọi phương pháp                                                   |
+| :-------------: | ----------------------------------------------------------------- |
+| Bảng điều khiển | `admin.startWS(host, port, cors, apis)`                           |
+|       RPC       | `{"method": "admin_startWS", "params": [host, port, cors, apis]}` |
 
-**Parameters**
+**Tham số**
 
-| Name | Type   | Description                                                                                                                                                                   |
-| ---- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| host | string | (optional) network interface to open the listener socket on (default:  `"localhost"`).                                                  |
-| port | int    | (optional) network port to open the listener socket on (default:  `8552`).                                                              |
-| cors | string | (optional) [cross-origin resource sharing](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) header to use (default:  `""`). |
-| apis | string | (optional) API modules to offer over this interface (default:  `"klay,net,personal"`).                                                  |
+| Tên     | type  | Mô tả                                                                                                                                                                                     |
+| ------- | ----- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| máy chủ | chuỗi | (tùy chọn) giao diện mạng để mở socket trình nghe (mặc định: `"localhost"`).                                                                        |
+| cổng    | int   | (tùy chọn) cổng mạng để mở socket trình nghe (mặc định: `8552`).                                                                                    |
+| cors    | chuỗi | (tùy chọn) [Tiêu đề chia sẻ tài nguyên trên nhiều nguồn](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) cần sử dụng (mặc định: `""`). |
+| apis    | chuỗi | (tùy chọn) các mô-đun API để cung cấp trên giao diện này (mặc định: `"klay,net,personal"`).                                                         |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type | Description                                                      |
-| ---- | ---------------------------------------------------------------- |
-| bool | `true` if the WebSocket RPC listener was opened, `false` if not. |
+| type | Mô tả                                                                    |
+| ---- | ------------------------------------------------------------------------ |
+| bool | `true` nếu trình nghe WebSocket RPC đã được mở, ngược lại sẽ là `false`. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 
 ```javascript
 > admin.startWS("127.0.0.1", 8552)
@@ -450,26 +449,26 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_stopWS <a id="admin_stopws"></a>
 
-The `stopWS` is an administrative method that closes the currently open WebSocket RPC endpoint. As the node can only have a single WebSocket endpoint running, this method takes no parameters, returning a boolean whether the endpoint was closed or not.
+`stopWS` là một phương pháp quản trị đóng điểm cuối WebSocket RPC hiện đang mở. Vì nút này chỉ có thể có một điểm cuối WebSocket duy nhất đang chạy, nên phương pháp này không nhận tham số mà trả về giá trị boolean cho dù điểm cuối có bị đóng hay không.
 
-|  Client | Method invocation            |
-| :-----: | ---------------------------- |
-| Console | `admin.stopWS()`             |
-|   RPC   | `{"method": "admin_stopWS"}` |
+|    Máy khách    | Gọi phương pháp              |
+| :-------------: | ---------------------------- |
+| Bảng điều khiển | `admin.stopWS()`             |
+|       RPC       | `{"method": "admin_stopWS"}` |
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị trả về**
 
-| Type | Description                                        |
-| ---- | -------------------------------------------------- |
-| bool | `true` if the endpoint was closed, `false` if not. |
+| type | Mô tả                                                  |
+| ---- | ------------------------------------------------------ |
+| bool | `true` nếu điểm cuối đã đóng, ngược lại sẽ là `false`. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 
 ```javascript
 > admin.stopWS()
@@ -485,30 +484,30 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_exportChain <a id="admin_exportchain"></a>
 
-The `exportChain` is an administrative method that exports the blockchain to a file.
+`exportChain` là một phương pháp quản trị xuất chuỗi khối thành một tệp.
 
-|  Client | Method invocation                                                                    |
-| :-----: | ------------------------------------------------------------------------------------ |
-| Console | `admin.exportChain(fileName)`                                                        |
-|   RPC   | `{"method": "admin_exportChain"}, "params": [fileName, startBlockNum, endBlockNum]}` |
+|    Máy khách    | Gọi phương pháp                                                                      |
+| :-------------: | ------------------------------------------------------------------------------------ |
+| Bảng điều khiển | `admin.exportChain(fileName)`                                                        |
+|       RPC       | `{"method": "admin_exportChain"}, "params": [fileName, startBlockNum, endBlockNum]}` |
 
-**Parameters**
+**Tham số**
 
-| Name          | Type   | Description                                                                  |
-| ------------- | ------ | ---------------------------------------------------------------------------- |
-| fileName      | string | the fully qualified path to the file where the blockchain must be exported.  |
-| startBlockNum | int    | (optional) The first block number of the range to export. |
-| endBlockNum   | int    | (optional) The last block number of the range.            |
+| Tên           | type  | Mô tả                                                                        |
+| ------------- | ----- | ---------------------------------------------------------------------------- |
+| tên tệp tin   | chuỗi | đường dẫn đủ điều kiện đến tệp mà chuỗi khối phải được xuất.                 |
+| startBlockNum | int   | (optional) The first block number of the range to export. |
+| endBlockNum   | int   | (optional) The last block number of the range.            |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type | Description                                   |
-| ---- | --------------------------------------------- |
-| bool | `true` if chain was exported, `false` if not. |
+| Loại | Mô tả                                                |
+| ----- | ---------------------------------------------------- |
+| bool  | `true` nếu chuỗi được xuất, ngược lại sẽ là `false`. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 
 ```javascript
 > admin.exportChain("/tmp/chain.txt")
@@ -528,29 +527,29 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_importChain <a id="admin_importchain"></a>
 
-The `importChain` is an administrative method that imports an exported chain from a file into a node.
-This method imports only blocks that haven't existed in a Klaytn node. This method does not delete any data of the existing chain.
+`importChain` là một phương pháp quản trị để nhập một chuỗi đã xuất từ ​​một tệp vào một nút.
+Phương thức này chỉ nhập các khối chưa có trong nút Klaytn. Phương thức này không xóa bất kỳ dữ liệu nào của chuỗi hiện có.
 
-|  Client | Method invocation                                        |
-| :-----: | -------------------------------------------------------- |
-| Console | `admin.importChain(fileName)`                            |
-|   RPC   | `{"method": "admin_importChain"}, "params": [fileName]}` |
+|    Máy khách    | Gọi phương pháp                                          |
+| :-------------: | -------------------------------------------------------- |
+| Bảng điều khiển | `admin.importChain(fileName)`                            |
+|       RPC       | `{"method": "admin_importChain"}, "params": [fileName]}` |
 
-**Parameters**
+**Tham số**
 
-| Name     | Type   | Description                                                               |
-| -------- | ------ | ------------------------------------------------------------------------- |
-| fileName | string | the fully qualified path to the file containing the chain to be imported. |
+| Tên         | type  | Mô tả                                                   |
+| ----------- | ----- | ------------------------------------------------------- |
+| tên tệp tin | chuỗi | đường dẫn đủ điều kiện đến tệp chứa chuỗi sẽ được nhập. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type | Description                                   |
-| ---- | --------------------------------------------- |
-| bool | `true` if chain was imported, `false` if not. |
+| type | Mô tả                                                   |
+| ---- | ------------------------------------------------------- |
+| bool | `true` nếu chuỗi đã được nhập, ngược lại sẽ là `false`. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 
 ```javascript
 > admin.importChain("/tmp/chain.txt")
@@ -566,29 +565,29 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_importChainFromString <a id="admin_importchainfromstring"></a>
 
-The `importChainFromString` is an administrative method that imports a chain from a RLP-encoded string of blocks into a Klaytn node.
-This only works if there is no existing chain in a Klaytn node. This method does not delete any data of the existing chain.
+`importChainFromString` là phương pháp quản trị nhập chuỗi từ chuỗi khối được mã hóa RLP vào nút Klaytn.
+Phương thức này chỉ hoạt động nếu chưa có chuỗi nào trong nút Klaytn. Phương thức này không xóa bất kỳ dữ liệu nào của chuỗi hiện có.
 
-|  Client | Method invocation                                                    |
-| :-----: | -------------------------------------------------------------------- |
-| Console | `admin.importChainFromString(blockRlp)`                              |
-|   RPC   | `{"method": "admin_importChainFromString"}, "params": [<blockRlp>]}` |
+|    Máy khách    | Gọi phương pháp                                                      |
+| :-------------: | -------------------------------------------------------------------- |
+| Bảng điều khiển | `admin.importChainFromString(blockRlp)`                              |
+|       RPC       | `{"method": "admin_importChainFromString"}, "params": [<blockRlp>]}` |
 
-**Parameters**
+**Tham số**
 
-| Name     | Type   | Description                                                                                                                              |
-| -------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| blockRlp | string | the RLP-encoded string that represents the blocks to be imported. (equals to the return value of `debug.getBlockRlp`) |
+| Tên      | type  | Mô tả                                                                                                                   |
+| -------- | ----- | ----------------------------------------------------------------------------------------------------------------------- |
+| blockRlp | chuỗi | chuỗi được mã hóa RLP đại diện cho các khối được nhập. (bằng giá trị trả về của `debug.getBlockRlp`) |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type | Description                                        |
-| ---- | -------------------------------------------------- |
-| bool | `true` if a chain was imported, or `false` if not. |
+| type | Mô tả                                                       |
+| ---- | ----------------------------------------------------------- |
+| bool | `true` nếu chuỗi đã được nhập hoặc ngược lại sẽ là `false`. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 
 ```javascript
 > admin.importChainFromString("f9071...080c0")
@@ -604,28 +603,28 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_startStateMigration <a id="admin_startstatemigration"></a>
 
-The `startStateMigration` is an administrative method that starts a state migration and removes old state/storage trie nodes. This can save the storage space of a Klaytn node.
-The method returns an error if it fails to start a state migration, or `null` if it succeeds to start.
-NOTE: After the state migration, the node cannot serve APIs with previous states.
+`startStateMigration` là một phương pháp quản trị để bắt đầu di chuyển trạng thái và loại bỏ các nút trie lưu trữ/trạng thái cũ. Nó có thể giúp tiết kiệm không gian lưu trữ của nút Klaytn.
+Phương thức này sẽ trả về lỗi nếu không thể bắt đầu di chuyển trạng thái hoặc `null` khi bắt đầu thành công.
+LƯU Ý: Sau khi di chuyển trạng thái, nút không thể cung cấp API với các trạng thái trước đó.
 
-|  Client | Method invocation                         |
-| :-----: | ----------------------------------------- |
-| Console | `admin.startStateMigration()`             |
-|   RPC   | `{"method": "admin_startStateMigration"}` |
+|    Máy khách    | Gọi phương pháp                           |
+| :-------------: | ----------------------------------------- |
+| Bảng điều khiển | `admin.startStateMigration()`             |
+|       RPC       | `{"method": "admin_startStateMigration"}` |
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị trả về**
 
-| Type  | Description                                                            |
-| ----- | ---------------------------------------------------------------------- |
-| Error | `null` if the state migration has started, or an error message if not. |
+| type | Mô tả                                                                                     |
+| ---- | ----------------------------------------------------------------------------------------- |
+| Lỗi  | `null` nếu quá trình di chuyển trạng thái đã bắt đầu hoặc thông báo lỗi nếu chưa bắt đầu. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 
 ```javascript
 > admin.startStateMigration()
@@ -641,27 +640,27 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_stopStateMigration <a id="admin_stopstatemigration"></a>
 
-The `stopStateMigration` is an administrative method that stops the currently running state migration.
-This method takes no parameters and returns `null` or an error whether the state migration was stopped or not.
+`stopStateMigration` là một phương pháp quản trị để dừng quá trình di chuyển trạng thái hiện đang chạy.
+Phương thức này không nhận tham số và trả về `null` hoặc báo lỗi dù quá trình di chuyển trạng thái có bị dừng hay không.
 
-|  Client | Method invocation                        |
-| :-----: | ---------------------------------------- |
-| Console | `admin.stopStateMigration()`             |
-|   RPC   | `{"method": "admin_stopStateMigration"}` |
+|    Máy khách    | Gọi phương pháp                          |
+| :-------------: | ---------------------------------------- |
+| Bảng điều khiển | `admin.stopStateMigration()`             |
+|       RPC       | `{"method": "admin_stopStateMigration"}` |
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị trả về**
 
-| Type  | Description                                                   |
-| ----- | ------------------------------------------------------------- |
-| Error | `null` if the state migration is stopped, or an error if not. |
+| type | Mô tả                                                                            |
+| ---- | -------------------------------------------------------------------------------- |
+| Lỗi  | `null` nếu quá trình di chuyển trạng thái đã bị dừng hoặc báo lỗi nếu ngược lại. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 
 ```javascript
 > admin.stopStateMigration()
@@ -677,33 +676,33 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_stateMigrationStatus <a id="admin_statemigrationstatus"></a>
 
-The `stateMigrationStatus` is an administrative method that returns the status information of the state migration.
-This method takes no parameters and returns the status of the currently running state migration.
+`stateMigrationStatus` là một phương pháp quản trị trả về thông tin trạng thái của quá trình di chuyển trạng thái.
+Phương thức này không nhận tham số và trả về trạng thái của quá trình di chuyển trạng thái hiện đang chạy.
 
-|  Client | Method invocation                          |
-| :-----: | ------------------------------------------ |
-| Console | `admin.stateMigrationStatus`               |
-|   RPC   | `{"method": "admin_stateMigrationStatus"}` |
+|    Máy khách    | Gọi phương pháp                            |
+| :-------------: | ------------------------------------------ |
+| Bảng điều khiển | `admin.stateMigrationStatus`               |
+|       RPC       | `{"method": "admin_stateMigrationStatus"}` |
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị trả về**
 
-| Name                 | Type    | Description                                                                                                         |
-| -------------------- | ------- | ------------------------------------------------------------------------------------------------------------------- |
-| committed            | int     | `committed` is the number of trie nodes that have been copied by the state migration.                               |
-| err                  | Error   | `null` if the state migration finished well, or an error if not.                                                    |
-| isMigration          | bool    | `true` if the state migration is running, or `false` if not.                                                        |
-| migrationBlockNumber | uint64  | a blockNumber which the state migration started at. (`0` if the state migration is not running.) |
-| pending              | int     | `pending` represents the number of trie nodes that have not been processed by the state migration.                  |
-| progress             | float64 | `progress` is the progress of the state migration calculated in percent.                                            |
-| read                 | int     | `read` represents the number of trie nodes that have been read by the state migration.                              |
+| Tên                  | type    | Mô tả                                                                                                                           |
+| -------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| đã lưu trữ           | int     | `committed` là số nút trie đã được sao chép bởi quá trình di chuyển trạng thái.                                                 |
+| lỗi                  | Lỗi     | `null` nếu quá trình di chuyển trạng thái kết thúc thành công hoặc báo lỗi nếu ngược lại.                                       |
+| isMigration          | bool    | `true` nếu quá trình di chuyển trạng thái đang chạy hoặc ngược lại sẽ là `false`.                                               |
+| migrationBlockNumber | uint64  | blockNumber nơi quá trình di chuyển trạng thái bắt đầu. (`0` nếu quá trình di chuyển trạng thái không chạy.) |
+| đang chờ xử lý       | int     | `pending` đại diện cho số lượng nút trie chưa được xử lý bởi quá trình di chuyển trạng thái.                                    |
+| tiến trình           | float64 | `progress` là tiến trình di chuyển trạng thái được tính bằng phần trăm.                                                         |
+| đọc                  | int     | `read` biểu thị số trie nút đã được đọc bởi quá trình di chuyển trạng thái.                                                     |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 
 ```javascript
 > admin.stateMigrationStatus
@@ -727,26 +726,26 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_saveTrieNodeCacheToDisk <a id="admin_saveTrieNodeCacheToDisk"></a>
 
-The `saveTrieNodeCacheToDisk` is an administrative method that starts saving the cached trie node to the disk to reuse them when the node restarts. Cached trie node data will be stored to and loaded from  `$DATA_DIR/fastcache` . This method returns an error if the saving process has been already triggered or trie node cache is disabled. This feature is supported since Klaytn 1.5.3.
+`saveTrieNodeCacheToDisk` là một phương pháp quản trị bắt đầu lưu nút trie đã lưu trong bộ nhớ cache vào đĩa để sử dụng lại chúng khi nút khởi động lại. Dữ liệu nút trie đã lưu trong bộ nhớ cache sẽ được lưu trữ và tải từ `$DATA_DIR/fastcache` . Phương thức này trả về lỗi nếu quá trình lưu đã được kích hoạt hoặc bộ nhớ đệm nút trie bị tắt. Tính năng này được hỗ trợ kể từ Klaytn 1.5.3.
 
-|  Client | Method invocation                             |
-| :-----: | --------------------------------------------- |
-| Console | `admin.saveTrieNodeCacheToDisk()`             |
-|   RPC   | `{"method": "admin_saveTrieNodeCacheToDisk"}` |
+|    Máy khách    | Gọi phương pháp                               |
+| :-------------: | --------------------------------------------- |
+| Bảng điều khiển | `admin.saveTrieNodeCacheToDisk()`             |
+|       RPC       | `{"method": "admin_saveTrieNodeCacheToDisk"}` |
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị trả về**
 
-| Type  | Description                                                             |
-| ----- | ----------------------------------------------------------------------- |
-| Error | `null` if saving the trie node has started, or an error message if not. |
+| type | Mô tả                                                                    |
+| ---- | ------------------------------------------------------------------------ |
+| Lỗi  | `null` nếu quá trình lưu nút trie đã bắt đầu hoặc báo lỗi nếu ngược lại. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 
 ```javascript
 > admin.saveTrieNodeCacheToDisk()
@@ -762,28 +761,28 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ad
 
 ## admin_setMaxSubscriptionPerWSConn <a id="admin_setMaxSubscriptionPerWSConn"></a>
 
-The `setMaxSubscriptionPerWSConn` is an administrative method that sets the maximum allowed number of subscriptions per single WebSocket connection. For example, if the maximum number is set to five and a user requests more than five subscriptions through the `klay_subscribe` API, an error message "Maximum 5 subscriptions are allowed for a WebSocket connection" will be displayed. This feature is supported since Klaytn 1.6.0.
+`setMaxSubscriptionPerWSConn` là phương pháp quản trị đặt số lượt đăng ký tối đa được phép cho mỗi kết nối WebSocket. Ví dụ, nếu số lượng tối đa được đặt là năm và người dùng yêu cầu nhiều hơn năm lượt đăng ký thông qua API `klay_subscribe`, một thông báo lỗi "Cho phép tối đa 5 đăng ký cho một kết nối WebSocket" sẽ được hiển thị. Tính năng này được hỗ trợ kể từ Klaytn 1.6.0.
 
-|  Client | Method invocation                                 |
-| :-----: | ------------------------------------------------- |
-| Console | `admin.setMaxSubscriptionPerWSConn(limit)`        |
-|   RPC   | `{"method": "admin_setMaxSubscriptionPerWSConn"}` |
+|    Máy khách    | Gọi phương pháp                                   |
+| :-------------: | ------------------------------------------------- |
+| Bảng điều khiển | `admin.setMaxSubscriptionPerWSConn(limit)`        |
+|       RPC       | `{"method": "admin_setMaxSubscriptionPerWSConn"}` |
 
-**Parameters**
+**Tham số**
 
-| Name  | Type | Description                                                                  |
-| ----- | ---- | ---------------------------------------------------------------------------- |
-| limit | int  | The maximum allowed number of subscriptions per single WebSocket connection. |
+| Tên      | type | Mô tả                                                       |
+| -------- | ---- | ----------------------------------------------------------- |
+| giới hạn | int  | Số lượt đăng ký tối đa cho phép trên mỗi kết nối WebSocket. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type  | Description                                                                      |
-| ----- | -------------------------------------------------------------------------------- |
-| Error | `null` if the limit is set successfully; otherwise, it returns an error message. |
+| type | Mô tả                                                                      |
+| ---- | -------------------------------------------------------------------------- |
+| Lỗi  | `null` nếu đặt giới hạn thành công; nếu không sẽ trả về một thông báo lỗi. |
 
-**Example**
+**Ví dụ**
 
-Console
+Bảng điều khiển
 
 ```javascript
 > admin.setMaxSubscriptionPerWSConn(5)
