@@ -1,16 +1,16 @@
-# Install Consensus Nodes
+# Thiết lập nút đồng thuận
 
-## Download
+## Tải về <a id="download"></a>
 
-You can download the latest version of the `kcn`  on [Download](../../downloads/downloads.md) page.
+Bạn có thể tải về phiên bản mới nhất của `kcn` trên trang [Tải xuống](../../downloads/downloads.md).
 
-## Installation
+## Cài đặt <a id="installation"></a>
 
-### Linux Archive Distribution <a id="linux-archive-distribution"></a>
+### Phân bổ lưu trữ Linux <a id="linux-archive-distribution"></a>
 
-The archive file consists of the executable binary and the configuration file structured as follows.
+Tập tin lưu trữ bao gồm tập tin nhị phân thực thi và cấu hình có cấu trúc như sau.
 
-**Note**: Do NOT alter the file structure or file name. If you change it, the node may not function correctly.
+**Lưu ý**: KHÔNG thay đổi cấu trúc hoặc tên tập tin. Nếu bạn thay đổi điều đó, nút có thể sẽ không hoạt động đúng.
 
 ```text
 - bin
@@ -20,97 +20,97 @@ The archive file consists of the executable binary and the configuration file st
   |- kcnd.conf
 ```
 
-| File Name      | File Description                 |
+| Tên tập tin    | Mô tả tập tin                    |
 | :------------- | :------------------------------- |
-| bin/kcn        | CN executable file               |
-| bin/kcnd       | CN start/termination script file |
-| conf/kcnd.conf | CN configuration file            |
+| bin/kcn        | Tập tin thực thi CN              |
+| bin/kcnd       | Tập tin lệnh bắt đầu/kết thúc CN |
+| conf/kcnd.conf | Tập tin cấu hình CN              |
 
-The installation is the uncompression of the downloaded package where you want to install the package.
+Quá trình cài đặt chính là giải nén gói đã tải về tại nơi bạn muốn cài đặt gói.
 
 ```bash
 $ tar zxf kcn-vX.X.X-linux-amd64.tar.gz
 ```
 
-Or,
+Hoặc,
 
 ```bash
 $ tar zxf kcn-baobab-vX.X.X-linux-amd64.tar.gz
 ```
 
-**Note**: it is recommended that the uncompressed directory `kcn-linux-amd64/bin` path should be added to the environment variable `$PATH` to run the `kcn` and `kcnd` globally. As an example,
+**Lưu ý**: nên thêm đường dẫn thư mục chưa giải nén `kcn-linux-amd64/bin` vào biến môi trường `$PATH` để chạy `kcn` và `kcnd` trên toàn hệ thống. Ví dụ,
 
 ```bash
 $ export PATH=$PATH:~/downloaded/path/kcn-linux-amd64/bin
 ```
 
-The other sections assume that the path is added to the variable.
+Các phần khác giả định rằng đường dẫn đã được thêm vào biến.
 
-### RPM Distribution (RHEL/CentOS/Fedora) <a id="rpm-rhel-centos-fedora"></a>
+### Phân bổ RPM (RHEL/CentOS/Fedora) <a id="rpm-rhel-centos-fedora"></a>
 
-You can install the downloaded RPM file with the following `yum` command.
+Bạn có thể cài đặt RPM đã tải về với lệnh `yum` sau đây.
 
 ```bash
 $ yum install kcnd-vX.X.X.el7.x86_64.rpm
 ```
 
-Or,
+Hoặc,
 
 ```bash
 $ yum install kcnd-baobab-vX.X.X.el7.x86_64.rpm
 ```
 
-### Install from Klaytn Yum Repo <a id="install-from-klaytn-yum-repo"></a>
+### Cài đặt từ Klaytn Yum Repo <a id="install-from-klaytn-yum-repo"></a>
 
-Alternatively, you can install `kcnd` from the Klaytn Yum repo, run:
+Ngoài ra, bạn có thể cài đặt `kcnd` từ Klaytn Yum repo, chạy:
 
 ```bash
 $ sudo curl -o /etc/yum.repos.d/klaytn.repo https://packages.klaytn.net/config/rhel/7/prod.repo && sudo yum install kcnd
 ```
 
-### Installed Location <a id="installed-location"></a>
+### Vị trí đã cài đặt <a id="installed-location"></a>
 
-The installed files are located as follows.
+Tập tin đã cài đặt nằm ở vị trí như sau.
 
-| File Name | Location                 |
-| :-------- | :----------------------- |
-| kcn       | /usr/bin/kcn             |
-| kcnd.conf | /etc/kcnd/conf/kcnd.conf |
+| Tên tập tin | Vị trí                   |
+| :---------- | :----------------------- |
+| kcn         | /usr/bin/kcn             |
+| kcnd.conf   | /etc/kcnd/conf/kcnd.conf |
 
-## Configuration <a id="configuration"></a>
+## Cấu hình <a id="configuration"></a>
 
-The CN configuration is to create a data directory and set up several values in the configuration file `kcnd.conf`.
+Cấu hình CN dùng để tạo thư mục dữ liệu và thiết lập các giá trị trong tập tin cấu hình `kcnd.conf`.
 
-1. Create the CN data directory.
-2. Install node key
-3. Configure the CN with `kcnd.conf`.
+1. Tạo thư mục dữ liệu CN.
+2. Cài đặt khóa nút
+3. Định cấu hình CN với `kcnd.conf`.
 
-### CN Data Directory Creation <a id="cn-data-directory-creation"></a>
+### Tạo thư mục dữ liệu CN <a id="cn-data-directory-creation"></a>
 
-Considering the fact that the size of Klaytn blockchain data is always increased, it is recommended to use a big enough storage. You may need to create the directory on your desired path.
+Kích thước của dữ liệu blockchain Klaytn sẽ luôn tăng lên thế nên cần sử dụng một dung lượng lưu trữ đủ lớn. Bạn có thể cần phải tạo thư mục trên đường dẫn bạn muốn.
 
 ```bash
 $ mkdir -p /var/kcnd/data
 ```
 
-### Install Node Key <a id="install-node-key"></a>
+### Cài đặt Khóa nút <a id="install-node-key"></a>
 
-In order to operate a CN, a `nodekey` is required. The KCN binary will create a new one for you if you do not have it. If you have one, you need to put your `nodekey` into the CN data directory. The way to create a `nodekey` is described in the '[Before You Install](./before-you-install.md)' section. The following command line copies the `nodekey` into the CN data directory.
+Để vận hành CN cần có `khóa nút`. Nhị phân KCN sẽ tạo ra một nút mới nếu bạn không có sẵn. Nếu bạn đã có, bạn cần chuyển `khóa nút` vào thư mục dữ liệu CN. Cách để tạo `khóa nút` được mô tả trong phần '[Trước khi bạn cài đặt](./before-you-install.md)'. Dòng lệnh sau sao chép`khóa nút` vào thư mục dữ liệu CN.
 
 ```bash
 $ cp nodekey /var/kcnd/data
 ```
 
-### Update the Configuration File <a id="update-the-configuration-file"></a>
+### Cập nhật Tập tin cấu hình <a id="update-the-configuration-file"></a>
 
-Configuration File Location:
+Vị trí tập tin cấu hình:
 
-- For the archive distribution, the config directory location defaults to `$INSTALL_PATH/kcn-linux-amd64/conf/`.
-- For the package distribution, the config directory defaults to `/etc/kcnd/conf/`.
+- Nếu phân bổ lưu trữ, vị trí thư mục cấu hình mặc định là `$INSTALL_PATH/kcn-linux-amd64/conf/`.
+- Nếu phân bổ gói, vị trí thư mục cấu hình mặc định là `/etc/kpnd/conf/`.
 
-#### Add Data Directory  <a id="add-data-directory"></a>
+#### Thêm Thư mục dữ liệu  <a id="add-data-directory"></a>
 
-You should update the the data directory environment variable `$DATA_DIR` on the configuration file `kcnd.conf`.
+Bạn nên cập nhật biến môi trường thư mục dữ liệu `$DATA_DIR`trên tập tin cấu hình `kcnd.conf`.
 
 ```text
 ...
@@ -118,17 +118,17 @@ DATA_DIR=/var/kcnd/data
 ...
 ```
 
-#### Setup Rewardbase <a id="setup-rewardbase"></a>
+#### Thiếp lập Rewardbase <a id="setup-rewardbase"></a>
 
-As a reward of participating in the consensus of the Klaytn network, CN operator will receive KLAY. For this reason, it is required to set an address on the configuration file `kcnd.conf`.
+Người vận hành CN sẽ nhận được KLAY như phần thưởng của việc tham gia vào đồng thuận mạng lưới Klaytn. Vì lý do này, cần phải thiết lập một địa chỉ trên tập tin cấu hình `kcnd.conf`.
 
-The ways to create a new account are various, but the `kcn` also provides the functionality. You can check the help message with the following command.
+Có nhiều cách để tạo tài khoản mới nhưng `kcn` cũng cung cấp các chức năng. Bạn có thể xem tin nhắn trợ giúp bằng lệnh sau.
 
 ```bash
 $ kcn account new --help
 ```
 
-One of the example of doing this procedure is as follows. First of all, you need to create a new account which the reward KLAY will be sent to.
+Một trong những ví dụ về việc thực quy trình này như sau. Trước hết, bạn cần tạo một tài khoản mới để gửi phần thưởng KLAY đến.
 
 ```bash
 $ kcn account new --datadir ~/kcnd_home
@@ -141,7 +141,7 @@ Repeat passphrase:
 Address: {d13f7da0032b1204f77029dc1ecbf4dae2f04241}
 ```
 
-As a result of this, it will create the associated keystore on the path that you define. Next, you need to put the created address in the file `kcnd.conf` file as follows.
+Sau đó, lưu trữ khóa liên kết sẽ được tạo trên đường dẫn bạn đã xác định. Tiếp theo, bạn cần cho địa chỉ đã tạo vào tập tin `kcnd.conf` như sau.
 
 ```text
 ...
@@ -149,70 +149,70 @@ REWARDBASE="d13f7da0032b1204f77029dc1ecbf4dae2f04241"
 ...
 ```
 
-Keep in mind that the keystore and the password that you created is significantly important, so you must be careful to manage them. See more details about `kcnd.conf` on the [Configuration File](../../../misc/operation/configuration.md) section.
+Hãy nhớ rằng lưu trữ khóa và mật khẩu mà bạn đã tạo là vô cùng quan trọng. Do đó, bạn phải quản lý chúng thật cẩn thận. Xem thêm thông tin về `kcnd.conf` trên phần [Tập tin cấu hình](../../../misc/operation/configuration.md).
 
-### Fast Sync (Optional) <a id="fast-sync-optional"></a>
+### Đồng bộ nhanh (Tùy chọn) <a id="fast-sync-optional"></a>
 
-Each CN maintains a copy of the network's chain data. If a node is out of sync, it can obtain this data from other nodes in the network -- a process known as syncing. When a new CN is first started, it must download the entire chain data from the network.
+Mỗi CN duy trì một bản sao dữ liệu chuỗi của mạng lưới. Nếu một nút không được đồng bộ, nút này có thể lấy dữ liệu này từ các nút khác trong mạng lưới -- một quá trình được gọi là đồng bộ hóa. Khi một CN mới được bắt đầu lần đầu tiên, nó phải tải xuống toàn bộ dữ liệu chuỗi từ mạng lưới.
 
-To accelerate this process, you may perform a fast sync by downloading a snapshot of the chain data before starting the CN. This can dramatically reduce the time the CN will spend syncing on first start.
+Để đẩy nhanh quá trình này, bạn cần thực hiện đồng bộ nhanh bằng cách tải về bản thu thập dữ liệu của dữ liệu chuỗi trước khi bắt đầu CN. Điều này giúp giảm đáng kể thời gian CN cần để đồng bộ khi bắt đầu lần đầu tiên.
 
-Download the latest chaindata snapshot from the [Cypress snapshot archive](http://packages.klaytn.net/cypress/chaindata/) or [Baobab snapshot archive](http://packages.klaytn.net/baobab/chaindata/). Before starting `kcnd`, extract the snapshot inside the DATA_DIR you configured in `kcnd.conf`.
+Tải xuống bản thu thập dữ liệu chuỗi mới nhất từ [Lưu trữ thu thập dữ liệu Cypress](http://packages.klaytn.net/cypress/chaindata/) hoặc[Lưu trữ thu thập dữ liệu Baobab](http://packages.klaytn.net/baobab/chaindata/). Trước khi bắt đầu `kcnd`, trích xuất bản thu thập dữ liệu trong DATA_DIR mà bạn định cấu hình trong `kcnd.conf`.
 
-For example:
+Ví dụ:
 
 ```bash
 $ tar -C ~/kcnd_home -xvf klaytn-cypress-chaindata-latest.tar.gz
 ```
 
-Or,
+Hoặc,
 
 ```bash
 $ tar -C ~/kcnd_home -xvf klaytn-baobab-chaindata-latest.tar.gz
 ```
 
-After the data is extracted, you may start the CN normally.
+Sau khi dữ liệu được trích xuất, bạn có thể bắt đầu CN như bình thường.
 
-You can refer to detailed information in the [Chaindata change](../../../misc/operation/chaindata-change.md)
+Bạn có thể tham khảo thông tin chi tiết tại [Thay đổi dữ liệu chuỗi](../../../misc/operation/chaindata-change.md)
 
-## Startup the CN <a id="startup-the-cn"></a>
+## Khởi động CN <a id="startup-the-cn"></a>
 
-### CN Start/Stop  <a id="cn-start-stop"></a>
+### Bắt đầu/Dừng CN  <a id="cn-start-stop"></a>
 
-You can start/stop the Klaytn service with the following `systemctl` command.
+Bạn có thể bắt đầu/dừng dịch vụ Klaytn bằng lệnh `systemctl` sau đây.
 
-**Note**: This requires root privileges.
+**Lưu ý**: Việc này yêu cầu quyền root.
 
-**start**
+**bắt đầu**
 
 ```bash
 $ systemctl start kcnd.service
 
 ```
 
-**stop**
+**dừng**
 
 ```bash
 $ systemctl stop kcnd.service
 
 ```
 
-**status**
+**trạng thái**
 
 ```bash
 $ systemctl status kcnd.service
 
 ```
 
-### Troubleshooting <a id="troubleshooting"></a>
+### Khắc phục sự cố <a id="troubleshooting"></a>
 
-If you meet the following error,
+Nếu bạn gặp lỗi sau,
 
 ```bash
 Failed to start kcnd.service: Unit not found.
 ```
 
-reload the systemd manager configuration with the following command.
+tải lại cấu hình trình quản lý hệ thống bằng lệnh sau.
 
 ```bash
 $ systemctl daemon-reload
@@ -230,17 +230,17 @@ $ kcn account bls-info --datadir /var/kcnd/data
 
 As a result, `bls-publicinfo-NODEID.json` file will be created.
 
-## Testing the Core Cell <a id="testing-the-core-cell"></a>
+## Kiểm tra Core Cell <a id="testing-the-core-cell"></a>
 
-It is time to check that Core Cell is successfully installed and it is working as expected after installation.
+Đã đến lúc kiểm tra xem Core Cell đã được cài đặt thành công chưa và nó có hoạt động như mong đợi sau khi cài đặt không.
 
-### Process Status <a id="process-status"></a>
+### Tình trạng xử lý <a id="process-status"></a>
 
-It is possible to check the status of CN's process using the status commands `systemctl` and `kcnd`.
+Có thể kiểm tra trạng thái quy trình của CN bằng các lệnh trạng thái `systemctl` và `kcnd`.
 
 #### systemctl <a id="systemctl"></a>
 
-`systemctl` is installed along with the RPM and the status of CN can be checked as follows.
+`systemctl` được cài đặt cùng với RPM, có thể kiểm tra trạng thái của CN như sau.
 
 ```bash
 $ systemctl status kcnd.service
@@ -258,22 +258,22 @@ Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal kcnd[29636]: Star
 Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal systemd[1]: Started (null).
 ```
 
-You can check the current status such as `Active: active (running)` in the above example.
+Bạn có thể kiểm tra trạng thái hiện tại như `Active: active (running)` trong ví dụ trên.
 
 #### kcnd <a id="kcnd-kpnd"></a>
 
-`kcnd` is installed along with the package and the status of CN can be checked as follows.
+`kcnd` được cài đặt cùng với gói và trạng thái của CN có thể được kiểm tra như sau.
 
 ```bash
 $ kcnd status
 kcnd is running
 ```
 
-### Logs <a id="logs"></a>
+### Nhật ký <a id="logs"></a>
 
-The log is stored in `kcnd.out` file located in the path defined in the `LOG_DIR` field of the `kcnd.conf` file. When the node works properly, you can see that each block is created per second as follows.
+Nhật ký được lưu ở `kcnd.out` tại đường dẫn xác định trong trường `LOG_DIR` của tập tin `kcnd.conf`. Khi nút hoạt động bình thường, bạn có thể thấy rằng mỗi giây sẽ có một khối được tạo như sau.
 
-Example:
+Ví dụ:
 
 ```bash
 $ tail kcnd.out
@@ -289,13 +289,13 @@ INFO[02/13,07:02:27 Z] [5] Imported new chain segment                blocks=1 tx
 INFO[02/13,07:02:27 Z] [35] Commit new mining work                    number=11572927 txs=0 elapsed=483.436µs
 ```
 
-### kcn console <a id="kcn-console-kpn-console"></a>
+### bảng điều khiển kcn <a id="kcn-console-kpn-console"></a>
 
-Klaytn provides a CLI client: `kcn console`. However, a CN may disable the RPC interface for the client due to the security reason. Another way of using the client is to connect to the process via IPC (inter-process communication).
+Klaytn cung cấp một CLI khách: `bảng điều khiển kcn`. Tuy nhiên, CN có thể vô hiệu hóa giao diện RPC cho máy khách vì lý do bảo mật. Một cách khác để sử dụng máy khách là kết nối với quy trình thông qua IPC (giao tiếp giữa các quy trình).
 
-The IPC file `klay.ipc` is located in the `data` directory on a CN.
+Tập tin IPC `klay.ipc` nằm ở thư mục `data` trên CN.
 
-Please execute the following command and check out the result.
+Hãy thực hiện lệnh sau và kiểm tra kết quả.
 
 ```bash
 $ ken attach /var/kend/data/klay.ipc
@@ -307,16 +307,16 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
  >
 ```
 
-You can check the usable commands on [API Document](../../../references/json-rpc/json-rpc.md)
+Bạn có thể kiểm tra các lệnh có thể sử dụng trên [Tài liệu API](../../../references/json-rpc/json-rpc.md)
 
-The useful APIs to check the status of a CN:
+API hữu dụng để kiểm tra trạng thái của CN:
 
-- `klay.blockNumber` (to get the latest block number)
-- `net.peerCount` (to get the number of the connected Klaytn nodes currently)
+- `klay.blockNumber` (để lấy số khối mới nhất)
+- `net.peerCount` (để lấy số nút Klaytn được kết nối hiện tại)
 
 #### klay.blockNumber  <a id="klay-blocknumber"></a>
 
-You can get the latest block number to see if blocks are created (for CNs) or propagated (for CNs and PNs) properly based on your node type.
+Bạn có thể lấy số khối mới nhất để xem liệu các khối được tạo (đối với CN) hay được truyền (đối với CN và PN) đúng cách không dựa trên loại nút của bạn.
 
 ```javascript
 > klay.blockNumber
@@ -330,7 +330,7 @@ You can get the latest block number to see if blocks are created (for CNs) or pr
 14
 ```
 
-The above command line returns a different value based on the node type.
+Dòng lệnh trên trả về một giá trị khác dựa trên loại nút.
 
-- CN: the number of connected CNs + the number of connected PNs.
-- PN: the number of connected CNs + the number of connected PNs + the number of connected ENs.
+- CN: số CN được kết nối + số PN được kết nối.
+- PN: số CN được kết nối + số PN được kết nối + số EN được kết nối.
