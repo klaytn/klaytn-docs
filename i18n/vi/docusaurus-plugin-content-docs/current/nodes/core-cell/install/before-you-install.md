@@ -1,28 +1,28 @@
-# Before You Install
+# Trước khi bạn cài đặt
 
-## Download <a id="download"></a>
+## Tải xuống <a id="download"></a>
 
-You can get packages for CN, and PN in the [download page](../../downloads/downloads.md).
+Bạn có thể tải về các gói cho CN và PN tại [trang tải về](../../downloads/downloads.md).
 
-## Before You Install <a id="before-you-install"></a>
+## Trước khi bạn cài đặt <a id="before-you-install"></a>
 
-Before installing the Klaytn package, it is required to create the associated node information to enroll your node URIs. The Kgen package is provided for CC operators, please follow the steps in the order shown below.
+Trước khi cài đặt gói Klaytn, bạn cần tạo thông tin nút liên kết để đăng ký URI nút. Gói Kgen được cấp cho người vận hành CC, vui lòng làm theo tuần tự các bước bên dưới.
 
-1. Download `kgen` Package
+1. Gói tải về `kgen`
 2. Node Key & Node URI Creation
-3. Node URI Enrollment
+3. Đăng ký URI nút
 
-### Download `kgen` Package <a id="download-kgen-package"></a>
+### Gói tải về `kgen` <a id="download-kgen-package"></a>
 
-First of all, you can download the latest version of `kgen` package depending on your operating systems on [Download](../../downloads/downloads.md) page.
+Đầu tiên, bạn cần tải về phiên bản mới nhất của gói `kgen` tùy thuộc vào hệ điều hành của bạn ở trang [Tải xuống](../../downloads/downloads.md).
 
-You can find the `kgen` binary file under the `bin` directory.
+Bạn có thể tìm tập tin nhị phân `kgen`trong thư mục `bin`.
 
 ### Node Key & Node URI Creation <a id="node-key-node-uri-creation"></a>
 
-The node key and the node URI are created only once at the beginning. The node URI must be shared with other Core Cells of the Core Cell Network. A CN connects to other CNs and a PN connects to a CN and some PNs using the created node URI. A node URI is created based on the node key by using the downloaded `kgen`. The below command line creates `nodekey` as well as `node_info.json`.
+Khóa nút và URI nút chỉ được tạo một lần khi bắt đầu. URI nút phải được chia sẻ với các Core Cell khác trong Mạng lưới Core Cell. Một CN kết nối với các CN khác còn một PN kết nối với một CN và vài PN bằng URI nút đã tạo. URI nút được tạo dựa trên khóa nút bằng `kgen` đã tải về. Dòng lệnh dưới đây tạo `khóa nút` và `node_info.json`.
 
-`kgen` takes the associated IP and Port number as follows.
+`kgen` lấy IP và số Cổng liên kết như sau.
 
 ```text
 $ kgen --ip "123.456.789.012" --port 32323 --file
@@ -30,7 +30,7 @@ $ ls
 nodekey node_info.json
 ```
 
-The `nodekey` is a 64-byte hexadecimal string which is a private key used in the node internally. This private key must be present at the Klaytn data directory and be careful not to lose it.
+`Khóa nút` là chuỗi thập lục phân 64 byte, cũng là khóa riêng tư được sử dụng nội bộ trong nút. Khóa riêng tư này phải có trong thư mục dữ liệu Klaytn và bạn nên cẩn thận, đừng để làm mất nó.
 
 ```text
 $ cat nodekey
@@ -38,15 +38,15 @@ f08f2118c455a6c9c9b5e035d3571e570a719ea61771e268546e796a264acc2b
 $ mv nodekey ~/kcnd_home
 ```
 
-The created file `node_info.json` includes the following contents.
+Tập tin `node_info.json` được tạo bao gồm các nội dung sau.
 
-| Key Name    | Description                                         | Example                                                                                                                                                                  |
-| :---------- | :-------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| NodeAddress | an address of the associated node                   | 0xc8a23d67f2471066fa1b07270651fea7e5c0cf78                                                                                                                               |
-| NodeKey     | the node key (a.k.a private key) | aaa7248dfdf19418ae9121a0f39db39c5c27a3e404ea7c1b8e020ca8dbe7e71a                                                                                                         |
-| NodeURI     | node URI                                            | kni://4f2f47f3bf35a2c576d3345e6e9c49b147d510c05832d2458709f63c3c90c76ead205975d944ed65e77dd4c6f63ebe1ef21d60da95952bc1e200e7487f4d9e1b\@123.456.789.012:32323?discport=0 |
+| Tên khoá    | Mô tả                                           | Ví dụ                                                                                                                                                                  |
+| :---------- | :---------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| NodeAddress | địa chỉ của một nút liên kết                    | 0xc8a23d67f2471066fa1b07270651fea7e5c0cf78                                                                                                                               |
+| Khóa nút    | khóa nút (hay khóa riêng tư) | aaa7248dfdf19418ae9121a0f39db39c5c27a3e404ea7c1b8e020ca8dbe7e71a                                                                                                         |
+| NodeURI     | URI nút                                         | kni://4f2f47f3bf35a2c576d3345e6e9c49b147d510c05832d2458709f63c3c90c76ead205975d944ed65e77dd4c6f63ebe1ef21d60da95952bc1e200e7487f4d9e1b\@123.456.789.012:32323?discport=0 |
 
-`node_info.json` contains the node information in a JSON format as follows.
+`node_info.json` chứa thông tin nút trong định dạng JSON như sau.
 
 ```text
 $ cat node_info.json
@@ -57,16 +57,16 @@ $ cat node_info.json
 }
 ```
 
-### Node URI Enrollment <a id="node-uri-enrollment"></a>
+### Đăng ký URI nút <a id="node-uri-enrollment"></a>
 
-The created node URI should be enrolled to participate in the Core Cell Network (CCN). The process of the enrollment is as follows.
+URI nút được tạo nên được đăng ký để tham gia Mạng lưới Core Cell (CCN). Quá trình đăng ký sẽ diễn ra như sau.
 
-1. Create a node URI using `kgen` (`node_info.json`) which contains the associated IP and Port number.
-2. Send the information to the official Klaytn email address (`bootstrap@klaytn.com` for Cypress or `baobab@klaytn.com` for Baobab).
+1. Tạo một URI nút bằng`kgen` (`node_info.json`) có chứa IP và số Cổng liên kết.
+2. Gửi thông tin đến địa chỉ email chính thức của Klaytn (`bootstrap@klaytn.com` cho Cypress hoặc `baobab@klaytn.com` cho Baobab).
 
-The enrolled information should be sent to the official Klaytn email address. The format is as follows.
+Thông tin đăng ký cần được gửi đến địa chỉ email chính thức của Klaytn. Định dạng sẽ như sau.
 
-In case of CN,
+Trong trường hợp CN,
 
 ```text
 Company: Kakao
@@ -74,7 +74,7 @@ CN URI : kni://
 4f2f47f3bf35a2c576d3345e6e9c49b147d510c05832d2458709f63c3c90c76ead205975d944ed65e77dd4c6f63ebe1ef21d60da95952bc1e200e7487f4d9e1b@123.456.789.012:32323?discport=0
 ```
 
-In case of PN,
+Trong trường hợp PN,
 
 ```text
 Company: Kakao
