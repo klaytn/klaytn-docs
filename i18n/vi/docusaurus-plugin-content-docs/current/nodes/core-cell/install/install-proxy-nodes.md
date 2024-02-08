@@ -1,16 +1,16 @@
-# Install Proxy Nodes
+# Thiết lập nút proxy
 
-## Download
+## Tải về <a id="download"></a>
 
-You can download the latest version of the `kpn`  on [Download](../../downloads/downloads.md) page.
+Bạn có thể tải về phiên bản mới nhất của `kpn` trên trang [Tải xuống](../../downloads/downloads.md).
 
-## Installation <a id="installation"></a>
+## Cài đặt <a id="installation"></a>
 
-### Linux Archive Distribution <a id="linux-archive-distribution"></a>
+### Phân bổ lưu trữ Linux <a id="linux-archive-distribution"></a>
 
-The archive file consists of the executable binary and the configuration file structured as follows.
+Tập tin lưu trữ bao gồm tập tin nhị phân thực thi và cấu hình có cấu trúc như sau.
 
-**Note**: Do NOT alter the file structure or file name. If you change it, the node may not function correctly.
+**Lưu ý**: KHÔNG thay đổi cấu trúc hoặc tên tập tin. Nếu bạn thay đổi điều đó, nút có thể sẽ không hoạt động đúng.
 
 ```text
 - bin
@@ -20,91 +20,91 @@ The archive file consists of the executable binary and the configuration file st
   |- kpnd.conf
 ```
 
-| File Name      | File Description                 |
+| Tên tập tin    | Mô tả tập tin                    |
 | :------------- | :------------------------------- |
-| bin/kpn        | PN executable file               |
-| bin/kpnd       | PN start/termination script file |
-| conf/kpnd.conf | PN configuration file            |
+| bin/kpn        | Tập tin thực thi PN              |
+| bin/kpnd       | Tập tin lệnh bắt đầu/kết thúc PN |
+| conf/kpnd.conf | Tập tin cấu hình PN              |
 
-The installation is the uncompression of the downloaded package where you want to install the package.
+Quá trình cài đặt chính là giải nén gói đã tải về tại nơi bạn muốn cài đặt gói.
 
 ```bash
 $ tar zxf kpn-vX.X.X-linux-amd64.tar.gz
 ```
 
-Or,
+Hoặc,
 
 ```bash
 $ tar zxf kpn-baobab-vX.X.X-linux-amd64.tar.gz
 ```
 
-**Note**: it is recommended that the uncompressed directory `kpn-linux-amd64/bin` path should be added to the environment variable `$PATH` to run the `kpn` and `kpnd` globally. As an example,
+**Lưu ý**: nên thêm đường dẫn thư mục chưa giải nén `kcn-linux-amd64/bin` vào biến môi trường `$PATH` để chạy `kcn` và `kcnd` trên toàn hệ thống. Ví dụ,
 
 ```bash
 $ export PATH=$PATH:~/downloaded/path/kpn-linux-amd64/bin
 ```
 
-The other sections assume that the path is added to the variable.
+Các phần khác giả định rằng đường dẫn đã được thêm vào biến.
 
-### RPM Distribution (RHEL/CentOS/Fedora) <a id="rpm-rhel-centos-fedora"></a>
+### Phân bổ RPM (RHEL/CentOS/Fedora) <a id="rpm-rhel-centos-fedora"></a>
 
-You can install the downloaded RPM file with the following `yum` command.
+Bạn có thể cài đặt RPM đã tải về với lệnh `yum` sau đây.
 
 ```bash
 $ yum install kpnd-vX.X.X.el7.x86_64.rpm
 ```
 
-Or,
+Hoặc,
 
 ```bash
 $ yum install kpnd-baobab-vX.X.X.el7.x86_64.rpm
 ```
 
-### Install from Klaytn Yum Repo <a id="install-from-klaytn-yum-repo"></a>
+### Cài đặt từ Klaytn Yum Repo <a id="install-from-klaytn-yum-repo"></a>
 
-Alternatively, you can install `kpnd` from the Klaytn Yum repo, run:
+Ngoài ra, bạn có thể cài đặt `kpnd` từ Klaytn Yum repo, chạy:
 
 ```bash
 $ sudo curl -o /etc/yum.repos.d/klaytn.repo https://packages.klaytn.net/config/rhel/7/prod.repo && sudo yum install kpnd
 ```
 
-### Installed Location <a id="installed-location"></a>
+### Vị trí đã cài đặt <a id="installed-location"></a>
 
-The installed files are located as follows.
+Tập tin đã cài đặt nằm ở vị trí như sau.
 
-| File Name | Location                 |
-| :-------- | :----------------------- |
-| kpn       | /usr/bin/kpn             |
-| kpnd.conf | /etc/kpnd/conf/kpnd.conf |
+| Tên tập tin | Vị trí                   |
+| :---------- | :----------------------- |
+| kpn         | /usr/bin/kpn             |
+| kpnd.conf   | /etc/kpnd/conf/kpnd.conf |
 
-## Configuration <a id="configuration"></a>
+## Cấu hình <a id="configuration"></a>
 
-The PN configuration is to create a data directory and set up several values in the configuration file `kpnd.conf`.
+Cấu hình PN dùng để tạo thư mục dữ liệu và thiết lập các giá trị trong tập tin cấu hình `kpnd.conf`.
 
-1. Create a PN Data Directory
-2. Install node key
-3. Install `static-node.json`
-4. Configure the PN with `kpnd.conf`.
+1. Tạo thư mục dữ liệu PN
+2. Cài đặt khóa nút
+3. Cài đặt `static-node.json`
+4. Định cấu hình PN với `kpnd.conf`.
 
-### PN Data Directory Creation <a id="pn-data-directory-creation"></a>
+### Tạo thư mục dữ liệu PN <a id="pn-data-directory-creation"></a>
 
-Considering the fact that the size of Klaytn blockchain data is always increased, it is recommended to use a big enough storage. You may need to create the directory on your desired path.
+Kích thước của dữ liệu blockchain Klaytn sẽ luôn tăng lên thế nên cần sử dụng một dung lượng lưu trữ đủ lớn. Bạn có thể cần phải tạo thư mục trên đường dẫn bạn muốn.
 
 ```bash
 $ mkdir -p /var/kpnd/data
 ```
 
-### Install Node Key <a id="install-node-key"></a>
+### Cài đặt Khóa nút <a id="install-node-key"></a>
 
-In order to operate a PN, a `nodekey` is required. The KPN binary will create a new one for you if you do not have it. If you have one, you need to put your `nodekey` into the PN data directory. The way to create a `nodekey` is in the "[Before You Install](./before-you-install.md)" section. The following command line copies the `nodekey` into the PN data directory.
+Để vận hành PN cần có `khóa nút`. Nhị phân PN Klaytn sẽ tạo ra một nút mới nếu bạn không có sẵn. Nếu bạn đã có, bạn cần chuyển `khóa nút` vào thư mục dữ liệu PN. Cách để tạo `khóa nút` được mô tả trong phần '[Trước khi bạn cài đặt](./before-you-install.md)'. Dòng lệnh sau sao chép `khóa nút` vào thư mục dữ liệu PN.
 
 ```bash
 $ cp nodekey /var/kpnd/data
 ```
 
-### Install `static-nodes.json` <a id="install-static-nodes-json"></a>
+### Cài đặt `static-nodes.json` <a id="install-static-nodes-json"></a>
 
-The `static-nodes.json` should be created from the PN operator. It contains the addresses that your PN is connected to. It is recommended to add the addresses including your CN and a PN from another Core Cell. Please contact to the Klaytn official email for more details (`bootstrap@klaytn.com` for Cypress or `baobab@klaytn.com` for Baobab).
+`static-nodes.json` nên được tạo bởi người vận hành PN. Nó chứa các địa chỉ kết nối với PN của bạn. Bạn nên thêm địa chỉ bao gồm CN và PN từ Core Cell khác. Vui lòng liên hệ qua email chính thức của Klaytn để biết thêm chi tiết (`bootstrap@klaytn.com` cho Cypress hoặc `baobab@klaytn.com` cho Baobab).
 
 **static-nodes.json**
 
@@ -115,22 +115,22 @@ The `static-nodes.json` should be created from the PN operator. It contains the 
 ]
 ```
 
-The node URI of the PN is in the "[Before You Install](./before-you-install.md)" section. (Note: This IP address is different from CN public IP.) The following command line copies the `static-nodes.json` file into the PN data directory.
+URI nút của PN có trong phần '[Trước khi bạn cài đặt](./before-you-install.md)'. (Lưu ý: Địa chỉ IP này khác với IP công khai của CN.) Dòng lệnh sau sao chép tập tin `static-nodes.json` vào thư mục dữ liệu PN.
 
 ```bash
 $ cp static-nodes.json /var/kpnd/data
 ```
 
-### Update the Configuration File <a id="update-the-configuration-file"></a>
+### Cập nhật Tập tin cấu hình <a id="update-the-configuration-file"></a>
 
-Configuration File Location:
+Vị trí tập tin cấu hình:
 
-- For the archive distribution, the config directory location defaults to `$INSTALL_PATH/kpn-linux-amd64/conf/`.
-- For the package distribution, the config directory defaults to `/etc/kpnd/conf/`.
+- Nếu phân bổ lưu trữ, vị trí thư mục cấu hình mặc định là `$INSTALL_PATH/kpn-linux-amd64/conf/`.
+- Nếu phân bổ gói, vị trí thư mục cấu hình mặc định là `/etc/kpnd/conf/`.
 
-#### Add Data Directory  <a id="add-data-directory"></a>
+#### Thêm Thư mục dữ liệu  <a id="add-data-directory"></a>
 
-You should update the the data directory environment variable `$DATA_DIR` on the configuration file `kpnd.conf`.
+Bạn nên cập nhật biến môi trường thư mục dữ liệu `$DATA_DIR`trên tập tin cấu hình `kpnd.conf`.
 
 ```text
 ...
@@ -138,84 +138,84 @@ DATA_DIR=/var/kpnd/data
 ...
 ```
 
-### Fast Sync (Optional) <a id="fast-sync-optional"></a>
+### Đồng bộ nhanh (Tùy chọn) <a id="fast-sync-optional"></a>
 
-Each PN maintains a copy of the network's chain data. If a node is out of sync, it can obtain this data from other nodes in the network -- a process known as syncing. When a new PN is first started, it must download the entire chain data from the network.
+Mỗi PN duy trì một bản sao dữ liệu chuỗi của mạng lưới. Nếu một nút không được đồng bộ, nút này có thể lấy dữ liệu này từ các nút khác trong mạng lưới -- một quá trình được gọi là đồng bộ hóa. Khi một PN mới được bắt đầu lần đầu tiên, nó phải tải xuống toàn bộ dữ liệu chuỗi từ mạng lưới.
 
-To accelerate this process, you may perform a fast sync by downloading a snapshot of the chain data before starting the PN. This can dramatically reduce the time the PN will spend syncing on first start.
+Để đẩy nhanh quá trình này, bạn cần thực hiện đồng bộ nhanh bằng cách tải về bản thu thập dữ liệu của dữ liệu chuỗi trước khi bắt đầu PN. Điều này giúp giảm đáng kể thời gian PN cần để đồng bộ khi bắt đầu lần đầu tiên.
 
-Download the latest chaindata snapshot from the [Cypress snapshot archive](http://packages.klaytn.net/cypress/chaindata/) or [Baobab snapshot archive](http://packages.klaytn.net/baobab/chaindata/). Before starting `kpnd`, extract the snapshot inside the DATA_DIR you configured in `kpnd.conf`.
+Tải xuống bản thu thập dữ liệu chuỗi mới nhất từ [Lưu trữ thu thập dữ liệu Cypress](http://packages.klaytn.net/cypress/chaindata/) hoặc[Lưu trữ thu thập dữ liệu Baobab](http://packages.klaytn.net/baobab/chaindata/). Trước khi bắt đầu `kpnd`, trích xuất bản thu thập dữ liệu trong DATA_DIR mà bạn định cấu hình trong `kpnd.conf`.
 
-For example:
+Ví dụ:
 
 ```text
 $ tar -C /var/kpnd/data -xvf klaytn-cypress-chaindata-latest.tar.gz
 ```
 
-Or,
+Hoặc,
 
 ```text
 $ tar -C /var/kpnd/data -xvf klaytn-baobab-chaindata-latest.tar.gz
 ```
 
-After the data is extracted, you may start the PN normally.
+Sau khi dữ liệu được trích xuất, bạn có thể bắt đầu PN như bình thường.
 
-You can refer to detailed information in the [Chaindata change](../../../misc/operation/chaindata-change.md)
+Bạn có thể tham khảo thông tin chi tiết tại [Thay đổi dữ liệu chuỗi](../../../misc/operation/chaindata-change.md)
 
-## Startup the PN <a id="startup-the-pn"></a>
+## Khởi động PN <a id="startup-the-pn"></a>
 
-### PN Start/Stop  <a id="pn-start-stop"></a>
+### Bắt đầu/Dừng PN  <a id="pn-start-stop"></a>
 
-You can start/stop the Klaytn service with the following `systemctl` command.
+Bạn có thể bắt đầu/dừng dịch vụ Klaytn bằng lệnh `systemctl` sau đây.
 
-**Note**: This requires root privileges.
+**Lưu ý**: Việc này yêu cầu quyền root.
 
-**start**
+**bắt đầu**
 
 ```bash
 $ systemctl start kpnd.service
 
 ```
 
-**stop**
+**dừng**
 
 ```bash
 $ systemctl stop kpnd.service
 
 ```
 
-**status**
+**trạng thái**
 
 ```bash
 $ systemctl status kpnd.service
 
 ```
 
-### Troubleshooting <a id="troubleshooting"></a>
+### Khắc phục sự cố <a id="troubleshooting"></a>
 
-If you meet the following error,
+Nếu bạn gặp lỗi sau,
 
 ```bash
 Failed to start kpnd.service: Unit not found.
 ```
 
-reload the systemd manager configuration with the following command.
+tải lại cấu hình trình quản lý hệ thống bằng lệnh sau.
 
 ```bash
 $ systemctl daemon-reload
 ```
 
-## Testing the Core Cell <a id="testing-the-core-cell"></a>
+## Kiểm tra Core Cell <a id="testing-the-core-cell"></a>
 
-It is time to check that Core Cell is successfully installed and it is working as expected after installation.
+Đã đến lúc kiểm tra xem Core Cell đã được cài đặt thành công chưa và nó có hoạt động như mong đợi sau khi cài đặt không.
 
-### Process Status <a id="process-status"></a>
+### Tình trạng xử lý <a id="process-status"></a>
 
-It is possible to check the status of PN's process using the status commands `systemctl` and `kpnd`.
+Có thể kiểm tra trạng thái quy trình của PN bằng các lệnh trạng thái `systemctl` và `kpnd`.
 
 #### systemctl <a id="systemctl"></a>
 
-`systemctl` is installed along with the RPM and the status of PN can be checked as follows.
+`systemctl` được cài đặt cùng với RPM, có thể kiểm tra trạng thái của PN như sau.
 
 ```bash
 $ systemctl status kpnd.service
@@ -233,22 +233,22 @@ Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal kpnd[29636]: Star
 Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal systemd[1]: Started (null).
 ```
 
-You can check the current status such as `Active: active (running)` in the above example.
+Bạn có thể kiểm tra trạng thái hiện tại như `Active: active (running)` trong ví dụ trên.
 
 #### kpnd <a id="kcnd-kpnd"></a>
 
-`kpnd` is installed along with the package and the status of PN can be checked as follows.
+`kpnd` được cài đặt cùng với gói và trạng thái của PN có thể được kiểm tra như sau.
 
 ```bash
 $ kpnd status
 kpnd is running
 ```
 
-### Logs <a id="logs"></a>
+### Nhật ký <a id="logs"></a>
 
-The log is stored in `kpnd.out` file located in the path defined in the `LOG_DIR` field of the `kpnd.conf` file. When the node works properly, you can see that each block is created per second as follows.
+Nhật ký được lưu ở `kpnd.out` tại đường dẫn xác định trong trường `LOG_DIR` của tập tin `kpnd.conf` (hoặc `kpnd.conf`). Khi nút hoạt động bình thường, bạn có thể thấy rằng mỗi giây sẽ có một khối được tạo như sau.
 
-Example:
+Ví dụ:
 
 ```bash
 $ tail kpnd.out
@@ -264,13 +264,13 @@ INFO[02/13,07:02:27 Z] [5] Imported new chain segment                blocks=1 tx
 INFO[02/13,07:02:27 Z] [35] Commit new mining work                    number=11572927 txs=0 elapsed=483.436µs
 ```
 
-### kpn console <a id="kcn-console-kpn-console"></a>
+### bảng điều khiển kpn <a id="kcn-console-kpn-console"></a>
 
-Klaytn provides a CLI client: `kpn console`. However, a PN may disable the RPC interface for the client due to the security reason. Another way of using the client is to connect to the process via IPC (inter-process communication).
+Klaytn cung cấp một CLI khách: `bảng điều khiển kpn` (hoặc `bảng điều khiển kpn`). Tuy nhiên, PN có thể vô hiệu hóa giao diện RPC cho máy khách vì lý do bảo mật. Một cách khác để sử dụng máy khách là kết nối với quy trình thông qua IPC (giao tiếp giữa các quy trình).
 
-The IPC file `klay.ipc` is located in the `data` directory on a PN.
+Tập tin IPC `klay.ipc` nằm ở thư mục `data` trên PN.
 
-Please execute the following command and check out the result.
+Hãy thực hiện lệnh sau và kiểm tra kết quả.
 
 ```bash
  $ kpn attach /var/kpnd/data/klay.ipc
@@ -284,16 +284,16 @@ Please execute the following command and check out the result.
   >
 ```
 
-You can check the usable commands on [API Document](../../../references/json-rpc/json-rpc.md)
+Bạn có thể kiểm tra các lệnh có thể sử dụng trên [Tài liệu API](../../../references/json-rpc/json-rpc.md)
 
-The useful APIs to check the status of a PN:
+API hữu dụng để kiểm tra trạng thái của PN:
 
-- `klay.blockNumber` (to get the latest block number)
-- `net.peerCount` (to get the number of the connected Klaytn nodes currently)
+- `klay.blockNumber` (để lấy số khối mới nhất)
+- `net.peerCount` (để lấy số nút Klaytn được kết nối hiện tại)
 
 #### klay.blockNumber  <a id="klay-blocknumber"></a>
 
-You can get the latest block number to see if blocks are created (for CNs) or propagated (for CNs and PNs) properly based on your node type.
+Bạn có thể lấy số khối mới nhất để xem liệu các khối được tạo (đối với CN) hay được truyền (đối với CN và PN) đúng cách không dựa trên loại nút của bạn.
 
 ```javascript
 > klay.blockNumber
@@ -307,7 +307,7 @@ You can get the latest block number to see if blocks are created (for CNs) or pr
 14
 ```
 
-The above command line returns a different value based on the node type.
+Dòng lệnh trên trả về một giá trị khác dựa trên loại nút.
 
-- CN: the number of connected CNs + the number of connected PNs.
-- PN: the number of connected CNs + the number of connected PNs + the number of connected ENs.
+- CN: số CN được kết nối + số PN được kết nối.
+- PN: số CN được kết nối + số PN được kết nối + số EN được kết nối.
