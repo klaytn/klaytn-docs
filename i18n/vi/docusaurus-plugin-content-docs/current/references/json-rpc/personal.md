@@ -1,7 +1,5 @@
 ---
-description: |-
-  description: >-
-    API để quản lý tài khoản và khóa riêng tư trong nút.
+description: API để quản lý tài khoản và khóa riêng tư trong nút.
 ---
 
 # personal
@@ -584,82 +582,82 @@ Xem `personal_ecRecover` để xác minh chữ ký.
 
 **Tham số**
 
-| Tên                | Loại     | Mô tả             |
-| ------------------ | --------- | ----------------- |
-| thông báo          | chuỗi     | Thông báo cần ký. |
-| account            | tài khoản | chuỗi             |
-| Địa chỉ tài khoản. | mật khẩu  | chuỗi             |
+| Tên       | Loại | Mô tả                            |
+| --------- | ----- | -------------------------------- |
+| thông báo | chuỗi | Thông báo cần ký.                |
+| tài khoản | chuỗi | Địa chỉ tài khoản.               |
+| mật khẩu  | chuỗi | Cụm mật khẩu được sử dụng để ký. |
 
-Cụm mật khẩu được sử dụng để ký.
+**Giá trị trả về**
 
-| **Giá trị trả về** | type  |
-| ------------------ | ----- |
-| Mô tả              | chuỗi |
-
-Chữ ký.
+| type  | Mô tả   |
+| ----- | ------- |
+| chuỗi | Chữ ký. |
 
 **Ví dụ**
+
+Bảng điều khiển
 
 ```javascript
 > personal.sign("0xdeadbeaf", "0x9b2055d370f73ec7d8a03e965129118dc8f5bf83", "")
 "0xa3f20717a250c2b0b729b7e5becbff67fdaef7e0699da4de7ca5895b02a170a12d887fd3b17bfdce3481f10bea41f45ba9f709d39ce8325427b57afcfc994cee1b"
 ```
 
-Bảng điều khiển
+HTTP RPC
 
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_sign","params":["0xdead","0xda04fb00e2cb5745cef7d8c4464378202a1673ef","mypassword"],"id":1}' https://public-en-baobab.klaytn.net
 {"jsonrpc":"2.0","id":1,"result":"0xccb8cce176b01fdc8f7ac3c101b8eb3b9005e938a60800e517624419dd8b7fba0e4598bdf1c4fa1743e1288e89b8b7090cc11f4b3640aafcbc71896ec73eec241b"}
 ```
 
-## HTTP RPC
+## personal_signTransaction <a id="personal_signtransaction"></a>
 
-personal_signTransaction <a id="personal_signtransaction"></a>
+Thiết lập cấu hình mặc định và ký giao dịch đã cho.
 
 :::note
 
-Thiết lập cấu hình mặc định và ký giao dịch đã cho. LƯU Ý: Việc gửi mật khẩu tài khoản của bạn qua kết nối HTTP RPC không an toàn là rất nguy hiểm.
+LƯU Ý: Việc gửi mật khẩu tài khoản của bạn qua kết nối HTTP RPC không an toàn là rất nguy hiểm. Sử dụng [klay_signTransaction](./klay/transaction.md#klay_signtransaction).
 
 :::
 
-Sử dụng [klay_signTransaction](./klay/transaction.md#klay_signtransaction).
-
 **Tham số**
-Các tham số bắt buộc phụ thuộc vào loại giao dịch.
 
+Các tham số bắt buộc phụ thuộc vào loại giao dịch.
 Kiểm tra các tham số phù hợp trong [Làm việc với các loại giao dịch Klaytn](klay/transaction-type-support.md).
 
-| **Giá trị trả về**  | type     |
-| ------------------- | -------- |
-| Mô tả               | raw      |
-| Giao dịch thô đã ký | tx       |
-| Đối tượng giao dịch | mật khẩu |
+**Giá trị trả về**
 
-## Mật khẩu người gửi
+| type     | Mô tả               |
+| -------- | ------------------- |
+| raw      | Giao dịch thô đã ký |
+| tx       | Đối tượng giao dịch |
+| mật khẩu | Mật khẩu người gửi  |
 
-personal_ecRecover <a id="personal_ecrecover"></a>
+## personal_ecRecover <a id="personal_ecrecover"></a>
 
-| `ecRecover` trả về địa chỉ được liên kết với khóa riêng tư được sử dụng để tính toán chữ ký trong `personal_sign`. | Máy khách       |
-| :----------------------------------------------------------------------------------------------------------------: | --------------- |
-|                                                   Gọi phương pháp                                                  | Bảng điều khiển |
-|                                      `personal.ecRecover(message, signature)`                                      | RPC             |
+`ecRecover` trả về địa chỉ được liên kết với khóa riêng tư được sử dụng để tính toán chữ ký trong `personal_sign`.
 
-`{"method": "personal_ecRecover", "params": [message, signature]}`
+|    Máy khách    | Gọi phương pháp                                                    |
+| :-------------: | ------------------------------------------------------------------ |
+| Bảng điều khiển | `personal.ecRecover(message, signature)`                           |
+|       RPC       | `{"method": "personal_ecRecover", "params": [message, signature]}` |
 
-| **Tham số** | Tên       | Loại |
-| ----------- | --------- | ----- |
-| Mô tả       | thông báo | chuỗi |
-| Thông báo.  | chữ ký    | chuỗi |
+**Tham số**
 
-Chữ ký.
+| Tên       | Loại | Mô tả      |
+| --------- | ----- | ---------- |
+| thông báo | chuỗi | Thông báo. |
+| chữ ký    | chuỗi | Chữ ký.    |
 
-| **Giá trị trả về** | Loại |
-| ------------------ | ----- |
-| Mô tả              | chuỗi |
+**Giá trị trả về**
 
-Địa chỉ tài khoản.
+| Loại | Mô tả              |
+| ----- | ------------------ |
+| chuỗi | Địa chỉ tài khoản. |
 
 **Ví dụ**
+
+Bảng điều khiển
 
 ```javascript
 > personal.sign("0xdeadbeaf", "0x9b2055d370f73ec7d8a03e965129118dc8f5bf83", "")
@@ -668,7 +666,7 @@ Chữ ký.
 "0x9b2055d370f73ec7d8a03e965129118dc8f5bf83"
 ```
 
-Bảng điều khiển
+HTTP RPC
 
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"personal_sign","params":["0xdead","0xda04fb00e2cb5745cef7d8c4464378202a1673ef","mypassword"],"id":1}' https://public-en-baobab.klaytn.net
