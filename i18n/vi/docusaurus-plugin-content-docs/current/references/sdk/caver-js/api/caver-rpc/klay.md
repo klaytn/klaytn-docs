@@ -1,32 +1,32 @@
 # caver.rpc.klay
 
-`caver.rpc.klay` provides JSON-RPC call with `klay` name space.
+`caver.rpc.klay` cung cấp lệnh gọi JSON-RPC với không gian tên `klay`.
 
-## caver.rpc.klay.accountCreated <a href="#caver-rpc-klay-accountcreated" id="caver-rpc-klay-accountcreated"></a>
+## caver.rpc.klay.tài khoảnCreated <a href="#caver-rpc-klay-accountcreated" id="caver-rpc-klay-accountcreated"></a>
 
 ```javascript
 caver.rpc.klay.accountCreated(address [, blockNumber] [, callback])
 ```
 
-Returns `true` if the account associated with the address is created in the Klaytn blockchain platform. It returns `false` otherwise.
+Trả về `true` nếu tài khoản được liên kết với địa chỉ được tạo trong nền tảng chuỗi khối Klaytn. Nếu không sẽ trả về `false`.
 
-**Parameters**
+**Tham số**
 
-| Name        | Type             | Description                                                                                                                   |
-| ----------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| address     | string           | The address of the account you want to query to see if it has been created on the network.                                    |
-| blockNumber | number \| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.        |
-| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên         | type        | Mô tả                                                                                                                             |
+| ----------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| address     | chuỗi       | Địa chỉ của tài khoản mà bạn muốn truy vấn nếu tài khoản đã được tạo trong mạng.                                                  |
+| blockNumber | số \| chuỗi | (tùy chọn) Số khối hoặc chuỗi `mới nhất` hoặc `cũ nhất`. Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng.      |
+| callback    | hàm         | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `boolean`
+`Promise` trả về `boolean`
 
-| Type    | Description                                      |
-| ------- | ------------------------------------------------ |
-| boolean | The existence of an input address in the Klaytn. |
+| type    | Mô tả                            |
+| ------- | -------------------------------- |
+| boolean | Có địa chỉ đầu vào trong Klaytn. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.rpc.klay.accountCreated('0x{address in hex}').then(console.log)
@@ -39,27 +39,27 @@ true
 caver.rpc.klay.getAccount(address [, blockNumber] [, callback])
 ```
 
-Returns the account information of a given address in the Klaytn. For more details about the types of an account in Klaytn, please refer to [Klaytn Account Types](../../../../../learn/accounts.md#klaytn-account-types).
+Trả về thông tin tài khoản của một địa chỉ nhất định trong Klaytn. Để biết thêm chi tiết về các loại tài khoản trong Klaytn, vui lòng tham khảo [Các loại tài khoản Klaytn](../../../../../learn/accounts.md#klaytn-account-types).
 
-**NOTE** `caver.rpc.klay.getAccount` returns the account that exists on the network, so `null` is returned if the account matching the address does not exist on the actual blockchain network.
+**LƯU Ý** `caver.rpc.klay.getAccount` trả về tài khoản tồn tại trên mạng, nếu tài khoản khớp với địa chỉ không tồn tại trên mạng chuỗi khối thực tế, hàm sẽ trả về `null`.
 
-**Parameters**
+**Tham số**
 
-| Name        | Type             | Description                                                                                                                   |
-| ----------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| address     | string           | The address of the account for which you want to get account information.                                                     |
-| blockNumber | number \| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.        |
-| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên         | type        | Mô tả                                                                                                                             |
+| ----------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| address     | chuỗi       | Địa chỉ của tài khoản mà bạn muốn có thông tin tài khoản.                                                                         |
+| blockNumber | số \| chuỗi | (tùy chọn) Số khối hoặc chuỗi `mới nhất` hoặc `cũ nhất`. Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng.      |
+| callback    | hàm         | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `object`
+`Promise` trả về `đối tượng`
 
-| Type   | Description                                                                                  |
-| ------ | -------------------------------------------------------------------------------------------- |
-| object | An object that contains the account information. Each account type has different attributes. |
+| Loại     | Mô tả                                                                                      |
+| --------- | ------------------------------------------------------------------------------------------ |
+| đối tượng | Một đối tượng chứa thông tin tài khoản. Mỗi loại tài khoản sẽ có các thuộc tính khác nhau. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 // Get account with EOA
@@ -96,27 +96,27 @@ Returns the account information of a given address in the Klaytn. For more detai
 caver.rpc.klay.getAccountKey(address [, blockNumber] [, callback])
 ```
 
-Returns AccountKey of a given address. If the account has [AccountKeyLegacy](../../../../../learn/accounts.md#accountkeylegacy) or the account of the given address is a [Smart Contract Account](../../../../../learn/accounts.md#smart-contract-accounts-scas), it will return an empty key value. Please refer to [Account Key](../../../../../learn/accounts.md#account-key) for more details.
+Trả về AccountKey của một địa chỉ đã cho. Nếu tài khoản có [AccountKeyLegacy](../../../../../learn/accounts.md#accountkeylegacy) hoặc tài khoản của địa chỉ đã cho là [Tài khoản hợp đồng thông minh](../../../../../learn/accounts.md#smart-contract-accounts-scas), tài khoản đó sẽ trả về một giá trị khóa trống. Vui lòng tham khảo [Khóa tài khoản](../../../../../learn/accounts.md#account-key) để biết thêm thông tin chi tiết.
 
-**NOTE** `caver.rpc.klay.getAccountKey` returns an object that differs by each AccountKey type. If a Klaytn account matching the given address does not exist in the network, `null` is returned.
+**LƯU Ý** `caver.rpc.klay.getAccountKey` trả về một đối tượng khác nhau theo từng loại AccountKey. Nếu tài khoản Klaytn khớp với địa chỉ đã cho không tồn tại trong mạng thì sẽ trả về `null`.
 
-**Parameters**
+**Tham số**
 
-| Name        | Type             | Description                                                                                                                   |
-| ----------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| address     | string           | The address of Klaytn account from which you want to get an object of AccountKey information.                                 |
-| blockNumber | number \| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.        |
-| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên         | Loại       | Mô tả                                                                                                                             |
+| ----------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| address     | chuỗi       | Địa chỉ của tài khoản Klaytn mà bạn muốn lấy một đối tượng của thông tin AccountKey.                                              |
+| blockNumber | số \| chuỗi | (tùy chọn) Số khối hoặc chuỗi `mới nhất` hoặc `cũ nhất`. Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng.      |
+| callback    | hàm         | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `object`
+`Promise` trả về `đối tượng`
 
-| Type   | Description                                                                                    |
-| ------ | ---------------------------------------------------------------------------------------------- |
-| object | An object that contains AccountKey information. Each AccountKey type has different attributes. |
+| Loại     | Mô tả                                                                                        |
+| --------- | -------------------------------------------------------------------------------------------- |
+| đối tượng | Một đối tượng chứa thông tin AccountKey. Mỗi loại AccountKey sẽ có các thuộc tính khác nhau. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 // AccountKey type: AccountKeyLegacy
@@ -184,24 +184,24 @@ Returns AccountKey of a given address. If the account has [AccountKeyLegacy](../
 caver.rpc.klay.encodeAccountKey(accountKey [, callback])
 ```
 
-Encodes an object that contains AccountKey information using the Recursive Length Prefix (RLP) encoding scheme. Also you can use [account.getRLPEncodingAccountKey](../caver.account.md#account-getrlpencodingaccountkey) to get RLP-encoded AccountKey.
+Mã hóa một đối tượng chứa thông tin AccountKey bằng sơ đồ mã hóa Tiền tố độ dài đệ quy (RLP). Ngoài ra, bạn có thể sử dụng [tài khoản.getRLPEncodingAccountKey](../caver.account.md#account-getrlpencodingaccountkey) để lấy AccountKey được mã hóa bằng RLP.
 
-**Parameters**
+**Tham số**
 
-| Name       | Type     | Description                                                                                                                                                                                                                                                                                                                                                                                                                |
-| ---------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| accountKey | object   | An object defines `keyType` and `key` inside or an instance of `AccountKey` ([AccountKeyLegacy](../caver.account.md#accountkeylegacy), [AccountKeyPublic](../caver.account.md#accountkeypublic), [AccountKeyFail](../caver.account.md#accountkeyfail), [AccountKeyWeightedMultiSig](../caver.account.md#accountkeyweightedmultisig) or [AccountKeyRoleBased](../caver.account.md#accountkeyrolebased)). |
-| callback   | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                                                                                                                                                                                                                              |
+| Tên          | Loại     | Mô tả                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| ------------ | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| tài khoảnKey | đối tượng | Một đối tượng xác định `keyType` và `khóa` bên trong hoặc một phiên bản của `AccountKey` ([AccountKeyLegacy](../caver.account.md#accountkeylegacy), [AccountKeyPublic](../caver.account.md#accountkeypublic), [AccountKeyFail](../caver.account.md#accountkeyfail), [AccountKeyWeightedMultiSig](../caver.account.md#accountkeyweightedmultisig) hoặc [AccountKeyRoleBased](../caver.account.md#accountkeyrolebased)). |
+| callback     | hàm       | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                                                                                                                                                                                                                                                                                         |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `string`
+`Promise` trả về `chuỗi`
 
-| Type   | Description               |
-| ------ | ------------------------- |
-| string | A RLP-encoded AccountKey. |
+| Loại | Mô tả                       |
+| ----- | --------------------------- |
+| chuỗi | AccountKey được mã hóa RLP. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 // AccountKey type: AccountKeyLegacy
@@ -303,24 +303,24 @@ Encodes an object that contains AccountKey information using the Recursive Lengt
 caver.rpc.klay.decodeAccountKey(encodedKey [, callback])
 ```
 
-Decodes a RLP-encoded AccountKey. Also you can use [caver.account.accountKey.decode](../caver.account.md#caver-account-accountkey-decode) to decode a RLP-encoded AccountKey.
+Giải mã AccountKey được mã hóa RLP. Ngoài ra, bạn có thể sử dụng [caver.tài khoản.tài khoảnKey.decode](../caver.account.md#caver-account-accountkey-decode) để giải mã AccountKey được mã hóa bằng RLP.
 
-**Parameters**
+**Tham số**
 
-| Name       | Type     | Description                                                                                                                   |
-| ---------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| encodedKey | string   | A RLP-encoded AccountKey.                                                                                                     |
-| callback   | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên        | Loại | Mô tả                                                                                                                             |
+| ---------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
+| encodedKey | chuỗi | AccountKey được mã hóa RLP.                                                                                                       |
+| callback   | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `object`
+`Promise` trả về `đối tượng`
 
-| Type   | Description                                   |
-| ------ | --------------------------------------------- |
-| object | An object defines `keyType` and `key` inside. |
+| Loại     | Mô tả                                                |
+| --------- | ---------------------------------------------------- |
+| đối tượng | Một đối tượng xác định `keyType` và `Key` bên trong. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 // AccountKey type: AccountKeyLegacy
@@ -418,25 +418,25 @@ Decodes a RLP-encoded AccountKey. Also you can use [caver.account.accountKey.dec
 caver.rpc.klay.getBalance(address [, blockNumber] [, callback])
 ```
 
-Returns the balance of the account of the given address in Klaytn.
+Trả về số dư tài khoản của địa chỉ đã cho trong Klaytn.
 
-**Parameters**
+**Tham số**
 
-| Name        | Type             | Description                                                                                                                   |
-| ----------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| address     | string           | The address of the account for which you want to get balance.                                                                 |
-| blockNumber | number \| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.        |
-| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên         | Loại       | Mô tả                                                                                                                             |
+| ----------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| address     | chuỗi       | Địa chỉ của tài khoản mà bạn muốn lấy số dư.                                                                                      |
+| blockNumber | số \| chuỗi | (tùy chọn) Số khối hoặc chuỗi `mới nhất` hoặc `cũ nhất`. Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng.      |
+| callback    | hàm         | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `string`
+`Promise` trả về `chuỗi`
 
-| Type   | Description                                       |
-| ------ | ------------------------------------------------- |
-| string | The current balance for the given address in peb. |
+| Loại | Mô tả                                       |
+| ----- | ------------------------------------------- |
+| chuỗi | Số dư hiện tại cho địa chỉ đã cho bằng peb. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.rpc.klay.getBalance('0x{address in hex}').then(console.log)
@@ -449,25 +449,25 @@ Returns the balance of the account of the given address in Klaytn.
 caver.rpc.klay.getCode(address [, blockNumber] [, callback])
 ```
 
-Returns code at a given address.
+Trả về mã ở địa chỉ đã cho.
 
-**Parameters**
+**Tham số**
 
-| Name        | Type             | Description                                                                                                                   |
-| ----------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| address     | string           | The address to get the code from.                                                                                             |
-| blockNumber | number \| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.        |
-| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên         | Loại       | Mô tả                                                                                                                             |
+| ----------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| address     | chuỗi       | Địa chỉ nơi để nhận mã.                                                                                                           |
+| blockNumber | số \| chuỗi | (tùy chọn) Số khối hoặc chuỗi `mới nhất` hoặc `cũ nhất`. Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng.      |
+| callback    | hàm         | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `string`
+`Promise` trả về `chuỗi`
 
-| Type   | Description                      |
-| ------ | -------------------------------- |
-| string | The code from the given address. |
+| Loại | Mô tả                 |
+| ----- | --------------------- |
+| chuỗi | Mã từ địa chỉ đã cho. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.rpc.klay.getCode('0x{address in hex}').then(console.log)
@@ -480,25 +480,25 @@ Returns code at a given address.
 caver.rpc.klay.getTransactionCount(address [, blockNumber] [, callback])
 ```
 
-Returns the total number of transactions sent from an address.
+Trả về tổng số lượng giao dịch đã gửi từ một địa chỉ.
 
-**Parameters**
+**Tham số**
 
-| Name        | Type             | Description                                                                                                                                                                                                                                                            |
-| ----------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address     | string           | The address to get the number of transactions from.                                                                                                                                                                                                                    |
-| blockNumber | number \| string | (optional) A block number, the string `pending` for the pending nonce, or the string `earliest` or `latest` as in the [default block parameter](../../../../json-rpc/klay/block.md#the-default-block-parameter). If omitted, `latest` will be used. |
-| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                                                                          |
+| Tên         | Loại       | Mô tả                                                                                                                                                                                                                                                                                               |
+| ----------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address     | chuỗi       | Địa chỉ nơi để nhận số lượng giao dịch.                                                                                                                                                                                                                                                             |
+| blockNumber | số \| chuỗi | (tùy chọn) Số khối, chuỗi `đang chờ xử lý` để lấy số dùng một lần đang chờ xử lý, hoặc chuỗi `cũ nhất` hoặc `mới nhất` giống như trong [tham số khối mặc định](../../../../json-rpc/klay/block.md#the-default-block-parameter). Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng. |
+| callback    | hàm         | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                                                                                                                                                   |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `string`
+`Promise` trả về `chuỗi`
 
-| Type   | Description                                                    |
-| ------ | -------------------------------------------------------------- |
-| string | The number of transactions sent from the given address in hex. |
+| Loại | Mô tả                                                      |
+| ----- | ---------------------------------------------------------- |
+| chuỗi | Số lượng giao dịch đã gửi từ địa chỉ nhất định ở dạng hex. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.rpc.klay.getTransactionCount('0x{address in hex}').then(console.log)
@@ -511,25 +511,25 @@ Returns the total number of transactions sent from an address.
 caver.rpc.klay.isContractAccount(address [, blockNumber] [, callback])
 ```
 
-Returns `true` if an input account has a non-empty codeHash at the time of a specific block number. It returns `false` if the account is an EOA or a smart contract account which doesn't have codeHash. Please refer to [Smart Contract Account](../../../../../learn/accounts.md#smart-contract-accounts-scas) for more details.
+Trả về `true` nếu tài khoản đầu vào có codeHash không trống vào thời điểm có số khối cụ thể. Trả về `false` nếu tài khoản là EOA hoặc tài khoản hợp đồng thông minh không có codeHash. Vui lòng tham khảo [Tài khoản hợp đồng thông minh](../../../../../learn/accounts.md#smart-contract-accounts-scas) để biết thêm thông tin chi tiết.
 
-**Parameters**
+**Tham số**
 
-| Name        | Type             | Description                                                                                                                   |
-| ----------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| address     | string           | The address you want to check for isContractAccount.                                                                          |
-| blockNumber | number \| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.        |
-| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên         | type        | Mô tả                                                                                                                             |
+| ----------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| address     | chuỗi       | Địa chỉ mà bạn muốn kiểm tra isContractAccount.                                                                                   |
+| blockNumber | số \| chuỗi | (tùy chọn) Số khối hoặc chuỗi `mới nhất` hoặc `cũ nhất`. Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng.      |
+| callback    | hàm         | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `boolean`
+`Promise` trả về `boolean`
 
-| Type    | Description                                                           |
-| ------- | --------------------------------------------------------------------- |
-| boolean | true means the input parameter is an existing smart contract address. |
+| Loại   | Mô tả                                                                        |
+| ------- | ---------------------------------------------------------------------------- |
+| boolean | true có nghĩa là tham số đầu vào là một địa chỉ hợp đồng thông minh hiện có. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.rpc.klay.isContractAccount('0x{address in hex}').then(console.log)
@@ -545,28 +545,28 @@ true
 caver.rpc.klay.sign(address, message [, blockNumber] [, callback])
 ```
 
-Generates signed data specific to the Klaytn. Refer to [Klaytn Platform API - klay_sign](../../../../json-rpc/klay/account.md#klay_sign) to know how the signature is generated.
+Tạo dữ liệu đã ký dành riêng cho Klaytn. Tham khảo [API Nền tảng Klaytn - klay_sign](../../../../json-rpc/klay/account.md#klay_sign) để biết cách tạo chữ ký.
 
-**NOTE**: This API provides the function to sign a message using an [imported account](../../../../json-rpc/personal.md#personal_importrawkey) in your Klaytn node. The imported account in your node must be [unlocked](../../../../json-rpc/personal.md#personal_unlockaccount) to sign the message. To sign a transaction with imported account in your Klaytn node, use [caver.rpc.klay.signTransaction](#caver-rpc-klay-signtransaction).
+**LƯU Ý**: API này cung cấp chức năng ký thông báo bằng cách sử dụng [tài khoản đã nhập](../../../../json-rpc/personal.md#personal_importrawkey) trong nút Klaytn của bạn. Tài khoản đã nhập trong nút của bạn phải được [mở khóa](../../../../json-rpc/personal.md#personal_unlockaccount) để ký thông báo. Để ký giao dịch bằng tài khoản đã nhập trong nút Klaytn của bạn, hãy sử dụng [caver.rpc.klay.signTransaction](#caver-rpc-klay-signtransaction).
 
-**Parameters**
+**Tham số**
 
-| Name        | Type             | Description                                                                                                                   |
-| ----------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| address     | String           | The address of the imported account to sign the message.                                                                      |
-| message     | String           | Message to sign.                                                                                                              |
-| blockNumber | number \| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.        |
-| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên         | Loại       | Mô tả                                                                                                                             |
+| ----------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| address     | Chuỗi       | Địa chỉ của tài khoản đã nhập để ký thông báo.                                                                                    |
+| thông báo   | Chuỗi       | Tin nhắn có thể ký.                                                                                                               |
+| blockNumber | số \| chuỗi | (tùy chọn) Số khối hoặc chuỗi `mới nhất` hoặc `cũ nhất`. Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng.      |
+| callback    | hàm         | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `string`
+`Promise` trả về `chuỗi`
 
-| Type   | Description                                  |
-| ------ | -------------------------------------------- |
-| string | The signature made from an imported account. |
+| Loại | Mô tả                                           |
+| ----- | ----------------------------------------------- |
+| chuỗi | Chữ ký được thực hiện từ một tài khoản đã nhập. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.rpc.klay.sign('0x{address in hex}', '0xdeadbeaf').then(console.log)
@@ -579,23 +579,23 @@ Generates signed data specific to the Klaytn. Refer to [Klaytn Platform API - kl
 caver.rpc.klay.getAccounts([callback])
 ```
 
-Returns a list of addresses owned by the Klaytn Node.
+Trả về danh sách các địa chỉ thuộc sở hữu của Nút Klaytn.
 
-**Parameters**
+**Tham số**
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên      | Loại | Mô tả                                                                                                                             |
+| -------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
+| callback | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Array`
+`Promise` trả về `Mảng`
 
-| Type  | Description                                     |
-| ----- | ----------------------------------------------- |
-| Array | An array of addresses owned by the Klaytn Node. |
+| type | Mô tả                                             |
+| ---- | ------------------------------------------------- |
+| Mảng | Một mảng các địa chỉ thuộc sở hữu của Nút Klaytn. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.rpc.klay.getAccounts().then(console.log)
@@ -611,23 +611,23 @@ Returns a list of addresses owned by the Klaytn Node.
 caver.rpc.klay.getBlockNumber([callback])
 ```
 
-Returns the number of the most recent block.
+Trả về số của khối gần đây nhất.
 
-**Parameters**
+**Tham số**
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên      | Loại | Mô tả                                                                                                                             |
+| -------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
+| callback | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `string`
+`Promise` trả về `chuỗi`
 
-| Type   | Description                                 |
-| ------ | ------------------------------------------- |
-| string | The number of the most recent block in hex. |
+| Loại | Mô tả                            |
+| ----- | -------------------------------- |
+| chuỗi | Số của khối mới nhất ở dạng hex. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.rpc.klay.getBlockNumber().then(console.log)
@@ -640,24 +640,24 @@ Returns the number of the most recent block.
 caver.rpc.klay.getHeader(blockNumberOrHash [, callback])
 ```
 
-Returns a block header by block hash or block number. If the user passes the block hash as a parameter, [caver.rpc.klay.getHeaderByHash](#caver-rpc-klay-getheaderbyhash) is called, and if the block number is called as a parameter, [caver.rpc.klay.getHeaderByNumber](#caver-rpc-klay-getheaderbynumber) is called.
+Trả về tiêu đề khối theo hàm băm khối hoặc số khối. Nếu người dùng chuyển hàm băm khối dưới dạng tham số, [caver.rpc.klay.getHeaderByHash](#caver-rpc-klay-getheaderbyhash) sẽ được gọi ra và nếu số khối được gọi dưới dạng tham số thì [caver.rpc.klay.getHeaderByNumber](#caver-rpc-klay-getheaderbynumber) sẽ được gọi ra.
 
-**Parameters**
+**Tham số**
 
-| Name              | Type             | Description                                                                                                                   |
-| ----------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| blockNumberOrHash | number \| string | The block hash, number or the block tag string.                                                                               |
-| callback          | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên               | type        | Mô tả                                                                                                                             |
+| ----------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| blockNumberOrHash | số \| chuỗi | Hàm băm khối, số hoặc chuỗi thẻ khối.                                                                                             |
+| callback          | hàm         | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `object`
+`Promise` trả về `đối tượng`
 
-| Type   | Description                                                                                                                                               |
-| ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| object | A block header object. For a detailed description of the return value, please refer to [caver.rpc.klay.getHeaderByHash](#caver-rpc-klay-getheaderbyhash). |
+| Loại     | Mô tả                                                                                                                                                       |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| đối tượng | Một đối tượng tiêu đề khối. Để biết mô tả chi tiết về giá trị trả về, vui lòng tham khảo [caver.rpc.klay.getHeaderByHash](#caver-rpc-klay-getheaderbyhash). |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.rpc.klay.getHeader(1).then(console.log)
@@ -686,24 +686,24 @@ Returns a block header by block hash or block number. If the user passes the blo
 caver.rpc.klay.getHeaderByNumber(blockNumber [, returnTransactionObjects] [, callback])
 ```
 
-Returns a block header by block number.
+Trả về tiêu đề khối theo số khối.
 
-**Parameters**
+**Tham số**
 
-| Name        | Type             | Description                                                                                                                   |
-| ----------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| blockNumber | number \| string | The block number or the block tag string.                                                                                     |
-| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên         | Loại       | Mô tả                                                                                                                             |
+| ----------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| blockNumber | số \| chuỗi | Số khối hoặc chuỗi thẻ khối.                                                                                                      |
+| callback    | hàm         | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `object`
+`Promise` trả về `đối tượng`
 
-| Type   | Description                                                                                                                                               |
-| ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| object | A block header object. For a detailed description of the return value, please refer to [caver.rpc.klay.getHeaderByHash](#caver-rpc-klay-getheaderbyhash). |
+| Loại     | Mô tả                                                                                                                                                       |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| đối tượng | Một đối tượng tiêu đề khối. Để biết mô tả chi tiết về giá trị trả về, vui lòng tham khảo [caver.rpc.klay.getHeaderByHash](#caver-rpc-klay-getheaderbyhash). |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.rpc.klay.getHeaderByNumber(765139).then(console.log)
@@ -732,38 +732,38 @@ Returns a block header by block number.
 caver.rpc.klay.getHeaderByHash(blockHash [, returnTransactionObjects] [, callback])
 ```
 
-Returns the block number of the most recent block by using `blockHash`.
+Trả về số khối của khối mới nhất bằng cách sử dụng `blockHash`.
 
-**Parameters**
+**Tham số**
 
-| Name      | Type     | Description                                                                                                                   |
-| --------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| blockHash | string   | The block hash.                                                                                                               |
-| callback  | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên       | Loại | Mô tả                                                                                                                             |
+| --------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
+| blockHash | chuỗi | Hàm băm khối.                                                                                                                     |
+| callback  | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `object` - An object includes the block header:
+`Promise` trả về `đối tượng` - Một đối tượng bao gồm tiêu đề khối:
 
-| Name             | Type   | Description                                                                                                                                                  |
-| ---------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| baseFeePerGas    | string | The base fee per gas. This value is returned only when EthTxTypeCompatibleBlock is activated for that block number.                                          |
-| blockScore       | string | The difficulty of mining in the blockchain network. The use of `blockScore` differs from the consensus of the network. Always 1 in the BFT consensus engine. |
-| extraData        | string | The "extra data" field of this block.                                                                                                                        |
-| gasUsed          | string | The gas in total that was used by all transactions in this block.                                                                                            |
-| governanceData   | string | RLP encoded governance configuration                                                                                                                         |
-| hash             | string | Hash of the block. `null` when it is a pending block.                                                                                                        |
-| logsBloom        | string | The bloom filter for the logs of the block. `null` when it is a pending block.                                                                               |
-| number           | string | The block number. `null` when it is a pending block.                                                                                                         |
-| parentHash       | string | Hash of the parent block.                                                                                                                                    |
-| receiptsRoot     | string | The root of the receipts trie of the block.                                                                                                                  |
-| reward           | string | The address of the beneficiary to whom the block rewards were given.                                                                                         |
-| stateRoot        | string | The root of the final state trie of the block.                                                                                                               |
-| timestamp        | string | The unix timestamp for when the block was collated.                                                                                                          |
-| timestampFoS     | string | The fraction of a second of the timestamp for when the block was collated.                                                                                   |
-| transactionsRoot | string | The root of the transaction trie of the block.                                                                                                               |
+| Tên              | Loại | Mô tả                                                                                                                                                  |
+| ---------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| baseFeePerGas    | chuỗi | Phí cơ bản trên mỗi đơn vị gas. Giá trị này chỉ được trả về khi EthTxTypeCompatibleBlock được kích hoạt cho số khối đó.                                |
+| blockScore       | chuỗi | Độ khó khai thác trong mạng blockchain. Việc sử dụng `blockScore` khác với cơ chế đồng thuận của mạng. Giá trị luôn là 1 trong công cụ đồng thuận BFT. |
+| extraData        | chuỗi | Trường "dữ liệu bổ sung" của khối này.                                                                                                                 |
+| gasUsed          | chuỗi | Tổng lượng gas đã được sử dụng bởi tất cả các giao dịch trong khối này.                                                                                |
+| governanceData   | chuỗi | Cấu hình quản trị được mã hóa RLP                                                                                                                      |
+| hash             | chuỗi | Hàm băm của một khối. `null` khi đó là khối đang chờ xử lý.                                                                                            |
+| nhật kýBloom     | chuỗi | Bộ lọc Bloom cho các bản ghi của khối. `null` khi đó là khối đang chờ xử lý.                                                                           |
+| số               | chuỗi | Số khối. `null` khi đó là khối đang chờ xử lý.                                                                                                         |
+| parentHash       | chuỗi | Hàm băm của khối cha mẹ.                                                                                                                               |
+| receiptsRoot     | chuỗi | Gốc của trie biên lai giao dịch của khối.                                                                                                              |
+| phần thưởng      | chuỗi | Địa chỉ của người thụ hưởng đã được trao phần thưởng khối.                                                                                             |
+| stateRoot        | chuỗi | Gốc của trie trạng thái cuối trong khối.                                                                                                               |
+| dấu thời gian    | chuỗi | Dấu thời gian unix khi khối được đối chiếu.                                                                                                            |
+| timestampFoS     | chuỗi | Phần giây của dấu thời gian khi khối được đối chiếu.                                                                                                   |
+| transactionsRoot | chuỗi | Gốc của trie giao dịch trong khối.                                                                                                                     |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.rpc.klay.getHeaderByHash('0x1b6582f0908add2221317288482aada596551e9f9d779a2aebc55d81d3149ba3').then(console.log)
@@ -792,25 +792,25 @@ Returns the block number of the most recent block by using `blockHash`.
 caver.rpc.klay.getBlock(blockNumberOrHash [, returnTransactionObjects] [, callback])
 ```
 
-Returns information about a block by block hash or block number. If the user passes the block hash as a parameter, [caver.rpc.klay.getBlockByHash](#caver-rpc-klay-getblockbyhash) is called, and if the block number is called as a parameter, [caver.rpc.klay.getBlockByNumber](#caver-rpc-klay-getblockbynumber) is called.
+Trả về thông tin của một khối theo hàm băm khối hoặc số khối. Nếu người dùng chuyển hàm băm khối dưới dạng tham số, [caver.rpc.klay.getBlockByHash](#caver-rpc-klay-getblockbyhash) sẽ được gọi ra và nếu số khối được gọi dưới dạng tham số thì [caver.rpc.klay.getBlockByNumber](#caver-rpc-klay-getblockbynumber) sẽ được gọi ra.
 
-**Parameters**
+**Tham số**
 
-| Name                     | Type             | Description                                                                                                                                                                         |
-| ------------------------ | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockNumberOrHash        | number \| string | The block hash, number or the block tag string.                                                                                                                                     |
-| returnTransactionObjects | boolean          | (optional, default `false`) If `true`, the returned block will contain all transactions as objects, and if `false`, it will only contain the transaction hashes. |
-| callback                 | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                       |
+| Tên                      | Loại       | Mô tả                                                                                                                                                                                   |
+| ------------------------ | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockNumberOrHash        | số \| chuỗi | Hàm băm khối, số hoặc chuỗi thẻ khối.                                                                                                                                                   |
+| returnTransactionObjects | boolean     | (tùy chọn, mặc định `false`) Nếu `true`, khối được trả về sẽ chứa tất cả giao dịch dưới dạng đối tượng và khối sẽ chỉ chứa các hàm băm giao dịch nếu trả về `false`. |
+| callback                 | hàm         | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                                       |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `object`
+`Promise` trả về `đối tượng`
 
-| Type   | Description                                                                                                                                      |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| object | A block object. For a detailed description of the return value, please refer to [caver.rpc.klay.getBlockByHash](#caver-rpc-klay-getblockbyhash). |
+| Loại     | Mô tả                                                                                                                                             |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| đối tượng | Một đối tượng khối. Để biết mô tả chi tiết về giá trị trả về, vui lòng tham khảo [caver.rpc.klay.getBlockByHash](#caver-rpc-klay-getblockbyhash). |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.rpc.klay.getBlock(1).then(console.log)
@@ -843,25 +843,25 @@ Returns information about a block by block hash or block number. If the user pas
 caver.rpc.klay.getBlockByNumber(blockNumber [, returnTransactionObjects] [, callback])
 ```
 
-Returns information about a block by block number.
+Trả về thông tin của một khối theo số khối.
 
-**Parameters**
+**Tham số**
 
-| Name                     | Type             | Description                                                                                                                                                                         |
-| ------------------------ | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockNumber              | number \| string | The block number or the block which is tagged with a string (`genesis` or `latest`).                                                                             |
-| returnTransactionObjects | boolean          | (optional, default `false`) If `true`, the returned block will contain all transactions as objects, and if `false`, it will only contain the transaction hashes. |
-| callback                 | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                       |
+| Tên                      | Loại       | Mô tả                                                                                                                                                                                   |
+| ------------------------ | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockNumber              | số \| chuỗi | Số khối hoặc khối được gắn thẻ bằng một chuỗi (`khởi nguyên` hoặc `mới nhất`).                                                                                       |
+| returnTransactionObjects | boolean     | (tùy chọn, mặc định `false`) Nếu `true`, khối được trả về sẽ chứa tất cả giao dịch dưới dạng đối tượng và khối sẽ chỉ chứa các hàm băm giao dịch nếu trả về `false`. |
+| callback                 | hàm         | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                                       |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `object`
+`Promise` trả về `đối tượng`
 
-| Type   | Description                                                                                                                                |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| object | A block object. For detailed description of return value, please refer to [caver.rpc.klay.getBlockByHash](#caver-rpc-klay-getblockbyhash). |
+| Loại     | Mô tả                                                                                                                                        |
+| --------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| đối tượng | Một đối tượng khối. Để biết mô tả chi tiết về giá trị trả về, hãy tham khảo [caver.rpc.klay.getBlockByHash](#caver-rpc-klay-getblockbyhash). |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.rpc.klay.getBlockByNumber(1).then(console.log)
@@ -894,43 +894,43 @@ Returns information about a block by block number.
 caver.rpc.klay.getBlockByHash(blockHash [, returnTransactionObjects] [, callback])
 ```
 
-Returns the block number of the most recent block by using `blockHash`.
+Trả về số khối của khối mới nhất bằng cách sử dụng `blockHash`.
 
-**Parameters**
+**Tham số**
 
-| Name                     | Type     | Description                                                                                                                                                                         |
-| ------------------------ | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockHash                | string   | The block hash.                                                                                                                                                                     |
-| returnTransactionObjects | boolean  | (optional, default `false`) If `true`, the returned block will contain all transactions as objects, and if `false`, it will only contain the transaction hashes. |
-| callback                 | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                       |
+| Tên                      | Loại   | Mô tả                                                                                                                                                                                   |
+| ------------------------ | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockHash                | chuỗi   | Hàm băm khối.                                                                                                                                                                           |
+| returnTransactionObjects | boolean | (tùy chọn, mặc định `false`) Nếu `true`, khối được trả về sẽ chứa tất cả giao dịch dưới dạng đối tượng và khối sẽ chỉ chứa các hàm băm giao dịch nếu trả về `false`. |
+| callback                 | hàm     | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                                       |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `object` - An object includes block:
+`Promise` trả về `đối tượng` - Một đối tượng bao gồm khối:
 
-| Name             | Type   | Description                                                                                                                                                  |
-| ---------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| baseFeePerGas    | string | The base fee per gas. This value is returned only when EthTxTypeCompatibleBlock is activated for that block number.                                          |
-| blockScore       | string | The difficulty of mining in the blockchain network. The use of `blockScore` differs from the consensus of the network. Always 1 in the BFT consensus engine. |
-| extraData        | string | The "extra data" field of this block.                                                                                                                        |
-| gasUsed          | string | The gas in total that was used by all transactions in this block.                                                                                            |
-| governanceData   | string | RLP encoded governance configuration                                                                                                                         |
-| hash             | string | Hash of the block. `null` when it is a pending block.                                                                                                        |
-| logsBloom        | string | The bloom filter for the logs of the block. `null` when it is a pending block.                                                                               |
-| number           | string | The block number. `null` when it is a pending block.                                                                                                         |
-| parentHash       | string | Hash of the parent block.                                                                                                                                    |
-| receiptsRoot     | string | The root of the receipts trie of the block.                                                                                                                  |
-| reward           | string | The address of the beneficiary to whom the block rewards were given.                                                                                         |
-| size             | string | Integer the size of this block in bytes.                                                                                                                     |
-| stateRoot        | string | The root of the final state trie of the block.                                                                                                               |
-| timestamp        | string | The unix timestamp for when the block was collated.                                                                                                          |
-| timestampFoS     | string | The fraction of a second of the timestamp for when the block was collated.                                                                                   |
-| totalBlockScore  | string | Integer of the total blockScore of the chain until this block.                                                                                               |
-| transactions     | Array  | Array of transaction objects, or 32-byte transaction hashes depending on the `returnTransactionObjects` parameter.                                           |
-| transactionsRoot | string | The root of the transaction trie of the block.                                                                                                               |
-| voteData         | string | RLP encoded governance vote of the proposer.                                                                                                                 |
+| Tên              | Loại | Mô tả                                                                                                                                                  |
+| ---------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| baseFeePerGas    | chuỗi | Phí cơ bản trên mỗi đơn vị gas. Giá trị này chỉ được trả về khi EthTxTypeCompatibleBlock được kích hoạt cho số khối đó.                                |
+| blockScore       | chuỗi | Độ khó khai thác trong mạng blockchain. Việc sử dụng `blockScore` khác với cơ chế đồng thuận của mạng. Giá trị luôn là 1 trong công cụ đồng thuận BFT. |
+| extraData        | chuỗi | Trường "dữ liệu bổ sung" của khối này.                                                                                                                 |
+| gasUsed          | chuỗi | Tổng lượng gas đã được sử dụng bởi tất cả các giao dịch trong khối này.                                                                                |
+| governanceData   | chuỗi | Cấu hình quản trị được mã hóa RLP                                                                                                                      |
+| hash             | chuỗi | Hàm băm của một khối. `null` khi đó là khối đang chờ xử lý.                                                                                            |
+| nhật kýBloom     | chuỗi | Bộ lọc Bloom cho các bản ghi của khối. `null` khi đó là khối đang chờ xử lý.                                                                           |
+| số               | chuỗi | Số khối. `null` khi đó là khối đang chờ xử lý.                                                                                                         |
+| parentHash       | chuỗi | Hàm băm của khối cha mẹ.                                                                                                                               |
+| receiptsRoot     | chuỗi | Gốc của trie biên lai giao dịch của khối.                                                                                                              |
+| phần thưởng      | chuỗi | Địa chỉ của người thụ hưởng đã được trao phần thưởng khối.                                                                                             |
+| kích thước       | chuỗi | Số nguyên chỉ kích thước của khối này theo byte.                                                                                                       |
+| stateRoot        | chuỗi | Gốc của trie trạng thái cuối trong khối.                                                                                                               |
+| dấu thời gian    | chuỗi | Dấu thời gian unix khi khối được đối chiếu.                                                                                                            |
+| timestampFoS     | chuỗi | Phần giây của dấu thời gian khi khối được đối chiếu.                                                                                                   |
+| totalBlockScore  | chuỗi | Giá trị nguyên chỉ tổng số blockScore của chuỗi cho đến khối này.                                                                                      |
+| giao dịch        | Mảng  | Mảng đối tượng giao dịch hoặc hàm băm giao dịch 32 byte tùy thuộc vào tham số `returnTransactionObjects`.                                              |
+| transactionsRoot | chuỗi | Gốc của trie giao dịch trong khối.                                                                                                                     |
+| voteData         | chuỗi | Phiếu bầu quản trị được mã hóa RLP của người đề xuất.                                                                                                  |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.rpc.klay.getBlockByHash('0x58482921af951cf42a069436ac9338de50fd963bdbea40e396f416f9ac96a08b').then(console.log)
@@ -963,24 +963,24 @@ Returns the block number of the most recent block by using `blockHash`.
 caver.rpc.klay.getBlockReceipts(blockHash [, callback])
 ```
 
-Returns receipts included in a block identified by block hash.
+Trả về các biên lai được gộp vào khối được xác định bằng hàm băm khối.
 
-**Parameters**
+**Tham số**
 
-| Name      | Type     | Description                                                                                                                   |
-| --------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| blockHash | string   | The block hash.                                                                                                               |
-| callback  | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên       | Loại | Mô tả                                                                                                                             |
+| --------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
+| blockHash | chuỗi | Hàm băm khối.                                                                                                                     |
+| callback  | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Array`
+`Promise` trả về `Mảng`
 
-| Type  | Description                                                                                                                                                                                                                                                                 |
-| ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Array | The transaction receipts included in a block. If the target block contains no transaction, an empty array `[]` is returned. For detailed description of transaction receipt, please refer to [caver.rpc.klay.getTransactionReceipt](#caver-rpc-klay-gettransactionreceipt). |
+| type | Mô tả                                                                                                                                                                                                                                                               |
+| ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Mảng | Biên lai giao dịch được đưa vào một khối. Nếu khối mục tiêu không chứa giao dịch, thì hàm sẽ trả về một mảng trống `[]`. Để biết mô tả chi tiết về biên lai giao dịch, hãy tham khảo [caver.rpc.klay.getTransactionReceipt](#caver-rpc-klay-gettransactionreceipt). |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.rpc.klay.getBlockReceipts('0x4584bea6b8b2abe7f024d1e63dd0571cfd28cd5157b4f6cb2ac4160a7b0057e0').then(console.log)
@@ -1021,24 +1021,24 @@ Returns receipts included in a block identified by block hash.
 caver.rpc.klay.getBlockTransactionCountByNumber(blockNumber [, callback])
 ```
 
-Returns the number of transactions in a block matching the given block number.
+Trả về số lượng giao dịch trong một khối khớp với số khối đã cho.
 
-**Parameters**
+**Tham số**
 
-| Name        | Type             | Description                                                                                                                   |
-| ----------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| blockNumber | number \| string | The block number or the block tag string (`genesis` or `latest`).                                          |
-| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên         | Loại       | Mô tả                                                                                                                             |
+| ----------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| blockNumber | số \| chuỗi | Số khối hoặc chuỗi thẻ khối (`khởi nguyên` hoặc `mới nhất`).                                                   |
+| callback    | hàm         | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `string`
+`Promise` trả về `chuỗi`
 
-| Type   | Description                                           |
-| ------ | ----------------------------------------------------- |
-| string | The number of transactions in the given block in hex. |
+| Loại | Mô tả                                               |
+| ----- | --------------------------------------------------- |
+| chuỗi | Số lượng giao dịch trong khối nhất định ở dạng hex. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.rpc.klay.getBlockTransactionCountByNumber(21249).then(console.log)
@@ -1051,24 +1051,24 @@ Returns the number of transactions in a block matching the given block number.
 caver.rpc.klay.getBlockTransactionCountByHash(blockHash [, callback])
 ```
 
-Returns the number of transactions in a block matching the given block hash.
+Trả về số lượng giao dịch trong một khối khớp với hàm băm khối đã cho.
 
-**Parameters**
+**Tham số**
 
-| Name      | Type     | Description                                                                                                                   |
-| --------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| blockHash | string   | The block hash.                                                                                                               |
-| callback  | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên       | type  | Mô tả                                                                                                                             |
+| --------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
+| blockHash | chuỗi | Hàm băm khối.                                                                                                                     |
+| callback  | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `string`
+`Promise` trả về `chuỗi`
 
-| Type   | Description                                           |
-| ------ | ----------------------------------------------------- |
-| string | The number of transactions in the given block in hex. |
+| type  | Mô tả                                               |
+| ----- | --------------------------------------------------- |
+| chuỗi | Số lượng giao dịch trong khối nhất định ở dạng hex. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.rpc.klay.getBlockTransactionCountByHash('0x4584bea6b8b2abe7f024d1e63dd0571cfd28cd5157b4f6cb2ac4160a7b0057e0').then(console.log)
@@ -1081,24 +1081,24 @@ Returns the number of transactions in a block matching the given block hash.
 caver.rpc.klay.getBlockWithConsensusInfoByNumber(blockNumber [, callback])
 ```
 
-Returns a block with consensus information matched by the given block number.
+Trả về một khối có thông tin đồng thuận khớp với số khối đã cho.
 
-**Parameters**
+**Tham số**
 
-| Name        | Type             | Description                                                                                                                   |
-| ----------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| blockNumber | number \| string | The block number or the block tag string (`genesis` or `latest`).                                          |
-| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên         | Loại       | Mô tả                                                                                                                             |
+| ----------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| blockNumber | số \| chuỗi | Số khối hoặc chuỗi thẻ khối (`khởi nguyên` hoặc `mới nhất`).                                                   |
+| callback    | hàm         | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `object`
+`Promise` trả về `đối tượng`
 
-| Type   | Description                                                                                                                                                                                                       |
-| ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| string | An object includes block with consensus information. For detailed description of return value, please refer to [caver.rpc.klay.getBlockWithConsensusInfoByHash](#caver-rpc-klay-getblockwithconsensusinfobyhash). |
+| Loại | Mô tả                                                                                                                                                                                                           |
+| ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| chuỗi | Một đối tượng bao gồm khối với thông tin đồng thuận. Để biết mô tả chi tiết về giá trị trả về, hãy tham khảo [caver.rpc.klay.getBlockWithConsensusInfoByHash](#caver-rpc-klay-getblockwithconsensusinfobyhash). |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.rpc.klay.getBlockWithConsensusInfoByNumber(21249).then(console.log)
@@ -1158,45 +1158,45 @@ Returns a block with consensus information matched by the given block number.
 caver.rpc.klay.getBlockWithConsensusInfoByHash(blockHash [, callback])
 ```
 
-Returns a block with consensus information matched by the given hash.
+Trả về một khối có thông tin đồng thuận khớp với hàm băm đã cho.
 
-**Parameters**
+**Tham số**
 
-| Name      | Type     | Description                                                                                                                   |
-| --------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| blockHash | string   | The block hash.                                                                                                               |
-| callback  | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên       | Loại | Mô tả                                                                                                                             |
+| --------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
+| blockHash | chuỗi | Hàm băm khối.                                                                                                                     |
+| callback  | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `object` - A block object with consensus information (a proposer and a list of committee members), or null when no block was found:
+`Promise` trả về `đối tượng` - Một đối tượng khối có thông tin đồng thuận (người đề xuất và danh sách thành viên ủy ban) hoặc null khi không tìm thấy bất kỳ khối nào:
 
-| Name             | Type   | Description                                                                                                                                               |
-| ---------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockScore       | string | Former difficulty. Always 1 in the BFT consensus engine                                                                                                   |
-| committee        | Array  | Array of addresses of committee members of this block. The committee is a subset of validators who participated in the consensus protocol for this block. |
-| extraData        | string | The "extra data" field of this block.                                                                                                                     |
-| gasUsed          | string | The gas in total that was used by all transactions in this block.                                                                                         |
-| governanceData   | string | RLP encoded governance configuration                                                                                                                      |
-| hash             | string | Hash of the block. `null` when it is a pending block.                                                                                                     |
-| logsBloom        | string | The bloom filter for the logs of the block. `null` when it is a pending block.                                                                            |
-| number           | string | The block number. `null` when it is a pending block.                                                                                                      |
-| originProposer   | string | The proposal of 0 round at the same block number.                                                                                                         |
-| parentHash       | string | Hash of the parent block.                                                                                                                                 |
-| proposer         | string | The address of the block proposer.                                                                                                                        |
-| receiptsRoot     | string | The root of the receipts trie of the block.                                                                                                               |
-| reward           | string | The address of the beneficiary to whom the block rewards were given.                                                                                      |
-| round            | number | The round number.                                                                                                                                         |
-| size             | string | Integer the size of this block in bytes.                                                                                                                  |
-| stateRoot        | string | The root of the final state trie of the block.                                                                                                            |
-| timestamp        | string | The unix timestamp for when the block was collated.                                                                                                       |
-| timestampFoS     | string | The fraction of a second of the timestamp for when the block was collated.                                                                                |
-| totalBlockScore  | string | Integer of the total blockScore of the chain until this block.                                                                                            |
-| transactions     | Array  | Array of transaction objects.                                                                                                                             |
-| transactionsRoot | string | The root of the transaction trie of the block.                                                                                                            |
-| voteData         | string | RLP encoded governance vote of the proposer                                                                                                               |
+| Tên              | Loại | Mô tả                                                                                                                                                    |
+| ---------------- | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockScore       | chuỗi | Độ khó trước đây. Giá trị luôn là 1 trong công cụ đồng thuận BFT                                                                                         |
+| uỷ ban           | Mảng  | Mảng địa chỉ của các thành viên ủy ban của khối này. Ủy ban là một tập hợp con của những nút xác thực đã tham gia vào giao thức đồng thuận cho khối này. |
+| extraData        | chuỗi | Trường "dữ liệu bổ sung" của khối này.                                                                                                                   |
+| gasUsed          | chuỗi | Tổng lượng gas đã được sử dụng bởi tất cả các giao dịch trong khối này.                                                                                  |
+| governanceData   | chuỗi | Cấu hình quản trị được mã hóa RLP                                                                                                                        |
+| hash             | chuỗi | Hàm băm của một khối. `null` khi đó là khối đang chờ xử lý.                                                                                              |
+| nhật kýBloom     | chuỗi | Bộ lọc Bloom cho các bản ghi của khối. `null` khi đó là khối đang chờ xử lý.                                                                             |
+| số               | chuỗi | Số khối. `null` khi đó là khối đang chờ xử lý.                                                                                                           |
+| originProposer   | chuỗi | Đề xuất 0 vòng ở cùng một số khối.                                                                                                                       |
+| parentHash       | chuỗi | Hàm băm của khối cha mẹ.                                                                                                                                 |
+| người đề xuất    | chuỗi | Địa chỉ của người đề xuất khối.                                                                                                                          |
+| receiptsRoot     | chuỗi | Gốc của trie biên lai giao dịch của khối.                                                                                                                |
+| phần thưởng      | chuỗi | Địa chỉ của người thụ hưởng đã được trao phần thưởng khối.                                                                                               |
+| vòng             | số    | Số vòng.                                                                                                                                                 |
+| kích thước       | chuỗi | Số nguyên chỉ kích thước của khối này theo byte.                                                                                                         |
+| stateRoot        | chuỗi | Gốc của trie trạng thái cuối trong khối.                                                                                                                 |
+| dấu thời gian    | chuỗi | Dấu thời gian unix khi khối được đối chiếu.                                                                                                              |
+| timestampFoS     | chuỗi | Phần giây của dấu thời gian khi khối được đối chiếu.                                                                                                     |
+| totalBlockScore  | chuỗi | Giá trị nguyên chỉ tổng số blockScore của chuỗi cho đến khối này.                                                                                        |
+| giao dịch        | Mảng  | Mảng đối tượng giao dịch.                                                                                                                                |
+| transactionsRoot | chuỗi | Gốc của trie giao dịch trong khối.                                                                                                                       |
+| voteData         | chuỗi | Phiếu bầu quản trị được mã hóa RLP của người đề xuất                                                                                                     |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.rpc.klay.getBlockWithConsensusInfoByHash('0x4584bea6b8b2abe7f024d1e63dd0571cfd28cd5157b4f6cb2ac4160a7b0057e0').then(console.log)
@@ -1281,24 +1281,24 @@ Returns a block with consensus information matched by the given hash.
 caver.rpc.klay.getCommittee([blockNumber] [, callback])
 ```
 
-Returns a list of all validators in the committee at the specified block.
+Trả về danh sách tất cả các nút xác thực của ủy ban tại khối được chỉ định.
 
-**Parameters**
+**Tham số**
 
-| Name        | Type             | Description                                                                                                                   |
-| ----------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| blockNumber | number \| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.        |
-| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên         | Loại       | Mô tả                                                                                                                             |
+| ----------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| blockNumber | số \| chuỗi | (tùy chọn) Số khối hoặc chuỗi `mới nhất` hoặc `cũ nhất`. Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng.      |
+| callback    | hàm         | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Array`
+`Promise` trả về `Mảng`
 
-| Type  | Description                                                      |
-| ----- | ---------------------------------------------------------------- |
-| Array | Addresses of all validators in the committee at the given block. |
+| Loại | Mô tả                                                           |
+| ----- | --------------------------------------------------------------- |
+| Mảng  | Địa chỉ của tất cả các nút xác thực của ủy ban tại khối đã cho. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.rpc.klay.getCommittee().then(console.log)
@@ -1314,24 +1314,24 @@ Returns a list of all validators in the committee at the specified block.
 caver.rpc.klay.getCommitteeSize([blockNumber] [, callback])
 ```
 
-Returns the size of the committee at the specified block.
+Trả về quy mô của ủy ban tại khối được chỉ định.
 
-**Parameters**
+**Tham số**
 
-| Name        | Type             | Description                                                                                                                   |
-| ----------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| blockNumber | number \| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.        |
-| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên         | Loại       | Mô tả                                                                                                                             |
+| ----------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| blockNumber | số \| chuỗi | (tùy chọn) Số khối hoặc chuỗi `mới nhất` hoặc `cũ nhất`. Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng.      |
+| callback    | hàm         | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `number`
+`Promise` trả về `số`
 
-| Type   | Description                                   |
-| ------ | --------------------------------------------- |
-| number | The size of the committee at the given block. |
+| Loại | Mô tả                              |
+| ----- | ---------------------------------- |
+| số    | Quy mô của ủy ban tại khối đã cho. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.rpc.klay.getCommitteeSize().then(console.log)
@@ -1344,24 +1344,24 @@ Returns the size of the committee at the specified block.
 caver.rpc.klay.getCouncil([blockNumber] [, callback])
 ```
 
-Returns a list of all validators of the council at the specified block.
+Trả về danh sách tất cả các nút xác thực của hội đồng tại khối được chỉ định.
 
-**Parameters**
+**Tham số**
 
-| Name        | Type             | Description                                                                                                                   |
-| ----------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| blockNumber | number \| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.        |
-| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên         | Loại       | Mô tả                                                                                                                             |
+| ----------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| blockNumber | số \| chuỗi | (tùy chọn) Số khối hoặc chuỗi `mới nhất` hoặc `cũ nhất`. Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng.      |
+| callback    | hàm         | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Array`
+`Promise` trả về `Mảng`
 
-| Type  | Description                                                                                           |
+| Loại | Mô tả                                                                                                 |
 | ----- | ----------------------------------------------------------------------------------------------------- |
-| Array | An array of validator addresses of the council at the given block, or null when no council was found. |
+| Mảng  | Một mảng địa chỉ nút xác thực của hội đồng tại khối đã cho hoặc null khi không tìm thấy hội đồng nào. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.rpc.klay.getCouncil().then(console.log)
@@ -1377,24 +1377,24 @@ Returns a list of all validators of the council at the specified block.
 caver.rpc.klay.getCouncilSize([blockNumber] [, callback])
 ```
 
-Returns the size of the council at the specified block.
+Trả về quy mô của hội đồng tại khối được chỉ định.
 
-**Parameters**
+**Tham số**
 
-| Name        | Type             | Description                                                                                                                   |
-| ----------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| blockNumber | number \| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.        |
-| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên         | Loại       | Mô tả                                                                                                                             |
+| ----------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| blockNumber | số \| chuỗi | (tùy chọn) Số khối hoặc chuỗi `mới nhất` hoặc `cũ nhất`. Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng.      |
+| callback    | hàm         | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `number`
+`Promise` trả về `số`
 
-| Type   | Description                                 |
-| ------ | ------------------------------------------- |
-| number | The size of the council at the given block. |
+| Loại | Mô tả                                |
+| ----- | ------------------------------------ |
+| số    | Quy mô của hội đồng tại khối đã cho. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.rpc.klay.getCouncilSize().then(console.log)
@@ -1407,26 +1407,26 @@ Returns the size of the council at the specified block.
 caver.rpc.klay.getStorageAt(address, position [, blockNumber] [, callback])
 ```
 
-Returns the value from a storage position at a given address.
+Trả về giá trị từ vị trí lưu trữ tại một địa chỉ đã cho.
 
-**Parameters**
+**Tham số**
 
-| Name        | Type             | Description                                                                                                                                                                                     |
-| ----------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address     | string           | The address to get the storage from.                                                                                                                                                            |
-| position    | number           | The index position of the storage. For more information on `calculating the position`, refer to [klay_getStorageAt](../../../../json-rpc/klay/block.md#klay_getstorageat). |
-| blockNumber | number \| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.                                                                          |
-| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                   |
+| Tên         | Loại       | Mô tả                                                                                                                                                                                          |
+| ----------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address     | chuỗi       | Địa chỉ nơi để nhận bộ nhớ lưu trữ.                                                                                                                                                            |
+| vị trí      | số          | Vị trí chỉ mục của bộ nhớ lưu trữ. Để biết thêm thông tin về `tính toán vị trí`, hãy tham khảo [klay_getStorageAt](../../../../json-rpc/klay/block.md#klay_getstorageat). |
+| blockNumber | số \| chuỗi | (tùy chọn) Số khối hoặc chuỗi `mới nhất` hoặc `cũ nhất`. Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng.                                                                   |
+| callback    | hàm         | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                                              |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `string`
+`Promise` trả về `chuỗi`
 
-| Type   | Description                         |
-| ------ | ----------------------------------- |
-| string | The value at this storage position. |
+| Loại | Mô tả                           |
+| ----- | ------------------------------- |
+| chuỗi | Giá trị tại vị trí lưu trữ này. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.rpc.klay.getStorageAt('0x407d73d8a49eeb85d32cf465507dd71d507100c1', 0).then(console.log)
@@ -1439,19 +1439,19 @@ Returns the value from a storage position at a given address.
 caver.rpc.klay.isMinting([callback])
 ```
 
-Returns `true` if client is actively mining new blocks.
+Giá trị trả về là `true` nếu máy khách đang tích cực khai thác các khối mới.
 
-**Parameters**
+**Tham số**
 
-| Name     | Type     | Description                                                                                                                         |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
+| Tên      | Loại | Mô tả                                                                                                                             |
+| -------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
+| callback | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `boolean` - `true` if the client is mining, otherwise `false`.
+`Promise` trả về `boolean` - giá trị là `true` nếu máy khách đang khai thác, nếu không sẽ là `false`.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.rpc.klay.isMinting().then(console.log)
@@ -1464,27 +1464,27 @@ true
 caver.rpc.klay.isSyncing([callback])
 ```
 
-Returns an object with data about the sync status or false.
+Trả về đối tượng có dữ liệu về trạng thái đồng bộ hóa hoặc false.
 
-**Parameters**
+**Tham số**
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên      | Loại | Mô tả                                                                                                                             |
+| -------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
+| callback | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `object|boolean` - `false` if the Klaytn Node is not syncing. Otherwise, a sync object is returned:
+`Promise` trả về `object boolean` - `false` nếu Nút Klaytn không đồng bộ hóa.
 
-| Name          | Type   | Description                                                 |
-| ------------- | ------ | ----------------------------------------------------------- |
-| startingBlock | string | The block number in hex where the sync started.             |
-| currentBlock  | string | The block number in hex where the node currently synced to. |
-| highestBlock  | string | The estimated block number in hex to sync to.               |
-| knownStates   | string | The estimated states in hex to download.                    |
-| pulledStates  | string | The already downloaded states in hex.                       |
+| Nếu không, một đối tượng đồng bộ sẽ được trả về:         | Tên           | Loại |
+| -------------------------------------------------------- | ------------- | ----- |
+| Mô tả                                                    | startingBlock | chuỗi |
+| Số khối ở dạng hex nơi mà quy trình đồng bộ hóa bắt đầu. | currentBlock  | chuỗi |
+| Số khối ở dạng hex nơi nút hiện được đồng bộ hóa đến.    | highestBlock  | chuỗi |
+| Số khối ước tính dạng hex để đồng bộ hóa đến.            | knownStates   | chuỗi |
+| Các trạng thái ước tính dạng hex cần tải xuống.          | pulledStates  | chuỗi |
 
-**Example**
+Các trạng thái đã tải xuống dạng hex.
 
 ```javascript
 > caver.rpc.klay.isSyncing().then(console.log)
@@ -1500,42 +1500,42 @@ Returns an object with data about the sync status or false.
 false
 ```
 
-## caver.rpc.klay.call <a href="#caver-rpc-klay-call" id="caver-rpc-klay-call"></a>
+## **Ví dụ**
 
 ```javascript
 caver.rpc.klay.call(callObject [, blockNumber] [, callback])
 ```
 
-Executes a new message call immediately without sending a transaction on the blockchain. It returns data or an error object of JSON RPC if an error occurs.
+caver.rpc.klay.call <a href="#caver-rpc-klay-call" id="caver-rpc-klay-call"></a> Thực thi lệnh gọi thông báo ngay mà không gửi giao dịch trên chuỗi khối.
 
-**Parameters**
+Trả về dữ liệu hoặc đối tượng lỗi của JSON RPC nếu xảy ra lỗi.
 
-| Name        | Type             | Description                                                                                                                   |
-| ----------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| callObject  | object           | A transaction call object. See the next table for the object's properties.                                                    |
-| blockNumber | number \| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.        |
-| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| **Tham số**                                          | Tên         | Loại                                                                                   |
+| ---------------------------------------------------- | ----------- | --------------------------------------------------------------------------------------- |
+| Mô tả                                                | callObject  | đối tượng Đối tượng lệnh gọi giao dịch.                                                 |
+| Xem bảng tiếp theo để biết thuộc tính của đối tượng. | blockNumber | số \| chuỗi (tùy chọn) Số khối hoặc chuỗi `mới nhất` hoặc `cũ nhất`. |
+| Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng.     | callback    | hàm                                                                                     |
 
-`callObject` has the following properties:
+(tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.
 
-| Name     | Type   | Description                                                                                                                                                            |
-| -------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| to       | string | (optional when testing the deployment of a new contract) The address the transaction is directed to.                                                |
-| input    | string | (optional) The hash of the method signature and encoded parameters. You can use [caver.abi.encodeFunctionCall](../caver.abi.md#encodefunctioncall). |
-| from     | string | (optional) The address the transaction is sent from.                                                                                                |
-| gas      | string | (optional) The gas provided for the transaction execution. `klay_call` consumes zero gas, but this parameter may be needed by some executions.      |
-| gasPrice | string | (optional) The gasPrice used for each paid gas.                                                                                                     |
-| value    | string | (optional) The value sent with this transaction in `peb`.                                                                                           |
+| `callObject` có các thuộc tính như sau:                                                                    | Tên     | Loại                                                                                 |
+| ---------------------------------------------------------------------------------------------------------- | ------- | ------------------------------------------------------------------------------------- |
+| Mô tả                                                                                                      | đến     | chuỗi                                                                                 |
+| (tùy chọn khi thử nghiệm triển khai hợp đồng mới) Địa chỉ mà giao dịch được chuyển đến. | nhập    | chuỗi (tùy chọn) Hàm băm của chữ ký phương pháp và tham số mã hóa. |
+| Bạn có thể sử dụng [caver.abi.encodeFunctionCall](../caver.abi.md#encodefunctioncall).                     | từ      | chuỗi                                                                                 |
+| (tùy chọn) Địa chỉ nơi giao dịch được gửi đi.                                           | gas     | chuỗi (tùy chọn) Gas được cung cấp để thực hiện giao dịch.         |
+| `klay_call` không sử dụng gas, nhưng một số lần thực thi có thể cần tham số này.                           | giá gas | chuỗi                                                                                 |
+| (tùy chọn) gasPrice được sử dụng cho mỗi loại gas đã thanh toán.                        | giá trị | chuỗi                                                                                 |
 
-**Return Value**
+(tùy chọn) Giá trị được gửi cùng với giao dịch này bằng `peb`.
 
-`Promise` returns `string`
+**Giá trị trả về**
 
-| Type   | Description                                                                           |
-| ------ | ------------------------------------------------------------------------------------- |
-| string | The returned data of the call. _e.g._, the return value of a smart contract function. |
+| `Promise` trả về `chuỗi` | Loại                              |
+| ------------------------ | ---------------------------------- |
+| Mô tả                    | chuỗi Dữ liệu trả về của lệnh gọi. |
 
-**Example**
+_ví dụ_: giá trị trả về của hàm hợp đồng thông minh.
 
 ```javascript
 > caver.rpc.klay.call({ 
@@ -1545,27 +1545,27 @@ Executes a new message call immediately without sending a transaction on the blo
 0x0000000000000000000000000000000000000000000000000de0b6b3a7640000
 ```
 
-## caver.rpc.klay.estimateGas <a href="#caver-rpc-klay-estimategas" id="caver-rpc-klay-estimategas"></a>
+## **Ví dụ**
 
 ```javascript
 caver.rpc.klay.estimateGas(callObject [, blockNumber] [, callback])
 ```
 
-Generates and returns an estimate of how much `gas` is necessary to allow a transaction to complete. The transaction from this method will not be added to the blockchain.
+caver.rpc.klay.estimateGas <a href="#caver-rpc-klay-estimategas" id="caver-rpc-klay-estimategas"></a> Tạo và trả về giá trị lượng `gas` ước tính cần thiết để cho phép hoàn tất giao dịch.
 
-**Parameters**
+Giao dịch từ phương pháp này sẽ không được thêm vào chuỗi khối.
 
-See [caver.rpc.klay.call](#caver-rpc-klay-call) parameters, expect that all properties are optional.
+**Tham số**
 
-**Return Value**
+Xem các tham số [caver.rpc.klay.call](#caver-rpc-klay-call), ngoại trừ việc tất cả các thuộc tính đều là tùy chọn.
 
-`Promise` returns `string`
+**Giá trị trả về**
 
-| Type   | Description             |
-| ------ | ----------------------- |
-| string | The amount of gas used. |
+| `Promise` trả về `chuỗi` | Loại |
+| ------------------------ | ----- |
+| Mô tả                    | chuỗi |
 
-**Example**
+Lượng gas được sử dụng.
 
 ```javascript
 > caver.rpc.klay.estimateGas({ 
@@ -1575,27 +1575,27 @@ See [caver.rpc.klay.call](#caver-rpc-klay-call) parameters, expect that all prop
 0xb2a0
 ```
 
-## caver.rpc.klay.estimateComputationCost <a href="#caver-rpc-klay-estimatecomputationcost" id="caver-rpc-klay-estimatecomputationcost"></a>
+## **Ví dụ**
 
 ```javascript
 caver.rpc.klay.estimateComputationCost(callObject [, blockNumber] [, callback])
 ```
 
-Generates and returns an estimate of how much `computation cost` will be spent to execute the transaction. Klaytn limits the computation cost of a transaction to `100000000` currently not to take too much time by a single transaction. The transaction will not be added to the blockchain like [caver.rpc.klay.estimateGas](#caver-rpc-klay-estimategas).
+caver.rpc.klay.estimateComputationCost <a href="#caver-rpc-klay-estimatecomputationcost" id="caver-rpc-klay-estimatecomputationcost"></a> Tạo và trả về `chi phí tính toán` ước tính sẽ được sử dụng để thực thi giao dịch. Klaytn giới hạn chi phí tính toán của một giao dịch ở mức `100000000`, hiện không mất quá nhiều thời gian cho một giao dịch.
 
-**Parameters**
+Giao dịch sẽ không được thêm vào chuỗi khối như [caver.rpc.klay.estimateGas](#caver-rpc-klay-estimategas).
 
-See [caver.rpc.klay.call](#caver-rpc-klay-call) parameters, expect that all properties are optional.
+**Tham số**
 
-**Return Value**
+Xem các tham số [caver.rpc.klay.call](#caver-rpc-klay-call), ngoại trừ việc tất cả các thuộc tính đều là tùy chọn.
 
-`Promise` returns `string`
+**Giá trị trả về**
 
-| Type   | Description                          |
-| ------ | ------------------------------------ |
-| string | The amount of computation cost used. |
+| `Promise` trả về `chuỗi` | Loại |
+| ------------------------ | ----- |
+| Mô tả                    | chuỗi |
 
-**Example**
+Lượng chi phí tính toán được sử dụng.
 
 ```javascript
 > caver.rpc.klay.estimateComputationCost({ 
@@ -1605,31 +1605,31 @@ See [caver.rpc.klay.call](#caver-rpc-klay-call) parameters, expect that all prop
 0xd761
 ```
 
-## caver.rpc.klay.getTransactionByBlockHashAndIndex <a href="#caver-rpc-klay-gettransactionbyblockhashandindex" id="caver-rpc-klay-gettransactionbyblockhashandindex"></a>
+## **Ví dụ**
 
 ```javascript
 caver.rpc.klay.getTransactionByBlockHashAndIndex(blockHash, index [, callback])
 ```
 
-Returns information about a transaction by `block hash` and `transaction index` position.
+caver.rpc.klay.getTransactionByBlockHashAndIndex <a href="#caver-rpc-klay-gettransactionbyblockhashandindex" id="caver-rpc-klay-gettransactionbyblockhashandindex"></a>
 
-**Parameters**
+Trả về thông tin về giao dịch của khối theo hàm băm và vị trí chỉ mục của giao dịch.
 
-| Name      | Type     | Description                                                                                                                   |
-| --------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| blockHash | string   | The block hash.                                                                                                               |
-| index     | number   | A transaction index position inside the block.                                                                                |
-| callback  | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| **Tham số**                                  | Tên       | Loại |
+| -------------------------------------------- | --------- | ----- |
+| Mô tả                                        | blockHash | chuỗi |
+| Hàm băm khối.                                | chỉ mục   | số    |
+| Một vị trí chỉ mục giao dịch bên trong khối. | callback  | hàm   |
 
-**Return Value**
+(tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.
 
-`Promise` returns `object`
+**Giá trị trả về**
 
-| Type   | Description                                                                                                            |
-| ------ | ---------------------------------------------------------------------------------------------------------------------- |
-| object | A transaction object, see [caver.rpc.klay.getTransactionByHash](#caver-rpc-klay-gettransactionbyhash) for more detail. |
+| `Promise` trả về `đối tượng` | Loại     |
+| ---------------------------- | --------- |
+| Mô tả                        | đối tượng |
 
-**Example**
+Một đối tượng giao dịch, hãy xem [caver.rpc.klay.getTransactionByHash](#caver-rpc-klay-gettransactionbyhash) để biết thêm thông tin chi tiết.
 
 ```javascript
 > caver.rpc.klay.getTransactionByBlockHashAndIndex('0xc9f643c0ebe84932c10695cbc9eb75228af09516931b58952de3e12c21a50576', 0).then(console.log)
@@ -1651,31 +1651,31 @@ Returns information about a transaction by `block hash` and `transaction index` 
 }
 ```
 
-## caver.rpc.klay.getTransactionByBlockNumberAndIndex <a href="#caver-rpc-klay-gettransactionbyblocknumberandindex" id="caver-rpc-klay-gettransactionbyblocknumberandindex"></a>
+## **Ví dụ**
 
 ```javascript
 caver.rpc.klay.getTransactionByBlockNumberAndIndex(blockNumber, index [, callback])
 ```
 
-Returns information about a transaction by `block number` and `transaction index` position.
+caver.rpc.klay.getTransactionByBlockNumberAndIndex <a href="#caver-rpc-klay-gettransactionbyblocknumberandindex" id="caver-rpc-klay-gettransactionbyblocknumberandindex"></a>
 
-**Parameters**
+Trả về thông tin về giao dịch theo `số khối` và vị trí `chỉ mục giao dịch`.
 
-| Name        | Type             | Description                                                                                                                   |
-| ----------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| blockNumber | number \| string | The block number or the block tag string (`genesis` or `latest`).                                          |
-| index       | number           | A transaction index position inside the block.                                                                                |
-| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| **Tham số**                                                                     | Tên         | Loại       |
+| ------------------------------------------------------------------------------- | ----------- | ----------- |
+| Mô tả                                                                           | blockNumber | số \| chuỗi |
+| Số khối hoặc chuỗi thẻ khối (`khởi nguyên` hoặc `mới nhất`). | chỉ mục     | số          |
+| Một vị trí chỉ mục giao dịch bên trong khối.                                    | callback    | hàm         |
 
-**Return Value**
+(tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.
 
-`Promise` returns `object`
+**Giá trị trả về**
 
-| Type   | Description                                                                                                            |
-| ------ | ---------------------------------------------------------------------------------------------------------------------- |
-| object | A transaction object, see [caver.rpc.klay.getTransactionByHash](#caver-rpc-klay-gettransactionbyhash) for more detail. |
+| `Promise` trả về `đối tượng` | Loại     |
+| ---------------------------- | --------- |
+| Mô tả                        | đối tượng |
 
-**Example**
+Một đối tượng giao dịch, hãy xem [caver.rpc.klay.getTransactionByHash](#caver-rpc-klay-gettransactionbyhash) để biết thêm thông tin chi tiết.
 
 ```javascript
 > caver.rpc.klay.getTransactionByBlockNumberAndIndex(183, 0).then(console.log)
@@ -1697,52 +1697,52 @@ Returns information about a transaction by `block number` and `transaction index
 }
 ```
 
-## caver.rpc.klay.getTransactionByHash <a href="#caver-rpc-klay-gettransactionbyhash" id="caver-rpc-klay-gettransactionbyhash"></a>
+## **Ví dụ**
 
 ```javascript
 caver.rpc.klay.getTransactionByHash(transactionHash [, callback])
 ```
 
-Returns the information about a transaction requested by transaction hash.
+caver.rpc.klay.getTransactionByHash <a href="#caver-rpc-klay-gettransactionbyhash" id="caver-rpc-klay-gettransactionbyhash"></a>
 
-**Parameters**
+Trả về thông tin về một giao dịch được yêu cầu theo hàm băm giao dịch.
 
-| Name            | Type     | Description                                                                                                                   |
-| --------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| transactionHash | string   | A transaction hash.                                                                                                           |
-| callback        | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| **Tham số**            | Tên             | Loại |
+| ---------------------- | --------------- | ----- |
+| Mô tả                  | transactionHash | chuỗi |
+| Hàm băm của giao dịch. | callback        | hàm   |
 
-**Return Value**
+(tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.
 
-`Promise` returns `object` - A transaction object, or `null` when no transaction was found:
+**Giá trị trả về**
 
-| Name               | Type    | Description                                                                                                                                                                                                                                        |
-| ------------------ | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockHash          | string  | Hash of the block where this transaction was in.                                                                                                                                                                                                   |
-| blockNumber        | string  | Block number where this transaction was in.                                                                                                                                                                                                        |
-| codeFormat         | string  | (optional) The code format of smart contract code.                                                                                                                                                                              |
-| feePayer           | string  | (optional) Address of the fee payer.                                                                                                                                                                                            |
-| feePayerSignatures | Array   | (optional) An array of fee payer's signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
-| feeRatio           | string  | (optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender.                                                                                               |
-| from               | string  | Address of the sender.                                                                                                                                                                                                                             |
-| gas                | string  | Gas provided by the sender.                                                                                                                                                                                                                        |
-| gasPrice           | string  | Gas price provided by the sender in peb.                                                                                                                                                                                                           |
-| hash               | string  | Hash of the transaction.                                                                                                                                                                                                                           |
-| humanReadable      | Boolean | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable.                                                                                                                                 |
-| key                | string  | (optional) The RLP-encoded AccountKey used to update AccountKey of an Klaytn account. See [AccountKey](../../../../../learn/accounts.md#account-key) for more details.                                                          |
-| input              | string  | (optional) The data sent along with the transaction.                                                                                                                                                                            |
-| nonce              | string  | The number of transactions made by the sender prior to this one.                                                                                                                                                                                   |
-| senderTxHash       | string  | (optional) Hash of the tx without the fee payer's address and signature. This value is always the same as the value of `hash` for non-fee-delegated transactions.                                                               |
-| signatures         | Array   | An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.                                           |
-| to                 | string  | Address of the receiver. `null` when it is a contract deploying transaction.                                                                                                                                                                       |
-| transactionIndex   | string  | Integer of the transaction index position in the block.                                                                                                                                                                                            |
-| type               | string  | A string representing the type of the transaction.                                                                                                                                                                                                 |
-| typeInt            | number  | An integer representing the type of the transaction.                                                                                                                                                                                               |
-| value              | string  | Value transferred in peb.                                                                                                                                                                                                                          |
+| `Promise` trả về `đối tượng` - Một đối tượng giao dịch hoặc `null` khi không tìm thấy giao dịch:     | Tên                | Loại                                                                                                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Mô tả                                                                                                | blockHash          | chuỗi                                                                                                                                                                          |
+| Hàm băm của khối chứa giao dịch này.                                                                 | blockNumber        | chuỗi                                                                                                                                                                          |
+| Số khối chứa giao dịch này.                                                                          | codeFormat         | chuỗi                                                                                                                                                                          |
+| (tùy chọn) Định dạng mã của mã hợp đồng thông minh.                               | feePayer           | chuỗi                                                                                                                                                                          |
+| (tùy chọn) Địa chỉ của người trả phí.                                             | feePayerSignatures | Mảng (tùy chọn) Mảng các đối tượng chữ ký của người trả phí. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa mã khôi phục ECDSA. |
+| R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s.                                               | feeRatio           | chuỗi (tùy chọn) Tỷ lệ phí của người trả phí. Nếu tỷ lệ là 30 thì người trả phí phải trả 30% phí.                                                           |
+| 70% còn lại sẽ được trả bởi người gửi.                                                               | từ                 | chuỗi                                                                                                                                                                          |
+| Địa chỉ của người gửi.                                                                               | gas                | chuỗi                                                                                                                                                                          |
+| Gas được người gửi cung cấp.                                                                         | giá gas            | chuỗi                                                                                                                                                                          |
+| Giá gas được người gửi cung cấp theo đơn vị peb.                                                     | hash               | chuỗi                                                                                                                                                                          |
+| Hàm băm của giao dịch.                                                                               | humanReadable      | Boolean                                                                                                                                                                        |
+| (tùy chọn) `true` nếu địa chỉ con người có thể đọc được, ngược lại sẽ là `false`. | khóa               | chuỗi (tùy chọn) AccountKey được mã hóa RLP được sử dụng để cập nhật AccountKey của tài khoản Klaytn.                                                       |
+| Xem [AccountKey](../../../../../learn/accounts.md#account-key) để biết thêm thông tin chi tiết.      | nhập               | chuỗi                                                                                                                                                                          |
+| (tùy chọn) Dữ liệu được gửi cùng với giao dịch.                                   | số dùng một lần    | chuỗi                                                                                                                                                                          |
+| Số lượng giao dịch được người gửi thực hiện trước giao dịch này.                                     | senderTxHash       | chuỗi (tùy chọn) Hàm băm của tx mà không có địa chỉ và chữ ký của người trả phí.                                                                            |
+| Giá trị này luôn giống với giá trị của `hàm băm` đối với các giao dịch không ủy thác phí.            | chữ ký             | Mảng Một mảng các đối tượng chữ ký. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa mã khôi phục ECDSA.                                             |
+| R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s.                                               | đến                | chuỗi Địa chỉ của người nhận.                                                                                                                                                  |
+| `null` nếu đó là giao dịch triển khai hợp đồng.                                                      | transactionIndex   | chuỗi                                                                                                                                                                          |
+| Giá trị nguyên biểu thị vị trí chỉ mục của giao dịch trong khối.                                     | loại              | chuỗi                                                                                                                                                                          |
+| Chuỗi biểu thị loại giao dịch.                                                                       | typeInt            | số                                                                                                                                                                             |
+| Giá trị nguyên biểu thị loại giao dịch.                                                              | giá trị            | chuỗi                                                                                                                                                                          |
 
-If the transaction is in `pending` status that has not yet been processed, default values for `blockHash`, `blockNumber` and `transactionIndex` are returned. See the example below.
+Giá trị được chuyển tính bằng đơn vị peb. Nếu giao dịch ở trạng thái `đang chờ xử lý` chưa được xử lý, các giá trị mặc định cho `blockHash`, `blockNumber` và `transactionIndex` sẽ được trả về.
 
-**Example**
+Xem ví dụ bên dưới.
 
 ```javascript
 > caver.rpc.klay.getTransactionByHash('0x991d2e63b91104264d2886fb2ae2ccdf90551377af4e334b313abe123a5406aa').then(console.log)
@@ -1786,32 +1786,32 @@ If the transaction is in `pending` status that has not yet been processed, defau
 }
 ```
 
-## caver.rpc.klay.getTransactionBySenderTxHash <a href="#caver-rpc-klay-gettransactionbysendertxhash" id="caver-rpc-klay-gettransactionbysendertxhash"></a>
+## **Ví dụ**
 
 ```javascript
 caver.rpc.klay.getTransactionBySenderTxHash(senderTxHash [, callback])
 ```
 
-Returns the information about a transaction requested by the sender transaction hash.
+caver.rpc.klay.getTransactionBySenderTxHash <a href="#caver-rpc-klay-gettransactionbysendertxhash" id="caver-rpc-klay-gettransactionbysendertxhash"></a>
 
-Please note that this API returns the correct result only if the indexing feature is enabled in the node by `--sendertxhashindexing`. Use [caver.rpc.klay.isSenderTxHashIndexingEnabled](#caver-rpc-klay-issendertxhashindexingenabled) to check if the indexing feature is enabled or not.
+Trả về thông tin về một giao dịch được yêu cầu theo hàm băm giao dịch của người gửi. Xin lưu ý rằng API này chỉ trả về kết quả chính xác nếu tính năng lập chỉ mục được bật trong nút mạng bởi `--sendertxhashindexing`.
 
-**Parameters**
+Sử dụng thuộc tính [caver.rpc.klay.isSenderTxHashIndexingEnabled](#caver-rpc-klay-issendertxhashindexingenabled) để kiểm tra xem tính năng lập chỉ mục đã được bật hay chưa.
 
-| Name         | Type     | Description                                                                                                                      |
-| ------------ | -------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| senderTxHash | string   | The sender transaction hash. See [SenderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash) for more detail. |
-| callback     | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second.    |
+| **Tham số**                                                                                                               | Tên          | Loại                                  |
+| ------------------------------------------------------------------------------------------------------------------------- | ------------ | -------------------------------------- |
+| Mô tả                                                                                                                     | senderTxHash | chuỗi Hàm băm giao dịch của người gửi. |
+| Tham khảo [SenderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash) để biết thêm thông tin chi tiết. | callback     | hàm                                    |
 
-**Return Value**
+(tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.
 
-`Promise` returns `object`
+**Giá trị trả về**
 
-| Type   | Description                                                                                                             |
-| ------ | ----------------------------------------------------------------------------------------------------------------------- |
-| object | A transaction object, see [caver.rpc.klay.getTransactionByHash](#caver-rpc-klay-gettransactionbyhash) for more details. |
+| `Promise` trả về `đối tượng` | Loại     |
+| ---------------------------- | --------- |
+| Mô tả                        | đối tượng |
 
-**Example**
+Một đối tượng giao dịch, hãy xem [caver.rpc.klay.getTransactionByHash](#caver-rpc-klay-gettransactionbyhash) để biết thêm thông tin chi tiết.
 
 ```javascript
 > caver.rpc.klay.getTransactionBySenderTxHash('0x991d2e63b91104264d2886fb2ae2ccdf90551377af4e334b313abe123a5406aa').then(console.log)
@@ -1836,61 +1836,61 @@ Please note that this API returns the correct result only if the indexing featur
 }
 ```
 
-## caver.rpc.klay.getTransactionReceipt <a href="#caver-rpc-klay-gettransactionreceipt" id="caver-rpc-klay-gettransactionreceipt"></a>
+## **Ví dụ**
 
 ```javascript
 caver.rpc.klay.getTransactionReceipt(transactionHash [, callback])
 ```
 
-Returns the receipt of a transaction by transaction hash.
+caver.rpc.klay.getTransactionReceipt <a href="#caver-rpc-klay-gettransactionreceipt" id="caver-rpc-klay-gettransactionreceipt"></a>
 
-**NOTE** Receipt is not available for `pending` transactions whose transactions have not yet been processed.
+Trả về biên lai của một giao dịch theo hàm băm giao dịch.
 
-**Parameters**
+**LƯU Ý** Biên lai không khả dụng cho các giao dịch `đang chờ xử lý` có các giao dịch chưa được xử lý.
 
-| Name            | Type     | Description                                                                                                                   |
-| --------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| transactionHash | string   | A transaction hash.                                                                                                           |
-| callback        | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| **Tham số**            | Tên             | Loại |
+| ---------------------- | --------------- | ----- |
+| Mô tả                  | transactionHash | chuỗi |
+| Hàm băm của giao dịch. | callback        | hàm   |
 
-**Return Value**
+(tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.
 
-`Promise` returns `object` - A transaction receipt object, or `null` when no receipt was found:
+**Giá trị trả về**
 
-| Name               | Type    | Description                                                                                                                                                                                                                                                       |
-| ------------------ | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockHash          | string  | Hash of the block where this transaction was in.                                                                                                                                                                                                                  |
-| blockNumber        | string  | Block number where this transaction was in.                                                                                                                                                                                                                       |
-| codeFormat         | string  | (optional) The code format of smart contract code.                                                                                                                                                                                             |
-| contractAddress    | string  | The contract address created, if the transaction was a contract creation, otherwise `null`.                                                                                                                                                                       |
-| effectiveGasPrice  | string  | The actual value per gas deducted from the sender. Before the Magma hard fork, this value was equal to the transaction’s gas price. After the Magma hard fork, it is equal to the value of `baseFee` in the block header.                                         |
-| feePayer           | string  | (optional) Address of the fee payer.                                                                                                                                                                                                           |
-| feePayerSignatures | Array   | (optional) An array of fee payer's signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.                |
-| feeRatio           | string  | (optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender.                                                                                                              |
-| from               | string  | Address of the sender.                                                                                                                                                                                                                                            |
-| gas                | string  | Gas provided by the sender.                                                                                                                                                                                                                                       |
-| gasPrice           | string  | Gas price provided by the sender in peb.                                                                                                                                                                                                                          |
-| gasUsed            | string  | The amount of gas used by this specific transaction alone.                                                                                                                                                                                                        |
-| humanReadable      | Boolean | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable.                                                                                                                                                |
-| key                | string  | (optional) The RLP-encoded AccountKey used to update AccountKey of a Klaytn account.                                                                                                                                                           |
-| input              | string  | (optional) The data sent along with the transaction.                                                                                                                                                                                           |
-| logs               | Array   | Array of log objects, which this transaction generated.                                                                                                                                                                                                           |
-| logsBloom          | string  | Bloom filter for light clients to quickly retrieve related logs.                                                                                                                                                                                                  |
-| nonce              | string  | The number of transactions made by the sender prior to this one.                                                                                                                                                                                                  |
-| senderTxHash       | string  | (optional) Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash). This value is always the same as `transactionHash` for non-fee-delegated transactions. |
-| signatures         | Array   | An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.                                                          |
-| status             | string  | `0x1` if the transaction was successful, `0x0` if the Klaytn Virtual Machine reverted the transaction.                                                                                                                                                            |
-| txError            | string  | (optional) detailed error code if `status` is equal to `0x0`.                                                                                                                                                                                  |
-| to                 | string  | Address of the receiver. `null` when it is a contract creation transaction.                                                                                                                                                                                       |
-| transactionHash    | string  | Hash of the transaction.                                                                                                                                                                                                                                          |
-| transactionIndex   | string  | Integer of the transaction index position in the block.                                                                                                                                                                                                           |
-| type               | string  | A string representing the type of the transaction.                                                                                                                                                                                                                |
-| typeInt            | number  | An integer representing the type of the transaction.                                                                                                                                                                                                              |
-| value              | string  | Value transferred in peb.                                                                                                                                                                                                                                         |
+| `Promise` trả về `đối tượng` - Đối tượng biên lai giao dịch hoặc `null` khi không tìm thấy biên lai:               | Tên                                                                            | Loại                                                                                                                                                                                 |
+| ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Mô tả                                                                                                              | blockHash                                                                      | chuỗi                                                                                                                                                                                 |
+| Hàm băm của khối chứa giao dịch này.                                                                               | blockNumber                                                                    | chuỗi                                                                                                                                                                                 |
+| Số khối chứa giao dịch này.                                                                                        | codeFormat                                                                     | chuỗi                                                                                                                                                                                 |
+| (tùy chọn) Định dạng mã của mã hợp đồng thông minh.                                             | contractAddress                                                                | chuỗi                                                                                                                                                                                 |
+| Địa chỉ hợp đồng được tạo nếu giao dịch là giao dịch tạo hợp đồng, nếu không, giá trị sẽ là `null`.                | effectiveGasPrice                                                              | chuỗi Giá trị thực tế trên mỗi gas được khấu trừ từ người gửi. Trước khi nâng cấp căn bản Magma, giá trị này bằng với giá gas của giao dịch.                                          |
+| Sau nâng cấp căn bản Magma, giá trị này bằng với giá trị của `baseFee` trong tiêu đề khối.                         | feePayer                                                                       | chuỗi                                                                                                                                                                                 |
+| (tùy chọn) Địa chỉ của người trả phí.                                                           | feePayerSignatures                                                             | Mảng (tùy chọn) Mảng các đối tượng chữ ký của người trả phí. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa mã khôi phục ECDSA.        |
+| (tùy chọn) Mảng các đối tượng chữ ký của người trả phí.                                         | Một đối tượng chữ ký chứa ba trường (V, R và S).            | V chứa mã khôi phục ECDSA. R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s. feeRatio                                                                                            |
+| chuỗi                                                                                                              | (tùy chọn) Tỷ lệ phí của người trả phí.                     | Nếu tỷ lệ là 30 thì người trả phí phải trả 30% phí.                                                                                                                                   |
+| 70% còn lại sẽ được trả bởi người gửi.                                                                             | từ                                                                             | chuỗi                                                                                                                                                                                 |
+| Địa chỉ của người gửi.                                                                                             | gas                                                                            | chuỗi                                                                                                                                                                                 |
+| Gas được người gửi cung cấp.                                                                                       | giá gas                                                                        | chuỗi                                                                                                                                                                                 |
+| Giá gas được người gửi cung cấp theo đơn vị peb.                                                                   | gasUsed                                                                        | chuỗi                                                                                                                                                                                 |
+| Lượng gas được sử dụng bởi riêng giao dịch cụ thể này.                                                             | humanReadable                                                                  | Boolean                                                                                                                                                                               |
+| (tùy chọn) `true` nếu địa chỉ con người có thể đọc được, ngược lại sẽ là `false`.               | khóa                                                                           | chuỗi                                                                                                                                                                                 |
+| (tùy chọn) AccountKey được mã hóa RLP được sử dụng để cập nhật AccountKey của tài khoản Klaytn. | nhập                                                                           | chuỗi                                                                                                                                                                                 |
+| (tùy chọn) Dữ liệu được gửi cùng với giao dịch.                                                 | bản ghi                                                                        | Mảng                                                                                                                                                                                  |
+| Mảng đối tượng bản ghi mà giao dịch này tạo ra.                                                                    | nhật kýBloom                                                                   | chuỗi                                                                                                                                                                                 |
+| Bộ lọc Bloom dành cho các ứng dụng khách nhẹ giúp truy xuất nhanh các bản ghi liên quan.                           | số dùng một lần                                                                | chuỗi Số lượng giao dịch được người gửi thực hiện trước giao dịch này. senderTxHash                                                                                                   |
+| chuỗi                                                                                                              | (tùy chọn) Hàm băm của một giao dịch chỉ được người gửi ký. | Xem [SenderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash). Giá trị này luôn giống với `transactionHash` đối với các giao dịch không ủy thác phí. chữ ký Mảng |
+| Một mảng các đối tượng chữ ký.                                                                                     | Một đối tượng chữ ký chứa ba trường (V, R và S).            | V chứa mã khôi phục ECDSA.                                                                                                                                                            |
+| R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s.                                                             | trạng thái                                                                     | chuỗi                                                                                                                                                                                 |
+| `0x1` nếu giao dịch thành công, `0x0` nếu Máy ảo Klaytn đặt lại giao dịch.                                         | txError                                                                        | chuỗi (tùy chọn) mã lỗi chi tiết nếu `trạng thái` bằng `0x0`.                                                                                                      |
+| đến                                                                                                                | chuỗi                                                                          | Địa chỉ của người nhận.                                                                                                                                                               |
+| `null` nếu đó là giao dịch tạo hợp đồng.                                                                           | transactionHash                                                                | chuỗi                                                                                                                                                                                 |
+| Hàm băm của giao dịch.                                                                                             | transactionIndex                                                               | chuỗi                                                                                                                                                                                 |
+| Giá trị nguyên biểu thị vị trí chỉ mục của giao dịch trong khối.                                                   | loại                                                                          | chuỗi                                                                                                                                                                                 |
+| Chuỗi biểu thị loại giao dịch.                                                                                     | typeInt                                                                        | số                                                                                                                                                                                    |
 
-**NOTE** `effectiveGasPrice` is supported since caver-js [v1.9.0](https://www.npmjs.com/package/caver-js/v/1.9.0).
+Giá trị nguyên biểu thị loại giao dịch.
 
-**Example**
+giá trị
 
 ```javascript
 // Before the Magma hard fork
@@ -1944,34 +1944,34 @@ Returns the receipt of a transaction by transaction hash.
 }
 ```
 
-## caver.rpc.klay.getTransactionReceiptBySenderTxHash <a href="#caver-rpc-klay-gettransactionreceiptbysendertxhash" id="caver-rpc-klay-gettransactionreceiptbysendertxhash"></a>
+## chuỗi
 
 ```javascript
 caver.rpc.klay.getTransactionReceiptBySenderTxHash(senderTxHash [, callback])
 ```
 
-Returns the receipt of a transaction by sender transaction hash.
+Giá trị được chuyển tính bằng đơn vị peb.
 
-Please note that this API returns the correct result only if the indexing feature is enabled in the node by `--sendertxhashindexing`. Use [caver.rpc.klay.isSenderTxHashIndexingEnabled](#caver-rpc-klay-issendertxhashindexingenabled) to check if the indexing feature is enabled or not.
+**LƯU Ý** `effectiveGasPrice` được hỗ trợ kể từ caver-js phiên bản [v1.9.0](https://www.npmjs.com/package/caver-js/v/1.9.0). **Ví dụ**
 
-**NOTE** Receipt is not available for `pending` transactions whose transactions have not yet been processed.
+caver.rpc.klay.getTransactionReceiptBySenderTxHash <a href="#caver-rpc-klay-gettransactionreceiptbysendertxhash" id="caver-rpc-klay-gettransactionreceiptbysendertxhash"></a>
 
-**Parameters**
+Trả về biên lai của một giao dịch theo hàm băm giao dịch của người gửi.
 
-| Name         | Type     | Description                                                                                                                      |
-| ------------ | -------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| senderTxHash | string   | The sender transaction hash. See [SenderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash) for more detail. |
-| callback     | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second.    |
+| Xin lưu ý rằng API này chỉ trả về kết quả chính xác nếu tính năng lập chỉ mục được bật trong nút mạng bởi `--sendertxhashindexing`. | Sử dụng thuộc tính [caver.rpc.klay.isSenderTxHashIndexingEnabled](#caver-rpc-klay-issendertxhashindexingenabled) để kiểm tra xem tính năng lập chỉ mục đã được bật hay chưa. | **LƯU Ý** Biên lai không khả dụng cho các giao dịch `đang chờ xử lý` có các giao dịch chưa được xử lý. |
+| ----------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| **Tham số**                                                                                                                         | Tên                                                                                                                                                                          | Loại Mô tả                                                                                            |
+| senderTxHash                                                                                                                        | chuỗi                                                                                                                                                                        | Hàm băm giao dịch của người gửi.                                                                       |
 
-**Return Value**
+ham khảo [SenderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash) để biết thêm thông tin chi tiết.
 
-`Promise` returns `object`
+callback
 
-| Type   | Description                                                                                                                      |
-| ------ | -------------------------------------------------------------------------------------------------------------------------------- |
-| object | A transaction receipt object, see [caver.rpc.klay.getTransactionReceipt](#caver-rpc-klay-gettransactionreceipt) for more detail. |
+| hàm                | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------- |
+| **Giá trị trả về** | `Promise` trả về `đối tượng`                                                                                                      |
 
-**Example**
+Loại
 
 ```javascript
 > caver.rpc.klay.getTransactionReceiptBySenderTxHash('0xdb63fb385e51fbfd84a98873c994aef622c5f1c72c5760a9ff95c55bbfd99898').then(console.log)
@@ -1999,36 +1999,36 @@ Please note that this API returns the correct result only if the indexing featur
 }
 ```
 
-## caver.rpc.klay.sendRawTransaction <a href="#caver-rpc-klay-sendrawtransaction" id="caver-rpc-klay-sendrawtransaction"></a>
+## Mô tả
 
 ```javascript
 caver.rpc.klay.sendRawTransaction(signedTransaction [, callback])
 ```
 
-Sends a `signed transaction` to the Klaytn.
+đối tượng
 
-The `signedTransaction` parameter can be a "RLP-encoded signed transaction." You can get the RLP-encoded transaction of a signed transaction using `transaction.getRLPEncoding`. For convenience, `caver.rpc.klay.sendRawTransaction` also accepts a "signed transaction instance" as parameter.
+Một đối tượng biên lai giao dịch, hãy xem [caver.rpc.klay.getTransactionReceipt](#caver-rpc-klay-gettransactionreceipt) để biết thêm thông tin chi tiết. **Ví dụ** caver.rpc.klay.sendRawTransaction <a href="#caver-rpc-klay-sendrawtransaction" id="caver-rpc-klay-sendrawtransaction"></a>
 
-**Parameters**
+Gửi một `giao dịch đã ký` đến Klaytn.
 
-| Name              | Type             | Description                                                                                                                   |
-| ----------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| signedTransaction | string \| object | A RLP-encoded signed transaction or an instance of signed transaction.                                                        |
-| callback          | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tham số `signedTransaction` có thể là "Giao dịch đã ký được mã hóa RLP". | Bạn có thể nhận giao dịch được mã hóa RLP của giao dịch đã ký bằng cách sử dụng `transaction.getRLPEncoding`. | Để thuận tiện, `caver.rpc.klay.sendRawTransaction` cũng chấp nhận "phiên bản giao dịch đã ký" làm tham số. |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| **Tham số**                                                              | Tên                                                                                                           | Loại                                                                                                      |
+| Mô tả                                                                    | signedTransaction                                                                                             | chuỗi \| đối tượng                                                                                         |
 
-**Return Value**
+Giao dịch đã ký được mã hóa RLP hoặc một phiên bản của giao dịch đã ký.
 
-| Type       | Description                                                                                    |
-| ---------- | ---------------------------------------------------------------------------------------------- |
-| PromiEvent | A promise combined event emitter. It will be resolved when a transaction receipt is available. |
+| callback                                                                                                                          | hàm                      |
+| --------------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
+| (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. | **Giá trị trả về** Loại |
 
-For PromiEvent, the following events are available:
+Mô tả
 
-- `transactionHash` returns `string`: Is fired right after a transaction is sent and a transaction hash is available.
-- `receipt` returns `object`: Is fired when a transaction receipt is available. See [caver.rpc.klay.getTransactionReceipt](#caver-rpc-klay-gettransactionreceipt) for more detail.
-- `error` returns `Error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
+- PromiEvent
+- Trình phát sự kiện kết hợp promise. Bộ phát này sẽ được xử lý khi có biên lai giao dịch.
+- Đối với PromiEvent, sẽ có các sự kiện sau đây: `transactionHash` trả về `chuỗi`: Được kích hoạt ngay sau khi gửi giao dịch và có hàm băm giao dịch.
 
-**Example**
+`biên lai` trả về `đối tượng`: Được kích hoạt khi có sẵn biên lai giao dịch.
 
 ```javascript
 // Using promise
@@ -2059,38 +2059,38 @@ For PromiEvent, the following events are available:
 > caver.rpc.klay.sendRawTransaction('0x08f88...').on('transactionHash', h => {...}).on('receipt', r => {...}).on('error', console.error)
 ```
 
-## caver.rpc.klay.sendTransaction <a href="#caver-rpc-klay-sendtransaction" id="caver-rpc-klay-sendtransaction"></a>
+## Xem [caver.rpc.klay.getTransactionReceipt](#caver-rpc-klay-gettransactionreceipt) để biết thêm thông tin chi tiết.
 
 ```javascript
 caver.rpc.klay.sendTransaction(transaction [, callback])
 ```
 
-Signs a transaction as a transaction `sender` with an "imported account's private key" in your Klaytn Node and propagates the transaction to the Klaytn.
+`lỗi` trả về `Lỗi`: Được kích hoạt nếu có lỗi phát sinh trong quá trình gửi.
 
-For more information about each transaction type, refer to [Transaction](../caver-transaction/caver-transaction.md#class).
+Khi xảy ra lỗi hết gas, tham số thứ hai sẽ là biên lai.
 
-**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../json-rpc/personal.md#personal_importrawkey) in your Klaytn node. The imported account in your node must be [unlocked](../../../../json-rpc/personal.md#personal_unlockaccount) to sign a transaction.
+**Ví dụ** caver.rpc.klay.sendTransaction <a href="#caver-rpc-klay-sendtransaction" id="caver-rpc-klay-sendtransaction"></a>
 
-**Parameters**
+Ký giao dịch với tư cách là `người gửi` giao dịch bằng "khóa riêng tư của tài khoản đã nhập" trong Nút Klaytn của bạn và gửi giao dịch đến Klaytn.
 
-| Name        | Type     | Description                                                                                                                   |
-| ----------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| transaction | object   | An instance of a transaction to be sent to the Klaytn.                                                                        |
-| callback    | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Để biết thêm thông tin về từng loại giao dịch, hãy tham khảo [Giao dịch](../caver-transaction/caver-transaction.md#class). | **LƯU Ý**: API này cung cấp hàm để ký một giao dịch bằng [tài khoản đã nhập](../../../../json-rpc/personal.md#personal_importrawkey) trong nút Klaytn của bạn. | Tài khoản đã nhập trong nút của bạn phải được [mở khóa](../../../../json-rpc/personal.md#personal_unlockaccount) để ký giao dịch. |
+| -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| **Tham số**                                                                                                                | Tên                                                                                                                                                            | Loại                                                                                                                             |
+| Mô tả                                                                                                                      | giao dịch                                                                                                                                                      | đối tượng                                                                                                                         |
 
-**Return Value**
+Một phiên bản của một giao dịch được gửi đến Klaytn.
 
-| Type       | Description                                                                                    |
-| ---------- | ---------------------------------------------------------------------------------------------- |
-| PromiEvent | A promise combined event emitter. It will be resolved when a transaction receipt is available. |
+| callback                                                                                                                          | hàm                      |
+| --------------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
+| (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. | **Giá trị trả về** Loại |
 
-For PromiEvent, the following events are available:
+Mô tả
 
-- `transactionHash` returns `string`: Is fired right after a transaction is sent and a transaction hash is available.
-- `receipt` returns `object`: Is fired when a transaction receipt is available. See [caver.rpc.klay.getTransactionReceipt](#caver-rpc-klay-gettransactionreceipt) for more detail.
-- `error` returns `Error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
+- PromiEvent
+- Trình phát sự kiện kết hợp promise. Bộ phát này sẽ được xử lý khi có biên lai giao dịch.
+- Đối với PromiEvent, sẽ có các sự kiện sau đây: `transactionHash` trả về `chuỗi`: Được kích hoạt ngay sau khi gửi giao dịch và có hàm băm giao dịch.
 
-**Example**
+`biên lai` trả về `đối tượng`: Được kích hoạt khi có sẵn biên lai giao dịch.
 
 ```javascript
 > const tx = caver.transaction.valueTransfer.create({
@@ -2127,40 +2127,40 @@ For PromiEvent, the following events are available:
 > caver.rpc.klay.sendTransaction(tx).on('transactionHash', h => {...}).on('receipt', r => {...}).on('error', console.error)
 ```
 
-## caver.rpc.klay.sendTransactionAsFeePayer <a href="#caver-rpc-klay-sendtransactionasfeepayer" id="caver-rpc-klay-sendtransactionasfeepayer"></a>
+## Xem [caver.rpc.klay.getTransactionReceipt](#caver-rpc-klay-gettransactionreceipt) để biết thêm thông tin chi tiết.
 
 ```javascript
 caver.rpc.klay.sendTransactionAsFeePayer(transaction [, callback])
 ```
 
-Signs a fee delegated transaction as a transaction `fee payer` with an `imported account's private key` in your Klaytn Node and propagates the transaction to the Klaytn.
+`lỗi` trả về `Lỗi`: Được kích hoạt nếu có lỗi phát sinh trong quá trình gửi.
 
-Before using `sendTransaction` as a fee payer, the transaction sender must have signed with valid signature(s) and the `nonce` must have been defined.
+Khi xảy ra lỗi hết gas, tham số thứ hai sẽ là biên lai.
 
-For more information about each transaction type, refer to [Transaction](../caver-transaction/caver-transaction.md#class).
+**Ví dụ**
 
-**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../json-rpc/personal.md#personal_importrawkey) in your Klaytn node. The imported account in your node must be [unlocked](../../../../json-rpc/personal.md#personal_unlockaccount) to sign a transaction.
+caver.rpc.klay.sendTransactionAsFeePayer <a href="#caver-rpc-klay-sendtransactionasfeepayer" id="caver-rpc-klay-sendtransactionasfeepayer"></a> Ký giao dịch ủy thác phí với tư cách là `người trả phí` giao dịch bằng `khóa riêng tư của tài khoản đã nhập` trong Nút Klaytn của bạn và gửi giao dịch đến Klaytn.
 
-**Parameters**
+Trước khi sử dụng `sendTransaction` với tư cách người trả phí, người gửi giao dịch phải ký bằng (các) chữ ký hợp lệ và `số dùng một lần` phải được xác định.
 
-| Name        | Type     | Description                                                                                                                   |
-| ----------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| transaction | object   | An instance of fee delegated transaction to send to the Klaytn.                                                               |
-| callback    | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Để biết thêm thông tin về từng loại giao dịch, hãy tham khảo [Giao dịch](../caver-transaction/caver-transaction.md#class). | **LƯU Ý**: API này cung cấp hàm để ký một giao dịch bằng [tài khoản đã nhập](../../../../json-rpc/personal.md#personal_importrawkey) trong nút Klaytn của bạn. | Tài khoản đã nhập trong nút của bạn phải được [mở khóa](../../../../json-rpc/personal.md#personal_unlockaccount) để ký giao dịch. |
+| -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| **Tham số**                                                                                                                | Tên                                                                                                                                                            | Loại                                                                                                                             |
+| Mô tả                                                                                                                      | giao dịch                                                                                                                                                      | đối tượng                                                                                                                         |
 
-**Return Value**
+Một phiên bản giao dịch có ủy thác phí để gửi đến Klaytn.
 
-| Type       | Description                                                                                    |
-| ---------- | ---------------------------------------------------------------------------------------------- |
-| PromiEvent | A promise combined event emitter. It will be resolved when a transaction receipt is available. |
+| callback                                                                                                                          | hàm                      |
+| --------------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
+| (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. | **Giá trị trả về** Loại |
 
-For PromiEvent, the following events are available:
+Mô tả
 
-- `transactionHash` returns `string`: Is fired right after a transaction is sent and a transaction hash is available.
-- `receipt` returns `object`: Is fired when a transaction receipt is available. See [caver.rpc.klay.getTransactionReceipt](#caver-rpc-klay-gettransactionreceipt) for more detail.
-- `error` returns `Error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
+- PromiEvent
+- Trình phát sự kiện kết hợp promise. Bộ phát này sẽ được xử lý khi có biên lai giao dịch.
+- Đối với PromiEvent, sẽ có các sự kiện sau đây: `transactionHash` trả về `chuỗi`: Được kích hoạt ngay sau khi gửi giao dịch và có hàm băm giao dịch.
 
-**Example**
+`biên lai` trả về `đối tượng`: Được kích hoạt khi có sẵn biên lai giao dịch.
 
 ```javascript
 > const tx = caver.transaction.feeDelegatedValueTransfer.create({
@@ -2208,35 +2208,35 @@ For PromiEvent, the following events are available:
 > caver.rpc.klay.sendTransactionAsFeePayer(tx).on('transactionHash', h => {...}).on('receipt', r => {...}).on('error', console.error)
 ```
 
-## caver.rpc.klay.signTransaction <a href="#caver-rpc-klay-signtransaction" id="caver-rpc-klay-signtransaction"></a>
+## Xem [caver.rpc.klay.getTransactionReceipt](#caver-rpc-klay-gettransactionreceipt) để biết thêm thông tin chi tiết.
 
 ```javascript
 caver.rpc.klay.signTransaction(transaction [, callback])
 ```
 
-Signs a transaction as a transaction sender with an "imported account's private key" in your Klaytn Node.
+`lỗi` trả về `Lỗi`: Được kích hoạt nếu có lỗi phát sinh trong quá trình gửi.
 
-For more information about each transaction type, refer to [Transaction](../caver-transaction/caver-transaction.md#class).
+Khi xảy ra lỗi hết gas, tham số thứ hai sẽ là biên lai.
 
-**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../json-rpc/personal.md#personal_importrawkey) in your Klaytn node. The imported account in your node must be [unlocked](../../../../json-rpc/personal.md#personal_unlockaccount) to sign a transaction.
+**Ví dụ** caver.rpc.klay.signTransaction <a href="#caver-rpc-klay-signtransaction" id="caver-rpc-klay-signtransaction"></a>
 
-**Parameters**
+Ký giao dịch với tư cách là người gửi giao dịch bằng "khóa riêng tư của tài khoản đã nhập" trong Nút Klaytn của bạn.
 
-| Name        | Type     | Description                                                                                                                   |
-| ----------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| transaction | object   | An instance of a transaction to sign.                                                                                         |
-| callback    | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Để biết thêm thông tin về từng loại giao dịch, hãy tham khảo [Giao dịch](../caver-transaction/caver-transaction.md#class). | **LƯU Ý**: API này cung cấp hàm để ký một giao dịch bằng [tài khoản đã nhập](../../../../json-rpc/personal.md#personal_importrawkey) trong nút Klaytn của bạn. | Tài khoản đã nhập trong nút của bạn phải được [mở khóa](../../../../json-rpc/personal.md#personal_unlockaccount) để ký giao dịch. |
+| -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| **Tham số**                                                                                                                | Tên                                                                                                                                                            | Loại                                                                                                                             |
+| Mô tả                                                                                                                      | giao dịch                                                                                                                                                      | đối tượng                                                                                                                         |
 
-**Return Value**
+Phiên bản của một giao dịch dùng để ký.
 
-`Promise` returns `object` - An object includes signed transaction:
+callback
 
-| Name | Type   | Description                                              |
-| ---- | ------ | -------------------------------------------------------- |
-| raw  | string | A RLP-encoded signed transaction.                        |
-| tx   | object | The transaction object including the sender's signature. |
+| hàm                                                                   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. | **Giá trị trả về** |
+| --------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `Promise` trả về `đối tượng` - Một đối tượng bao gồm giao dịch đã ký: | Tên                                                                                                                               | Loại              |
+| Mô tả                                                                 | raw                                                                                                                               | chuỗi              |
 
-**Example**
+Giao dịch đã ký được mã hóa RLP.
 
 ```javascript
 > const tx = caver.transaction.valueTransfer.create({
@@ -2264,35 +2264,35 @@ For more information about each transaction type, refer to [Transaction](../cave
 }
 ```
 
-## caver.rpc.klay.signTransactionAsFeePayer <a href="#caver-rpc-klay-signtransactionasfeepayer" id="caver-rpc-klay-signtransactionasfeepayer"></a>
+## tx
 
 ```javascript
 caver.rpc.klay.signTransactionAsFeePayer(transaction [, callback])
 ```
 
-Signs a transaction as a transaction fee payer with an "imported account's private key" in your Klaytn Node.
+đối tượng
 
-For more information about each transaction type, refer to [Transaction](../caver-transaction/caver-transaction.md#class).
+Đối tượng giao dịch bao gồm cả chữ ký của người gửi.
 
-**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../json-rpc/personal.md#personal_importrawkey) in your Klaytn node. The imported account in your node must be [unlocked](../../../../json-rpc/personal.md#personal_unlockaccount) to sign a transaction.
+**Ví dụ** caver.rpc.klay.signTransactionAsFeePayer <a href="#caver-rpc-klay-signtransactionasfeepayer" id="caver-rpc-klay-signtransactionasfeepayer"></a>
 
-**Parameters**
+Ký giao dịch với tư cách là người trả phí giao dịch bằng "khóa riêng tư của tài khoản đã nhập" trong Nút Klaytn của bạn.
 
-| Name        | Type     | Description                                                                                                                   |
-| ----------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| transaction | object   | An instance of a transaction to sign.                                                                                         |
-| callback    | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Để biết thêm thông tin về từng loại giao dịch, hãy tham khảo [Giao dịch](../caver-transaction/caver-transaction.md#class). | **LƯU Ý**: API này cung cấp hàm để ký một giao dịch bằng [tài khoản đã nhập](../../../../json-rpc/personal.md#personal_importrawkey) trong nút Klaytn của bạn. | Tài khoản đã nhập trong nút của bạn phải được [mở khóa](../../../../json-rpc/personal.md#personal_unlockaccount) để ký giao dịch. |
+| -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| **Tham số**                                                                                                                | Tên                                                                                                                                                            | type                                                                                                                              |
+| Mô tả                                                                                                                      | giao dịch                                                                                                                                                      | đối tượng                                                                                                                         |
 
-**Return Value**
+Phiên bản của một giao dịch dùng để ký.
 
-`Promise` returns `object` - An object includes signed transaction:
+callback
 
-| Name | Type   | Description                                  |
-| ---- | ------ | -------------------------------------------- |
-| raw  | string | A RLP-encoded signed transaction.            |
-| tx   | object | The transaction object to sign as fee payer. |
+| hàm                                                                   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. | **Giá trị trả về** |
+| --------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `Promise` trả về `đối tượng` - Một đối tượng bao gồm giao dịch đã ký: | Tên                                                                                                                               | Loại              |
+| Mô tả                                                                 | raw                                                                                                                               | chuỗi              |
 
-**Example**
+Giao dịch đã ký được mã hóa RLP.
 
 ```javascript
 > const tx = caver.transaction.feeDelegatedValueTransfer.craete({
@@ -2331,37 +2331,37 @@ For more information about each transaction type, refer to [Transaction](../cave
 }
 ```
 
-## caver.rpc.klay.getDecodedAnchoringTransactionByHash <a href="#caver-rpc-klay-getdecodedanchoringtransactionbyhash" id="caver-rpc-klay-getdecodedanchoringtransactionbyhash"></a>
+## tx
 
 ```javascript
 caver.rpc.klay.getDecodedAnchoringTransactionByHash(transactionHash [, callback])
 ```
 
-Returns the decoded anchored data in the transaction for the given transaction hash.
+đối tượng
 
-**Parameters**
+Đối tượng giao dịch để ký với tư cách là người trả phí.
 
-| Name            | Type     | Description                                                                                                                   |
-| --------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| transactionHash | string   | A transaction hash.                                                                                                           |
-| callback        | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| **Ví dụ** | caver.rpc.klay.getDecodedAnchoringTransactionByHash <a href="#caver-rpc-klay-getdecodedanchoringtransactionbyhash" id="caver-rpc-klay-getdecodedanchoringtransactionbyhash"></a> | Trả về dữ liệu neo đã được giải mã trong giao dịch cho hàm băm giao dịch đã cho. |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| **Tham số** | Tên                                                                                                                                                                              | Loại                                                                            |
+| Mô tả       | transactionHash                                                                                                                                                                  | chuỗi                                                                            |
 
-**Return Value**
+Hàm băm của giao dịch.
 
-`Promise` returns `object` - An object includes decoded anchored data:
+callback
 
-| Name          | Type   | Description                                                                                                                                                                                                                            |
-| ------------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| BlockHash     | string | Hash of the child chain block that this anchoring transaction was performed.                                                                                                                                                           |
-| BlockNumber   | number | The child chain block number that this anchoring transaction was performed.                                                                                                                                                            |
-| ParentHash    | string | Hash of the parent block.                                                                                                                                                                                                              |
-| TxHash        | string | The root of the transaction trie of the block.                                                                                                                                                                                         |
-| StateRootHash | string | The root of the final state trie of the block.                                                                                                                                                                                         |
-| ReceiptHash   | string | The root of the receipts trie of the block.                                                                                                                                                                                            |
-| BlockCount    | number | The number of blocks generated during this anchoring period. In most cases, this number is equal to the child chain's `SC_TX_PERIOD`, except the case that this transaction was the first anchoring tx after turning on the anchoring. |
-| TxCount       | number | The number of transactions generated in the child chain during this anchoring period.                                                                                                                                                  |
+| hàm                                                                            | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. | **Giá trị trả về**                               |
+| ------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
+| `Promise` trả về `đối tượng` - Một đối tượng bao gồm dữ liệu neo được giải mã: | Tên                                                                                                                               | Loại                                            |
+| Mô tả                                                                          | BlockHash                                                                                                                         | chuỗi                                            |
+| Hàm băm của khối chuỗi con mà giao dịch neo này đã được thực hiện.             | BlockNumber                                                                                                                       | số                                               |
+| Số khối chuỗi con mà giao dịch neo này đã được thực hiện.                      | ParentHash                                                                                                                        | chuỗi                                            |
+| Hàm băm của khối cha mẹ.                                                       | TxHash                                                                                                                            | chuỗi                                            |
+| Gốc của trie giao dịch trong khối.                                             | StateRootHash                                                                                                                     | chuỗi                                            |
+| Gốc của trie trạng thái cuối trong khối.                                       | ReceiptHash                                                                                                                       | chuỗi Gốc của trie biên lai giao dịch của khối.  |
+| BlockCount                                                                     | số                                                                                                                                | Số khối được tạo trong khoảng thời gian neo này. |
 
-**Example**
+Trong hầu hết các trường hợp, số này bằng với `SC_TX_PERIOD` của chuỗi con ngoại trừ trường hợp giao dịch này là tx neo đầu tiên sau khi bật tính năng neo.
 
 ```javascript
 > caver.rpc.klay.getDecodedAnchoringTransactionByHash('0x59831a092a9f0b48018848f5dd88a457efdbfabec13ea07cd769686741a1cd13').then(console.log)
@@ -2377,239 +2377,239 @@ Returns the decoded anchored data in the transaction for the given transaction h
 }
 ```
 
-## caver.rpc.klay.getChainId <a href="#caver-rpc-klay-getchainid" id="caver-rpc-klay-getchainid"></a>
+## TxCount
 
 ```javascript
 caver.rpc.klay.getChainId([callback])
 ```
 
-Returns the chain ID of the chain.
+số
 
-**Parameters**
+Số lượng giao dịch được tạo trong chuỗi con trong khoảng thời gian neo này.
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| **Ví dụ** | caver.rpc.klay.getChainId <a href="#caver-rpc-klay-getchainid" id="caver-rpc-klay-getchainid"></a> | Trả về mã chuỗi của chuỗi. |
+| ----------- | -------------------------------------------------------------------------------------------------- | -------------------------- |
+| **Tham số** | Tên                                                                                                | Loại                      |
 
-**Return Value**
+Mô tả
 
-`Promise` returns `string`
+callback
 
-| Type   | Description                |
-| ------ | -------------------------- |
-| string | The chain ID of the chain. |
+| hàm                | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------- |
+| **Giá trị trả về** | `Promise` trả về `chuỗi`                                                                                                          |
 
-**Example**
+Loại
 
 ```javascript
 > caver.rpc.klay.getChainId().then(console.log)
 0x2710
 ```
 
-## caver.rpc.klay.getClientVersion <a href="#caver-rpc-klay-getclientversion" id="caver-rpc-klay-getclientversion"></a>
+## Mô tả
 
 ```javascript
 caver.rpc.klay.getClientVersion([callback])
 ```
 
-Returns the current client version of a Klaytn node.
+chuỗi
 
-**Parameters**
+ID chuỗi của chuỗi.
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| **Ví dụ** | caver.rpc.klay.getClientVersion <a href="#caver-rpc-klay-getclientversion" id="caver-rpc-klay-getclientversion"></a> | Trả về phiên bản máy khách hiện tại của nút Klaytn. |
+| ----------- | -------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
+| **Tham số** | Tên                                                                                                                  | Loại                                               |
 
-**Return Value**
+Mô tả
 
-`Promise` returns `string`
+callback
 
-| Type   | Description                                  |
-| ------ | -------------------------------------------- |
-| string | The current client version of a Klaytn node. |
+| hàm                | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------- |
+| **Giá trị trả về** | `Promise` trả về `chuỗi`                                                                                                          |
 
-**Example**
+Loại
 
 ```javascript
 > caver.rpc.klay.getClientVersion().then(console.log)
 Klaytn/v1.3.0+144494d2aa/linux-amd64/go1.13.1
 ```
 
-## caver.rpc.klay.getGasPrice <a href="#caver-rpc-klay-getgasprice" id="caver-rpc-klay-getgasprice"></a>
+## Mô tả
 
 ```javascript
 caver.rpc.klay.getGasPrice([callback])
 ```
 
-Returns the current price per gas in peb.
+chuỗi
 
-**Parameters**
+Phiên bản máy khách hiện tại của nút Klaytn.
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| **Ví dụ** | caver.rpc.klay.getGasPrice <a href="#caver-rpc-klay-getgasprice" id="caver-rpc-klay-getgasprice"></a> | Trả về mức giá hiện tại cho mỗi gas tính bằng peb. |
+| ----------- | ----------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
+| **Tham số** | Tên                                                                                                   | Loại                                              |
 
-**Return Value**
+Mô tả
 
-`Promise` returns `string`
+callback
 
-| Type   | Description                   |
-| ------ | ----------------------------- |
-| string | The current gas price in peb. |
+| hàm                | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------- |
+| **Giá trị trả về** | `Promise` trả về `chuỗi`                                                                                                          |
 
-**Example**
+Loại
 
 ```javascript
 > caver.rpc.klay.getGasPrice().then(console.log)
 0x5d21dba00
 ```
 
-## caver.rpc.klay.getGasPriceAt <a href="#caver-rpc-klay-getgaspriceat" id="caver-rpc-klay-getgaspriceat"></a>
+## Mô tả
 
 ```javascript
 caver.rpc.klay.getGasPriceAt([blockNumber] [, callback])
 ```
 
-Returns the current price per gas in peb for the given block.
+chuỗi
 
-**Parameters**
+Giá gas hiện tại tính bằng peb.
 
-| Name        | Type     | Description                                                                                                                   |
-| ----------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| blockNumber | number   | (optional) The block number. If omitted, the latest unit price will be returned.                           |
-| callback    | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| **Ví dụ** | caver.rpc.klay.getGasPriceAt <a href="#caver-rpc-klay-getgaspriceat" id="caver-rpc-klay-getgaspriceat"></a> | Trả về giá hiện tại cho mỗi gas tính bằng peb cho khối đã cho. |
+| ----------- | ----------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| **Tham số** | Tên                                                                                                         | Loại Mô tả                                                    |
+| blockNumber | số                                                                                                          | (tùy chọn) Số khối.                         |
 
-**Return Value**
+Nếu bị bỏ qua, hệ thống sẽ trả về đơn giá mới nhất.
 
-`Promise` returns `string`
+callback
 
-| Type   | Description                   |
-| ------ | ----------------------------- |
-| string | The current gas price in peb. |
+| hàm                | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------- |
+| **Giá trị trả về** | `Promise` trả về `chuỗi`                                                                                                          |
 
-**Example**
+Loại
 
 ```javascript
 > caver.rpc.klay.getGasPriceAt().then(console.log)
 0x5d21dba00
 ```
 
-## caver.rpc.klay.getMaxPriorityFeePerGas <a href="#caver-rpc-klay-getmaxpriorityfeepergas" id="caver-rpc-klay-getmaxpriorityfeepergas"></a>
+## Mô tả
 
 ```javascript
 caver.rpc.klay.getMaxPriorityFeePerGas([callback])
 ```
 
-Returns a suggested gas tip cap for dynamic fee transactions in peb. Since Klaytn has a fixed gas price, this returns the gas price set by Klaytn.
+chuỗi Giá gas hiện tại tính bằng peb.
 
-**Parameters**
+**Ví dụ**
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| caver.rpc.klay.getMaxPriorityFeePerGas <a href="#caver-rpc-klay-getmaxpriorityfeepergas" id="caver-rpc-klay-getmaxpriorityfeepergas"></a> | Trả về đề xuất giới hạn tối đa phí gas trả thêm cho giao dịch có mức phí thay đổi tính bằng peb. | Vì Klaytn có giá gas cố định, nó sẽ trả về giá gas do Klaytn đặt. |
+| ----------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------- |
+| **Tham số**                                                                                                                               | Tên                                                                                              | Loại                                                             |
 
-**Return Value**
+Mô tả
 
-`Promise` returns `string`
+callback
 
-| Type   | Description                       |
-| ------ | --------------------------------- |
-| string | The suggested gas tip cap in peb. |
+| hàm                | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------- |
+| **Giá trị trả về** | `Promise` trả về `chuỗi`                                                                                                          |
 
-**Example**
+Loại
 
 ```javascript
 > caver.rpc.klay.getMaxPriorityFeePerGas().then(console.log)
 0x5d21dba00
 ```
 
-## caver.rpc.klay.getLowerBoundGasPrice <a href="#caver-rpc-klay-getlowerboundgasprice" id="caver-rpc-klay-getlowerboundgasprice"></a>
+## Mô tả
 
 ```javascript
 caver.rpc.klay.getLowerBoundGasPrice([callback])
 ```
 
-Returns the lower bound gas price in peb.
+chuỗi
 
-**Parameters**
+Đề xuất về giới hạn tối đa phí gas trả thêm tính theo peb.
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| **Ví dụ** | caver.rpc.klay.getLowerBoundGasPrice <a href="#caver-rpc-klay-getlowerboundgasprice" id="caver-rpc-klay-getlowerboundgasprice"></a> | Trả về giá gas giới hạn dưới tính bằng peb. |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
+| **Tham số** | Tên                                                                                                                                 | Loại                                       |
 
-**Return Value**
+Mô tả
 
-`Promise` returns `string`
+callback
 
-| Type   | Description                       |
-| ------ | --------------------------------- |
-| string | The lower bound gas price in peb. |
+| hàm                | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------- |
+| **Giá trị trả về** | `Promise` trả về `chuỗi`                                                                                                          |
 
-**Example**
+Loại
 
 ```javascript
 > caver.rpc.klay.getLowerBoundGasPrice().then(console.log)
 0x5d21dba00
 ```
 
-## caver.rpc.klay.getUpperBoundGasPrice <a href="#caver-rpc-klay-getupperboundgasprice" id="caver-rpc-klay-getupperboundgasprice"></a>
+## Mô tả
 
 ```javascript
 caver.rpc.klay.getUpperBoundGasPrice([callback])
 ```
 
-Returns the upper bound gas price in peb.
+chuỗi
 
-**Parameters**
+Giá gas giới hạn dưới tính bằng peb.
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| **Ví dụ** | caver.rpc.klay.getUpperBoundGasPrice <a href="#caver-rpc-klay-getupperboundgasprice" id="caver-rpc-klay-getupperboundgasprice"></a> | Trả về giá gas giới hạn trên tính bằng peb. |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
+| **Tham số** | Tên                                                                                                                                 | Loại                                       |
 
-**Return Value**
+Mô tả
 
-`Promise` returns `string`
+callback
 
-| Type   | Description                       |
-| ------ | --------------------------------- |
-| string | The upper bound gas price in peb. |
+| hàm                | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------- |
+| **Giá trị trả về** | `Promise` trả về `chuỗi`                                                                                                          |
 
-**Example**
+Loại
 
 ```javascript
 > caver.rpc.klay.getUpperBoundGasPrice().then(console.log)
 0xae9f7bcc00
 ```
 
-## caver.rpc.klay.getFeeHistory <a href="#caver-rpc-klay-getfeehistory" id="caver-rpc-klay-getfeehistory"></a>
+## Mô tả
 
 ```javascript
 caver.rpc.klay.getFeeHistory(blockCount, lastBlock, rewardPercentiles [, callback])
 ```
 
-Returns fee history for the returned block range. This can be a subsection of the requested range if not all blocks are available.
+chuỗi Giá gas giới hạn trên bằng peb.
 
-**Parameters**
+**Ví dụ**
 
-| Name              | Type                          | Description                                                                                                                                                                                                                                                        |
-| ----------------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| blockCount        | number\|BigNumber\|BN\|string | Number of blocks in the requested range. Between 1 and 1024 blocks can be requested in a single query. Less than requested may be returned if not all blocks are available.                                                                                        |
-| lastBlock         | number\|BigNumber\|BN\|string | Highest number block (or block tag string) of the requested range.                                                                                                                                                                              |
-| rewardPercentiles | Array                         | A monotonically increasing list of percentile values to sample from each block’s effective priority fees per gas in ascending order, weighted by gas used. (Example: `['0', '25', '50', '75', '100']` or `['0', '0.5', '1', '1.5', '3', '80']`) |
-| callback          | function                      | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                                                                      |
+| caver.rpc.klay.getFeeHistory <a href="#caver-rpc-klay-getfeehistory" id="caver-rpc-klay-getfeehistory"></a> | Trả về lịch sử phí cho phạm vi khối được trả về. | Đây có thể là một phần phụ của phạm vi được yêu cầu nếu không có sẵn tất cả các khối.                                                                                                         |
+| ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Tham số**                                                                                                 | Tên                                              | Loại Mô tả blockCount                                                                                                                                                                        |
+| số\|BigNumber\|BN\|string                                                                                   | Số khối trong phạm vi được yêu cầu.              | Có thể yêu cầu từ 1 đến 1024 khối trong một yêu cầu truy vấn duy nhất.                                                                                                                        |
+| Nếu không có đủ các khối cần truy vấn, thì số lượng khối trả về có thể ít hơn số lượng khối yêu cầu.        | lastBlock                                        | số\|BigNumber\|BN\|string Khối số cao nhất (hoặc chuỗi thẻ khối) của phạm vi được yêu cầu.                                                                                 |
+| rewardPercentiles                                                                                           | Mảng                                             | Một danh sách các giá trị phần trăm tăng dần đơn điệu để lấy mẫu từ phí ưu tiên hiệu quả của mỗi khối cho mỗi loại gas theo thứ tự tăng dần, được tính khối lượng theo loại gas được sử dụng. |
 
-**Return Value**
+(Ví dụ, `['0', '25', '50', '75', '100']` hoặc `['0', '0.5', '1', '1.5', '3', '80']`)
 
-`Promise` returns `object` - An object includes fee history:
+callback
 
-| Name          | Type   | Description                                                                                                                                                                                                     |
-| ------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| oldestBlock   | string | Lowest number block of returned range.                                                                                                                                                                          |
-| reward        | Array  | A two-dimensional array of effective priority fees per gas at the requested block percentiles.                                                                                                                  |
-| baseFeePerGas | Array  | An array of block base fees per gas. This includes the next block after the newest of the returned range, because this value can be derived from the newest block. Zeroes are returned for pre-EIP-1559 blocks. |
-| gasUsedRatio  | Array  | An array of gasUsed/gasLimit in the block.                                                                                                                                                                      |
+| hàm                                                               | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. | **Giá trị trả về**                                                                                                         |
+| ----------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `Promise` trả về `đối tượng` - Một đối tượng bao gồm lịch sử phí: | Tên                                                                                                                               | Loại                                                                                                                      |
+| Mô tả                                                             | oldestBlock                                                                                                                       | chuỗi                                                                                                                      |
+| Khối số thấp nhất của phạm vi được trả về.                        | phần thưởng                                                                                                                       | Mảng Một mảng hai chiều của các khoản phí ưu tiên hiệu quả cho mỗi loại gas ở phần trăm khối được yêu cầu. baseFeePerGas   |
+| Mảng                                                              | Mảng phí cơ bản của khối trên mỗi gas.                                                                                            | Mảng này bao gồm khối tiếp theo sau khối mới nhất trong khoảng trả về, vì giá trị này có thể được suy ra từ khối mới nhất. |
 
-**Example**
+Trả về các giá trị 0 cho các khối trước EIP-1559.
 
 ```javascript
 > caver.rpc.klay.getFeeHistory(3, 'latest', [0.1, 0.2, 0.3]).then(console.log)
@@ -2625,34 +2625,34 @@ Returns fee history for the returned block range. This can be a subsection of th
 }
 ```
 
-## caver.rpc.klay.createAccessList <a href="#caver-rpc-klay-createaccesslist" id="caver-rpc-klay-createaccesslist"></a>
+## gasUsedRatio
 
 ```javascript
 caver.rpc.klay.createAccessList(txCallObject [, callback])
 ```
 
-This method creates an accessList based on a given Transaction. The accessList contains all storage slots and addresses read and written by the transaction, except for the sender account and the precompiles. This method uses the same transaction call object and blockNumberOrTag object as `caver.rpc.klay.call`. An accessList can be used to release stuck contracts that became inaccessible due to gas cost increases. Adding an accessList to your transaction does not necessary result in lower gas usage compared to a transaction without an access list.
+Mảng Một mảng gasUsed/gasLimit trong khối. **Ví dụ** caver.rpc.klay.createAccessList <a href="#caver-rpc-klay-createaccesslist" id="caver-rpc-klay-createaccesslist"></a> Phương thức sẽ này tạo một accessList dựa trên một Giao dịch nhất định.
 
-**Parameters**
+accessList chứa tất cả các vị trí lưu trữ và địa chỉ được đọc và ghi bởi giao dịch, ngoại trừ tài khoản người gửi và các phần biên dịch trước.
 
-| Name           | Type                          | Description                                                                                                                                                     |
-| -------------- | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| callObject     | object                        | A transaction call object. Please see [caver.rpc.klay.call](#caver-rpc-klay-call) parameters.                                                                   |
-| blockParameter | number\|BigNumber\|BN\|string | (optional) A block number, blockhash or the block tag string (`latest` or `earliest`). If omitted, `latest` will be used. |
-| callback       | function                      | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                   |
+| Phương thức này sử dụng cùng một đối tượng lệnh gọi giao dịch và đối tượng blockNumberOrTag như `caver.rpc.klay.call`. | Một accessList có thể được sử dụng để giải phóng các hợp đồng bị kẹt không thể truy cập được do chi phí gas tăng. | Việc thêm một accessList vào giao dịch của bạn không nhất thiết dẫn đến việc sử dụng gas thấp hơn so với giao dịch không có danh sách truy cập. |
+| ---------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Tham số**                                                                                                            | Tên                                                                                                               | Loại Mô tả                                                                                                                                     |
+| callObject                                                                                                             | đối tượng                                                                                                         | Đối tượng lệnh gọi giao dịch. Vui lòng xem các tham số [caver.rpc.klay.call](#caver-rpc-klay-call).                                             |
+| blockParameter                                                                                                         | số\|BigNumber\|BN\|chuỗi                                                                                          | (tùy chọn) Số khối, blockhash hoặc chuỗi thẻ khối (`mới nhất` hoặc `cũ nhất`).                            |
 
-**Return Value**
+Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng.
 
-`Promise` returns `object` - An object includes an access list:
+callback
 
-| Name          | Type   | Description                                                                                                                                                                                                     |
-| ------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| oldestBlock   | string | Lowest number block of returned range.                                                                                                                                                                          |
-| reward        | Array  | A two-dimensional array of effective priority fees per gas at the requested block percentiles.                                                                                                                  |
-| baseFeePerGas | Array  | An array of block base fees per gas. This includes the next block after the newest of the returned range, because this value can be derived from the newest block. Zeroes are returned for pre-EIP-1559 blocks. |
-| gasUsedRatio  | Array  | An array of gasUsed/gasLimit in the block.                                                                                                                                                                      |
+| hàm                                                                      | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. | **Giá trị trả về**                                                                                                         |
+| ------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `Promise` trả về `đối tượng` - Một đối tượng bao gồm danh sách truy cập: | Tên                                                                                                                               | Loại                                                                                                                      |
+| Mô tả                                                                    | oldestBlock                                                                                                                       | chuỗi                                                                                                                      |
+| Khối số thấp nhất của phạm vi được trả về.                               | phần thưởng                                                                                                                       | Mảng Một mảng hai chiều của các khoản phí ưu tiên hiệu quả cho mỗi loại gas ở phần trăm khối được yêu cầu. baseFeePerGas   |
+| Mảng                                                                     | Mảng phí cơ bản của khối trên mỗi gas.                                                                                            | Mảng này bao gồm khối tiếp theo sau khối mới nhất trong khoảng trả về, vì giá trị này có thể được suy ra từ khối mới nhất. |
 
-**Example**
+Trả về các giá trị 0 cho các khối trước EIP-1559.
 
 ```javascript
 > caver.rpc.klay.createAccessList({
@@ -2665,157 +2665,157 @@ This method creates an accessList based on a given Transaction. The accessList c
 { accessList: [], gasUsed: '0x0' }
 ```
 
-## caver.rpc.klay.isParallelDBWrite <a href="#caver-rpc-klay-isparalleldbwrite" id="caver-rpc-klay-isparalleldbwrite"></a>
+## gasUsedRatio
 
 ```javascript
 caver.rpc.klay.isParallelDBWrite([callback])
 ```
 
-Returns `true` if the node is writing blockchain data in a parallel manner.
+Mảng
 
-**Parameters**
+Một mảng gasUsed/gasLimit trong khối.
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| **Ví dụ** | caver.rpc.klay.isParallelDBWrite <a href="#caver-rpc-klay-isparalleldbwrite" id="caver-rpc-klay-isparalleldbwrite"></a> | Trả về giá trị `true` nếu nút đang ghi dữ liệu chuỗi khối theo một phương pháp song song. |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| **Tham số** | Tên                                                                                                                     | Loại                                                                                     |
 
-**Return Value**
+Mô tả
 
-`Promise` returns `boolean`
+callback
 
-| Type    | Description                                                                                                                    |
-| ------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| boolean | `true` means the node is writing blockchain data in a parallel manner. It is `false` if the node is serially writing the data. |
+| hàm                | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------- |
+| **Giá trị trả về** | `Promise` trả về `boolean` Loại                                                                                                  |
 
-**Example**
+Mô tả
 
 ```javascript
 > caver.rpc.klay.isParallelDBWrite().then(console.log)
 true
 ```
 
-## caver.rpc.klay.isSenderTxHashIndexingEnabled <a href="#caver-rpc-klay-issendertxhashindexingenabled" id="caver-rpc-klay-issendertxhashindexingenabled"></a>
+## boolean
 
 ```javascript
 caver.rpc.klay.isSenderTxHashIndexingEnabled([callback])
 ```
 
-Returns `true` if the node is indexing sender transaction hash to transaction hash mapping information.
+Giá trị `true` có nghĩa là nút đang ghi dữ liệu chuỗi khối theo một phương pháp song song.
 
-**Parameters**
+Trả về giá trị `false` nếu nút đang ghi dữ liệu theo chuỗi.
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| **Ví dụ** | caver.rpc.klay.isSenderTxHashIndexingEnabled <a href="#caver-rpc-klay-issendertxhashindexingenabled" id="caver-rpc-klay-issendertxhashindexingenabled"></a> | Trả về giá trị `true` nếu nút đang lập chỉ mục hàm băm giao dịch của người gửi thành thông tin ánh xạ hàm băm giao dịch. |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| **Tham số** | Tên                                                                                                                                                         | Loại                                                                                                                    |
 
-**Return Value**
+Mô tả
 
-`Promise` returns `boolean`
+callback
 
-| Type    | Description                                                                                        |
-| ------- | -------------------------------------------------------------------------------------------------- |
-| boolean | `true` means the node is indexing sender transaction hash to transaction hash mapping information. |
+| hàm                | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------- |
+| **Giá trị trả về** | `Promise` trả về `boolean`                                                                                                        |
 
-**Example**
+Loại
 
 ```javascript
 > caver.rpc.klay.isSenderTxHashIndexingEnabled().then(console.log)
 true
 ```
 
-## caver.rpc.klay.getProtocolVersion <a href="#caver-rpc-klay-getprotocolversion" id="caver-rpc-klay-getprotocolversion"></a>
+## Mô tả
 
 ```javascript
 caver.rpc.klay.getProtocolVersion([callback])
 ```
 
-Returns the Klaytn protocol version of the node. The current version (as of v1.9.0) of Cypress/Baobab is `istanbul/65`.
+boolean Giá trị `true` có nghĩa là nút đang lập chỉ mục hàm băm giao dịch của người gửi thành thông tin ánh xạ hàm băm giao dịch.
 
-**Parameters**
+**Ví dụ**
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| caver.rpc.klay.getProtocolVersion <a href="#caver-rpc-klay-getprotocolversion" id="caver-rpc-klay-getprotocolversion"></a> | Trả về phiên bản giao thức Klaytn của nút. | Phiên bản hiện tại (kể từ v1.9.0) của Cypress/Baobab là `istanbul/65`. |
+| -------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ | ----------------------------------------------------------------------------------------- |
+| **Tham số**                                                                                                                | Tên                                        | Loại                                                                                     |
 
-**Return Value**
+Mô tả
 
-`Promise` returns `string`
+callback
 
-| Type   | Description                              |
-| ------ | ---------------------------------------- |
-| string | The Klaytn protocol version of the node. |
+| hàm                | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------- |
+| **Giá trị trả về** | `Promise` trả về `chuỗi`                                                                                                          |
 
-**Example**
+Loại
 
 ```javascript
 > caver.rpc.klay.getProtocolVersion().then(console.log)
 0x40
 ```
 
-## caver.rpc.klay.getRewardbase <a href="#caver-rpc-klay-getrewardbase" id="caver-rpc-klay-getrewardbase"></a>
+## Mô tả
 
 ```javascript
 caver.rpc.klay.getRewardbase([callback])
 ```
 
-Returns the rewardbase of the current node. Rewardbase is the address of the account where the block rewards go to. It is only required for CNs.
+chuỗi Phiên bản giao thức Klaytn của nút. **Ví dụ**
 
-**Parameters**
+caver.rpc.klay.getRewardbase <a href="#caver-rpc-klay-getrewardbase" id="caver-rpc-klay-getrewardbase"></a>
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Trả về địa chỉ ví rewardbase của nút hiện tại. | Rewardbase là địa chỉ của tài khoản nơi phần thưởng khối được chuyển đến. | Chỉ yêu cầu đối với CN. |
+| ---------------------------------------------- | ------------------------------------------------------------------------- | ----------------------- |
+| **Tham số**                                    | Tên                                                                       | Loại                   |
 
-**Return Value**
+Mô tả
 
-`Promise` returns `string`
+callback
 
-| Type   | Description             |
-| ------ | ----------------------- |
-| string | The rewardbase address. |
+| hàm                | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------- |
+| **Giá trị trả về** | `Promise` trả về `chuỗi`                                                                                                          |
 
-**Example**
+Loại
 
 ```javascript
 > caver.rpc.klay.getRewardbase().then(console.log)
 0xa9b3a93b2a9fa3fdcc31addd240b04bf8db3414c
 ```
 
-## caver.rpc.klay.getFilterChanges <a href="#caver-rpc-klay-getfilterchanges" id="caver-rpc-klay-getfilterchanges"></a>
+## Mô tả
 
 ```javascript
 caver.rpc.klay.getFilterChanges(filterId [, callback])
 ```
 
-Polling method for a filter, which returns an array of logs since the last poll.
+chuỗi
 
-**Parameters**
+Địa chỉ rewardbase.
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| filterId | String   | The filter id.                                                                                                                |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| **Ví dụ** | caver.rpc.klay.getFilterChanges <a href="#caver-rpc-klay-getfilterchanges" id="caver-rpc-klay-getfilterchanges"></a> | Phương thức truy vấn lần lượt đối với bộ lọc, trả về một mảng các bản ghi kể từ lần truy vấn trước đó. |
+| ----------- | -------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| **Tham số** | Tên                                                                                                                  | Loại                                                                                                  |
+| Mô tả       | bộ lọcId                                                                                                             | Chuỗi                                                                                                  |
 
-**Return Value**
+Id bộ lọc.
 
-`Promise` returns `Array` - Array of log objects, or an empty array if nothing has changed since the last poll.
+callback
 
-- For filters created with [caver.rpc.klay.newBlockFilter](#caver-rpc-klay-newblockfilter), the returns are block hashes, _e.g._, `["0x3454645634534..."]`.
-- For filters created with [caver.rpc.klay.newPendingTransactionFilter](#caver-rpc-klay-newpendingtransactionfilter), the returns are transaction hashes, _e.g._, `["0x6345343454645..."]`.
-- For filters created with [caver.rpc.klay.newFilter](#caver-rpc-klay-newfilter), logs are objects with the following parameters:
+- hàm
+- (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.
+- **Giá trị trả về**
 
-| Name             | Type   | Description                                                                                                                                                                                                                                                                        |
-| ---------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| logIndex         | string | The log index position in the block.                                                                                                                                                                                                                                               |
-| transactionIndex | string | The index position of transactions where this log was created from.                                                                                                                                                                                                                |
-| transactionHash  | string | Hash of the transactions this log was created from. `null` when pending.                                                                                                                                                                                                           |
-| blockHash        | string | Hash of the block where this log was in. `null` when pending.                                                                                                                                                                                                                      |
-| blockNumber      | string | The block number where this log was in. `null` when pending.                                                                                                                                                                                                                       |
-| address          | string | Address from which this log originated.                                                                                                                                                                                                                                            |
-| data             | string | Contains the non-indexed arguments of the log.                                                                                                                                                                                                                                     |
-| topics           | Array  | Array of 0 to 4 32-byte DATA of indexed log arguments. (In Solidity: The first topic is the hash of the signature of the event (_e.g._, `Deposit(address,bytes32,uint256)`), except you declared the event with the `anonymous` specifier.). |
+| `Promise` trả về `Mảng` - Mảng các đối tượng bản ghi hoặc mảng trống nếu không có thay đổi kể từ lần truy vấn cuối cùng.             | Đối với các bộ lọc được tạo bằng [caver.rpc.klay.newBlockFilter](#caver-rpc-klay-newblockfilter), kết quả trả về là các hàm băm khối, _ví dụ_: `["0x3454645634534..."]`. | Đối với các bộ lọc được tạo bằng [caver.rpc.klay.newPendingTransactionFilter](#caver-rpc-klay-newpendingtransactionfilter), kết quả trả về là các giá trị băm giao dịch, _ví dụ_: `["0x6345343454645..."]`. |
+| ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Đối với các bộ lọc được tạo bằng [caver.rpc.klay.newFilter](#caver-rpc-klay-newfilter), bản ghi là các đối tượng có tham số như sau: | Tên                                                                                                                                                                      | Loại                                                                                                                                                                                                       |
+| Mô tả                                                                                                                                | logIndex                                                                                                                                                                 | chuỗi                                                                                                                                                                                                       |
+| Vị trí chỉ mục bản ghi trong khối.                                                                                                   | transactionIndex                                                                                                                                                         | chuỗi Vị trí chỉ mục của các giao dịch nơi bản ghi này được tạo.                                                                                                                                            |
+| transactionHash                                                                                                                      | chuỗi                                                                                                                                                                    | Hàm băm của giao dịch mà bản ghi này được tạo từ đó. Giá trị là `null` nếu giao dịch đang chờ xử lý.                                                                                                        |
+| blockHash                                                                                                                            | chuỗi                                                                                                                                                                    | Hàm băm của khối chứa bản ghi này. Giá trị là `null` nếu giao dịch đang chờ xử lý.                                                                                                                          |
+| blockNumber                                                                                                                          | chuỗi                                                                                                                                                                    | Số khối chứa bản ghi này.                                                                                                                                                                                   |
+| Giá trị là `null` nếu giao dịch đang chờ xử lý.                                                                                      | address                                                                                                                                                                  | chuỗi                                                                                                                                                                                                       |
+| Địa chỉ mà bản ghi này được khởi tạo.                                                                                                | data                                                                                                                                                                     | chuỗi Chứa các đối số không được lập chỉ mục của bản ghi.                                                                                                                                                   |
 
-**Example**
+chủ đề
 
 ```javascript
 > caver.rpc.klay.getFilterChanges('0xafb8e49bbcba9d61a3c616a3a312533e').then(console.log)
@@ -2833,28 +2833,28 @@ Polling method for a filter, which returns an array of logs since the last poll.
 ]
 ```
 
-## caver.rpc.klay.getFilterLogs <a href="#caver-rpc-klay-getfilterlogs" id="caver-rpc-klay-getfilterlogs"></a>
+## Mảng
 
 ```javascript
 caver.rpc.klay.getFilterLogs(filterId [, callback])
 ```
 
-Returns an array of all logs matching the filter with the given id. The filter object should be obtained by using [newFilter](#caver-rpc-klay-newfilter).
+Mảng gồm 0 đến 4 DỮ LIỆU 32 byte của các đối số được lập chỉ mục trong bản ghi. (Trong Solidity: Chủ đề đầu tiên là hàm băm chữ ký của sự kiện (_ví dụ_: `Deposit(address,bytes32,uint256)`), trừ khi bạn khai báo sự kiện với giá trị chỉ định `anonymous`.).
 
-Note that filter ids returned by other filter creation functions, such as [caver.rpc.klay.newBlockFilter](#caver-rpc-klay-newblockfilter) or [caver.rpc.klay.newPendingTransactionFilter](#caver-rpc-klay-newpendingtransactionfilter), cannot be used with this function.
+**Ví dụ**
 
-**Parameters**
+caver.rpc.klay.getFilterLogs <a href="#caver-rpc-klay-getfilterlogs" id="caver-rpc-klay-getfilterlogs"></a>
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| filterId | string   | The filter id.                                                                                                                |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Trả về một mảng gồm tất cả các bản ghi khớp với bộ lọc bằng id cho trước. | Đối tượng bộ lọc phải được lấy bằng cách sử dụng [newFilter](#caver-rpc-klay-newfilter). | Lưu ý rằng id bộ lọc được trả về bởi các hàm tạo bộ lọc khác như [caver.rpc.klay.newBlockFilter](#caver-rpc-klay-newblockfilter) hoặc [caver.rpc.klay.newPendingTransactionFilter](#caver-rpc-klay-newpendingtransactionfilter) không thể được sử dụng với hàm này. |
+| ------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Tham số**                                                               | Tên                                                                                      | Loại                                                                                                                                                                                                                                                               |
+| Mô tả                                                                     | bộ lọcId                                                                                 | chuỗi                                                                                                                                                                                                                                                               |
 
-**Return Value**
+Id bộ lọc.
 
-See [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges)
+callback
 
-**Example**
+hàm
 
 ```javascript
 > caver.rpc.klay.getFilterLogs('0xcac08a7fc32fc625a519644187e9f690').then(console.log);
@@ -2872,35 +2872,35 @@ See [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges)
 ]
 ```
 
-## caver.rpc.klay.getLogs <a href="#caver-rpc-klay-getlogs" id="caver-rpc-klay-getlogs"></a>
+## (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.
 
 ```javascript
 caver.rpc.klay.getLogs(options [, callback])
 ```
 
-Returns an array of all logs matching a given filter object.
+**Giá trị trả về**
 
-**Parameters**
+Xem [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges)
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| options  | object   | The filter options. See the below table to find the description.                                                              |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| **Ví dụ** | caver.rpc.klay.getLogs <a href="#caver-rpc-klay-getlogs" id="caver-rpc-klay-getlogs"></a> | Trả về một mảng gồm tất cả bản ghi khớp với một đối tượng bộ lọc đã cho. |
+| ----------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| **Tham số** | Tên                                                                                       | Loại Mô tả                                                              |
+| tùy chọn    | đối tượng                                                                                 | Các tùy chọn bộ lọc.                                                     |
 
-The options object can contain the following:
+Xem bảng dưới đây để tìm phần thông tin mô tả.
 
-| Name      | Type             | Description                                                                                                                                                                                                                                                                                              |
-| --------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| fromBlock | number \| string | (optional) The block number of the earliest block to get the logs. (`"latest"` means the most recent block.) The default value is `"latest"`.                                                                                                                      |
-| toBlock   | number \| string | (optional) The block number of the last block to get the logs. (`"latest"` means the most recent block.). The default value is `"latest"`.                                                                                                                         |
-| address   | string \| Array  | (optional) An address or a list of addresses. Only the logs related to the particular account(s) will be returned.                                                                                                                                                 |
-| topics    | Array            | (optional) An array of values that must appear in the log entries. The order is important. If you want to leave topics out, use `null`, _e.g._, `[null, '0x12...']`. You can also pass an array for each topic with options for that topic, _e.g.,_ `[null, ['option1', 'option2']]`. |
+| callback                                                                     | hàm                                                                         | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                               |
+| ---------------------------------------------------------------------------- | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Đối tượng tùy chọn có thể chứa các thông tin sau:                            | Tên                                                                         | Loại Mô tả fromBlock                                                                                                                                                           |
+| số \| chuỗi                                                                  | (tùy chọn) Số khối của khối cũ nhất dùng để lấy bản ghi. | (`"mới nhất"` nghĩa là khối gần đây nhất.) Giá trị mặc định là `"mới nhất"`. toBlock số \| chuỗi                                                             |
+| (tùy chọn) Số khối của khối mới nhất dùng để lấy bản ghi. | (`"mới nhất"` nghĩa là khối gần đây nhất.).              | Giá trị mặc định là `"mới nhất"`. address                                                                                                                                       |
+| chuỗi \| Mảng                                                                | (tùy chọn) Địa chỉ hoặc danh sách các địa chỉ.           | Hàm sẽ chỉ trả về các bản ghi liên quan đến (các) tài khoản cụ thể. chủ đề Mảng (tùy chọn) Mảng các giá trị phải xuất hiện trong bản ghi. |
 
-**Return Value**
+Quan trọng là thứ tự.
 
-See [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges)
+Nếu bạn muốn loại bỏ các chủ đề, hãy sử dụng `null`, _vd_: `[null, '0x12...']`.
 
-**Example**
+Bạn có thể truyền một mảng của mỗi chủ đề với các tùy chọn cho chủ đề đó _ví dụ:_ `[null, ['option1', 'option2']]`.
 
 ```javascript
 > caver.rpc.klay.getLogs({
@@ -2925,73 +2925,73 @@ See [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges)
 ]
 ```
 
-## caver.rpc.klay.newBlockFilter <a href="#caver-rpc-klay-newblockfilter" id="caver-rpc-klay-newblockfilter"></a>
+## **Giá trị trả về**
 
 ```javascript
 caver.rpc.klay.newBlockFilter([callback])
 ```
 
-Creates a filter in the node, to notify when a new block arrives. To check if the state has changed, call [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges).
+Xem [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges) **Ví dụ**
 
-**Parameters**
+caver.rpc.klay.newBlockFilter <a href="#caver-rpc-klay-newblockfilter" id="caver-rpc-klay-newblockfilter"></a>
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tạo một bộ lọc trong nút để thông báo khi có khối mới. | Để kiểm tra xem trạng thái đã thay đổi hay chưa, hãy gọi ra [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges). | **Tham số** |
+| ------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| Tên                                                    | Loại                                                                                                                            | Mô tả       |
 
-**Return Value**
+callback
 
-`Promise` returns `string`
+hàm
 
-| Type   | Description  |
-| ------ | ------------ |
-| string | A filter id. |
+| (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. | **Giá trị trả về** |
+| --------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `Promise` trả về `chuỗi`                                                                                                          | Loại              |
 
-**Example**
+Mô tả
 
 ```javascript
 > caver.rpc.klay.newBlockFilter().then(console.log)
 0xf90906914486a9c22d620e50022b38d5
 ```
 
-## caver.rpc.klay.newFilter <a href="#caver-rpc-klay-newfilter" id="caver-rpc-klay-newfilter"></a>
+## chuỗi
 
 ```javascript
 caver.rpc.klay.newFilter(options [, callback])
 ```
 
-Creates a filter object using the given filter options, to receive the specific state changes (logs).
+Id bộ lọc.
 
-- To check if the state has changed, call [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges).
-- To obtain all logs matching the filter created by `newFilter`, call [caver.rpc.klay.getFilterLogs](#caver-rpc-klay-getfilterlogs).
+- **Ví dụ**
+- caver.rpc.klay.newFilter <a href="#caver-rpc-klay-newfilter" id="caver-rpc-klay-newfilter"></a>
 
-For detailed information about the topics in the filter object, please see [Klaytn Platform API - klay_newFilter](../../../../json-rpc/klay/filter.md#klay_newfilter).
+Tạo đối tượng bộ lọc sử dụng các tùy chọn bộ lọc nhất định để nhận thông tin thay đổi trạng thái cụ thể (bản ghi).
 
-**Parameters**
+Để kiểm tra xem trạng thái đã thay đổi hay chưa, hãy gọi ra [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges).
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| options  | object   | The filter options. See the below table to find the description.                                                              |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Để có được tất cả các bản ghi khớp với bộ lọc được tạo bởi `newFilter`, hãy gọi [caver.rpc.klay.getFilterLogs](#caver-rpc-klay-getfilterlogs). | Để biết thông tin chi tiết về các chủ đề trong đối tượng bộ lọc, vui lòng tham khảo [API nền tảng Klaytn - klay_newFilter](../../../../json-rpc/klay/filter.md#klay_newfilter). | **Tham số**                                    |
+| ---------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
+| Tên                                                                                                                                            | Loại                                                                                                                                                                                                | Mô tả tùy chọn                                 |
+| đối tượng                                                                                                                                      | Các tùy chọn bộ lọc.                                                                                                                                                                                 | Xem bảng dưới đây để tìm phần thông tin mô tả. |
 
-The options object can contain the following:
+callback
 
-| Name      | Type             | Description                                                                                                                                                                                                                                                                                              |
-| --------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| fromBlock | number \| string | (optional) The block number of the earliest block to get the logs. (`"latest"` means the most recent block.) The default value is `"latest"`.                                                                                                                      |
-| toBlock   | number \| string | (optional) The block number of the last block to get the logs. (`"latest"` means the most recent block.). The default value is `"latest"`.                                                                                                                         |
-| address   | string \| Array  | (optional) An address or a list of addresses. Only the logs related to the particular account(s) will be returned.                                                                                                                                                 |
-| topics    | Array            | (optional) An array of values that must appear in the log entries. The order is important. If you want to leave topics out, use `null`, _e.g._, `[null, '0x12...']`. You can also pass an array for each topic with options for that topic, _e.g.,_ `[null, ['option1', 'option2']]`. |
+| hàm                                                                         | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. | Đối tượng tùy chọn có thể chứa các thông tin sau:                                                              |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| Tên                                                                         | Loại                                                                                                                             | Mô tả fromBlock số \| chuỗi                                                                                    |
+| (tùy chọn) Số khối của khối cũ nhất dùng để lấy bản ghi. | (`"mới nhất"` nghĩa là khối gần đây nhất.) Giá trị mặc định là `"mới nhất"`.                                   | toBlock số \| chuỗi (tùy chọn) Số khối của khối mới nhất dùng để lấy bản ghi.               |
+| (`"mới nhất"` nghĩa là khối gần đây nhất.).              | Giá trị mặc định là `"mới nhất"`.                                                                                                 | address chuỗi \| Mảng                                                                                          |
+| (tùy chọn) Địa chỉ hoặc danh sách các địa chỉ.           | Hàm sẽ chỉ trả về các bản ghi liên quan đến (các) tài khoản cụ thể.                                            | chủ đề Mảng (tùy chọn) Mảng các giá trị phải xuất hiện trong bản ghi. Quan trọng là thứ tự. |
 
-**Return Value**
+Nếu bạn muốn loại bỏ các chủ đề, hãy sử dụng `null`, _vd_: `[null, '0x12...']`.
 
-`Promise` returns `string`
+Bạn có thể truyền một mảng của mỗi chủ đề với các tùy chọn cho chủ đề đó _ví dụ:_ `[null, ['option1', 'option2']]`.
 
-| Type   | Description  |
-| ------ | ------------ |
-| string | A filter id. |
+| **Giá trị trả về** | `Promise` trả về `chuỗi` |
+| ------------------ | ------------------------ |
+| Loại              | Mô tả                    |
 
-**Example**
+chuỗi
 
 ```javascript
 > caver.rpc.klay.newFilter({}).then(console.log)
@@ -3001,89 +3001,89 @@ The options object can contain the following:
 0xd165cbf31b9d60346aada33dbefe01b
 ```
 
-## caver.rpc.klay.newPendingTransactionFilter <a href="#caver-rpc-klay-newpendingtransactionfilter" id="caver-rpc-klay-newpendingtransactionfilter"></a>
+## Id bộ lọc.
 
 ```javascript
 caver.rpc.klay.newPendingTransactionFilter([callback])
 ```
 
-Creates a filter in the node, to receive the information about new pending transaction arrival. To check if the state has changed, call [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges).
+**Ví dụ** caver.rpc.klay.newPendingTransactionFilter <a href="#caver-rpc-klay-newpendingtransactionfilter" id="caver-rpc-klay-newpendingtransactionfilter"></a>
 
-**Parameters**
+Tạo bộ lọc trong nút để nhận thông tin về sự xuất hiện của khối đang chờ xử lý mới.
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Để kiểm tra xem trạng thái đã thay đổi hay chưa, hãy gọi ra [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges). | **Tham số** | Tên      |
+| -------------------------------------------------------------------------------------------------------------------------------- | ----------- | -------- |
+| Loại                                                                                                                            | Mô tả       | callback |
 
-**Return Value**
+hàm
 
-`Promise` returns `string`
+(tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.
 
-| Type   | Description  |
-| ------ | ------------ |
-| string | A filter id. |
+| **Giá trị trả về** | `Promise` trả về `chuỗi` |
+| ------------------ | ------------------------ |
+| Loại              | Mô tả                    |
 
-**Example**
+chuỗi
 
 ```javascript
 > caver.rpc.klay.newPendingTransactionFilter().then(console.log)
 0xe62da1b2a09efcd4168398bdbf586db0
 ```
 
-## caver.rpc.klay.uninstallFilter <a href="#caver-rpc-klay-uninstallfilter" id="caver-rpc-klay-uninstallfilter"></a>
+## Id bộ lọc.
 
 ```javascript
 caver.rpc.klay.uninstallFilter(filterId [, callback])
 ```
 
-Uninstalls a filter with a given id. Should always be called when a watch is no longer needed. Additionally, filters time out when they are not being called with [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges) for a period of time.
+**Ví dụ** caver.rpc.klay.uninstallFilter <a href="#caver-rpc-klay-uninstallfilter" id="caver-rpc-klay-uninstallfilter"></a> Gỡ cài đặt bộ lọc với id đã cho.
 
-**Parameters**
+Luôn phải được gọi ra khi không còn cần theo dõi.
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| filterId | string   | The filter id.                                                                                                                |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Ngoài ra, các bộ lọc sẽ hết thời gian chờ nếu lệnh [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges) không được gọi ra trong một khoảng thời gian. | **Tham số** | Tên      |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | -------- |
+| Loại                                                                                                                                                                | Mô tả       | bộ lọcId |
+| chuỗi                                                                                                                                                                | Id bộ lọc.  | callback |
 
-**Return Value**
+hàm
 
-`Promise` returns `boolean`
+(tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.
 
-| Type    | Description                                                           |
-| ------- | --------------------------------------------------------------------- |
-| boolean | `true` if the filter was successfully uninstalled, otherwise `false`. |
+| **Giá trị trả về** | `Promise` trả về `boolean` |
+| ------------------ | -------------------------- |
+| Loại              | Mô tả                      |
 
-**Example**
+boolean
 
 ```javascript
 > caver.rpc.klay.uninstallFilter('0x1426438ffdae5abf43edf4159c5b013b').then(console.log)
 true
 ```
 
-## caver.rpc.klay.sha3 <a href="#caver-rpc-klay-sha3" id="caver-rpc-klay-sha3"></a>
+## `true` nếu gỡ cài đặt bộ lọc thành công, nếu không sẽ là `false`.
 
 ```javascript
 caver.rpc.klay.sha3(data[, callback])
 ```
 
-Returns Keccak-256 (not the standardized SHA3-256) of the given data. You can use [caver.utils.sha3](../caver.utils.md#sha3) instead of this.
+**Ví dụ** caver.rpc.klay.sha3 <a href="#caver-rpc-klay-sha3" id="caver-rpc-klay-sha3"></a>
 
-**Parameters**
+Trả về Keccak-256 (không phải SHA3-256 đã chuẩn hóa) của dữ liệu đã cho.
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| data     | String   | The data to be converted into a SHA3 hash.                                                                                    |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Bạn có thể sử dụng [caver.utils.sha3](../caver.utils.md#sha3) thay thế. | **Tham số**                                 | Tên      |
+| ----------------------------------------------------------------------- | ------------------------------------------- | -------- |
+| Loại                                                                   | Mô tả                                       | data     |
+| Chuỗi                                                                   | Dữ liệu được chuyển đổi thành hàm băm SHA3. | callback |
 
-**Return Value**
+hàm
 
-`Promise` returns `string`
+(tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.
 
-| Type   | Description                        |
-| ------ | ---------------------------------- |
-| string | The SHA3 result of the given data. |
+| **Giá trị trả về** | `Promise` trả về `chuỗi` |
+| ------------------ | ------------------------ |
+| Loại              | Mô tả                    |
 
-**Example**
+chuỗi
 
 ```javascript
 > caver.rpc.klay.sha3('0x11223344').then(console.log)
