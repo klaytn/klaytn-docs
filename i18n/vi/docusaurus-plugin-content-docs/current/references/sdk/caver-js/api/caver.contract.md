@@ -57,53 +57,53 @@ Tạo một phiên bản hợp đồng mới với tất cả các phương phá
 
 Đối tượng tùy chọn chứa các mục sau:
 
-| Tên           | Loại   | Mô tả                                                                                                                                                                                                                                                                      |
-| ------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| từ            | chuỗi   | (tùy chọn) Địa chỉ mà các giao dịch sẽ được thực hiện.                                                                                                                                                                                                  |
-| giá gas       | chuỗi   | (tùy chọn) Giá gas tính bằng peb để sử dụng cho giao dịch.                                                                                                                                                                                              |
-| gas           | số      | (tùy chọn) Lượng gas tối đa được cung cấp cho một giao dịch (giới hạn gas).                                                                                                                                                          |
-| data          | chuỗi   | (tùy chọn) Mã byte của hợp đồng. Được sử dụng khi hợp đồng được triển khai.                                                                                                                                                                             |
-| feeDelegation | boolean | (tùy chọn) Có sử dụng giao dịch ủy thác phí hay không.                                                                                                                                                                                                  |
-| feePayer      | chuỗi   | (tùy chọn) Địa chỉ của người trả phí thanh toán phí giao dịch. Khi `feeDelegation` là `đúng`, giá trị sẽ được đặt thành trường `feePayer` trong giao dịch.                                                                                              |
-| feeRatio      | chuỗi   | (tùy chọn) Tỷ lệ phí giao dịch mà người trả phí sẽ phải chịu. Nếu `feeDelegation` là `đúng` và `feeRatio` được đặt thành giá trị hợp lệ thì giao dịch ủy thác phí một phần sẽ được sử dụng. phí một phần sẽ được sử dụng. Khoảng hợp lệ là từ 1 đến 99. |
+| Tên           | Loại   | Mô tả                                                                                                                                                                                                                                                                                               |
+| ------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| từ            | chuỗi   | (tùy chọn) Địa chỉ mà các giao dịch sẽ được thực hiện.                                                                                                                                                                                                                           |
+| giá gas       | chuỗi   | (tùy chọn) Giá gas tính bằng peb để sử dụng cho giao dịch.                                                                                                                                                                                                                       |
+| gas           | số      | (tùy chọn) Lượng gas tối đa được cung cấp cho một giao dịch (giới hạn gas).                                                                                                                                                                                   |
+| data          | chuỗi   | (tùy chọn) Mã byte của hợp đồng. Được sử dụng khi hợp đồng được triển khai.                                                                                                                                                                                                      |
+| feeDelegation | boolean | (tùy chọn) Có sử dụng giao dịch ủy thác phí hay không.                                                                                                                                                                                                                           |
+| feePayer      | chuỗi   | (tùy chọn) Địa chỉ của người trả phí thanh toán phí giao dịch. Khi `feeDelegation` là `đúng`, giá trị sẽ được đặt thành trường `feePayer` trong giao dịch.                                                                                                                       |
+| feeRatio      | chuỗi   | (tùy chọn) Tỷ lệ phí giao dịch mà người trả phí sẽ phải chịu. Nếu `feeDelegation` là `đúng` và `feeRatio` được đặt thành giá trị hợp lệ thì giao dịch ủy thác phí một phần sẽ được sử dụng. Khoảng hợp lệ là từ 1 đến 99. Tỷ lệ không được phép bằng 0 hoặc bằng và cao hơn 100. |
 
-Tỷ lệ không được phép bằng 0 hoặc bằng và cao hơn 100.
+**Giá trị trả về**
 
-| **Giá trị trả về** | Loại     |
-| ------------------ | --------- |
-| Mô tả              | đối tượng |
+| Loại     | Mô tả                                                            |
+| --------- | ---------------------------------------------------------------- |
+| đối tượng | Đối tượng hợp đồng với tất cả các phương pháp và sự kiện của nó. |
 
-Đối tượng hợp đồng với tất cả các phương pháp và sự kiện của nó.
+**Ví dụ**
 
 ```javascript
 const myContract = new caver.contract([...], '0x{address in hex}', { gasPrice: '25000000000' })
 ```
 
-## **Ví dụ**
+## myContract.options <a href="#mycontract-options" id="mycontract-options"></a>
 
 ```javascript
 myContract.options
 ```
 
-myContract.options <a href="#mycontract-options" id="mycontract-options"></a> Đối tượng `options` cho phiên bản hợp đồng.
+Đối tượng `options` cho phiên bản hợp đồng. `from`, `gas`, `gasPrice`, `feePayer` và `feeRatio` được sử dụng làm giá trị dự phòng khi gửi giao dịch.
 
-`from`, `gas`, `gasPrice`, `feePayer` và `feeRatio` được sử dụng làm giá trị dự phòng khi gửi giao dịch.
+**Thuộc tính**
 
-| **Thuộc tính**                                                                                                   | Tên           | Loại                                                                                                                                                                                                                                              |
-| ---------------------------------------------------------------------------------------------------------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Mô tả                                                                                                            | address       | chuỗi                                                                                                                                                                                                                                              |
-| Địa chỉ triển khai hợp đồng.                                                                                     | jsonInterface | Mảng                                                                                                                                                                                                                                               |
-| Giao diện JSON của hợp đồng.                                                                                     | từ            | chuỗi Địa chỉ mặc định mà giao dịch triển khai/thực thi hợp đồng được gửi đi.                                                                                                                                                                      |
-| Nếu không xác định địa chỉ `from` khi tạo giao dịch thì `myContract.options.from` sẽ luôn dùng để tạo giao dịch. | giá gas       | chuỗi                                                                                                                                                                                                                                              |
-| Giá gas tính bằng peb để sử dụng cho giao dịch.                                                                  | gas           | số                                                                                                                                                                                                                                                 |
-| Lượng gas tối đa được cung cấp cho một giao dịch (giới hạn gas).                              | data          | chuỗi Mã byte của hợp đồng.                                                                                                                                                                                                                        |
-| Được sử dụng khi hợp đồng được triển khai.                                                                       | feeDelegation | boolean                                                                                                                                                                                                                                            |
-| (tùy chọn) Có sử dụng giao dịch ủy thác phí hay không.                                        | feePayer      | chuỗi (tùy chọn) Địa chỉ của người trả phí thanh toán phí giao dịch.                                                                                                                                                            |
-| Khi `feeDelegation` là `đúng`, giá trị sẽ được đặt thành trường `feePayer` trong giao dịch.                      | feeRatio      | chuỗi (tùy chọn) Tỷ lệ phí giao dịch mà người trả phí sẽ phải chịu. Nếu `feeDelegation` là `đúng` và `feeRatio` được đặt thành giá trị hợp lệ thì giao dịch ủy thác phí một phần sẽ được sử dụng. phí một phần sẽ được sử dụng. |
+| Tên           | Loại   | Mô tả                                                                                                                                                                                                                                                                                               |
+| ------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address       | chuỗi   | Địa chỉ triển khai hợp đồng.                                                                                                                                                                                                                                                                        |
+| jsonInterface | Mảng    | Giao diện JSON của hợp đồng.                                                                                                                                                                                                                                                                        |
+| từ            | chuỗi   | Địa chỉ mặc định mà giao dịch triển khai/thực thi hợp đồng được gửi đi. Nếu không xác định địa chỉ `from` khi tạo giao dịch thì `myContract.options.from` sẽ luôn dùng để tạo giao dịch.                                                                                                            |
+| giá gas       | chuỗi   | Giá gas tính bằng peb để sử dụng cho giao dịch.                                                                                                                                                                                                                                                     |
+| gas           | số      | Lượng gas tối đa được cung cấp cho một giao dịch (giới hạn gas).                                                                                                                                                                                                                 |
+| data          | chuỗi   | Mã byte của hợp đồng. Được sử dụng khi hợp đồng được triển khai.                                                                                                                                                                                                                                    |
+| feeDelegation | boolean | (tùy chọn) Có sử dụng giao dịch ủy thác phí hay không.                                                                                                                                                                                                                           |
+| feePayer      | chuỗi   | (tùy chọn) Địa chỉ của người trả phí thanh toán phí giao dịch. Khi `feeDelegation` là `đúng`, giá trị sẽ được đặt thành trường `feePayer` trong giao dịch.                                                                                                                       |
+| feeRatio      | chuỗi   | (tùy chọn) Tỷ lệ phí giao dịch mà người trả phí sẽ phải chịu. Nếu `feeDelegation` là `đúng` và `feeRatio` được đặt thành giá trị hợp lệ thì giao dịch ủy thác phí một phần sẽ được sử dụng. Khoảng hợp lệ là từ 1 đến 99. Tỷ lệ không được phép bằng 0 hoặc bằng và cao hơn 100. |
 
-Khoảng hợp lệ là từ 1 đến 99.
+**LƯU Ý** `feeDelegation`, `feePayer` và `feeRatio` được hỗ trợ kể từ phiên bản caver-js[v1.6.1](#mycontract-deploy).
 
-Tỷ lệ không được phép bằng 0 hoặc bằng và cao hơn 100.
+**Ví dụ**
 
 ```javascript
 > myContract.options
@@ -127,21 +127,21 @@ Tỷ lệ không được phép bằng 0 hoặc bằng và cao hơn 100.
 > myContract.options.feeRatio = 20 // default fee ratio when send partial fee delegation transaction
 ```
 
-## **LƯU Ý** `feeDelegation`, `feePayer` và `feeRatio` được hỗ trợ kể từ phiên bản caver-js[v1.6.1](#mycontract-deploy).
+## myContract.options.address <a href="#mycontract-options-address" id="mycontract-options-address"></a>
 
 ```javascript
 myContract.options.address
 ```
 
-tượng caver-js[v1.6.1](#mycontract-deploy). **Ví dụ**
+Địa chỉ được sử dụng cho phiên bản hợp đồng này `myContract`. Tất cả các giao dịch do caver-js tạo ra từ hợp đồng này sẽ chứa địa chỉ này dưới dạng `to` của giao dịch.
 
-myContract.options.address <a href="#mycontract-options-address" id="mycontract-options-address"></a>
+**Thuộc tính**
 
-| Địa chỉ được sử dụng cho phiên bản hợp đồng này `myContract`. | Tất cả các giao dịch do caver-js tạo ra từ hợp đồng này sẽ chứa địa chỉ này dưới dạng `to` của giao dịch. | **Thuộc tính** |
-| ------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | -------------- |
-| Tên                                                           | Loại                                                                                                     | Mô tả          |
+| Tên     | Loại           | Mô tả                                                      |
+| ------- | --------------- | ---------------------------------------------------------- |
+| address | chuỗi \| `null` | Địa chỉ cho hợp đồng này hoặc `null` nếu nó chưa được đặt. |
 
-address
+**Ví dụ**
 
 ```javascript
 >  myContract.options.address
@@ -151,21 +151,21 @@ address
 >  myContract.options.address = '0x1234FFDD...'
 ```
 
-## chuỗi | `null`
+## myContract.options.jsonInterface <a href="#mycontract-options-jsoninterface" id="mycontract-options-jsoninterface"></a>
 
 ```javascript
 myContract.options.jsonInterface
 ```
 
-Địa chỉ cho hợp đồng này hoặc `null` nếu nó chưa được đặt.
+Đối tượng giao diện JSON bắt nguồn từ ABI của hợp đồng này `myContract`.
 
-**Ví dụ**
+**Thuộc tính**
 
-| myContract.options.jsonInterface <a href="#mycontract-options-jsoninterface" id="mycontract-options-jsoninterface"></a> | Đối tượng giao diện JSON bắt nguồn từ ABI của hợp đồng này `myContract`. | **Thuộc tính**      |
-| ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ | ------------------- |
-| Tên                                                                                                                     | type                                                                     | Mô tả jsonInterface |
+| Tên           | type | Mô tả                                                                                                           |
+| ------------- | ---- | --------------------------------------------------------------------------------------------------------------- |
+| jsonInterface | Mảng | Giao diện JSON cho hợp đồng này. Đặt lại điều này sẽ tạo lại các phương pháp và sự kiện của phiên bản hợp đồng. |
 
-Mảng
+**Ví dụ**
 
 ```javascript
 > myContract.options.jsonInterface
@@ -198,27 +198,27 @@ Mảng
 > myContract.options.jsonInterface = [...]
 ```
 
-## Giao diện JSON cho hợp đồng này.
+## myContract.clone <a href="#mycontract-clone" id="mycontract-clone"></a>
 
 ```javascript
 myContract.clone([contractAddress])
 ```
 
-Đặt lại điều này sẽ tạo lại các phương pháp và sự kiện của phiên bản hợp đồng.
+Sao chép phiên bản hợp đồng hiện tại.
 
-**Ví dụ**
+**Tham số**
 
-| myContract.clone <a href="#mycontract-clone" id="mycontract-clone"></a> | Sao chép phiên bản hợp đồng hiện tại. | **Tham số**           |
-| ----------------------------------------------------------------------- | ------------------------------------- | --------------------- |
-| Tên                                                                     | Loại                                 | Mô tả contractAddress |
+| Tên             | Loại | Mô tả                                                                                                                                                                                  |
+| --------------- | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| contractAddress | Chuỗi | (tùy chọn) Địa chỉ của hợp đồng mới. Nếu bỏ qua, địa chỉ này sẽ được đặt thành địa chỉ trong đối tượng gốc (e.g., `myContract.options.address`). |
 
-Chuỗi
+**Giá trị trả về**
 
-| (tùy chọn) Địa chỉ của hợp đồng mới. | Nếu bỏ qua, địa chỉ này sẽ được đặt thành địa chỉ trong đối tượng gốc (e.g., `myContract.options.address`). |
-| ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| **Giá trị trả về**                                      | Loại                                                                                                                          |
+| Loại     | Mô tả                                 |
+| --------- | ------------------------------------- |
+| đối tượng | Đối tượng hợp đồng được sao chép mới. |
 
-Mô tả
+**Ví dụ**
 
 ```javascript
 > myContract.clone()
@@ -229,41 +229,41 @@ Contract {
 }
 ```
 
-## đối tượng
+## myContract.deploy <a href="#mycontract-deploy2" id="mycontract-deploy2"></a>
 
 ```javascript
 myContract.deploy(options, byteCode [, param1 [, param2 [, ...]]])
 ```
 
-Đối tượng hợp đồng được sao chép mới. **Ví dụ** myContract.deploy <a href="#mycontract-deploy2" id="mycontract-deploy2"></a> Triển khai hợp đồng cho mạng lưới Klaytn.
+Triển khai hợp đồng cho mạng lưới Klaytn. Sau khi triển khai thành công, promise sẽ được xử lý bằng một phiên bản hợp đồng mới. Không giống cách hoạt động của hàm [myContract.deploy](#methods-methodname-send) hiện tại, hàm này gửi giao dịch trực tiếp đến mạng lưới Klaytn. Bạn không cần lệnh gọi `send()` với đối tượng được trả về.
 
-Sau khi triển khai thành công, promise sẽ được xử lý bằng một phiên bản hợp đồng mới.
+**LƯU Ý** `caver.wallet` phải chứa các đối tượng keyring tương ứng với `from` và `feePayer` trong `options` hoặc `myContract.options` để tạo chữ ký.
 
-Không giống cách hoạt động của hàm [myContract.deploy](#methods-methodname-send) hiện tại, hàm này gửi giao dịch trực tiếp đến mạng lưới Klaytn.
+**LƯU Ý** `myContract.deploy` được hỗ trợ kể từ caver-js phiên bản [v1.6.1](#mycontract-deploy).
 
-Bạn không cần lệnh gọi `send()` với đối tượng được trả về.
+**Tham số**
 
-| **LƯU Ý** `caver.wallet` phải chứa các đối tượng keyring tương ứng với `from` và `feePayer` trong `options` hoặc `myContract.options` để tạo chữ ký. | **LƯU Ý** `myContract.deploy` được hỗ trợ kể từ caver-js phiên bản [v1.6.1](#mycontract-deploy). | **Tham số**                                                                                                        |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
-| Tên                                                                                                                                                  | Loại                                                                                            | Mô tả tùy chọn                                                                                                     |
-| đối tượng                                                                                                                                            | Các tùy chọn được sử dụng để gửi.                                                                | Xem bảng trong [methods.methodName.send](caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt) để biết chi tiết. |
-| byteCode                                                                                                                                             | chuỗi                                                                                            | Mã byte của hợp đồng.                                                                                              |
+| Tên      | Loại     | Mô tả                                                                                                                                                |
+| -------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| tùy chọn | đối tượng | Các tùy chọn được sử dụng để gửi. Xem bảng trong [methods.methodName.send](caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt) để biết chi tiết. |
+| byteCode | chuỗi     | Mã byte của hợp đồng.                                                                                                                                |
+| Tham số  | Hỗn hợp   | (tùy chọn) Các tham số được chuyển đến hàm tạo khi triển khai.                                                                    |
 
-Tham số
+**Giá trị trả về**
 
-Hỗn hợp
+`Promise` trả về `PromiEvent`: Promise sẽ được xử lý với phiên bản hợp đồng mới.
 
-| (tùy chọn) Các tham số được chuyển đến hàm tạo khi triển khai. | **Giá trị trả về**     |
-| --------------------------------------------------------------------------------- | ---------------------- |
-| `Promise` trả về `PromiEvent`: Promise sẽ được xử lý với phiên bản hợp đồng mới.  | Loại Mô tả PromiEvent |
+| Loại      | Mô tả                                                                                                                                                                                |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| PromiEvent | Trình phát sự kiện kết hợp promise. Nó sẽ được xử lý khi có biên lai giao dịch. Nếu `send()` được gọi từ `myContract.deploy()` thì promise sẽ được xử lý với phiên bản hợp đồng mới. |
 
-Trình phát sự kiện kết hợp promise.
+Đối với PromiEvent, sẽ có các sự kiện sau đây:
 
-- Nó sẽ được xử lý khi có biên lai giao dịch. Nếu `send()` được gọi từ `myContract.deploy()` thì promise sẽ được xử lý với phiên bản hợp đồng mới.
-- Đối với PromiEvent, sẽ có các sự kiện sau đây: `transactionHash`: nó được kích hoạt ngay sau khi giao dịch được gửi và có sẵn hàm băm giao dịch. Loại của nó là `string`.
+- `transactionHash`: nó được kích hoạt ngay sau khi giao dịch được gửi và có sẵn hàm băm giao dịch. Loại của nó là `string`.
 - `receipt`: Nó được kích hoạt khi có sẵn biên lai giao dịch. Xem [caver.rpc.klay.getTransactionReceipt](#methods-methodname-send) để biết thêm chi tiết. Loại của nó là `object`.
+- `error`: Nó được kích hoạt nếu xảy ra lỗi trong khi gửi. Khi xảy ra lỗi hết gas, tham số thứ hai sẽ là biên lai. Loại của nó là `Error`.
 
-`error`: Nó được kích hoạt nếu xảy ra lỗi trong khi gửi.
+**Ví dụ**
 
 ```javascript
 // Deploy a smart contract without constructor arguments
@@ -328,47 +328,47 @@ Trình phát sự kiện kết hợp promise.
   })
 ```
 
-## Khi xảy ra lỗi hết gas, tham số thứ hai sẽ là biên lai.
+## myContract.deploy <a href="#mycontract-deploy" id="mycontract-deploy"></a>
 
 ```javascript
 myContract.deploy(options)
 ```
 
-Loại của nó là `Error`. **Ví dụ** myContract.deploy <a href="#mycontract-deploy" id="mycontract-deploy"></a>
+Trả về đối tượng được sử dụng khi triển khai hợp đồng thông minh cho Klaytn. Bạn có thể gửi giao dịch triển khai hợp đồng thông minh bằng cách gọi lệnh `myContract.deploy({ data, arguments }).send(options)`. Sau khi triển khai thành công, promise sẽ được xử lý bằng một phiên bản hợp đồng mới.
 
-Trả về đối tượng được sử dụng khi triển khai hợp đồng thông minh cho Klaytn.
+**Tham số**
 
-| Bạn có thể gửi giao dịch triển khai hợp đồng thông minh bằng cách gọi lệnh `myContract.deploy({ data, arguments }).send(options)`. | Sau khi triển khai thành công, promise sẽ được xử lý bằng một phiên bản hợp đồng mới. | **Tham số**    |
-| ---------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | -------------- |
-| Tên                                                                                                                                | Loại                                                                                 | Mô tả tùy chọn |
+| Tên      | Loại     | Mô tả                                                                                 |
+| -------- | --------- | ------------------------------------------------------------------------------------- |
+| tùy chọn | đối tượng | Đối tượng tùy chọn dùng để triển khai. Xem bảng dưới đây để tìm phần thông tin mô tả. |
 
-đối tượng
+Đối tượng tùy chọn có thể chứa các thông tin sau:
 
-| Đối tượng tùy chọn dùng để triển khai. | Xem bảng dưới đây để tìm phần thông tin mô tả. | Đối tượng tùy chọn có thể chứa các thông tin sau: |
-| -------------------------------------- | ---------------------------------------------- | ------------------------------------------------- |
-| Tên                                    | type                                           | Mô tả                                             |
-| data                                   | chuỗi                                          | Mã byte của hợp đồng.                             |
+| Tên    | type  | Mô tả                                                                            |
+| ------ | ----- | -------------------------------------------------------------------------------- |
+| data   | chuỗi | Mã byte của hợp đồng.                                                            |
+| đối số | Mảng  | (tùy chọn) Các đối số được chuyển đến hàm tạo khi triển khai. |
 
-đối số
+**Giá trị trả về**
 
-| Mảng               | (tùy chọn) Các đối số được chuyển đến hàm tạo khi triển khai. |
-| ------------------ | -------------------------------------------------------------------------------- |
-| **Giá trị trả về** | type Mô tả                                                                       |
+| type      | Mô tả                                                                                                                        |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| đối tượng | Một đối tượng trong đó các đối số và hàm để phân phối hợp đồng được xác định. Xem bảng dưới đây để tìm phần thông tin mô tả. |
 
-đối tượng
+Đối tượng chứa các mục sau:
 
-| Một đối tượng trong đó các đối số và hàm để phân phối hợp đồng được xác định. | Xem bảng dưới đây để tìm phần thông tin mô tả.                                   | Đối tượng chứa các mục sau:                                                                                       |
-| ----------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| Tên                                                                           | Loại                                                                            | Mô tả                                                                                                             |
-| đối số                                                                        | Mảng                                                                             | Các đối số được chuyển vào `options.arguments`. [send](caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt)    |
-| hàm                                                                           | Hàm sẽ triển khai hợp đồng đến Klaytn.                                           | Promise là kết quả của hàm sẽ được xử lý với phiên bản hợp đồng mới. [sign](#methods-methodname-signasfeepayer)   |
-| hàm                                                                           | Hàm sẽ ký giao dịch triển khai hợp đồng thông minh với tư cách là người gửi.     | Hàm ký sẽ trả về giao dịch đã ký. [signAsFeePayer](#methods-methodname-estimategas)                               |
-| hàm                                                                           | Hàm sẽ ký giao dịch triển khai hợp đồng thông minh với tư cách là người trả phí. | Hàm signAsFeePayer sẽ trả về giao dịch đã ký. [estimateGas](#methods-methodname-encodeabi)                        |
-| hàm                                                                           | Hàm sẽ ước tính lượng gas sử dụng cho việc triển khai.                           | Việc thực thi hàm này không triển khai hợp đồng. [encodeABI](./caver-transaction/basic.md#smartcontractexecution) |
+| Tên                                                              | Loại | Mô tả                                                                                                                           |
+| ---------------------------------------------------------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------- |
+| đối số                                                           | Mảng  | Các đối số được chuyển vào `options.arguments`.                                                                                 |
+| [send](caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt)   | hàm   | Hàm sẽ triển khai hợp đồng đến Klaytn. Promise là kết quả của hàm sẽ được xử lý với phiên bản hợp đồng mới.                     |
+| [sign](#methods-methodname-signasfeepayer)                       | hàm   | Hàm sẽ ký giao dịch triển khai hợp đồng thông minh với tư cách là người gửi. Hàm ký sẽ trả về giao dịch đã ký.                  |
+| [signAsFeePayer](#methods-methodname-estimategas)                | hàm   | Hàm sẽ ký giao dịch triển khai hợp đồng thông minh với tư cách là người trả phí. Hàm signAsFeePayer sẽ trả về giao dịch đã ký.  |
+| [estimateGas](#methods-methodname-encodeabi)                     | hàm   | Hàm sẽ ước tính lượng gas sử dụng cho việc triển khai. Việc thực thi hàm này không triển khai hợp đồng.                         |
+| [encodeABI](./caver-transaction/basic.md#smartcontractexecution) | hàm   | Hàm mã hóa ABI của quá trình triển khai là dữ liệu hợp đồng + tham số hàm tạo. Việc thực thi hàm này không triển khai hợp đồng. |
 
-hàm
+**LƯU Ý** `myContract.deploy({ data, arguments }).sign(options)` và `myContract.deploy({ data, arguments }).signAsFeePayer(options)` được hỗ trợ kể từ caver-js phiên bản [v1.6.1](#mycontract-deploy).
 
-Hàm mã hóa ABI của quá trình triển khai là dữ liệu hợp đồng + tham số hàm tạo.
+**Ví dụ**
 
 ```javascript
 > myContract.deploy({
@@ -422,48 +422,48 @@ Hàm mã hóa ABI của quá trình triển khai là dữ liệu hợp đồng +
   })
 ```
 
-## Việc thực thi hàm này không triển khai hợp đồng.
+## myContract.send <a href="#mycontract-send" id="mycontract-send"></a>
 
 ```javascript
 myContract.send(options, methodName [, param1 [, param2 [, ...]]])
 ```
 
-**LƯU Ý** `myContract.deploy({ data, arguments }).sign(options)` và `myContract.deploy({ data, arguments }).signAsFeePayer(options)` được hỗ trợ kể từ caver-js phiên bản [v1.6.1](#mycontract-deploy). **Ví dụ**
+Gửi một giao dịch để thực hiện hàm của hợp đồng thông minh. Điều này có thể thay đổi trạng thái hợp đồng thông minh.
 
-myContract.send <a href="#mycontract-send" id="mycontract-send"></a> Gửi một giao dịch để thực hiện hàm của hợp đồng thông minh.
+Loại giao dịch được sử dụng cho hàm này tùy thuộc vào `options` hoặc giá trị được xác định trong `myContract.options`. Nếu bạn muốn sử dụng giao dịch có phí ủy thác thông qua `myContract.send` thì phải đặt `feeDelegation` và `feePayer` đúng cách.
 
-- Điều này có thể thay đổi trạng thái hợp đồng thông minh.
-- Loại giao dịch được sử dụng cho hàm này tùy thuộc vào `options` hoặc giá trị được xác định trong `myContract.options`.
-- Nếu bạn muốn sử dụng giao dịch có phí ủy thác thông qua `myContract.send` thì phải đặt `feeDelegation` và `feePayer` đúng cách.
 - `feeDelegation` không được xác định hoặc được xác định là `false`: [SmartContractExecution](./caver-transaction/fee-delegation.md#feedelegatedsmartcontractexecution)
+- `feeDelegation` được xác định là `true` nhưng `feePayer` không được xác định : Thông báo lỗi.
+- `feeDelegation` được xác định là `true` và `feePayer` được xác định nhưng `feeRatio` không được xác định: [FeeDelegatedSmartContractExecution](./caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio)
+- `feeDelegation` được xác định là `true` và `feePayer` và `feeRatio` được xác định: [FeeDelegatedSmartContractExecutionWithRatio](#methods-methodname-send)
 
-`feeDelegation` được xác định là `true` nhưng `feePayer` không được xác định : Thông báo lỗi.
+**LƯU Ý** `caver.wallet` phải chứa các đối tượng keyring tương ứng với `from` và `feePayer` trong `options` hoặc `myContract.options` để tạo chữ ký.
 
-`feeDelegation` được xác định là `true` và `feePayer` được xác định nhưng `feeRatio` không được xác định: [FeeDelegatedSmartContractExecution](./caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio)
+**LƯU Ý** `myContract.send` được hỗ trợ kể từ caver-js phiên bản [v1.6.1](#mycontract-deploy).
 
-`feeDelegation` được xác định là `true` và `feePayer` và `feeRatio` được xác định: [FeeDelegatedSmartContractExecutionWithRatio](#methods-methodname-send)
+**Tham số**
 
-| **LƯU Ý** `caver.wallet` phải chứa các đối tượng keyring tương ứng với `from` và `feePayer` trong `options` hoặc `myContract.options` để tạo chữ ký. | **LƯU Ý** `myContract.send` được hỗ trợ kể từ caver-js phiên bản [v1.6.1](#mycontract-deploy). | **Tham số**                                                                                                        |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| Tên                                                                                                                                                  | Loại                                                                                          | Mô tả tùy chọn                                                                                                     |
-| đối tượng                                                                                                                                            | Các tùy chọn được sử dụng để gửi.                                                              | Xem bảng trong [methods.methodName.send](caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt) để biết chi tiết. |
-| methodName                                                                                                                                           | chuỗi                                                                                          | Tên phương pháp của hàm hợp đồng để thực thi.                                                                      |
+| Tên        | Loại     | Mô tả                                                                                                                                                |
+| ---------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| tùy chọn   | đối tượng | Các tùy chọn được sử dụng để gửi. Xem bảng trong [methods.methodName.send](caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt) để biết chi tiết. |
+| methodName | chuỗi     | Tên phương pháp của hàm hợp đồng để thực thi.                                                                                                        |
+| Tham số    | Hỗn hợp   | (tùy chọn) Các tham số được chuyển đến hàm hợp đồng thông minh.                                                                   |
 
-Tham số
+**Giá trị trả về**
 
-Hỗn hợp
+`Promise` trả về `PromiEvent`
 
-| (tùy chọn) Các tham số được chuyển đến hàm hợp đồng thông minh. | **Giá trị trả về**     |
-| ---------------------------------------------------------------------------------- | ---------------------- |
-| `Promise` trả về `PromiEvent`                                                      | Loại Mô tả PromiEvent |
+| Loại      | Mô tả                                                                                                                             |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| PromiEvent | Trình phát sự kiện kết hợp promise. Nó sẽ được xử lý khi có biên lai giao dịch. Promise sẽ được xử lý với phiên bản hợp đồng mới. |
 
-Trình phát sự kiện kết hợp promise.
+Đối với PromiEvent, sẽ có các sự kiện sau đây:
 
-- Nó sẽ được xử lý khi có biên lai giao dịch. Promise sẽ được xử lý với phiên bản hợp đồng mới.
-- Đối với PromiEvent, sẽ có các sự kiện sau đây: `transactionHash`: Nó được kích hoạt ngay sau khi giao dịch được gửi và có sẵn hàm băm giao dịch. Loại của nó là `string`.
+- `transactionHash`: Nó được kích hoạt ngay sau khi giao dịch được gửi và có sẵn hàm băm giao dịch. Loại của nó là `string`.
 - `receipt`: Nó được kích hoạt khi có sẵn biên lai giao dịch. Xem [caver.rpc.klay.getTransactionReceipt](#methods-methodname-send) để biết thêm chi tiết. Loại của nó là `object`.
+- `error`: Nó được kích hoạt nếu xảy ra lỗi trong khi gửi. Khi xảy ra lỗi hết gas, tham số thứ hai sẽ là biên lai. Loại của nó là `Error`.
 
-`error`: Nó được kích hoạt nếu xảy ra lỗi trong khi gửi.
+**Ví dụ**
 
 ```javascript
 // Send a SmartContractExecution and use the promise
@@ -568,39 +568,39 @@ Trình phát sự kiện kết hợp promise.
 }
 ```
 
-## Khi xảy ra lỗi hết gas, tham số thứ hai sẽ là biên lai.
+## myContract.sign <a href="#mycontract-sign" id="mycontract-sign"></a>
 
 ```javascript
 myContract.sign(options, methodName [, param1 [, param2 [, ...]]])
 ```
 
-Loại của nó là `Error`.
+Ký một giao dịch hợp đồng thông minh với tư cách là người gửi để triển khai hợp đồng thông minh hoặc thực thi hàm của hợp đồng thông minh.
 
-**Ví dụ** myContract.sign <a href="#mycontract-sign" id="mycontract-sign"></a>
+Nếu hợp đồng thông minh được triển khai, 'constructor' có thể được nhập vào methodName, chẳng hạn như `myContract.sign({ from, ... }, 'constructor', byteCode, ...)`.
 
-Ký một giao dịch hợp đồng thông minh với tư cách là người gửi để triển khai hợp đồng thông minh hoặc thực thi hàm của hợp đồng thông minh. Nếu hợp đồng thông minh được triển khai, 'constructor' có thể được nhập vào methodName, chẳng hạn như `myContract.sign({ from, ... }, 'constructor', byteCode, ...)`.
+Loại giao dịch được sử dụng cho hàm này tùy thuộc vào `options` hoặc giá trị được xác định trong `myContract.options`. Nếu bạn muốn sử dụng giao dịch có phí ủy thác thông qua `myContract.sign` thì `feeDelegation` phải được xác định là `true`.
 
-- Loại giao dịch được sử dụng cho hàm này tùy thuộc vào `options` hoặc giá trị được xác định trong `myContract.options`.
-- Nếu bạn muốn sử dụng giao dịch có phí ủy thác thông qua `myContract.sign` thì `feeDelegation` phải được xác định là `true`.
 - `feeDelegation` không được xác định hoặc được xác định là `false`: [SmartContractDeploy](./caver-transaction/basic.md#smartcontractexecution) / [SmartContractExecution](./caver-transaction/fee-delegation.md#feedelegatedsmartcontractexecution)
-
-`feeDelegation` được xác định là `true` nhưng `feeRatio` không được xác định: [FeeDelegatedSmartContractDeploy](./caver-transaction/fee-delegation.md#feedelegatedsmartcontractexecution) / [FeeDelegatedSmartContractExecution](./caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio)
-
-`feeDelegation` được xác định là `true` và `feeRatio` được xác định: [FeeDelegatedSmartContractDeployWithRatio](./caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio) / [FeeDelegatedSmartContractExecutionWithRatio](#methods-methodname-send)
+- `feeDelegation` được xác định là `true` nhưng `feeRatio` không được xác định: [FeeDelegatedSmartContractDeploy](./caver-transaction/fee-delegation.md#feedelegatedsmartcontractexecution) / [FeeDelegatedSmartContractExecution](./caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio)
+- `feeDelegation` được xác định là `true` và `feeRatio` được xác định: [FeeDelegatedSmartContractDeployWithRatio](./caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio) / [FeeDelegatedSmartContractExecutionWithRatio](#methods-methodname-send)
 
 **LƯU Ý** `caver.wallet` phải chứa các đối tượng keyring tương ứng với `from` trong `options` hoặc `myContract.options` để tạo chữ ký.
 
-| **LƯU Ý** `myContract.sign` được hỗ trợ kể từ caver-js phiên bản [v1.6.1](#mycontract-deploy). | **Tham số**                                                                                                               | Tên                |
-| ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| type                                                                                           | Mô tả                                                                                                                     | tùy chọn đối tượng |
-| Các tùy chọn được sử dụng để gửi.                                                              | Xem bảng trong [methods.methodName.send](caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt) để biết chi tiết.        | methodName chuỗi   |
-| Tên phương pháp của hàm hợp đồng để thực thi.                                                  | Nếu bạn muốn ký một giao dịch để triển khai hợp đồng thông minh, hãy sử dụng chuỗi 'constructor' thay vì tên phương pháp. | Tham số Hỗn hợp    |
+**LƯU Ý** `myContract.sign` được hỗ trợ kể từ caver-js phiên bản [v1.6.1](#mycontract-deploy).
 
-(tùy chọn) Các tham số được chuyển đến hàm hợp đồng thông minh.
+**Tham số**
 
-Nếu bạn muốn ký một giao dịch triển khai hợp đồng thông minh, hãy thông qua byteCode và các tham số hàm tạo.
+| Tên        | type      | Mô tả                                                                                                                                                                                           |
+| ---------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| tùy chọn   | đối tượng | Các tùy chọn được sử dụng để gửi. Xem bảng trong [methods.methodName.send](caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt) để biết chi tiết.                                            |
+| methodName | chuỗi     | Tên phương pháp của hàm hợp đồng để thực thi. Nếu bạn muốn ký một giao dịch để triển khai hợp đồng thông minh, hãy sử dụng chuỗi 'constructor' thay vì tên phương pháp.                         |
+| Tham số    | Hỗn hợp   | (tùy chọn) Các tham số được chuyển đến hàm hợp đồng thông minh. Nếu bạn muốn ký một giao dịch triển khai hợp đồng thông minh, hãy thông qua byteCode và các tham số hàm tạo. |
 
 **Giá trị trả về**
+
+`Promise` trả về [Giao dịch](./caver-transaction/fee-delegation.md#feedelegatedsmartcontractdeploy) - Giao dịch hợp đồng thông minh đã ký.
+
+**Ví dụ**
 
 ```javascript
 // Sign a SmartContractDeploy
@@ -719,40 +719,40 @@ FeeDelegatedSmartContractExecutionWithRatio {
 }
 ```
 
-## `Promise` trả về [Giao dịch](./caver-transaction/fee-delegation.md#feedelegatedsmartcontractdeploy) - Giao dịch hợp đồng thông minh đã ký.
+## myContract.signAsFeePayer <a href="#mycontract-signasfeepayer" id="mycontract-signasfeepayer"></a>
 
 ```javascript
 myContract.signAsFeePayer(options, methodName [, param1 [, param2 [, ...]]])
 ```
 
-**Ví dụ**
+Ký một giao dịch hợp đồng thông minh với tư cách là người trả phí để triển khai hợp đồng thông minh hoặc thực thi hàm của hợp đồng thông minh.
 
-myContract.signAsFeePayer <a href="#mycontract-signasfeepayer" id="mycontract-signasfeepayer"></a> Ký một giao dịch hợp đồng thông minh với tư cách là người trả phí để triển khai hợp đồng thông minh hoặc thực thi hàm của hợp đồng thông minh.
+Nếu hợp đồng thông minh được triển khai, 'constructor' có thể được nhập vào methodName, chẳng hạn như `myContract.signAsFeePayer({ from, feeDelegation: true, feePayer, ... }, 'constructor', byteCode, ...)`.
 
-Nếu hợp đồng thông minh được triển khai, 'constructor' có thể được nhập vào methodName, chẳng hạn như `myContract.signAsFeePayer({ from, feeDelegation: true, feePayer, ... }, 'constructor', byteCode, ...)`. Loại giao dịch được sử dụng cho hàm này tùy thuộc vào `options` hoặc giá trị được xác định trong `myContract.options`. `signAsFeePayer` là một hàm ký với tư cách là người trả phí giao dịch nên trường `feeDelegation` phải được xác định là `true`.
+Loại giao dịch được sử dụng cho hàm này tùy thuộc vào `options` hoặc giá trị được xác định trong `myContract.options`. `signAsFeePayer` là một hàm ký với tư cách là người trả phí giao dịch nên trường `feeDelegation` phải được xác định là `true`. Ngoài ra, địa chỉ của người trả phí phải được xác định trong trường `feePayer`.
 
-- Ngoài ra, địa chỉ của người trả phí phải được xác định trong trường `feePayer`.
 - `feeDelegation` không được xác định : Thông báo lỗi.
 - `feeDelegation` được xác định nhưng `feePayer` không được xác định : Thông báo lỗi.
 - `feeDelegation` được xác định là `true` và `feePayer` được xác định nhưng `feeRatio` không được xác định: [FeeDelegatedSmartContractDeploy](./caver-transaction/fee-delegation.md#feedelegatedsmartcontractexecution) / [FeeDelegatedSmartContractExecution](./caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio)
-
-`feeDelegation` được xác định là `true` và `feePayer` và `feeRatio` được xác định: [FeeDelegatedSmartContractDeployWithRatio](./caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio) / [FeeDelegatedSmartContractExecutionWithRatio](#methods-methodname-send)
+- `feeDelegation` được xác định là `true` và `feePayer` và `feeRatio` được xác định: [FeeDelegatedSmartContractDeployWithRatio](./caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio) / [FeeDelegatedSmartContractExecutionWithRatio](#methods-methodname-send)
 
 **LƯU Ý** `caver.wallet` phải chứa các đối tượng keyring tương ứng với `feePayer` trong `options` hoặc `myContract.options` để tạo chữ ký.
 
 **LƯU Ý** `myContract.signAsFeePayer` được hỗ trợ kể từ caver-js phiên bản [v1.6.1](#mycontract-deploy).
 
-| **Tham số**                                                                                                               | Tên        | type                                                                                       |
-| ------------------------------------------------------------------------------------------------------------------------- | ---------- | ------------------------------------------------------------------------------------------ |
-| Mô tả                                                                                                                     | tùy chọn   | đối tượng Các tùy chọn được sử dụng để gửi.                                                |
-| Xem bảng trong [methods.methodName.send](caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt) để biết chi tiết.        | methodName | chuỗi Tên phương pháp của hàm hợp đồng để thực thi.                                        |
-| Nếu bạn muốn ký một giao dịch để triển khai hợp đồng thông minh, hãy sử dụng chuỗi 'constructor' thay vì tên phương pháp. | Tham số    | Hỗn hợp (tùy chọn) Các tham số được chuyển đến hàm hợp đồng thông minh. |
+**Tham số**
 
-Nếu bạn muốn ký một giao dịch triển khai hợp đồng thông minh, hãy thông qua byteCode và các tham số hàm tạo.
+| Tên        | type      | Mô tả                                                                                                                                                                                           |
+| ---------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| tùy chọn   | đối tượng | Các tùy chọn được sử dụng để gửi. Xem bảng trong [methods.methodName.send](caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt) để biết chi tiết.                                            |
+| methodName | chuỗi     | Tên phương pháp của hàm hợp đồng để thực thi. Nếu bạn muốn ký một giao dịch để triển khai hợp đồng thông minh, hãy sử dụng chuỗi 'constructor' thay vì tên phương pháp.                         |
+| Tham số    | Hỗn hợp   | (tùy chọn) Các tham số được chuyển đến hàm hợp đồng thông minh. Nếu bạn muốn ký một giao dịch triển khai hợp đồng thông minh, hãy thông qua byteCode và các tham số hàm tạo. |
 
 **Giá trị trả về**
 
 `Promise` trả về [Giao dịch](./caver-transaction/fee-delegation.md#feedelegatedsmartcontractdeploy) - Giao dịch hợp đồng thông minh đã ký.
+
+**Ví dụ**
 
 ```javascript
 // Sign a FeeDelegatedSmartContractDeploy
@@ -841,30 +841,30 @@ FeeDelegatedSmartContractExecutionWithRatio {
 }
 ```
 
-## **Ví dụ**
+## myContract.call <a href="#mycontract-call" id="mycontract-call"></a>
 
 ```javascript
 myContract.call('methodName', [param1 [, param2 [, ...]]])
 myContract.call(options, 'methodName', [param1 [, param2 [, ...]]])
 ```
 
-myContract.call <a href="#mycontract-call" id="mycontract-call"></a> Sẽ gọi một phương pháp hằng số và thực thi phương pháp hợp đồng thông minh của nó trong Máy ảo Klaytn mà không gửi bất kỳ giao dịch nào.
-
-Lưu ý rằng việc gọi không thể thay đổi trạng thái hợp đồng thông minh.
+Sẽ gọi một phương pháp hằng số và thực thi phương pháp hợp đồng thông minh của nó trong Máy ảo Klaytn mà không gửi bất kỳ giao dịch nào. Lưu ý rằng việc gọi không thể thay đổi trạng thái hợp đồng thông minh.
 
 **LƯU Ý** `myContract.call` được hỗ trợ kể từ caver-js phiên bản [v1.6.1](#mycontract-deploy).
 
-| **Tham số**                                                                          | Tên        | Loại                                                             |
-| ------------------------------------------------------------------------------------ | ---------- | ----------------------------------------------------------------- |
-| Mô tả                                                                                | tùy chọn   | đối tượng (tùy chọn) Các tùy chọn dùng để gọi. |
-| Xem bảng trong [methods.methodName.call](#methods-methodname-call) để biết chi tiết. | methodName | chuỗi                                                             |
-| Tên phương pháp của hàm hợp đồng để gọi.                                             | Tham số    | Hỗn hợp                                                           |
+**Tham số**
 
-(tùy chọn) Các tham số được chuyển đến hàm hợp đồng thông minh.
+| Tên        | Loại     | Mô tả                                                                                                                                        |
+| ---------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| tùy chọn   | đối tượng | (tùy chọn) Các tùy chọn dùng để gọi. Xem bảng trong [methods.methodName.call](#methods-methodname-call) để biết chi tiết. |
+| methodName | chuỗi     | Tên phương pháp của hàm hợp đồng để gọi.                                                                                                     |
+| Tham số    | Hỗn hợp   | (tùy chọn) Các tham số được chuyển đến hàm hợp đồng thông minh.                                                           |
 
-**Giá trị trả về** `Promise` trả về `Mixed` - (Các) giá trị trả về của phương pháp hợp đồng thông minh. Nếu trả về một giá trị duy nhất, nó sẽ được trả về như cũ.
+**Giá trị trả về**
 
-Nếu nó có nhiều giá trị trả về, nó sẽ trả về một đối tượng có thuộc tính và chỉ số.
+`Promise` trả về `Mixed` - (Các) giá trị trả về của phương pháp hợp đồng thông minh. Nếu trả về một giá trị duy nhất, nó sẽ được trả về như cũ. Nếu nó có nhiều giá trị trả về, nó sẽ trả về một đối tượng có thuộc tính và chỉ số.
+
+**Ví dụ**
 
 ```javascript
 > myContract.call('methodName').then(console.log)
@@ -874,29 +874,29 @@ Jasmine
 Test Result
 ```
 
-## **Ví dụ**
+## myContract.decodeFunctionCall <a href="#mycontract-decodefunctioncall" id="mycontract-decodefunctioncall"></a>
 
 ```javascript
 myContract.decodeFunctionCall(functionCall)
 ```
 
-myContract.decodeFunctionCall <a href="#mycontract-decodefunctioncall" id="mycontract-decodefunctioncall"></a>
-
 Giải mã lệnh gọi hàm và trả về tham số.
 
 **LƯU Ý** `myContract.decodeFunctionCall` được hỗ trợ kể từ caver-js phiên bản [v1.6.3](#methods-methodname-call).
 
-| **Tham số** | Tên          | Loại |
-| ----------- | ------------ | ----- |
-| Mô tả       | functionCall | chuỗi |
+**Tham số**
 
-Chuỗi lệnh gọi hàm được mã hóa.
+| Tên          | Loại | Mô tả                           |
+| ------------ | ----- | ------------------------------- |
+| functionCall | chuỗi | Chuỗi lệnh gọi hàm được mã hóa. |
 
-| **Giá trị trả về** | Loại                                                 |
-| ------------------ | ----------------------------------------------------- |
-| Mô tả              | đối tượng Một đối tượng bao gồm các tham số đơn giản. |
+**Giá trị trả về**
 
-Bạn có thể sử dụng `result[0]` được cung cấp để có thể truy cập giống như một mảng theo thứ tự của các tham số.
+| Loại     | Mô tả                                                                                                                                                       |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| đối tượng | Một đối tượng bao gồm các tham số đơn giản. Bạn có thể sử dụng `result[0]` được cung cấp để có thể truy cập giống như một mảng theo thứ tự của các tham số. |
+
+**Ví dụ**
 
 ```javascript
 // The myContract variable is instantiated with the below abi.
@@ -930,34 +930,47 @@ Result {
 }
 ```
 
-## **Ví dụ**
+## myContract.methods <a href="#mycontract-methods" id="mycontract-methods"></a>
 
 ```javascript
 myContract.methods.methodName([param1 [, param2 [, ...]]])
 myContract.methods['methodName']([param1 [, param2 [, ...]]])
 ```
 
-myContract.methods <a href="#mycontract-methods" id="mycontract-methods"></a>
-
 Tạo một đối tượng giao dịch cho phương pháp đó, sau đó có thể gọi, gửi, ước tính hoặc mã hóa dưới dạng ABI.
 
-- Các phương pháp của hợp đồng thông minh này có sẵn thông qua:
+Các phương pháp của hợp đồng thông minh này có sẵn thông qua:
+
 - Tên phương pháp: `myContract.methods.methodName(123)` hoặc `myContract.methods[methodName](#methods-methodname-call)`
 - Nguyên mẫu phương pháp: `myContract.methods['methodName(uint256)'](#methods-methodname-call)`
+- Chữ ký phương pháp: `myContract.methods['0x58cf5f10'](#methods-methodname-call)`
 
-Chữ ký phương pháp: `myContract.methods['0x58cf5f10'](#methods-methodname-call)`
-
-## Điều này cho phép gọi các hàm có cùng tên nhưng khác tham số từ phiên bản hợp đồng JavaScript.
+Điều này cho phép gọi các hàm có cùng tên nhưng khác tham số từ phiên bản hợp đồng JavaScript.
+Đây là bốn byte đầu tiên (left, high-order in big-endian) của hàm băm Keccak-256 (SHA-3) của chữ ký của hàm.
 
 cf) \*function signature (function selector) <a href="#cf-function-signature-function-selector" id="cf-function-signature-function-selector"></a>
-It is the first (left, high-order in big-endian) four bytes of the Keccak-256 (SHA-3) hash of the signature of the function.
+Đây là bốn byte đầu tiên (left, high-order in big-endian) của hàm băm Keccak-256 (SHA-3) của chữ ký của hàm.
+`1. caver.abi.encodefunctionSignature('funcName(paramType1,paramType2,...)')`\
+`2. caver.utils.sha3('funcName(paramType1,paramType2,...)').substr(0, 10)`
+Đây là bốn byte đầu tiên (left, high-order in big-endian) của hàm băm Keccak-256 (SHA-3) của chữ ký của hàm.
+--------------------------------------------------------------------------------------------------------------------------------------------------
 
 Bốn byte đầu tiên của dữ liệu lệnh gọi cho lệnh gọi hàm chỉ định chức năng sẽ được gọi.\
 Đây là bốn byte đầu tiên (left, high-order in big-endian) của hàm băm Keccak-256 (SHA-3) của chữ ký của hàm.
 `1. caver.abi.encodefunctionSignature('funcName(paramType1,paramType2,...)')`\
 `2. caver.utils.sha3('funcName(paramType1,paramType2,...)').substr(0, 10)`
+`1. caver.abi.encodefunctionSignature('funcName(paramType1,paramType2,...)')`\
+`2. caver.utils.sha3('funcName(paramType1,paramType2,...)').substr(0, 10)`
+It is the first (left, high-order in big-endian) four bytes of the Keccak-256 (SHA-3) hash of the signature of the function.
 
 Chữ ký hàm có thể được cung cấp thông qua 2 phương pháp khác nhau.\
+`1. caver.abi.encodefunctionSignature('funcName(paramType1,paramType2,...)')`\
+`2. caver.utils.sha3('funcName(paramType1,paramType2,...)').substr(0, 10)`
+Đây là bốn byte đầu tiên (left, high-order in big-endian) của hàm băm Keccak-256 (SHA-3) của chữ ký của hàm.
+`1. caver.abi.encodefunctionSignature('funcName(paramType1,paramType2,...)')`\
+`2. caver.utils.sha3('funcName(paramType1,paramType2,...)').substr(0, 10)`
+
+ex)
 `1. caver.abi.encodefunctionSignature('funcName(paramType1,paramType2,...)')`\
 `2. caver.utils.sha3('funcName(paramType1,paramType2,...)').substr(0, 10)`
 
@@ -969,27 +982,27 @@ caver.utils.sha3('methodName(uint256)').substr(0, 10)
 > 0x58cf5f10
 ```
 
-ex)
-
 **Tham số**
 
 Các tham số của bất kỳ phương pháp nào thuộc về hợp đồng thông minh này, được xác định trong giao diện JSON.
 
 **Giá trị trả về**
 
-| `Promise` trả về `object` - Một đối tượng trong đó các đối số và hàm để thực thi hợp đồng được xác định. | :                                                                                                                                                                                                   | Tên                                                                  |
-| -------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| Loại                                                                                                    | Mô tả                                                                                                                                                                                               | đối số                                                               |
-| Mảng                                                                                                     | Các đối số được đưa vào phương pháp này.                                                                                                                                                            | [call](#methods-methodname-call)                                     |
-| hàm                                                                                                      | Hàm sẽ gọi và thực thi một phương pháp không đổi trong hợp đồng thông minh của nó trên Máy ảo Klaytn mà không gửi giao dịch (không thể thay đổi trạng thái hợp đồng thông minh). | [send](caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt)       |
-| hàm                                                                                                      | Hàm sẽ gửi giao dịch đến Klaytn và thực hiện phương pháp của nó (có thể thay đổi trạng thái hợp đồng thông minh).                                                                | [sign](#methods-methodname-signasfeepayer) hàm                       |
-| Hàm sẽ ký một giao dịch với tư cách là người gửi.                                                        | Hàm ký sẽ trả về giao dịch đã ký.                                                                                                                                                                   | [signAsFeePayer](#methods-methodname-estimategas) hàm                |
-| Hàm sẽ ký một giao dịch với tư cách là người trả phí.                                                    | Hàm signAsFeePayer sẽ trả về giao dịch đã ký.                                                                                                                                                       | [estimateGas](#methods-methodname-encodeabi)                         |
-| hàm                                                                                                      | Hàm đó sẽ ước tính lượng gas dùng để thực thi.                                                                                                                                                      | [encodeABI](./caver-transaction/basic.md#smartcontractexecution) hàm |
+`Promise` trả về `object` - Một đối tượng trong đó các đối số và hàm để thực thi hợp đồng được xác định.:
 
-Hàm mã hóa ABI cho phương pháp này.
+| Tên                                                              | Loại | Mô tả                                                                                                                                                                                               |
+| ---------------------------------------------------------------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| đối số                                                           | Mảng  | Các đối số được đưa vào phương pháp này.                                                                                                                                                            |
+| [call](#methods-methodname-call)                                 | hàm   | Hàm sẽ gọi và thực thi một phương pháp không đổi trong hợp đồng thông minh của nó trên Máy ảo Klaytn mà không gửi giao dịch (không thể thay đổi trạng thái hợp đồng thông minh). |
+| [send](caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt)   | hàm   | Hàm sẽ gửi giao dịch đến Klaytn và thực hiện phương pháp của nó (có thể thay đổi trạng thái hợp đồng thông minh).                                                                |
+| [sign](#methods-methodname-signasfeepayer)                       | hàm   | Hàm sẽ ký một giao dịch với tư cách là người gửi. Hàm ký sẽ trả về giao dịch đã ký.                                                                                                                 |
+| [signAsFeePayer](#methods-methodname-estimategas)                | hàm   | Hàm sẽ ký một giao dịch với tư cách là người trả phí. Hàm signAsFeePayer sẽ trả về giao dịch đã ký.                                                                                                 |
+| [estimateGas](#methods-methodname-encodeabi)                     | hàm   | Hàm đó sẽ ước tính lượng gas dùng để thực thi.                                                                                                                                                      |
+| [encodeABI](./caver-transaction/basic.md#smartcontractexecution) | hàm   | Hàm mã hóa ABI cho phương pháp này. Nó có thể được gửi bằng cách sử dụng một giao dịch, gọi phương pháp hoặc chuyển sang một phương pháp hợp đồng thông minh khác làm đối số của nó.                |
 
-Nó có thể được gửi bằng cách sử dụng một giao dịch, gọi phương pháp hoặc chuyển sang một phương pháp hợp đồng thông minh khác làm đối số của nó.
+**LƯU Ý** `sign` và `signAsFeePayer` được hỗ trợ kể từ caver-js phiên bản [v1.6.1](#mycontract-deploy).
+
+**Ví dụ**
 
 ```javascript
 // Calling a method
@@ -1077,35 +1090,35 @@ Nó có thể được gửi bằng cách sử dụng một giao dịch, gọi p
   }).then(function(signedTx) { ... })
 ```
 
-## **LƯU Ý** `sign` và `signAsFeePayer` được hỗ trợ kể từ caver-js phiên bản [v1.6.1](#mycontract-deploy).
+## methods.methodName.call <a href="#methods-methodname-call" id="methods-methodname-call"></a>
 
 ```javascript
 myContract.methods.methodName([param1 [, param2 [, ...]]]).call(options [, callback])
 myContract.methods['methodName']([param1 [, param2 [, ...]]]).call(options [, callback])
 ```
 
-**Ví dụ** methods.methodName.call <a href="#methods-methodname-call" id="methods-methodname-call"></a> Sẽ gọi một phương pháp hằng số và thực thi phương pháp hợp đồng thông minh của nó trong Máy ảo Klaytn mà không gửi bất kỳ giao dịch nào.
+Sẽ gọi một phương pháp hằng số và thực thi phương pháp hợp đồng thông minh của nó trong Máy ảo Klaytn mà không gửi bất kỳ giao dịch nào. Lưu ý rằng việc gọi không thể thay đổi trạng thái hợp đồng thông minh. Bạn nên sử dụng [myContract.call](#mycontract-send) được cung cấp dưới dạng hàm rút gọn.
 
-Lưu ý rằng việc gọi không thể thay đổi trạng thái hợp đồng thông minh.
+**Tham số**
 
-| Bạn nên sử dụng [myContract.call](#mycontract-send) được cung cấp dưới dạng hàm rút gọn. | **Tham số**                                   | Tên                |
-| ---------------------------------------------------------------------------------------- | --------------------------------------------- | ------------------ |
-| Loại                                                                                    | Mô tả                                         | tùy chọn đối tượng |
-| (tùy chọn) Các tùy chọn dùng để gọi.                                  | Xem bảng dưới đây để biết thông tin chi tiết. | callback           |
+| Tên      | Loại     | Mô tả                                                                                                                                                                                    |
+| -------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| tùy chọn | đối tượng | (tùy chọn) Các tùy chọn dùng để gọi. Xem bảng dưới đây để biết thông tin chi tiết.                                                                                    |
+| callback | hàm       | (tùy chọn) Lệnh gọi lại này sẽ được kích hoạt với kết quả thực thi phương pháp hợp đồng thông minh làm đối số thứ hai hoặc với một đối tượng lỗi làm đối số đầu tiên. |
 
-hàm
+Đối tượng tùy chọn có thể chứa các thông tin sau:
 
-| (tùy chọn) Lệnh gọi lại này sẽ được kích hoạt với kết quả thực thi phương pháp hợp đồng thông minh làm đối số thứ hai hoặc với một đối tượng lỗi làm đối số đầu tiên. | Đối tượng tùy chọn có thể chứa các thông tin sau:                                              | Tên     |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ------- |
-| type                                                                                                                                                                                     | Mô tả                                                                                          | từ      |
-| chuỗi                                                                                                                                                                                    | (tùy chọn) Địa chỉ mà các phương pháp hợp đồng gọi sẽ được thực hiện từ đó. | giá gas |
-| chuỗi                                                                                                                                                                                    | (tùy chọn) Giá gas tính bằng peb để sử dụng cho lệnh gọi này.               | gas     |
+| Tên     | type  | Mô tả                                                                                                            |
+| ------- | ----- | ---------------------------------------------------------------------------------------------------------------- |
+| từ      | chuỗi | (tùy chọn) Địa chỉ mà các phương pháp hợp đồng gọi sẽ được thực hiện từ đó.                   |
+| giá gas | chuỗi | (tùy chọn) Giá gas tính bằng peb để sử dụng cho lệnh gọi này.                                 |
+| gas     | số    | (tùy chọn) Lượng gas tối đa được cung cấp cho lệnh gọi này (giới hạn gas). |
 
-số
+**Giá trị trả về**
 
-(tùy chọn) Lượng gas tối đa được cung cấp cho lệnh gọi này (giới hạn gas). **Giá trị trả về** `Promise` trả về `Mixed` - (Các) giá trị trả về của phương pháp hợp đồng thông minh.
+`Promise` trả về `Mixed` - (Các) giá trị trả về của phương pháp hợp đồng thông minh. Nếu trả về một giá trị duy nhất, nó sẽ được trả về như cũ. Nếu nó có nhiều giá trị trả về, nó sẽ trả về một đối tượng có thuộc tính và chỉ số.
 
-Nếu trả về một giá trị duy nhất, nó sẽ được trả về như cũ.
+**Ví dụ**
 
 ```javascript
 // using the promise
@@ -1150,62 +1163,62 @@ contract MyContract {
 "Hello!%"
 ```
 
-## Nếu nó có nhiều giá trị trả về, nó sẽ trả về một đối tượng có thuộc tính và chỉ số.
+## methods.methodName.send <a href="#methods-methodname-send" id="methods-methodname-send"></a>
 
 ```javascript
 myContract.methods.methodName([param1 [, param2 [, ...]]]).send(options [, callback])
 myContract.methods['methodName']([param1 [, param2 [, ...]]]).send(options [, callback])
 ```
 
-**Ví dụ** methods.methodName.send <a href="#methods-methodname-send" id="methods-methodname-send"></a> Sẽ gửi một giao dịch để triển khai hợp đồng thông minh hoặc thực hiện hàm của hợp đồng thông minh.
+Sẽ gửi một giao dịch để triển khai hợp đồng thông minh hoặc thực hiện hàm của hợp đồng thông minh. Điều này có thể thay đổi trạng thái hợp đồng thông minh. Bạn nên sử dụng [myContract.send](#mycontract-deploy2) được cung cấp dưới dạng hàm rút gọn.
 
-Điều này có thể thay đổi trạng thái hợp đồng thông minh.
+Nếu hợp đồng thông minh được triển khai, 'constructor' có thể được nhập vào methodName như `myContract.methods.constructor` hoặc `myContract.methods['constructor']`, tuy nhiên nên sử dụng hàm [myContract.deploy](./caver-transaction/basic.md#smartcontractdeploy).
 
-Bạn nên sử dụng [myContract.send](#mycontract-deploy2) được cung cấp dưới dạng hàm rút gọn. Nếu hợp đồng thông minh được triển khai, 'constructor' có thể được nhập vào methodName như `myContract.methods.constructor` hoặc `myContract.methods['constructor']`, tuy nhiên nên sử dụng hàm [myContract.deploy](./caver-transaction/basic.md#smartcontractdeploy).
+Loại giao dịch được sử dụng cho hàm này tùy thuộc vào `options` hoặc giá trị được xác định trong `myContract.options`. Nếu bạn muốn sử dụng giao dịch có phí ủy thác thông qua `methods.methodName.send` thì phải đặt `feeDelegation` và `feePayer` đúng cách.
 
-- Loại giao dịch được sử dụng cho hàm này tùy thuộc vào `options` hoặc giá trị được xác định trong `myContract.options`.
-- Nếu bạn muốn sử dụng giao dịch có phí ủy thác thông qua `methods.methodName.send` thì phải đặt `feeDelegation` và `feePayer` đúng cách.
 - `feeDelegation` không được xác định hoặc được xác định là `false`: [SmartContractDeploy](./caver-transaction/basic.md#smartcontractexecution) / [SmartContractExecution](./caver-transaction/fee-delegation.md#feedelegatedsmartcontractexecution)
 - `feeDelegation` được xác định là `true` nhưng `feePayer` không được xác định : Thông báo lỗi.
+- `feeDelegation` được xác định là `true` và `feePayer` được xác định nhưng `feeRatio` không được xác định: [FeeDelegatedSmartContractDeploy](./caver-transaction/fee-delegation.md#feedelegatedsmartcontractexecution) / [FeeDelegatedSmartContractExecution](./caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio)
+- `feeDelegation` được xác định là `true` và `feePayer` và `feeRatio` được xác định: [FeeDelegatedSmartContractDeployWithRatio](./caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio) / [FeeDelegatedSmartContractExecutionWithRatio](#methods-methodname-send)
 
-`feeDelegation` được xác định là `true` và `feePayer` được xác định nhưng `feeRatio` không được xác định: [FeeDelegatedSmartContractDeploy](./caver-transaction/fee-delegation.md#feedelegatedsmartcontractexecution) / [FeeDelegatedSmartContractExecution](./caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio)
+**LƯU Ý** `caver.wallet` phải chứa các đối tượng keyring tương ứng với `from` và `feePayer` trong `options` hoặc `myContract.options` để tạo chữ ký.
 
-`feeDelegation` được xác định là `true` và `feePayer` và `feeRatio` được xác định: [FeeDelegatedSmartContractDeployWithRatio](./caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio) / [FeeDelegatedSmartContractExecutionWithRatio](#methods-methodname-send)
+**Tham số**
 
-| **LƯU Ý** `caver.wallet` phải chứa các đối tượng keyring tương ứng với `from` và `feePayer` trong `options` hoặc `myContract.options` để tạo chữ ký. | **Tham số**                                   | Tên                |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- | ------------------ |
-| type                                                                                                                                                 | Mô tả                                         | tùy chọn đối tượng |
-| Các tùy chọn được sử dụng để gửi.                                                                                                                    | Xem bảng dưới đây để biết thông tin chi tiết. | callback           |
+| Tên      | type      | Mô tả                                                                                                                                        |
+| -------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| tùy chọn | đối tượng | Các tùy chọn được sử dụng để gửi. Xem bảng dưới đây để biết thông tin chi tiết.                                                              |
+| callback | hàm       | (tùy chọn) Lệnh gọi lại này sẽ được kích hoạt trước với "transactionHash" hoặc với một đối tượng lỗi làm đối số đầu tiên. |
 
-hàm
+Đối tượng tùy chọn có thể chứa các thông tin sau:
 
-| (tùy chọn) Lệnh gọi lại này sẽ được kích hoạt trước với "transactionHash" hoặc với một đối tượng lỗi làm đối số đầu tiên. | Đối tượng tùy chọn có thể chứa các thông tin sau:                                                                     | Tên                                                                                                                                                                                                                                                         |
-| -------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Loại                                                                                                                                        | Mô tả                                                                                                                 | từ chuỗi                                                                                                                                                                                                                                                    |
-| Địa chỉ mà từ đó giao dịch sẽ được gửi.                                                                                                      | Nếu bỏ qua, `myContract.options.from` sẽ được sử dụng.                                                                | gas                                                                                                                                                                                                                                                         |
-| số                                                                                                                                           | Lượng gas tối đa được cung cấp cho giao dịch này (giới hạn gas).                                   | giá gas                                                                                                                                                                                                                                                     |
-| chuỗi                                                                                                                                        | (tùy chọn) Giá gas tính bằng peb để sử dụng cho giao dịch này.                                     | giá trị                                                                                                                                                                                                                                                     |
-| số \| chuỗi \| BN \| Bignumber                                                                                                               | (tùy chọn) Giá trị bằng peb sẽ được chuyển đến địa chỉ của hợp đồng thông minh bằng giao dịch này. | feeDelegation boolean                                                                                                                                                                                                                                       |
-| (tùy chọn, mặc định `sai`) Có sử dụng giao dịch ủy thác phí hay không.                                                    | Nếu bỏ qua, `myContract.options.feeDelegation` sẽ được sử dụng.                                                       | feePayer chuỗi (tùy chọn) Địa chỉ của người trả phí thanh toán phí giao dịch.                                                                                                                                                            |
-| Khi `feeDelegation` là `đúng`, giá trị sẽ được đặt thành trường `feePayer` trong giao dịch.                                                  | Nếu bỏ qua, `myContract.options.feePayer` sẽ được sử dụng.                                                            | feeRatio chuỗi (tùy chọn) Tỷ lệ phí giao dịch mà người trả phí sẽ phải chịu. Nếu `feeDelegation` là `đúng` và `feeRatio` được đặt thành giá trị hợp lệ thì giao dịch ủy thác phí một phần sẽ được sử dụng. phí một phần sẽ được sử dụng. |
+| Tên           | Loại                          | Mô tả                                                                                                                                                                                                                                                                                                                                                          |
+| ------------- | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| từ            | chuỗi                          | Địa chỉ mà từ đó giao dịch sẽ được gửi. Nếu bỏ qua, `myContract.options.from` sẽ được sử dụng.                                                                                                                                                                                                                                                                 |
+| gas           | số                             | Lượng gas tối đa được cung cấp cho giao dịch này (giới hạn gas).                                                                                                                                                                                                                                                                            |
+| giá gas       | chuỗi                          | (tùy chọn) Giá gas tính bằng peb để sử dụng cho giao dịch này.                                                                                                                                                                                                                                                                              |
+| giá trị       | số \| chuỗi \| BN \| Bignumber | (tùy chọn) Giá trị bằng peb sẽ được chuyển đến địa chỉ của hợp đồng thông minh bằng giao dịch này.                                                                                                                                                                                                                                          |
+| feeDelegation | boolean                        | (tùy chọn, mặc định `sai`) Có sử dụng giao dịch ủy thác phí hay không. Nếu bỏ qua, `myContract.options.feeDelegation` sẽ được sử dụng.                                                                                                                                                                                                      |
+| feePayer      | chuỗi                          | (tùy chọn) Địa chỉ của người trả phí thanh toán phí giao dịch. Khi `feeDelegation` là `đúng`, giá trị sẽ được đặt thành trường `feePayer` trong giao dịch. Nếu bỏ qua, `myContract.options.feePayer` sẽ được sử dụng.                                                                                                                       |
+| feeRatio      | chuỗi                          | (tùy chọn) Tỷ lệ phí giao dịch mà người trả phí sẽ phải chịu. Nếu `feeDelegation` là `đúng` và `feeRatio` được đặt thành giá trị hợp lệ thì giao dịch ủy thác phí một phần sẽ được sử dụng. Khoảng hợp lệ là từ 1 đến 99. Tỷ lệ không được phép bằng 0 hoặc bằng và cao hơn 100. Nếu bỏ qua, `myContract.options.feeRatio` sẽ được sử dụng. |
 
-Khoảng hợp lệ là từ 1 đến 99.
+**LƯU Ý** `feeDelegation`, `feePayer` và `feeRatio` được hỗ trợ kể từ phiên bản caver-js[v1.6.1](#mycontract-deploy).
 
-Tỷ lệ không được phép bằng 0 hoặc bằng và cao hơn 100.
+**Giá trị trả về**
 
-Nếu bỏ qua, `myContract.options.feeRatio` sẽ được sử dụng.
+`Promise` trả về `PromiEvent`
 
-| **LƯU Ý** `feeDelegation`, `feePayer` và `feeRatio` được hỗ trợ kể từ phiên bản caver-js[v1.6.1](#mycontract-deploy). | tượng caver-js[v1.6.1](#mycontract-deploy). |
-| --------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
-| **Giá trị trả về**                                                                                                    | `Promise` trả về `PromiEvent` Loại Mô tả   |
+| Loại      | Mô tả                                                                                                                             |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| PromiEvent | Trình phát sự kiện kết hợp promise. Nó sẽ được xử lý khi có biên lai giao dịch. Promise sẽ được xử lý với phiên bản hợp đồng mới. |
 
-PromiEvent
+Đối với PromiEvent, sẽ có các sự kiện sau đây:
 
-- Trình phát sự kiện kết hợp promise. Nó sẽ được xử lý khi có biên lai giao dịch.
-- Promise sẽ được xử lý với phiên bản hợp đồng mới. Đối với PromiEvent, sẽ có các sự kiện sau đây: `transactionHash`: Nó được kích hoạt ngay sau khi giao dịch được gửi và có sẵn hàm băm giao dịch.
-- Loại của nó là `string`. `receipt`: Nó được kích hoạt khi có sẵn biên lai giao dịch. Xem [caver.rpc.klay.getTransactionReceipt](#methods-methodname-send) để biết thêm chi tiết.
+- `transactionHash`: Nó được kích hoạt ngay sau khi giao dịch được gửi và có sẵn hàm băm giao dịch. Loại của nó là `string`.
+- `receipt`: Nó được kích hoạt khi có sẵn biên lai giao dịch. Xem [caver.rpc.klay.getTransactionReceipt](#methods-methodname-send) để biết thêm chi tiết. Loại của nó là `object`.
+- `error`: Nó được kích hoạt nếu xảy ra lỗi trong khi gửi. Khi xảy ra lỗi hết gas, tham số thứ hai sẽ là biên lai. Loại của nó là `Error`.
 
-Loại của nó là `object`.
+**Ví dụ**
 
 ```javascript
 // using the promise
@@ -1265,38 +1278,38 @@ Loại của nó là `object`.
 > myContract.methods['constructor']('0x{byte code}', 123).send({ from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe', gas: 1000000 })
 ```
 
-## `error`: Nó được kích hoạt nếu xảy ra lỗi trong khi gửi.
+## methods.methodName.sign <a href="#methods-methodname-sign" id="methods-methodname-sign"></a>
 
 ```javascript
 myContract.methods.methodName([param1 [, param2 [, ...]]]).sign(options)
 myContract.methods['methodName']([param1 [, param2 [, ...]]]).sign(options)
 ```
 
-Khi xảy ra lỗi hết gas, tham số thứ hai sẽ là biên lai. Loại của nó là `Error`.
+Ký một giao dịch hợp đồng thông minh với tư cách là người gửi để triển khai hợp đồng thông minh hoặc thực thi hàm của hợp đồng thông minh. Bạn nên sử dụng [myContract.sign](./caver-transaction/basic.md#smartcontractexecution) được cung cấp dưới dạng hàm rút gọn.
+
+Nếu một hợp đồng thông minh được triển khai, 'constructor' có thể được nhập vào methodName chẳng hạn như `myContract.methods.constructor` hoặc `myContract.methods['constructor']`.
+
+Loại giao dịch được sử dụng cho hàm này tùy thuộc vào `options` hoặc giá trị được xác định trong `myContract.options`. Nếu bạn muốn sử dụng giao dịch có phí ủy thác thông qua `methods.methodName.sign` thì `feeDelegation` phải được xác định là `true`.
+
+- `feeDelegation` không được xác định hoặc được xác định là `false`: [SmartContractDeploy](./caver-transaction/basic.md#smartcontractexecution) / [SmartContractExecution](./caver-transaction/fee-delegation.md#feedelegatedsmartcontractexecution)
+- `feeDelegation` được xác định là `true` nhưng `feeRatio` không được xác định: [FeeDelegatedSmartContractDeploy](./caver-transaction/fee-delegation.md#feedelegatedsmartcontractexecution) / [FeeDelegatedSmartContractExecution](./caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio)
+- `feeDelegation` được xác định là `true` và `feeRatio` được xác định: [FeeDelegatedSmartContractDeployWithRatio](./caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio) / [FeeDelegatedSmartContractExecutionWithRatio](#methods-methodname-send)
+
+**LƯU Ý** `caver.wallet` phải chứa các đối tượng keyring tương ứng với `from` trong `options` hoặc `myContract.options` để tạo chữ ký.
+
+**LƯU Ý** `methods.methodName.sign` được hỗ trợ kể từ caver-js phiên bản [v1.6.1](#mycontract-deploy).
+
+**Tham số**
+
+| Tên      | Loại     | Mô tả                                                                                                                                                          |
+| -------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| tùy chọn | đối tượng | Các tùy chọn dùng để tạo giao dịch. Xem bảng tham số trong [methods.methodName.send](caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt) để biết chi tiết. |
+
+**Giá trị trả về**
+
+`Promise` trả về [Giao dịch](./caver-transaction/fee-delegation.md#feedelegatedsmartcontractdeploy) - Giao dịch hợp đồng thông minh đã ký.
 
 **Ví dụ**
-
-methods.methodName.sign <a href="#methods-methodname-sign" id="methods-methodname-sign"></a> Ký một giao dịch hợp đồng thông minh với tư cách là người gửi để triển khai hợp đồng thông minh hoặc thực thi hàm của hợp đồng thông minh.
-
-- Bạn nên sử dụng [myContract.sign](./caver-transaction/basic.md#smartcontractexecution) được cung cấp dưới dạng hàm rút gọn.
-- Nếu một hợp đồng thông minh được triển khai, 'constructor' có thể được nhập vào methodName chẳng hạn như `myContract.methods.constructor` hoặc `myContract.methods['constructor']`.
-- Loại giao dịch được sử dụng cho hàm này tùy thuộc vào `options` hoặc giá trị được xác định trong `myContract.options`.
-
-Nếu bạn muốn sử dụng giao dịch có phí ủy thác thông qua `methods.methodName.sign` thì `feeDelegation` phải được xác định là `true`.
-
-`feeDelegation` không được xác định hoặc được xác định là `false`: [SmartContractDeploy](./caver-transaction/basic.md#smartcontractexecution) / [SmartContractExecution](./caver-transaction/fee-delegation.md#feedelegatedsmartcontractexecution)
-
-`feeDelegation` được xác định là `true` nhưng `feeRatio` không được xác định: [FeeDelegatedSmartContractDeploy](./caver-transaction/fee-delegation.md#feedelegatedsmartcontractexecution) / [FeeDelegatedSmartContractExecution](./caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio)
-
-| `feeDelegation` được xác định là `true` và `feeRatio` được xác định: [FeeDelegatedSmartContractDeployWithRatio](./caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio) / [FeeDelegatedSmartContractExecutionWithRatio](#methods-methodname-send) | **LƯU Ý** `caver.wallet` phải chứa các đối tượng keyring tương ứng với `from` trong `options` hoặc `myContract.options` để tạo chữ ký. | **LƯU Ý** `methods.methodName.sign` được hỗ trợ kể từ caver-js phiên bản [v1.6.1](#mycontract-deploy). |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| **Tham số**                                                                                                                                                                                                                                                                          | Tên                                                                                                                                    | Loại Mô tả                                                                                            |
-
-tùy chọn
-
-đối tượng
-
-Các tùy chọn dùng để tạo giao dịch.
 
 ```javascript
 // Sign a SmartContractDeploy transaction
@@ -1379,39 +1392,39 @@ FeeDelegatedSmartContractExecution {
 > myContract.methods['methodName']('0x...').sign({ from: '0x{address in hex}', feeDelegation: true, gas: 1000000 }).then(console.log)
 ```
 
-## Xem bảng tham số trong [methods.methodName.send](caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt) để biết chi tiết.
+## methods.methodName.signAsFeePayer <a href="#methods-methodname-signasfeepayer" id="methods-methodname-signasfeepayer"></a>
 
 ```javascript
 myContract.methods.methodName([param1 [, param2 [, ...]]]).signAsFeePayer(options)
 myContract.methods['methodName']([param1 [, param2 [, ...]]]).signAsFeePayer(options)
 ```
 
-**Giá trị trả về** `Promise` trả về [Giao dịch](./caver-transaction/fee-delegation.md#feedelegatedsmartcontractdeploy) - Giao dịch hợp đồng thông minh đã ký.
+Ký một giao dịch hợp đồng thông minh với tư cách là người trả phí để triển khai hợp đồng thông minh hoặc thực thi hàm của hợp đồng thông minh. Bạn nên sử dụng [myContract.signAsFeePayer](./caver-transaction/fee-delegation.md#feedelegatedsmartcontractexecution) được cung cấp dưới dạng hàm rút gọn.
+
+Nếu một hợp đồng thông minh được triển khai, 'constructor' có thể được nhập vào methodName chẳng hạn như `myContract.methods.constructor` hoặc `myContract.methods['constructor']`.
+
+Loại giao dịch được sử dụng cho hàm này tùy thuộc vào `options` hoặc giá trị được xác định trong `myContract.options`. `signAsFeePayer` là một hàm ký với tư cách là người trả phí giao dịch nên trường `feeDelegation` phải được xác định là `true`. Ngoài ra, địa chỉ của người trả phí phải được xác định trong trường `feePayer`.
+
+- `feeDelegation` không được xác định : Thông báo lỗi.
+- `feeDelegation` được xác định nhưng `feePayer` không được xác định : Thông báo lỗi.
+- `feeDelegation` được xác định là `true` và `feePayer` được xác định nhưng `feeRatio` không được xác định: [FeeDelegatedSmartContractDeploy](./caver-transaction/fee-delegation.md#feedelegatedsmartcontractexecution) / [FeeDelegatedSmartContractExecution](./caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio)
+- `feeDelegation` được xác định là `true` và `feePayer` và `feeRatio` được xác định: [FeeDelegatedSmartContractDeployWithRatio](./caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio) / [FeeDelegatedSmartContractExecutionWithRatio](#methods-methodname-send)
+
+**LƯU Ý** `caver.wallet` phải chứa các đối tượng keyring tương ứng với `feePayer` trong `options` hoặc `myContract.options` để tạo chữ ký.
+
+**LƯU Ý** `methods.methodName.signAsFeePayer` được hỗ trợ kể từ caver-js phiên bản [v1.6.1](#mycontract-deploy).
+
+**Tham số**
+
+| Tên      | Loại     | Mô tả                                                                                                                                                          |
+| -------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| tùy chọn | đối tượng | Các tùy chọn dùng để tạo giao dịch. Xem bảng tham số trong [methods.methodName.send](caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt) để biết chi tiết. |
+
+**Giá trị trả về**
+
+`Promise` trả về [Giao dịch](./caver-transaction/fee-delegation.md#feedelegatedsmartcontractdeploy) - Giao dịch hợp đồng thông minh đã ký.
 
 **Ví dụ**
-
-methods.methodName.signAsFeePayer <a href="#methods-methodname-signasfeepayer" id="methods-methodname-signasfeepayer"></a> Ký một giao dịch hợp đồng thông minh với tư cách là người trả phí để triển khai hợp đồng thông minh hoặc thực thi hàm của hợp đồng thông minh. Bạn nên sử dụng [myContract.signAsFeePayer](./caver-transaction/fee-delegation.md#feedelegatedsmartcontractexecution) được cung cấp dưới dạng hàm rút gọn.
-
-- Nếu một hợp đồng thông minh được triển khai, 'constructor' có thể được nhập vào methodName chẳng hạn như `myContract.methods.constructor` hoặc `myContract.methods['constructor']`.
-- Loại giao dịch được sử dụng cho hàm này tùy thuộc vào `options` hoặc giá trị được xác định trong `myContract.options`.
-- `signAsFeePayer` là một hàm ký với tư cách là người trả phí giao dịch nên trường `feeDelegation` phải được xác định là `true`.
-- Ngoài ra, địa chỉ của người trả phí phải được xác định trong trường `feePayer`.
-
-`feeDelegation` không được xác định : Thông báo lỗi.
-
-`feeDelegation` được xác định nhưng `feePayer` không được xác định : Thông báo lỗi.
-
-`feeDelegation` được xác định là `true` và `feePayer` được xác định nhưng `feeRatio` không được xác định: [FeeDelegatedSmartContractDeploy](./caver-transaction/fee-delegation.md#feedelegatedsmartcontractexecution) / [FeeDelegatedSmartContractExecution](./caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio)
-
-| `feeDelegation` được xác định là `true` và `feePayer` và `feeRatio` được xác định: [FeeDelegatedSmartContractDeployWithRatio](./caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio) / [FeeDelegatedSmartContractExecutionWithRatio](#methods-methodname-send) | **LƯU Ý** `caver.wallet` phải chứa các đối tượng keyring tương ứng với `feePayer` trong `options` hoặc `myContract.options` để tạo chữ ký. | **LƯU Ý** `methods.methodName.signAsFeePayer` được hỗ trợ kể từ caver-js phiên bản [v1.6.1](#mycontract-deploy). |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------- |
-| **Tham số**                                                                                                                                                                                                                                                                                        | Tên                                                                                                                                        | Loại Mô tả                                                                                                      |
-
-tùy chọn
-
-đối tượng
-
-Các tùy chọn dùng để tạo giao dịch.
 
 ```javascript
 // Sign a FeeDelegatedSmartContractDeploy transaction
@@ -1453,38 +1466,38 @@ Các tùy chọn dùng để tạo giao dịch.
 > myContract.methods['methodName'](123).signAsFeePayer({ from: '0x{address in hex}', feeDelegation: true, feePayer: '0x{address in hex}', gas: 1000000 }).then(console.log)
 ```
 
-## Xem bảng tham số trong [methods.methodName.send](caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt) để biết chi tiết.
+## methods.methodName.estimateGas <a href="#methods-methodname-estimategas" id="methods-methodname-estimategas"></a>
 
 ```javascript
 myContract.methods.methodName([param1 [, param2 [, ...]]]).estimateGas(options [, callback])
 ```
 
-**Giá trị trả về** `Promise` trả về [Giao dịch](./caver-transaction/fee-delegation.md#feedelegatedsmartcontractdeploy) - Giao dịch hợp đồng thông minh đã ký.
+Sẽ ước tính mức gas mà việc thực thi phương pháp sẽ sử dụng khi được thực thi trong Máy ảo Klaytn. Ước tính có thể khác với gas thực tế được sử dụng khi gửi giao dịch sau này, vì trạng thái của hợp đồng thông minh có thể khác vào thời điểm đó.
+
+**Tham số**
+
+| Tên      | Loại     | Mô tả                                                                                                                                                        |
+| -------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| tùy chọn | đối tượng | (tùy chọn) Các tùy chọn dùng để gọi. Xem bảng dưới đây để biết thông tin chi tiết.                                                        |
+| callback | hàm       | (tùy chọn) Lệnh gọi lại này sẽ được kích hoạt với kết quả ước tính gas làm đối số thứ hai hoặc với một đối tượng lỗi làm đối số đầu tiên. |
+
+Đối tượng tùy chọn có thể chứa các thông tin sau:
+
+| Tên     | Loại                          | Mô tả                                                                                                                                                                                                 |
+| ------- | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| từ      | chuỗi                          | (tùy chọn) Địa chỉ mà từ đó việc gọi phương pháp hợp đồng sẽ được thực hiện.                                                                                                       |
+| gas     | số                             | (tùy chọn) Lượng gas tối đa được cung cấp cho lệnh gọi này (giới hạn gas). Đặt một giá trị cụ thể giúp phát hiện lỗi hết gas. Nếu dùng hết gas sẽ về số như cũ. |
+| giá trị | số \| chuỗi \| BN \| Bignumber | (tùy chọn) Giá trị trong peb sẽ được chuyển đến địa chỉ của hợp đồng thông minh nếu giao dịch để thực thi hàm hợp đồng này được gửi đến Klaytn.                                    |
+
+**Giá trị trả về**
+
+`Promise` trả về `số`
+
+| Loại | Mô tả                                             |
+| ----- | ------------------------------------------------- |
+| số    | Gas được sử dụng cho lệnh gọi/giao dịch mô phỏng. |
 
 **Ví dụ**
-
-| methods.methodName.estimateGas <a href="#methods-methodname-estimategas" id="methods-methodname-estimategas"></a> | Sẽ ước tính mức gas mà việc thực thi phương pháp sẽ sử dụng khi được thực thi trong Máy ảo Klaytn. | Ước tính có thể khác với gas thực tế được sử dụng khi gửi giao dịch sau này, vì trạng thái của hợp đồng thông minh có thể khác vào thời điểm đó. |
-| ----------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Tham số**                                                                                                       | Tên                                                                                                | Loại Mô tả                                                                                                                                      |
-| tùy chọn                                                                                                          | đối tượng                                                                                          | (tùy chọn) Các tùy chọn dùng để gọi.                                                                                          |
-
-Xem bảng dưới đây để biết thông tin chi tiết.
-
-| callback                                          | hàm                                                                                                              | (tùy chọn) Lệnh gọi lại này sẽ được kích hoạt với kết quả ước tính gas làm đối số thứ hai hoặc với một đối tượng lỗi làm đối số đầu tiên. |
-| ------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Đối tượng tùy chọn có thể chứa các thông tin sau: | Tên                                                                                                              | Loại                                                                                                                                                        |
-| Mô tả                                             | từ                                                                                                               | chuỗi (tùy chọn) Địa chỉ mà từ đó việc gọi phương pháp hợp đồng sẽ được thực hiện. gas                                                    |
-| số                                                | (tùy chọn) Lượng gas tối đa được cung cấp cho lệnh gọi này (giới hạn gas). | Đặt một giá trị cụ thể giúp phát hiện lỗi hết gas.                                                                                                           |
-
-Nếu dùng hết gas sẽ về số như cũ.
-
-giá trị
-
-| số \| chuỗi \| BN \| Bignumber | (tùy chọn) Giá trị trong peb sẽ được chuyển đến địa chỉ của hợp đồng thông minh nếu giao dịch để thực thi hàm hợp đồng này được gửi đến Klaytn. |
-| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Giá trị trả về**             | `Promise` trả về `số`                                                                                                                                              |
-
-Loại
 
 ```javascript
 > myContract.methods.methodName(123).estimateGas({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'})
@@ -1496,59 +1509,59 @@ Loại
   })
 ```
 
-## Mô tả
+## methods.methodName.encodeABI <a href="#methods-methodname-encodeabi" id="methods-methodname-encodeabi"></a>
 
 ```javascript
 myContract.methods.methodName([param1 [, param2[, ...]]]).encodeABI()
 ```
 
-số Gas được sử dụng cho lệnh gọi/giao dịch mô phỏng.
+Mã hóa ABI cho phương pháp này. Nó có thể dùng để gửi một giao dịch hoặc gọi một phương pháp hoặc chuyển nó vào một phương pháp hợp đồng thông minh khác làm đối số.
+
+**Tham số**
+
+Các tham số của bất kỳ phương pháp nào thuộc về hợp đồng thông minh này, được xác định trong giao diện JSON.
+
+**Giá trị trả về**
+
+| Loại | Mô tả                                                       |
+| ----- | ----------------------------------------------------------- |
+| chuỗi | Mã byte ABI được mã hóa để gửi qua giao dịch hoặc cuộc gọi. |
 
 **Ví dụ**
-
-methods.methodName.encodeABI <a href="#methods-methodname-encodeabi" id="methods-methodname-encodeabi"></a>
-
-Mã hóa ABI cho phương pháp này.
-
-| Nó có thể dùng để gửi một giao dịch hoặc gọi một phương pháp hoặc chuyển nó vào một phương pháp hợp đồng thông minh khác làm đối số. | **Tham số**        |
-| ------------------------------------------------------------------------------------------------------------------------------------ | ------------------ |
-| Các tham số của bất kỳ phương pháp nào thuộc về hợp đồng thông minh này, được xác định trong giao diện JSON.                         | **Giá trị trả về** |
-
-Loại
 
 ```javascript
 > myContract.methods.methodName(123).encodeABI()
 '0x58cf5f1000000000000000000000000000000000000000000000000000000000000007B'
 ```
 
-## Mô tả
+## myContract.once <a href="#mycontract-once" id="mycontract-once"></a>
 
 ```javascript
 myContract.once(event [, options], callback)
 ```
 
-chuỗi Mã byte ABI được mã hóa để gửi qua giao dịch hoặc cuộc gọi.
+Đăng ký một sự kiện và hủy đăng ký ngay sau sự kiện hoặc lỗi đầu tiên. Sẽ chỉ kích hoạt cho một sự kiện duy nhất.
+
+**Tham số**
+
+| Tên      | Loại     | Mô tả                                                                                                                                                                                             |
+| -------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| sự kiện  | chuỗi     | Tên của sự kiện trong hợp đồng hoặc `allEvents` để nhận tất cả các sự kiện.                                                                                                                       |
+| tùy chọn | đối tượng | (tùy chọn) Các tùy chọn dùng để đăng ký. Xem bảng dưới đây để biết thông tin chi tiết.                                                                                         |
+| callback | hàm       | Lệnh gọi lại này sẽ được kích hoạt cho sự kiện đầu tiên làm đối số thứ hai hoặc lỗi làm đối số thứ nhất. Xem [myContract.getPastEvents](#mycontract-events) để biết chi tiết về cấu trúc sự kiện. |
+
+Đối tượng tùy chọn có thể chứa các thông tin sau:
+
+| Tên    | Loại     | Mô tả                                                                                                                                                                                                 |
+| ------ | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| bộ lọc | đối tượng | (tùy chọn) Cho phép bạn lọc các sự kiện theo các tham số được lập chỉ mục, _vd:_ `{bộ lọc: {mynumber: [12,13]}}` có nghĩa là tất cả các sự kiện trong đó "mynumber" là 12 hoặc 13. |
+| chủ đề | Mảng      | (tùy chọn) Điều này cho phép bạn đặt chủ đề cho bộ lọc sự kiện theo cách thủ công. Nếu được cung cấp thuộc tính bộ lọc và chữ ký sự kiện, `topic[0]` sẽ không được đặt tự động.    |
+
+**Giá trị trả về**
+
+`Promise` trả về `object` - Đối tượng sự kiện. Để biết thêm chi tiết về đối tượng sự kiện, vui lòng tham khảo [myContract.getPastEvents](#mycontract-events).
 
 **Ví dụ**
-
-| myContract.once <a href="#mycontract-once" id="mycontract-once"></a> | Đăng ký một sự kiện và hủy đăng ký ngay sau sự kiện hoặc lỗi đầu tiên. | Sẽ chỉ kích hoạt cho một sự kiện duy nhất.                                                                |
-| -------------------------------------------------------------------- | ---------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| **Tham số**                                                          | Tên                                                                    | Loại                                                                                                     |
-| Mô tả                                                                | sự kiện                                                                | chuỗi Tên của sự kiện trong hợp đồng hoặc `allEvents` để nhận tất cả các sự kiện.                         |
-| tùy chọn                                                             | đối tượng                                                              | (tùy chọn) Các tùy chọn dùng để đăng ký. Xem bảng dưới đây để biết thông tin chi tiết. |
-
-callback
-
-| hàm                                               | Lệnh gọi lại này sẽ được kích hoạt cho sự kiện đầu tiên làm đối số thứ hai hoặc lỗi làm đối số thứ nhất. | Xem [myContract.getPastEvents](#mycontract-events) để biết chi tiết về cấu trúc sự kiện.                                                                                                                        |
-| ------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Đối tượng tùy chọn có thể chứa các thông tin sau: | Tên                                                                                                      | Loại                                                                                                                                                                                                           |
-| Mô tả                                             | bộ lọc                                                                                                   | đối tượng (tùy chọn) Cho phép bạn lọc các sự kiện theo các tham số được lập chỉ mục, _vd:_ `{bộ lọc: {mynumber: [12,13]}}` có nghĩa là tất cả các sự kiện trong đó "mynumber" là 12 hoặc 13. |
-
-chủ đề
-
-Mảng (tùy chọn) Điều này cho phép bạn đặt chủ đề cho bộ lọc sự kiện theo cách thủ công.
-
-Nếu được cung cấp thuộc tính bộ lọc và chữ ký sự kiện, `topic[0]` sẽ không được đặt tự động.
 
 ```javascript
 > myContract.once('eventName', {
@@ -1577,38 +1590,38 @@ Nếu được cung cấp thuộc tính bộ lọc và chữ ký sự kiện, `t
 }
 ```
 
-## **Giá trị trả về**
+## myContract.subscribe <a href="#mycontract-subscribe" id="mycontract-subscribe"></a>
 
 ```javascript
 myContract.subscribe(event [, options], callback)
 ```
 
+Đăng ký một sự kiện. Hàm này hoạt động giống như [myContract.events.eventName](#getpastevents).
+
+Bạn có thể hủy đăng ký một sự kiện bằng cách gọi hàm `unsubscribe` của đối tượng đăng ký được trả về bởi hàm `subscribe`.
+
+**LƯU Ý** `myContract.subscribe` được hỗ trợ kể từ caver-js phiên bản [v1.9.1-rc.1](#getpastevents).
+
+**Tham số**
+
+| Tên      | Loại     | Mô tả                                                                                                                                                                                             |
+| -------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| sự kiện  | chuỗi     | Tên của sự kiện trong hợp đồng hoặc `allEvents` để nhận tất cả các sự kiện.                                                                                                                       |
+| tùy chọn | đối tượng | (tùy chọn) Các tùy chọn dùng để đăng ký. Xem bảng dưới đây để biết thông tin chi tiết.                                                                                         |
+| callback | hàm       | Lệnh gọi lại này sẽ được kích hoạt cho sự kiện đầu tiên làm đối số thứ hai hoặc lỗi làm đối số thứ nhất. Xem [myContract.getPastEvents](#mycontract-events) để biết chi tiết về cấu trúc sự kiện. |
+
+Đối tượng tùy chọn có thể chứa các thông tin sau:
+
+| Tên    | Loại     | Mô tả                                                                                                                                                                                                 |
+| ------ | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| bộ lọc | đối tượng | (tùy chọn) Cho phép bạn lọc các sự kiện theo các tham số được lập chỉ mục, _vd:_ `{bộ lọc: {mynumber: [12,13]}}` có nghĩa là tất cả các sự kiện trong đó "mynumber" là 12 hoặc 13. |
+| chủ đề | Mảng      | (tùy chọn) Điều này cho phép bạn đặt chủ đề cho bộ lọc sự kiện theo cách thủ công. Nếu được cung cấp thuộc tính bộ lọc và chữ ký sự kiện, `topic[0]` sẽ không được đặt tự động.    |
+
+**Giá trị trả về**
+
 `Promise` trả về `object` - Đối tượng sự kiện. Để biết thêm chi tiết về đối tượng sự kiện, vui lòng tham khảo [myContract.getPastEvents](#mycontract-events).
 
 **Ví dụ**
-
-myContract.subscribe <a href="#mycontract-subscribe" id="mycontract-subscribe"></a>
-
-Đăng ký một sự kiện.
-
-| Hàm này hoạt động giống như [myContract.events.eventName](#getpastevents). | Bạn có thể hủy đăng ký một sự kiện bằng cách gọi hàm `unsubscribe` của đối tượng đăng ký được trả về bởi hàm `subscribe`. | **LƯU Ý** `myContract.subscribe` được hỗ trợ kể từ caver-js phiên bản [v1.9.1-rc.1](#getpastevents).      |
-| -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| **Tham số**                                                                | Tên                                                                                                                       | Loại                                                                                                     |
-| Mô tả                                                                      | sự kiện                                                                                                                   | chuỗi Tên của sự kiện trong hợp đồng hoặc `allEvents` để nhận tất cả các sự kiện.                         |
-| tùy chọn                                                                   | đối tượng                                                                                                                 | (tùy chọn) Các tùy chọn dùng để đăng ký. Xem bảng dưới đây để biết thông tin chi tiết. |
-
-callback
-
-| hàm                                               | Lệnh gọi lại này sẽ được kích hoạt cho sự kiện đầu tiên làm đối số thứ hai hoặc lỗi làm đối số thứ nhất. | Xem [myContract.getPastEvents](#mycontract-events) để biết chi tiết về cấu trúc sự kiện.                                                                                                                        |
-| ------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Đối tượng tùy chọn có thể chứa các thông tin sau: | Tên                                                                                                      | Loại                                                                                                                                                                                                           |
-| Mô tả                                             | bộ lọc                                                                                                   | đối tượng (tùy chọn) Cho phép bạn lọc các sự kiện theo các tham số được lập chỉ mục, _vd:_ `{bộ lọc: {mynumber: [12,13]}}` có nghĩa là tất cả các sự kiện trong đó "mynumber" là 12 hoặc 13. |
-
-chủ đề
-
-Mảng (tùy chọn) Điều này cho phép bạn đặt chủ đề cho bộ lọc sự kiện theo cách thủ công.
-
-Nếu được cung cấp thuộc tính bộ lọc và chữ ký sự kiện, `topic[0]` sẽ không được đặt tự động.
 
 ```javascript
 > const subscription = myContract.subscribe('eventName', {
@@ -1636,59 +1649,59 @@ Nếu được cung cấp thuộc tính bộ lọc và chữ ký sự kiện, `t
 > subscription.unsubscribe() // unsubscribe the event
 ```
 
-## **Giá trị trả về**
+## myContract.events <a href="#mycontract-events" id="mycontract-events"></a>
 
 ```javascript
 myContract.events.eventName([options][, callback])
 ```
 
-`Promise` trả về `object` - Đối tượng sự kiện.
+Đăng ký một sự kiện.
 
-Để biết thêm chi tiết về đối tượng sự kiện, vui lòng tham khảo [myContract.getPastEvents](#mycontract-events).
+**Tham số**
 
-| **Ví dụ** | myContract.events <a href="#mycontract-events" id="mycontract-events"></a> | Đăng ký một sự kiện.                                        |
-| ----------- | -------------------------------------------------------------------------- | ----------------------------------------------------------- |
-| **Tham số** | Tên                                                                        | Loại Mô tả                                                 |
-| tùy chọn    | đối tượng                                                                  | (tùy chọn) Các tùy chọn dùng để đăng ký. |
+| Tên      | Loại     | Mô tả                                                                                                                              |
+| -------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| tùy chọn | đối tượng | (tùy chọn) Các tùy chọn dùng để đăng ký. Xem bảng dưới đây để biết thông tin chi tiết.                          |
+| callback | hàm       | (tùy chọn) Lệnh gọi lại này sẽ được kích hoạt cho từng sự kiện làm đối số thứ hai hoặc lỗi làm đối số thứ nhất. |
 
-Xem bảng dưới đây để biết thông tin chi tiết.
+Đối tượng tùy chọn có thể chứa các thông tin sau:
 
-| callback                                                                                                                                                                                              | hàm       | (tùy chọn) Lệnh gọi lại này sẽ được kích hoạt cho từng sự kiện làm đối số thứ hai hoặc lỗi làm đối số thứ nhất. |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| Đối tượng tùy chọn có thể chứa các thông tin sau:                                                                                                                                                     | Tên       | Loại                                                                                                                              |
-| Mô tả                                                                                                                                                                                                 | bộ lọc    | đối tượng                                                                                                                          |
-| (tùy chọn) Cho phép bạn lọc các sự kiện theo các tham số được lập chỉ mục, _vd:_ `{bộ lọc: {mynumber: [12,13]}}` có nghĩa là tất cả các sự kiện trong đó "mynumber" là 12 hoặc 13. | fromBlock | số (tùy chọn) Số khối bắt đầu các sự kiện.                                                                      |
+| Tên       | Loại     | Mô tả                                                                                                                                                                                                 |
+| --------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| bộ lọc    | đối tượng | (tùy chọn) Cho phép bạn lọc các sự kiện theo các tham số được lập chỉ mục, _vd:_ `{bộ lọc: {mynumber: [12,13]}}` có nghĩa là tất cả các sự kiện trong đó "mynumber" là 12 hoặc 13. |
+| fromBlock | số        | (tùy chọn) Số khối bắt đầu các sự kiện.                                                                                                                                            |
+| chủ đề    | Mảng      | (tùy chọn) Điều này cho phép bạn đặt chủ đề cho bộ lọc sự kiện theo cách thủ công. Nếu được cung cấp thuộc tính bộ lọc và chữ ký sự kiện, `topic[0]` sẽ không được đặt tự động.    |
 
-chủ đề
+**Giá trị trả về**
 
-Mảng
+`EventEmitter`: Trình phát sự kiện có các sự kiện sau:
 
-| (tùy chọn) Điều này cho phép bạn đặt chủ đề cho bộ lọc sự kiện theo cách thủ công. | Nếu được cung cấp thuộc tính bộ lọc và chữ ký sự kiện, `topic[0]` sẽ không được đặt tự động. | **Giá trị trả về**                                                     |
-| ----------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| `EventEmitter`: Trình phát sự kiện có các sự kiện sau:                                                | Tên                                                                                          | Loại                                                                  |
-| Mô tả                                                                                                 | data                                                                                         | đối tượng Kích hoạt từng sự kiện đến với đối tượng sự kiện làm đối số. |
-| connected                                                                                             | chuỗi                                                                                        | Kích hoạt một lần sau khi đăng ký được kết nối thành công.             |
+| Tên       | Loại     | Mô tả                                                                               |
+| --------- | --------- | ----------------------------------------------------------------------------------- |
+| data      | đối tượng | Kích hoạt từng sự kiện đến với đối tượng sự kiện làm đối số.                        |
+| connected | chuỗi     | Kích hoạt một lần sau khi đăng ký được kết nối thành công. Nó sẽ trả về ID đăng ký. |
+| lỗi       | đối tượng | Kích hoạt khi xảy ra lỗi trong đăng ký.                                             |
 
-Nó sẽ trả về ID đăng ký.
+**LƯU Ý** `connected` khả dụng với caver-js phiên bản [v1.5.7](https://www.npmjs.com/package/caver-js/v/1.5.7).
 
-lỗi
+Cấu trúc của sự kiện trả về `Đối tượng` sẽ có dạng như sau:
 
-| đối tượng                                                                      | Kích hoạt khi xảy ra lỗi trong đăng ký. | **LƯU Ý** `connected` khả dụng với caver-js phiên bản [v1.5.7](https://www.npmjs.com/package/caver-js/v/1.5.7). |
-| ------------------------------------------------------------------------------ | --------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| Cấu trúc của sự kiện trả về `Đối tượng` sẽ có dạng như sau:                    | Tên                                     | type                                                                                                            |
-| Mô tả                                                                          | sự kiện                                 | chuỗi                                                                                                           |
-| Tên sự kiện.                                                                   | chữ ký                                  | chuỗi \| `null`                                                                                                 |
-| Chữ ký sự kiện, `null` nếu đó là sự kiện ẩn danh.                              | address                                 | chuỗi                                                                                                           |
-| Địa chỉ bắt nguồn từ sự kiện này.                                              | returnValues                            | đối tượng                                                                                                       |
-| Các giá trị trả về đến từ sự kiện, _ví dụ:_, `{myVar: 1, myVar2: '0x234...'}`. | logIndex                                | số                                                                                                              |
-| Số nguyên của vị trí chỉ mục sự kiện trong khối.                               | transactionIndex                        | số Số nguyên của vị trí chỉ mục giao dịch nơi sự kiện được tạo ra.                                              |
-| transactionHash                                                                | chuỗi 32 byte                           | Hàm băm của giao dịch mà sự kiện này được tạo. `null` khi nó vẫn đang chờ xử lý.                                |
-| blockHash                                                                      | chuỗi 32 byte                           | Hàm băm của khối mà sự kiện này đã được tạo. `null` khi nó vẫn đang chờ xử lý.                                  |
-| blocknumber                                                                    | số                                      | Số khối mà bản ghi này đã được tạo.                                                                             |
-| Giá trị là `null` khi bản ghi vẫn đang chờ xử lý.                              | raw\.data                               | chuỗi                                                                                                           |
-| Dữ liệu chứa tham số bản ghi không được lập chỉ mục.                           | raw\.topics                             | Mảng Một mảng có tối đa bốn chủ đề 32 byte và chủ đề 1-3 chứa các tham số được lập chỉ mục của sự kiện.         |
+| Tên              | type            | Mô tả                                                                                                                                                                      |
+| ---------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| sự kiện          | chuỗi           | Tên sự kiện.                                                                                                                                                               |
+| chữ ký           | chuỗi \| `null` | Chữ ký sự kiện, `null` nếu đó là sự kiện ẩn danh.                                                                                                                          |
+| address          | chuỗi           | Địa chỉ bắt nguồn từ sự kiện này.                                                                                                                                          |
+| returnValues     | đối tượng       | Các giá trị trả về đến từ sự kiện, _ví dụ:_, `{myVar: 1, myVar2: '0x234...'}`.                                                                                             |
+| logIndex         | số              | Số nguyên của vị trí chỉ mục sự kiện trong khối.                                                                                                                           |
+| transactionIndex | số              | Số nguyên của vị trí chỉ mục giao dịch nơi sự kiện được tạo ra.                                                                                                            |
+| transactionHash  | chuỗi 32 byte   | Hàm băm của giao dịch mà sự kiện này được tạo. `null` khi nó vẫn đang chờ xử lý.                                                                                           |
+| blockHash        | chuỗi 32 byte   | Hàm băm của khối mà sự kiện này đã được tạo. `null` khi nó vẫn đang chờ xử lý.                                                                                             |
+| blocknumber      | số              | Số khối mà bản ghi này đã được tạo. Giá trị là `null` khi bản ghi vẫn đang chờ xử lý.                                                                                      |
+| raw\.data        | chuỗi           | Dữ liệu chứa tham số bản ghi không được lập chỉ mục.                                                                                                                       |
+| raw\.topics      | Mảng            | Một mảng có tối đa bốn chủ đề 32 byte và chủ đề 1-3 chứa các tham số được lập chỉ mục của sự kiện.                                                                         |
+| id               | chuỗi           | Mã số định danh bản ghi. Mã định danh được tạo thông qua việc nối chuỗi "log_" với `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)`e> |
 
-id
+**Ví dụ**
 
 ```javascript
 > myContract.events.eventName({
@@ -1726,59 +1739,59 @@ id
 }
 ```
 
-## chuỗi
+## events.allEvents <a href="#events-allevents" id="events-allevents"></a>
 
 ```javascript
 myContract.events.allEvents([options] [, callback])
 ```
 
-Mã số định danh bản ghi. Mã định danh được tạo thông qua việc nối chuỗi "log_" với `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)`e>
+Tương tự như [myContract.events](#getpastevents) nhưng nhận tất cả các sự kiện từ hợp đồng thông minh này. Theo tùy chọn, thuộc tính bộ lọc có thể lọc các sự kiện đó.
 
-## **Ví dụ**
+## getPastEvents <a href="#getpastevents" id="getpastevents"></a>
 
 ```javascript
 myContract.getPastEvents(event [, options] [, callback])
 ```
 
-events.allEvents <a href="#events-allevents" id="events-allevents"></a>
+Nhận các sự kiện trong quá khứ cho hợp đồng này.
 
-Tương tự như [myContract.events](#getpastevents) nhưng nhận tất cả các sự kiện từ hợp đồng thông minh này.
+**Tham số**
 
-| Theo tùy chọn, thuộc tính bộ lọc có thể lọc các sự kiện đó. | getPastEvents <a href="#getpastevents" id="getpastevents"></a> | Nhận các sự kiện trong quá khứ cho hợp đồng này.                                    |
-| ----------------------------------------------------------- | -------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| **Tham số**                                                 | Tên                                                            | Loại                                                                               |
-| Mô tả                                                       | sự kiện                                                        | chuỗi Tên của sự kiện trong hợp đồng hoặc `"allEvents"` để nhận tất cả các sự kiện. |
-| tùy chọn                                                    | đối tượng                                                      | (tùy chọn) Các tùy chọn dùng để đăng ký.                         |
+| Tên      | Loại     | Mô tả                                                                                                                                              |
+| -------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| sự kiện  | chuỗi     | Tên của sự kiện trong hợp đồng hoặc `"allEvents"` để nhận tất cả các sự kiện.                                                                      |
+| tùy chọn | đối tượng | (tùy chọn) Các tùy chọn dùng để đăng ký. Xem bảng dưới đây để biết thông tin chi tiết.                                          |
+| callback | hàm       | (tùy chọn) Lệnh gọi lại này sẽ được kích hoạt với một mảng bản ghi sự kiện làm đối số thứ hai hoặc một lỗi làm đối số thứ nhất. |
 
-Xem bảng dưới đây để biết thông tin chi tiết.
+Đối tượng tùy chọn có thể chứa các thông tin sau:
 
-| callback                                                                                                                                                                                              | hàm       | (tùy chọn) Lệnh gọi lại này sẽ được kích hoạt với một mảng bản ghi sự kiện làm đối số thứ hai hoặc một lỗi làm đối số thứ nhất. |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Đối tượng tùy chọn có thể chứa các thông tin sau:                                                                                                                                                     | Tên       | Loại                                                                                                                                              |
-| Mô tả                                                                                                                                                                                                 | bộ lọc    | đối tượng                                                                                                                                          |
-| (tùy chọn) Cho phép bạn lọc các sự kiện theo các tham số được lập chỉ mục, _vd:_ `{bộ lọc: {mynumber: [12,13]}}` có nghĩa là tất cả các sự kiện trong đó "mynumber" là 12 hoặc 13. | fromBlock | số                                                                                                                                                 |
-| (tùy chọn) Số khối bắt đầu các sự kiện.                                                                                                                                            | toBlock   | số (tùy chọn) Số khối để nhận các sự kiện lên đến (mặc định là `"latest"`).                                  |
+| Tên       | Loại     | Mô tả                                                                                                                                                                                                 |
+| --------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| bộ lọc    | đối tượng | (tùy chọn) Cho phép bạn lọc các sự kiện theo các tham số được lập chỉ mục, _vd:_ `{bộ lọc: {mynumber: [12,13]}}` có nghĩa là tất cả các sự kiện trong đó "mynumber" là 12 hoặc 13. |
+| fromBlock | số        | (tùy chọn) Số khối bắt đầu các sự kiện.                                                                                                                                            |
+| toBlock   | số        | (tùy chọn) Số khối để nhận các sự kiện lên đến (mặc định là `"latest"`).                                                                                        |
+| chủ đề    | Mảng      | (tùy chọn) Điều này cho phép đặt chủ đề cho bộ lọc sự kiện theo cách thủ công. Nếu được cung cấp thuộc tính bộ lọc và chữ ký sự kiện, `topic[0]` sẽ không được đặt tự động.        |
 
-chủ đề
+**Giá trị trả về**
 
-Mảng
+`Promise` trả về `Array`: - Một mảng chứa các đối tượng sự kiện trong quá khứ, khớp với tên sự kiện và bộ lọc đã cho.
 
-(tùy chọn) Điều này cho phép đặt chủ đề cho bộ lọc sự kiện theo cách thủ công.
+Một đối tượng sự kiện có thể chứa những thông tin sau đây:
 
-| Nếu được cung cấp thuộc tính bộ lọc và chữ ký sự kiện, `topic[0]` sẽ không được đặt tự động. | **Giá trị trả về**              | `Promise` trả về `Array`: - Một mảng chứa các đối tượng sự kiện trong quá khứ, khớp với tên sự kiện và bộ lọc đã cho. |
-| -------------------------------------------------------------------------------------------- | ------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| Một đối tượng sự kiện có thể chứa những thông tin sau đây:                                   | Tên                             | Loại                                                                                                                 |
-| Mô tả                                                                                        | sự kiện                         | chuỗi                                                                                                                 |
-| Tên sự kiện.                                                                                 | chữ ký                          | chuỗi \| `null`                                                                                                       |
-| Chữ ký sự kiện, `null` nếu đó là sự kiện ẩn danh.                                            | address                         | chuỗi                                                                                                                 |
-| Địa chỉ bắt nguồn sự kiện.                                                                   | returnValues                    | đối tượng                                                                                                             |
-| Các giá trị trả về đến từ sự kiện, ví dụ: `{myVar: 1, myVar2: '0x234...'}`.                  | logIndex                        | số                                                                                                                    |
-| Vị trí chỉ mục sự kiện trong khối.                                                           | transactionIndex                | số                                                                                                                    |
-| Vị trí chỉ mục của giao dịch nơi sự kiện được tạo.                                           | transactionHash                 | chuỗi                                                                                                                 |
-| Hàm băm của giao dịch mà sự kiện này được tạo.                                               | blockHash                       | chuỗi                                                                                                                 |
-| Hàm băm của khối mà sự kiện này đã được tạo in.                                              | null khi nó vẫn đang chờ xử lý. | blockNumber số Số khối mà bản ghi này đã được tạo in.                                                                 |
+| Tên              | Loại           | Mô tả                                                                                                                                                                                                               |
+| ---------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| sự kiện          | chuỗi           | Tên sự kiện.                                                                                                                                                                                                        |
+| chữ ký           | chuỗi \| `null` | Chữ ký sự kiện, `null` nếu đó là sự kiện ẩn danh.                                                                                                                                                                   |
+| address          | chuỗi           | Địa chỉ bắt nguồn sự kiện.                                                                                                                                                                                          |
+| returnValues     | đối tượng       | Các giá trị trả về đến từ sự kiện, ví dụ: `{myVar: 1, myVar2: '0x234...'}`.                                                                                                                                         |
+| logIndex         | số              | Vị trí chỉ mục sự kiện trong khối.                                                                                                                                                                                  |
+| transactionIndex | số              | Vị trí chỉ mục của giao dịch nơi sự kiện được tạo.                                                                                                                                                                  |
+| transactionHash  | chuỗi           | Hàm băm của giao dịch mà sự kiện này được tạo.                                                                                                                                                                      |
+| blockHash        | chuỗi           | Hàm băm của khối mà sự kiện này đã được tạo in. null khi nó vẫn đang chờ xử lý.                                                                                                                                     |
+| blockNumber      | số              | Số khối mà bản ghi này đã được tạo in. null khi vẫn đang chờ xử lý.                                                                                                                                                 |
+| raw              | đối tượng       | Một đối tượng xác định `data` và `topic`. `raw.data` chứa tham số bản ghi không được lập chỉ mục. `raw.topic` là một mảng có tối đa bốn chủ đề 32 Byte và chủ đề 1-3 chứa các tham số được lập chỉ mục của sự kiện. |
 
-null khi vẫn đang chờ xử lý.
+**Ví dụ**
 
 ```javascript
 > myContract.getPastEvents('eventName', {
