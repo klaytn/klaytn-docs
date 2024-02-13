@@ -1,14 +1,14 @@
 # caver.kct.kip37
 
-The `caver.kct.kip37` helps you easily handle a smart contract that implements KIP-37 as a JavaScript object on the Klaytn blockchain platform (Klaytn).
+`caver.kct.kip37` giúp bạn dễ dàng xử lý hợp đồng thông minh triển khai KIP-37 dưới dạng đối tượng JavaScript trên nền tảng chuỗi khối Klaytn (Klaytn).
 
-The `caver.kct.kip37` inherits [caver.contract](../caver.contract.md) to implement the KIP-37 token contract. The `caver.kct.kip37` holds the same properties of `caver.contract` whereas additional methods are implemented for extra features. This section only introduces the newly added methods of the `caver.kct.kip37`.
+`caver.kct.kip37` kế thừa [caver.contract](../caver.contract.md) để triển khai hợp đồng token KIP-37. `caver.kct.kip37` chứa các thuộc tính giống như của `caver.contract` trong khi các phương pháp bổ sung được triển khai cho các tính năng bổ sung. Phần này chỉ giới thiệu các phương pháp mới được thêm vào của `caver.kct.kip37`.
 
-The code that implements KIP-37 for caver-js is available on the [Klaytn Contracts Github Repo](https://github.com/klaytn/klaytn-contracts/tree/master/contracts/KIP/token/KIP37). KIP-37 for caver-js supports Ownable interface. Using this, you can designate a contract owner when deploying a contract
+Mã triển khai KIP-37 cho caver-js hiện có trên [Klaytn Contracts Github Repo](https://github.com/klaytn/klaytn-contracts/tree/master/contracts/KIP/token/KIP37). KIP-37 cho caver-js hỗ trợ giao diện Ownable. Sử dụng giao diện này, bạn có thể chỉ định chủ sở hữu hợp đồng khi triển khai hợp đồng
 
-For more information about KIP-37, see [Klaytn Improvement Proposals](https://kips.klaytn.foundation/KIPs/kip-37).
+Để biết thêm thông tin về KIP-37, hãy xem [Đề xuất cải tiến Klaytn](https://kips.klaytn.foundation/KIPs/kip-37).
 
-**NOTE** `caver.kct.kip37` is supported since caver-js [v1.5.7](https://www.npmjs.com/package/caver-js/v/1.5.7).
+**LƯU Ý** `caver.kct.kip37` được hỗ trợ kể từ caver-js [v1.5.7](https://www.npmjs.com/package/caver-js/v/1.5.7).
 
 ## caver.kct.kip37.deploy <a id="caver-klay-kip37-deploy"></a>
 
@@ -16,54 +16,54 @@ For more information about KIP-37, see [Klaytn Improvement Proposals](https://ki
 caver.kct.kip37.deploy(tokenInfo, deployer)
 ```
 
-Deploys the KIP-37 token contract to the Klaytn blockchain. A contract deployed using caver.kct.kip37.deploy is a multi token that follows the KIP-37 standard.
+Triển khai hợp đồng token KIP-37 cho chuỗi khối Klaytn. Hợp đồng được triển khai bằng cách sử dụng caver.kct.kip37.deploy là một đa token tuân theo tiêu chuẩn KIP-37.
 
-After successful deployment, the promise will be resolved with a new KIP37 instance.
+Sau khi triển khai thành công, promise sẽ được giải quyết bằng phiên bản KIP37 mới.
 
-**Parameters**
+**Tham số**
 
-| Name      | Type             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --------- | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| tokenInfo | object           | The information needed to deploy a KIP-37 token contract on the Klaytn blockchain. See the below table for the details.                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| deployer  | string \| object | The address in the keyring instance to deploy the KIP-37 token contract. This address must have enough KLAY to deploy. See [Keyring](../caver-wallet/keyring.md#caver-wallet-keyring) for more details. If you want to define your own fields to use when sending transactions, you can pass the object type as a parameter. Also, if you want to use Fee Delegation when deploying KIP-37 contracts, you can define fields related to fee delegation in the object. For fields that can be defined in the object, refer to the parameter description of [create](#kip37-create). |
+| Tên       | type      | Mô tả                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| tokenInfo | đối tượng | Thông tin cần thiết để triển khai hợp đồng token KIP-37 trên chuỗi khối Klaytn. Xem bảng dưới đây để biết thông tin chi tiết. trình triển khai                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| chuỗi \\  | đối tượng | Địa chỉ trong phiên bản keyring để triển khai hợp đồng mã thông báo KIP-37. Địa chỉ này phải có đủ KLAY để triển khai. Xem [Keyring](../caver-wallet/keyring.md#caver-wallet-keyring) để biết thêm chi tiết. Nếu bạn muốn xác định các trường của mình sẽ sử dụng khi gửi giao dịch, bạn có thể chuyển loại đối tượng làm tham số. Tương tự, nếu bạn muốn sử dụng Ủy thác phí khi triển khai các hợp đồng KIP-37, bạn có thể xác định các trường liên quan đến ủy thác phí trong đối tượng. Đối với các trường có thể được xác định trong đối tượng, hãy tham khảo mô tả tham số của [tạo](#kip37-create). Đối tượng tokenInfo phải chứa các thông tin sau: Tên Loại Mô tả uri |
 
-The tokenInfo object must contain the following:
+chuỗi
 
-| Name | Type   | Description                                                                                                                                |
-| ---- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| uri  | string | The URI for all token types, by relying on the [token type ID substitution mechanism](http://kips.klaytn.foundation/KIPs/kip-37#metadata). |
+| URI cho tất cả các loại token, bằng cách dựa vào [cơ chế thay thế ID loại token](http://kips.klaytn.foundation/KIPs/kip-37#metadata). | **Giá trị trả về** | `PromiEvent`: Bộ phát sự kiện kết hợp promise, được giải quyết bằng một phiên bản KIP37 mới. |
+| ------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | -------------------------------------------------------------------------------------------- |
+| Ngoài ra, có thể xảy ra các sự kiện sau đây:                                                                                          | Tên                | type                                                                                         |
 
-**Return Value**
+Mô tả
 
-`PromiEvent`: A promise combined event emitter, which is resolved with a new KIP37 instance. Additionally, the following events can occur:
+transactionHash chuỗi
 
-| Name            | Type   | Description                                                                                                                                                                                                                                              |
-| --------------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| transactionHash | string | Fired right after the transaction is sent and a transaction hash is available.                                                                                                                                                                           |
-| receipt         | object | Fired when the transaction receipt is available. If you want to know about the properties inside the receipt object, see [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute. |
-| error           | Error  | Fired if an error occurs during sending.                                                                                                                                                                                                                 |
+| Được kích hoạt ngay sau khi giao dịch được gửi và có sẵn hàm băm giao dịch.                                                                                                                                                                                                                                                                                                 | biên lai                                          | đối tượng                                                                                                                                                                                 |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Được kích hoạt khi có biên lai giao dịch. Nếu bạn muốn biết về các thuộc tính bên trong đối tượng biên lai, hãy xem [getTransactionReceipt][]. Biên lai từ các phiên bản KIP37 có thuộc tính 'sự kiện' được phân tích cú pháp qua abi thay vì thuộc tính 'bản ghi'. | lỗi                                               | Lỗi                                                                                                                                                                                       |
+| Được kích hoạt nếu xảy ra lỗi trong quá trình gửi.                                                                                                                                                                                                                                                                                                                          | **Đăng ký token**                                 | Để đăng ký token trên trình khám phá khối, người tạo hợp đồng phải điền vào biểu mẫu yêu cầu gửi. Ghi lại các thông tin cụ thể được yêu cầu trên biểu mẫu. Môi trường hợp đồng thông minh |
+| Loại trình biên dịch: Solidity                                                                                                                                                                                                                                                                                                                                              | Phiên bản trình biên dịch: v0.8.4+commit.c7e474f2 | Loại giấy phép mã nguồn mở: MIT                                                                                                                                                           |
 
-**Token Enrollment**
+Chi tiết hợp đồng thông minh
 
-1. To enroll a token on a block explorer, the contract creator must fill out a submission request form. Make note of the specified information required on the form.
+1. Tối ưu hóa: --optimize-run 200 Mã nguồn: [Liên kết Github hợp đồng KIP37](https://github.com/klaytn/caver-js/blob/dev/packages/caver-kct/src/kip37Token.sol).
 
-2. Smart Contract Environment
+2. Giá trị được mã hóa ABI: [kip37JsonInterface tại dev · klaytn/caver-js · GitHub](https://github.com/klaytn/caver-js/blob/dev/packages/caver-kct/src/kctHelper.js#L1329-L2374)
 
-   - Compiler Type: Solidity
+   - **Ví dụ**
 
-   - Compiler version: v0.8.4+commit.c7e474f2
+   - caver.kct.kip37.detectInterface <a id="caver-kct-kip37-detectinterface"></a>
 
-   - Open Source License Type: MIT
+   - Trả về thông tin của giao diện được triển khai bởi hợp đồng token.
 
-3. Smart Contract Detail
+3. Hàm tĩnh này sẽ sử dụng [kip37.detectInterface](#kip37-detectinterface).
 
-   - Optimization: --optimize-run 200
+   - **Tham số**
 
-   - Source code: [KIP37 Contracts Github Link](https://github.com/klaytn/caver-js/blob/dev/packages/caver-kct/src/kip37Token.sol).
+   - Tên
 
-4. ABI-encoded Value: [kip37JsonInterface at dev · klaytn/caver-js · GitHub](https://github.com/klaytn/caver-js/blob/dev/packages/caver-kct/src/kctHelper.js#L1329-L2374)
+4. Loại
 
-**Example**
+Mô tả
 
 ```javascript
 // using the promise
@@ -109,25 +109,25 @@ KIP37 {
 })
 ```
 
-## caver.kct.kip37.detectInterface <a id="caver-kct-kip37-detectinterface"></a>
+## contractAddress
 
 ```javascript
 caver.kct.kip37.detectInterface(contractAddress)
 ```
 
-Returns the information of the interface implemented by the token contract. This static function will use [kip37.detectInterface](#kip37-detectinterface).
+chuỗi Địa chỉ của hợp đồng token KIP-37
 
-**Parameters**
+**Giá trị trả về**
 
-| Name            | Type   | Description                              |
-| --------------- | ------ | ---------------------------------------- |
-| contractAddress | string | The address of the KIP-37 token contract |
+| `Promise` trả về một `đối tượng` chứa kết quả với các giá trị boolean cho dù từng [giao diện KIP-37](https://kips.klaytn.foundation/KIPs/kip-37#kip-13-identifiers) có được triển khai hay không. | **Ví dụ**                                              | caver.kct.kip37.create <a id="caver-kct-kip37-create"></a>                                                              |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| Tạo một phiên bản KIP37 mới với các phương pháp và sự kiện liên kết của nó.                                                                                                                       | Hàm này hoạt động tương tự như [ KIP37 mới](#new-kip37). | **LƯU Ý** `caver.kct.kip37.create` được hỗ trợ kể từ caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1). |
 
-**Return Value**
+**Tham số**
 
-`Promise` returns an `object` containing the result with boolean values whether each [KIP-37 interface](https://kips.klaytn.foundation/KIPs/kip-37#kip-13-identifiers) is implemented.
+Xem [KIP37 mới](#new-kip37).
 
-**Example**
+**Giá trị trả về**
 
 ```javascript
 > caver.kct.kip37.detectInterface('0x{address in hex}').then(console.log)
@@ -140,25 +140,25 @@ Returns the information of the interface implemented by the token contract. This
 }
 ```
 
-## caver.kct.kip37.create <a id="caver-kct-kip37-create"></a>
+## Xem [KIP37 mới](#new-kip37).
 
 ```javascript
 caver.kct.kip37.create([tokenAddress])
 ```
 
-Creates a new KIP37 instance with its bound methods and events. This function works the same as [new KIP37](#new-kip37).
+**Ví dụ** kIP37 mới <a id="new-kip37"></a>
 
-**NOTE** `caver.kct.kip37.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+Tạo một phiên bản KIP37 mới với các phương pháp và sự kiện liên kết của nó.
 
-**Parameters**
+**Tham số**
 
-See the [new KIP37](#new-kip37).
+Tên
 
-**Return Value**
+Loại
 
-See the [new KIP37](#new-kip37).
+Mô tả
 
-**Example**
+tokenAddress
 
 ```javascript
 // Create a KIP37 instance without a parameter
@@ -168,27 +168,27 @@ See the [new KIP37](#new-kip37).
 > const kip37 = caver.kct.kip37.create('0x{address in hex}')
 ```
 
-## new KIP37 <a id="new-kip37"></a>
+## chuỗi
 
 ```javascript
 new caver.kct.kip37([tokenAddress])
 ```
 
-Creates a new KIP37 instance with its bound methods and events.
+(tùy chọn) Địa chỉ của hợp đồng mã thông báo KIP-37, có thể được chỉ định sau thông qua `kip37.options.address = '0x1234..'`
 
-**Parameters**
+**Giá trị trả về**
 
-| Name         | Type   | Description                                                                                                                                      |
-| ------------ | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| tokenAddress | string | (optional) The address of the KIP-37 token contract, which can be assigned later through `kip37.options.address = '0x1234..'` |
+| Loại                                                           | Mô tả       | đối tượng                            |
+| --------------------------------------------------------------- | ----------- | ------------------------------------ |
+| Phiên bản KIP37 với các phương pháp và sự kiện liên kết của nó. | **Ví dụ** | kip37.clone <a id="kip37-clone"></a> |
 
-**Return Value**
+Sao chép phiên bản KIP37 hiện tại.
 
-| Type   | Description                                           |
-| ------ | ----------------------------------------------------- |
-| object | The KIP37 instance with its bound methods and events. |
+| **Tham số** | Tên   |
+| ----------- | ----- |
+| Loại       | Mô tả |
 
-**Example**
+tokenAddress
 
 ```javascript
 // Create a KIP37 instance without a parameter
@@ -198,27 +198,27 @@ Creates a new KIP37 instance with its bound methods and events.
 > const kip37 = new caver.kct.kip37('0x{address in hex}')
 ```
 
-## kip37.clone <a id="kip37-clone"></a>
+## chuỗi
 
 ```javascript
 kip37.clone([tokenAddress])
 ```
 
-Clones the current KIP37 instance.
+(tùy chọn) Địa chỉ của hợp đồng thông minh đã triển khai token KIP37- khác. Nếu bị bỏ qua, nó sẽ được đặt thành địa chỉ hợp đồng trong trường hợp ban đầu.
 
-**Parameters**
+**Giá trị trả về**
 
-| Name         | Type   | Description                                                                                                                                                                     |
-| ------------ | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| tokenAddress | string | (optional) The address of the smart contract that deployed another KIP37 token. If omitted, it will be set to the contract address in the original instance. |
+| Loại                                | Mô tả       | đối tượng                                                                                                                   |
+| ------------------------------------ | ----------- | --------------------------------------------------------------------------------------------------------------------------- |
+| Bản sao của phiên bản KIP37 ban đầu. | **Ví dụ** | kip37.detectInterface <a id="kip37-detectinterface"></a> Trả về thông tin của giao diện được triển khai bởi hợp đồng token. |
 
-**Return Value**
+**Tham số**
 
-| Type   | Description                               |
-| ------ | ----------------------------------------- |
-| object | The clone of the original KIP37 instance. |
+| Không có                                                                                                                                                                                          | **Giá trị trả về** |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `Promise` trả về một `đối tượng` chứa kết quả với các giá trị boolean cho dù từng [giao diện KIP-37](https://kips.klaytn.foundation/KIPs/kip-37#kip-13-identifiers) có được triển khai hay không. | **Ví dụ**          |
 
-**Example**
+kip37.supportsInterface <a id="kip37-supportsinterface"></a>
 
 ```javascript
 > const kip37 = new caver.kct.kip37(address)
@@ -230,23 +230,23 @@ Clones the current KIP37 instance.
 > const cloned = kip37.clone('0x{address in hex}')
 ```
 
-## kip37.detectInterface <a id="kip37-detectinterface"></a>
+## Trả về `true` nếu hợp đồng này triển khai giao diện được xác định bởi `interfaceId`.
 
 ```javascript
 kip37.detectInterface()
 ```
 
-Returns the information of the interface implemented by the token contract.
+**Tham số**
 
-**Parameters**
+Tên
 
-None
+Loại
 
-**Return Value**
+Mô tả
 
-`Promise` returns an `object` containing the result with boolean values whether each [KIP-37 interface](https://kips.klaytn.foundation/KIPs/kip-37#kip-13-identifiers) is implemented.
+interfaceId
 
-**Example**
+chuỗi
 
 ```javascript
 > kip37.detectInterface().then(console.log)
@@ -259,25 +259,25 @@ None
 }
 ```
 
-## kip37.supportsInterface <a id="kip37-supportsinterface"></a>
+## InterfaceId cần được kiểm tra.
 
 ```javascript
 kip37.supportsInterface(interfaceId)
 ```
 
-Return `true` if this contract implements the interface defined by `interfaceId`.
+**Giá trị trả về**
 
-**Parameters**
+`Promise` trả về `boolean`: `true` nếu hợp đồng này triển khai giao diện được xác định bởi `interfaceId`.
 
-| Name        | Type   | Description                    |
-| ----------- | ------ | ------------------------------ |
-| interfaceId | string | The interfaceId to be checked. |
+| **Ví dụ**                                                                                                             | kip37.uri <a id="kip37-uri"></a>                                                              | Trả về Mã định danh tài nguyên thống nhất (URI) riêng biệt của token đã cho. |
+| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| Nếu chuỗi `{id}` tồn tại trong bất kỳ URI nào, hàm này sẽ thay thế chuỗi này bằng ID token thực ở dạng thập lục phân. | Vui lòng tham khảo [Siêu dữ liệu KIP-34](http://kips.klaytn.foundation/KIPs/kip-37#metadata). | **Tham số**                                                                                     |
 
-**Return Value**
+Tên
 
-`Promise` returns `boolean`: `true` if this contract implements the interface defined by `interfaceId`.
+type
 
-**Example**
+Mô tả
 
 ```javascript
 > kip37.supportsInterface('0x6433ca1f').then(console.log)
@@ -287,136 +287,136 @@ true
 false
 ```
 
-## kip37.uri <a id="kip37-uri"></a>
+## id
 
 ```javascript
-kip37.uri(id)
+BigNumber \
 ```
 
-Returns distinct Uniform Resource Identifier (URI) of the given token.
+chuỗi \\
 
-If the string `{id}` exists in any URI, this function will replace this with the actual token ID in hexadecimal form.
-Please refer to [KIP-34 Metadata](http://kips.klaytn.foundation/KIPs/kip-37#metadata).
+số
+Id token để nhận uri.
 
-**Parameters**
+**LƯU Ý** Tham số `id` chấp nhận loại `số` nhưng nếu giá trị được cung cấp nằm ngoài phạm vi được giới hạn bởi number.MAX_SAFE_INTEGER, điều đó có thể gây ra kết quả không mong muốn hoặc lỗi.
 
-| Name | Type                          | Description              |
-| ---- | ----------------------------- | ------------------------ |
-| id   | BigNumber \| string \| number | The token id to get uri. |
+| Trong trường hợp này, bạn nên sử dụng loại `BigNumber`, đặc biệt đối với giá trị đầu vào dạng số có kích thước `uint256`. | **Giá trị trả về**                               | `Promise` trả về `chuỗi`: Uri của token.       |
+| ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ | ---------------------------------------------- |
+| **Ví dụ**                                                                                                               | kip37.totalSupply <a id="kip37-totalsupply"></a> | Trả về tổng nguồn cung token của token cụ thể. |
 
-**NOTE** The `id` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**Tham số** Tên
 
-**Return Value**
+Loại
 
-`Promise` returns `string`: The uri of the token.
+Mô tả
 
-**Example**
+id
 
 ```javascript
 > kip37.uri('0x0').then(console.log)
 'https://caver.example/0000000000000000000000000000000000000000000000000000000000000000.json'
 ```
 
-## kip37.totalSupply <a id="kip37-totalsupply"></a>
+## BigNumber \\
 
 ```javascript
 kip37.totalSupply(id)
 ```
 
-Returns the total token supply of the specific token.
+chuỗi \\
 
-**Parameters**
+số
 
-| Name | Type                          | Description                           |
-| ---- | ----------------------------- | ------------------------------------- |
-| id   | BigNumber \| string \| number | The token id to see the total supply. |
+| Id token để xem tổng nguồn cung. | **LƯU Ý** Tham số `id` chấp nhận loại `số` nhưng nếu giá trị được cung cấp nằm ngoài phạm vi được giới hạn bởi number.MAX_SAFE_INTEGER, điều đó có thể gây ra kết quả không mong muốn hoặc lỗi. | Trong trường hợp này, bạn nên sử dụng loại `BigNumber`, đặc biệt đối với giá trị đầu vào dạng số có kích thước `uint256`. |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| **Giá trị trả về**               | `Promise` trả về `BigNumber`: Tổng số token.                                                                                                                                                                                              | **Ví dụ**                                                                                                               |
 
-**NOTE** The `id` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+kip37.balanceOf <a id="kip37-balanceof"></a> Trả về số lượng token loại token `id` thuộc sở hữu của `tài khoản`.
 
-**Return Value**
+**Tham số**
 
-`Promise` returns `BigNumber`: The total number of tokens.
+Tên
 
-**Example**
+type
 
 ```javascript
 > kip37.totalSupply(0).then(console.log)
 10000000000
 ```
 
-## kip37.balanceOf <a id="kip37-balanceof"></a>
+## Mô tả
 
 ```javascript
 kip37.balanceOf(account, id)
 ```
 
-Returns the amount of tokens of token type `id` owned by `account`.
+tài khoản
 
-**Parameters**
+chuỗi
 
-| Name    | Type                          | Description                                                   |
-| ------- | ----------------------------- | ------------------------------------------------------------- |
-| account | string                        | The address of the account for which you want to see balance. |
-| id      | BigNumber \| string \| number | The token id to see balance.                                  |
+| Địa chỉ của tài khoản mà bạn muốn xem số dư.                                                                                                                                                                                              | id                                                                                                                        | BigNumber \\           |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
+| chuỗi \\                                                                                                                                                                                                                                  | số                                                                                                                        | Id token để xem số dư. |
+| **LƯU Ý** Tham số `id` chấp nhận loại `số` nhưng nếu giá trị được cung cấp nằm ngoài phạm vi được giới hạn bởi number.MAX_SAFE_INTEGER, điều đó có thể gây ra kết quả không mong muốn hoặc lỗi. | Trong trường hợp này, bạn nên sử dụng loại `BigNumber`, đặc biệt đối với giá trị đầu vào dạng số có kích thước `uint256`. | **Giá trị trả về**     |
 
-**NOTE** The `id` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+`Promise` trả về `BigNumber`: Số lượng token mà tài khoản đó có. **Ví dụ**
 
-**Return Value**
+kip37.balanceOfBatch <a id="kip37-balanceofbatch"></a>
 
-`Promise` returns `BigNumber`: The amount of token that account has.
+Trả về số dư của nhiều cặp tài khoản/token.
 
-**Example**
+`balanceOfBatch` là hoạt động hàng loạt của [balanceOf](#kip37-balanceof) và độ dài của các mảng có `tài khoản` và `id` phải giống nhau.
 
 ```javascript
 > kip37.balanceOf('0x{address in hex}', 0).then(console.log)
 20
 ```
 
-## kip37.balanceOfBatch <a id="kip37-balanceofbatch"></a>
+## **Tham số**
 
 ```javascript
 kip37.balanceOfBatch(accounts, ids)
 ```
 
-Returns the balance of multiple account/token pairs. `balanceOfBatch` is a batch operation of [balanceOf](#kip37-balanceof), and the length of arrays with `accounts` and `ids` must be the same.
+Tên Loại
 
-**Parameters**
+Mô tả
 
-| Name     | Type  | Description                                                   |
-| -------- | ----- | ------------------------------------------------------------- |
-| accounts | Array | The address of the account for which you want to see balance. |
-| ids      | Array | An array of the token ids to see balance.                     |
+| tài khoản          | Mảng                                                          | Địa chỉ của tài khoản mà bạn muốn xem số dư. |
+| ------------------ | ------------------------------------------------------------- | -------------------------------------------- |
+| id                 | Mảng                                                          | Một mảng id token để xem số dư.              |
+| **Giá trị trả về** | `Promise` trả về `Mảng`: Số dư của nhiều cặp tài khoản/token. | **Ví dụ**                                  |
 
-**Return Value**
+kip37.isMinter <a id="kip37-isminter"></a>
 
-`Promise` returns `Array`: The balance of multiple account/token pairs.
+Trả về `true` nếu tài khoản đã cho là người tạo có thể phát hành token KIP37 mới.
 
-**Example**
+**Tham số**
 
 ```javascript
 > kip37.balanceOfBatch(['0x{address in hex}', '0x{address in hex}'], [0, 1]).then(console.log)
 [ 20, 30 ]
 ```
 
-## kip37.isMinter <a id="kip37-isminter"></a>
+## Tên
 
 ```javascript
 kip37.isMinter(address)
 ```
 
-Returns `true` if the given account is a minter who can issue new KIP37 tokens.
+Loại
 
-**Parameters**
+Mô tả
 
-| Name    | Type   | Description                                                            |
-| ------- | ------ | ---------------------------------------------------------------------- |
-| address | string | The address of the account to be checked for having the minting right. |
+| address            | chuỗi                                                            | Địa chỉ của tài khoản cần kiểm tra xem có quyền tạo hay không. |
+| ------------------ | ---------------------------------------------------------------- | -------------------------------------------------------------- |
+| **Giá trị trả về** | `Promise` trả về `boolean`: `true` nếu tài khoản là một thợ đào. | **Ví dụ**                                                    |
 
-**Return Value**
+kip37.isPauser <a id="kip37-ispauser"></a>
 
-`Promise` returns `boolean`: `true` if the account is a minter.
+Trả về `true` nếu tài khoản đã cho là người tạm dừng có thể tạm dừng chuyển token.
 
-**Example**
+**Tham số**
 
 ```javascript
 > kip37.isMinter('0x{address in hex}').then(console.log)
@@ -426,25 +426,25 @@ true
 false
 ```
 
-## kip37.isPauser <a id="kip37-ispauser"></a>
+## Tên
 
 ```javascript
 kip37.isPauser(address)
 ```
 
-Returns `true` if the given account is a pauser who can suspend transferring tokens.
+Loại
 
-**Parameters**
+Mô tả
 
-| Name    | Type   | Description                                                                                   |
-| ------- | ------ | --------------------------------------------------------------------------------------------- |
-| address | string | The address of the account to be checked for having the right to suspend transferring tokens. |
+| address            | chuỗi                                                               | Địa chỉ của tài khoản đã được kiểm tra để có quyền tạm dừng chuyển token. |
+| ------------------ | ------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| **Giá trị trả về** | `Promise` trả về `Boolean`: `true` nếu tài khoản là trình tạm dừng. | **Ví dụ**                                                               |
 
-**Return Value**
+kip37.paused <a id="kip37-paused"></a>
 
-`Promise` returns `boolean`: `true` if the account is a pauser.
+Trả về liệu giao dịch của hợp đồng token (hoặc token cụ thể) có bị tạm dừng hay không.
 
-**Example**
+Nếu tham số id không được xác định, hãy trả về xem giao dịch của hợp đồng token có bị tạm dừng hay không.
 
 ```javascript
 > kip37.isPauser('0x{address in hex}').then(console.log)
@@ -454,29 +454,29 @@ true
 false
 ```
 
-## kip37.paused <a id="kip37-paused"></a>
+## Nếu tham số id được xác định, hãy trả về xem token cụ thể có bị tạm dừng hay không.
 
 ```javascript
 kip37.paused()
 ```
 
-Returns whether or not the token contract's transaction (or specific token) is paused.
+**Tham số**
 
-If id parameter is not defined, return whether the token contract's transaction is paused. If id parameter is defined, return whether the specific token is paused.
+Tên Loại
 
-**Parameters**
+Mô tả
 
-| Name | Type                          | Description                                                                                                                                                                   |
-| ---- | ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| id   | BigNumber \| string \| number | (optional) The token id to check wether paused or not. If this parameter is omitted, the `paused` function return whether the contract is in paused state. |
+| id | BigNumber \\                                                                                                                                                                            | chuỗi \\                                                                                                                                                                                                                                                                                                                                                            |
+| -- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| số | (tùy chọn) Id token để kiểm tra thời tiết có bị tạm dừng hay không. Nếu tham số này bị bỏ qua, hàm `paused` trả về liệu hợp đồng có ở trạng thái tạm dừng hay không. | **LƯU Ý** Tham số `id` chấp nhận loại `số` nhưng nếu giá trị được cung cấp nằm ngoài phạm vi được giới hạn bởi number.MAX_SAFE_INTEGER, điều đó có thể gây ra kết quả không mong muốn hoặc lỗi. Trong trường hợp này, bạn nên sử dụng loại `BigNumber`, đặc biệt đối với giá trị đầu vào dạng số có kích thước `uint256`. |
 
-**NOTE** The `id` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**Giá trị trả về** `Promise` trả về `boolean`: `true` nếu hợp đồng (hoặc mã thông báo cụ thể) bị tạm dừng.
 
-**Return Value**
+**Ví dụ**
 
-`Promise` returns `boolean`: `true` if the contract (or specific token) is paused.
+kip37.isApprovedForAll <a id="kip37-isApprovedforall"></a>
 
-**Example**
+Truy vấn trạng thái phê duyệt của một người vận hành cho một chủ sở hữu nhất định.
 
 ```javascript
 // without token id parameter
@@ -492,26 +492,26 @@ true
 false
 ```
 
-## kip37.isApprovedForAll <a id="kip37-isApprovedforall"></a>
+## Trả về `true` nếu người vận hành được chủ sở hữu nhất định chấp thuận.
 
 ```javascript
 kip37.isApprovedForAll(owner, operator)
 ```
 
-Queries the approval status of an operator for a given owner. Returns `true` if an operator is approved by a given owner.
+**Tham số** Tên
 
-**Parameters**
+type
 
-| Name     | Type   | Description                  |
-| -------- | ------ | ---------------------------- |
-| owner    | string | The address of the owner.    |
-| operator | string | The address of the operator. |
+| Mô tả                       | chủ sở hữu         | chuỗi                                                                         |
+| --------------------------- | ------------------ | ----------------------------------------------------------------------------- |
+| Địa chỉ của chủ sở hữu.     | người vận hành     | chuỗi                                                                         |
+| Địa chỉ của người vận hành. | **Giá trị trả về** | `Promise` trả về `boolean`: Đúng nếu người vận hành chấp thuận, sai nếu không |
 
-**Return Value**
+**Ví dụ**
 
-`Promise` returns `boolean`: True if the operator is approved, false if not
+kip37.create <a id="kip37-create"></a>
 
-**Example**
+Tạo một loại token mới và chỉ định `initialSupply` cho người tạo.
 
 ```javascript
 > kip37.isApprovedForAll('0x{address in hex}', '0x{address in hex}').then(console.log)
@@ -521,46 +521,46 @@ true
 false
 ```
 
-## kip37.create <a id="kip37-create"></a>
+## Lưu ý rằng phương pháp này sẽ gửi một giao dịch đến mạng lưới Klaytn, mạng này sẽ tính phí giao dịch cho người gửi giao dịch.
 
 ```javascript
 kip37.create(id, initialSupply [, uri] [, sendParam])
 ```
 
-Creates a new token type and assigns `initialSupply` to the minter.
+**Tham số**
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the transaction sender.
+Tên
 
-**Parameters**
+type
 
-| Name          | Type                          | Description                                                                                             |
-| ------------- | ----------------------------- | ------------------------------------------------------------------------------------------------------- |
-| id            | BigNumber \| string \| number | The token id to create.                                                                                 |
-| initialSupply | BigNumber \| string \| number | The amount of tokens being minted.                                                                      |
-| uri           | string                        | (optional) The token URI of the created token.                                       |
-| sendParam     | object                        | (optional) An object holding parameters that are required for sending a transaction. |
+| Mô tả         | id                                                        | BigNumber \\     |
+| ------------- | --------------------------------------------------------- | ---------------- |
+| chuỗi \\      | số                                                        | Id token để tạo. |
+| initialSupply | BigNumber \\                                              | chuỗi \\         |
+| số            | Số lượng token được tạo.                                  | uri              |
+| chuỗi         | (tùy chọn) URI token của token đã tạo. | sendParam        |
 
-**NOTE** The `id`, `initialSupply` parameters accept `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+đối tượng (tùy chọn) Một đối tượng chứa các tham số cần thiết để gửi giao dịch.
 
-The `sendParam` object contains the following:
+**LƯU Ý** Các tham số `id`, `initialSupply` chấp nhận loại `number` nhưng nếu giá trị được cung cấp nằm ngoài phạm vi được giới hạn bởi number.MAX_SAFE_INTEGER, nó có thể gây ra lỗi hoặc kết quả không mong muốn.
 
-| Name          | Type                                | Description                                                                                                                                                                                                                                                                                                                                                              |
-| ------------- | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| from          | string                              | (optional) The address from which the transaction should be sent. If omitted, it will be set by `kip37.options.from`. If neither of `from` in the `sendParam` object nor `kip37.options.from` were not provided, an error would occur.                                                                                                                |
-| gas           | number \| string                    | (optional) The maximum number of gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `kip37.methods.approve(spender, amount).estimateGas({from})`.                                                                                                                                   |
-| gasPrice      | number \| string                    | (optional) The gas price in peb for this transaction. If omitted, it will be set by caver-js via calling `caver.klay.getGasPrice`.                                                                                                                                                                                                                    |
-| value         | number \| string \| BN \| BigNumber | (optional) The value to be transferred in peb.                                                                                                                                                                                                                                                                                                        |
-| feeDelegation | boolean                             | (optional, default `false`) Whether to use fee delegation transaction. If omitted, `kip37.options.feeDelegation` will be used. If both omitted, fee delegation is not used.                                                                                                                                                                           |
-| feePayer      | string                              | (optional) The address of the fee payer paying the transaction fee. When `feeDelegation` is `true`, the value is set to the `feePayer` field in the transaction. If omitted, `kip37.options.feePayer` will be used. If both omitted, throws an error.                                                                                                 |
-| feeRatio      | string                              | (optional) The ratio of the transaction fee the fee payer will be burdened with. If `feeDelegation` is `true` and `feeRatio` is set to a valid value, a partial fee delegation transaction is used. The valid range of this is between 1 and 99. The ratio of 0, or 100 and above are not allowed. If omitted, `kip37.options.feeRatio` will be used. |
+| Trong trường hợp này, bạn nên sử dụng loại `BigNumber`, đặc biệt đối với giá trị đầu vào dạng số có kích thước `uint256`.                                                                                                                                                                                                                                 | Đối tượng `sendParam` chứa các thông tin sau:                                                                                                     | Tên                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Loại                                                                                                                                                                                                                                                                                                                                                     | Mô tả                                                                                                                                             | từ chuỗi (tùy chọn) Địa chỉ mà giao dịch sẽ được gửi từ đó. Nếu bỏ qua tham số này thì sẽ được thiết lập bởi `kip37.options.from`. Nếu không cung cấp `from` trong đối tượng `sendParam` cũng như `kip37.options.from` thì sẽ xảy ra lỗi.                                                                                                                                                                                           |
+| gas                                                                                                                                                                                                                                                                                                                                                       | số \\                                                                                                                                             | chuỗi (tùy chọn) Lượng gas tối đa được cung cấp cho giao dịch này (giới hạn gas). Nếu bị bỏ qua, nó sẽ được thiết lập bởi caver-js bằng cách gọi `kip37.methods.approve(spender,mount).estimateGas({from})`.                                                                                                                                                                                                     |
+| giá gas                                                                                                                                                                                                                                                                                                                                                   | số \\                                                                                                                                             | chuỗi (tùy chọn) Giá gas tính bằng peb cho giao dịch này. Nếu bị bỏ qua, nó sẽ được thiết lập bởi caver-js bằng cách gọi `caver.klay.getGasPrice`.                                                                                                                                                                                                                                                                                  |
+| giá trị                                                                                                                                                                                                                                                                                                                                                   | Số \\                                                                                                                                             | Chuỗi \\                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| BN \\                                                                                                                                                                                                                                                                                                                                                     | Số lớn                                                                                                                                            | (tùy chọn) Giá trị được chuyển trong peb. feeDelegation boolean                                                                                                                                                                                                                                                                                                                                                                     |
+| (tùy chọn, mặc định `sai`) Có sử dụng giao dịch ủy thác phí hay không. Nếu bỏ qua, `kip37.options.feeDelegation` sẽ được sử dụng. Nếu cả hai bị bỏ qua, ủy thác phí không được sử dụng.                                                                                                                                                | feePayer                                                                                                                                          | chuỗi (tùy chọn) Địa chỉ của người trả phí thanh toán phí giao dịch. Khi `feeDelegation` là `đúng`, giá trị sẽ được đặt thành trường `feePayer` trong giao dịch. Nếu bỏ qua, `kip37.options.feePayer` sẽ được sử dụng. Nếu cả hai bị bỏ qua, sẽ đưa ra một lỗi. feeRatio chuỗi                                                                                                                                                      |
+| (tùy chọn) Tỷ lệ phí giao dịch mà người trả phí sẽ phải chịu. Nếu `feeDelegation` là `đúng` và `feeRatio` được đặt thành giá trị hợp lệ thì giao dịch ủy thác phí một phần sẽ được sử dụng. Khoảng hợp lệ là từ 1 đến 99. Tỷ lệ không được phép bằng 0 hoặc bằng và cao hơn 100. Nếu bỏ qua, `kip37.options.feeRatio` sẽ được sử dụng. | **LƯU Ý** `feeDelegation`, `feePayer` và `feeRatio` được hỗ trợ kể từ phiên bản caver-js[v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1). | **Giá trị trả về** `Promise` trả về `đối tượng` - Biên lai chứa kết quả thực hiện giao dịch. Nếu bạn muốn biết về các thuộc tính bên trong đối tượng biên nhận, hãy xem mô tả của [getTransactionReceipt][]. Biên lai từ các phiên bản KIP37- có thuộc tính 'sự kiện' được phân tích cú pháp qua ABI thay vì thuộc tính 'bản ghi'. **Ví dụ** |
 
-**NOTE** `feeDelegation`, `feePayer` and `feeRatio` are supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+kip37.setApprovalForAll <a id="kip37-setApprovalforall"></a>
 
-**Return Value**
+Cho phép hoặc không cho phép một người vận hành chuyển tất cả token của chủ sở hữu.
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+Lưu ý rằng phương pháp này sẽ gửi một giao dịch đến mạng lưới Klaytn, mạng này sẽ tính phí giao dịch cho người gửi giao dịch. **Tham số** Tên
 
-**Example**
+Loại
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -619,29 +619,29 @@ The `sendParam` object contains the following:
 > kip37.create(2, '1000000000000000000').then(console.log)
 ```
 
-## kip37.setApprovalForAll <a id="kip37-setApprovalforall"></a>
+## Mô tả
 
 ```javascript
 kip37.setApprovalForAll(operator, approved [, sendParam])
 ```
 
-Approves the given operator, or disallow the given operator, to transfer all tokens of the owner.
+người vận hành
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the transaction sender.
+chuỗi
 
-**Parameters**
+Địa chỉ của tài khoản được phê duyệt/cấm chuyển tất cả các token của chủ sở hữu.
 
-| Name      | Type    | Description                                                                                                                                                                                           |
-| --------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| operator  | string  | The address of an account to be approved/prohibited to transfer the owner's all tokens.                                                                                                               |
-| approved  | boolean | This operator will be approved if `true`. The operator will be disallowed if `false`.                                                                                                                 |
-| sendParam | object  | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
+| chấp thuận         | boolean                                                                   | Người vận hành này sẽ được phê duyệt nếu `true`. Người vận hành sẽ không được phép nếu `false`.                                                                                                                                                                                                                                               |
+| ------------------ | ------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| sendParam          | đối tượng                                                                 | (tùy chọn) Một đối tượng có tham số xác định để gửi giao dịch. Để biết thêm thông tin về sendParam, hãy tham khảo mô tả tham số của [kip37.create](#kip37-create).                                                                                                                                                         |
+| **Giá trị trả về** | `Promise` trả về `đối tượng` - Biên lai chứa kết quả thực hiện giao dịch. | Nếu bạn muốn biết về các thuộc tính bên trong đối tượng biên nhận, hãy xem mô tả của [getTransactionReceipt][]. Biên lai từ các phiên bản KIP37- có thuộc tính 'sự kiện' được phân tích cú pháp qua ABI thay vì thuộc tính 'bản ghi'. |
+| **Ví dụ**        | kip37.safeTransferFrom <a id="kip37-safetransferfrom"></a>                | Chuyển token một cách an toàn `số lượng` đã cho của loại token cụ thể `id` từ `từ` sang `người nhận`. Địa chỉ được ủy quyền để gửi token của chủ sở hữu token (người vận hành) hoặc chính chủ sở hữu token sẽ thực hiện giao dịch chuyển token này.                                                                        |
 
-**Return Value**
+Do đó, địa chỉ được ủy quyền hoặc chủ sở hữu token phải là người gửi giao dịch này có địa chỉ phải được cung cấp tại `sendParam.from` hoặc `kip37.options.from`.
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+Trừ khi cả `sendParam.from` và `kip37.options.from` đều được cung cấp, nếu không sẽ xảy ra lỗi. Nếu người nhận là một địa chỉ hợp đồng, thì địa chỉ đó phải triển khai [IKIP37Receiver.onKIP37Received](https://kips.klaytn.foundation/KIPs/kip-37#kip-37-token-receiver). Nếu không, quá trình chuyển sẽ được hoàn nguyên.
 
-**Example**
+Lưu ý rằng phương pháp này sẽ gửi một giao dịch đến mạng lưới Klaytn, mạng này sẽ tính phí giao dịch cho người gửi giao dịch.
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -696,38 +696,38 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 > kip37.setApprovalForAll('0x{address in hex}', true).then(console.log)
 ```
 
-## kip37.safeTransferFrom <a id="kip37-safetransferfrom"></a>
+## **Tham số**
 
 ```javascript
 kip37.safeTransferFrom(from, recipient, id, amount, data [, sendParam])
 ```
 
-Safely transfers the given `amount` tokens of specific token type `id` from `from` to the `recipient`.
+Tên
 
-The address that was authorized to send the owner's token (the operator) or the token owner him/herself is expected to execute this token transfer transaction. Thus, an authorized address or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip37.options.from`. Unless both `sendParam.from` and `kip37.options.from` are provided, an error would occur.
+Loại Mô tả từ
 
-If the recipient was a contract address, it should implement [IKIP37Receiver.onKIP37Received](https://kips.klaytn.foundation/KIPs/kip-37#kip-37-token-receiver). Otherwise, the transfer is reverted.
+chuỗi Địa chỉ của tài khoản sở hữu token sẽ được gửi với cơ chế trợ cấp.
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the transaction sender.
+người nhận
 
-**Parameters**
+chuỗi
 
-| Name      | Type                          | Description                                                                                                                                                                                           |
-| --------- | ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from      | string                        | The address of the account that owns the token to be sent with allowance mechanism.                                                                                                                   |
-| recipient | string                        | The address of the account to receive the token.                                                                                                                                                      |
-| id        | BigNumber \| string \| number | The token id to transfer.                                                                                                                                                                             |
-| amount    | BigNumber \| string \| number | The amount of token you want to transfer.                                                                                                                                                             |
-| data      | Buffer \| string \| number    | (optional) The optional data to send along with the call.                                                                                                                          |
-| sendParam | object                        | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
+| Địa chỉ tài khoản nhận token.                                                                                                                                                         | id                                                                                                                                                                                                                                                     | BigNumber \\                                                                                                                                 |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| chuỗi \\                                                                                                                                                                              | số                                                                                                                                                                                                                                                     | Id token để chuyển.                                                                                                                          |
+| số lượng                                                                                                                                                                              | BigNumber \\                                                                                                                                                                                                                                           | chuỗi \\                                                                                                                                     |
+| số                                                                                                                                                                                    | Số lượng token bạn muốn chuyển.                                                                                                                                                                                                                        | data                                                                                                                                         |
+| Bộ đệm \\                                                                                                                                                                             | chuỗi \\                                                                                                                                                                                                                                               | số                                                                                                                                           |
+| (tùy chọn) Dữ liệu tùy chọn để gửi cùng với cuộc gọi.                                                                                                              | sendParam                                                                                                                                                                                                                                              | đối tượng                                                                                                                                    |
+| (tùy chọn) Một đối tượng có tham số xác định để gửi giao dịch. Để biết thêm thông tin về sendParam, hãy tham khảo mô tả tham số của [kip37.create](#kip37-create). | **LƯU Ý** Các tham số `id` và `số lượng` chấp nhận loại `number` nhưng nếu giá trị được cung cấp nằm ngoài phạm vi được giới hạn number.MAX_SAFE_INTEGER, nó có thể gây ra lỗi hoặc kết quả không mong muốn. | Trong trường hợp này, bạn nên sử dụng loại `BigNumber`, đặc biệt đối với giá trị đầu vào dạng số có kích thước `uint256`. **Giá trị trả về** |
 
-**NOTE** The `id` and `amount` parameters accept `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+`Promise` trả về `đối tượng` - Biên lai chứa kết quả thực hiện giao dịch. Nếu bạn muốn biết về các thuộc tính bên trong đối tượng biên nhận, hãy xem mô tả của [getTransactionReceipt][].
 
-**Return Value**
+Biên lai từ các phiên bản KIP37- có thuộc tính 'sự kiện' được phân tích cú pháp qua ABI thay vì thuộc tính 'bản ghi'.
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+**Ví dụ** kip37.safeBatchTransferFrom <a id="kip37-safebatchtransferfrom"></a> Chuyển hàng loạt an toàn nhiều id và giá trị token từ `từ` sang `người nhận`.
 
-**Example**
+Địa chỉ đã được phê duyệt để gửi token của chủ sở hữu (người vận hành) hoặc chính chủ sở hữu token sẽ thực hiện giao dịch chuyển token này.
 
 ```javascript
 // Send via a sendParam object with the from field given (without data)
@@ -789,38 +789,38 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 > kip37.safeTransferFrom('0x{address in hex}', '0x{address in hex}', 2, 10000).then(console.log)
 ```
 
-## kip37.safeBatchTransferFrom <a id="kip37-safebatchtransferfrom"></a>
+## Do đó, địa chỉ được duyệt hoặc chủ sở hữu token phải là người gửi giao dịch này có địa chỉ phải được cung cấp tại `sendParam.from` hoặc `kip37.options.from`.
 
 ```javascript
 kip37.safeBatchTransferFrom(from, recipient, ids, amounts, data [, sendParam])
 ```
 
-Safely batch transfers of multiple token ids and values from `from` to the `recipient`.
+Trừ khi cả `sendParam.from` và `kip37.options.from` đều được cung cấp, nếu không sẽ xảy ra lỗi.
 
-The address that was approved to send the owner's token (the operator) or the token owner him/herself is expected to execute this token transfer transaction. Thus, an approved address or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip37.options.from`. Unless both `sendParam.from` and `kip37.options.from` are provided, an error would occur.
+Nếu người nhận là một địa chỉ hợp đồng, thì địa chỉ đó phải triển khai [IKIP37Receiver.onKIP37Received](https://kips.klaytn.foundation/KIPs/kip-37#kip-37-token-receiver). Nếu không, quá trình chuyển sẽ được hoàn nguyên. Lưu ý rằng phương pháp này sẽ gửi một giao dịch đến mạng lưới Klaytn, mạng này sẽ tính phí giao dịch cho người gửi giao dịch.
 
-If the recipient was a contract address, it should implement [IKIP37Receiver.onKIP37Received](https://kips.klaytn.foundation/KIPs/kip-37#kip-37-token-receiver). Otherwise, the transfer is reverted.
+**Tham số** Tên
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the transaction sender.
+Loại
 
-**Parameters**
+Mô tả
 
-| Name      | Type                       | Description                                                                                                                                                                                           |
-| --------- | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from      | string                     | The address of the account that owns the token to be sent with allowance mechanism.                                                                                                                   |
-| recipient | string                     | The address of the account to receive the token.                                                                                                                                                      |
-| ids       | Array                      | An array of the token ids to transfer.                                                                                                                                                                |
-| amounts   | Array                      | An array of the token amounts you want to transfer.                                                                                                                                                   |
-| data      | Buffer \| string \| number | (optional) The optional The data to send along with the call.                                                                                                                      |
-| sendParam | object                     | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
+| từ         | chuỗi                                                                                                                                                                                 | Địa chỉ của tài khoản sở hữu token sẽ được gửi với cơ chế trợ cấp.                                                                                                                                                                                                                                                                                                                                                      |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| người nhận | chuỗi                                                                                                                                                                                 | Địa chỉ tài khoản nhận token.                                                                                                                                                                                                                                                                                                                                                                                           |
+| id         | Mảng                                                                                                                                                                                  | Một mảng id token để chuyển.                                                                                                                                                                                                                                                                                                                                                                                            |
+| số lượng   | Mảng                                                                                                                                                                                  | Một mảng số lượng token bạn muốn chuyển.                                                                                                                                                                                                                                                                                                                                                                                |
+| data       | Bộ đệm \\                                                                                                                                                                             | chuỗi \\                                                                                                                                                                                                                                                                                                                                                                                                                |
+| số         | (tùy chọn) Dữ liệu tùy chọn để gửi cùng với cuộc gọi.                                                                                                              | sendParam                                                                                                                                                                                                                                                                                                                                                                                                               |
+| đối tượng  | (tùy chọn) Một đối tượng có tham số xác định để gửi giao dịch. Để biết thêm thông tin về sendParam, hãy tham khảo mô tả tham số của [kip37.create](#kip37-create). | **LƯU Ý** Các tham số mảng `ids` và `số lượng` chấp nhận loại `số` làm phần tử trong mảng, nhưng nếu giá trị được cung cấp là nằm ngoài phạm vi được giới hạn bởi number.MAX_SAFE_INTEGER, điều này có thể gây ra lỗi hoặc kết quả không mong muốn. Trong trường hợp này, bạn nên sử dụng loại `BigNumber`, đặc biệt đối với giá trị đầu vào dạng số có kích thước `uint256`. |
 
-**NOTE** The `ids` and `amounts` array parameters accept `number` type as an element in array, but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**Giá trị trả về** `Promise` trả về `đối tượng` - Biên lai chứa kết quả thực hiện giao dịch.
 
-**Return Value**
+Nếu bạn muốn biết về các thuộc tính bên trong đối tượng biên nhận, hãy xem mô tả của [getTransactionReceipt][].
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+Biên lai từ các phiên bản KIP37- có thuộc tính 'sự kiện' được phân tích cú pháp qua ABI thay vì thuộc tính 'bản ghi'. **Ví dụ** kip37.mint <a id="kip37-mint"></a>
 
-**Example**
+Tạo token của loại token cụ thể `id` và chỉ định token theo các biến `đến` và `giá trị`.
 
 ```javascript
 // Send via a sendParam object with the from field given (without data)
@@ -882,34 +882,34 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 > kip37.safeBatchTransferFrom('0x{address in hex}', '0x{address in hex}', [1, 2], [10, 1000]).then(console.log)
 ```
 
-## kip37.mint <a id="kip37-mint"></a>
+## Hàm tạo cho phép bạn tạo token cụ thể cho nhiều tài khoản cùng một lúc bằng cách chuyển các mảng đến `đến` và `giá trị` làm tham số.
 
 ```javascript
 kip37.mint(to, id, value [, sendParam])
 ```
 
-Mints the token of the specific token type `id` and assigns the tokens according to the variables `to` and `value`. The mint function allows you to mint specific token to multiple accounts at once by passing arrays to `to` and `value` as parameters.
+Lưu ý rằng phương pháp này sẽ gửi một giao dịch đến mạng lưới Klaytn, mạng này sẽ tính phí giao dịch cho người gửi giao dịch. **Tham số**
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the transaction sender.
+Tên
 
-**Parameters**
+Loại
 
-| Name      | Type                                   | Description                                                                                                                                                                                           |
-| --------- | -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| to        | string \| Array                        | An address of the account or an array of addresses to which the minted token will be issued.                                                                                                          |
-| id        | BigNumber \| string \| number          | The token id to mint.                                                                                                                                                                                 |
-| value     | BigNumber \| string \| number \| Array | The amount of token to be minted. If an array containing multiple addresses is delivered to `to` parameter, the value must be delivered in the form of an array.                                      |
-| sendParam | object                                 | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
+| Mô tả            | đến                                                                        | chuỗi \\                                                                                                                            |
+| ---------------- | -------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| Mảng             | Địa chỉ của tài khoản hoặc một dãy địa chỉ mà token tạo sẽ được phát hành. | id                                                                                                                                  |
+| BigNumber \\     | chuỗi \\                                                                   | số                                                                                                                                  |
+| Id token để tạo. | giá trị                                                                    | BigNumber \ chuỗi \\                                                                                                                |
+| số \\            | Mảng                                                                       | Số lượng token sẽ được tạo. Nếu một mảng chứa nhiều địa chỉ được gửi đến tham số `to`, giá trị phải được gửi ở dạng mảng. sendParam |
 
-**NOTE** The `id` and `value` parameters accept `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+đối tượng (tùy chọn) Một đối tượng có tham số xác định để gửi giao dịch. Để biết thêm thông tin về sendParam, hãy tham khảo mô tả tham số của [kip37.create](#kip37-create).
 
-**NOTE** If `sendParam.from` or `kip37.options.from` were given, it should be a minter with MinterRole.
+**LƯU Ý** Các tham số `id` và `value` chấp nhận loại `number` nhưng nếu giá trị được cung cấp nằm ngoài phạm vi được giới hạn number.MAX_SAFE_INTEGER, nó có thể gây ra lỗi hoặc kết quả không mong muốn.
 
-**Return Value**
+Trong trường hợp này, bạn nên sử dụng loại `BigNumber`, đặc biệt đối với giá trị đầu vào dạng số có kích thước `uint256`.
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+**LƯU Ý** Nếu `sendParam.from` hoặc `kip37.options.from` được cung cấp, thì đó phải là một người tạo với MinterRole. **Giá trị trả về** `Promise` trả về `đối tượng` - Biên lai chứa kết quả thực hiện giao dịch.
 
-**Example**
+Nếu bạn muốn biết về các thuộc tính bên trong đối tượng biên nhận, hãy xem mô tả của [getTransactionReceipt][].
 
 ```javascript
 // Send via a sendParam object with the from field given (Mint the specific tokens to a account)
@@ -1039,34 +1039,34 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 > kip37.mint('0x{address in hex}', 2, 1000).then(console.log)
 ```
 
-## kip37.mintBatch <a id="kip37-mintbatch"></a>
+## Biên lai từ các phiên bản KIP37- có thuộc tính 'sự kiện' được phân tích cú pháp qua ABI thay vì thuộc tính 'bản ghi'.
 
 ```javascript
 kip37.mintBatch(to, ids, values [, sendParam])
 ```
 
-Mints the multiple KIP-37 tokens of the specific token types `ids` in a batch and assigns the tokens according to the variables `to` and `values`.
+**Ví dụ**
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the transaction sender.
+kip37.mintBatch <a id="kip37-mintbatch"></a>
 
-**Parameters**
+Đúc nhiều token KIP-37 của các loại token cụ thể `ids` trong một đợt và gán token theo các biến `thành` và `giá trị`.
 
-| Name      | Type   | Description                                                                                                                                                                                           |
-| --------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| to        | string | An address of the account to which the minted tokens will be issued.                                                                                                                                  |
-| ids       | Array  | An array of the token ids to mint.                                                                                                                                                                    |
-| values    | Array  | An array of the token amounts to mint.                                                                                                                                                                |
-| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
+| Lưu ý rằng phương pháp này sẽ gửi một giao dịch đến mạng lưới Klaytn, mạng này sẽ tính phí giao dịch cho người gửi giao dịch. | **Tham số**                                           | Tên                 |
+| ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- | ------------------- |
+| type                                                                                                                          | Mô tả                                                 | đến                 |
+| chuỗi                                                                                                                         | Địa chỉ của tài khoản mà token tạo sẽ được phát hành. | id                  |
+| Mảng                                                                                                                          | Một mảng id token để đào.                             | giá trị             |
+| Mảng                                                                                                                          | Một mảng số lượng token sẽ bị đào.                    | sendParam đối tượng |
 
-**NOTE** The `ids` and `values` array parameters accept `number` type as an element in array, but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+(tùy chọn) Một đối tượng có tham số xác định để gửi giao dịch. Để biết thêm thông tin về sendParam, hãy tham khảo mô tả tham số của [kip37.create](#kip37-create). **LƯU Ý** Tham số mảng `ids` và `values` chấp nhận loại `number` làm thành phần trong mảng, nhưng nếu giá trị được cung cấp là nằm ngoài phạm vi được giới hạn bởi number.MAX_SAFE_INTEGER, điều này có thể gây ra lỗi hoặc kết quả không mong muốn.
 
-**NOTE** If `sendParam.from` or `kip37.options.from` were given, it should be a minter with MinterRole.
+Trong trường hợp này, bạn nên sử dụng loại `BigNumber`, đặc biệt đối với giá trị đầu vào dạng số có kích thước `uint256`.
 
-**Return Value**
+**LƯU Ý** Nếu `sendParam.from` hoặc `kip37.options.from` được cung cấp, thì đó phải là một người tạo có vai trò MinterRole.
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+**Giá trị trả về** `Promise` trả về `đối tượng` - Biên lai chứa kết quả thực hiện giao dịch. Nếu bạn muốn biết về các thuộc tính bên trong đối tượng biên nhận, hãy xem mô tả của [getTransactionReceipt][].
 
-**Example**
+Biên lai từ các phiên bản KIP37- có thuộc tính 'sự kiện' được phân tích cú pháp qua ABI thay vì thuộc tính 'bản ghi'.
 
 ```javascript
 // Send via a sendParam object with the from field given
@@ -1125,30 +1125,30 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 > kip37.mintBatch('0x{address in hex}', [1, 2], [100, 200]).then(console.log)
 ```
 
-## kip37.addMinter <a id="kip37-addminter"></a>
+## **Ví dụ**
 
 ```javascript
 kip37.addMinter(account [, sendParam])
 ```
 
-Adds an account as a minter, who are permitted to mint tokens.
+kip37.addMinter <a id="kip37-addminter"></a>
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the transaction sender.
+Thêm tài khoản với tư cách là người tạo, người được phép tạo token.
 
-**Parameters**
+Lưu ý rằng phương pháp này sẽ gửi một giao dịch đến mạng lưới Klaytn, mạng này sẽ tính phí giao dịch cho người gửi giao dịch.
 
-| Name      | Type   | Description                                                                                                                                                                                           |
-| --------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| account   | string | The address of the account to be added as a minter.                                                                                                                                                   |
-| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
+| **Tham số**                                                     | Tên       | type                                                                                                                                                                                            |
+| --------------------------------------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Mô tả                                                           | tài khoản | chuỗi                                                                                                                                                                                           |
+| Địa chỉ của tài khoản sẽ được thêm vào trong vai trò người tạo. | sendParam | đối tượng (tùy chọn) Một đối tượng có tham số xác định để gửi giao dịch. Để biết thêm thông tin về sendParam, hãy tham khảo mô tả tham số của [kip37.create](#kip37-create). |
 
-**NOTE** If `sendParam.from` or `kip37.options.from` were given, it should be a minter.
+**LƯU Ý** Nếu `sendParam.from` hoặc `kip37.options.from` được cung cấp, thì đó phải là một người tạo.
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` trả về `đối tượng` - Biên lai chứa kết quả thực hiện giao dịch. Nếu bạn muốn biết về các thuộc tính bên trong đối tượng biên nhận, hãy xem mô tả của [getTransactionReceipt][]. Biên lai từ các phiên bản KIP37- có thuộc tính 'sự kiện' được phân tích cú pháp qua ABI thay vì thuộc tính 'bản ghi'.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1205,23 +1205,23 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 kip37.renounceMinter([sendParam])
 ```
 
-Renounces the right to mint tokens. Only a minter address can renounce the minting right.
+Từ bỏ quyền tạo token. Chỉ một địa chỉ minter mới có thể từ bỏ quyền tạo.
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the transaction sender.
+Lưu ý rằng phương pháp này sẽ gửi một giao dịch đến mạng lưới Klaytn, mạng này sẽ tính phí giao dịch cho người gửi giao dịch.
 
-**Parameters**
+**Tham số**
 
-| Name      | Type   | Description                                                                                                                                                                                           |
-| --------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
+| Tên       | Loại     | Mô tả                                                                                                                                                                                                                                                                                                             |
+| --------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| sendParam | đối tượng | (tùy chọn) Một đối tượng có tham số xác định để gửi giao dịch. Để biết thêm thông tin về sendParam, hãy tham khảo mô tả tham số của [kip37.create](#kip37-create). **LƯU Ý** Nếu `sendParam.from` hoặc `kip37.options.from` được cung cấp, thì đó phải là một người tạo có vai trò MinterRole. |
 
-**NOTE** If `sendParam.from` or `kip37.options.from` were given, it should be a minter with MinterRole.
+**Giá trị trả về**
 
-**Return Value**
+`Promise` trả về `đối tượng` - Biên lai chứa kết quả thực hiện giao dịch.
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+Nếu bạn muốn biết về các thuộc tính bên trong đối tượng biên nhận, hãy xem mô tả của [getTransactionReceipt][]. Biên lai từ các phiên bản KIP37- có thuộc tính 'sự kiện' được phân tích cú pháp qua ABI thay vì thuộc tính 'bản ghi'. **Ví dụ**
 
-**Example**
+kip37.burn <a id="kip37-burn"></a>
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1272,34 +1272,34 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 > kip37.renounceMinter().then(console.log)
 ```
 
-## kip37.burn <a id="kip37-burn"></a>
+## Ghi các token KIP-37 cụ thể.
 
 ```javascript
 kip37.burn(account, id, value [, sendParam])
 ```
 
-Burns specific KIP-37 tokens.
+Địa chỉ đã được phê duyệt để vận hành token của chủ sở hữu (người vận hành) hoặc chính chủ sở hữu token sẽ thực hiện giao dịch chuyển token này.
 
-The address that was approved to operate the owner's token (the operator) or the token owner him/herself is expected to execute this token transfer transaction. Thus, an authorized address or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip37.options.from`. Unless both `sendParam.from` and `kip37.options.from` are provided, an error would occur.
+Do đó, địa chỉ được ủy quyền hoặc chủ sở hữu token phải là người gửi giao dịch này có địa chỉ phải được cung cấp tại `sendParam.from` hoặc `kip37.options.from`. Trừ khi cả `sendParam.from` và `kip37.options.from` đều được cung cấp, nếu không sẽ xảy ra lỗi. Lưu ý rằng phương pháp này sẽ gửi một giao dịch đến mạng lưới Klaytn, mạng này sẽ tính phí giao dịch cho người gửi giao dịch.
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the transaction sender.
+**Tham số**
 
-**Parameters**
+Tên
 
-| Name      | Type                          | Description                                                                                                                                                                                           |
-| --------- | ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| account   | string                        | The address of the account that owns the token to be destroyed.                                                                                                                                       |
-| id        | BigNumber \| string \| number | The id of token to be destroyed.                                                                                                                                                                      |
-| value     | BigNumber \| string \| number | The amount of token to be destroyed.                                                                                                                                                                  |
-| sendParam | object                        | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
+| Loại                       | Mô tả                                         | tài khoản                               |
+| --------------------------- | --------------------------------------------- | --------------------------------------- |
+| chuỗi                       | Địa chỉ của tài khoản sở hữu token sẽ bị hủy. | id                                      |
+| BigNumber \\                | chuỗi \\                                      | số                                      |
+| Id của token sẽ bị phá hủy. | giá trị                                       | BigNumber \\                            |
+| chuỗi \\                    | số                                            | Số lượng token sẽ bị phá hủy. sendParam |
 
-**NOTE** The `id` and `amount` parameters accept `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+đối tượng (tùy chọn) Một đối tượng có tham số xác định để gửi giao dịch. Để biết thêm thông tin về sendParam, hãy tham khảo mô tả tham số của [kip37.create](#kip37-create).
 
-**Return Value**
+**LƯU Ý** Các tham số `id` và `số lượng` chấp nhận loại `number` nhưng nếu giá trị được cung cấp nằm ngoài phạm vi được giới hạn number.MAX_SAFE_INTEGER, nó có thể gây ra lỗi hoặc kết quả không mong muốn.
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+Trong trường hợp này, bạn nên sử dụng loại `BigNumber`, đặc biệt đối với giá trị đầu vào dạng số có kích thước `uint256`. **Giá trị trả về** `Promise` trả về `đối tượng` - Biên lai chứa kết quả thực hiện giao dịch.
 
-**Example**
+Nếu bạn muốn biết về các thuộc tính bên trong đối tượng biên nhận, hãy xem mô tả của [getTransactionReceipt][].
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1358,34 +1358,34 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 > kip37.burn('0x{address in hex}', 2, 10).then(console.log)
 ```
 
-## kip37.burnBatch <a id="kip37-burnbatch"></a>
+## Biên lai từ các phiên bản KIP37- có thuộc tính 'sự kiện' được phân tích cú pháp qua ABI thay vì thuộc tính 'bản ghi'.
 
 ```javascript
 kip37.burnBatch(account, ids, values [, sendParam])
 ```
 
-Burns the multiple KIP-37 tokens.
+**Ví dụ**
 
-The address that was authorized to operate the owner's token (the operator) or the token owner him/herself is expected to execute this token transfer transaction. Thus, the authorized one or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip37.options.from`. Unless both `sendParam.from` and `kip37.options.from` are provided, an error would occur.
+kip37.burnBatch <a id="kip37-burnbatch"></a> Đốt cháy nhiều token KIP-37. Địa chỉ đã được phê duyệt để ủy quyền token của chủ sở hữu (người vận hành) hoặc chính chủ sở hữu token sẽ thực hiện giao dịch chuyển token này.
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the transaction sender.
+Do đó, người được ủy quyền hoặc chủ sở hữu mã thông báo phải là người gửi giao dịch này có địa chỉ phải được cung cấp tại `sendParam.from` hoặc `kip37.options.from`.
 
-**Parameters**
+Trừ khi cả `sendParam.from` và `kip37.options.from` đều được cung cấp, nếu không sẽ xảy ra lỗi.
 
-| Name      | Type   | Description                                                                                                                                                                                           |
-| --------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| account   | string | The address of the account that owns the token to be destroyed.                                                                                                                                       |
-| ids       | Array  | An array of the token ids to burn.                                                                                                                                                                    |
-| values    | Array  | An array of the token amounts to burn.                                                                                                                                                                |
-| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
+| Lưu ý rằng phương pháp này sẽ gửi một giao dịch đến mạng lưới Klaytn, mạng này sẽ tính phí giao dịch cho người gửi giao dịch. | **Tham số**                                   | Tên                 |
+| ----------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- | ------------------- |
+| Loại                                                                                                                         | Mô tả                                         | tài khoản           |
+| chuỗi                                                                                                                         | Địa chỉ của tài khoản sở hữu token sẽ bị hủy. | id                  |
+| Mảng                                                                                                                          | Một mảng id token để đốt cháy.                | giá trị             |
+| Mảng                                                                                                                          | Một mảng số lượng token sẽ bị đốt cháy.       | sendParam đối tượng |
 
-**NOTE** The `ids` and `values` array parameters accept `number` type as an element in array, but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+(tùy chọn) Một đối tượng có tham số xác định để gửi giao dịch. Để biết thêm thông tin về sendParam, hãy tham khảo mô tả tham số của [kip37.create](#kip37-create). **LƯU Ý** Tham số mảng `ids` và `values` chấp nhận loại `number` làm thành phần trong mảng, nhưng nếu giá trị được cung cấp là nằm ngoài phạm vi được giới hạn bởi number.MAX_SAFE_INTEGER, điều này có thể gây ra lỗi hoặc kết quả không mong muốn.
 
-**Return Value**
+Trong trường hợp này, bạn nên sử dụng loại `BigNumber`, đặc biệt đối với giá trị đầu vào dạng số có kích thước `uint256`.
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+**Giá trị trả về** `Promise` trả về `đối tượng` - Biên lai chứa kết quả thực hiện giao dịch. Nếu bạn muốn biết về các thuộc tính bên trong đối tượng biên nhận, hãy xem mô tả của [getTransactionReceipt][].
 
-**Example**
+Biên lai từ các phiên bản KIP37- có thuộc tính 'sự kiện' được phân tích cú pháp qua ABI thay vì thuộc tính 'bản ghi'.
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1444,30 +1444,30 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 > kip37.burnBatch('0x{address in hex}', [1, 2], [100, 200]).then(console.log)
 ```
 
-## kip37.addPauser <a id="kip37-addpauser"></a>
+## **Ví dụ**
 
 ```javascript
 kip37.addPauser(account [, sendParam])
 ```
 
-Adds an account as a pauser that has the right to suspend the contract.
+kip37.addPauser <a id="kip37-addpauser"></a>
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the transaction sender.
+Thêm một tài khoản làm trình tạm dừng có quyền tạm dừng hợp đồng.
 
-**Parameters**
+Lưu ý rằng phương pháp này sẽ gửi một giao dịch đến mạng lưới Klaytn, mạng này sẽ tính phí giao dịch cho người gửi giao dịch.
 
-| Name      | Type   | Description                                                                                                                                                                                           |
-| --------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| account   | string | The address of the account to be a new pauser.                                                                                                                                                        |
-| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
+| **Tham số**                                       | Tên       | Loại                                                                                                                                                                                           |
+| ------------------------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Mô tả                                             | tài khoản | chuỗi                                                                                                                                                                                           |
+| Địa chỉ của tài khoản sẽ là địa chỉ tạm dừng mới. | sendParam | đối tượng (tùy chọn) Một đối tượng có tham số xác định để gửi giao dịch. Để biết thêm thông tin về sendParam, hãy tham khảo mô tả tham số của [kip37.create](#kip37-create). |
 
-**NOTE** If `sendParam.from` or `kip37.options.from` were given, it should be a pauser with PauserRole.
+**LƯU Ý** Nếu `sendParam.from` hoặc `kip37.options.from` được cung cấp, thì đó phải là một người tạm dừng có PauserRole.
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` trả về `đối tượng` - Biên lai chứa kết quả thực hiện giao dịch. Nếu bạn muốn biết về các thuộc tính bên trong đối tượng biên nhận, hãy xem mô tả của [getTransactionReceipt][]. Biên lai từ các phiên bản KIP37- có thuộc tính 'sự kiện' được phân tích cú pháp qua ABI thay vì thuộc tính 'bản ghi'.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1524,23 +1524,23 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 kip37.renouncePauser([sendParam])
 ```
 
-Renounces the right to pause the contract. Only a pauser address can renounce the pausing right.
+Từ bỏ quyền tạm dừng hợp đồng. Chỉ một địa chỉ tạm dừng mới có thể từ bỏ quyền tạm dừng của chính nó.
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the transaction sender.
+Lưu ý rằng phương pháp này sẽ gửi một giao dịch đến mạng lưới Klaytn, mạng này sẽ tính phí giao dịch cho người gửi giao dịch.
 
-**Parameters**
+**Tham số**
 
-| Name      | Type   | Description                                                                                                                                                                                           |
-| --------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
+| Tên       | Loại     | Mô tả                                                                                                                                                                                                                                                                                                          |
+| --------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| sendParam | đối tượng | (tùy chọn) Một đối tượng có tham số xác định để gửi giao dịch. Để biết thêm thông tin về sendParam, hãy tham khảo mô tả tham số của [kip37.create](#kip37-create). **LƯU Ý** Nếu `sendParam.from` hoặc `kip37.options.from` được cung cấp, thì đó phải là một người tạm dừng có PauserRole. |
 
-**NOTE** If `sendParam.from` or `kip37.options.from` were given, it should be a pauser with PauserRole.
+**Giá trị trả về**
 
-**Return Value**
+`Promise` trả về `đối tượng` - Biên lai chứa kết quả thực hiện giao dịch.
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+Nếu bạn muốn biết về các thuộc tính bên trong đối tượng biên nhận, hãy xem mô tả của [getTransactionReceipt][]. Biên lai từ các phiên bản KIP37- có thuộc tính 'sự kiện' được phân tích cú pháp qua ABI thay vì thuộc tính 'bản ghi'. **Ví dụ**
 
-**Example**
+kip37.pause <a id="kip37-pause"></a>
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1591,30 +1591,30 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 > kip37.renouncePauser().then(console.log)
 ```
 
-## kip37.pause <a id="kip37-pause"></a>
+## Tạm dừng các chức năng liên quan đến hoạt động của token.
 
 ```javascript
 kip37.pause([id] [, sendParam])
 ```
 
-Suspends functions related to token operation. If `id` parameter is defined, pause the specific token. Otherwise pause the token contract.
+Nếu thông số `id` được xác định, hãy tạm dừng token cụ thể. Nếu không thì tạm dừng hợp đồng token. Lưu ý rằng phương pháp này sẽ gửi một giao dịch đến mạng lưới Klaytn, mạng này sẽ tính phí giao dịch cho người gửi giao dịch.
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the transaction sender.
+**Tham số**
 
-**Parameters**
+Tên
 
-| Name      | Type                          | Description                                                                                                                                                                                           |
-| --------- | ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| id        | BigNumber \| string \| number | (optional) The token id to pause. If this parameter is omitted, the `pause` function pause the token contract.                                                                     |
-| sendParam | object                        | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
+| Loại        | Mô tả     | id                                                                                                                                                                                                                                                                                                             |
+| ------------ | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| BigNumber \\ | chuỗi \\  | số (tùy chọn) Id token để tạm dừng. Nếu tham số này bị bỏ qua, chức năng `tạm dừng` sẽ tạm dừng hợp đồng token.                                                                                                                                                                             |
+| sendParam    | đối tượng | (tùy chọn) Một đối tượng có tham số xác định để gửi giao dịch. Để biết thêm thông tin về sendParam, hãy tham khảo mô tả tham số của [kip37.create](#kip37-create). **LƯU Ý** Nếu `sendParam.from` hoặc `kip37.options.from` được cung cấp, thì đó phải là một người tạm dừng có PauserRole. |
 
-**NOTE** If `sendParam.from` or `kip37.options.from` were given, it should be a pauser with PauserRole.
+**Giá trị trả về**
 
-**Return Value**
+`Promise` trả về `đối tượng` - Biên lai chứa kết quả thực hiện giao dịch.
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+Nếu bạn muốn biết về các thuộc tính bên trong đối tượng biên nhận, hãy xem mô tả của [getTransactionReceipt][]. Biên lai từ các phiên bản KIP37- có thuộc tính 'sự kiện' được phân tích cú pháp qua ABI thay vì thuộc tính 'bản ghi'. **Ví dụ**
 
-**Example**
+kip37.unpause <a id="kip37-unpause"></a>
 
 ```javascript
 // Send via a sendParam object with the from field given (pause the token contract)
@@ -1701,29 +1701,29 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 > kip37.pause().then(console.log)
 ```
 
-## kip37.unpause <a id="kip37-unpause"></a>
+## Tiếp tục hợp đồng bị tạm dừng hoặc token cụ thể.
 
 ```javascript
 kip37.unpause([id] [, sendParam])
 ```
 
-Resumes the paused contract or specific token. If `id` parameter is defined, unpause the specific token. Otherwise unpause the token contract.
+Nếu thông số `id` được xác định, hãy bỏ tạm dừng token cụ thể. Nếu không thì bỏ tạm dừng hợp đồng token. Lưu ý rằng phương pháp này sẽ gửi một giao dịch đến mạng lưới Klaytn, mạng này sẽ tính phí giao dịch cho người gửi giao dịch.
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the transaction sender.
+**Tham số**
 
-**Parameters**
+Tên
 
-| Name | Type                          | Description                                                                                                                             |
-| ---- | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| id   | BigNumber \| string \| number | (optional) The token id to unpause. If this parameter is omitted, the `unpause` function unpause the token contract. |
+| Loại        | Mô tả    | id                                                                                                                                           |
+| ------------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| BigNumber \\ | chuỗi \\ | số (tùy chọn) Id token để bỏ tạm dừng. Nếu tham số này bị bỏ qua, chức năng `bỏ tạm dừng` sẽ hủy tạm dừng hợp đồng token. |
 
-**NOTE** If `sendParam.from` or `kip37.options.from` were given, it should be a pauser with PauserRole.
+**LƯU Ý** Nếu `sendParam.from` hoặc `kip37.options.from` được cung cấp, thì đó phải là một người tạm dừng có PauserRole.
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` trả về `đối tượng` - Biên lai chứa kết quả thực hiện giao dịch. Nếu bạn muốn biết về các thuộc tính bên trong đối tượng biên nhận, hãy xem mô tả của [getTransactionReceipt][]. Biên lai từ các phiên bản KIP37- có thuộc tính 'sự kiện' được phân tích cú pháp qua ABI thay vì thuộc tính 'bản ghi'.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 // Send via a sendParam object with the from field given (unpause the token contract)
@@ -1810,4 +1810,4 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 > kip37.unpause().then(console.log)
 ```
 
-[getTransactionReceipt]: ../caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt
+[getTransactionReceipt]: AAA
