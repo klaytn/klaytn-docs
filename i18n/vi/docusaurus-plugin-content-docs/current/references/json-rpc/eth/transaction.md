@@ -9,7 +9,7 @@ Thực thi lệnh gọi thông điệp mới ngay lập tức mà không tạo g
 | Tên              | type            | Mô tả                                                                                                                                                                                                                                                                                                 |
 | ---------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | callObject       | Đối tượng       | Đối tượng lệnh gọi giao dịch. Xem bảng tiếp theo để biết thuộc tính của đối tượng.                                                                                                                                                                                                                    |
-| blockNumberOrTag | QUANTITY \| TAG | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](./block.md#the-default-block-parameter) hoặc hàm băm khối. Số khối là bắt buộc và xác định ngữ cảnh (trạng thái) mà giao dịch cụ thể sẽ được thực thi. |
+| blockNumberOrTag | SỐ LƯỢNG \| THẺ | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](./block.md#the-default-block-parameter) hoặc hàm băm khối. Số khối là bắt buộc và xác định ngữ cảnh (trạng thái) mà giao dịch cụ thể sẽ được thực thi. |
 | stateOverrideSet | Đối tượng       | Tập ghi đè trạng thái là bản đồ ánh xạ địa chỉ - trạng thái được thiết lập tùy ý, trong đó mỗi mục nhập chỉ định một số trạng thái được ghi đè tạm thời trước khi thực thi yêu cầu.                                                                                                                   |
 
 `callObject` có các thuộc tính như sau:
@@ -153,16 +153,16 @@ used by the transaction, for a variety of reasons including EVM mechanics and no
 
 `callObject` có các thuộc tính như sau:
 
-| Tên                                                                                                              | type                                                                                                | Mô tả                                                                                       |
-| ---------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| từ                                                                                                               | DỮ LIỆU 20 byte                                                                                     | (tùy chọn) Địa chỉ mà giao dịch mô phỏng đã được gửi đi. DỮ LIỆU 20 byte |
-| (tùy chọn) Địa chỉ mà giao dịch mô phỏng đã được gửi đi.                                      | Nếu không nêu rõ địa chỉ nào thì sẽ sử dụng địa chỉ `0x00..0`.                                      | đến                                                                                         |
-| DỮ LIỆU 20 byte                                                                                                  | (tùy chọn) Địa chỉ giao dịch được gửi đến.                                       | gas SỐ LƯỢNG                                                                                |
-| (tùy chọn) Giới hạn gas tối đa cho phép trong quá trình thực thi mã để tránh vòng lặp vô hạn. | Giá trị mặc định là 2^63 hoặc giá trị bất kỳ mà người vận hành nút chỉ định thông qua --rpc.gascap. | giá gas SỐ LƯỢNG                                                                            |
-| (tùy chọn) Số lượng `peb` để mô phỏng thanh toán cho mỗi đơn vị gas trong quá trình thực thi. | Giá trị mặc định là `0` peb.                                                                        | giá trị SỐ LƯỢNG                                                                            |
-| (tùy chọn) Lượng `peb` được mô phỏng gửi cùng với giao dịch.                                  | Giá trị mặc định là `0`.                                                                            | nhập DATA                                                                                   |
+| Tên     | type            | Mô tả                                                                                                                                                                                                                |
+| ------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| từ      | DỮ LIỆU 20 byte | (tùy chọn) Địa chỉ mà giao dịch mô phỏng đã được gửi đi. Nếu không nêu rõ địa chỉ nào thì sẽ sử dụng địa chỉ `0x00..0`.                                                                           |
+| đến     | DỮ LIỆU 20 byte | (tùy chọn) Địa chỉ giao dịch được gửi đến.                                                                                                                                                        |
+| gas     | SỐ LƯỢNG        | (tùy chọn) Giới hạn gas tối đa cho phép trong quá trình thực thi mã để tránh vòng lặp vô hạn. Giá trị mặc định là 2^63 hoặc giá trị bất kỳ mà người vận hành nút chỉ định thông qua --rpc.gascap. |
+| giá gas | SỐ LƯỢNG        | (tùy chọn) Số lượng `peb` để mô phỏng thanh toán cho mỗi đơn vị gas trong quá trình thực thi. Giá trị mặc định là `0` peb.                                                                        |
+| giá trị | SỐ LƯỢNG        | (tùy chọn) Lượng `peb` được mô phỏng gửi cùng với giao dịch. Giá trị mặc định là `0`.                                                                                                             |
+| nhập    | DATA            | (tùy chọn) Hàm băm của chữ ký phương pháp và tham số mã hóa. Dùng để thay thế trường `data`, nhưng trường 'data' vẫn được hỗ trợ để đảm bảo tương thích ngược.                                    |
 
-(tùy chọn) Hàm băm của chữ ký phương pháp và tham số mã hóa.
+**Ví dụ - callObject**
 
 ```json
 {
@@ -173,13 +173,13 @@ used by the transaction, for a variety of reasons including EVM mechanics and no
 }
 ```
 
-Dùng để thay thế trường `data`, nhưng trường 'data' vẫn được hỗ trợ để đảm bảo tương thích ngược.
+**Giá trị trả về**
 
-| **Ví dụ - callObject** | **Giá trị trả về** |
-| ---------------------- | ------------------ |
-| type                   | Mô tả              |
+| type     | Mô tả                   |
+| -------- | ----------------------- |
+| SỐ LƯỢNG | Lượng gas được sử dụng. |
 
-SỐ LƯỢNG
+**Ví dụ**
 
 ```shell
 // Request
@@ -192,26 +192,26 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "e
 }
 ```
 
-## Lượng gas được sử dụng.
-
-**Ví dụ**
-
-eth_getTransactionByBlockHashAndIndex <a id="eth_gettransactionbyblockhashandindex"></a>
+## eth_getTransactionByBlockHashAndIndex <a id="eth_gettransactionbyblockhashandindex"></a>
 
 Trả về thông tin về giao dịch của khối theo hàm băm và vị trí chỉ mục của giao dịch.
 
-| Vui lòng xem phần [Caution-Transaction](./caution.md#transaction) trước khi sử dụng API này. | **Tham số**           |
-| -------------------------------------------------------------------------------------------- | --------------------- |
-| type                                                                                         | Mô tả                 |
-| DỮ LIỆU 32 byte                                                                              | Hàm băm của một khối. |
+Vui lòng xem phần [Caution-Transaction](./caution.md#transaction) trước khi sử dụng API này.
 
-SỐ LƯỢNG
+**Tham số**
 
-Giá trị nguyên biểu thị vị trí chỉ mục của giao dịch.
+| type            | Mô tả                                                 |
+| --------------- | ----------------------------------------------------- |
+| DỮ LIỆU 32 byte | Hàm băm của một khối.                                 |
+| SỐ LƯỢNG        | Giá trị nguyên biểu thị vị trí chỉ mục của giao dịch. |
 
 **Giá trị trả về**
 
 Tham khảo [eth_getTransactionByHash](#eth_gettransactionbyhash)
+
+**Ví dụ**
+
+Để xem ví dụ về các loại giao dịch khác nhau, vui lòng kiểm tra phần [eth_getTransactionByHash](#eth_gettransactionbyhash)
 
 ```shell
 // Request
@@ -241,26 +241,26 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 }
 ```
 
-## **Ví dụ**
-
-Để xem ví dụ về các loại giao dịch khác nhau, vui lòng kiểm tra phần [eth_getTransactionByHash](#eth_gettransactionbyhash)
-
-eth_getTransactionByBlockNumberAndIndex <a id="eth_gettransactionbyblocknumberandindex"></a>
+## eth_getTransactionByBlockNumberAndIndex <a id="eth_gettransactionbyblocknumberandindex"></a>
 
 Trả về thông tin về giao dịch theo số khối và vị trí chỉ mục của giao dịch.
 
-| Vui lòng xem phần [Caution-Transaction](./caution.md#transaction) trước khi sử dụng API này. | **Tham số**                                                                                                                                                                 |
-| -------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type                                                                                         | Mô tả                                                                                                                                                                       |
-| SỐ LƯỢNG \| THẺ                                                                              | Số khối là giá trị nguyên hoặc thập lục phân hay chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](./block.md#the-default-block-parameter). |
+Vui lòng xem phần [Caution-Transaction](./caution.md#transaction) trước khi sử dụng API này.
 
-SỐ LƯỢNG
+**Tham số**
 
-Vị trí chỉ mục của giao dịch.
+| type            | Mô tả                                                                                                                                                                       |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| SỐ LƯỢNG \| THẺ | Số khối là giá trị nguyên hoặc thập lục phân hay chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](./block.md#the-default-block-parameter). |
+| SỐ LƯỢNG        | Vị trí chỉ mục của giao dịch.                                                                                                                                               |
 
 **Giá trị trả về**
 
 Tham khảo [eth_getTransactionByHash](#eth_gettransactionbyhash)
+
+**Ví dụ**
+
+Để xem ví dụ về các loại giao dịch khác nhau, vui lòng kiểm tra phần [eth_getTransactionByHash](#eth_gettransactionbyhash)
 
 ```shell
 // Request
@@ -290,47 +290,47 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 }
 ```
 
-## **Ví dụ**
-
-Để xem ví dụ về các loại giao dịch khác nhau, vui lòng kiểm tra phần [eth_getTransactionByHash](#eth_gettransactionbyhash)
-
-eth_getTransactionByHash <a id="eth_gettransactionbyhash"></a>
+## eth_getTransactionByHash <a id="eth_gettransactionbyhash"></a>
 
 Trả về thông tin về một giao dịch được yêu cầu theo hàm băm giao dịch.
 
-| Vui lòng xem phần [Caution-Transaction](./caution.md#transaction) trước khi sử dụng API này. | **Tham số** |
-| -------------------------------------------------------------------------------------------- | ----------- |
-| type                                                                                         | Mô tả       |
+Vui lòng xem phần [Caution-Transaction](./caution.md#transaction) trước khi sử dụng API này.
 
-DỮ LIỆU 32 byte
+**Tham số**
 
-Hàm băm của một giao dịch. **Giá trị trả về**
+| type            | Mô tả                      |
+| --------------- | -------------------------- |
+| DỮ LIỆU 32 byte | Hàm băm của một giao dịch. |
+
+**Giá trị trả về**
+
+Các trường của giao dịch có thể khác nhau theo loại giao dịch. Hiện tại, có ba loại giao dịch trong Ethereum (Legacy, [AccessList](https://eips.ethereum.org/EIPS/eip-2930) , [DynamicFee](https://eips.ethereum.org/EIPS/eip-1559)).
 Ethereum(Legacy, [AccessList](https://eips.ethereum.org/EIPS/eip-2930)
 , [DynamicFee](https://eips.ethereum.org/EIPS/eip-1559)).
 
-Các trường của giao dịch có thể khác nhau theo loại giao dịch.
+`Object` - Đối tượng giao dịch, hoặc `null` khi không tìm thấy giao dịch:
 
-Hiện tại, có ba loại giao dịch trong Ethereum (Legacy, [AccessList](https://eips.ethereum.org/EIPS/eip-2930) , [DynamicFee](https://eips.ethereum.org/EIPS/eip-1559)).
+**Giao dịch cũ**
 
-| `Object` - Đối tượng giao dịch, hoặc `null` khi không tìm thấy giao dịch: | **Giao dịch cũ**                                                 | Tên                       |
-| ------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------------------------- |
-| type                                                                      | Mô tả                                                            | blockHash DỮ LIỆU 32 byte |
-| Hàm băm của khối chứa giao dịch này.                                      | `null` nếu đó là giao dịch đang chờ xử lý.                       | blockNumber SỐ LƯỢNG      |
-| Số khối chứa giao dịch này.                                               | `null` nếu đó là giao dịch đang chờ xử lý.                       | từ                        |
-| DỮ LIỆU 20 byte                                                           | Địa chỉ của người gửi.                                           | gas                       |
-| SỐ LƯỢNG                                                                  | Gas được người gửi cung cấp.                                     | giá gas                   |
-| SỐ LƯỢNG                                                                  | Giá gas được người gửi cung cấp theo đơn vị peb.                 | hash                      |
-| DỮ LIỆU 32 byte                                                           | Hàm băm của giao dịch.                                           | nhập                      |
-| DATA                                                                      | Dữ liệu được gửi cùng với giao dịch.                             | nonce                     |
-| SỐ LƯỢNG                                                                  | Số lượng giao dịch được người gửi thực hiện trước giao dịch này. | đến DỮ LIỆU 20 byte       |
-| Địa chỉ của người nhận.                                                   | `null` nếu đó là giao dịch tạo hợp đồng.                         | giá trị                   |
-| SỐ LƯỢNG                                                                  | Giá trị nguyên chỉ giá trị được gửi cùng với giao dịch.          | transactionIndex SỐ LƯỢNG |
-| Giá trị nguyên biểu thị vị trí chỉ mục của giao dịch trong khối.          | `null` nếu đó là giao dịch đang chờ xử lý.                       | type                      |
-| SỐ LƯỢNG                                                                  | Giá trị nguyên biểu thị loại giao dịch.                          | v                         |
-| SỐ LƯỢNG                                                                  | Mã khôi phục ECDSA.                                              | r                         |
-| DỮ LIỆU 32 byte                                                           | Chữ ký ECDSA r.                                                  | s                         |
+| Tên              | type            | Mô tả                                                                                                       |
+| ---------------- | --------------- | ----------------------------------------------------------------------------------------------------------- |
+| blockHash        | DỮ LIỆU 32 byte | Hàm băm của khối chứa giao dịch này. `null` nếu đó là giao dịch đang chờ xử lý.                             |
+| blockNumber      | SỐ LƯỢNG        | Số khối chứa giao dịch này. `null` nếu đó là giao dịch đang chờ xử lý.                                      |
+| từ               | DỮ LIỆU 20 byte | Địa chỉ của người gửi.                                                                                      |
+| gas              | SỐ LƯỢNG        | Gas được người gửi cung cấp.                                                                                |
+| giá gas          | SỐ LƯỢNG        | Giá gas được người gửi cung cấp theo đơn vị peb.                                                            |
+| hash             | DỮ LIỆU 32 byte | Hàm băm của giao dịch.                                                                                      |
+| nhập             | DATA            | Dữ liệu được gửi cùng với giao dịch.                                                                        |
+| nonce            | SỐ LƯỢNG        | Số lượng giao dịch được người gửi thực hiện trước giao dịch này.                                            |
+| đến              | DỮ LIỆU 20 byte | Địa chỉ của người nhận. `null` nếu đó là giao dịch tạo hợp đồng.                                            |
+| giá trị          | SỐ LƯỢNG        | Giá trị nguyên chỉ giá trị được gửi cùng với giao dịch.                                                     |
+| transactionIndex | SỐ LƯỢNG        | Giá trị nguyên biểu thị vị trí chỉ mục của giao dịch trong khối. `null` nếu đó là giao dịch đang chờ xử lý. |
+| type             | SỐ LƯỢNG        | Giá trị nguyên biểu thị loại giao dịch.                                                                     |
+| v                | SỐ LƯỢNG        | Mã khôi phục ECDSA.                                                                                         |
+| r                | DỮ LIỆU 32 byte | Chữ ký ECDSA r.                                                                                             |
+| s                | DỮ LIỆU 32 byte | Chữ ký ECDSA s.                                                                                             |
 
-DỮ LIỆU 32 byte
+**Ví dụ - Giao dịch cũ**
 
 ```shell
 // Request
@@ -360,29 +360,29 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 }
 ```
 
-Chữ ký ECDSA s.
+**Giao dịch AccessList**
 
-| **Ví dụ - Giao dịch cũ**             | **Giao dịch AccessList**                                         | Tên                                                                      |
-| ------------------------------------ | ---------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| type                                 | Mô tả                                                            | blockHash DỮ LIỆU 32 byte                                                |
-| Hàm băm của khối chứa giao dịch này. | `null` nếu đó là giao dịch đang chờ xử lý.                       | blockNumber SỐ LƯỢNG                                                     |
-| Số khối chứa giao dịch này.          | `null` nếu đó là giao dịch đang chờ xử lý.                       | từ                                                                       |
-| DỮ LIỆU 20 byte                      | Địa chỉ của người gửi.                                           | gas                                                                      |
-| SỐ LƯỢNG                             | Gas được người gửi cung cấp.                                     | giá gas                                                                  |
-| SỐ LƯỢNG                             | Giá gas được người gửi cung cấp theo đơn vị peb.                 | hash                                                                     |
-| input                                | DỮ LIỆU 32 byte                                                  | Hàm băm của giao dịch.                                                   |
-| nhập                                 | DATA                                                             | Dữ liệu được gửi cùng với giao dịch.                                     |
-| nonce                                | SỐ LƯỢNG                                                         | Số lượng giao dịch được người gửi thực hiện trước giao dịch này. đến     |
-| DỮ LIỆU 20 byte                      | Địa chỉ của người nhận.                                          | `null` nếu đó là giao dịch tạo hợp đồng.                                 |
-| giá trị                              | SỐ LƯỢNG                                                         | Giá trị nguyên chỉ giá trị được gửi cùng với giao dịch. transactionIndex |
-| SỐ LƯỢNG                             | Giá trị nguyên biểu thị vị trí chỉ mục của giao dịch trong khối. | `null` nếu đó là giao dịch đang chờ xử lý.                               |
-| type                                 | SỐ LƯỢNG                                                         | Giá trị nguyên biểu thị loại giao dịch.                                  |
-| accessList                           | Mảng                                                             | Mảng [Danh sách truy cập](https://eips.ethereum.org/EIPS/eip-2930).      |
-| chainId                              | SỐ LƯỢNG                                                         | Mã chuỗi được đặt trên nút yêu cầu.                                      |
-| v                                    | SỐ LƯỢNG                                                         | Mã khôi phục ECDSA.                                                      |
-| r                                    | DỮ LIỆU 32 byte                                                  | Chữ ký ECDSA r.                                                          |
+| Tên              | type            | Mô tả                                                                                                       |
+| ---------------- | --------------- | ----------------------------------------------------------------------------------------------------------- |
+| blockHash        | DỮ LIỆU 32 byte | Hàm băm của khối chứa giao dịch này. `null` nếu đó là giao dịch đang chờ xử lý.                             |
+| blockNumber      | SỐ LƯỢNG        | Số khối chứa giao dịch này. `null` nếu đó là giao dịch đang chờ xử lý.                                      |
+| từ               | DỮ LIỆU 20 byte | Địa chỉ của người gửi.                                                                                      |
+| gas              | SỐ LƯỢNG        | Gas được người gửi cung cấp.                                                                                |
+| giá gas          | SỐ LƯỢNG        | Giá gas được người gửi cung cấp theo đơn vị peb.                                                            |
+| hash             | DỮ LIỆU 32 byte | Hàm băm của giao dịch.                                                                                      |
+| nhập             | DATA            | Dữ liệu được gửi cùng với giao dịch.                                                                        |
+| nonce            | SỐ LƯỢNG        | Số lượng giao dịch được người gửi thực hiện trước giao dịch này.                                            |
+| đến              | DỮ LIỆU 20 byte | Địa chỉ của người nhận. `null` nếu đó là giao dịch tạo hợp đồng.                                            |
+| giá trị          | SỐ LƯỢNG        | Giá trị nguyên chỉ giá trị được gửi cùng với giao dịch.                                                     |
+| transactionIndex | SỐ LƯỢNG        | Giá trị nguyên biểu thị vị trí chỉ mục của giao dịch trong khối. `null` nếu đó là giao dịch đang chờ xử lý. |
+| type             | SỐ LƯỢNG        | Giá trị nguyên biểu thị loại giao dịch.                                                                     |
+| accessList       | Mảng            | Mảng [Danh sách truy cập](https://eips.ethereum.org/EIPS/eip-2930).                                         |
+| chainId          | SỐ LƯỢNG        | Mã chuỗi được đặt trên nút yêu cầu.                                                                         |
+| v                | SỐ LƯỢNG        | Mã khôi phục ECDSA.                                                                                         |
+| r                | DỮ LIỆU 32 byte | Chữ ký ECDSA r.                                                                                             |
+| s                | DỮ LIỆU 32 byte | Chữ ký ECDSA s.                                                                                             |
 
-s
+**Ví dụ - Giao dịch AccessList**
 
 ```shell
 // Request
@@ -421,31 +421,31 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 }
 ```
 
-DỮ LIỆU 32 byte
+**Giao dịch DynamicFee**
 
-| Chữ ký ECDSA s.      | **Ví dụ - Giao dịch AccessList**                                 | **Giao dịch DynamicFee**                                                         |
-| -------------------- | ---------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| Tên                  | type                                                             | Mô tả blockHash                                                                  |
-| DỮ LIỆU 32 byte      | Hàm băm của khối chứa giao dịch này.                             | `null` nếu đó là giao dịch đang chờ xử lý. blockNumber                           |
-| SỐ LƯỢNG             | Số khối chứa giao dịch này.                                      | `null` nếu đó là giao dịch đang chờ xử lý.                                       |
-| từ                   | DỮ LIỆU 20 byte                                                  | Địa chỉ của người gửi.                                                           |
-| gas                  | SỐ LƯỢNG                                                         | Gas được người gửi cung cấp.                                                     |
-| giá gas              | SỐ LƯỢNG                                                         | Giá gas được người gửi cung cấp theo đơn vị peb.                                 |
-| maxFeePerGas         | SỐ LƯỢNG                                                         | Số tiền tối đa chi trả cho việc thực thi giao dịch.                              |
-| maxPriorityFeePerGas | SỐ LƯỢNG                                                         | Giới hạn tối đa phí gas trả thêm đối với giao dịch phí biến đổi theo đơn vị peb. |
-| hash                 | DỮ LIỆU 32 byte                                                  | Hàm băm của giao dịch.                                                           |
-| nhập                 | DATA                                                             | Dữ liệu được gửi cùng với giao dịch.                                             |
-| nonce                | SỐ LƯỢNG                                                         | Số lượng giao dịch được người gửi thực hiện trước giao dịch này. đến             |
-| DỮ LIỆU 20 byte      | Địa chỉ của người nhận.                                          | `null` nếu đó là giao dịch tạo hợp đồng.                                         |
-| giá trị              | SỐ LƯỢNG                                                         | Giá trị nguyên chỉ giá trị được gửi cùng với giao dịch. transactionIndex         |
-| SỐ LƯỢNG             | Giá trị nguyên biểu thị vị trí chỉ mục của giao dịch trong khối. | `null` nếu đó là giao dịch đang chờ xử lý.                                       |
-| type                 | SỐ LƯỢNG                                                         | Giá trị nguyên biểu thị loại giao dịch.                                          |
-| accessList           | Mảng                                                             | Mảng [Danh sách truy cập](https://eips.ethereum.org/EIPS/eip-2930).              |
-| chainId              | SỐ LƯỢNG                                                         | Mã chuỗi được đặt trên nút yêu cầu.                                              |
-| v                    | SỐ LƯỢNG                                                         | Mã khôi phục ECDSA.                                                              |
-| r                    | DỮ LIỆU 32 byte                                                  | Chữ ký ECDSA r.                                                                  |
+| Tên                  | type            | Mô tả                                                                                                       |
+| -------------------- | --------------- | ----------------------------------------------------------------------------------------------------------- |
+| blockHash            | DỮ LIỆU 32 byte | Hàm băm của khối chứa giao dịch này. `null` nếu đó là giao dịch đang chờ xử lý.                             |
+| blockNumber          | SỐ LƯỢNG        | Số khối chứa giao dịch này. `null` nếu đó là giao dịch đang chờ xử lý.                                      |
+| từ                   | DỮ LIỆU 20 byte | Địa chỉ của người gửi.                                                                                      |
+| gas                  | SỐ LƯỢNG        | Gas được người gửi cung cấp.                                                                                |
+| giá gas              | SỐ LƯỢNG        | Giá gas được người gửi cung cấp theo đơn vị peb.                                                            |
+| maxFeePerGas         | SỐ LƯỢNG        | Số tiền tối đa chi trả cho việc thực thi giao dịch.                                                         |
+| maxPriorityFeePerGas | SỐ LƯỢNG        | Giới hạn tối đa phí gas trả thêm đối với giao dịch phí biến đổi theo đơn vị peb.                            |
+| hash                 | DỮ LIỆU 32 byte | Hàm băm của giao dịch.                                                                                      |
+| nhập                 | DATA            | Dữ liệu được gửi cùng với giao dịch.                                                                        |
+| nonce                | SỐ LƯỢNG        | Số lượng giao dịch được người gửi thực hiện trước giao dịch này.                                            |
+| đến                  | DỮ LIỆU 20 byte | Địa chỉ của người nhận. `null` nếu đó là giao dịch tạo hợp đồng.                                            |
+| giá trị              | SỐ LƯỢNG        | Giá trị nguyên chỉ giá trị được gửi cùng với giao dịch.                                                     |
+| transactionIndex     | SỐ LƯỢNG        | Giá trị nguyên biểu thị vị trí chỉ mục của giao dịch trong khối. `null` nếu đó là giao dịch đang chờ xử lý. |
+| type                 | SỐ LƯỢNG        | Giá trị nguyên biểu thị loại giao dịch.                                                                     |
+| accessList           | Mảng            | Mảng [Danh sách truy cập](https://eips.ethereum.org/EIPS/eip-2930).                                         |
+| chainId              | SỐ LƯỢNG        | Mã chuỗi được đặt trên nút yêu cầu.                                                                         |
+| v                    | SỐ LƯỢNG        | Mã khôi phục ECDSA.                                                                                         |
+| r                    | DỮ LIỆU 32 byte | Chữ ký ECDSA r.                                                                                             |
+| s                    | DỮ LIỆU 32 byte | Chữ ký ECDSA s.                                                                                             |
 
-s
+**Ví dụ - Giao dịch DynamicFee**
 
 ```shell
 // Request
@@ -486,41 +486,41 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 }
 ```
 
-## DỮ LIỆU 32 byte
-
-Chữ ký ECDSA s.
-
-**Ví dụ - Giao dịch DynamicFee**
-
-eth_getTransactionReceipt <a id="eth_gettransactionreceipt"></a>
+## eth_getTransactionReceipt <a id="eth_gettransactionreceipt"></a>
 
 Trả về biên lai của một giao dịch theo hàm băm giao dịch.
 
-| **LƯU Ý**: Biên lai không khả dụng với giao dịch đang chờ xử lý. | Vui lòng xem phần [Caution-TransactionReceipt](./caution.md#transaction_receipt) trước khi sử dụng API này. | **Tham số** |
-| ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------- |
-| Tên                                                              | type                                                                                                        | Mô tả       |
+**LƯU Ý**: Biên lai không khả dụng với giao dịch đang chờ xử lý.
 
-Hash
+Vui lòng xem phần [Caution-TransactionReceipt](./caution.md#transaction_receipt) trước khi sử dụng API này.
 
-DỮ LIỆU 32 byte
+**Tham số**
 
-| Hàm băm của một giao dịch.                                             | **Giá trị trả về**                                          | `Object` - Đối tượng biên lai giao dịch, hoặc `null` khi không tìm thấy biên lai                                                     |
-| ---------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| Tên                                                                    | type                                                        | Mô tả                                                                                                                                |
-| blockHash                                                              | DỮ LIỆU 32 byte                                             | Hàm băm của khối chứa giao dịch này.                                                                                                 |
-| blockNumber                                                            | SỐ LƯỢNG                                                    | Số khối chứa giao dịch này.                                                                                                          |
-| contractAddress                                                        | DATA                                                        | Địa chỉ hợp đồng được tạo nếu giao dịch là giao dịch tạo hợp đồng, nếu không, giá trị sẽ là `null`.                                  |
-| cumulativeGasUsed                                                      | SỐ LƯỢNG                                                    | Tổng lượng gas đã dùng khi giao dịch này được thực hiện trong khối. effectiveGasPrice SỐ LƯỢNG                                       |
-| Giá trị thực tế trên mỗi gas được khấu trừ từ tài khoản của người gửi. | Trước EIP-1559, giá gas này bằng với giá gas của giao dịch. | Sau đó, giá gas được tính theo công thức baseFeePerGas + min(maxFeePerGas - baseFeePerGas, maxPriorityFeePerGas). |
-| từ                                                                     | DỮ LIỆU 20 byte                                             | Địa chỉ của người gửi.                                                                                                               |
-| nhật ký                                                                | Mảng                                                        | Mảng đối tượng bản ghi mà giao dịch này tạo ra.                                                                                      |
-| nhật kýBloom                                                           | DỮ LIỆU 256 byte                                            | Bộ lọc Bloom dành cho các ứng dụng khách nhẹ giúp truy xuất nhanh các nhật ký liên quan.                                             |
-| trạng thái                                                             | SỐ LƯỢNG                                                    | `1` (thành công) hoặc `0` (thất bại). đến                                                      |
-| DỮ LIỆU 20 byte                                                        | Địa chỉ của người nhận.                                     | `null` nếu đó là giao dịch tạo hợp đồng.                                                                                             |
-| transactionHash                                                        | DỮ LIỆU 32 byte                                             | Hàm băm của giao dịch.                                                                                                               |
-| transactionIndex                                                       | SỐ LƯỢNG                                                    | Giá trị nguyên biểu thị vị trí chỉ mục của giao dịch trong khối.                                                                     |
+| Tên  | type            | Mô tả                      |
+| ---- | --------------- | -------------------------- |
+| Hash | DỮ LIỆU 32 byte | Hàm băm của một giao dịch. |
 
-type
+**Giá trị trả về**
+
+`Object` - Đối tượng biên lai giao dịch, hoặc `null` khi không tìm thấy biên lai
+
+| Tên               | type             | Mô tả                                                                                                                                                                                                                                                                   |
+| ----------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockHash         | DỮ LIỆU 32 byte  | Hàm băm của khối chứa giao dịch này.                                                                                                                                                                                                                                    |
+| blockNumber       | SỐ LƯỢNG         | Số khối chứa giao dịch này.                                                                                                                                                                                                                                             |
+| contractAddress   | DATA             | Địa chỉ hợp đồng được tạo nếu giao dịch là giao dịch tạo hợp đồng, nếu không, giá trị sẽ là `null`.                                                                                                                                                                     |
+| cumulativeGasUsed | SỐ LƯỢNG         | Tổng lượng gas đã dùng khi giao dịch này được thực hiện trong khối.                                                                                                                                                                                                     |
+| effectiveGasPrice | SỐ LƯỢNG         | Giá trị thực tế trên mỗi gas được khấu trừ từ tài khoản của người gửi. Trước EIP-1559, giá gas này bằng với giá gas của giao dịch. Sau đó, giá gas được tính theo công thức baseFeePerGas + min(maxFeePerGas - baseFeePerGas, maxPriorityFeePerGas). |
+| từ                | DỮ LIỆU 20 byte  | Địa chỉ của người gửi.                                                                                                                                                                                                                                                  |
+| nhật ký           | Mảng             | Mảng đối tượng bản ghi mà giao dịch này tạo ra.                                                                                                                                                                                                                         |
+| nhật kýBloom      | DỮ LIỆU 256 byte | Bộ lọc Bloom dành cho các ứng dụng khách nhẹ giúp truy xuất nhanh các nhật ký liên quan.                                                                                                                                                                                |
+| trạng thái        | SỐ LƯỢNG         | `1` (thành công) hoặc `0` (thất bại).                                                                                                                                                                                             |
+| đến               | DỮ LIỆU 20 byte  | Địa chỉ của người nhận. `null` nếu đó là giao dịch tạo hợp đồng.                                                                                                                                                                                                        |
+| transactionHash   | DỮ LIỆU 32 byte  | Hàm băm của giao dịch.                                                                                                                                                                                                                                                  |
+| transactionIndex  | SỐ LƯỢNG         | Giá trị nguyên biểu thị vị trí chỉ mục của giao dịch trong khối.                                                                                                                                                                                                        |
+| type              | SỐ LƯỢNG         | Giá trị nguyên biểu thị loại giao dịch.                                                                                                                                                                                                                                 |
+
+**Ví dụ**
 
 ```shell
 // Request
@@ -565,25 +565,25 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 }
 ```
 
-## SỐ LƯỢNG
+## eth_sendRawTransaction <a id="eth_sendrawtransaction"></a>
 
-Giá trị nguyên biểu thị loại giao dịch.
+Tạo giao dịch gọi ra thông báo mới hoặc tạo hợp đồng cho giao dịch đã ký.
+
+**Tham số**
+
+| Loại | Mô tả                        |
+| ----- | ---------------------------- |
+| DATA  | Dữ liệu của giao dịch đã ký. |
+
+**Giá trị trả về**
+
+| Loại           | Mô tả                                                                |
+| --------------- | -------------------------------------------------------------------- |
+| DỮ LIỆU 32 byte | Hàm băm của giao dịch hoặc giá trị băm bằng 0 nếu chưa có giao dịch. |
+
+Nếu bạn đã triển khai hợp đồng, hãy sử dụng [eth_getTransactionReceipt](#eth_gettransactionreceipt) để lấy địa chỉ hợp đồng.
 
 **Ví dụ**
-
-| eth_sendRawTransaction <a id="eth_sendrawtransaction"></a> | Tạo giao dịch gọi ra thông báo mới hoặc tạo hợp đồng cho giao dịch đã ký. |
-| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| **Tham số**                                                                     | Loại                                                                     |
-
-Mô tả
-
-| DATA               | Dữ liệu của giao dịch đã ký. |
-| ------------------ | ---------------------------- |
-| **Giá trị trả về** | Loại                        |
-
-Mô tả
-
-DỮ LIỆU 32 byte
 
 ```shell
 params: ["0x02f8738203e982022980850ba43b740082f61894a2a8854b1802d8cd5de631e690817c253d6a9153888ac7230489e8000080c001a0493a13b7eb1ad33c0b9043e4de1f2a5e8736407c8f039dd91b8bcba847c6b21ca0060b8063e42f8acc2bcc7d9d2e454491666452f3683cbc0dd768604b27bce6e3"]
@@ -601,41 +601,41 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 }
 ```
 
-## Hàm băm của giao dịch hoặc giá trị băm bằng 0 nếu chưa có giao dịch.
+## eth_sendTransaction <a id="eth_sendtransaction"></a>
 
-Nếu bạn đã triển khai hợp đồng, hãy sử dụng [eth_getTransactionReceipt](#eth_gettransactionreceipt) để lấy địa chỉ hợp đồng.
+Tạo giao dịch với các tham số cho trước, ký giao dịch bằng khóa riêng tư của người gửi và truyền giao dịch đến mạng lưới Klaytn.
 transaction to Klaytn network.
 
+**LƯU Ý**: Địa chỉ để ký phải ở trạng thái mở khóa.
+
+**Tham số**:
+
+| Tên             | type      | Mô tả                                                                                        |
+| --------------- | --------- | -------------------------------------------------------------------------------------------- |
+| transactionArgs | Đối tượng | Đối tượng chứa các đối số giao dịch. Xem bảng dưới đây để biết các thuộc tính của đối tượng. |
+
+`transactionArgs` có các thuộc tính như sau:
+
+| Tên                  | type            | Mô tả                                                                                                                                                                             |
+| -------------------- | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| từ                   | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được gửi đi.                                                                                                                                                 |
+| đến                  | DỮ LIỆU 20 byte | (không bắt buộc khi tạo hợp đồng mới) Địa chỉ mà giao dịch được gửi đến.                                                                                       |
+| gas                  | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên của đơn vị gas được cung cấp để thực thi giao dịch. Nó sẽ trả về gas chưa được sử dụng.                                              |
+| maxFeePerGas         | SỐ LƯỢNG        | (optional) The maximum amount to pay for the transaction's execution.                                                                                          |
+| maxPriorityFeePerGas | SỐ LƯỢNG        | (optional) Gas tip cap for dynamic fee transaction in peb.                                                                                                     |
+| nhập                 | DATA            | (tùy chọn) Hàm băm của chữ ký phương pháp và tham số mã hóa. Dùng để thay thế trường `data`, nhưng trường 'data' vẫn được hỗ trợ để đảm bảo tương thích ngược. |
+| giá trị              | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên chỉ giá trị được gửi cùng với giao dịch.                                                                                             |
+| nonce                | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên của số dùng một lần.                                                                                                                 |
+
+**Giá trị trả về**
+
+| Loại           | Mô tả                                                                |
+| --------------- | -------------------------------------------------------------------- |
+| DỮ LIỆU 32 byte | Hàm băm của giao dịch hoặc giá trị băm bằng 0 nếu chưa có giao dịch. |
+
+Nếu bạn đã triển khai hợp đồng, hãy sử dụng [eth_getTransactionReceipt](#eth_gettransactionreceipt) để lấy địa chỉ hợp đồng.
+
 **Ví dụ**
-
-eth_sendTransaction <a id="eth_sendtransaction"></a>
-
-| Tạo giao dịch với các tham số cho trước, ký giao dịch bằng khóa riêng tư của người gửi và truyền giao dịch đến mạng lưới Klaytn. | **LƯU Ý**: Địa chỉ để ký phải ở trạng thái mở khóa. | **Tham số**:          |
-| -------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- | --------------------- |
-| Tên                                                                                                                              | type                                                | Mô tả transactionArgs |
-
-Đối tượng
-
-| Đối tượng chứa các đối số giao dịch. | Xem bảng dưới đây để biết các thuộc tính của đối tượng.                                          | `transactionArgs` có các thuộc tính như sau:                                                      |
-| ------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------- |
-| Tên                                  | type                                                                                             | Mô tả                                                                                             |
-| từ                                   | DỮ LIỆU 20 byte                                                                                  | Địa chỉ mà giao dịch được gửi đi.                                                                 |
-| đến                                  | DỮ LIỆU 20 byte                                                                                  | (không bắt buộc khi tạo hợp đồng mới) Địa chỉ mà giao dịch được gửi đến. gas   |
-| SỐ LƯỢNG                             | (tùy chọn) Giá trị nguyên của đơn vị gas được cung cấp để thực thi giao dịch. | Nó sẽ trả về gas chưa được sử dụng.                                                               |
-| maxFeePerGas                         | SỐ LƯỢNG                                                                                         | (optional) The maximum amount to pay for the transaction's execution.          |
-| maxPriorityFeePerGas                 | SỐ LƯỢNG                                                                                         | (optional) Gas tip cap for dynamic fee transaction in peb. nhập                |
-| DATA                                 | (tùy chọn) Hàm băm của chữ ký phương pháp và tham số mã hóa.                  | Dùng để thay thế trường `data`, nhưng trường 'data' vẫn được hỗ trợ để đảm bảo tương thích ngược. |
-| giá trị                              | SỐ LƯỢNG                                                                                         | (tùy chọn) Giá trị nguyên chỉ giá trị được gửi cùng với giao dịch.             |
-
-nonce
-
-| SỐ LƯỢNG           | (tùy chọn) Giá trị nguyên của số dùng một lần. |
-| ------------------ | ----------------------------------------------------------------- |
-| **Giá trị trả về** | Loại                                                             |
-
-Mô tả
-
-DỮ LIỆU 32 byte
 
 ```shell
 // Request
@@ -649,59 +649,59 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 }
 ```
 
-## Hàm băm của giao dịch hoặc giá trị băm bằng 0 nếu chưa có giao dịch.
+## eth_signTransaction <a id="eth_signtransaction"></a>
 
-Nếu bạn đã triển khai hợp đồng, hãy sử dụng [eth_getTransactionReceipt](#eth_gettransactionreceipt) để lấy địa chỉ hợp đồng.
+Ký một giao dịch mà sau này có thể được gửi đến mạng bằng cách sử dụng eth_sendRawTransaction.
+
+**LƯU Ý**: Địa chỉ để ký phải ở trạng thái mở khóa.
+
+**Tham số**:
+
+| Tên             | type      | Mô tả                                                                                        |
+| --------------- | --------- | -------------------------------------------------------------------------------------------- |
+| transactionArgs | Đối tượng | Đối tượng chứa các đối số giao dịch. Xem bảng dưới đây để biết các thuộc tính của đối tượng. |
+
+`transactionArgs` có các thuộc tính như sau:
+
+| Tên                  | Loại           | Mô tả                                                                                                                                                                             |
+| -------------------- | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| từ                   | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được gửi đi.                                                                                                                                                 |
+| đến                  | DỮ LIỆU 20 byte | (không bắt buộc khi tạo hợp đồng mới) Địa chỉ mà giao dịch được gửi đến.                                                                                       |
+| gas                  | SỐ LƯỢNG        | Giá trị nguyên chỉ lượng gas được cung cấp để thực thi giao dịch. Nó sẽ trả về gas chưa được sử dụng.                                                                             |
+| maxFeePerGas         | SỐ LƯỢNG        | The maximum amount to pay for the transaction's execution.                                                                                                                        |
+| maxPriorityFeePerGas | SỐ LƯỢNG        | Gas tip cap for dynamic fee transaction in peb.                                                                                                                                   |
+| nhập                 | DATA            | (tùy chọn) Hàm băm của chữ ký phương pháp và tham số mã hóa. Dùng để thay thế trường `data`, nhưng trường 'data' vẫn được hỗ trợ để đảm bảo tương thích ngược. |
+| giá trị              | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên chỉ giá trị được gửi cùng với giao dịch.                                                                                             |
+| nonce                | SỐ LƯỢNG        | Giá trị nguyên chỉ số dùng một lần.                                                                                                                                               |
+
+**Giá trị trả về**
+
+`Object` - Đối tượng giao dịch đã ký.
+
+| Tên | type      | Mô tả                                                                     |
+| --- | --------- | ------------------------------------------------------------------------- |
+| raw | DATA      | Chuỗi `rawTransaction` (chuỗi giao dịch mã hóa RLP).   |
+| tx  | Đối tượng | Đối tượng giao dịch. Xem bảng tiếp theo để biết thuộc tính của đối tượng. |
+
+`tx` có các thuộc tính như sau:
+
+| Tên                  | Loại           | Mô tả                                                                                                           |
+| -------------------- | --------------- | --------------------------------------------------------------------------------------------------------------- |
+| type                 | SỐ LƯỢNG        | Giá trị nguyên biểu thị loại giao dịch.                                                                         |
+| nonce                | SỐ LƯỢNG        | Số khối chứa giao dịch này.                                                                                     |
+| giá gas              | SỐ LƯỢNG        | Giá gas được người gửi cung cấp theo đơn vị peb. `null` nếu đó là không phải là giao dịch cũ.                   |
+| maxFeePerGas         | SỐ LƯỢNG        | Số tiền tối đa chi trả cho việc thực thi giao dịch. `null` nếu đó là giao dịch cũ.                              |
+| maxPriorityFeePerGas | SỐ LƯỢNG        | Giới hạn tối đa phí gas trả thêm đối với giao dịch phí biến đổi theo đơn vị peb. `null` nếu đó là giao dịch cũ. |
+| gas                  | SỐ LƯỢNG        | Gas được người gửi cung cấp.                                                                                    |
+| giá trị              | SỐ LƯỢNG        | Giá trị nguyên chỉ giá trị được gửi cùng với giao dịch.                                                         |
+| v                    | SỐ LƯỢNG        | Mã khôi phục ECDSA.                                                                                             |
+| r                    | DỮ LIỆU 32 byte | Chữ ký ECDSA r.                                                                                                 |
+| s                    | DỮ LIỆU 32 byte | Chữ ký ECDSA s.                                                                                                 |
+| chainId              | SỐ LƯỢNG        | Mã chuỗi được đặt trên nút yêu cầu.                                                                             |
+| accessList           | Mảng            | Mảng [Danh sách truy cập](https://eips.ethereum.org/EIPS/eip-2930).                                             |
+| hash                 | DỮ LIỆU 32 byte | Hàm băm của giao dịch.                                                                                          |
 
 **Ví dụ**
-
-eth_signTransaction <a id="eth_signtransaction"></a>
-
-| Ký một giao dịch mà sau này có thể được gửi đến mạng bằng cách sử dụng eth_sendRawTransaction. | **LƯU Ý**: Địa chỉ để ký phải ở trạng thái mở khóa. | **Tham số**:          |
-| ------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- | --------------------- |
-| Tên                                                                                                                 | type                                                | Mô tả transactionArgs |
-
-Đối tượng
-
-| Đối tượng chứa các đối số giao dịch. | Xem bảng dưới đây để biết các thuộc tính của đối tượng.                         | `transactionArgs` có các thuộc tính như sau:                                                      |
-| ------------------------------------ | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| Tên                                  | Loại                                                                           | Mô tả                                                                                             |
-| từ                                   | DỮ LIỆU 20 byte                                                                 | Địa chỉ mà giao dịch được gửi đi.                                                                 |
-| đến                                  | DỮ LIỆU 20 byte                                                                 | (không bắt buộc khi tạo hợp đồng mới) Địa chỉ mà giao dịch được gửi đến. gas   |
-| SỐ LƯỢNG                             | Giá trị nguyên chỉ lượng gas được cung cấp để thực thi giao dịch.               | Nó sẽ trả về gas chưa được sử dụng.                                                               |
-| maxFeePerGas                         | SỐ LƯỢNG                                                                        | The maximum amount to pay for the transaction's execution.                                        |
-| maxPriorityFeePerGas                 | SỐ LƯỢNG                                                                        | Gas tip cap for dynamic fee transaction in peb. nhập                                              |
-| DATA                                 | (tùy chọn) Hàm băm của chữ ký phương pháp và tham số mã hóa. | Dùng để thay thế trường `data`, nhưng trường 'data' vẫn được hỗ trợ để đảm bảo tương thích ngược. |
-| giá trị                              | SỐ LƯỢNG                                                                        | (tùy chọn) Giá trị nguyên chỉ giá trị được gửi cùng với giao dịch.             |
-
-nonce
-
-SỐ LƯỢNG
-
-| Giá trị nguyên chỉ số dùng một lần. | **Giá trị trả về** | `Object` - Đối tượng giao dịch đã ký.                                      |
-| ----------------------------------- | ------------------ | -------------------------------------------------------------------------- |
-| Tên                                 | type               | Mô tả                                                                      |
-| raw                                 | DATA               | Chuỗi `rawTransaction` (chuỗi giao dịch mã hóa RLP). tx |
-
-Đối tượng
-
-| Đối tượng giao dịch. | Xem bảng tiếp theo để biết thuộc tính của đối tượng.                             | `tx` có các thuộc tính như sau:                                     |
-| -------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| Tên                  | Loại                                                                            | Mô tả                                                               |
-| type                 | SỐ LƯỢNG                                                                         | Giá trị nguyên biểu thị loại giao dịch.                             |
-| nonce                | SỐ LƯỢNG                                                                         | Số khối chứa giao dịch này. giá gas                                 |
-| SỐ LƯỢNG             | Giá gas được người gửi cung cấp theo đơn vị peb.                                 | `null` nếu đó là không phải là giao dịch cũ. maxFeePerGas           |
-| SỐ LƯỢNG             | Số tiền tối đa chi trả cho việc thực thi giao dịch.                              | `null` nếu đó là giao dịch cũ. maxPriorityFeePerGas                 |
-| SỐ LƯỢNG             | Giới hạn tối đa phí gas trả thêm đối với giao dịch phí biến đổi theo đơn vị peb. | `null` nếu đó là giao dịch cũ.                                      |
-| gas                  | SỐ LƯỢNG                                                                         | Gas được người gửi cung cấp.                                        |
-| giá trị              | SỐ LƯỢNG                                                                         | Giá trị nguyên chỉ giá trị được gửi cùng với giao dịch.             |
-| v                    | SỐ LƯỢNG                                                                         | Mã khôi phục ECDSA.                                                 |
-| r                    | DỮ LIỆU 32 byte                                                                  | Chữ ký ECDSA r.                                                     |
-| s                    | DỮ LIỆU 32 byte                                                                  | Chữ ký ECDSA s.                                                     |
-| chainId              | SỐ LƯỢNG                                                                         | Mã chuỗi được đặt trên nút yêu cầu.                                 |
-| accessList           | Mảng                                                                             | Mảng [Danh sách truy cập](https://eips.ethereum.org/EIPS/eip-2930). |
-
-hash
 
 ```json
 {
@@ -730,20 +730,20 @@ hash
 }
 ```
 
-## DỮ LIỆU 32 byte
+## eth_fillTransaction <a id="eth_filltransaction"></a>
 
-Hàm băm của giao dịch.
+Điền các giá trị mặc định (các trường nonce, gas, gasPrice hoặc 1559) cho một giao dịch chưa được ký cho trước, và trả về cho người gọi để tiếp tục xử lý (ký + phát sóng).
 for further processing (signing + broadcast).
-
-**Ví dụ**
-
-eth_fillTransaction <a id="eth_filltransaction"></a> Điền các giá trị mặc định (các trường nonce, gas, gasPrice hoặc 1559) cho một giao dịch chưa được ký cho trước, và trả về cho người gọi để tiếp tục xử lý (ký + phát sóng).
 
 **Tham số**:
 
-Tham số giống như hàm eth_sendTransaction.
+Tham số giống như hàm eth_sendTransaction. Tham khảo [eth_sendtransaction](#eth_sendtransaction).
 
-Tham khảo [eth_sendtransaction](#eth_sendtransaction).
+**Giá trị trả về**
+
+Tham khảo [eth_signTransaction](#eth_signtransaction).
+
+**Ví dụ**
 
 ```shell
 // Request
@@ -776,22 +776,22 @@ curl http://localhost:8551 -H "Content-Type: application/json" --data '{"jsonrpc
 }
 ```
 
-## **Giá trị trả về**
-
-Tham khảo [eth_signTransaction](#eth_signtransaction).
-manages.
-
-**Ví dụ**
-
-eth_pendingTransactions <a id="eth_pendingtransactions"></a>
+## eth_pendingTransactions <a id="eth_pendingtransactions"></a>
 
 Trả về các giao dịch thuộc nhóm giao dịch chờ (transaction pool) và có địa chỉ gửi là một trong các tài khoản mà nút này quản lý.
+manages.
 
-| **Tham số**: | Không có | **Giá trị trả về**        |
-| ------------ | -------- | ------------------------- |
-| Tên          | type     | Mô tả pendingTransactions |
+**Tham số**:
 
-Mảng
+Không có
+
+**Giá trị trả về**
+
+| Tên                 | type | Mô tả                                                                                                                              |
+| ------------------- | ---- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| pendingTransactions | Mảng | Mảng các giao dịch. Đối với đối tượng giao dịch trả về, tham khảo [eth_signTransaction](#eth_signtransaction) |
+
+**Ví dụ**
 
 ```shell
 // Request
@@ -827,42 +827,42 @@ curl http://localhost:8551 -H "Content-Type: application/json" --data '{"jsonrpc
 }
 ```
 
-## Mảng các giao dịch.
-
-Đối với đối tượng giao dịch trả về, tham khảo [eth_signTransaction](#eth_signtransaction)
-
-**Ví dụ**
-
-eth_resend <a id="eth_resend"></a>
+## eth_resend <a id="eth_resend"></a>
 
 Resends a transaction.
 
-| It will remove the given transaction from the pool and reinsert it with the new gas price and limit. | **NOTE**: The address to sign with must be unlocked. | **Parameters**:                                  |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------- | ------------------------------------------------ |
-| Name                                                                                                 | Type                                                 | Description transactionArgs                      |
-| Object                                                                                               | An object of transaction arguments.                  | See the table below for the object's properties. |
-| gas price                                                                                            | QUANTITY                                             | Integer of the gasPrice to change                |
+It will remove the given transaction from the pool and reinsert it with the new gas price and limit.
 
-gas
+**NOTE**: The address to sign with must be unlocked.
 
-| QUANTITY             | (optional) Integer of the gas to change                                     | `transactionArgs` has the following properties:                                            |
-| -------------------- | ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Name                 | Type                                                                                           | Description                                                                                |
-| from                 | 20-byte DATA                                                                                   | The address from which the transaction is sent.                                            |
-| to                   | 20-byte DATA                                                                                   | The address to which the transaction is directed. gas                                      |
-| QUANTITY             | (optional) The integer of the gas provided for the transaction's execution. | It will return unused gas.                                                                 |
-| maxFeePerGas         | QUANTITY                                                                                       | (optional) The maximum amount to pay for the transaction's execution.   |
-| maxPriorityFeePerGas | QUANTITY                                                                                       | (optional) Gas tip cap for dynamic fee transaction in peb. input        |
-| DATA                 | (optional) The hash of the method signature and the encoded parameter.      | It replaces `data` field, but 'data\` field is still supported for backward compatibility. |
-| value                | QUANTITY                                                                                       | (optional) The integer of values sent with this transaction.            |
+**Parameters**:
 
-nonce
+| Name            | Type     | Description                                                                          |
+| --------------- | -------- | ------------------------------------------------------------------------------------ |
+| transactionArgs | Object   | An object of transaction arguments. See the table below for the object's properties. |
+| gas price       | QUANTITY | Integer of the gasPrice to change                                                    |
+| gas             | QUANTITY | (optional) Integer of the gas to change                           |
 
-| QUANTITY         | (optional) The integer of a nonce. |
-| ---------------- | ----------------------------------------------------- |
-| **Return Value** | Type                                                  |
+`transactionArgs` has the following properties:
 
-Description
+| Name                 | Type         | Description                                                                                                                                                                          |
+| -------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| from                 | 20-byte DATA | The address from which the transaction is sent.                                                                                                                                      |
+| to                   | 20-byte DATA | The address to which the transaction is directed.                                                                                                                                    |
+| gas                  | QUANTITY     | (optional) The integer of the gas provided for the transaction's execution. It will return unused gas.                                                            |
+| maxFeePerGas         | QUANTITY     | (optional) The maximum amount to pay for the transaction's execution.                                                                                             |
+| maxPriorityFeePerGas | QUANTITY     | (optional) Gas tip cap for dynamic fee transaction in peb.                                                                                                        |
+| input                | DATA         | (optional) The hash of the method signature and the encoded parameter. It replaces `data` field, but 'data\` field is still supported for backward compatibility. |
+| value                | QUANTITY     | (optional) The integer of values sent with this transaction.                                                                                                      |
+| nonce                | QUANTITY     | (optional) The integer of a nonce.                                                                                                                                |
+
+**Return Value**
+
+| Type         | Description          |
+| ------------ | -------------------- |
+| 32-byte DATA | The transaction hash |
+
+**Example**
 
 ```shell
 > var tx = eth.pendingTransactions()[0]
