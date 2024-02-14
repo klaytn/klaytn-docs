@@ -6,22 +6,22 @@
 caver.klay.call(callObject [, defaultBlock] [, callback])
 ```
 
-Executes a message call transaction, which is directly executed in the Klaytn
+Thực thi một giao dịch lệnh gọi thông điệp, được thực thi trực tiếp trên máy ảo Klaytn của nút mạng, nhưng không bao giờ được đào vào chuỗi khối.
 Virtual Machine of the node, but never mined into the blockchain.
 
-**Parameters**
+**Tham số**
 
-| Name         | Type             | Description                                                                                                                                                                                                                    |
-| ------------ | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| callObject   | Object           | A transaction object with the difference that for calls the from property is optional as well. [An encoded function call](../../caver.klay.abi.md#encodefunctioncall) must be set in the data field of the transaction object. |
-| defaultBlock | Number \| String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](../block.md#defaultblock).                                                                      |
-| callback     | Function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                                  |
+| Tên          | type        | Mô tả                                                                                                                                                                                                                          |
+| ------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| callObject   | Đối tượng   | Một đối tượng giao dịch khác biệt ở chỗ đối với các lệnh gọi, thuộc tính "from" là tùy chọn. [Một lệnh gọi hàm mã hóa](../../caver.klay.abi.md#encodefunctioncall) phải được đặt trong trường dữ liệu của đối tượng giao dịch. |
+| defaultBlock | Số \| Chuỗi | (tùy chọn) Nếu bạn truyền tham số này thì tham số này sẽ không sử dụng khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](../block.md#defaultblock).                                           |
+| callback     | Hàm         | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                                                                             |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `String`: The returned data of the call, _e.g._, a smart contract functions return value.
+`Promise` trả về `String`: Dữ liệu trả về của lệnh gọi, _ví dụ_, giá trị trả về của một hàm trong hợp đồng thông minh.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.klay.call({
@@ -39,20 +39,20 @@ Virtual Machine of the node, but never mined into the blockchain.
 caver.klay.estimateGas(callObject [, callback])
 ```
 
-Executes a message call or transaction and returns the amount of the gas used for the simulated call/transaction.
+Thực thi một lệnh gọi thông điệp hoặc giao dịch và trả về số lượng gas đã sử dụng cho lệnh gọi/giao dịch mô phỏng.
 
-**Parameters**
+**Tham số**
 
-| Name       | Type     | Description                                                                                                                                                                                                                    |
-| ---------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| callObject | Object   | A transaction object with the difference that for calls the from property is optional as well. [An encoded function call](../../caver.klay.abi.md#encodefunctioncall) must be set in the data field of the transaction object. |
-| callback   | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                                  |
+| Tên        | Loại     | Mô tả                                                                                                                                                                                                                          |
+| ---------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| callObject | Đối tượng | Một đối tượng giao dịch khác biệt ở chỗ đối với các lệnh gọi, thuộc tính "from" là tùy chọn. [Một lệnh gọi hàm mã hóa](../../caver.klay.abi.md#encodefunctioncall) phải được đặt trong trường dữ liệu của đối tượng giao dịch. |
+| callback   | Hàm       | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                                                                             |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Number` - the used gas for the simulated call/transaction.
+`Promise` trả về `Number` - đơn vị gas đã sử dụng cho lệnh gọi/giao dịch mô phỏng.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.klay.estimateGas({
@@ -70,23 +70,23 @@ Executes a message call or transaction and returns the amount of the gas used fo
 caver.klay.estimateComputationCost(callObject [, defaultBlock] [, callback])
 ```
 
-Generates and returns an estimate of how much computation cost will be spent to execute the transaction.
-Klaytn limits the computation cost of a transaction to `100000000` currently not to take too much time by a single transaction.
-The transaction will not be added to the blockchain.
+Tạo và trả về chi phí tính toán ước tính sẽ được sử dụng để thực hiện giao dịch.
+Klaytn giới hạn chi phí tính toán của một giao dịch ở mức `100000000`, hiện không mất quá nhiều thời gian cho một giao dịch.g mất quá nhiều.
+Giao dịch sẽ không được thêm vào chuỗi khối.
 
-**Parameters**
+**Tham số**
 
-| Name         | Type             | Description                                                                                                                                                                                                                    |
-| ------------ | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| callObject   | Object           | A transaction object with the difference that for calls the from property is optional as well. [An encoded function call](../../caver.klay.abi.md#encodefunctioncall) must be set in the data field of the transaction object. |
-| defaultBlock | Number \| String | (optional) If you don't pass this parameter, the default block set by [caver.klay.defaultBlock](../block.md#defaultblock) will be used.                                                                     |
-| callback     | Function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                                  |
+| Tên          | type        | Mô tả                                                                                                                                                                                                                          |
+| ------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| callObject   | Đối tượng   | Một đối tượng giao dịch khác biệt ở chỗ đối với các lệnh gọi, thuộc tính "from" là tùy chọn. [Một lệnh gọi hàm mã hóa](../../caver.klay.abi.md#encodefunctioncall) phải được đặt trong trường dữ liệu của đối tượng giao dịch. |
+| defaultBlock | Số \| Chuỗi | (tùy chọn) Nếu bạn truyền tham số này, khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](../block.md#defaultblock) sẽ được sử dụng.                                                           |
+| callback     | Hàm         | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                                                                             |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Number` - The amount of computation cost used.
+`Promise` trả về `Number` - Lượng chi phí tính toán được sử dụng.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.klay.estimateComputationCost({
@@ -109,26 +109,26 @@ The transaction will not be added to the blockchain.
 caver.klay.decodeTransaction(rawTransaction)
 ```
 
-Returns a transaction object containing all decoded values from the given `rawTransaction`, an RLP-encoded transaction.
-Since all transaction types except for legacy transaction can have multiple signatures of sender and fee payer, the existing returned fields v, r, s and payerV, payerR, payerS are the 0th signature of sender and fee payer.
+Trả về một đối tượng giao dịch chứa tất cả các giá trị giải mã từ giao dịch `rawTransaction` cho trước, đây là giao dịch mã hóa RLP.
+Do tất cả các loại giao dịch ngoại trừ giao dịch cũ đều có thể có nhiều chữ ký của người gửi và người trả phí, các trường trả về hiện có bao gồm v, r, s và payerV, payerR, payerS là chữ ký đầu tiên (thứ tự 0) của người gửi và người trả phí.
 
-**NOTE** caver.klay.decodeTransaction is supported from **v1.0.1-rc.8**.  To use this feature, please install [v1.0.1-rc.8](https://www.npmjs.com/package/caver-js/v/1.0.1-rc.8) or higher.
+**LƯU Ý** caver.klay.decodeTransaction được hỗ trợ kể từ phiên bản **v1.0.1-rc.8**.  Để sử dụng tính năng này, hãy cài đặt từ phiên bản [v1.0.1-rc.8](https://www.npmjs.com/package/caver-js/v/1.0.1-rc.8) trở lên.
 
-**NOTE** To support multiple signature, `signatures` and `feePayerSignatures` properties have been added since caver-js [v1.2.0-rc.3](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.3).
+**LƯU Ý** Để hỗ trợ chế độ đa chữ ký, các thuộc tính `signatures` và `feePayerSignatures` đã được thêm vào kể từ phiên bản caver-js [v1.2.0-rc.3](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.3).
 
-**Parameters**
+**Tham số**
 
-| Name           | Type   | Description                   |
-| -------------- | ------ | ----------------------------- |
-| rawTransaction | String | RLP encoded transaction data. |
+| Tên            | Loại | Mô tả                             |
+| -------------- | ----- | --------------------------------- |
+| rawTransaction | Chuỗi | Dữ liệu của giao dịch mã hóa RLP. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type   | Description                                                                                                                                                                                                               |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Object | A transaction object. Depending on the transaction type, the returned transaction object has different properties. For the list of properties included in each transaction type, see [SendTransaction](#sendtransaction). |
+| Loại     | Mô tả                                                                                                                                                                                                                     |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Đối tượng | Đối tượng giao dịch. Đối tượng giao dịch trả về sẽ có các thuộc tính khác nhau tùy thuộc vào loại giao dịch. Để biết danh sách các thuộc tính có trong mỗi loại giao dịch, tham khảo [SendTransaction](#sendtransaction). |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 // Basic Transaction
@@ -228,44 +228,44 @@ Since all transaction types except for legacy transaction can have multiple sign
 caver.klay.getTransaction(transactionHash [, callback])
 ```
 
-Returns a transaction matching the given transaction hash.
+Trả về giao dịch khớp với hàm băm giao dịch đã cho.
 
-**Parameters**
+**Tham số**
 
-| Name            | Type     | Description                                                                                                                   |
-| --------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| transactionHash | String   | The transaction hash.                                                                                                         |
-| callback        | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên             | type  | Mô tả                                                                                                                              |
+| --------------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| transactionHash | Chuỗi | Hàm băm của giao dịch.                                                                                                             |
+| callback        | Hàm   | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Object` - A transaction object, or `null` when no transaction was found:
+`Promise` trả về `đối tượng` - Một đối tượng giao dịch hoặc `null` khi không tìm thấy giao dịch:
 
-| Name               | Type         | Description                                                                                                                                                                                                                                        |
-| ------------------ | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockHash          | 32-byte DATA | Hash of the block where this transaction was in. `null` when it is pending.                                                                                                                                                                        |
-| blockNumber        | QUANTITY     | Block number where this transaction was in. `null` when it is pending.                                                                                                                                                                             |
-| codeFormat         | String       | (optional) The code format of smart contract code.                                                                                                                                                                              |
-| feePayer           | 20-byte DATA | (optional) Address of the fee payer.                                                                                                                                                                                            |
-| feePayerSignatures | Array        | (optional) An array of fee payer's signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
-| feeRatio           | QUANTITY     | (optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender.                                                                                               |
-| from               | 20-byte DATA | Address of the sender.                                                                                                                                                                                                                             |
-| gas                | QUANTITY     | Gas provided by the sender.                                                                                                                                                                                                                        |
-| gasPrice           | QUANTITY     | Gas price provided by the sender in peb.                                                                                                                                                                                                           |
-| hash               | 32-byte DATA | Hash of the transaction.                                                                                                                                                                                                                           |
-| humanReadable      | Boolean      | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable.                                                                                                                                 |
-| key                | String       | (optional) Key of the newly created account.                                                                                                                                                                                    |
-| input              | DATA         | (optional) The data sent along with the transaction.                                                                                                                                                                            |
-| nonce              | QUANTITY     | The number of transactions made by the sender prior to this one.                                                                                                                                                                                   |
-| senderTxHash       | 32-byte DATA | (optional) Hash of the tx without the fee payer's address and signature. This value is always the same as the value of `hash` for non fee-delegated transactions.                                                               |
-| signatures         | Array        | An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.                                           |
-| to                 | 20-byte DATA | Address of the receiver. `null` when it is a contract creation transaction.                                                                                                                                                                        |
-| transactionIndex   | QUANTITY     | Integer of the transaction index position in the block. `null` when it is pending.                                                                                                                                                                 |
-| type               | String       | A string representing the type of the transaction.                                                                                                                                                                                                 |
-| typeInt            | QUANTITY     | An integer representing the type of the transaction.                                                                                                                                                                                               |
-| value              | QUANTITY     | Value transferred in peb.                                                                                                                                                                                                                          |
+| Tên                | Loại           | Mô tả                                                                                                                                                                                                                            |
+| ------------------ | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockHash          | DỮ LIỆU 32 byte | Hàm băm của khối chứa giao dịch này. `null` nếu đó là giao dịch đang chờ xử lý.                                                                                                                                                  |
+| blockNumber        | SỐ LƯỢNG        | Số khối chứa giao dịch này. `null` nếu đó là giao dịch đang chờ xử lý.                                                                                                                                                           |
+| codeFormat         | Chuỗi           | (tùy chọn) Định dạng mã của mã hợp đồng thông minh.                                                                                                                                                           |
+| feePayer           | DỮ LIỆU 20 byte | (tùy chọn) Địa chỉ của người trả phí.                                                                                                                                                                         |
+| feePayerSignatures | Mảng            | (tùy chọn) Mảng các đối tượng chữ ký của người trả phí. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa mã khôi phục ECDSA. R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s. |
+| feeRatio           | SỐ LƯỢNG        | (tùy chọn) Tỷ lệ phí của người trả phí. Nếu tỷ lệ là 30 thì người trả phí phải trả 30% phí. 70% còn lại sẽ được trả bởi người gửi.                                                                            |
+| từ                 | DỮ LIỆU 20 byte | Địa chỉ của người gửi.                                                                                                                                                                                                           |
+| gas                | SỐ LƯỢNG        | Gas được người gửi cung cấp.                                                                                                                                                                                                     |
+| giá gas            | SỐ LƯỢNG        | Giá gas được người gửi cung cấp theo đơn vị peb.                                                                                                                                                                                 |
+| hash               | DỮ LIỆU 32 byte | Hàm băm của giao dịch.                                                                                                                                                                                                           |
+| humanReadable      | Boolean         | (tùy chọn) `true` nếu địa chỉ con người có thể đọc được, ngược lại sẽ là `false`.                                                                                                                             |
+| khóa               | Chuỗi           | (tùy chọn) Mã khóa của tài khoản mới tạo.                                                                                                                                                                     |
+| nhập               | DATA            | (tùy chọn) Dữ liệu được gửi cùng với giao dịch.                                                                                                                                                               |
+| nonce              | SỐ LƯỢNG        | Số lượng giao dịch được người gửi thực hiện trước giao dịch này.                                                                                                                                                                 |
+| senderTxHash       | DỮ LIỆU 32 byte | (tùy chọn) Hàm băm của tx mà không có địa chỉ và chữ ký của người trả phí. Giá trị này luôn giống với giá trị của `hash` đối với các giao dịch không ủy thác trả phí.                                         |
+| chữ ký             | Mảng            | Một mảng các đối tượng chữ ký. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa mã khôi phục ECDSA. R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s.                                             |
+| đến                | DỮ LIỆU 20 byte | Địa chỉ của người nhận. `null` nếu đó là giao dịch tạo hợp đồng.                                                                                                                                                                 |
+| transactionIndex   | SỐ LƯỢNG        | Giá trị nguyên biểu thị vị trí chỉ mục của giao dịch trong khối. `null` nếu đó là giao dịch đang chờ xử lý.                                                                                                                      |
+| type               | Chuỗi           | Chuỗi biểu thị loại giao dịch.                                                                                                                                                                                                   |
+| typeInt            | SỐ LƯỢNG        | Giá trị nguyên biểu thị loại giao dịch.                                                                                                                                                                                          |
+| giá trị            | SỐ LƯỢNG        | Giá trị được chuyển tính bằng đơn vị peb.                                                                                                                                                                                        |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.klay.getTransaction('0x2d26f602cfbb4c662931592bf2c4ee18d29f09683be5b9e8d589ff935fca0b97')
@@ -298,46 +298,46 @@ Returns a transaction matching the given transaction hash.
 caver.klay.getTransactionBySenderTxHash(senderTxHash [, callback])
 ```
 
-Returns the information about the transaction identified by the given `senderTxHash`.
-Please note that this API returns correct result only if the indexing feature is enabled in the node by `--sendertxhashindexing`.
-Use [isSenderTxHashIndexingEnabled](../config.md#issendertxhashindexingenabled) to check if the indexing feature is enabled or not.
+Trả về thông tin về giao dịch được xác định bởi giá trị `senderTxHash` cho trước.
+Xin lưu ý rằng API này chỉ trả về kết quả chính xác nếu tính năng lập chỉ mục được bật trong nút mạng bởi `--sendertxhashindexing`.
+Sử dụng thuộc tính [isSenderTxHashIndexingEnabled](../config.md#issendertxhashindexingenabled) để kiểm tra xem tính năng lập chỉ mục đã được bật hay chưa.
 
-**Parameters**
+**Tham số**
 
-| Name         | Type     | Description                                                                                                                                     |
-| ------------ | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| senderTxHash | String   | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../../../learn/transactions/transactions.md#sendertxhash). |
-| callback     | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                   |
+| Tên          | Loại | Mô tả                                                                                                                                         |
+| ------------ | ----- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| senderTxHash | Chuỗi | Hàm băm của một giao dịch chỉ được người gửi ký. Tham khảo [SenderTxHash](../../../../../../learn/transactions/transactions.md#sendertxhash). |
+| callback     | Hàm   | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.            |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Object` - A transaction object, or `null` when no transaction was found:
+`Promise` trả về `đối tượng` - Một đối tượng giao dịch hoặc `null` khi không tìm thấy giao dịch:
 
-| Name               | Type         | Description                                                                                                                                                                                                                 |
-| ------------------ | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockHash          | 32-byte DATA | Hash of the block where this transaction was in. `null` when it is pending.                                                                                                                                                 |
-| blockNumber        | QUANTITY     | Block number where this transaction was in. `null` when it is pending.                                                                                                                                                      |
-| codeFormat         | String       | (optional) The code format of smart contract code.                                                                                                                                                       |
-| feePayer           | 20-byte DATA | Address of the fee payer.                                                                                                                                                                                                   |
-| feePayerSignatures | Array        | An array of fee payer's signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.        |
-| feeRatio           | QUANTITY     | (optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender.                                                                        |
-| from               | 20-byte DATA | Address of the sender.                                                                                                                                                                                                      |
-| gas                | QUANTITY     | Gas provided by the sender.                                                                                                                                                                                                 |
-| gasPrice           | QUANTITY     | Gas price provided by the sender in peb.                                                                                                                                                                                    |
-| hash               | 32-byte DATA | Hash of the transaction.                                                                                                                                                                                                    |
-| humanReadable      | Boolean      | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable.                                                                                                          |
-| key                | String       | (optional) Key of the newly created account.                                                                                                                                                             |
-| input              | DATA         | (optional) The data sent along with the transaction.                                                                                                                                                     |
-| nonce              | QUANTITY     | The number of transactions made by the sender prior to this one.                                                                                                                                                            |
-| senderTxHash       | 32-byte DATA | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../../../learn/transactions/transactions.md#sendertxhash). This value is always the same as `hash` for non fee-delegated transactions. |
-| signatures         | Array        | An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.                    |
-| to                 | 20-byte DATA | Address of the receiver. `null` when it is a contract creation transaction.                                                                                                                                                 |
-| transactionIndex   | QUANTITY     | Integer of the transaction index position in the block. `null` when it is pending.                                                                                                                                          |
-| type               | String       | A string representing the type of the transaction.                                                                                                                                                                          |
-| typeInt            | QUANTITY     | An integer representing the type of the transaction.                                                                                                                                                                        |
-| value              | QUANTITY     | Value transferred in peb.                                                                                                                                                                                                   |
+| Tên                | Loại           | Mô tả                                                                                                                                                                                                                        |
+| ------------------ | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockHash          | DỮ LIỆU 32 byte | Hàm băm của khối chứa giao dịch này. `null` nếu đó là giao dịch đang chờ xử lý.                                                                                                                                              |
+| blockNumber        | SỐ LƯỢNG        | Số khối chứa giao dịch này. `null` nếu đó là giao dịch đang chờ xử lý.                                                                                                                                                       |
+| codeFormat         | Chuỗi           | (tùy chọn) Định dạng mã của mã hợp đồng thông minh.                                                                                                                                                       |
+| feePayer           | DỮ LIỆU 20 byte | Địa chỉ của người trả phí.                                                                                                                                                                                                   |
+| feePayerSignatures | Mảng            | Mảng các đối tượng chữ ký của người trả phí. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa mã khôi phục ECDSA. R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s.                           |
+| feeRatio           | SỐ LƯỢNG        | (tùy chọn) Tỷ lệ phí của người trả phí. Nếu tỷ lệ là 30 thì người trả phí phải trả 30% phí. 70% còn lại sẽ được trả bởi người gửi.                                                                        |
+| từ                 | DỮ LIỆU 20 byte | Địa chỉ của người gửi.                                                                                                                                                                                                       |
+| gas                | SỐ LƯỢNG        | Gas được người gửi cung cấp.                                                                                                                                                                                                 |
+| giá gas            | SỐ LƯỢNG        | Giá gas được người gửi cung cấp theo đơn vị peb.                                                                                                                                                                             |
+| hash               | DỮ LIỆU 32 byte | Hàm băm của giao dịch.                                                                                                                                                                                                       |
+| humanReadable      | Boolean         | (tùy chọn) `true` nếu địa chỉ con người có thể đọc được, ngược lại sẽ là `false`.                                                                                                                         |
+| khóa               | Chuỗi           | (tùy chọn) Mã khóa của tài khoản mới tạo.                                                                                                                                                                 |
+| nhập               | DATA            | (tùy chọn) Dữ liệu được gửi cùng với giao dịch.                                                                                                                                                           |
+| nonce              | SỐ LƯỢNG        | Số lượng giao dịch được người gửi thực hiện trước giao dịch này.                                                                                                                                                             |
+| senderTxHash       | DỮ LIỆU 32 byte | Hàm băm của một giao dịch chỉ được người gửi ký. Tham khảo [SenderTxHash](../../../../../../learn/transactions/transactions.md#sendertxhash). Giá trị này luôn giống với `hàm băm` đối với các giao dịch không phải trả phí. |
+| chữ ký             | Mảng            | Một mảng các đối tượng chữ ký. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa mã khôi phục ECDSA. R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s.                                         |
+| đến                | DỮ LIỆU 20 byte | Địa chỉ của người nhận. `null` nếu đó là giao dịch tạo hợp đồng.                                                                                                                                                             |
+| transactionIndex   | SỐ LƯỢNG        | Giá trị nguyên biểu thị vị trí chỉ mục của giao dịch trong khối. `null` nếu đó là giao dịch đang chờ xử lý.                                                                                                                  |
+| type               | Chuỗi           | Chuỗi biểu thị loại giao dịch.                                                                                                                                                                                               |
+| typeInt            | SỐ LƯỢNG        | Giá trị nguyên biểu thị loại giao dịch.                                                                                                                                                                                      |
+| giá trị            | SỐ LƯỢNG        | Giá trị được chuyển tính bằng đơn vị peb.                                                                                                                                                                                    |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.klay.getTransactionBySenderTxHash('0x8c0b092fed92a6619666efd582f7d71fbc3d784781072dd26741715b3731ab22').then(console.log);
@@ -381,21 +381,21 @@ Use [isSenderTxHashIndexingEnabled](../config.md#issendertxhashindexingenabled) 
 caver.klay.getTransactionFromBlock(hashStringOrNumber, indexNumber [, callback])
 ```
 
-Returns a transaction based on a block hash or number and the transactions index position.
+Trả về một giao dịch dựa trên hàm băm hoặc số khối và vị trí chỉ mục của giao dịch.
 
-**Parameters**
+**Tham số**
 
-| Name               | Type     | Description                                                                                                                   |
-| ------------------ | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| hashStringOrNumber | String   | A block number or hash. Or the string `"genesis"` or `"latest"`.                                                              |
-| indexNumber        | Number   | The transactions index position.                                                                                              |
-| callback           | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên                | type  | Mô tả                                                                                                                              |
+| ------------------ | ----- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| hashStringOrNumber | Chuỗi | Số khối hoặc hàm băm. Hoặc chuỗi `"genesis"` hoặc `"latest"`.                                                                      |
+| indexNumber        | Số    | Vị trí chỉ mục của giao dịch.                                                                                                      |
+| callback           | Hàm   | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Object` - A transaction object, see [caver.klay.getTransaction](#gettransaction)
+`Object` - Đối tượng giao dịch, tham khảo [caver.klay.getTransaction](#gettransaction)
 
-**Examples**
+**Ví dụ**
 
 ```javascript
 > caver.klay.getTransactionFromBlock('0x4534534534', 2).then(console.log);
@@ -408,50 +408,50 @@ Returns a transaction based on a block hash or number and the transactions index
 caver.klay.getTransactionReceipt(transactionHash [, callback])
 ```
 
-Returns the receipt of a transaction by transaction hash.
+Trả về biên lai của một giao dịch theo hàm băm giao dịch.
 
-**Parameters**
+**Tham số**
 
-| Name            | Type     | Description                                                                                                                   |
-| --------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| transactionHash | String   | The transaction hash                                                                                                          |
-| callback        | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên             | Loại | Mô tả                                                                                                                              |
+| --------------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| transactionHash | Chuỗi | Hàm băm của giao dịch                                                                                                              |
+| callback        | Hàm   | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Object` - A transaction receipt object, or `null` when no receipt was found:
+`Promise` trả về `đối tượng` - Đối tượng biên lai giao dịch hoặc `null` khi không tìm thấy biên lai:i:
 
-| Name               | Type           | Description                                                                                                                                                                                                                                                          |
-| ------------------ | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockHash          | 32-byte String | Hash of the block where this transaction was in.                                                                                                                                                                                                                     |
-| blockNumber        | Number         | Block number where this transaction was in.                                                                                                                                                                                                                          |
-| codeFormat         | String         | (optional) The code format of smart contract code.                                                                                                                                                                                                |
-| contractAddress    | DATA           | The contract address created, if the transaction was a contract creation, otherwise `null`.                                                                                                                                                                          |
-| feePayer           | 20-byte DATA   | (optional) Address of the fee payer.                                                                                                                                                                                                              |
-| feePayerSignatures | Array          | (optional) An array of fee payer's signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.                   |
-| feeRatio           | QUANTITY       | (optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender.                                                                                                                 |
-| from               | 20-byte DATA   | Address of the sender.                                                                                                                                                                                                                                               |
-| gas                | QUANTITY       | Gas provided by the sender.                                                                                                                                                                                                                                          |
-| gasPrice           | QUANTITY       | Gas price provided by the sender in peb.                                                                                                                                                                                                                             |
-| gasUsed            | QUANTITY       | The amount of gas used by this specific transaction alone.                                                                                                                                                                                                           |
-| humanReadable      | Boolean        | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable.                                                                                                                                                   |
-| key                | String         | (optional) Key of the newly created account.                                                                                                                                                                                                      |
-| input              | DATA           | (optional) The data sent along with the transaction.                                                                                                                                                                                              |
-| logs               | Array          | Array of log objects, which this transaction generated.                                                                                                                                                                                                              |
-| logsBloom          | 256-byte DATA  | Bloom filter for light clients to quickly retrieve related logs.                                                                                                                                                                                                     |
-| nonce              | QUANTITY       | The number of transactions made by the sender prior to this one.                                                                                                                                                                                                     |
-| senderTxHash       | 32-byte DATA   | (optional) Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../../../learn/transactions/transactions.md#sendertxhash). This value is always the same as `transactionHash` for non fee-delegated transactions. |
-| signatures         | Array          | An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.                                                             |
-| status             | Boolean        | `true` if the transaction was successful, `false` if the Klaytn Virtual Machine reverted the transaction.                                                                                                                                                            |
-| txError            | QUANTITY       | (optional) detailed error code if `status` is equal to zero.                                                                                                                                                                                      |
-| to                 | 20-byte DATA   | Address of the receiver. `null` when it is a contract creation transaction.                                                                                                                                                                                          |
-| transactionHash    | 32-byte DATA   | Hash of the transaction.                                                                                                                                                                                                                                             |
-| transactionIndex   | QUANTITY       | Integer of the transaction index position in the block.                                                                                                                                                                                                              |
-| type               | String         | A string representing the type of the transaction.                                                                                                                                                                                                                   |
-| typeInt            | QUANTITY       | An integer representing the type of the transaction.                                                                                                                                                                                                                 |
-| value              | QUANTITY       | Value transferred in peb.                                                                                                                                                                                                                                            |
+| Tên                | type             | Mô tả                                                                                                                                                                                                                                                                 |
+| ------------------ | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockHash          | Chuỗi 32 byte    | Hàm băm của khối chứa giao dịch này.                                                                                                                                                                                                                                  |
+| blockNumber        | Số               | Số khối chứa giao dịch này.                                                                                                                                                                                                                                           |
+| codeFormat         | Chuỗi            | (tùy chọn) Định dạng mã của mã hợp đồng thông minh.                                                                                                                                                                                                |
+| contractAddress    | DATA             | Địa chỉ hợp đồng được tạo nếu giao dịch là giao dịch tạo hợp đồng, nếu không, giá trị sẽ là `null`.                                                                                                                                                                   |
+| feePayer           | DỮ LIỆU 20 byte  | (tùy chọn) Địa chỉ của người trả phí.                                                                                                                                                                                                              |
+| feePayerSignatures | Mảng             | (tùy chọn) Mảng các đối tượng chữ ký của người trả phí. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa mã khôi phục ECDSA. R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s.                                      |
+| feeRatio           | SỐ LƯỢNG         | (tùy chọn) Tỷ lệ phí của người trả phí. Nếu tỷ lệ là 30 thì người trả phí phải trả 30% phí. 70% còn lại sẽ được trả bởi người gửi.                                                                                                                 |
+| từ                 | DỮ LIỆU 20 byte  | Địa chỉ của người gửi.                                                                                                                                                                                                                                                |
+| gas                | SỐ LƯỢNG         | Gas được người gửi cung cấp.                                                                                                                                                                                                                                          |
+| giá gas            | SỐ LƯỢNG         | Giá gas được người gửi cung cấp theo đơn vị peb.                                                                                                                                                                                                                      |
+| gasUsed            | SỐ LƯỢNG         | Lượng gas được sử dụng bởi riêng giao dịch cụ thể này.                                                                                                                                                                                                                |
+| humanReadable      | Boolean          | (tùy chọn) `true` nếu địa chỉ con người có thể đọc được, ngược lại sẽ là `false`.                                                                                                                                                                  |
+| khóa               | Chuỗi            | (tùy chọn) Mã khóa của tài khoản mới tạo.                                                                                                                                                                                                          |
+| nhập               | DATA             | (tùy chọn) Dữ liệu được gửi cùng với giao dịch.                                                                                                                                                                                                    |
+| nhật ký            | Mảng             | Mảng đối tượng bản ghi mà giao dịch này tạo ra.                                                                                                                                                                                                                       |
+| nhật kýBloom       | DỮ LIỆU 256 byte | Bộ lọc Bloom dành cho các ứng dụng khách nhẹ giúp truy xuất nhanh các bản ghi liên quan.                                                                                                                                                                              |
+| nonce              | SỐ LƯỢNG         | Số lượng giao dịch được người gửi thực hiện trước giao dịch này.                                                                                                                                                                                                      |
+| senderTxHash       | DỮ LIỆU 32 byte  | (tùy chọn) Hàm băm của một giao dịch chỉ được người gửi ký. Tham khảo [SenderTxHash](../../../../../../learn/transactions/transactions.md#sendertxhash). Giá trị này luôn giống với `transactionHash` đối với các giao dịch không ủy thác trả phí. |
+| chữ ký             | Mảng             | Một mảng các đối tượng chữ ký. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa mã khôi phục ECDSA. R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s.                                                                                  |
+| trạng thái         | Boolean          | `true` nếu giao dịch thành công, `false` nếu Máy ảo Klaytn đặt lại giao dịch.                                                                                                                                                                                         |
+| txError            | SỐ LƯỢNG         | (tùy chọn) mã lỗi chi tiết nếu `trạng thái` bằng 0.                                                                                                                                                                                                |
+| đến                | DỮ LIỆU 20 byte  | Địa chỉ của người nhận. `null` nếu đó là giao dịch tạo hợp đồng.                                                                                                                                                                                                      |
+| transactionHash    | DỮ LIỆU 32 byte  | Hàm băm của giao dịch.                                                                                                                                                                                                                                                |
+| transactionIndex   | SỐ LƯỢNG         | Giá trị nguyên biểu thị vị trí chỉ mục của giao dịch trong khối.                                                                                                                                                                                                      |
+| type               | Chuỗi            | Chuỗi biểu thị loại giao dịch.                                                                                                                                                                                                                                        |
+| typeInt            | SỐ LƯỢNG         | Giá trị nguyên biểu thị loại giao dịch.                                                                                                                                                                                                                               |
+| giá trị            | SỐ LƯỢNG         | Giá trị được chuyển tính bằng đơn vị peb.                                                                                                                                                                                                                             |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.klay.getTransactionReceipt('0x9108f22693de7b16ece4db2c8d11c004feae31973acc2ecb9dbd61cd57bb0d7b')
@@ -489,54 +489,54 @@ Returns the receipt of a transaction by transaction hash.
 caver.klay.getTransactionReceiptBySenderTxHash(senderTxHash [, callback])
 ```
 
-Returns the receipt of a transaction identified by the given `senderTxHash`.
+Trả về biên lai giao dịch được xác định bởi giá trị `senderTxHash` cho trước.
 
-**NOTE**: The receipt is not available for pending transactions.
-Please note that this API returns correct result only if the indexing feature is enabled in the node by `--sendertxhashindexing`.
-This can be checked by calling [isSenderTxHashIndexingEnabled](../config.md#issendertxhashindexingenabled).
+**LƯU Ý**: Biên lai không khả dụng với giao dịch đang chờ xử lý.
+Xin lưu ý rằng API này chỉ trả về kết quả chính xác nếu tính năng lập chỉ mục được bật trong nút mạng bởi `--sendertxhashindexing`.
+Có thể kiểm tra điều này bằng lệnh gọi [isSenderTxHashIndexingEnabled](../config.md#issendertxhashindexingenabled).
 
-**Parameters**
+**Tham số**
 
-| Name         | Type     | Description                                                                                                                                     |
-| ------------ | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| senderTxHash | String   | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../../../learn/transactions/transactions.md#sendertxhash). |
-| callback     | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                   |
+| Tên          | Loại | Mô tả                                                                                                                                         |
+| ------------ | ----- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| senderTxHash | Chuỗi | Hàm băm của một giao dịch chỉ được người gửi ký. Tham khảo [SenderTxHash](../../../../../../learn/transactions/transactions.md#sendertxhash). |
+| callback     | Hàm   | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.            |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Object` - A transaction receipt object, or `null` when no receipt was found:
+`Promise` trả về `đối tượng` - Đối tượng biên lai giao dịch hoặc `null` khi không tìm thấy biên lai:i:
 
-| Name               | Type           | Description                                                                                                                                                                                                                            |
-| ------------------ | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockHash          | 32-byte String | Hash of the block where this transaction was in.                                                                                                                                                                                       |
-| blockNumber        | Number         | Block number where this transaction was in.                                                                                                                                                                                            |
-| codeFormat         | String         | (optional) The code format of smart contract code.                                                                                                                                                                  |
-| contractAddress    | DATA           | The contract address created, if the transaction was a contract creation, otherwise `null`.                                                                                                                                            |
-| feePayer           | 20-byte DATA   | Address of the fee payer.                                                                                                                                                                                                              |
-| feePayerSignatures | Array          | An array of fee payer's signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.                   |
-| feeRatio           | QUANTITY       | (optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender.                                                                                   |
-| from               | 20-byte DATA   | Address of the sender.                                                                                                                                                                                                                 |
-| gas                | QUANTITY       | Gas provided by the sender.                                                                                                                                                                                                            |
-| gasPrice           | QUANTITY       | Gas price provided by the sender in peb.                                                                                                                                                                                               |
-| gasUsed            | QUANTITY       | The amount of gas used by this specific transaction alone.                                                                                                                                                                             |
-| humanReadable      | Boolean        | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable.                                                                                                                     |
-| key                | String         | (optional) Key of the newly created account.                                                                                                                                                                        |
-| input              | DATA           | (optional) The data sent along with the transaction.                                                                                                                                                                |
-| logs               | Array          | Array of log objects, which this transaction generated.                                                                                                                                                                                |
-| logsBloom          | 256-byte DATA  | Bloom filter for light clients to quickly retrieve related logs.                                                                                                                                                                       |
-| nonce              | QUANTITY       | The number of transactions made by the sender prior to this one.                                                                                                                                                                       |
-| senderTxHash       | 32-byte DATA   | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../../../learn/transactions/transactions.md#sendertxhash). This value is always the same as `transactionHash` for non fee-delegated transactions. |
-| signatures         | Array          | An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.                               |
-| status             | Boolean        | `true` if the transaction was successful, `false` if the Klaytn Virtual Machine reverted the transaction.                                                                                                                              |
-| txError            | QUANTITY       | (optional) detailed error code if `status` is equal to zero.                                                                                                                                                        |
-| to                 | 20-byte DATA   | Address of the receiver. `null` when it is a contract creation transaction.                                                                                                                                                            |
-| transactionHash    | 32-byte DATA   | Hash of the transaction.                                                                                                                                                                                                               |
-| transactionIndex   | QUANTITY       | Integer of the transaction index position in the block.                                                                                                                                                                                |
-| type               | String         | A string representing the type of the transaction.                                                                                                                                                                                     |
-| typeInt            | QUANTITY       | An integer representing the type of the transaction.                                                                                                                                                                                   |
-| value              | QUANTITY       | Value transferred in peb.                                                                                                                                                                                                              |
+| Tên                | Loại            | Mô tả                                                                                                                                                                                                                                   |
+| ------------------ | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockHash          | Chuỗi 32 byte    | Hàm băm của khối chứa giao dịch này.                                                                                                                                                                                                    |
+| blockNumber        | Số               | Số khối chứa giao dịch này.                                                                                                                                                                                                             |
+| codeFormat         | Chuỗi            | (tùy chọn) Định dạng mã của mã hợp đồng thông minh.                                                                                                                                                                  |
+| contractAddress    | DATA             | Địa chỉ hợp đồng được tạo nếu giao dịch là giao dịch tạo hợp đồng, nếu không, giá trị sẽ là `null`.                                                                                                                                     |
+| feePayer           | DỮ LIỆU 20 byte  | Địa chỉ của người trả phí.                                                                                                                                                                                                              |
+| feePayerSignatures | Mảng             | Mảng các đối tượng chữ ký của người trả phí. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa mã khôi phục ECDSA. R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s.                                      |
+| feeRatio           | SỐ LƯỢNG         | (tùy chọn) Tỷ lệ phí của người trả phí. Nếu tỷ lệ là 30 thì người trả phí phải trả 30% phí. 70% còn lại sẽ được trả bởi người gửi.                                                                                   |
+| từ                 | DỮ LIỆU 20 byte  | Địa chỉ của người gửi.                                                                                                                                                                                                                  |
+| gas                | SỐ LƯỢNG         | Gas được người gửi cung cấp.                                                                                                                                                                                                            |
+| giá gas            | SỐ LƯỢNG         | Giá gas được người gửi cung cấp theo đơn vị peb.                                                                                                                                                                                        |
+| gasUsed            | SỐ LƯỢNG         | Lượng gas được sử dụng bởi riêng giao dịch cụ thể này.                                                                                                                                                                                  |
+| humanReadable      | Boolean          | (tùy chọn) `true` nếu địa chỉ con người có thể đọc được, ngược lại sẽ là `false`.                                                                                                                                    |
+| khóa               | Chuỗi            | (tùy chọn) Mã khóa của tài khoản mới tạo.                                                                                                                                                                            |
+| nhập               | DATA             | (tùy chọn) Dữ liệu được gửi cùng với giao dịch.                                                                                                                                                                      |
+| nhật ký            | Mảng             | Mảng đối tượng bản ghi mà giao dịch này tạo ra.                                                                                                                                                                                         |
+| nhật kýBloom       | DỮ LIỆU 256 byte | Bộ lọc Bloom dành cho các ứng dụng khách nhẹ giúp truy xuất nhanh các bản ghi liên quan.                                                                                                                                                |
+| nonce              | SỐ LƯỢNG         | Số lượng giao dịch được người gửi thực hiện trước giao dịch này.                                                                                                                                                                        |
+| senderTxHash       | DỮ LIỆU 32 byte  | Hàm băm của một giao dịch chỉ được người gửi ký. Tham khảo [SenderTxHash](../../../../../../learn/transactions/transactions.md#sendertxhash). Giá trị này luôn giống với `transactionHash` đối với các giao dịch không ủy thác trả phí. |
+| chữ ký             | Mảng             | Một mảng các đối tượng chữ ký. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa mã khôi phục ECDSA. R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s.                                                    |
+| trạng thái         | Boolean          | `true` nếu giao dịch thành công, `false` nếu Máy ảo Klaytn đặt lại giao dịch.                                                                                                                                                           |
+| txError            | SỐ LƯỢNG         | (tùy chọn) mã lỗi chi tiết nếu `trạng thái` bằng 0.                                                                                                                                                                  |
+| đến                | DỮ LIỆU 20 byte  | Địa chỉ của người nhận. `null` nếu đó là giao dịch tạo hợp đồng.                                                                                                                                                                        |
+| transactionHash    | DỮ LIỆU 32 byte  | Hàm băm của giao dịch.                                                                                                                                                                                                                  |
+| transactionIndex   | SỐ LƯỢNG         | Giá trị nguyên biểu thị vị trí chỉ mục của giao dịch trong khối.                                                                                                                                                                        |
+| type               | Chuỗi            | Chuỗi biểu thị loại giao dịch.                                                                                                                                                                                                          |
+| typeInt            | SỐ LƯỢNG         | Giá trị nguyên biểu thị loại giao dịch.                                                                                                                                                                                                 |
+| giá trị            | SỐ LƯỢNG         | Giá trị được chuyển tính bằng đơn vị peb.                                                                                                                                                                                               |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.klay.getTransactionReceiptBySenderTxHash('0x8c0b092fed92a6619666efd582f7d71fbc3d784781072dd26741715b3731ab22').then(console.log);
@@ -587,30 +587,30 @@ This can be checked by calling [isSenderTxHashIndexingEnabled](../config.md#isse
 caver.klay.sendSignedTransaction(signedTransactionData [, callback])
 ```
 
-Sends an already signed transaction, generated using `caver.klay.accounts.signTransaction`.
+Gửi giao dịch đã ký trước đó, được tạo bằng hàm `caver.klay.tài khoảns.signTransaction`.
 
-**NOTE** `caver.klay.sendSignedTransaction` can accepts an object as a parameter since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0). The object should include an RLP-encoded transaction string or should be an unencoded transaction object with signatures/feePayerSignatures. You can pass the returning object from caver.klay.accounts.signTransaction, caver.klay.accounts.feePayerSignTransaction, caver.klay.accounts.getRawTransactionWithSignatures or caver.klay.accounts.combineSignatures.
+**LƯU Ý** `caver.klay.sendSignedTransaction` có thể nhận một đối tượng làm tham số kể từ phiên bản caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0). Đối tượng nên bao gồm một chuỗi giao dịch được mã hóa RLP hoặc nên là một đối tượng giao dịch chưa được mã hóa có chữ ký / chữ ký của người trả phí. Bạn có thể truyền đối tượng trả về từ caver.klay.tài khoảns.signTransaction, caver.klay.tài khoảns.feePayerSignTransaction, caver.klay.tài khoảns.getRawTransactionWithSignatures hoặc caver.klay.tài khoảns.combineSignatures.
 
-**Parameters**
+**Tham số**
 
-| Name                  | Type             | Description                                                                                                                                                                                                                    |
-| --------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| signedTransactionData | String \| Object | An RLP-encoded signed transaction string, an object that has the RLP-encoded signed transaction string in its `rawTransaction` property, or an unencoded transaction object with signatures/feePayerSignatures attached to it. |
-| callback              | Function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                                  |
+| Tên                   | Loại              | Mô tả                                                                                                                                                                                                                      |
+| --------------------- | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| signedTransactionData | Chuỗi \| Đối tượng | Một chuỗi giao dịch đã ký được mã hóa RLP, một đối tượng có chuỗi giao dịch đã ký được mã hóa RLP nằm trong thuộc tính `rawTransaction` hoặc một đối tượng giao dịch chưa mã hóa chữ ký/chữ ký của người trả phí đính kèm. |
+| callback              | Hàm                | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                                                                         |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type       | Description                                                                                   |
-| ---------- | --------------------------------------------------------------------------------------------- |
-| PromiEvent | A promise combined event emitter. Will be resolved when the transaction receipt is available. |
+| Loại      | Mô tả                                                                        |
+| ---------- | ---------------------------------------------------------------------------- |
+| PromiEvent | Trình phát sự kiện kết hợp promise. Sẽ được xử lý khi có biên lai giao dịch. |
 
-For PromiEvent, the following events are available:
+Đối với PromiEvent, sẽ có các sự kiện sau đây:
 
-- `"transactionHash"` returns `String`: Is fired right after the transaction is sent and a transaction hash is available.
-- `"receipt"` returns `Object`: Is fired when the transaction receipt is available.
-- `"error"` returns `Error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
+- `"transactionHash"` trả về `String`: Được kích hoạt ngay sau khi gửi giao dịch và có hàm băm giao dịch.
+- `"receipt"` trả về `Object`: Được kích hoạt khi có sẵn biên lai giao dịch.
+- `"error"` trả về `Error`: Được kích hoạt nếu có lỗi phát sinh trong quá trình gửi. Khi xảy ra lỗi hết gas, tham số thứ hai sẽ là biên lai.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 // sendSignedTransaction using promise with RLP encoded signed transaction string
@@ -723,20 +723,20 @@ caver.klay.sendSignedTransaction({
 caver.klay.signTransaction(transactionObject [, callback])
 ```
 
-Signs a transaction. This account needs to be unlocked.
+Ký giao dịch. Tài khoản này cần ở trạng thái mở khóa.
 
-**Parameters**
+**Tham số**
 
-| Name              | Type     | Description                                                                                                                   |
-| ----------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| transactionObject | Object   | The transaction data to sign.                                                                                                 |
-| callback          | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên               | type      | Mô tả                                                                                                                              |
+| ----------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| transactionObject | Đối tượng | Dữ liệu giao dịch cần ký.                                                                                                          |
+| callback          | Hàm       | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Object` - The RLP encoded transaction. The `raw` property can be used to send the transaction using [caver.klay.sendSignedTransaction](#sendsignedtransaction).
+`Promise` trả về `Object` - Giao dịch được mã hóa RLP. Có thể sử dụng thuộc tính `raw` để gửi giao dịch bằng cách sử dụng hàm [caver.klay.sendSignedTransaction](#sendsignedtransaction).
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.klay.signTransaction({
