@@ -552,7 +552,7 @@ const sidebars = {
                     },
                     {
                       type: 'category',
-                      label: 'caver.kct',
+                      label: 'caver.rpc',
                       link: {type: 'doc', id: 'references/sdk/caver-js/api/caver-rpc/caver-rpc'},
                       items: [
                         'references/sdk/caver-js/api/caver-rpc/governance',
@@ -564,7 +564,7 @@ const sidebars = {
                     'references/sdk/caver-js/api/caver.abi',
                     {
                       type: 'category',
-                      label: 'caver.rpc',
+                      label: 'caver.kct',
                       link: {type: 'doc', id: 'references/sdk/caver-js/api/caver-kct/caver-kct'},
                       items: [
                         'references/sdk/caver-js/api/caver-kct/kip7',
