@@ -82,59 +82,59 @@ Tài liệu này mô tả chi tiết quá trình chuyển đổi (Giao dịch Kl
 Mặc dù có nhiều loại, những loại giao dịch trên Klaytn đều có các trường chung.
 Phần này mô tả cách các trường chung đó được trình bày dưới dạng Giao dịch cũ Ethereum.
 
-| Trường giao dịch cũ Ethereum                          | Trường giao dịch Klaytn                                                                                                                                                                                                   | Mô tả                                                                                                                                                                                       |
-| ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockHash                                             | blockHash                                                                                                                                                                                                                 | :white_check_mark: Hàm băm của một khối.                                                                                                          |
-| blockNumber                                           | blockNumber                                                                                                                                                                                                               | :white_check_mark: Số khối.                                                                                                                       |
-| từ                                                    | từ                                                                                                                                                                                                                        | :white_check_mark: Địa chỉ của người gửi.                                                                                                         |
-| gas                                                   | gas                                                                                                                                                                                                                       | :white_check_mark: Gas do người gửi cung cấp.                                                                                                     |
-| giá gas                                               | giá gas                                                                                                                                                                                                                   | :warning: Còn có tên là [Đơn giá](../../../learn/transaction-fees.md#unit-price) trong bối cảnh của Klaytn, giá trị này được xác định trong hệ thống thông qua các quy trình quản trị. hash |
-| hash                                                  | :white_check_mark: Hàm băm của giao dịch.                                                                                                                                       | nhập                                                                                                                                                                                        |
-| (được nêu trong các phần bên dưới) | Mô tả của trường này được nêu trong các mục giao dịch chi tiết bên dưới.                                                                                                                                                  | nonce                                                                                                                                                                                       |
-| nonce                                                 | :white_check_mark: Số lượng giao dịch do người gửi thực hiện trước giao dịch này.                                                                                               | [senderTxHash](../../../learn/transactions/transactions.md#sendertxhash)(bỏ qua)                                                                                         |
-|                                                       | :warning: Trường này bị bỏ qua vì không tồn tại trong Giao dịch cũ Ethereum.                                                                                                                                              | signatures(bỏ qua)                                                                                                                                                       |
-|                                                       | :warning: Trường này bị bỏ qua vì không tồn tại trong Giao dịch cũ Ethereum.                                                                                                                                              | đến                                                                                                                                                                                         |
-| (được nêu trong các phần bên dưới) | Mô tả của trường này được nêu trong các mục giao dịch chi tiết bên dưới.                                                                                                                                                  | transactionIndex                                                                                                                                                                            |
-| transactionIndex                                      | :warning: Gần giống như Ethereum nhưng khác với Ethereum ở chỗ Klaytn trả về số nguyên như khi giao dịch đang chờ xử lý.                                                                                                  | giá trị                                                                                                                                                                                     |
-| (được nêu trong các phần bên dưới) | Mô tả của trường này được nêu trong các mục giao dịch chi tiết bên dưới.                                                                                                                                                  | type                                                                                                                                                                                        |
-| type(chuyển đổi)                   | :warning: Trong Klaytn, `type` trả về loại giao dịch theo chuỗi (ví dụ: `"LegacyTransaction"`), nhưng đã được chuyển đổi sang hệ thập lục phân (ví dụ: `0x0`) để khớp với Ethereum. | Các loại giao dịch chỉ hợp lệ trong Klaytn luôn trả về giá trị `0x0`. typeInt(bỏ qua)                                                                                    |
-|                                                       | :warning: Trường này bị bỏ qua vì không tồn tại trong Giao dịch cũ Ethereum.                                                                                                                                              | v                                                                                                                                                                                           |
-| (đã thêm)                          | :warning: Klaytn hỗ trợ MultiSig nên giao dịch trong Klaytn có thể có nhiều hơn một chữ ký.                                                                                                                               | `signatures[0].V` được sử dụng làm giá trị của trường `v`. r                                                                                                                                |
-| (đã thêm)                          | :warning: Klaytn hỗ trợ MultiSig nên giao dịch trong Klaytn có thể có nhiều hơn một chữ ký.                                                                                                                               | `signatures[0].R` được sử dụng làm giá trị của trường `r`. s                                                                                                                                |
-| (đã thêm)                          | :warning: Klaytn hỗ trợ MultiSig nên giao dịch trong Klaytn có thể có nhiều hơn một chữ ký.                                                                                                                               | `signatures[0].S` được sử dụng làm giá trị của trường `s`. Các trường chung cho [FeeDelegation](../../../learn/transactions/fee-delegation.md)                                              |
+| Trường giao dịch cũ Ethereum | Trường giao dịch Klaytn                                                                             | Mô tả                                                                                                                                                                                                                                                                                           |
+| ---------------------------- | --------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockHash                    | blockHash                                                                                           | :white_check_mark: Hàm băm của một khối.                                                                                                                                                                                                              |
+| blockNumber                  | blockNumber                                                                                         | :white_check_mark: Số khối.                                                                                                                                                                                                                           |
+| từ                           | từ                                                                                                  | :white_check_mark: Địa chỉ của người gửi.                                                                                                                                                                                                             |
+| gas                          | gas                                                                                                 | :white_check_mark: Gas do người gửi cung cấp.                                                                                                                                                                                                         |
+| giá gas                      | giá gas                                                                                             | :warning: The price the most you can pay (e.g. suggestGasPrice = 2\*latestBlock.baseFee ). For detailed information, see [here](../../../learn/transaction-fees/transaction-fees.md#gas-price-overview).                                                                     |
+| hash                         | hash                                                                                                | :white_check_mark: Hàm băm của giao dịch.                                                                                                                                                                                                             |
+| nhập                         | (được nêu trong các phần bên dưới)                                               | Mô tả của trường này được nêu trong các mục giao dịch chi tiết bên dưới.                                                                                                                                                                                                                        |
+| nonce                        | nonce                                                                                               | :white_check_mark: Số lượng giao dịch do người gửi thực hiện trước giao dịch này.                                                                                                                                                                     |
+|                              | [senderTxHash](../../../learn/transactions/transactions.md#sendertxhash)(bỏ qua) | :warning: Trường này bị bỏ qua vì không tồn tại trong Giao dịch cũ Ethereum.                                                                                                                                                                                                                    |
+|                              | signatures(bỏ qua)                                                               | :warning: Trường này bị bỏ qua vì không tồn tại trong Giao dịch cũ Ethereum.                                                                                                                                                                                                                    |
+| đến                          | (được nêu trong các phần bên dưới)                                               | Mô tả của trường này được nêu trong các mục giao dịch chi tiết bên dưới.                                                                                                                                                                                                                        |
+| transactionIndex             | transactionIndex                                                                                    | :warning: Gần giống như Ethereum nhưng khác với Ethereum ở chỗ Klaytn trả về số nguyên như khi giao dịch đang chờ xử lý.                                                                                                                                                                        |
+| giá trị                      | (được nêu trong các phần bên dưới)                                               | Mô tả của trường này được nêu trong các mục giao dịch chi tiết bên dưới.                                                                                                                                                                                                                        |
+| type                         | type(chuyển đổi)                                                                 | :warning: Trong Klaytn, `type` trả về loại giao dịch theo chuỗi (ví dụ: `"LegacyTransaction"`), nhưng đã được chuyển đổi sang hệ thập lục phân (ví dụ: `0x0`) để khớp với Ethereum. Các loại giao dịch chỉ hợp lệ trong Klaytn luôn trả về giá trị `0x0`. |
+|                              | typeInt(bỏ qua)                                                                  | :warning: Trường này bị bỏ qua vì không tồn tại trong Giao dịch cũ Ethereum.                                                                                                                                                                                                                    |
+| v                            | (đã thêm)                                                                        | :warning: Klaytn hỗ trợ MultiSig nên giao dịch trong Klaytn có thể có nhiều hơn một chữ ký. `signatures[0].V` được sử dụng làm giá trị của trường `v`.                                                                                                                                          |
+| r                            | (đã thêm)                                                                        | :warning: Klaytn hỗ trợ MultiSig nên giao dịch trong Klaytn có thể có nhiều hơn một chữ ký. `signatures[0].R` được sử dụng làm giá trị của trường `r`.                                                                                                                                          |
+| s                            | (đã thêm)                                                                        | :warning: Klaytn hỗ trợ MultiSig nên giao dịch trong Klaytn có thể có nhiều hơn một chữ ký. `signatures[0].S` được sử dụng làm giá trị của trường `s`.                                                                                                                                          |
 
-### Mặc dù có nhiều loại, những loại giao dịch [FeeDelegation](../../../learn/transactions/fee-delegation.md) trên Klaytn đều có các trường chung.
+### Các trường chung cho [FeeDelegation](../../../learn/transactions/fee-delegation.md)
 
+Mặc dù có nhiều loại, những loại giao dịch [FeeDelegation](../../../learn/transactions/fee-delegation.md) trên Klaytn đều có các trường chung.
 Phần này mô tả cách các trường chung cho feeDelegation (ngoại trừ các trường chung được đề cập ở trên) được trình bày dưới dạng Giao dịch cũ Ethereum.
-Trường giao dịch cũ Ethereum
 are served as Ethereum Legacy Transaction.
 
-| Trường giao dịch FeeDelegation của Klaytn | Mô tả                                                                        | feePayer(bỏ qua)                                                                |
-| ----------------------------------------- | ---------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-|                                           | :warning: Trường này bị bỏ qua vì không tồn tại trong Giao dịch cũ Ethereum. | feePayerSignatures(bỏ qua)                                                      |
-|                                           | :warning: Trường này bị bỏ qua vì không tồn tại trong Giao dịch cũ Ethereum. | Các trường chung cho [PartialFeeDelegation](../../../learn/transactions/partial-fee-delegation.md) |
+| Trường giao dịch cũ Ethereum | Trường giao dịch FeeDelegation của Klaytn     | Mô tả                                                                        |
+| ---------------------------- | --------------------------------------------- | ---------------------------------------------------------------------------- |
+|                              | feePayer(bỏ qua)           | :warning: Trường này bị bỏ qua vì không tồn tại trong Giao dịch cũ Ethereum. |
+|                              | feePayerSignatures(bỏ qua) | :warning: Trường này bị bỏ qua vì không tồn tại trong Giao dịch cũ Ethereum. |
 
-### Mặc dù có nhiều loại, những loại giao dịch [PartialFeeDelegation](../../../learn/transactions/partial-fee-delegation.md) trên Klaytn đều có các trường chung.
+### Các trường chung cho [PartialFeeDelegation](../../../learn/transactions/partial-fee-delegation.md)
 
+Mặc dù có nhiều loại, những loại giao dịch [PartialFeeDelegation](../../../learn/transactions/partial-fee-delegation.md) trên Klaytn đều có các trường chung.
 Phần này mô tả cách các trường chung cho partialFeeDelegation (ngoại trừ các trường chung được đề cập ở trên) được trình bày dưới dạng Giao dịch cũ trên Ethereum.
-Trường giao dịch cũ Ethereum
 are served as Ethereum Legacy Transaction.
 
-| Trường giao dịch PartialFeeDelegation của Klaytn | Mô tả                                                                        | feeRatio(bỏ qua)              |
-| ------------------------------------------------ | ---------------------------------------------------------------------------- | ------------------------------------------------ |
-|                                                  | :warning: Trường này bị bỏ qua vì không tồn tại trong Giao dịch cũ Ethereum. | Các trường khác nhau đối với từng loại giao dịch |
+| Trường giao dịch cũ Ethereum | Trường giao dịch PartialFeeDelegation của Klaytn | Mô tả                                                                        |
+| ---------------------------- | ------------------------------------------------ | ---------------------------------------------------------------------------- |
+|                              | feeRatio(bỏ qua)              | :warning: Trường này bị bỏ qua vì không tồn tại trong Giao dịch cũ Ethereum. |
 
-### LegacyTransaction
+### Các trường khác nhau đối với từng loại giao dịch
 
-#### Trường giao dịch cũ Ethereum
+#### LegacyTransaction
 
-| Trường LegacyTransaction Klaytn | Mô tả                                                                                             | nhập                                                                                            |
-| ------------------------------- | ------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| nhập                            | :white_check_mark: Dữ liệu được gửi cùng với giao dịch. | đến                                                                                             |
-| đến                             | :white_check_mark: Địa chỉ của người nhận.              | `null` nếu đó là giao dịch tạo hợp đồng. giá trị                                                |
-| giá trị                         | :white_check_mark: Giá trị được chuyển bằng Peb.        | **Giao dịch cũTransaction Klaytn** được trình bày dưới dạng Giao dịch cũ Ethereum như dưới đây. |
+| Trường giao dịch cũ Ethereum | Trường LegacyTransaction Klaytn | Mô tả                                                                                                                         |
+| ---------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| nhập                         | nhập                            | :white_check_mark: Dữ liệu được gửi cùng với giao dịch.                             |
+| đến                          | đến                             | :white_check_mark: Địa chỉ của người nhận. `null` nếu đó là giao dịch tạo hợp đồng. |
+| giá trị                      | giá trị                         | :white_check_mark: Giá trị được chuyển bằng Peb.                                    |
 
-ValueTransfer
+**Giao dịch cũTransaction Klaytn** được trình bày dưới dạng Giao dịch cũ Ethereum như dưới đây.
 
 ```json
 {
@@ -169,15 +169,15 @@ ValueTransfer
 }
 ```
 
-#### Trường giao dịch cũ Ethereum
+#### ValueTransfer
 
-| Trường giao dịch ValueTransfer Klaytn | Mô tả                                                                                                                                        | nhập                                                                                            |
-| ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| (đã thêm)          | :warning: Trường này luôn có giá trị là `0x` có nghĩa là đầu vào trống vì trường này không tồn tại trong giao dịch ValueTransfer của Klaytn. | đến                                                                                             |
-| đến                                   | :white_check_mark: Địa chỉ của người nhận.                                                         | giá trị                                                                                         |
-| giá trị                               | :white_check_mark: Giá trị được chuyển bằng Peb.                                                   | **Giao dịch ValueTransfer Klaytn** được trình bày dưới dạng Giao dịch cũ Ethereum như dưới đây. |
+| Trường giao dịch cũ Ethereum | Trường giao dịch ValueTransfer Klaytn | Mô tả                                                                                                                                        |
+| ---------------------------- | ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| nhập                         | (đã thêm)          | :warning: Trường này luôn có giá trị là `0x` có nghĩa là đầu vào trống vì trường này không tồn tại trong giao dịch ValueTransfer của Klaytn. |
+| đến                          | đến                                   | :white_check_mark: Địa chỉ của người nhận.                                                         |
+| giá trị                      | giá trị                               | :white_check_mark: Giá trị được chuyển bằng Peb.                                                   |
 
-ValueTransferMemo
+**Giao dịch ValueTransfer Klaytn** được trình bày dưới dạng Giao dịch cũ Ethereum như dưới đây.
 
 ```json
 {
@@ -212,15 +212,15 @@ ValueTransferMemo
 }
 ```
 
-#### Trường giao dịch cũ Ethereum
+#### ValueTransferMemo
 
-| Trường giao dịch ValueTransferMemo của Klaytn | Mô tả                                                                                             | nhập                                                                                                    |
-| --------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| nhập                                          | :white_check_mark: Dữ liệu được gửi cùng với giao dịch. | đến                                                                                                     |
-| đến                                           | :white_check_mark: Địa chỉ của người nhận.              | giá trị                                                                                                 |
-| giá trị                                       | :white_check_mark: Giá trị được chuyển bằng Peb.        | **Giao dịch ValueTransferMemo của Klaytn** được trình bày dưới dạng Giao dịch cũ Ethereum như dưới đây. |
+| Trường giao dịch cũ Ethereum | Trường giao dịch ValueTransferMemo của Klaytn | Mô tả                                                                                             |
+| ---------------------------- | --------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| nhập                         | nhập                                          | :white_check_mark: Dữ liệu được gửi cùng với giao dịch. |
+| đến                          | đến                                           | :white_check_mark: Địa chỉ của người nhận.              |
+| giá trị                      | giá trị                                       | :white_check_mark: Giá trị được chuyển bằng Peb.        |
 
-SmartContractDeploy
+**Giao dịch ValueTransferMemo của Klaytn** được trình bày dưới dạng Giao dịch cũ Ethereum như dưới đây.
 
 ```json
 {
@@ -255,17 +255,17 @@ SmartContractDeploy
 }
 ```
 
-#### Trường giao dịch cũ Ethereum
+#### SmartContractDeploy
 
-| Trường giao dịch SmartContractDeploy của Klaytn | Mô tả                                                                                             | codeFormat(bỏ qua)                                                                     |
-| ----------------------------------------------- | ------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-|                                                 | :warning: Trường này bị bỏ qua vì không tồn tại trong Giao dịch cũ Ethereum.                      | humanReadable(bỏ qua)                                                                  |
-|                                                 | :warning: Trường này bị bỏ qua vì không tồn tại trong Giao dịch cũ Ethereum.                      | nhập                                                                                                      |
-| nhập                                            | :white_check_mark: Dữ liệu được gửi cùng với giao dịch. | đến                                                                                                       |
-| đến                                             | :white_check_mark: Địa chỉ của người nhận.              | Trường này luôn có giá trị là `null` vì giao dịch này là giao dịch tạo hợp đồng. giá trị                  |
-| giá trị                                         | :white_check_mark: Giá trị được chuyển bằng Peb.        | **Giao dịch SmartContractDeploy của Klaytn** được trình bày dưới dạng Giao dịch cũ Ethereum như dưới đây. |
+| Trường giao dịch cũ Ethereum | Trường giao dịch SmartContractDeploy của Klaytn | Mô tả                                                                                                                                                                 |
+| ---------------------------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|                              | codeFormat(bỏ qua)           | :warning: Trường này bị bỏ qua vì không tồn tại trong Giao dịch cũ Ethereum.                                                                                          |
+|                              | humanReadable(bỏ qua)        | :warning: Trường này bị bỏ qua vì không tồn tại trong Giao dịch cũ Ethereum.                                                                                          |
+| nhập                         | nhập                                            | :white_check_mark: Dữ liệu được gửi cùng với giao dịch.                                                                     |
+| đến                          | đến                                             | :white_check_mark: Địa chỉ của người nhận. Trường này luôn có giá trị là `null` vì giao dịch này là giao dịch tạo hợp đồng. |
+| giá trị                      | giá trị                                         | :white_check_mark: Giá trị được chuyển bằng Peb.                                                                            |
 
-SmartContractExecution
+**Giao dịch SmartContractDeploy của Klaytn** được trình bày dưới dạng Giao dịch cũ Ethereum như dưới đây.
 
 ```json
 {
@@ -302,15 +302,15 @@ SmartContractExecution
 }
 ```
 
-#### Trường giao dịch cũ Ethereum
+#### SmartContractExecution
 
-| Trường giao dịch SmartContractExecution của Klaytn | Mô tả                                                                                             | nhập                                                                                                          |
-| -------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| nhập                                               | :white_check_mark: Dữ liệu được gửi cùng với giao dịch. | đến                                                                                                           |
-| đến                                                | :white_check_mark: Địa chỉ của hợp đồng thông minh.     | giá trị                                                                                                       |
-| giá trị                                            | :white_check_mark: Giá trị được chuyển bằng Peb.        | **Giao dịch SmartContractExecution trên Klaytn** được trình bày dưới dạng Giao dịch cũ Ethereum như dưới đây. |
+| Trường giao dịch cũ Ethereum | Trường giao dịch SmartContractExecution của Klaytn | Mô tả                                                                                             |
+| ---------------------------- | -------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| nhập                         | nhập                                               | :white_check_mark: Dữ liệu được gửi cùng với giao dịch. |
+| đến                          | đến                                                | :white_check_mark: Địa chỉ của hợp đồng thông minh.     |
+| giá trị                      | giá trị                                            | :white_check_mark: Giá trị được chuyển bằng Peb.        |
 
-AccountUpdate
+**Giao dịch SmartContractExecution trên Klaytn** được trình bày dưới dạng Giao dịch cũ Ethereum như dưới đây.
 
 ```json
 {
@@ -345,16 +345,16 @@ AccountUpdate
 }
 ```
 
-#### Trường giao dịch cũ Ethereum
+#### AccountUpdate
 
-| Trường giao dịch AccountUpdate trên Klaytn | Mô tả                                                                                                                                                                                                         | key(bỏ qua)                                                                       |
-| ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-|                                            | :warning: Trường này bị bỏ qua vì không tồn tại trong Giao dịch cũ Ethereum.                                                                                                                                  | nhập                                                                                                 |
-| (đã thêm)               | :warning: Trường này luôn có giá trị là `0x` có nghĩa là đầu vào trống vì trường này không tồn tại trong giao dịch AccountUpdate của Klaytn.                                                                  | đến                                                                                                  |
-| (đã thêm)               | :warning: Trường này luôn có cùng địa chỉ với `from` vì trường này không tồn tại trong giao dịch AccountUpdate trên Klaytn và việc đưa ra giá trị của trường này dưới dạng địa chỉ `from` là có ý nghĩa nhất. | giá trị                                                                                              |
-| (đã thêm)               | :warning: Trường này luôn có giá trị là `0x0` vì trường này không tồn tại trong giao dịch AccountUpdate trên Klaytn.                                                                                          | **Giao dịch AccountUpdate trên Klaytn** được trình bày dưới dạng Giao dịch cũ Ethereum như dưới đây. |
+| Trường giao dịch cũ Ethereum | Trường giao dịch AccountUpdate trên Klaytn | Mô tả                                                                                                                                                                                                         |
+| ---------------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|                              | key(bỏ qua)             | :warning: Trường này bị bỏ qua vì không tồn tại trong Giao dịch cũ Ethereum.                                                                                                                                  |
+| nhập                         | (đã thêm)               | :warning: Trường này luôn có giá trị là `0x` có nghĩa là đầu vào trống vì trường này không tồn tại trong giao dịch AccountUpdate của Klaytn.                                                                  |
+| đến                          | (đã thêm)               | :warning: Trường này luôn có cùng địa chỉ với `from` vì trường này không tồn tại trong giao dịch AccountUpdate trên Klaytn và việc đưa ra giá trị của trường này dưới dạng địa chỉ `from` là có ý nghĩa nhất. |
+| giá trị                      | (đã thêm)               | :warning: Trường này luôn có giá trị là `0x0` vì trường này không tồn tại trong giao dịch AccountUpdate trên Klaytn.                                                                                          |
 
-Cancel
+**Giao dịch AccountUpdate trên Klaytn** được trình bày dưới dạng Giao dịch cũ Ethereum như dưới đây.
 
 ```json
 {
@@ -390,15 +390,15 @@ Cancel
 }
 ```
 
-#### Trường giao dịch cũ Ethereum
+#### Cancel
 
-| Trường giao dịch Cancel trên Klaytn | Mô tả                                                                                                                                                                                                  | nhập                                                                                          |
-| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------- |
-| (đã thêm)        | :warning: Trường này luôn có giá trị là `0x`, có nghĩa là đầu vào trống vì trường này không tồn tại trong giao dịch Cancel trên Klaytn.                                                                | đến                                                                                           |
-| (đã thêm)        | :warning: Trường này luôn có cùng địa chỉ với `from` vì trường này không tồn tại trong giao dịch Cancel trên Klaytn và việc đưa ra giá trị của trường này dưới dạng địa chỉ `from` là có ý nghĩa nhất. | giá trị                                                                                       |
-| (đã thêm)        | :warning: Trường này luôn có giá trị là `0x0` vì trường này không tồn tại trong giao dịch Cancel trên Klaytn.                                                                                          | **Giao dịch Cancel trên Klaytn** được trình bày dưới dạng Giao dịch cũ Ethereum như dưới đây. |
+| Trường giao dịch cũ Ethereum | Trường giao dịch Cancel trên Klaytn | Mô tả                                                                                                                                                                                                  |
+| ---------------------------- | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| nhập                         | (đã thêm)        | :warning: Trường này luôn có giá trị là `0x`, có nghĩa là đầu vào trống vì trường này không tồn tại trong giao dịch Cancel trên Klaytn.                                                                |
+| đến                          | (đã thêm)        | :warning: Trường này luôn có cùng địa chỉ với `from` vì trường này không tồn tại trong giao dịch Cancel trên Klaytn và việc đưa ra giá trị của trường này dưới dạng địa chỉ `from` là có ý nghĩa nhất. |
+| giá trị                      | (đã thêm)        | :warning: Trường này luôn có giá trị là `0x0` vì trường này không tồn tại trong giao dịch Cancel trên Klaytn.                                                                                          |
 
-ChainDataAnchoring
+**Giao dịch Cancel trên Klaytn** được trình bày dưới dạng Giao dịch cũ Ethereum như dưới đây.
 
 ```json
 {
@@ -433,16 +433,16 @@ ChainDataAnchoring
 }
 ```
 
-#### Trường giao dịch cũ Ethereum
+#### ChainDataAnchoring
 
-| Trường giao dịch ChainDataAnchoring Klaytn | Mô tả                                                                                                                                                                                                              | nhập                                                                                                      |
-| ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------- |
-| nhập                                       | :white_check_mark: Dữ liệu được gửi cùng với giao dịch.                                                                                                                  | inputJSON(bỏ qua)                                                                      |
-|                                            | :warning: Trường này bị bỏ qua vì không tồn tại trong Giao dịch cũ Ethereum.                                                                                                                                       | đến                                                                                                       |
-| (đã thêm)               | :warning: Trường này luôn có cùng địa chỉ với `from` vì trường này không tồn tại trong giao dịch ChainDataAnchoring trên Klaytn và việc đưa ra giá trị của trường này dưới dạng địa chỉ `from` là có ý nghĩa nhất. | giá trị                                                                                                   |
-| (đã thêm)               | :warning: Trường này luôn có giá trị là `0x0` vì trường này không tồn tại trong giao dịch ChainDataAnchoring trên Klaytn.                                                                                          | **Giao dịch ChainDataAnchoring trên Klaytn** được trình bày dưới dạng Giao dịch cũ Ethereum như dưới đây. |
+| Trường giao dịch cũ Ethereum | Trường giao dịch ChainDataAnchoring Klaytn | Mô tả                                                                                                                                                                                                              |
+| ---------------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| nhập                         | nhập                                       | :white_check_mark: Dữ liệu được gửi cùng với giao dịch.                                                                                                                  |
+|                              | inputJSON(bỏ qua)       | :warning: Trường này bị bỏ qua vì không tồn tại trong Giao dịch cũ Ethereum.                                                                                                                                       |
+| đến                          | (đã thêm)               | :warning: Trường này luôn có cùng địa chỉ với `from` vì trường này không tồn tại trong giao dịch ChainDataAnchoring trên Klaytn và việc đưa ra giá trị của trường này dưới dạng địa chỉ `from` là có ý nghĩa nhất. |
+| giá trị                      | (đã thêm)               | :warning: Trường này luôn có giá trị là `0x0` vì trường này không tồn tại trong giao dịch ChainDataAnchoring trên Klaytn.                                                                                          |
 
-Biên lai giao dịch <a id="transaction_receipt"></a>
+**Giao dịch ChainDataAnchoring trên Klaytn** được trình bày dưới dạng Giao dịch cũ Ethereum như dưới đây.
 
 ```json
 {
@@ -487,86 +487,86 @@ Biên lai giao dịch <a id="transaction_receipt"></a>
 }
 ```
 
-## API liên quan: [eth_getTransactionReceipt](./transaction.md#eth_gettransactionreceipt).
+## Biên lai giao dịch <a id="transaction_receipt"></a>
+
+API liên quan: [eth_getTransactionReceipt](./transaction.md#eth_gettransactionreceipt).
 
 Theo mặc định, các trường trong Biên lai giao dịch trên Klaytn khác nhau tùy thuộc vào loại giao dịch.
-
 Do có rất nhiều loại giao dịch trong Klaytn, các trường biên lai giao dịch thay đổi tùy theo loại giao dịch.
-Khi bạn cố gắng truy vấn các biên lai giao dịch trên Klaytn qua api JSON-RPC của không gian tên eth, các TransactionReceipt trên Klaytn sẽ được trả về dưới dạng Biên lai giao dịch trên Ethereum.
 
-Tài liệu này mô tả chi tiết quá trình chuyển đổi (Biên lai giao dịch trên Klaytn -> Biên lai giao dịch trên Ethereum).
+Khi bạn cố gắng truy vấn các biên lai giao dịch trên Klaytn qua api JSON-RPC của không gian tên eth, các TransactionReceipt trên Klaytn sẽ được trả về dưới dạng Biên lai giao dịch trên Ethereum.
 Klaytn TransactionReceipt will be returned as Ethereum Transaction Receipt.
 
-Vui lòng đọc kỹ phần mô tả :warning:.
+Tài liệu này mô tả chi tiết quá trình chuyển đổi (Biên lai giao dịch trên Klaytn -> Biên lai giao dịch trên Ethereum).
 
+- Vui lòng đọc kỹ phần mô tả :warning:.
 - Biểu tượng :white_check_mark: trong phần mô tả biểu thị rằng trường được dùng như trong Ethereum.
-- Trường chung
 
-### Mặc dù có nhiều loại, những loại giao dịch trên Klaytn đều có các trường chung.
+### Trường chung
 
+Mặc dù có nhiều loại, những loại giao dịch trên Klaytn đều có các trường chung.
 (Xin lưu ý rằng các trường Biên lai giao dịch trên Klaytn thay đổi tùy theo loại giao dịch.)
+
 Phần này mô tả cách các trường chung đó được trình bày dưới dạng Biên lai giao dịch trên Ethereum.
 
-Trường Biên lai giao dịch trên Ethereum
+| Trường Biên lai giao dịch trên Ethereum | Trường biên lai giao dịch Klaytn                                                                    | Mô tả                                                                                                                                                                                                                                                                                               |
+| --------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockHash                               | blockHash                                                                                           | :white_check_mark: Hàm băm của một khối.                                                                                                                                                                                                                  |
+| blockNumber                             | blockNumber                                                                                         | :white_check_mark: Số khối.                                                                                                                                                                                                                               |
+| contractAddress                         | contractAddress                                                                                     | :white_check_mark: Địa chỉ hợp đồng được tạo nếu giao dịch là giao dịch tạo hợp đồng, nếu không, giá trị là - `null`.                                                                                                                                     |
+| cumulativeGasUsed                       | (đã thêm)                                                                        | :warning: Tổng lượng gas đã dùng khi giao dịch này được thực hiện trong khối. Trường này có ý nghĩa tương tự như trường Ethereum.                                                                                                                                                                   |
+| effectiveGasPrice                       | (đã thêm)                                                                        | :warning: Giá trị gasPrice được trả về do Klaytn áp dụng chính sách giá gas cố định. gasPrice(còn được gọi là [Đơn giá](../../../learn/transaction-fees.md#unit-price)) được cơ chế quản trị thiết lập trong hệ thống.                                                           |
+| từ                                      | từ                                                                                                  | :white_check_mark: Địa chỉ của người gửi.                                                                                                                                                                                                                 |
+|                                         | gas(bỏ qua)                                                                      | :warning: Trường này bị bỏ qua vì không tồn tại trong Biên lai giao dịch trên Ethereum.                                                                                                                                                                                                             |
+| gasUsed                                 | gasUsed                                                                                             | :white_check_mark: lượng gas đã dùng trong riêng giao dịch cụ thể này.                                                                                                                                                                                    |
+|                                         | gasPrice(bỏ qua)                                                                 | :warning: Trường này bị bỏ qua vì không tồn tại trong Biên lai giao dịch trên Ethereum.                                                                                                                                                                                                             |
+| nhật ký                                 | nhật ký                                                                                             | :white_check_mark: Mảng bao gồm các đối tượng bản ghi do giao dịch tạo ra.                                                                                                                                                                                |
+| nhật kýBloom                            | nhật kýBloom                                                                                        | :white_check_mark: Bộ lọc Bloom dành cho các ứng dụng khách nhẹ giúp truy xuất nhanh các nhật ký liên quan.                                                                                                                                               |
+|                                         | nonce(bỏ qua)                                                                    | :warning: Trường này bị bỏ qua vì không tồn tại trong Biên lai giao dịch trên Ethereum.                                                                                                                                                                                                             |
+|                                         | [senderTxHash](../../../learn/transactions/transactions.md#sendertxhash)(bỏ qua) | :warning: Trường này bị bỏ qua vì không tồn tại trong Biên lai giao dịch trên Ethereum.                                                                                                                                                                                                             |
+|                                         | signatures(bỏ qua)                                                               | :warning: Trường này bị bỏ qua vì không tồn tại trong Biên lai giao dịch trên Ethereum.                                                                                                                                                                                                             |
+| trạng thái                              | trạng thái                                                                                          | :white_check_mark: 1(thành công) hoặc 0(thất bại).                                                                                                                                                                  |
+| đến                                     | (được nêu trong các phần bên dưới)                                               | Mô tả của trường này được nêu trong các mục giao dịch chi tiết bên dưới.                                                                                                                                                                                                                            |
+| transactionHash                         | transactionHash                                                                                     | :white_check_mark: Hàm băm của giao dịch.                                                                                                                                                                                                                 |
+| transactionIndex                        | transactionIndex                                                                                    | :warning: Gần giống như Ethereum nhưng khác với Ethereum ở chỗ Klaytn trả về số nguyên như khi giao dịch đang chờ xử lý.                                                                                                                                                                            |
+| type                                    | type(chuyển đổi)                                                                 | :warning: Giá trị và loại dữ liệu của trường này được chuyển đổi. Loại trường này là một chuỗi(ví dụ: `"LegacyTransaction"`) trong Klaytn nhưng được chuyển đổi và trình bày dưới dạng thập lục phân(ví dụ: `0x`) giống như Biên lai giao dịch trên Ethereum. |
+|                                         | typeInt(bỏ qua)                                                                  | :warning: Trường này bị bỏ qua vì không tồn tại trong Biên lai giao dịch trên Ethereum.                                                                                                                                                                                                             |
 
-| Trường biên lai giao dịch Klaytn                      | Mô tả                                                                                                                                                           | blockHash                                                                                                                                                                                                                                                            |
-| ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockHash                                             | :white_check_mark: Hàm băm của một khối.                                                                              | blockNumber                                                                                                                                                                                                                                                          |
-| blockNumber                                           | :white_check_mark: Số khối.                                                                                           | contractAddress                                                                                                                                                                                                                                                      |
-| contractAddress                                       | :white_check_mark: Địa chỉ hợp đồng được tạo nếu giao dịch là giao dịch tạo hợp đồng, nếu không, giá trị là - `null`. | cumulativeGasUsed                                                                                                                                                                                                                                                    |
-| (đã thêm)                          | :warning: Tổng lượng gas đã dùng khi giao dịch này được thực hiện trong khối.                                                                                   | Trường này có ý nghĩa tương tự như trường Ethereum. effectiveGasPrice                                                                                                                                                                                                |
-| (đã thêm)                          | :warning: Giá trị gasPrice được trả về do Klaytn áp dụng chính sách giá gas cố định.                                                                            | gasPrice(còn được gọi là [Đơn giá](../../../learn/transaction-fees.md#unit-price)) được cơ chế quản trị thiết lập trong hệ thống. từ                                                                                                              |
-| từ                                                    | :white_check_mark: Địa chỉ của người gửi.                                                                             | gas(bỏ qua)                                                                                                                                                                                                                                       |
-|                                                       | :warning: Trường này bị bỏ qua vì không tồn tại trong Biên lai giao dịch trên Ethereum.                                                                         | gasUsed                                                                                                                                                                                                                                                              |
-| gasUsed                                               | :white_check_mark: lượng gas đã dùng trong riêng giao dịch cụ thể này.                                                | gasPrice(bỏ qua)                                                                                                                                                                                                                                  |
-|                                                       | :warning: Trường này bị bỏ qua vì không tồn tại trong Biên lai giao dịch trên Ethereum.                                                                         | nhật ký                                                                                                                                                                                                                                                              |
-| nhật ký                                               | :white_check_mark: Mảng bao gồm các đối tượng bản ghi do giao dịch tạo ra.                                            | nhật kýBloom                                                                                                                                                                                                                                                         |
-| nhật kýBloom                                          | :white_check_mark: Bộ lọc Bloom dành cho các ứng dụng khách nhẹ giúp truy xuất nhanh các nhật ký liên quan.           | nonce(bỏ qua)                                                                                                                                                                                                                                     |
-|                                                       | :warning: Trường này bị bỏ qua vì không tồn tại trong Biên lai giao dịch trên Ethereum.                                                                         | [senderTxHash](../../../learn/transactions/transactions.md#sendertxhash)(bỏ qua)                                                                                                                                                                  |
-|                                                       | :warning: Trường này bị bỏ qua vì không tồn tại trong Biên lai giao dịch trên Ethereum.                                                                         | signatures(bỏ qua)                                                                                                                                                                                                                                |
-|                                                       | :warning: Trường này bị bỏ qua vì không tồn tại trong Biên lai giao dịch trên Ethereum.                                                                         | trạng thái                                                                                                                                                                                                                                                           |
-| trạng thái                                            | :white_check_mark: 1(thành công) hoặc 0(thất bại).                              | đến                                                                                                                                                                                                                                                                  |
-| (được nêu trong các phần bên dưới) | Mô tả của trường này được nêu trong các mục giao dịch chi tiết bên dưới.                                                                                        | transactionHash                                                                                                                                                                                                                                                      |
-| transactionHash                                       | :white_check_mark: Hàm băm của giao dịch.                                                                             | transactionIndex                                                                                                                                                                                                                                                     |
-| transactionIndex                                      | :warning: Gần giống như Ethereum nhưng khác với Ethereum ở chỗ Klaytn trả về số nguyên như khi giao dịch đang chờ xử lý.                                        | type                                                                                                                                                                                                                                                                 |
-| type(chuyển đổi)                   | :warning: Giá trị và loại dữ liệu của trường này được chuyển đổi.                                                                                               | Loại trường này là một chuỗi(ví dụ: `"LegacyTransaction"`) trong Klaytn nhưng được chuyển đổi và trình bày dưới dạng thập lục phân(ví dụ: `0x`) giống như Biên lai giao dịch trên Ethereum. typeInt(bỏ qua) |
-|                                                       | :warning: Trường này bị bỏ qua vì không tồn tại trong Biên lai giao dịch trên Ethereum.                                                                         | Các trường chung cho [FeeDelegation](../../../learn/transactions/fee-delegation.md)                                                                                                                                                                                  |
+### Các trường chung cho [FeeDelegation](../../../learn/transactions/fee-delegation.md)
 
-### Mặc dù có nhiều loại, những loại giao dịch [FeeDelegation](../../../learn/transactions/fee-delegation.md) trên Klaytn đều có các trường chung.
-
+Mặc dù có nhiều loại, những loại giao dịch [FeeDelegation](../../../learn/transactions/fee-delegation.md) trên Klaytn đều có các trường chung.
 (Xin lưu ý rằng các trường Biên lai giao dịch trên Klaytn thay đổi tùy theo loại giao dịch.)
-Phần này mô tả cách các trường chung cho feeDelegation (ngoại trừ các trường chung được đề cập ở trên) được trình bày dưới dạng Biên lai giao dịch trên Ethereum.
 
-Trường Biên lai giao dịch trên Ethereum
+Phần này mô tả cách các trường chung cho feeDelegation (ngoại trừ các trường chung được đề cập ở trên) được trình bày dưới dạng Biên lai giao dịch trên Ethereum.
 are served as Ethereum Transaction Receipt.
 
-| Trường biên lai giao dịch FeeDelegation trên Klaytn | Mô tả                                                                                   | feePayer(bỏ qua)                                                                |
-| --------------------------------------------------- | --------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-|                                                     | :warning: Trường này bị bỏ qua vì không tồn tại trong Biên lai giao dịch trên Ethereum. | feePayerSignatures(bỏ qua)                                                      |
-|                                                     | :warning: Trường này bị bỏ qua vì không tồn tại trong Biên lai giao dịch trên Ethereum. | Các trường chung cho [PartialFeeDelegation](../../../learn/transactions/partial-fee-delegation.md) |
+| Trường Biên lai giao dịch trên Ethereum | Trường biên lai giao dịch FeeDelegation trên Klaytn | Mô tả                                                                                   |
+| --------------------------------------- | --------------------------------------------------- | --------------------------------------------------------------------------------------- |
+|                                         | feePayer(bỏ qua)                 | :warning: Trường này bị bỏ qua vì không tồn tại trong Biên lai giao dịch trên Ethereum. |
+|                                         | feePayerSignatures(bỏ qua)       | :warning: Trường này bị bỏ qua vì không tồn tại trong Biên lai giao dịch trên Ethereum. |
 
-### Mặc dù có nhiều loại, những loại giao dịch [PartialFeeDelegation](../../../learn/transactions/partial-fee-delegation.md) trên Klaytn đều có các trường chung.
+### Các trường chung cho [PartialFeeDelegation](../../../learn/transactions/partial-fee-delegation.md)
 
+Mặc dù có nhiều loại, những loại giao dịch [PartialFeeDelegation](../../../learn/transactions/partial-fee-delegation.md) trên Klaytn đều có các trường chung.
 (Xin lưu ý rằng các trường Biên lai giao dịch trên Klaytn thay đổi tùy theo loại giao dịch.)
+
 Phần này mô tả cách các trường chung cho partialFeeDelegation (ngoại trừ các trường chung được đề cập ở trên) được trình bày dưới dạng Biên lai giao dịch trên Ethereum.
 
-Trường Biên lai giao dịch trên Ethereum
+| Trường Biên lai giao dịch trên Ethereum | Trường biên lai giao dịch PartialFeeDelegation trên Klaytn | Mô tả                                                                                   |
+| --------------------------------------- | ---------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+|                                         | feeRatio(bỏ qua)                        | :warning: Trường này bị bỏ qua vì không tồn tại trong Biên lai giao dịch trên Ethereum. |
 
-| Trường biên lai giao dịch PartialFeeDelegation trên Klaytn | Mô tả                                                                                   | feeRatio(bỏ qua)              |
-| ---------------------------------------------------------- | --------------------------------------------------------------------------------------- | ------------------------------------------------ |
-|                                                            | :warning: Trường này bị bỏ qua vì không tồn tại trong Biên lai giao dịch trên Ethereum. | Các trường khác nhau đối với từng loại giao dịch |
+### Các trường khác nhau đối với từng loại giao dịch
 
-### Biên lai LegacyTransaction
+#### Biên lai LegacyTransaction
 
-#### Trường biên lai giao dịch trên Ethereum
+| Trường biên lai giao dịch trên Ethereum | Trường biên lai LegacyTransaction Klaytn | Mô tả                                                                                                                         |
+| --------------------------------------- | ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+|                                         | input(bỏ qua)         | :warning: Trường này bị bỏ qua vì không tồn tại trong Biên lai giao dịch trên Ethereum.                                       |
+| đến                                     | đến                                      | :white_check_mark: Địa chỉ của người nhận. `null` nếu đó là giao dịch tạo hợp đồng. |
+|                                         | value(bỏ qua)         | :warning: Trường này bị bỏ qua vì không tồn tại trong Biên lai giao dịch trên Ethereum.                                       |
 
-| Trường biên lai LegacyTransaction Klaytn | Mô tả                                                                                   | input(bỏ qua)                                                                                   |
-| ---------------------------------------- | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-|                                          | :warning: Trường này bị bỏ qua vì không tồn tại trong Biên lai giao dịch trên Ethereum. | đến                                                                                                                |
-| đến                                      | :white_check_mark: Địa chỉ của người nhận.    | `null` nếu đó là giao dịch tạo hợp đồng. value(bỏ qua)                                          |
-|                                          | :warning: Trường này bị bỏ qua vì không tồn tại trong Biên lai giao dịch trên Ethereum. | **Biên lai LegacyTransaction trên Klaytn** được trình bày dưới dạng Biên lai giao dịch trên Ethereum như dưới đây. |
-
-Biên lai giao dịch ValueTransfer
+**Biên lai LegacyTransaction trên Klaytn** được trình bày dưới dạng Biên lai giao dịch trên Ethereum như dưới đây.
 
 ```json
 {
@@ -621,14 +621,14 @@ Biên lai giao dịch ValueTransfer
 }
 ```
 
-#### Trường Biên lai giao dịch trên Ethereum
+#### Biên lai giao dịch ValueTransfer
 
-| Trường biên lai giao dịch ValueTransfer Klaytn | Mô tả                                                                                   | đến                                                                                                            |
-| ---------------------------------------------- | --------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| đến                                            | :white_check_mark: Địa chỉ của người nhận.    | value(bỏ qua)                                                                               |
-|                                                | :warning: Trường này bị bỏ qua vì không tồn tại trong Biên lai giao dịch trên Ethereum. | **Biên lai giao dịch ValueTransfer Klaytn** được trình bày dưới dạng Biên lai giao dịch Ethereum như dưới đây. |
+| Trường Biên lai giao dịch trên Ethereum | Trường biên lai giao dịch ValueTransfer Klaytn | Mô tả                                                                                   |
+| --------------------------------------- | ---------------------------------------------- | --------------------------------------------------------------------------------------- |
+| đến                                     | đến                                            | :white_check_mark: Địa chỉ của người nhận.    |
+|                                         | value(bỏ qua)               | :warning: Trường này bị bỏ qua vì không tồn tại trong Biên lai giao dịch trên Ethereum. |
 
-Biên lai giao dịch ValueTransferMemo
+**Biên lai giao dịch ValueTransfer Klaytn** được trình bày dưới dạng Biên lai giao dịch Ethereum như dưới đây.
 
 ```json
 {
@@ -666,15 +666,15 @@ Biên lai giao dịch ValueTransferMemo
 }
 ```
 
-#### Trường Biên lai giao dịch trên Ethereum
+#### Biên lai giao dịch ValueTransferMemo
 
-| Trường biên lai giao dịch ValueTransferMemo của Klaytn | Mô tả                                                                                   | input(bỏ qua)                                                                                    |
-| ------------------------------------------------------ | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-|                                                        | :warning: Trường này bị bỏ qua vì không tồn tại trong Biên lai giao dịch trên Ethereum. | đến                                                                                                                 |
-| đến                                                    | :white_check_mark: Địa chỉ của người nhận.    | value(bỏ qua)                                                                                    |
-|                                                        | :warning: Trường này bị bỏ qua vì không tồn tại trong Biên lai giao dịch trên Ethereum. | **Giao dịch ValueTransferMemo trên Klaytn** được trình bày dưới dạng Biên lai giao dịch trên Ethereum như dưới đây. |
+| Trường Biên lai giao dịch trên Ethereum | Trường biên lai giao dịch ValueTransferMemo của Klaytn | Mô tả                                                                                   |
+| --------------------------------------- | ------------------------------------------------------ | --------------------------------------------------------------------------------------- |
+|                                         | input(bỏ qua)                       | :warning: Trường này bị bỏ qua vì không tồn tại trong Biên lai giao dịch trên Ethereum. |
+| đến                                     | đến                                                    | :white_check_mark: Địa chỉ của người nhận.    |
+|                                         | value(bỏ qua)                       | :warning: Trường này bị bỏ qua vì không tồn tại trong Biên lai giao dịch trên Ethereum. |
 
-Biên lai giao dịch SmartContractDeploy
+**Giao dịch ValueTransferMemo trên Klaytn** được trình bày dưới dạng Biên lai giao dịch trên Ethereum như dưới đây.
 
 ```json
 {
@@ -713,17 +713,17 @@ Biên lai giao dịch SmartContractDeploy
 }
 ```
 
-#### Trường Biên lai giao dịch trên Ethereum
+#### Biên lai giao dịch SmartContractDeploy
 
-| Trường biên lai giao dịch SmartContractDeploy Klaytn | Mô tả                                                                                   | codeFormat(bỏ qua)                                                                                          |
-| ---------------------------------------------------- | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-|                                                      | :warning: Trường này bị bỏ qua vì không tồn tại trong Biên lai giao dịch trên Ethereum. | humanReadable(bỏ qua)                                                                                       |
-|                                                      | :warning: Trường này bị bỏ qua vì không tồn tại trong Biên lai giao dịch trên Ethereum. | nhập                                                                                                                           |
-|                                                      | :warning: Trường này bị bỏ qua vì không tồn tại trong Biên lai giao dịch trên Ethereum  | đến                                                                                                                            |
-| đến                                                  | :white_check_mark: Địa chỉ của người nhận.    | Trường này luôn có giá trị là `null` vì giao dịch này là giao dịch tạo hợp đồng. giá trị                                       |
-|                                                      | :warning: Trường này bị bỏ qua vì không tồn tại trong Biên lai giao dịch trên Ethereum  | **Biên lai giao dịch SmartContractDeploy trên Klaytn** được trình bày dưới dạng Biên lai giao dịch trên Ethereum như dưới đây. |
+| Trường Biên lai giao dịch trên Ethereum | Trường biên lai giao dịch SmartContractDeploy Klaytn | Mô tả                                                                                                                                                                 |
+| --------------------------------------- | ---------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|                                         | codeFormat(bỏ qua)                | :warning: Trường này bị bỏ qua vì không tồn tại trong Biên lai giao dịch trên Ethereum.                                                                               |
+|                                         | humanReadable(bỏ qua)             | :warning: Trường này bị bỏ qua vì không tồn tại trong Biên lai giao dịch trên Ethereum.                                                                               |
+|                                         | nhập                                                 | :warning: Trường này bị bỏ qua vì không tồn tại trong Biên lai giao dịch trên Ethereum                                                                                |
+| đến                                     | đến                                                  | :white_check_mark: Địa chỉ của người nhận. Trường này luôn có giá trị là `null` vì giao dịch này là giao dịch tạo hợp đồng. |
+|                                         | giá trị                                              | :warning: Trường này bị bỏ qua vì không tồn tại trong Biên lai giao dịch trên Ethereum                                                                                |
 
-Biên lai giao dịch SmartContractExecution
+**Biên lai giao dịch SmartContractDeploy trên Klaytn** được trình bày dưới dạng Biên lai giao dịch trên Ethereum như dưới đây.
 
 ```json
 {
@@ -780,15 +780,15 @@ Biên lai giao dịch SmartContractExecution
 }
 ```
 
-#### Trường Biên lai giao dịch trên Ethereum
+#### Biên lai giao dịch SmartContractExecution
 
-| Trường biên lai giao dịch SmartContractExecution trên Klaytn | Mô tả                                                                                         | nhập                                                                                                                              |
-| ------------------------------------------------------------ | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-|                                                              | :warning: Trường này bị bỏ qua vì không tồn tại trong Biên lai giao dịch trên Ethereum.       | đến                                                                                                                               |
-| đến                                                          | :white_check_mark: Địa chỉ của hợp đồng thông minh. | giá trị                                                                                                                           |
-|                                                              | :warning: Trường này bị bỏ qua vì không tồn tại trong Biên lai giao dịch trên Ethereum.       | **Biên lai giao dịch SmartContractExecution trên Klaytn** được trình bày dưới dạng Biên lai giao dịch trên Ethereum như dưới đây. |
+| Trường Biên lai giao dịch trên Ethereum | Trường biên lai giao dịch SmartContractExecution trên Klaytn | Mô tả                                                                                         |
+| --------------------------------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------------------------- |
+|                                         | nhập                                                         | :warning: Trường này bị bỏ qua vì không tồn tại trong Biên lai giao dịch trên Ethereum.       |
+| đến                                     | đến                                                          | :white_check_mark: Địa chỉ của hợp đồng thông minh. |
+|                                         | giá trị                                                      | :warning: Trường này bị bỏ qua vì không tồn tại trong Biên lai giao dịch trên Ethereum.       |
 
-Biên lai giao dịch AccountUpdate
+**Biên lai giao dịch SmartContractExecution trên Klaytn** được trình bày dưới dạng Biên lai giao dịch trên Ethereum như dưới đây.
 
 ```json
 {
@@ -827,14 +827,14 @@ Biên lai giao dịch AccountUpdate
 }
 ```
 
-#### Trường Biên lai giao dịch trên Ethereum
+#### Biên lai giao dịch AccountUpdate
 
-| Trường biên lai giao dịch AccountUpdate trên Klaytn | Mô tả                                                                                                                                                                                                                  | key(bỏ qua)                                                                                           |
-| --------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-|                                                     | :warning: Trường này bị bỏ qua vì không tồn tại trong Biên lai giao dịch trên Ethereum.                                                                                                                                | đến                                                                                                                      |
-| (đã thêm)                        | :warning: Trường này luôn có cùng địa chỉ với `from` vì trường này không tồn tại trong biên lai giao dịch AccountUpdate trên Klaytn và việc đưa ra giá trị của trường này dưới dạng địa chỉ `from` là có ý nghĩa nhất. | **Biên lai giao dịch AccountUpdate trên Klaytn** được trình bày dưới dạng Biên lai giao dịch trên Ethereum như dưới đây. |
+| Trường Biên lai giao dịch trên Ethereum | Trường biên lai giao dịch AccountUpdate trên Klaytn | Mô tả                                                                                                                                                                                                                  |
+| --------------------------------------- | --------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|                                         | key(bỏ qua)                      | :warning: Trường này bị bỏ qua vì không tồn tại trong Biên lai giao dịch trên Ethereum.                                                                                                                                |
+| đến                                     | (đã thêm)                        | :warning: Trường này luôn có cùng địa chỉ với `from` vì trường này không tồn tại trong biên lai giao dịch AccountUpdate trên Klaytn và việc đưa ra giá trị của trường này dưới dạng địa chỉ `from` là có ý nghĩa nhất. |
 
-Biên lai giao dịch Cancel
+**Biên lai giao dịch AccountUpdate trên Klaytn** được trình bày dưới dạng Biên lai giao dịch trên Ethereum như dưới đây.
 
 ```json
 {
@@ -873,13 +873,13 @@ Biên lai giao dịch Cancel
 }
 ```
 
-#### Trường Biên lai giao dịch trên Ethereum
+#### Biên lai giao dịch Cancel
 
-| Trường biên lai giao dịch Cancel trên Klaytn | Mô tả                                                                                                                                                                                                           | đến                                                                                                               |
-| -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| (đã thêm)                 | :warning: Trường này luôn có cùng địa chỉ với `from` vì trường này không tồn tại trong biên lai giao dịch Cancel trên Klaytn và việc đưa ra giá trị của trường này dưới dạng địa chỉ `from` là có ý nghĩa nhất. | **Biên lai giao dịch Cancel trên Klaytn** được trình bày dưới dạng Biên lai giao dịch trên Ethereum như dưới đây. |
+| Trường Biên lai giao dịch trên Ethereum | Trường biên lai giao dịch Cancel trên Klaytn | Mô tả                                                                                                                                                                                                           |
+| --------------------------------------- | -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| đến                                     | (đã thêm)                 | :warning: Trường này luôn có cùng địa chỉ với `from` vì trường này không tồn tại trong biên lai giao dịch Cancel trên Klaytn và việc đưa ra giá trị của trường này dưới dạng địa chỉ `from` là có ý nghĩa nhất. |
 
-Biên lai giao dịch ChainDataAnchoring
+**Biên lai giao dịch Cancel trên Klaytn** được trình bày dưới dạng Biên lai giao dịch trên Ethereum như dưới đây.
 
 ```json
 {
@@ -916,13 +916,13 @@ Biên lai giao dịch ChainDataAnchoring
 }
 ```
 
-#### Trường Biên lai giao dịch trên Ethereum
+#### Biên lai giao dịch ChainDataAnchoring
 
-| Trường biên lai giao dịch ChainDataAnchoring Klaytn | Mô tả                                                                                                                                                                                                                       | input(bỏ qua)                                                                                              |
-| --------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-|                                                     | :warning: Trường này bị bỏ qua vì không tồn tại trong Biên lai giao dịch trên Ethereum.                                                                                                                                     | inputJSON(bỏ qua)                                                                                          |
-|                                                     | :warning: Trường này bị bỏ qua vì không tồn tại trong Biên lai giao dịch trên Ethereum.                                                                                                                                     | đến                                                                                                                           |
-| (đã thêm)                        | :warning: Trường này luôn có cùng địa chỉ với `from` vì trường này không tồn tại trong biên lai giao dịch ChainDataAnchoring trên Klaytn và việc đưa ra giá trị của trường này dưới dạng địa chỉ `from` là có ý nghĩa nhất. | **Biên lai giao dịch ChainDataAnchoring trên Klaytn** được trình bày dưới dạng Biên lai giao dịch trên Ethereum như dưới đây. |
+| Trường Biên lai giao dịch trên Ethereum | Trường biên lai giao dịch ChainDataAnchoring Klaytn | Mô tả                                                                                                                                                                                                                       |
+| --------------------------------------- | --------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|                                         | input(bỏ qua)                    | :warning: Trường này bị bỏ qua vì không tồn tại trong Biên lai giao dịch trên Ethereum.                                                                                                                                     |
+|                                         | inputJSON(bỏ qua)                | :warning: Trường này bị bỏ qua vì không tồn tại trong Biên lai giao dịch trên Ethereum.                                                                                                                                     |
+| đến                                     | (đã thêm)                        | :warning: Trường này luôn có cùng địa chỉ với `from` vì trường này không tồn tại trong biên lai giao dịch ChainDataAnchoring trên Klaytn và việc đưa ra giá trị của trường này dưới dạng địa chỉ `from` là có ý nghĩa nhất. |
 
 **Biên lai giao dịch ChainDataAnchoring trên Klaytn** được trình bày dưới dạng Biên lai giao dịch trên Ethereum như dưới đây.
 
