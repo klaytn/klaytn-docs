@@ -1,8 +1,8 @@
-# VM Standard Tracing
+# Theo dõi tiêu chuẩn VM
 
 **NOTE** Some debug namespace APIs are unsafe/unappropriate to be opened to public.
 We recommend you to provide the debug namespace APIs to authorized users only.
-However, if you want to maintain a public EN and provide debug namespace APIs to the public,
+However, if you want to maintain a public EN and provide debug namespace APIs to the public, we strongly recommend you to set the `rpc.unsafe-debug.disable` flag which will disable APIs that are unsafe/unappropriate to be opened to the public and enable only a subset of the debug namespace APIs.
 we strongly recommend you to set the `rpc.unsafe-debug.disable` flag which will disable APIs
 that are unsafe/unappropriate to be opened to the public and enable only a subset of the debug namespace APIs.
 The enabled APIs are as follows:
@@ -13,28 +13,28 @@ The enabled APIs are as follows:
 
 ## debug_standardTraceBadBlockToFile <a id="debug_standardtracebadblocktofile"></a>
 
-Similar to [debug_traceBadBlock](./tracing.md#debug_tracebadblock),
+Similar to [debug_traceBadBlock](./tracing.md#debug_tracebadblock), `standardTraceBadBlockToFile` accepts a bad block hash and will replay the bad block.
 `standardTraceBadBlockToFile` accepts a bad block hash and will replay the bad
-block. It returns a list of file names containing tracing result. Note that the
+block. It returns a list of file names containing tracing result. Note that the files will be stored in the machine that serves this API.
 files will be stored in the machine that serves this API.
 
-|  Client | Method Invocation                                                       |
-| :-----: | ----------------------------------------------------------------------- |
-| Console | `debug.standardTraceBadBlockToFile(hash, [options])`                    |
-|   RPC   | `{"method": "debug_standardTraceBadBlockToFile", "params": [hash, {}]}` |
+|    Máy khách    | Gọi phương pháp                                                         |
+| :-------------: | ----------------------------------------------------------------------- |
+| Bảng điều khiển | `debug.standardTraceBadBlockToFile(hash, [options])`                    |
+|       RPC       | `{"method": "debug_standardTraceBadBlockToFile", "params": [hash, {}]}` |
 
 **Parameters**
 
-| Name    | Type         | Description                                                |
-| ------- | ------------ | ---------------------------------------------------------- |
-| hash    | 32-byte DATA | Hash of a block.                                           |
-| options | object       | See [standard tracing options](#standard-tracing-options). |
+| Tên      | Loại           | Mô tả                                                              |
+| -------- | --------------- | ------------------------------------------------------------------ |
+| hash     | DỮ LIỆU 32 byte | Hàm băm của một khối.                                              |
+| tùy chọn | đối tượng       | Xem [các tùy chọn theo dõi tiêu chuẩn](#standard-tracing-options). |
 
 **Return Value**
 
-| Type       | Description                                                                                                                                                                                                                  |
-| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| JSON array | A list of file names. Each represents a tracing result of a transaction. The format of a file name is `block_{first 4 bytes of the block hash}-{transaction index}-{first 4 bytes of the transaction hash}-{random string}`. |
+| Loại     | Mô tả                                                                                                                                                                                                                                       |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Mảng JSON | Một danh sách các tên tệp tin. Mỗi tên đại diện cho một kết quả theo dõi của một giao dịch. Định dạng của tên tệp là `block_{first 4 bytes of the block hash}-{transaction index}-{first 4 bytes of the transaction hash}-{random string}`. |
 
 **Example**
 
@@ -54,29 +54,29 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 
 ## debug_standardTraceBlockToFile <a id="debug_standardtraceblocktofile"></a>
 
-Similar to [debug_traceBlock](./tracing.md#debug_traceblock),
+Similar to [debug_traceBlock](./tracing.md#debug_traceblock), `standardTraceBlockToFile` accepts a block hash and will replay the block that is already present in the database.
 `standardTraceBlockToFile` accepts a block hash and will replay the block that
-is already present in the database. It returns a list of file names containing
-tracing result. Note that the files will be stored in the machine that serves
+is already present in the database. It returns a list of file names containing tracing result.
+tracing result. Note that the files will be stored in the machine that serves this API.
 this API.
 
-|  Client | Method Invocation                                                    |
-| :-----: | -------------------------------------------------------------------- |
-| Console | `debug.standardTraceBlockToFile(hash, [options])`                    |
-|   RPC   | `{"method": "debug_standardTraceBlockToFile", "params": [hash, {}]}` |
+|    Máy khách    | Gọi phương pháp                                                      |
+| :-------------: | -------------------------------------------------------------------- |
+| Bảng điều khiển | `debug.standardTraceBlockToFile(hash, [options])`                    |
+|       RPC       | `{"method": "debug_standardTraceBlockToFile", "params": [hash, {}]}` |
 
 **Parameters**
 
-| Name    | Type         | Description                                                |
-| ------- | ------------ | ---------------------------------------------------------- |
-| hash    | 32-byte DATA | Hash of a block.                                           |
-| options | object       | See [standard tracing options](#standard-tracing-options). |
+| Tên      | type            | Mô tả                                                              |
+| -------- | --------------- | ------------------------------------------------------------------ |
+| hash     | DỮ LIỆU 32 byte | Hàm băm của một khối.                                              |
+| tùy chọn | đối tượng       | Xem [các tùy chọn theo dõi tiêu chuẩn](#standard-tracing-options). |
 
 **Return Value**
 
-| Type       | Description                                                                                                                                                                                                                  |
-| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| JSON array | A list of file names. Each represents a tracing result of a transaction. The format of a file name is `block_{first 4 bytes of the block hash}-{transaction index}-{first 4 bytes of the transaction hash}-{random string}`. |
+| Loại     | Mô tả                                                                                                                                                                                                                                       |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Mảng JSON | Một danh sách các tên tệp tin. Mỗi tên đại diện cho một kết quả theo dõi của một giao dịch. Định dạng của tên tệp là `block_{first 4 bytes of the block hash}-{transaction index}-{first 4 bytes of the transaction hash}-{random string}`. |
 
 **Example**
 
@@ -94,9 +94,9 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 {"jsonrpc":"2.0","id":1,"result":["/var/folders/v9/z3vq7j4d42b2jq_vxsv0km6h0000gn/T/block_0x485fff44-0-0xfe8210fc-288181237"]}
 ```
 
-## Standard Tracing Options <a id="standard-tracing-options"></a>
+## Các tùy chọn theo dõi tiêu chuẩn <a id="standard-tracing-options"></a>
 
-You may give trace API function a secondary optional argument, which specifies
+You may give trace API function a secondary optional argument, which specifies the options for this specific call.
 the options for this specific call. The possible options are:
 
 - `disableStorage`: `BOOL`. Setting this to true will disable storage capture (default = false).
