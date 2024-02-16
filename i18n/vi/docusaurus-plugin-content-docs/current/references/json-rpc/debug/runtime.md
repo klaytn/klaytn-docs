@@ -1,4 +1,4 @@
-# Runtime Debugging
+# Gỡ lỗi thời gian chạy
 
 **NOTE** All other debug namespace APIs **EXCEPT FOR** the following APIs are restricted with `rpc.unsafe-debug.disable` flag:
 
@@ -10,10 +10,10 @@
 
 Returns unused memory to the OS.
 
-|  Client | Method Invocation                  |
-| :-----: | ---------------------------------- |
-| Console | `debug.freeOSMemory()`             |
-|   RPC   | `{"method": "debug_freeOSMemory"}` |
+|    Máy khách    | Gọi phương pháp                    |
+| :-------------: | ---------------------------------- |
+| Bảng điều khiển | `debug.freeOSMemory()`             |
+|       RPC       | `{"method": "debug_freeOSMemory"}` |
 
 **Parameters**
 
@@ -43,10 +43,10 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 Returns GC statistics.
 
-|  Client | Method Invocation                           |
-| :-----: | ------------------------------------------- |
-| Console | `debug.gcStats()`                           |
-|   RPC   | `{"method": "debug_gcStats", "params": []}` |
+|    Máy khách    | Gọi phương pháp                             |
+| :-------------: | ------------------------------------------- |
+| Bảng điều khiển | `debug.gcStats()`                           |
+|       RPC       | `{"method": "debug_gcStats", "params": []}` |
 
 **Parameters**
 
@@ -54,7 +54,7 @@ None
 
 **Return Value**
 
-See [https://golang.org/pkg/runtime/debug/#GCStats](https://golang.org/pkg/runtime/debug/#GCStats)
+See [https://golang.org/pkg/runtime/debug/#GCStats](https://golang.org/pkg/runtime/debug/#GCStats) for information about the fields of the returned object.
 for information about the fields of the returned object.
 
 **Example**
@@ -84,10 +84,10 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 Returns detailed runtime memory statistics.
 
-|  Client | Method Invocation                            |
-| :-----: | -------------------------------------------- |
-| Console | `debug.memStats()`                           |
-|   RPC   | `{"method": "debug_memStats", "params": []}` |
+|    Máy khách    | Gọi phương pháp                              |
+| :-------------: | -------------------------------------------- |
+| Bảng điều khiển | `debug.memStats()`                           |
+|       RPC       | `{"method": "debug_memStats", "params": []}` |
 
 **Parameters**
 
@@ -95,7 +95,7 @@ None
 
 **Return Value**
 
-See [https://golang.org/pkg/runtime/#MemStats](https://golang.org/pkg/runtime/#MemStats)
+See [https://golang.org/pkg/runtime/#MemStats](https://golang.org/pkg/runtime/#MemStats) for information about the fields of the returned object.
 for information about the fields of the returned object.
 
 **Example**
@@ -136,22 +136,22 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 Retrieves all the known system metrics collected by the node.
 
-|  Client | Method Invocation                              |
-| :-----: | ---------------------------------------------- |
-| Console | `debug.metrics(raw)`                           |
-|   RPC   | `{"method": "debug_metrics", "params": [raw]}` |
+|    Máy khách    | Gọi phương pháp                                |
+| :-------------: | ---------------------------------------------- |
+| Bảng điều khiển | `debug.metrics(raw)`                           |
+|       RPC       | `{"method": "debug_metrics", "params": [raw]}` |
 
 **Parameters**
 
-| Name | Type | Description                                           |
-| ---- | ---- | ----------------------------------------------------- |
-| raw  | bool | `true` If raw data is output as it is, `false` If not |
+| Tên | type | Mô tả                                                                     |
+| --- | ---- | ------------------------------------------------------------------------- |
+| raw | bool | `true` Nếu dữ liệu thô được xuất ra đúng như vậy, ngược lại sẽ là `false` |
 
 **Return Value**
 
-| Type        | Description                                   |
-| ----------- | --------------------------------------------- |
-| JSON string | The structured metrics collected by the node. |
+| Loại      | Mô tả                                      |
+| ---------- | ------------------------------------------ |
+| Chuỗi JSON | Các số liệu có cấu trúc được nút thu thập. |
 
 **Example**
 
@@ -227,17 +227,17 @@ A negative value disables GC.
 
 **Parameters**
 
-| Name    | Type    | Description                           |
-| ------- | ------- | ------------------------------------- |
-| Percent | integer | Garbage collection target percentage. |
+| Tên       | Loại     | Mô tả                                     |
+| --------- | --------- | ----------------------------------------- |
+| Phần trăm | số nguyên | Phần trăm mục tiêu thu thập dữ liệu hỏng. |
 
 **Return Value**
 
-| Type    | Description                                    |
-| ------- | ---------------------------------------------- |
-| integer | Previous garbage collection target percentage. |
+| Loại     | Mô tả                                              |
+| --------- | -------------------------------------------------- |
+| số nguyên | Phần trăm mục tiêu thu thập dữ liệu hỏng trước đó. |
 
-**Example**
+**Example** Console
 Console
 
 ```javascript
@@ -265,10 +265,10 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 Returns a printed representation of the stacks of all goroutines.
 
-|  Client | Method Invocation                          |
-| :-----: | ------------------------------------------ |
-| Console | `debug.stacks()`                           |
-|   RPC   | `{"method": "debug_stacks", "params": []}` |
+|    Máy khách    | Gọi phương pháp                            |
+| :-------------: | ------------------------------------------ |
+| Bảng điều khiển | `debug.stacks()`                           |
+|       RPC       | `{"method": "debug_stacks", "params": []}` |
 
 **Parameters**
 
@@ -276,9 +276,9 @@ None
 
 **Return Value**
 
-| Type   | Description                              |
-| ------ | ---------------------------------------- |
-| string | The stack information of all goroutines. |
+| Loại | Mô tả                                        |
+| ----- | -------------------------------------------- |
+| chuỗi | Thông tin ngăn xếp của tất cả các goroutine. |
 
 **Example**
 
