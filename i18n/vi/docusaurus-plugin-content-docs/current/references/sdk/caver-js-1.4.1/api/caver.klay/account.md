@@ -6,7 +6,7 @@
 caver.klay.defaultAccount
 ```
 
-This default address is used as the default `from` property, if no `from`
+Địa chỉ mặc định này được dùng làm thuộc tính `from` mặc định nếu không có thuộc tính `from` nào được chỉ định trong các tham số của các phương pháp sau đây:
 property is specified in parameters of the following methods:
 
 - [caver.klay.sendTransaction()](./transaction/sendtx-legacy.md#sendtransaction-legacy)
@@ -14,12 +14,12 @@ property is specified in parameters of the following methods:
 - [new caver.klay.Contract()](../caver.klay.Contract.md#new-contract) -> [myContract.methods.myMethod().call()](../caver.klay.Contract.md#methods-mymethod-call)
 - [new caver.klay.Contract()](../caver.klay.Contract.md#new-contract) -> [myContract.methods.myMethod().send()](../caver.klay.Contract.md#methods-mymethod-send)
 
-**Property**
+**Thuộc tính**
 
-20-byte `String` - Any Klaytn address.  You should have the private key for
-that address in your node or keystore.  Default is `undefined`.
+`String` 20 byte - Địa chỉ Klaytn bất kỳ.  Bạn cần có khóa riêng tư của địa chỉ đó ở trong nút mạng hoặc hệ thống lưu trữ khóa của bạn.
+that address in your node or keystore.  Địa chỉ mặc định là `undefined`.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.klay.defaultAccount;
@@ -29,29 +29,29 @@ undefined
 > caver.klay.defaultAccount = '0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe';
 ```
 
-## accountCreated <a id="accountcreated"></a>
+## tài khoảnCreated <a id="accountcreated"></a>
 
 ```javascript
 caver.klay.accountCreated(address [, defaultBlock] [, callback])
 ```
 
-Returns `true` if the account associated with the address is created. It returns `false` otherwise.
+Hàm sẽ trả về giá trị `true` nếu tài khoản liên kết với địa chỉ được tạo. Nếu không hàm sẽ trả về `false`.
 
-**NOTE** accountCreated checks if the account exists on the network, so even if a key pair is created, false is returned if the account matching the address does not exist on the actual blockchain network.
+**LƯU Ý** Hàm tài khoảnCreated kiểm tra xem tài khoản có tồn tại trên mạng hay không, do đó ngay cả khi cặp khóa được tạo, nếu tài khoản khớp với địa chỉ không tồn tại trên mạng chuỗi khối thực tế, hàm sẽ trả về giá trị false.
 
-**Parameters**
+**Tham số**
 
-| Name         | Type             | Description                                                                                                                                              |
-| ------------ | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address      | String           | The address of the account you want to query to see if it has been created on the network.                                                               |
-| defaultBlock | Number \| String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
-| callback     | Function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                            |
+| Tên          | type        | Mô tả                                                                                                                                                                               |
+| ------------ | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address      | Chuỗi       | Địa chỉ của tài khoản mà bạn muốn truy vấn xem tài khoản đã được tạo trong mạng hay chưa.                                                                                           |
+| defaultBlock | Số \| Chuỗi | (tùy chọn) Nếu bạn truyền tham số này thì tham số này sẽ không sử dụng khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](./block.md#defaultblock). |
+| callback     | Hàm         | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                                  |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Boolean` - The existence of an input address.
+`Promise` trả về `Boolean` - Tồn tại địa chỉ đầu vào.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.klay.accountCreated('0x7e6ea9e6f24567cd9edb92e6e2d9b94bdae8a47f').then(console.log);
@@ -67,23 +67,23 @@ false
 caver.klay.getAccount(address[, defaultBlock] [, callback])
 ```
 
-Returns the account information of a given address. There are two different account types in Klaytn: Externally Owned Account (EOA) and Smart Contract Account. See [Klaytn Accounts](../../../../../learn/accounts.md#klaytn-accounts).
+Trả về thông tin tài khoản của một địa chỉ cho trước. Có hai loại tài khoản trong Klaytn: Tài khoản sở hữu bên ngoài (EOA) và Tài khoản hợp đồng thông minh. Xem phần [Tài khoản Klaytn](../../../../../learn/accounts.md#klaytn-accounts).
 
-**NOTE** getAccount returns the account that exists on the network, so even if a key pair is created, null is returned if the account matching the address does not exist on the actual blockchain network.
+**LƯU Ý** Hàm getAccount trả về tài khoản tồn tại trong mạng, do đó ngay cả khi cặp khóa được tạo, nếu tài khoản khớp với địa chỉ không tồn tại trên mạng chuỗi khối thực tế, hàm sẽ trả về giá trị null.
 
-**Parameters**
+**Tham số**
 
-| Name         | Type             | Description                                                                                                                                              |
-| ------------ | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address      | String           | The address of the account for which you want to get account information.                                                                                |
-| defaultBlock | Number \| String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
-| callback     | Function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                            |
+| Tên          | Loại       | Mô tả                                                                                                                                                                               |
+| ------------ | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address      | Chuỗi       | Địa chỉ của tài khoản mà bạn muốn có thông tin tài khoản.                                                                                                                           |
+| defaultBlock | Số \| Chuỗi | (tùy chọn) Nếu bạn truyền tham số này thì tham số này sẽ không sử dụng khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](./block.md#defaultblock). |
+| callback     | Hàm         | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                                  |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns a JSON object - A JSON object that contains the account information.
+`Promise` trả về một đối tượng JSON - Một đối tượng JSON chứa thông tin tài khoản.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.klay.getAccount('0x52791fcf7900a64a6bcab8b89a78ae4cc60da01c').then(console.log);
@@ -117,19 +117,19 @@ Returns the account information of a given address. There are two different acco
 caver.klay.getAccounts([callback])
 ```
 
-Returns a list of accounts that the node controls.
+Trả về danh sách các tài khoản mà nút kiểm soát.
 
-**Parameters**
+**Tham số**
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên      | type | Mô tả                                                                                                                              |
+| -------- | ---- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| callback | Hàm  | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Array` - An array of addresses controlled by node.
+`Promise` trả về `Array` - Mảng các địa chỉ mà nút kiểm soát.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.klay.getAccounts().then(console.log);
@@ -142,23 +142,23 @@ Returns a list of accounts that the node controls.
 caver.klay.getAccountKey(address [, defaultBlock] [, callback])
 ```
 
-Returns the account key of the Externally Owned Account (EOA) of the given address. If the account has AccountKeyLegacy or the account of the given address is a Smart Contract Account, it will return an empty key value. See [Account Key](../../../../../learn/accounts.md#account-key).
+Trả về mã khóa tài khoản của Tài khoản sở hữu bên ngoài (EOA) của địa chỉ cho trước. Nếu tài khoản có AccountKeyLegacy hoặc tài khoản của địa chỉ đã cho là Tài khoản hợp đồng thông minh, hàm sẽ trả về một giá trị mã khóa trống. Xem phần [Khóa tài khoản](../../../../../learn/accounts.md#account-key).
 
-**NOTE** getAccountKey returns the account key if the account exists on the network, so even if a key pair is created, null is returned if the account matching the address does not exist on the actual blockchain network.
+**LƯU Ý** Hàm getAccountKey trả về mã khóa tài khoản nếu tài khoản tồn tại trên mạng, do đó ngay cả khi cặp khóa được tạo, nếu tài khoản khớp với địa chỉ không tồn tại trên mạng chuỗi khối thực tế, hàm sẽ trả về giá trị null.
 
-**Parameters**
+**Tham số**
 
-| Name         | Type             | Description                                                                                                                                              |
-| ------------ | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address      | String           | The address of the account for which you want to get accountKey.                                                                                         |
-| defaultBlock | Number \| String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
-| callback     | Function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                            |
+| Tên          | Loại       | Mô tả                                                                                                                                                                               |
+| ------------ | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address      | Chuỗi       | Địa chỉ của tài khoản mà bạn muốn có mã khóa tài khoản.                                                                                                                             |
+| defaultBlock | Số \| Chuỗi | (tùy chọn) Nếu bạn truyền tham số này thì tham số này sẽ không sử dụng khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](./block.md#defaultblock). |
+| callback     | Hàm         | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                                  |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Object` - The account key consist of public key(s) and a key type.
+`Promise` trả về `Object` - Khóa tài khoản bao gồm (các) khóa công khai và loại khóa.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 // AccountKey type: AccountKeyLegacy
@@ -250,21 +250,21 @@ Returns the account key of the Externally Owned Account (EOA) of the given addre
 caver.klay.getBalance(address [, defaultBlock] [, callback])
 ```
 
-Gets the balance of an address at a given block.
+Lấy số dư của một địa chỉ tại một khối nhất định.
 
-**Parameters**
+**Tham số**
 
-| Name         | Type             | Description                                                                                                                                              |
-| ------------ | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address      | String           | The address to get the balance of.                                                                                                                       |
-| defaultBlock | Number \| String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
-| callback     | Function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                            |
+| Tên          | Loại       | Mô tả                                                                                                                                                                               |
+| ------------ | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address      | Chuỗi       | Địa chỉ để nhận số dư.                                                                                                                                                              |
+| defaultBlock | Số \| Chuỗi | (tùy chọn) Nếu bạn truyền tham số này thì tham số này sẽ không sử dụng khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](./block.md#defaultblock). |
+| callback     | Hàm         | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                                  |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `String` - The current balance for the given address in peb.
+`Promise` trả về `String` - Số dư hiện tại của địa chỉ đã cho tính bằng đơn vị peb.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.klay.getBalance("0x407d73d8a49eeb85d32cf465507dd71d507100c1").then(console.log);
@@ -277,21 +277,21 @@ Gets the balance of an address at a given block.
 caver.klay.getCode(address [, defaultBlock] [, callback])
 ```
 
-Gets the code at a specific address.
+Lấy mã tại một địa chỉ cụ thể.
 
-**Parameters**
+**Tham số**
 
-| Name         | Type             | Description                                                                                                                                              |
-| ------------ | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address      | String           | The address to get the code from.                                                                                                                        |
-| defaultBlock | Number \| String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
-| callback     | Function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                            |
+| Tên          | type        | Mô tả                                                                                                                                                                               |
+| ------------ | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address      | Chuỗi       | Địa chỉ để nhận số dư từ đó.                                                                                                                                                        |
+| defaultBlock | Số \| Chuỗi | (tùy chọn) Nếu bạn truyền tham số này thì tham số này sẽ không sử dụng khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](./block.md#defaultblock). |
+| callback     | Hàm         | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                                  |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `String` - The data at given address `address`.
+`Promise` trả về `String` - Dữ liệu ở địa chỉ đã cho `address`.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.klay.getCode("0xd5677cf67b5aa051bb40496e68ad359eb97cfbf8").then(console.log);
@@ -305,23 +305,23 @@ Gets the code at a specific address.
 caver.klay.getTransactionCount(address [, blockNumber] [, callback])
 ```
 
-Gets the number of transactions sent from this address.
+Nhận số lượng giao dịch đã gửi từ địa chỉ này.
 
-**Parameters**
+**Tham số**
 
-| Name        | Type             | Description                                                                                                                                                                                                                     |
-| ----------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address     | String           | The address to get the number of transactions from.                                                                                                                                                                             |
-| blockNumber | number \| string | (optional) A block number, the string `pending` for the pending nonce, or the string `earliest` or `latest` as in the [default block parameter](./block.md#defaultblock). If omitted, `latest` will be used. |
-| callback    | Function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                                   |
+| Tên         | Loại       | Mô tả                                                                                                                                                                                                                                          |
+| ----------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address     | Chuỗi       | Địa chỉ để nhận số lượng giao dịch từ đó.                                                                                                                                                                                                      |
+| blockNumber | số \| chuỗi | (tùy chọn) Số khối, chuỗi `pending` để lấy số dùng một lần đang chờ xử lý hoặc chuỗi `earliest` hoặc `latest` giống như trong [tham số khối mặc định](./block.md#defaultblock). Nếu bỏ qua, chuỗi `latest` sẽ được sử dụng. |
+| callback    | Hàm         | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                                                                                             |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type   | Description                                             |
-| ------ | ------------------------------------------------------- |
-| Number | The number of transactions sent from the given address. |
+| Loại | Mô tả                                           |
+| ----- | ----------------------------------------------- |
+| Số    | Số lượng giao dịch đã gửi từ địa chỉ nhất định. |
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.klay.getTransactionCount("0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe")
@@ -335,21 +335,21 @@ Gets the number of transactions sent from this address.
 caver.klay.isContractAccount(address [, defaultBlock] [, callback])
 ```
 
-Returns `true` if an input account has a non-empty codeHash at the time of a specific block number. It returns `false` if the account is an EOA or a smart contract account which doesn't have codeHash.
+Trả về `true` nếu tài khoản đầu vào có codeHash không trống vào thời điểm có số khối cụ thể. Trả về `false` nếu tài khoản là EOA hoặc tài khoản hợp đồng thông minh không có codeHash.
 
-**Parameters**
+**Tham số**
 
-| Name         | Type             | Description                                                                                                                                              |
-| ------------ | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address      | String           | The address of the account you want to check for isContractAccount.                                                                                      |
-| defaultBlock | Number \| String | (optional) If you pass this parameter, it will not use the default block set with [caver.klay.defaultBlock](./block.md#defaultblock). |
-| callback     | Function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                            |
+| Tên          | Loại       | Mô tả                                                                                                                                                                               |
+| ------------ | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address      | Chuỗi       | Địa chỉ của tài khoản mà bạn muốn kiểm tra thuộc tính isContractAccount.                                                                                                            |
+| defaultBlock | Số \| Chuỗi | (tùy chọn) Nếu bạn truyền tham số này thì tham số này sẽ không sử dụng khối mặc định được thiết lập bằng hàm [caver.klay.defaultBlock](./block.md#defaultblock). |
+| callback     | Hàm         | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                                  |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `Boolean` - `true` means the input parameter is an existing smart contract address.
+`Promise` trả về `Boolean` - `true` nghĩa là tham số đầu vào là địa chỉ hợp đồng thông minh hiện có.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.klay.isContractAccount('0x7e6ea9e6f24567cd9edb92e6e2d9b94bdae8a47f').then(console.log);
@@ -359,29 +359,29 @@ true
 false
 ```
 
-## sign <a id="sign"></a>
+## ký <a id="sign"></a>
 
 ```javascript
 caver.klay.sign(message, address [, callback])
 ```
 
-Generates signed data specific to the Klaytn network. Refer to [Klaytn Platform API - klay_sign](../../../../../references/json-rpc/klay/account.md#klay_sign) to know how the signature is generated.
+Tạo dữ liệu đã ký cụ thể cho mạng lưới Klaytn. Tham khảo [API Nền tảng Klaytn - klay_sign](../../../../../references/json-rpc/klay/account.md#klay_sign) để biết cách tạo chữ ký.
 
-**NOTE**: This API provides the function to sign a message using an account that exists in your node. The account in the node must be unlocked to sign the message. To sign a transaction, use [caver.klay.signTransaction](./transaction/transaction.md#signtransaction).
+**LƯU Ý**: API này hỗ trợ chức năng ký thông báo bằng cách sử dụng tài khoản đã tồn tại trên nút của bạn. Tài khoản trong nút phải ở trạng thái mở khóa để ký thông báo. Sử dụng hàm [caver.klay.signTransaction](./transaction/transaction.md#signtransaction) để ký giao dịch.
 
-**Parameters**
+**Tham số**
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| message  | String   | Message to sign.                                                                                                              |
-| address  | String   | The address of the account to sign the message with.                                                                          |
-| callback | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên       | type  | Mô tả                                                                                                                              |
+| --------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| thông báo | Chuỗi | Thông báo cần ký.                                                                                                                  |
+| address   | Chuỗi | Địa chỉ của tài khoản dùng để ký thông báo.                                                                                        |
+| callback  | Hàm   | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
-**Return Value**
+**Giá trị trả về**
 
-`Promise` returns `String` - The message signature signed with the account's private key.
+`Promise` trả về `String` - Chữ ký thông báo được ký bằng khóa riêng tư của tài khoản.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 > caver.klay.sign('Message to sign', '0x1427ac5d0f1c3174ee6ea05d29a9b05fd31d7579').then(console.log)
