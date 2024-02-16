@@ -19,7 +19,7 @@ TxTypeFeeDelegatedValueTransfer는 사용자가 KLAY를 전송하고자 할 때 
 | to | common.Address \(Go\) | 이체된 값을 받을 계정 주소입니다. |
 | value | \*big.Int \(Go\) | 전송할 `peb`의 KLAY 금액입니다. |
 | from | common.Address \(Go\) | 발신자의 주소입니다. 자세한 내용은 [트랜잭션 서명 유효성 검사](./transactions.md#signature-validation-of-transactions)를 참조하세요. |
-| feePayerSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [트랜잭션의 서명 유효성 검사](./transactions.md#signature-validation-of-transactions)를 참조하세요. |
+| txSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [트랜잭션의 서명 유효성 검사](./transactions.md#signature-validation-of-transactions)를 참조하세요. |
 | feePayer | common.Address \(Go) | 수수료 납부자의 주소입니다. |
 | feePayerSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | 수수료 납부자의 서명입니다. |
 
