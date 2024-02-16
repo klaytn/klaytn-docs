@@ -1,34 +1,34 @@
-# VM Tracing
+# Theo dõi VM
 
 **NOTE** The [JavaScript-based Tracing](#javascript-based-tracing) of VM Tracing APIs is considered unsafe to be opened to public.
-If you want to provide VM Tracing APIs to the public, we strongly recommend you to set the
+If you want to provide VM Tracing APIs to the public, we strongly recommend you to set the `rpc.unsafe-debug.disable` flag which will disable the [Javascript-based Tracing](#javascript-based-tracing) and only allow [pre-defined tracers](#tracing-options).
 `rpc.unsafe-debug.disable` flag which will disable the [Javascript-based Tracing](#javascript-based-tracing)
 and only allow [pre-defined tracers](#tracing-options).
 
 ## debug_traceBadBlock <a id="debug_tracebadblock"></a>
 
-The `traceBadBlock` method will return a full stack trace of all invoked
+The `traceBadBlock` method will return a full stack trace of all invoked opcodes of all transactions that were included in this block.
 opcodes of all transactions that were included in this block.
 
 **NOTE**: the parent of this block must be present or it will fail.
 
-|  Client | Method Invocation                                         |
-| :-----: | --------------------------------------------------------- |
-| Console | `debug.traceBadBlock(hash, [options])`                    |
-|   RPC   | `{"method": "debug_traceBadBlock", "params": [hash, {}]}` |
+|    Máy khách    | Gọi phương pháp                                           |
+| :-------------: | --------------------------------------------------------- |
+| Bảng điều khiển | `debug.traceBadBlock(hash, [options])`                    |
+|       RPC       | `{"method": "debug_traceBadBlock", "params": [hash, {}]}` |
 
 **Parameters**
 
-| Name    | Type         | Description                              |
-| ------- | ------------ | ---------------------------------------- |
-| hash    | 32-byte DATA | Hash of a block.                         |
-| options | object       | See [tracing options](#tracing-options). |
+| Tên      | Loại           | Mô tả                                          |
+| -------- | --------------- | ---------------------------------------------- |
+| hash     | DỮ LIỆU 32 byte | Hàm băm của một khối.                          |
+| tùy chọn | đối tượng       | Xem [các tùy chọn theo dõi](#tracing-options). |
 
 **Return Value**
 
-| Type        | Description                                               |
-| ----------- | --------------------------------------------------------- |
-| JSON string | The structured logs created during the execution of KLVM. |
+| Loại      | Mô tả                                                       |
+| ---------- | ----------------------------------------------------------- |
+| Chuỗi JSON | Nhật ký có cấu trúc được tạo trong quá trình thực thi KLVM. |
 
 **Example**
 
@@ -64,30 +64,30 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_traceBlock <a id="debug_traceblock"></a>
 
-The `traceBlock` method will return a full stack trace of all invoked opcodes
+The `traceBlock` method will return a full stack trace of all invoked opcodes of all transactions that were included in this block.
 of all transactions that were included in this block.
 
 **NOTE**: the parent of this block must be present or it will fail.
 
-|  Client | Method Invocation                                          |
-| :-----: | ---------------------------------------------------------- |
-| Console | `debug.traceBlock(blockRlp, [options])`                    |
-|   RPC   | `{"method": "debug_traceBlock", "params": [blockRlp, {}]}` |
+|    Máy khách    | Gọi phương pháp                                            |
+| :-------------: | ---------------------------------------------------------- |
+| Bảng điều khiển | `debug.traceBlock(blockRlp, [options])`                    |
+|       RPC       | `{"method": "debug_traceBlock", "params": [blockRlp, {}]}` |
 
 References: [RLP](https://github.com/ethereum/wiki/wiki/RLP)
 
 **Parameters**
 
-| Name     | Type   | Description                              |
-| -------- | ------ | ---------------------------------------- |
-| blockRlp | string | The RLP-encoded block.                   |
-| options  | object | See [tracing options](#tracing-options). |
+| Tên      | Loại     | Mô tả                                          |
+| -------- | --------- | ---------------------------------------------- |
+| blockRlp | chuỗi     | Khối mã hóa RLP.                               |
+| tùy chọn | đối tượng | Xem [các tùy chọn theo dõi](#tracing-options). |
 
 **Return Value**
 
-| Type        | Description                                               |
-| ----------- | --------------------------------------------------------- |
-| JSON string | The structured logs created during the execution of KLVM. |
+| Loại      | Mô tả                                                       |
+| ---------- | ----------------------------------------------------------- |
+| Chuỗi JSON | Nhật ký có cấu trúc được tạo trong quá trình thực thi KLVM. |
 
 **Example**
 
@@ -116,26 +116,26 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_traceBlockByHash <a id="debug_traceblockbyhash"></a>
 
-Similar to [debug_traceBlock](#debug_traceblock), `traceBlockByHash` accepts a
+Similar to [debug_traceBlock](#debug_traceblock), `traceBlockByHash` accepts a block hash and will replay the block that is already present in the database.
 block hash and will replay the block that is already present in the database.
 
-|  Client | Method Invocation                                            |
-| :-----: | ------------------------------------------------------------ |
-| Console | `debug.traceBlockByHash(hash, [options])`                    |
-|   RPC   | `{"method": "debug_traceBlockByHash", "params": [hash, {}]}` |
+|    Máy khách    | Gọi phương pháp                                              |
+| :-------------: | ------------------------------------------------------------ |
+| Bảng điều khiển | `debug.traceBlockByHash(hash, [options])`                    |
+|       RPC       | `{"method": "debug_traceBlockByHash", "params": [hash, {}]}` |
 
 **Parameters**
 
-| Name    | Type         | Description                              |
-| ------- | ------------ | ---------------------------------------- |
-| hash    | 32-byte DATA | Hash of a block.                         |
-| options | object       | See [tracing options](#tracing-options). |
+| Tên      | Loại           | Mô tả                                          |
+| -------- | --------------- | ---------------------------------------------- |
+| hash     | DỮ LIỆU 32 byte | Hàm băm của một khối.                          |
+| tùy chọn | đối tượng       | Xem [các tùy chọn theo dõi](#tracing-options). |
 
 **Return Value**
 
-| Type        | Description                                               |
-| ----------- | --------------------------------------------------------- |
-| JSON string | The structured logs created during the execution of KLVM. |
+| Loại      | Mô tả                                                       |
+| ---------- | ----------------------------------------------------------- |
+| Chuỗi JSON | Nhật ký có cấu trúc được tạo trong quá trình thực thi KLVM. |
 
 **Example**
 
@@ -163,27 +163,27 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_traceBlockByNumber <a id="debug_traceblockbynumber"></a>
 
-Similar to [debug_traceBlock](#debug_traceblock), `traceBlockByNumber` accepts
+Similar to [debug_traceBlock](#debug_traceblock), `traceBlockByNumber` accepts a block number and will replay the block that is already present in the database.
 a block number and will replay the block that is already present in the
 database.
 
-|  Client | Method Invocation                                                |
-| :-----: | ---------------------------------------------------------------- |
-| Console | `debug.traceBlockByNumber(number, [options])`                    |
-|   RPC   | `{"method": "debug_traceBlockByNumber", "params": [number, {}]}` |
+|    Máy khách    | Gọi phương pháp                                                  |
+| :-------------: | ---------------------------------------------------------------- |
+| Bảng điều khiển | `debug.traceBlockByNumber(number, [options])`                    |
+|       RPC       | `{"method": "debug_traceBlockByNumber", "params": [number, {}]}` |
 
 **Parameters**
 
-| Name    | Type   | Description                              |
-| ------- | ------ | ---------------------------------------- |
-| number  | int    | The block number.                        |
-| options | object | See [tracing options](#tracing-options). |
+| Tên      | type      | Mô tả                                          |
+| -------- | --------- | ---------------------------------------------- |
+| số       | int       | Số khối.                                       |
+| tùy chọn | đối tượng | Xem [các tùy chọn theo dõi](#tracing-options). |
 
 **Return Value**
 
-| Type        | Description                                               |
-| ----------- | --------------------------------------------------------- |
-| JSON string | The structured logs created during the execution of KLVM. |
+| Loại      | Mô tả                                                       |
+| ---------- | ----------------------------------------------------------- |
+| Chuỗi JSON | Nhật ký có cấu trúc được tạo trong quá trình thực thi KLVM. |
 
 **Example**
 
@@ -215,26 +215,26 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 Returns the structured logs created during the execution of EVM between two blocks (including start) as a JSON object.
 That is, the result of tracing for a total of end-start+1 blocks is returned.
 
-|  Client | Method Invocation                                                             |
-| :-----: | ----------------------------------------------------------------------------- |
-| Console | `debug.traceBlockByNumberRange(number, number, [options])`                    |
-|   RPC   | `{"method": "debug_traceBlockByNumberRange", "params": [number, number, {}]}` |
+|    Máy khách    | Gọi phương pháp                                                               |
+| :-------------: | ----------------------------------------------------------------------------- |
+| Bảng điều khiển | `debug.traceBlockByNumberRange(number, number, [options])`                    |
+|       RPC       | `{"method": "debug_traceBlockByNumberRange", "params": [number, number, {}]}` |
 
 **NOTE**: Don't trace too many blocks at the same time as it can overuse machine resources.
 
 **Parameters**
 
-| Name    | Type   | Description                              |
-| ------- | ------ | ---------------------------------------- |
-| number  | int    | Tracing start block number.              |
-| number  | int    | Tracing end block number.                |
-| options | object | See [tracing options](#tracing-options). |
+| Tên      | type      | Mô tả                                          |
+| -------- | --------- | ---------------------------------------------- |
+| số       | int       | Theo dõi số khối bắt đầu.                      |
+| số       | int       | Theo dõi số khối kết thúc.                     |
+| tùy chọn | đối tượng | Xem [các tùy chọn theo dõi](#tracing-options). |
 
 **Return Value**
 
-| Type                                                          | Description                                                              |
-| ------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| map(key: block number. value: JSON string) | Value contains the structured logs created during the execution of KLVM. |
+| Loại                                                     | Mô tả                                                                    |
+| --------------------------------------------------------- | ------------------------------------------------------------------------ |
+| map(key: số khối. giá trị: chuỗi JSON) | Giá trị chứa bản ghi có cấu trúc được tạo trong quá trình thực thi KLVM. |
 
 **Example**
 
@@ -272,30 +272,30 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_traceBlockFromFile <a id="debug_traceblockfromfile"></a>
 
-Similar to [debug_traceBlock](#debug_traceblock), `traceBlockFromFile` accepts
+Similar to [debug_traceBlock](#debug_traceblock), `traceBlockFromFile` accepts a file containing the RLP of the block.
 a file containing the RLP of the block.
 
 **NOTE**: the file must include the associated hexadecimal string without `0x`.
 
-|  Client | Method Invocation                                                  |
-| :-----: | ------------------------------------------------------------------ |
-| Console | `debug.traceBlockFromFile(fileName, [options])`                    |
-|   RPC   | `{"method": "debug_traceBlockFromFile", "params": [fileName, {}]}` |
+|    Máy khách    | Gọi phương pháp                                                    |
+| :-------------: | ------------------------------------------------------------------ |
+| Bảng điều khiển | `debug.traceBlockFromFile(fileName, [options])`                    |
+|       RPC       | `{"method": "debug_traceBlockFromFile", "params": [fileName, {}]}` |
 
 References: [RLP](https://github.com/ethereum/wiki/wiki/RLP)
 
 **Parameters**
 
-| Name     | Type   | Description                                        |
-| -------- | ------ | -------------------------------------------------- |
-| fileName | string | The file name which contains the RLP of the block. |
-| options  | object | See [tracing options](#tracing-options).           |
+| Tên         | type      | Mô tả                                          |
+| ----------- | --------- | ---------------------------------------------- |
+| tên tệp tin | chuỗi     | Tên tệp chứa RLP của khối.                     |
+| tùy chọn    | đối tượng | Xem [các tùy chọn theo dõi](#tracing-options). |
 
 **Return Value**
 
-| Type        | Description                                               |
-| ----------- | --------------------------------------------------------- |
-| JSON string | The structured logs created during the execution of KLVM. |
+| Loại      | Mô tả                                                       |
+| ---------- | ----------------------------------------------------------- |
+| Chuỗi JSON | Nhật ký có cấu trúc được tạo trong quá trình thực thi KLVM. |
 
 **Example**
 
@@ -331,28 +331,28 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_traceTransaction <a id="debug_tracetransaction"></a>
 
-The `traceTransaction` debugging method will attempt to run the transaction in
-the exact same manner as it was executed on the network. It will replay any
+The `traceTransaction` debugging method will attempt to run the transaction in the exact same manner as it was executed on the network.
+the exact same manner as it was executed on the network. It will replay any transaction that may have been executed prior to this one before it will finally attempt to execute the transaction that corresponds to the given hash.
 transaction that may have been executed prior to this one before it will
 finally attempt to execute the transaction that corresponds to the given hash.
 
-|  Client | Method Invocation                                              |
-| :-----: | -------------------------------------------------------------- |
-| Console | `debug.traceTransaction(txHash, [options])`                    |
-|   RPC   | `{"method": "debug_traceTransaction", "params": [txHash, {}]}` |
+|    Máy khách    | Gọi phương pháp                                                |
+| :-------------: | -------------------------------------------------------------- |
+| Bảng điều khiển | `debug.traceTransaction(txHash, [options])`                    |
+|       RPC       | `{"method": "debug_traceTransaction", "params": [txHash, {}]}` |
 
 **Parameters**
 
-| Name    | Type   | Description                              |
-| ------- | ------ | ---------------------------------------- |
-| txHash  | string | The hash of the transaction.             |
-| options | object | See [tracing options](#tracing-options). |
+| Tên      | type      | Mô tả                                          |
+| -------- | --------- | ---------------------------------------------- |
+| txHash   | chuỗi     | Hàm băm của giao dịch.                         |
+| tùy chọn | đối tượng | Xem [các tùy chọn theo dõi](#tracing-options). |
 
 **Return Value**
 
-| Type        | Description                                               |
-| ----------- | --------------------------------------------------------- |
-| JSON string | The structured logs created during the execution of KLVM. |
+| Loại      | Mô tả                                                       |
+| ---------- | ----------------------------------------------------------- |
+| Chuỗi JSON | Nhật ký có cấu trúc được tạo trong quá trình thực thi KLVM. |
 
 **Example**
 
@@ -445,19 +445,19 @@ The `traceCall` returns the tracing result by executing a klay call within the c
 
 **Parameters**
 
-| Name              | Type                    | Description                                                                                                                                                                                 |
+| Tên               | type                    | Mô tả                                                                                                                                                                                       |
 | ----------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | callObject        | Object                  | The transaction call object.  See the next table for the object's properties.                                                                                                               |
 | blockNumberOrHash | QUANTITY \| TAG \| HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](../eth/block.md#the-default-block-parameter), or block hash. |
-| options           | object                  | See [tracing options](#tracing-options).                                                                                                                                                    |
+| tùy chọn          | đối tượng               | Xem [các tùy chọn theo dõi](#tracing-options).                                                                                                                                              |
 
 **Return Value**
 
-| Type        | Description                                               |
+| Type        | Mô tả                                                     |
 | ----------- | --------------------------------------------------------- |
 | JSON string | The structured logs created during the execution of KLVM. |
 
-**Example**
+**Example** Console
 Console
 
 ```javascript
@@ -480,7 +480,7 @@ Returns the structured logs created during the execution of EVM between two bloc
 
 **Parameters**
 
-| Name    | Type   | Description                              |
+| Name    | type   | Mô tả                                    |
 | ------- | ------ | ---------------------------------------- |
 | number  | int    | Tracing start block number.              |
 | number  | int    | Tracing end block number.                |
@@ -500,17 +500,17 @@ wscat -c ws://localhost:8552
 
 ## Tracing Options <a id="tracing-options"></a>
 
-You may give trace API function a secondary optional argument, which specifies
+You may give trace API function a secondary optional argument, which specifies the options for this specific call.
 the options for this specific call. The possible options are:
 
-- `disableStorage`: `BOOL`. Setting this to true will disable storage capture (default = false).
-- `disableMemory`: `BOOL`. Setting this to true will disable memory capture (default = false).
-- `disableStack`: `BOOL`. Setting this to true will disable stack capture (default = false).
-- `timeout`: `STRING`. Overrides the default timeout of 5 seconds for JavaScript-based tracing calls. Valid values are described [here](https://golang.org/pkg/time/#ParseDuration).
-- `tracer`: `STRING`. Setting this will enable JavaScript-based transaction tracing, described in the [next section](#javascript-based-tracing). If set, the previous four arguments will be ignored. The predefined tracers can also be used as the following table.
+- `disableStorage`: `BOOL`. Đặt thành true sẽ vô hiệu hóa tính năng thu thập lưu trữ (mặc định = false).
+- `disableMemory`: `BOOL`. Đặt thành true sẽ vô hiệu hóa tính năng thu thập bộ nhớ (mặc định = false).
+- `disableStack`: `BOOL`. Đặt thành true sẽ vô hiệu hóa tính năng thu thập ngăn xếp (mặc định = false).
+- `hết thời gian chờ`: `CHUỖI`. Ghi đè thời gian chờ mặc định là 5 giây cho các lệnh gọi theo dõi dựa trên JavaScript. Các giá trị hợp lệ được mô tả [tại đây](https://golang.org/pkg/time/#ParseDuration).
+- `trình theo dõi`: `CHUỖI`. Thiết lập cài đặt này sẽ kích hoạt theo dõi giao dịch dựa trên JavaScript, được mô tả trong [phần tiếp theo](#javascript-based-tracing). Nếu được thiết lập, bốn đối số trước đó sẽ bị bỏ qua. Các trình theo dõi được xác định trước cũng có thể được sử dụng như trong bảng sau.
 - `reexec`: `INT`. Overrides the default reexec value (default = 128). Reexec value is the maximum number of blocks to reprocess trying to obtain the desired state.
 
-| Tracer Name    | Description                                                                                                                                                                                                                                                      |
+| Tracer Name    | Mô tả                                                                                                                                                                                                                                                            |
 | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 4byteTracer    | 4byteTracer searches for 4byte-identifiers, and collects them for post-processing. It collects the methods identifiers along with the size of the supplied data, so a reversed signature can be matched against the size of the data.                            |
 | callTracer     | callTracer is a full-blown transaction tracer that extracts and reports all the internal calls made by a transaction, along with any useful information.                                                                                                         |
@@ -557,14 +557,14 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 
 ## JavaScript-based Tracing <a id="javascript-based-tracing"></a>
 
-**NOTE** The JavaScript-based Tracing allows the user to run arbitrary JS code,
-which is **unsafe**. If you want to provide debug namespace APIs to the public,
+**NOTE** The JavaScript-based Tracing allows the user to run arbitrary JS code, which is **unsafe**.
+which is **unsafe**. If you want to provide debug namespace APIs to the public, we strongly recommend to set the `rpc.unsafe-debug.disable` flag when running the EN, so the JavaScript-based Tracing can be disabled.
 we strongly recommend to set the `rpc.unsafe-debug.disable` flag when running
 the EN, so the JavaScript-based Tracing can be disabled.
 
 Specifying the `tracer` option in the second argument enables JavaScript-based tracing. In this mode, `tracer` is interpreted as a JavaScript expression that is expected to evaluate to an object with (at least) two methods, named `step` and `result`.
 
-`step` is a function that takes two arguments, `log` and `db`, and is called
+`step` is a function that takes two arguments, `log` and `db`, and is called for each step of the KLVM, or when an error occurs, as the specified transaction is traced.
 for each step of the KLVM, or when an error occurs, as the specified
 transaction is traced.
 
@@ -584,7 +584,7 @@ transaction is traced.
 
 If `err` is non-null, all other fields should be ignored.
 
-For efficiency, the same `log` object is reused on each execution step, updated
+For efficiency, the same `log` object is reused on each execution step, updated with current values; make sure to copy values you want to preserve beyond the current call.
 with current values; make sure to copy values you want to preserve beyond the
 current call. For instance, this step function will not work:
 
@@ -604,15 +604,15 @@ function(log) {
 
 `log.op` has the following methods:
 
-| Method Name  | Description                                      |
-| ------------ | ------------------------------------------------ |
-| `isPush()`   | Returns true if the opcode is a `PUSHn`.         |
-| `toString()` | Returns the string representation of the opcode. |
-| `toNumber()` | Returns the opcode's number.                     |
+| Tên phương pháp | Mô tả                                            |
+| --------------- | ------------------------------------------------ |
+| `isPush()`      | Returns true if the opcode is a `PUSHn`.         |
+| `toString()`    | Returns the string representation of the opcode. |
+| `toNumber()`    | Returns the opcode's number.                     |
 
 `log.memory` has the following methods:
 
-| Method Name          | Description                                              |
+| Tên phương pháp      | Mô tả                                                    |
 | -------------------- | -------------------------------------------------------- |
 | `slice(start, stop)` | Returns the specified segment of memory as a byte slice. |
 | `length()`           | Returns the length of the memory.                        |
@@ -634,20 +634,20 @@ function(log) {
 | `getState(address, hash)` | Returns the state value for the specified account and the specified hash. |
 | `exists(address)`         | Returns true if the specified address exists.                             |
 
-The second function, `result`, takes no arguments, and is expected to return a
+The second function, `result`, takes no arguments, and is expected to return a JSON-serializable value to return to the RPC caller.
 JSON-serializable value to return to the RPC caller.
 
-If the `step` function throws an exception or executes an illegal operation at
+If the `step` function throws an exception or executes an illegal operation at any point, it will not be called on any further VM steps, and the error will be returned to the caller.
 any point, it will not be called on any further VM steps, and the error will be
 returned to the caller.
 
-Note that several values are Golang `big.Int` objects, not JavaScript numbers
-or JS bigints. As such, they have the same interface as described in the
-godocs. Their default serialization to JSON is as a Javascript number; to
-serialize large numbers accurately call `.String()` on them. For convenience,
+Note that several values are Golang `big.Int` objects, not JavaScript numbers or JS bigints.
+or JS bigints. As such, they have the same interface as described in the godocs.
+godocs. Their default serialization to JSON is as a Javascript number; to serialize large numbers accurately call `.String()` on them.
+serialize large numbers accurately call `.String()` on them. For convenience, `big.NewInt(x)` is provided, and will convert a uint to a Golang `big.Int`.
 `big.NewInt(x)` is provided, and will convert a uint to a Golang `big.Int`.
 
-As an usage example below, it returns the top element of the stack at each CALL
+As an usage example below, it returns the top element of the stack at each CALL opcode only:
 opcode only:
 
 ```javascript
