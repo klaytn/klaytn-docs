@@ -1,22 +1,22 @@
-# Miscellaneous
+# Khác
 
 ## eth_hashrate <a id="eth_hashrate"></a>
 
-Returns the number of hashes per second that the node is mining with.
+Trả về số lần băm trên mỗi giây mà nút đang khai thác.
 
-Please note that it always return `0x0` because there is no PoW mechanism in Klaytn.
+Xin lưu ý rằng do Klaytn không có cơ chế PoW (bằng chứng xử lý), giá trị trả về luôn là `0x0`.
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị trả về**
 
-| Type     | Description                      |
-| -------- | -------------------------------- |
-| QUANTITY | The number of hashes per second. |
+| Loại    | Mô tả                |
+| -------- | -------------------- |
+| SỐ LƯỢNG | Số lần băm mỗi giây. |
 
-**Example**
+**Ví dụ**
 
 ```shell
 // Request
@@ -32,21 +32,21 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_getHashrate <a id="eth_gethashrate"></a>
 
-Returns the number of hashes per second that the node is mining with.
+Trả về số lần băm trên mỗi giây mà nút đang khai thác.
 
-Please note that it always return `0` because there is no PoW mechanism in Klaytn.
+Xin lưu ý rằng do Klaytn không có cơ chế PoW (bằng chứng xử lý), giá trị trả về luôn là `0`.
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị trả về**
 
-| Type     | Description                      |
-| -------- | -------------------------------- |
-| QUANTITY | The number of hashes per second. |
+| type     | Mô tả                |
+| -------- | -------------------- |
+| SỐ LƯỢNG | Số lần băm mỗi giây. |
 
-**Example**
+**Ví dụ**
 
 ```shell
 // Request
@@ -95,25 +95,25 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_submitWork <a id="eth_submitwork"></a>
 
-Used for submitting a proof-of-work solution.
+Được dùng để gửi giải pháp bằng chứng công việc.
 
-Please note that it always return `false` because there is no PoW mechanism in Klaytn.
+Xin lưu ý rằng do Klaytn không có cơ chế PoW (bằng chứng xử lý), giá trị trả về luôn là `false`.
 
-**Parameters**
+**Tham số**
 
-| Type         | Description                                         |
-| ------------ | --------------------------------------------------- |
-| 8-byte DATA  | The nonce found (64 bits)        |
-| 32-byte DATA | The header’s pow-hash (256 bits) |
-| 32-byte DATA | The mix digest (256 bits)        |
+| type            | Mô tả                                                        |
+| --------------- | ------------------------------------------------------------ |
+| DỮ LIỆU 8 byte  | Tìm thấy giá trị số dùng một lần (64 bit) |
+| DỮ LIỆU 32 byte | Hàm băm pow của tiêu đề (256 bit)         |
+| DỮ LIỆU 32 byte | Hàm băm hỗn hợp (256 bit)                 |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type    | Description                                                      |
-| ------- | ---------------------------------------------------------------- |
-| Boolean | Returns true if the provided solution is valid, otherwise false. |
+| Loại                | Mô tả                                                                                 |
+| -------------------- | ------------------------------------------------------------------------------------- |
+| Kiểu dữ liệu Boolean | Nếu giải pháp cung cấp hợp lệ, giá trị trả về là true, nếu không giá trị sẽ là false. |
 
-**Example**
+**Ví dụ**
 
 ```shell
 // Request
@@ -129,24 +129,24 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_submitHashrate <a id="eth_submithashrate"></a>
 
-Used for submitting mining hashrate.
+Dùng để gửi tốc độ băm khai thác.
 
-Please note that it always return `false` because there is no PoW mechanism in Klaytn.
+Xin lưu ý rằng do Klaytn không có cơ chế PoW (bằng chứng xử lý), giá trị trả về luôn là `false`.
 
-**Parameters**
+**Tham số**
 
-| Name     | Type         | Description                                                                         |
-| -------- | ------------ | ----------------------------------------------------------------------------------- |
-| hashrate | 32-byte DATA | A hexadecimal string representation (32 bytes) of the hash rate. |
-| id       | 32-byte DATA | A random hexadecimal(32 bytes) ID identifying the client.        |
+| Tên      | Loại           | Mô tả                                                                                             |
+| -------- | --------------- | ------------------------------------------------------------------------------------------------- |
+| hashrate | DỮ LIỆU 32 byte | Chuỗi thập lục phân (32 byte) biểu thị tốc độ băm.                             |
+| id       | DỮ LIỆU 32 byte | ID ngẫu nhiên dưới dạng chuỗi thập lục phân (32 byte) để định danh khách hàng. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type    | Description                                                              |
-| ------- | ------------------------------------------------------------------------ |
-| Boolean | Returns true if submitting went through succesfully and false otherwise. |
+| Loại                | Mô tả                                                                     |
+| -------------------- | ------------------------------------------------------------------------- |
+| Kiểu dữ liệu Boolean | Kết quả trả về là true nếu gửi thành công, nếu không kết quả sẽ là false. |
 
-**Example**
+**Ví dụ**
 
 ```shell
 // Request
