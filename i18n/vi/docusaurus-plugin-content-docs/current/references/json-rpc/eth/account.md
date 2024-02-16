@@ -2,19 +2,19 @@
 
 ## eth_accounts <a id="eth_accounts"></a>
 
-Returns a list of addresses owned by client.
+Trả về danh sách địa chỉ thuộc sở hữu của máy khách.
 
-**Parameters**
+**Tham số**
 
-None
+Không có
 
-**Return Value**
+**Giá trị trả về**
 
-| Type                  | Description                    |
-| --------------------- | ------------------------------ |
-| Array of 20-byte DATA | Addresses owned by the client. |
+| type                 | Mô tả                                   |
+| -------------------- | --------------------------------------- |
+| Mảng DỮ LIỆU 20 byte | Các địa chỉ thuộc sở hữu của máy khách. |
 
-**Example**
+**Ví dụ**
 
 ```shell
 // Request
@@ -30,22 +30,22 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_getBalance <a id="eth_getbalance"></a>
 
-Returns the balance of the account of given address.
+Trả về số dư tài khoản của địa chỉ đã cho.
 
-**Parameters**
+**Tham số**
 
-| Name                 | Type                    | Description                                                                                                                                                                                 |
-| -------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address              | 20-byte DATA            | Address to check for balance.                                                                                                                                                               |
-| block number or hash | QUANTITY \| TAG \| HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](../eth/block.md#the-default-block-parameter), or block hash. |
+| Tên                  | type                       | Mô tả                                                                                                                                                                                       |
+| -------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address              | DỮ LIỆU 20 byte            | Địa chỉ để kiểm tra số dư.                                                                                                                                                                  |
+| số khối hoặc hàm băm | SỐ LƯỢNG \| THẺ \| HÀM BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](../eth/block.md#the-default-block-parameter) hoặc hàm băm khối. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type     | Description                            |
-| -------- | -------------------------------------- |
-| QUANTITY | Integer of the current balance in peb. |
+| type     | Mô tả                                       |
+| -------- | ------------------------------------------- |
+| SỐ LƯỢNG | Giá trị nguyên của số dư hiện tại theo peb. |
 
-**Example**
+**Ví dụ**
 
 ```shell
 // Request
@@ -60,22 +60,22 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_getCode <a id="eth_getcode"></a>
 
-Returns code at a given address.
+Trả về mã ở địa chỉ đã cho.
 
-**Parameters**
+**Tham số**
 
-| Type                    | Description                                                                                                                                                                                 |
-| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 20-byte DATA            | Address                                                                                                                                                                                     |
-| QUANTITY \| TAG \| HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](../eth/block.md#the-default-block-parameter), or block hash. |
+| type                       | Mô tả                                                                                                                                                                                       |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| DỮ LIỆU 20 byte            | Địa chỉ                                                                                                                                                                                     |
+| SỐ LƯỢNG \| THẺ \| HÀM BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](../eth/block.md#the-default-block-parameter) hoặc hàm băm khối. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type | Description                      |
-| ---- | -------------------------------- |
-| DATA | The code from the given address. |
+| Loại | Mô tả                 |
+| ----- | --------------------- |
+| DATA  | Mã từ địa chỉ đã cho. |
 
-**Example**
+**Ví dụ**
 
 ```shell
 // Request
@@ -91,22 +91,22 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_getTransactionCount <a id="eth_gettransactioncount"></a>
 
-Returns the number of transactions _sent_ from an address.
+Trả về số lượng giao dịch _được gửi_ từ một địa chỉ.
 
-**Parameters**
+**Tham số**
 
-| Type                    | Description                                                                                                                                                                                 |
-| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 20-byte DATA            | Address                                                                                                                                                                                     |
-| QUANTITY \| TAG \| HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](../eth/block.md#the-default-block-parameter), or block hash. |
+| Loại                      | Mô tả                                                                                                                                                                                       |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| DỮ LIỆU 20 byte            | Địa chỉ                                                                                                                                                                                     |
+| SỐ LƯỢNG \| THẺ \| HÀM BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](../eth/block.md#the-default-block-parameter) hoặc hàm băm khối. |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type     | Description                                                   |
-| -------- | ------------------------------------------------------------- |
-| QUANTITY | Integer of the number of transactions send from this address. |
+| type     | Mô tả                                                     |
+| -------- | --------------------------------------------------------- |
+| SỐ LƯỢNG | Giá trị nguyên chỉ số lượng giao dịch gửi từ địa chỉ này. |
 
-**Example**
+**Ví dụ**
 
 ```shell
 // Request
@@ -122,30 +122,30 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 
 ## eth_sign <a id="eth_sign"></a>
 
-The sign method calculates a Klaytn-specific signature with:
+Phương thức ký tính chữ ký dành riêng cho Klaytn bằng hàm:
 
 ```
 sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))
 ```
 
-Adding a prefix to the message makes the calculated signature recognizable as a Klaytn-specific signature. This prevents misuse where a malicious dApp signs arbitrary data (e.g. transaction) and uses the signature for impersonation.
+Việc thêm tiền tố vào thông báo giúp chữ ký đã tính toán có thể được nhận dạng là chữ ký dành riêng cho Klaytn. Việc này giúp ngăn chặn việc dùng một dApp (ứng dụng phi tập trung) độc hại để ký dữ liệu tùy ý (ví dụ: giao dịch) và sử dụng chữ ký để mạo danh.
 
-**NOTE**: The address to sign with must be unlocked.
+**LƯU Ý**: Địa chỉ để ký phải ở trạng thái mở khóa.
 
-**Parameters**
+**Tham số**
 
-| Name    | Type         | Description     |
-| ------- | ------------ | --------------- |
-| account | 20-byte DATA | Address         |
-| message | N-byte DATA  | Message to sign |
+| Tên       | Loại           | Mô tả            |
+| --------- | --------------- | ---------------- |
+| tài khoản | DỮ LIỆU 20 byte | Địa chỉ          |
+| thông báo | DỮ LIỆU N byte  | Thông báo cần ký |
 
-**Return Value**
+**Giá trị trả về**
 
-| Type | Description |
-| ---- | ----------- |
-| DATA | Signature   |
+| type | Mô tả  |
+| ---- | ------ |
+| DATA | Chữ ký |
 
-**Example**
+**Ví dụ**
 
 ```shell
 // Request
