@@ -38,42 +38,42 @@ contract KlaytnGreeter is Mortal {
 }
 ```
 
-3. đơn giản. Chọn Trình biên dịch trong bảng biểu tượng. Chọn môi trường EVM mong muốn. Đối với các mạng lưới Klaytn, bạn có thể chọn giữa Baobab (mạng thử nghiệm) và Cypress (mạng chính thức).
+3. Chọn Trình biên dịch trong bảng biểu tượng. Chọn môi trường EVM mong muốn. Đối với các mạng lưới Klaytn, bạn có thể chọn giữa Baobab (mạng thử nghiệm) và Cypress (mạng chính thức). Nhấp vào `Compile` khi mã nguồn mẫu đã sẵn sàng để được biên dịch trước khi triển khai thực tế.
 
 ![](/img/build/smart-contracts/02_deployment_compile.png)
 
-4. Nhấp vào `Compile` khi mã nguồn mẫu đã sẵn sàng để được biên dịch trước khi triển khai thực tế. Bây giờ, chúng ta có thể triển khai hợp đồng. Nhấp vào logo Klaytn trong bảng biểu tượng. Nhập tài khoản bằng cách nhấp vào nút hình dấu cộng bên cạnh `Account`.
+4. Bây giờ, chúng ta có thể triển khai hợp đồng. Nhấp vào logo Klaytn trong bảng biểu tượng. Nhập tài khoản bằng cách nhấp vào nút hình dấu cộng bên cạnh `Account`. Hãy đảm bảo rằng tài khoản có đủ KLAY để thanh toán cho giao dịch triển khai các hợp đồng thông minh cần thiết.
 
 ![](/img/build/smart-contracts/05_deployment_account.png)
 
-5. Hãy đảm bảo rằng tài khoản có đủ KLAY để thanh toán cho giao dịch triển khai các hợp đồng thông minh cần thiết.
+5. Thiết lập Giới hạn gas và Giá trị cần gửi.
 
-- Thiết lập Giới hạn gas và Giá trị cần gửi. Nếu bạn triển khai một hợp đồng phức tạp hơn, bạn có thể cần thiết lập Giới hạn gas cao hơn.
-- Bạn có thể để nguyên giá trị hiện tại trong ví dụ này.
+- Nếu bạn triển khai một hợp đồng phức tạp hơn, bạn có thể cần thiết lập Giới hạn gas cao hơn. Bạn có thể để nguyên giá trị hiện tại trong ví dụ này.
+- Đặt `Value` là 0 trừ khi bạn muốn gửi `KLAY` đến hợp đồng vào thời điểm triển khai.
 
-6. Đặt `Value` là 0 trừ khi bạn muốn gửi `KLAY` đến hợp đồng vào thời điểm triển khai.
+6. Nhập "Hello World!" làm đối số cho hàm khởi tạo và nhấp vào nút `Deploy`.
 
 ![](/img/build/smart-contracts/03_deployment_hello.png)
 
-7. Nhập "Hello World!"
+7. Nếu hợp đồng được triển khai thành công, bạn sẽ nhìn thấy biên lai giao dịch tương ứng và kết quả chi tiết trên bảng điều khiển.
 
-8. làm đối số cho hàm khởi tạo và nhấp vào nút `Deploy`. Nếu hợp đồng được triển khai thành công, bạn sẽ nhìn thấy biên lai giao dịch tương ứng và kết quả chi tiết trên bảng điều khiển. Bạn có thể tương tác với hợp đồng bằng cách nhấp vào các nút hàm. Các hàm được đại diện bằng các nút có màu sắc khác nhau. Các hàm `constant` hoặc `pure` trong Solidity có các nút màu xanh (ví dụ như `greet`) và không tạo giao dịch mới, do đó chúng không tốn bất kỳ gas nào.
+8. Bạn có thể tương tác với hợp đồng bằng cách nhấp vào các nút hàm. Các hàm được đại diện bằng các nút có màu sắc khác nhau. Các hàm `constant` hoặc `pure` trong Solidity có các nút màu xanh (ví dụ như `greet`) và không tạo giao dịch mới, do đó chúng không tốn bất kỳ gas nào. Các nút màu đỏ (ví dụ như `kill`) thể hiện các hàm `payable` thay đổi trạng thái trên blockchain, tiêu thụ gas và có thể nhận giá trị. Các nút màu cam đại diện cho các hàm `non-payable` thay đổi trạng thái của hợp đồng nhưng KHÔNG nhận giá trị.
 
 ![](/img/build/smart-contracts/06_deployment_functions.png)
 
-Các nút màu đỏ (ví dụ như `kill`) thể hiện các hàm `payable` thay đổi trạng thái trên blockchain, tiêu thụ gas và có thể nhận giá trị.
+Để biết thêm chi tiết, vui lòng tham khảo [liên kết](../ide-and-tools/ide-and-tools.md) này.
 
-## Các nút màu cam đại diện cho các hàm `non-payable` thay đổi trạng thái của hợp đồng nhưng KHÔNG nhận giá trị.
+## VVISP <a id="vvisp"></a>
 
-Để biết thêm chi tiết, vui lòng tham khảo [liên kết](../ide-and-tools/ide-and-tools.md) này. VVISP <a id="vvisp"></a> vvisp là một công cụ/bộ khung CLI dễ sử dụng để phát triển các hợp đồng thông minh, do HEACHI LABS cung cấp.
+vvisp là một công cụ/bộ khung CLI dễ sử dụng để phát triển các hợp đồng thông minh, do HEACHI LABS cung cấp. Bạn có thể dễ dàng thiết lập môi trường, triển khai và thực thi các hợp đồng thông minh Klaytn với một lệnh duy nhất. Tham khảo liên kết sau để biết thêm chi tiết.
 
 - https\://henesis.gitbook.io/vvisp/deploying-smart-contracts
 
 ## solc & caver-js <a id="solc-caver-js"></a>
 
-https\://henesis.gitbook.io/vvisp/deploying-smart-contracts
+Một cách khác để triển khai hợp đồng là biên dịch hợp đồng thủ công bằng trình biên dịch solc và triển khai chúng bằng thư viện caver-js.
 
-1. solc & caver-js <a id="solc-caver-js"></a>
+1. Tạo `KlaytnGreeter.sol` và viết đoạn mã sau.
 
 ```
 pragma solidity 0.5.6;
@@ -101,25 +101,25 @@ contract KlaytnGreeter is Mortal {
 }
 ```
 
-2. Một cách khác để triển khai hợp đồng là biên dịch hợp đồng thủ công bằng trình biên dịch solc và triển khai chúng bằng thư viện caver-js.
+2. Cài đặt solc 0.5.6.
 
 ```
 $ sudo npm install -g solc@0.5.6
 ```
 
-3. Tạo `KlaytnGreeter.sol` và viết đoạn mã sau.
+3. Biên dịch hợp đồng.
 
 ```
 $ solcjs KlaytnGreeter.sol --bin
 ```
 
-4. Cài đặt solc 0.5.6.
+4. Cài đặt caver-js.
 
 ```
 $ npm install caver-js.
 ```
 
-5. Biên dịch hợp đồng.
+5. Tạo `deploy.js` trong cùng thư mục bằng đoạn mã sau.
 
 ```
 const Caver = require("caver-js");
@@ -151,9 +151,9 @@ caver.klay.sendTransaction({
 })
 ```
 
-Cài đặt caver-js. Tạo `deploy.js` trong cùng thư mục bằng đoạn mã sau.
+_LƯU Ý_: Không khuyến nghị sử dụng ví dụ này cho mục đích sản xuất. Hãy đặc biệt cẩn trọng khi sử dụng các khóa riêng tư.
 
-6. _LƯU Ý_: Không khuyến nghị sử dụng ví dụ này cho mục đích sản xuất.
+6. Triển khai hợp đồng sử dụng môi trường nút mạng.
 
 ```
 $ node deploy.js
