@@ -2,37 +2,37 @@
 sidebar_label: Web3Modal
 ---
 
-# Integrate Web3Modal into a dApp
+# Tích hợp Web3Modal vào dApp
 
 ![](/img/build/tools/klaytnXwebModal.png)
 
-## Introduction
+## Giới thiệu
 
-[Web3Modal](https://docs.walletconnect.com/2.0/web3modal/about) is a simple-to-use library that helps developers add support for multiple providers in their dApps with a simple, customizable configuration. It makes connecting wallets, performing transactions, and managing accounts easy.
+[Web3Modal](https://docs.walletconnect.com/2.0/web3modal/about) là một thư viện dễ dùng giúp các nhà phát triển thêm trợ năng cho nhiều nhà cung cấp trong dApp của họ với cấu hình đơn giản, có thể tùy chỉnh. Nó làm cho việc kết nối ví, thực hiện giao dịch và quản lý tài khoản trở nên dễ dàng.
 
-In this guide, you will use the web3Modal library to integrate multiple wallets such as Kaikas, Klip, Metamask, Coinbase Wallet, etc. into your dApp built on the Klaytn Network.
+Trong hướng dẫn này, bạn sẽ sử dụng thư viện web3Modal để tích hợp nhiều ví như Kaikas, Klip, Metamask, Coinbase Wallet, v.v. vào dApp của bạn được xây dựng trên mạng lưới Klaytn.
 
-## Prerequisite
+## Điều kiện tiên quyết
 
-- A working react project (by executing `npx create-react-app project-name`)
-- Install the necessary wallets ([Kaikas](https://app.kaikas.io/), [Coinbase Wallet](https://www.coinbase.com/wallet/downloads), and [Metamask](https://metamask.io/download/)).
-- RPC Endpoint: you can get this from one of the supported [endpoint providers](../../../../references/service-providers/public-en.md).
-- Test KLAY from [Faucet](https://baobab.wallet.klaytn.foundation/faucet): fund your account with sufficient KLAY.
+- Một dự án react đang hoạt động (bằng cách thực hiện `npx create-react-app project-name`)
+- Cài đặt các ví cần thiết ([Kaikas](https://app.kaikas.io/), [Ví Coinbase Wallet](https://www.coinbase.com/wallet/downloads), và [Metamask](https://metamask.io/download/)).
+- Điểm cuối RPC: bạn có thể nhận từ một trong những [Nhà cung cấp điểm cuối](../../../../references/service-providers/public-en.md) được hỗ trợ.à cung cấp endpoint được hỗ trợ.
+- KLAY thử nghiệm từ [Vòi](https://baobab.wallet.klaytn.foundation/faucet): nạp tiền vào tài khoản với một lượng KLAY vừa đủ.
 
-## Setting up Web3Modal and Wallet Provider Options
+## Thiết lập các tùy chọn của nhà cung cấp Ví và Web3Modal
 
-**Step 1**: Installing Web3Modal and an Ethereum library
+**Bước 1**: Cài đặt Web3Modal và thư viện Ethereum
 
-Install web3Modal and your preferred library for interacting with the blockchain. In this tutorial, we will be installing [@klaytn/web3modal](https://github.com/klaytn/klaytn-web3modal) which was derived from [Web3Modal](https://github.com/WalletConnect/web3modal) and modified to add Kaikas wallet and Klip wallet. Also, this tutorial will use ethers.js to interact with the Klaytn blockchain.
+Cài đặt Web3Modal và thư viện ưa thích của bạn để tương tác với chuỗi khối. Trong hướng dẫn này, chúng tôi sẽ cài đặt [@klaytn/web3modal](https://github.com/klaytn/klaytn-web3modal) có nguồn gốc từ [Web3Modal](https://github.com/WalletConnect/web3modal) và được sửa đổi để thêm ví Kaikas và ví Klip. Ngoài ra, hướng dẫn này sẽ sử dụng ethers.js để tương tác với chuỗi khối Klaytn.
 
 ```bash
 npm install @klaytn/web3modal
 npm install --save ethers
 ```
 
-**Step 2**: Instantiating Web3Modal with wallet provider options
+**Bước 2**: khởi tạo web3modal với các tùy chọn nhà cung cấp ví
 
-Install the wallet providers of your choice. Here we install Kaikas, Klip and Coinbase wallet providers.
+Cài đặt các nhà cung cấp ví mà bạn chọn. Ở đây chúng tôi cài đặt các nhà cung cấp ví Kaikas, Klip và Coinbase.
 
 ```bash
 npm install --save @coinbase/wallet-sdk
@@ -40,7 +40,7 @@ npm install --save @klaytn/kaikas-web3-provider
 npm install --save @klaytn/klip-web3-provider
 ```
 
-In your `App.js` file, import CoinbaseWalletSDK, KaikasWeb3Provider, and KlipWeb3Provider, and instantiate the various provider options to integrate with your dapp.
+Trong tệp `App.js` của bạn, nhập CoinbaseWalletSDK, KaikasWeb3Provider và KlipWeb3Provider và khởi tạo các tùy chọn nhà cung cấp khác nhau để tích hợp với dapp của bạn.
 
 ```js
 import CoinbaseWalletSDK from '@coinbase/wallet-sdk';
@@ -86,9 +86,9 @@ const providerOptions = {
 };
 ```
 
-**Step 3**: Instantiate web3modal
+**Bước 3**: Instantiate web3modal
 
-Then, instantiate Web3Modal by passing in the provider options.
+Sau đó, khởi tạo Web3Modal bằng cách chuyển các tùy chọn của nhà cung cấp.
 
 ```js
 import Web3Modal from "@klaytn/web3modal";
@@ -98,9 +98,9 @@ const  web3Modal = new Web3Modal( {
   } )
 ```
 
-## Establishing Wallet Connection
+## Thiết lập kết nối ví
 
-To establish a connection to the user’s wallet, call the `connect()` method on the Web3Modal instance. We recommend you to wrap this operation around an async function and store the retrieved provider in your state to reuse throughout the app.
+Để thiết lập kết nối với ví người dùng, hãy gọi phương pháp `Connect()` trên thể hiện Web3Modal. Chúng tôi khuyên bạn nên kết thúc thao tác này xung quanh một chức năng Async và lưu trữ nhà cung cấp được truy xuất ở trạng thái của bạn để sử dụng lại trong suốt ứng dụng.
 
 ```js
 import { ethers } from 'ethers';
@@ -134,13 +134,13 @@ function App() {
 
 ![](/img/build/tools/web3Modal.png)
 
-## Setting up Utils function
+## Thiết lập chức năng sử dụng
 
-In this guide, we will be making use of the utils functions such as `truncateAddress()` and `toHex()`. The `truncateAddress()` function takes in a valid address and returns a more readable format of the address passed in. While the `toHex()` function converts numbers to hexadecimal.  The following steps below show how to set up and use the utils function in your project.
+Trong hướng dẫn này, chúng tôi sẽ sử dụng các hàm tiện ích như `truncateAddress()` và `toHex()`. Hàm truncateaddress () có một địa chỉ hợp lệ và trả về một định dạng dễ đọc hơn của địa chỉ được truyền vào. Trong khi hàm toHex() chuyển đổi số thành thập lục phân.  Các bước sau đây cho thấy cách thiết lập và sử dụng chức năng sử dụng trong dự án của bạn.
 
-**Step 1**: Create a `utils.js` file in the `src` root folder.
+**Bước 1**: Tạo một tiệp `utils.js` trong thư mục gốc `src`.
 
-Paste the following code in the newly created utils.js file.
+Dán mã sau trong tệp Utils.js mới được tạo.
 
 ```js
 export const truncateAddress = (address) => {
@@ -158,15 +158,15 @@ export const truncateAddress = (address) => {
   };
 ```
 
-**Step 2**: Import the functions in your `App.js` file.
+**Bước 2**: Nhập các chức năng trong tệp `app.js` của bạn.
 
 ```js
 import { truncateAddress, toHex } from "./utils";
 ```
 
-## Accessing connection, account, network information
+## Truy cập kết nối, tài khoản, thông tin mạng
 
-As it is, Web3Modal does not provide built-in support for Ethereum interactions, such as retrieving connected accounts and network data. Note that to read the user’s address or connected network ID, you must directly request the information from your Ethereum library. In this guide, we’ll be getting that information using ethers.js. One way is to fetch and store this data is when connecting your user to your dapp.
+Như vậy, Web3Modal không cung cấp hỗ trợ tích hợp cho các tương tác Ethereum, chẳng hạn như truy xuất các tài khoản được kết nối và dữ liệu mạng. Lưu ý rằng để đọc địa chỉ người dùng hoặc ID mạng được kết nối, bạn phải trực tiếp yêu cầu thông tin từ thư viện Ethereum của bạn. Trong hướng dẫn này, chúng tôi sẽ nhận được thông tin đó bằng Ethers.js. Một cách là tìm nạp và lưu trữ dữ liệu này là khi kết nối người dùng của bạn với dapp của bạn.
 
 ```js
 const [provider, setProvider] = useState();
@@ -202,9 +202,9 @@ return (
 );
 ```
 
-## Disconnecting Wallet
+## Ngắt kết nối ví
 
-Disconnecting from the wallet is achieved by using the `clearCachedProvider()` method on the web3Modal instance. Also, one good practice is to refresh the state to clear any previously stored connection data.
+Ngắt kết nối khỏi ví đạt được bằng cách sử dụng phương pháp `clearCachedProvider()` trên phiên bản Web3Modal. Ngoài ra, một thực tế tốt là làm mới trạng thái để xóa bất kỳ dữ liệu kết nối được lưu trữ trước đó.
 
 ```js
 function App() {
@@ -229,7 +229,7 @@ const refreshState = () => {
 }
 ```
 
-It's important to keep in mind that the dApp state changes as users interact with it, and it's best practice to subscribe to the events that are released in response. Create useEffect hooks with subscriptions to these events so they can respond appropriately to changes.
+Điều quan trọng là phải nhớ rằng trạng thái dApp thay đổi khi người dùng tương tác với nó và tốt nhất là đăng ký đăng ký các sự kiện được phát hành để đáp ứng. Tạo các móc sử dụng với các đăng ký cho các sự kiện này để chúng có thể phản hồi thích hợp với các thay đổi.
 
 ```js
   useEffect(() => {
@@ -261,9 +261,9 @@ It's important to keep in mind that the dApp state changes as users interact wit
   }, [provider]);
 ```
 
-## Switch Networks or Add Custom Networks
+## Chuyển mạng hoặc thêm mạng tùy chỉnh
 
-As established previously, Web3Modal does not have built-in support for Ethereum interactions. In order to add or switch networks, you must directly make a request (via EIP-3085 or EIP-3326) to your Ethereum library. Here is an example of requesting to switch networks and adding the network as a fallback if it is not already present on the user’s wallet:
+Như đã thiết lập trước đây, Web3Modal không hỗ trợ tích hợp cho các tương tác Ethereum. Để thêm hoặc chuyển đổi mạng, bạn phải trực tiếp thực hiện yêu cầu (thông qua EIP-3085 hoặc EIP-3326) cho thư viện Ethereum của bạn. Dưới đây là một ví dụ về việc yêu cầu chuyển đổi mạng và thêm mạng dưới dạng dự phòng nếu nó chưa có trên ví của người dùng:
 
 ```js
   const switchNetwork = async () => {
@@ -302,9 +302,9 @@ return (
 ) 
 ```
 
-## Signing Messages
+## Đăng nhập tin nhắn
 
-Having initialised the provider and signer object, users can sign an arbitrary string.
+Sau khi khởi tạo đối tượng nhà cung cấp và người ký, người dùng có thể ký một chuỗi tùy ý.
 
 ```js
  // add to the existing useState hook.
@@ -336,9 +336,9 @@ const signMessage = async(e) => {
   );
 ```
 
-## Sending Native Transaction
+## Gửi giao dịch bản địa
 
-You can perform native transactions, like sending KLAY from one user to another.
+Bạn có thể thực hiện các giao dịch gốc, như gửi Klay từ người dùng này sang người dùng khác.
 
 ```js
     // add to the existing useState hook.
@@ -375,11 +375,11 @@ return (
 );
 ```
 
-## Working with a smart contract
+## Làm việc với một hợp đồng thông minh
 
-With the Web3Modal provider and signer object, you can make contract interactions such as writing to and reading from a smart contract deployed to the blockchain.
+Với nhà cung cấp Web3Modal và đối tượng người ký, bạn có thể thực hiện các tương tác hợp đồng như viết và đọc từ hợp đồng thông minh được triển khai cho chuỗi khối.
 
-### 1. Writing to a Contract
+### 1. Viết cho một hợp đồng
 
 ```js
 // add to existing useState hook
@@ -464,7 +464,7 @@ return (
 )
 ```
 
-### 2. Reading from a contract
+### 2. Đọc từ một hợp đồng
 
 ```js
 // add to existing useState hook
@@ -541,7 +541,7 @@ return (
   )
 ```
 
-## TroubleShooting
+## Khắc phục sự cố
 
 **Node fs error, add browser {fs: false} to package.json**
 
@@ -549,13 +549,13 @@ return (
 Node fs error, add browser {fs: false} to package.json
 ```
 
-This occurs when you install Klip-web3-provider.  To fix this issue,  follow these steps:
+Điều này xảy ra khi bạn cài đặt Klip-web3-provider.  Để khắc phục vấn đề này, hãy làm theo các bước sau:
 
-**Step 1**: Open up and navigate to your node_modules folder. Look for the @Klaytn/klip-web3-provider folder and navigate to it's package.json file as shown below:
+**Bước 1**: Mở và điều hướng đến thư mục node_modules của bạn. Tìm thư mục @Klaytn/klip-web3-provider và điều hướng đến tệp pack.json của nó như hiển thị bên dưới:
 
 > **@klaytn/klip-web3-provider/node_modules/caver-js/packages/caver.ipfs/package.json**
 
-**Step 2**: Paste the code below in @klaytn/klip-web3-provider/node_modules/caver-js/packages/caver.ipfs/package.json file.
+**Bước 2**: Dán mã bên dưới vào @klaytn/klip-web3-provider/node_modules/caver-js/packages/caver.ipfs/pack.json.
 
 ```js
 "browser": {
@@ -569,8 +569,8 @@ This occurs when you install Klip-web3-provider.  To fix this issue,  follow the
 BREAKING CHANGES: webpack<5 used to include polyfills for node.js core modules by default.
 ```
 
-This error occurs when you use webpack version 5. In this version, NodeJS polyfills is no longer supported by default. To solve this issue, refer to this [guide](https://web3auth.io/docs/troubleshooting/webpack-issues).
+Lỗi này xảy ra khi bạn sử dụng webpack phiên bản 5. Trong phiên bản này, NodeJS polyfills không còn được hỗ trợ theo mặc định. Để giải quyết vấn đề này, hãy tham khảo [hướng dẫn](https://web3auth.io/docs/troubleshooting/webpack-issues).
 
-## Next Step
+## Bước tiếp theo
 
-For more in-depth guides on Web3Modal, please refer to [Web3Modal Docs](https://docs.walletconnect.com/2.0/web3modal/about) and [Web3Modal Github repository](https://github.com/klaytn/klaytn-web3modal). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/klaytn/examples/tree/main/wallet-libraries/web3Modal-sample).
+Để biết thêm các hướng dẫn chuyên sâu về Web3Modal, vui lòng tham khảo [Web3Modal Docs](https://docs.walletconnect.com/2.0/web3modal/about) và [Kho lưu trữ Web3Modal GitHub](https://github.com/klaytn/klaytn-web3modal). Ngoài ra, bạn có thể tìm thấy việc triển khai đầy đủ mã cho hướng dẫn này trên [GitHub](https://github.com/klaytn/examples/tree/main/wallet-libraries/web3Modal-sample).
