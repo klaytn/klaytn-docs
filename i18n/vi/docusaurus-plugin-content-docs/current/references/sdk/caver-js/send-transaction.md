@@ -1,61 +1,61 @@
-# Sending a sample transaction
+# Gửi KLAY dành cho người mới bắt đầu
 
-Let's try sending a transaction as a simple warm-up. In this short example, we will be creating a keystore, connecting to Klaytn node, as well as creating a transaction - all of this using caver-js!
+Để khởi động đơn giản, hãy cùng thử gửi đi một giao dịch. Trong ví dụ ngắn này, chúng ta sẽ tạo ra một lưu trữ khóa, kết nối với nút Klaytn, cũng như tạo ra một giao dịch - tất cả đều dùng caver-js!
 
-Don't worry if this is your first time using caver-js. Just follow the simple steps below.
+Đừng lo lắng nếu đây là lần đầu tiên bạn dùng caver-js. Bạn chỉ cần làm theo các bước đơn giản dưới đây.
 
-## Prerequisites
+## Điều kiện tiên quyết
 
-First install the following packages.
+Trước tiên, hãy cài đặt các gói sau.
 
-- [Node.js](https://nodejs.org/en/download/) version ([14.16.0](https://nodejs.org/dist/latest-v14.x/))
+- [Node.js](https://nodejs.org/en/download/) phiên bản ([14.16.0](https://nodejs.org/dist/latest-v14.x/))
 - [npm](https://www.npmjs.com/get-npm)
 - [nvm](https://github.com/nvm-sh/nvm)
-- [Solidity compiler](https://solidity.readthedocs.io/en/develop/installing-solidity.html)
+- [Trình biên dịch Solidity](https://solidity.readthedocs.io/en/develop/installing-solidity.html)
 
-_Note:_ If you get an `nvm: command not found` error after installing nvm, refer to this [troubleshooting guide](https://github.com/nvm-sh/nvm/issues/2060).
+_Lưu ý:_ Nếu bạn nhận được lỗi `nvm: command not found` sau khi cài đặt nvm, hãy tham khảo [troubleshooting guide](https://github.com/nvm-sh/nvm/issues/2060).
 
-## 1. Create an Account and Download Keystore <a id="1.-create-an-account-and-download-keystore"></a>
+## 1. Tạo một Tài khoản và Tải xuống Lưu trữ khóa <a id="1.-create-an-account-and-download-keystore"></a>
 
-The most simple way to create an account is using the [Klaytn Online Toolkit](https://toolkit.klaytn.foundation/misc/generateKeystore).
+Cách đơn giản nhất để tạo một tài khoản và dùng [Bộ công cụ trực tuyến của Klaytn](https://toolkit.klaytn.foundation/misc/generateKeystore).
 
 ![Klaytn Online Toolkit](/img/references/keystore.png)
 
-Download the keystore file, and let's change the name to something more simple, like `keystore.json`.
+Hãy tải về tập tin lưu trữ khóa, và đổi thành một cái tên đơn giản hơn, ví dụ như `keystore.json`.
 
-**You need KLAY to send a transaction.** You can get test KLAY for the Baobab testnet from [Faucet](https://baobab.wallet.klaytn.foundation/faucet). Refer to [Klaytn Wallet](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay) for detailed instructions.
+\*\*Bạn cần KLAY để gửi một giao dịch. \*\* Bạn có thể nhận KLAY thử nghiệm cho mạng thử nghiệm Baobab từ [Vòi](https://baobab.wallet.klaytn.foundation/faucet). Hãy tham khảo [Ví Klaytn](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay) để xem hướng dẫn chi tiết.
 
-## 2. Initialize Project <a id="2.-initialize-project"></a>
+## 2. Khởi động dự án <a id="2.-initialize-project"></a>
 
-First, let's create a folder for our project. We will simply call it `test`. Navigate to your command line and type:
+Trước tiên, hãy tạo một thư mục cho dự án. Chúng ta sẽ đặt tên nó là `test` cho đơn giản. Điều hướng đến dòng lệnh và gõ:
 
 ```
 mkdir test
 ```
 
-Now let's navigate to our folder.
+Bây giờ, hãy điều hướng đến thư mục.
 
 ```
 cd test
 ```
 
-We are in our folder, where we will download caver-js. But before that, we have to check our `node.js` version, because we have to use 12 or 14.
+Chúng ta đang ở trong thư mục, tại đây ta sẽ tải về caver-js. Nhưng trước đó, ta sẽ phải kiểm tra phiên bản `node.js` vì ta cần dùng phiên bản 12 hoặc 14.
 
-You can check the version like this:
+Bạn có thể kiểm tra phiên bản như sau:
 
 ```
 node --version
 ```
 
-If the version is not 12 or 14, **make sure to change it**. Here, we will use the version ([14.16.0](https://nodejs.org/dist/latest-v14.x/)). So let's type `nvm use 14.16.0` to change our node version.
+Nếu phiên bản không phải là 12 hoặc 14, **hãy đảm bảo bạn sẽ thay phiên bản khác**. Ở đây, ta sẽ dùng phiên bản ([14.16.0](https://nodejs.org/dist/latest-v14.x/)). Hãy gõ `nvm use 14.16.0` để thay đổi phiên bản node.
 
-Now let's initialize our project:
+Bây giờ, hãy khởi động dự án:
 
 ```
 npm init
 ```
 
-Since we are just doing a simple test, it doesn't matter how you answer the questions. Keep pressing `enter`.
+Vì chúng ta chỉ đang thử nghiệm đơn giản, bạn trả lời các câu hỏi thế nào cũng không quan trọng. Hãy cứ bấm `enter`.
 
 ```
 
@@ -86,41 +86,41 @@ About to write to /Users/terri.k/test/package.json:
 Is this OK? (yes)
 ```
 
-Alternatively, you can simply type the command below to skip hitting `enter`:
+Ngoài ra, bạn có thể chỉ gõ lệnh dưới đây để bỏ qua việc nhấn `enter`:
 
 ```
 npm init -y
 ```
 
-## 3. Download caver-js <a id="3.-download-caver-js"></a>
+## 3. Tải xuống caver-js <a id="3.-download-caver-js"></a>
 
-And now we are ready to install caver-js.
+Và bây giờ, chúng ta đã sẵn sàng để cài đặt caver-js.
 
 ```
 npm install caver-js
 ```
 
-Also, add the below module because we need it:
+Ngoài ra, hãy thêm mô-đun dưới đây vào bởi vì chúng ta cần nó:
 
 ```
 npm i read
 ```
 
-## 4. Create Test File <a id="4.-create-test-file"></a>
+## 4. Taọ tập tin thử nghiệm <a id="4.-create-test-file"></a>
 
-Let's create a test file named `testcaver.js` like so:
+Hãy cùng tạo một tập tin thử nghiệm tên là `testcaver.js` như sau:
 
 ```
 touch testcaver.js
 ```
 
-We will be writing our code in this file to send a transaction to transfer KLAY.
+Chúng ta sẽ viết mã vào tập tin này để gửi một giao dịch nhằm chuyển KLAY.
 
-## 5. Connect to Klaytn Node <a id="5.-connect-to-klaytn-node"></a>
+## 5. Kết nối với Nút Klaytn <a id="5.-connect-to-klaytn-node"></a>
 
-Since we are sending a transaction to the blockchain network, we need to connect to a Klaytn node. We will be using Klaytn's testnet Baobab.
+Vì chúng ta sẽ gửi một giao dịch đến mạng chuỗi khối, chúng ta cần kết nối với một nút Klaytn. Chúng ta sẽ dùng Baobab, mạng thử nghiệm của Klaytn.
 
-We will import the `caver-js` and `read` module and connect to a Klaytn node in the Baobab network as shown below:
+Chúng ta sẽ nhập `caver-js` và mô-đun `read` và kết nối với một nút Klaytn trong mạng thử nghiệm Baobab như sau:
 
 ```javascript
 const Caver = require('caver-js')
@@ -128,9 +128,9 @@ const read = require('read')
 const caver = new Caver('https://public-en-baobab.klaytn.net/')
 ```
 
-## 6. Provide Keystore, Create Keyring, and Add to Caver Wallet <a id="6.-add-keystore-create-keyring-and-add-to-caver-wallet"></a>
+## 6. Cung cấp Lưu trữ khóa, Tạo Keyring và Thêm vào Ví Caver <a id="6.-add-keystore-create-keyring-and-add-to-caver-wallet"></a>
 
-You need an account to make transactions on the blockchain. That account information is included in the keystore. Using the `loadPassword()` function, we can implement a password prompt on the terminal. The function looks like this:
+Bạn cần một tài khoản để tạo giao dịch trên chuỗi khối. Thông tin tài khoản đó được bao gồm trong lưu trữ khóa. Bằng cách dùng hàm `loadPassword()`, chúng ta có thể triển khai lời nhắc mật khẩu trên giao diện dòng lệnh. Hàm sẽ có dạng:
 
 ```
 async function loadPassword() {
@@ -148,9 +148,9 @@ async function loadPassword() {
 }
 ```
 
-The password entered from the prompt, along with the keystore file existing in the same directory, will be decrypted and stored as `keyring`.
+Mật khẩu được nhập từ lời nhắc cùng với tập tin lưu trữ khóa có sẵn trong cùng thư mục sẽ được giải mã và lưu trữ thành `keyring`.
 
-After that, the `keyring` will be stored in the wallet. Add the lines below:
+Sau đó, `keyring` sẽ được lưu trữ trong ví. Hãy thêm vào các dòng dưới đây:
 
 ```
 async function sendKlay() {
@@ -169,11 +169,11 @@ async function sendKlay() {
 	}
 ```
 
-## 7. Send Transaction <a id="7.-send-transaction"></a>
+## 7. Gửi giao dịch <a id="7.-send-transaction"></a>
 
-We will now create a transaction to transfer some KLAY. This type of transaction is called "value transfer transaction". Let's break down each parameter.
+Giờ chũng ta sẽ tạo một giao dịch để chuyển một ít KLAY. Loại giao dịch này được gọi là "giao dịch chuyển giá trị". Hãy cùng phân tích từng tham số.
 
-The `from` address is derived from the keystore we uploaded. The `to` address is the receiver of the KLAY, and you can use any address. For `value`, you can conveniently use `caver.utils.toPeb()` to convert KLAY into peb. Here, we will send 10 KLAY. For `gas`,
+Địa chỉ `from` sẽ được lấy từ lưu trữ khóa mà chúng ta đã tải lên. Địa chỉ `to` là bên nhận KLAY, và bạn có thể dùng địa chỉ bất kỳ. Đối với `value`, bạn có teher sử dụng luôn `caver.utils.toPeb()` để quy đổi KLAY thành peb. Ở đây, chúng ta sẽ gửi 10 KLAY. Đối với `gas`,
 
 ```
 	
@@ -194,15 +194,15 @@ The `from` address is derived from the keystore we uploaded. The `to` address is
 }
 ```
 
-Don't forget to add in the end:
+Đừng quên thêm vào dòng cuối cùng:
 
 ```
 sendKlay()
 ```
 
-## 8. Run the Code <a id="8.-run-the-code"></a>
+## 8. Chạy mã <a id="8.-run-the-code"></a>
 
-Let's run the code that we've just written:
+Hãy chạy mã mà chúng ta vừa viết:
 
 ```
 node testcaver.js
@@ -210,7 +210,7 @@ node testcaver.js
 
 ![Type your password](/img/references/prompt.png)
 
-The result will look something like this:
+Kết quả sẽ giống như sau:
 
 ```
 SingleKeyring {
@@ -249,9 +249,9 @@ SingleKeyring {
 }
 ```
 
-You can view the transaction details in [Klaytnfinder](https://baobab.klaytnfinder.io/) or [Klaytnscope](https://scope.klaytn.com) using the `transactionHash`.
+Bạn có thể xem chi tiết giao dịch trong [Klaytnfinder](https://baobab.klaytnfinder.io/) hoặc [Klaytnscope](https://scope.klaytn.com) bằng cách dùng `transactionHash`.
 
-## 9. Entire Code <a id="9.-run-the-code"></a>
+## 9. Toàn bộ mã <a id="9.-run-the-code"></a>
 
 ```
 const Caver = require('caver-js')
@@ -306,4 +306,4 @@ async function loadPassword() {
 sendKLAY()
 ```
 
-I hope you are feeling confident about having submitted a transacion using caver-js. If you are stuck, or have any questions, feel free to visit our [Klaytn Forum](https://forum.klaytn.foundation/) for help.
+Hi vọng bạn cảm thấy tự tin về việc gửi một giao dịch bằng caver-js. Nếu bạn gặp trục trặc hoặc có bất kỳ câu hỏi nào, hãy truy cập [Diễn đàn Klaytn](https://forum.klaytn.foundation/) để được trợ giúp.
