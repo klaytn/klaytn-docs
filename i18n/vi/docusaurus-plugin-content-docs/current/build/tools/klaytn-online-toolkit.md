@@ -1,19 +1,19 @@
-# Klaytn Online Toolkit
+# Bộ công cụ trực tuyến của Klaytn
 
-## What is the Klaytn Online Toolkit? <a id="what-is-the-klaytn-online-toolkit"></a>
+## Bộ công cụ trực tuyến của Klaytn là gì? <a id="what-is-the-klaytn-online-toolkit"></a>
 
-- `Klaytn Online Toolkit` provides code examples to help you to utilize the `Klaytn SDK(caver-js)` easily. Also it provides a [demo page](https://toolkit.klaytn.foundation) for developers to use simple online tools.
-- `Klaytn SDK(caver-js)` is a JavaScript API library that allows developers to interact with a Klaytn node using an HTTP or Websocket connection.
-- You can just try out Klaytn's features without having to code.
+- `Klaytn Online Toolkit` cung cấp các ví dụ về mã để giúp bạn dễ dàng tận dụng `Klaytn SDK(caver-js)`. Bộ công cụ cũng cung cấp [demo page](https://toolkit.klaytn.foundation) để các nhà phát triển có thể dùng những công cụ trực tuyến đơn giản.
+- `Klaytn SDK(caver-js)` là một thư viện API JavaScript cho phép các nhà phát triển tương tác với nút Klaytn bằng kết nối HTTP hoặc Websocket.
+- Bạn có thể thử các tính năng của Klaytn mà không cần phải lập trình.
 
-> To help more people use the `Klaytn Online Toolkit`, We have prepared the ["Using Klaytn Online Toolkit"](https://medium.com/klaytn/using-klaytn-online-toolkit-1-multisig-60399a0b0278) series.
+> Để nhiều người hơn dùng được `Klaytn Online Toolkit`, chúng tôi đã chuẩn bị loạt hướng dẫn ["Sử dụng bộ công cụ trực tuyến của Klaytn"](https://medium.com/klaytn/using-klaytn-online-toolkit-1-multisig-60399a0b0278).
 
-## Links <a id="links"></a>
+## Liên kết <a id="links"></a>
 
-Here are the links for `Klaytn Online Toolkit`. Feel free to use it :)
+Đây là những liên kết cho `Klaytn Online Toolkit`. Cứ thoải mái sử dụng nhé :)
 
-- [Github Repository](https://github.com/klaytn/klaytn-online-toolkit)
-- [Toolkit Page](https://toolkit.klaytn.foundation)
+- [Kho lưu trữ Github](https://github.com/klaytn/klaytn-online-toolkit)
+- [Trang](https://toolkit.klaytn.foundation)
 - [Klaytn SDK(caver-js)](../../references/sdk/caver-js/caver-js.md)
 
 ![Klaytn Online Toolkit](/img/build/tools/klaytn-online-toolkit.png)
