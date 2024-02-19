@@ -2,38 +2,38 @@
 sidebar_label: Web3-Onboard
 ---
 
-# Integrate Web3-Onboard into a dApp
+# Tích hợp Web3-Onboard vào dApp
 
 ![](/img/build/tools/klaytnXweb3Onboard.png)
 
-## Introduction
+## Giới thiệu
 
-Leveraging a tool like [Web3-Onboard](https://onboard.blocknative.com/docs/overview/introduction), projects and developers may quickly integrate multiple wallets into their decentralized applications (dApps). With the help of Web3-Onboard, user onboarding has been simplified. Web3-Onboard does have different features, ranging from support for several wallets to the ability for users to connect their accounts to different chains or networks and receive real-time transaction notifications, et cetera.
+Tận dụng một công cụ như [Web3-Onboard](https://onboard.blocknative.com/docs/overview/introduction), các dự án và nhà phát triển có thể nhanh chóng tích hợp nhiều ví vào các ứng dụng phi tập trung của họ (dAPP). Với sự trợ giúp của Web3-Onboard, việc giới thiệu người dùng đã được đơn giản hóa. Web3-Onboard có các tính năng khác nhau, từ hỗ trợ một số ví đến khả năng người dùng kết nối tài khoản của họ với các chuỗi hoặc mạng khác nhau và nhận thông báo giao dịch theo thời gian thực, v.v.
 
-In this guide, you will use Web3-Onboard library to integrate multiple wallets (such as Coinbase Wallet, Metamask, WalletConnect, etc.) into your dApp built on the Klaytn Network.
+Trong hướng dẫn này, bạn sẽ sử dụng thư viện Web3-Onboard để tích hợp nhiều ví (như ví Coinbase, Metamask, WalletConnect, v.v.) vào dApp của bạn được xây dựng trên Mạng lưới Klaytn.
 
-## Prerequisite
+## Điều kiện tiên quyết
 
-- A working react project (by executing `npx create-react-app project-name`)
-- Install the necessary wallets ([Coinbase Wallet](https://www.coinbase.com/wallet/downloads), [Metamask](https://metamask.io/download/)).
-- RPC Endpoint: you can get this from one of the supported [endpoint providers](../../../../references/service-providers/public-en.md).
-- Test KLAY from [Faucet](https://baobab.wallet.klaytn.foundation/faucet): fund your account with sufficient KLAY.
+- Một dự án react đang hoạt động (bằng cách thực hiện `npx create-react-app project-name`)
+- Cài đặt các ví cần thiết ([Ví Coinbase Wallet](https://www.coinbase.com/wallet/downloads), [Metamask](https://metamask.io/download/)).
+- Điểm cuối RPC: bạn có thể nhận từ một trong những [Nhà cung cấp điểm cuối](../../../../references/service-providers/public-en.md) được hỗ trợ.à cung cấp endpoint được hỗ trợ.
+- KLAY thử nghiệm từ [Vòi](https://baobab.wallet.klaytn.foundation/faucet): nạp tiền vào tài khoản với một lượng KLAY vừa đủ.
 
-## Getting Started
+## Bắt đầu
 
-Web3-Onboard as a chain-agnostic wallet library, supports all EVM-compatible networks and also provides the flexibility of adding new networks to the library. In this guide, we'll use Web3-Onboard to add the Klaytn Mainnet Cypress and Klaytn Testnet Baobab to our dApp. With that said, let’s get started integrating multi-wallet compatibility using Web3-Onboard into your dApp built on Klaytn Network.
+Web3-Onboard như một thư viện ví không phân biệt chuỗi, hỗ trợ tất cả các mạng tương thích EVM và cũng cung cấp tính linh hoạt của việc thêm các mạng mới vào thư viện. Trong hướng dẫn này, chúng tôi sẽ sử dụng Web3-Onboard để thêm Mạng chính thức Cypress Klaytn và Mạng thử nghiệm Baobab Klaytn vào dApp của chúng tôi. Như đã nói, hãy để bắt đầu tích hợp khả năng tương thích đa ví bằng Web3-Onboard vào dApp của bạn được xây dựng trên Mạng lưới Klaytn.
 
-## Setting up Onboard and Wallet Modules
+## Thiết lập các mô-đun Onboard và Ví
 
-**Step 1**: Install @web3-onboard/core
+**Bước 1**: Cài đặt @web3-onboard/core
 
 ```bash
 npm i @web3-onboard/core 
 ```
 
-**Step 2**: Import and Instantiate Wallet Modules
+**Bước 2**: Nhập và khởi tạo các Mô-đun Ví
 
-In this step, you can add as many wallets to be supported in your dApp using the wallet modules. But for this guide, you will add Coinbase Wallet, WalletConnect, Injected Wallets to your web3-Onboard implementation. Refer to this [docs](https://onboard.blocknative.com/docs/overview/introduction#wallet-modules) for a list of wallet modules that can be added to your dApp using Web3-Onboard.
+Trong bước này, bạn có thể thêm càng nhiều ví để được hỗ trợ trong dApp của bạn bằng các mô-đun ví. Nhưng đối với hướng dẫn này, bạn sẽ thêm Ví Coinbase, WalletConnect, Ví Injected được tiêm ví vào quá trình triển khai web3-Onboard của bạn. Tham khảo [tài liệu](https://onboard.blocknative.com/docs/overview/introduction#wallet-modules) này về danh sách các mô-đun ví bạn có thể thêm vào dApp của bạn bằng Web3-Onboard.
 
 ```bash
 npm install @web3-onboard/coinbase // Coinbase Wallet
@@ -41,7 +41,7 @@ npm install @web3-onboard/walletconnect // WalletConnect
 npm install @web3-onboard/injected-wallets  // Used to connect to Metamask
 ```
 
-In your `App.js` file, instantiate the wallet modules to integrate with your dApp. Note that each module has its own unique options parameters to pass in, such as a fallback JSON RPC URL or default chain ID.
+Trong tệp `App.js` của bạn, hãy khởi tạo các mô-đun ví để tích hợp với dApp của bạn. Lưu ý rằng mỗi mô-đun có các tham số tùy chọn riêng để truyền vào, chẳng hạn như URL RPC JSON dự phòng hoặc ID chuỗi mặc định.
 
 ```js
 import coinbaseWalletModule from "@web3-onboard/coinbase";
@@ -55,23 +55,23 @@ const injected = injectedModule();
 const modules = [coinbaseWalletSdk, walletConnect, injected];
 ```
 
-**Step 3**: Install and import ethers
+**Bước 3**: Cài đặt và nhập ether
 
-The Web3-Onboard provider can be used with libraries like [ethers.js](https://docs.ethers.org/v6/) and [web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html). In this guide, we will use ethers.js to make Klaytn blockchain calls like getting the user's account, fetch balance, sign transaction, send transaction, read from and write to the smart contract.
+Nhà cung cấp Web3-Onboard có thể được sử dụng với các thư viện như [ethers.js](https://docs.ethers.org/v6/) và [web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html). Trong hướng dẫn này, chúng tôi sẽ sử dụng ethers.js để thực hiện các cuộc gọi chuỗi khối Klaytn như nhận tài khoản của người dùng, lấy số dư, ký giao dịch, gửi giao dịch, đọc và ghi vào hợp đồng thông minh.
 
 ```bash
 npm install --save ethers
 ```
 
-In your `App.js` file, import the ethers package like this:
+Trong tệp `App.js` của bạn, hãy nhập gói ether như sau:
 
 ```js
 import { ethers } from "ethers";
 ```
 
-**Step 4**: Import and Setup Web3ReactProvider
+**Bước 4**: Nhập và Thiết lập Web3ReactProvider
 
-In this step, you will instantiate Onboard with the created modules and a list of chains to be compatible with the library. Open up your `App.js` file and paste the code below:
+Trong bước này, bạn sẽ khởi tạo Onboard với các mô-đun được tạo và danh sách các chuỗi tương thích với thư viện. Mở tệp `App.js` của bạn và dán mã bên dưới:
 
 ```js
 import Onboard from "@web3-onboard/core";
@@ -118,13 +118,13 @@ const onboard = Onboard({
 });
 ```
 
-## Setting up Utils function
+## Thiết lập chức năng sử dụng
 
-In this guide, we will be making use of the utils functions such as `truncateAddress()` and `toHex()`. The `truncateAddress()` function takes in a valid address and returns a more readable format of the address passed in. While the `toHex()` function converts numbers to hexadecimal.  The following steps below show how to set up and use the utils function in your project.
+Trong hướng dẫn này, chúng tôi sẽ sử dụng các hàm sử dụng như `truncateaddress()` và `tohex()`. Hàm truncateaddress () có một địa chỉ hợp lệ và trả về một định dạng dễ đọc hơn của địa chỉ được truyền vào. Trong khi hàm toHex() chuyển đổi số thành thập lục phân.  Các bước sau đây cho thấy cách thiết lập và sử dụng chức năng sử dụng trong dự án của bạn.
 
-**Step 1**: Create a `utils.js` file in the `src` root folder.
+**Bước 1**: Tạo một tiệp `utils.js` trong thư mục gốc `src`.
 
-Paste the following code in the newly created utils.js file.
+Dán mã sau trong tệp Utils.js mới được tạo.
 
 ```js
 export const truncateAddress = (address) => {
@@ -142,15 +142,15 @@ export const truncateAddress = (address) => {
   };
 ```
 
-**Step 2**: Import the functions in your `App.js` file.
+**Bước 2**: Nhập các chức năng trong tệp `app.js` của bạn.
 
 ```js
 import { truncateAddress, toHex } from "./utils";
 ```
 
-## Connecting Wallet
+## Kết nối ví
 
-Inside your App function in your `App.js` file, call the `connectWallet()` method on the onboard instance to initiate the onboard popup modal.
+Bên trong chức năng Ứng dụng của bạn trong tệp `App.js` của bạn, hãy gọi phương pháp `connectWallet()` trên phiên bản onboard để bắt đầu hộp thoại bật lên onboard.
 
 ```js
 function App() {
@@ -170,13 +170,13 @@ function App() {
 }
 ```
 
-Once you click your Connect Wallet button, you should see a modal that allows you to seamlessly connect to Coinbase Wallet and other instantiated wallets from your dApp.
+Khi bạn nhấp vào nút Kết nối Ví của mình, bạn sẽ thấy một hộp thoại cho phép bạn kết nối liền mạch với Ví Coinbase và các ví khởi tạo khác từ dApp của bạn.
 
 ![](/img/build/tools/web3-Onboard.png)
 
-## Disconnecting Wallet
+## Ngắt kết nối ví
 
-Disconnecting a connected wallet can be achieved by calling the `disconnectWallet()` method on the onboard instance along with the label of the user's primary wallet. Also, one good practice is to refresh the state to clear any previously stored connection data.
+Ngắt kết nối một ví được kết nối có thể đạt được bằng cách gọi phương pháp `disconnectWallet()` trên phiên bản onboard cùng với nhãn của ví chính của người dùng. Ngoài ra, một thực tế tốt là làm mới trạng thái để xóa bất kỳ dữ liệu kết nối được lưu trữ trước đó.
 
 ```js
 function App() {
@@ -211,17 +211,17 @@ function App() {
 }
 ```
 
-## Accessing connection, account, network information
+## Truy cập kết nối, tài khoản, thông tin mạng
 
-After successfully connecting your wallet, you can use the [onboard.state.get()](https://onboard.blocknative.com/docs/modules/core#get-current-state) method to fetch the state of your connection stored through the onboard instance. You can also fetch the state during the initial connection. Now you can modify the  connectWallet() method to return a list of wallet states that you can store in your state and use throughout the application.
+Sau khi kết nối thành công ví của bạn, bạn có thể sử dụng phương pháp [onboard.state.get()](https://onboard.blocknative.com/docs/modules/core#get-current-state) để tìm nạp trạng thái kết nối của bạn được lưu trữ thông qua phiên bản onboard. Bạn cũng có thể lấy trạng thái trong quá trình kết nối ban đầu. Bây giờ bạn có thể sửa đổi phương pháp xonnectWallet () để trả về danh sách các trạng thái ví mà bạn có thể lưu trữ trong trạng thái của mình và sử dụng trong suốt ứng dụng.
 
-**Step 1**:  import React's useState
+**Bước 1**: Nhập useState của React
 
 ```js
 import { useState } from 'react';
 ```
 
-**Step 2**: Modify code within your App function
+**Bước 2**: Sửa đổi mã trong chức năng Ứng dụng của bạn
 
 ```js
 function App() {
@@ -259,9 +259,9 @@ function App() {
 }
 ```
 
-## Switching Networks
+## Chuyển đổi Mạng
 
-In order to prompt the user to switch networks in your dApps, Web3-Onboard provides a `setChain` method on an initialized instance of Onboard. Note that the target network must have been initialized with the onboard instance at the start of your application.
+Để nhắc người dùng chuyển đổi mạng trong dApp của bạn, Web3-Onboard cung cấp phương pháp `setChain` trên một phiên bản khởi tạo của Onboard. Lưu ý rằng mạng mục tiêu phải được khởi tạo với phiên bản onboard khi bắt đầu ứng dụng của bạn.
 
 ```js
 const switchNetwork = async () => {
@@ -275,9 +275,9 @@ return (
 )
 ```
 
-## Sending Native Transaction
+## Gửi giao dịch bản địa
 
-After successfully connecting to a wallet, you can store the provider object returned from the wallet connection in a state variable as done in connectWallet() function. You can therefore use this provider and signer object to send transactions to the blockchain.
+Sau khi kết nối thành công với ví, bạn có thể lưu trữ đối tượng nhà cung cấp được trả về từ kết nối ví trong biến trạng thái như được thực hiện trong hàm connectWallet (). Do đó, bạn có thể sử dụng đối tượng nhà cung cấp và người ký này để gửi các giao dịch đến chuỗi khối.
 
 ```js
  // add to the existing useState hook.
@@ -320,9 +320,9 @@ return (
 
 ```
 
-## Interacting with Smart Contracts
+## Tương tác với Hợp đồng Thông minh
 
-With the Web3-Onboard provider and signer object, you can make contract interactions such as writing to and reading from a smart contract deployed on the blockchain.
+Với nhà cung cấp Web3-Onboard và đối tượng người ký, bạn có thể thực hiện các tương tác hợp đồng như viết và đọc từ hợp đồng thông minh được triển khai trên chuỗi khối.
 
 ```js
 // add to existing useState hook
@@ -481,16 +481,16 @@ With the Web3-Onboard provider and signer object, you can make contract interact
   )
 ```
 
-## Troubleshooting
+## Khắc phục sự cố
 
-**Polyfill node core module error**
+**Lỗi mô-đun lõi nút polyfill**
 
 ```js
 BREAKING CHANGES: webpack<5 used to include polyfills for node.js core modules by default.
 ```
 
-This error occurs when you use webpack version 5. In this version, NodeJS polyfills is no longer supported by default. To solve this issue, refer to this [guide](https://web3auth.io/docs/troubleshooting/webpack-issues).
+Lỗi này xảy ra khi bạn sử dụng webpack phiên bản 5. Trong phiên bản này, NodeJS polyfills không còn được hỗ trợ theo mặc định. Để giải quyết vấn đề này, hãy tham khảo [hướng dẫn](https://web3auth.io/docs/troubleshooting/webpack-issues).
 
-## Next Step
+## Bước tiếp theo
 
-For more in-depth guides on Web3-Onboard, please refer to [Blocknative Docs](https://docs.blocknative.com/onboard) and [Blocknative Github repository](https://github.com/blocknative/onboard). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/klaytn/examples/tree/main/wallet-libraries/web3Onboard-sample).
+Để biết thêm các hướng dẫn chuyên sâu trên Web3-Onboard, vui lòng tham khảo [Tài liệu Blocknative](https://docs.blocknative.com/onboard) và [Kho lưu trữ GitHub Blocknative](https://github.com/blocknative/onboard). Ngoài ra, bạn có thể tìm thấy việc triển khai đầy đủ mã cho hướng dẫn này trên [GitHub](https://github.com/klaytn/examples/tree/main/wallet-libraries/web3Onboard-sample).
