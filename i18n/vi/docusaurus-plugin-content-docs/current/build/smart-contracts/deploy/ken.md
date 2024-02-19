@@ -1,50 +1,51 @@
-# Deploy smart contract using KEN
+# Triển khai hợp đồng thông minh sử dụng KEN
 
 ![](/img/build/get-started/klaytnXken.png)
 
-Before you start, let's get familiar with several Klaytn-specific terms.
+Trước khi bắt đầu, hãy làm quen với một số thuật ngữ riêng của Klaytn.
 
-- **Endpoint Node (EN)**: A node that handles the JSON-RPC API requests to the Klaytn network. Endpoint Node does not participate in the consensus.
-- **KLAY**: Klaytn native coin.
-- **caver-js**: A JavaScript implementation of Klaytn JSON-RPC APIs.
-- **Baobab**: Klaytn testnet
-- **Cypress**: Klaytn mainnet
+- **Nút điểm cuối (EN)**: Nút xử lý các yêu cầu API JSON-RPC gửi đến mạng lưới Klaytn. Nút điểm cuối không tham gia vào thuật toán đồng thuận.
+- **KLAY**: đồng tiền mặc định của Klaytn.
+- **caver-js**: Triển khai JavaScript của API JSON-RPC của Klaytn.
+- **Baobab**: mạng thử nghiệm của Klaytn
+- **Cypress**: mạng chính thức của Klaytn
 
-This step by step guide will walk you through the process of launching an Endpoint Node (EN) of Baobab testnet and building a basic smart contract with your new account. The tutorial consists of two parts, setting up an EN and deploying a smart contract through your EN.
+Hướng dẫn từng bước này sẽ hỗ trợ bạn trong quá trình khởi chạy Nút điểm cuối (EN) của mạng thử nghiệm Baobab và xây dựng hợp đồng thông minh cơ bản bằng tài khoản mới của bạn. Hướng dẫn này bao gồm hai phần, thiết lập một EN và triển khai một hợp đồng thông mình qua EN của bạn.
 
-> This guide uses the **Baobab** testnet because deploying a smart contract and submitting a transaction require transaction fees in KLAY. For the development purpose, testnet KLAY can be obtained from the [Baobab faucet](https://baobab.wallet.klaytn.foundation/faucet).
+> Hướng dẫn này sử dụng mạng thử nghiệm **Baobab** bởi vì việc triển khai hợp đồng thông minh và gửi giao dịch sẽ cần đến phí giao dịch tính bằng KLAY. Vì mục đích phát triển, bạn có thể nhận KLAY cho mạng thử nghiệm từ [vòi Baobab](https://baobab.wallet.klaytn.foundation/faucet).
 
-## Launch an Endpoint Node <a href="#launch-an-en" id="launch-an-en"></a>
+## Khởi chạy nút điểm cuối <a href="#launch-an-en" id="launch-an-en"></a>
 
-### Download and Initialize an Endpoint Node (EN) <a href="#download-and-initialize-an-endpoint-node-en" id="download-and-initialize-an-endpoint-node-en"></a>
+### Tải xuống và khởi chạy nút điểm cuối (EN) <a href="#download-and-initialize-an-endpoint-node-en" id="download-and-initialize-an-endpoint-node-en"></a>
 
-Unzip the provided [ken binary package](../../../nodes/downloads/downloads.md#get-the-packages) and copy the files into the klaytn folder.
+Giải nén [gói nhị phân ken](../../../nodes/downloads/downloads.md#get-the-packages) và sao chép các tập tin vào thư mục klaytn.
+**Lưu ý**: Hãy tải về gói phù hợp có tên bắt đầu bằng `ken`.
 
-**Note**: Please download appropriate package starting with `ken`.
+**Lưu ý**: Hãy tải về gói phù hợp có tên bắt đầu bằng `ken`.
 
-For Mac users, unzip the downloaded file with the following command.
+Đối với người dùng Mac, hãy giải nén tập tin đã tải về bằng lệnh sau.
 
 ```bash
 $ tar zxf ken-baobab-vX.X.X-X-darwin-amd64.tar.gz
 $ export PATH=$PATH:$PWD/ken-darwin-amd64/bin
 ```
 
-For Linux users, unzip the downloaded file with the following command.
+Đối với người dùng Linux, hãy giải nén tập tin đã tải về bằng lệnh sau.
 
 ```bash
 $ tar zxf ken-baobab-vX.X.X-X-linux-amd64.tar.gz
 $ export PATH=$PATH:$PWD/ken-linux-amd64/bin
 ```
 
-You should create a data directory to store the blockchain data. In this tutorial, we will create a `kend_home` folder in the home directory.
+Bạn nên tạo một thư mục dữ liệu để lưu trữ dữ liệu chuỗi khối. Trong phần hướng dẫn này, chúng ta sẽ tạo một thư mục `kend_home` trong thư mục chính.
 
 ```bash
 $ mkdir -p ~/kend_home
 ```
 
-### Configuring the EN <a href="#configuring-the-en" id="configuring-the-en"></a>
+### Cấu hình EN <a href="#configuring-the-en" id="configuring-the-en"></a>
 
-The configuration file, `kend.conf`, is located under `ken-xxxxx-amd64/conf/`. For the details of configurable parameters, you can refer to the [EN Configuration Guide](../../../misc/operation/configuration.md). To launch an EN of Baobab testnet, please update the `kend.conf` file accordingly as follows.
+Tập tin cấu hình, `kend.conf`, trong `ken-xxxxx-amd64/conf/`. Để biết thêm thông tin về các tham số có thể định cấu hình, bạn có thể xem phần [Hướng dẫn cấu hình EN](../../../misc/operation/configuration.md). Để khởi chạy một EN của mạng thử nghiệm Baobab, hãy cập nhật tập tin `kend.conf` phù hợp như sau.
 
 ```
 # cypress, baobab is only available if you don't specify NETWORK_ID.
@@ -57,27 +58,27 @@ RPC_API="klay,net" # net module should be opened for truffle later on.
 DATA_DIR=~/kend_home
 ```
 
-### Launching the EN <a href="#launching-the-en" id="launching-the-en"></a>
+### Khởi chạy EN <a href="#launching-the-en" id="launching-the-en"></a>
 
-To launch the EN, execute the following command.
+Để khởi chạy EN, hãy thực thi lệnh sau.
 
 ```bash
 $ kend start
  Starting kend: OK
 ```
 
-### Checking the EN <a href="#checking-the-en" id="checking-the-en"></a>
+### Kiểm tra EN <a href="#checking-the-en" id="checking-the-en"></a>
 
-To check if the EN is running, execute the following command.
+Để kiểm tra xem EN có đang chạy hay không, hãy thực thi lệnh sau.
 
 ```bash
 $ kend status
 kend is running
 ```
 
-### Checking the log of the EN <a href="#checking-the-log-of-the-en" id="checking-the-log-of-the-en"></a>
+### Kiểm tra bản ghi của EN <a href="#checking-the-log-of-the-en" id="checking-the-log-of-the-en"></a>
 
-To check the log of the EN, execute the following command.
+Để kiểm tra bản ghi của EN, hãy thực thi lệnh sau.
 
 ```bash
 $ tail -f ~/kend_home/logs/kend.out
@@ -86,15 +87,15 @@ INFO[03/26,15:37:49 +09] [5] Imported new chain segment                blocks=1 
 ...
 ```
 
-### Troubleshooting <a href="#troubleshooting" id="troubleshooting"></a>
+### Khắc phục sự cố <a href="#troubleshooting" id="troubleshooting"></a>
 
-Please refer to the [Troubleshooting](../../../misc/operation/troubleshooting.md) if you have trouble in launching the Klaytn Endpoint Node.
+Xem phần mục [Khắc phục sự cố](../../../misc/operation/troubleshooting.md) nếu bạn gặp vấn đề trong việc khởi chạy Nút điểm cuối Klaytn.
 
-## Top up your Account <a id="top-up-your-account"></a>
+## Nạp tiền vào tài khoản <a id="top-up-your-account"></a>
 
-### Attaching to the Console <a id="attaching-to-the-console"></a>
+### Kết nối với Bảng điều khiển <a id="attaching-to-the-console"></a>
 
-Klaytn Endpoint Node comes with JavaScript console. From the console command line, you can initiate part of Klaytn API calls to your EN. To attach to the JavaScript console, execute the following command.
+Nút điểm cuối Klaytn đi kèm bảng điều khiển JavaScript. Từ dòng lệnh của bảng điều khiển, bạn có thể khởi tạo một phần của các lệnh gọi ra API Klaytn đến EN của mình. Để đính kèm vào bảng điều khiển JavaScript, hãy thực thi lệnh sau.
 
 ```bash
 $ ken attach ~/kend_home/klay.ipc
@@ -107,13 +108,13 @@ Welcome to the Klaytn JavaScript console
  >
 ```
 
-**NOTE**: You must wait until it downloads all the blocks. Enter `klay.blockNumber` in a console and check whether it matches the current block number [here](https://baobab.scope.klaytn.com/)
+**LƯU Ý**: Bạn phải đợi đến khi đã tải về tất cả các khối. Nhập `klay.blockNumber` vào bảng điều khiển và kiểm tra xem nó có khớp với số khối hiện tại hay không [tại đây](https://baobab.scope.klaytn.com/)
 
-**NOTE**: Type `klay` or `personal` to get the list of available functions.
+**LƯU Ý**: Gõ `klay` hoặc`personal` để nhận danh sách các hàm có sẵn.
 
-### Creating a New Klaytn Account <a id="creating-a-new-klaytn-account"></a>
+### Tạo tài khoản Klaytn mới <a id="creating-a-new-klaytn-account"></a>
 
-To create a new Klaytn account from the JavaScript console, execute the following command. Your private key will be encrypted with the passphrase you enter.
+Để tạo một tài khoản Klaytn mới từ bảng điều khiển JavaScript, hãy thực thi lệnh sau. Mã khóa riêng tư của bạn sẽ được mã hóa bằng cụm mật khẩu mà bạn nhập.
 
 ```javascript
 > personal.newAccount()
@@ -122,20 +123,20 @@ Repeat passphrase:
 "0x75a59b94889a05c03c66c3c84e9d2f8308ca4abd" # created account address
 ```
 
-Keystore file will be created under `keystore` folder in the EN data directory, `DATA_DIR` set in the `kend.conf`. If you follows the quick start default guideline, it must be `~/kend_home/keystore/`.
+Tập tin lưu trữ khóa sẽ được tạo trong thư mục `keystore` thuộc thư mục dữ liệu EN, `DATA_DIR` đặt trong `kend.conf`. Nếu bạn làm theo hướng dẫn mặc định bắt đầu nhanh, thư mục đó sẽ là `~/kend_home/keystore/`.
 
 ```javascript
 $ ls ~/kend_home/keystore/
 UTC--2019-06-24T11-20-15.590879000Z--75a59b94889a05c03c66c3c84e9d2f8308ca4abd
 ```
 
-### Unlocking the Klaytn Account <a id="unlocking-the-klaytn-account"></a>
+### Mở khóa tài khoản Klaytn <a id="unlocking-the-klaytn-account"></a>
 
-To unlock the created account, execute the following command. It unlocks the account for 300 seconds.
+Để mở khóa một tài khoản đã tạo, hãy thực thi lệnh sau. Lệnh này sẽ mở khóa tài khoản trong 300 giây.
 
-**Note**: If you want to manually set the unlock duration, refer to this [link](../../../references/json-rpc/personal.md#personal_unlockaccount).
+**Lưu ý**: Nếu bạn muốn đặt thời gian mở khóa theo cách thủ công, hãy tham khảo [liên kết](../../../references/json-rpc/personal.md#personal_unlockaccount) này.
 
-**`WARNING`**: Unlocking an account could be very dangerous if not done carefully. There are chances that your tokens will be taken away by hackers if your EN is hacked by a hacker. To use safer method, refer to this [deployment guide using private key](../../tutorials/count-dapp/deploy-contracts.md#deploy-method-1-by-private-key)
+**`CẢNH BÁO`**: Việc mở khóa một tài khoản có thể rất nguy hiểm nếu không được thực hiện thận trọng. Có khả năng token của bạn sẽ bị hacker lấy mất nếu hacker xâm nhập được EN của bạn. Để sử dụng phương pháp an toàn hơn, hãy tham khảo mục [hướng dẫn triển khai bằng mã khóa riêng tư](../../tutorials/count-dapp/deploy-contracts.md#deploy-method-1-by-private-key)
 
 ```javascript
 > personal.unlockAccount('75a59b94889a05c03c66c3c84e9d2f8308ca4abd') # account address to unlock
@@ -144,67 +145,67 @@ Passphrase: # enter your passphrase
 true
 ```
 
-### Getting testnet KLAY from the Baobab Faucet <a id="getting-testnet-klay-from-the-baobab-faucet"></a>
+### Nhận KLAY cho mạng thử nghiệm từ Vòi Baobab <a id="getting-testnet-klay-from-the-baobab-faucet"></a>
 
-- Using the Baobab faucet in KlaytnWallet.
+- Sử dụng vòi Baobab trong Ví Klaytn.
 
-- Access [https://baobab.wallet.klaytn.foundation](https://baobab.wallet.klaytn.foundation/).
+- Truy cập [https://baobab.wallet.klaytn.foundation](https://baobab.wallet.klaytn.foundation/).
 
-- You can either create a new account from the Wallet or use the keystore file you created from the EN JavaScript console above to log into the Wallet.
+- Bạn có thể tạo tài khoản mới từ Ví, hoặc dùng tập tin lưu trữ khóa mà bạn đã tạo từ bảng điều khiển JavaScript EN ở trên để đăng nhập vào Ví.
 
-- Go to "KLAY Faucet" from the left pane menu, and click the "Run Faucet" button to get 150 KLAY.
+- Đi đến “Vòi KLAY” từ trình đơn ngăn bên trái, nhấp vào nút “Run Faucet” để nhận 150 KLAY.
 
-  You can run the KLAY Faucet once every 24 hours.
+  Bạn có thể mở vòi KLAY mỗi 24 giờ một lần.
 
-- If you created a new account to get KLAY, then send the KLAY to your created account on the EN.
+- Nếu bạn đã tạo một tài khoản mới để nhận KLAY, hãy gửi số KLAY đó đến tài khoản đã được tạo trên EN.
 
-### Checking the Balance in Your Account <a id="checking-the-balance-in-your-account"></a>
+### Kiểm tra số dư trong tài khoản <a id="checking-the-balance-in-your-account"></a>
 
-To see the balance of your account, execute the following command.
+Để xem số dư của tài khoản, hãy thực thi lệnh sau.
 
-The default unit is peb (1 KLAY = 10^18 peb). More information about KLAY units can be found at [Units of KLAY](../../../learn/klaytn-native-coin-klay.md#units-of-klay).
+Đơn vị mặc định là peb (1 KLAY = 10^18 peb). Bạn có thể tìm hiểu thêm thông tin về các đơn vị của KLAY trong phần [Các đơn vị của KLAY](../../../learn/klaytn-native-coin-klay.md#units-of-klay).
 
 ```javascript
 > klay.getBalance('75a59b94889a05c03c66c3c84e9d2f8308ca4abd') # enter your account address
 1e+21  # 1000 KLAY
 ```
 
-### Exiting the Console <a id="exiting-the-console"></a>
+### Thoát bảng điều khiển <a id="exiting-the-console"></a>
 
-To leave the javascript console, execute the following command.
+Để thoát bảng điều khiển javascript, hãy thực thi lệnh sau.
 
 ```javascript
 > exit
 $
 ```
 
-## Install Development Tools <a id="install-development-tools"></a>
+## Cài đặt các công cụ phát triển <a id="install-development-tools"></a>
 
-### Installing caver-js <a id="installing-caver-js"></a>
+### Cài đặt caver-js <a id="installing-caver-js"></a>
 
-We recommend to create a klaytn project directory such that:
+Chúng tôi đề nghị bạn nên tạo một thư mục dự án klaytn để:
 
 ```bash
 $ mkdir $HOME/klaytn
 ```
 
-> You need `npm` and `node.js` installed to proceed. Please refer to [get-npm](https://www.npmjs.com/get-npm) and [node.js](https://nodejs.org/en/) for installation on your system.
+> Bạn cần cài đặt `npm` và `node.js` để tiếp tục. Vui lòng tham khảo [get-npm](https://www.npmjs.com/get-npm) và [node.js](https://nodejs.org/en/) để xem cách cài đặt trên hệ thống của bạn.
 
-​[caver-js](../../../references/sdk/caver-js/caver-js.md) is a JSON RPC framework for the Klaytn network (equivalent to web3.js in Ethereum). Before installing caver-js, you must generate `package.json` file via `npm init` command, and then type `npm install caver-js` to install caver-js.
+[caver-js](../../../references/sdk/caver-js/caver-js.md) là bộ khung RPC JSON dành cho mạng lưới Klaytn (tương đương với web3.js trong Ethereum). Trước khi cài đặt caver-js, bạn phải tạo tập tin `package.json` qua lệnh `npm init`, sau đó gõ `npm install caver-js` để cài đặt caver-js.
 
 ```bash
 $ npm init # initialize npm at the klaytn project directory
 $ npm install caver-js
 ```
 
-**NOTE**: If you already installed caver-js, please update it to the latest version.
+**LƯU Ý**: Nếu bạn đã cài đặt caver-js, vui lòng cập nhật lên phiên bản mới nhất.
 
 ```bash
 $ npm cache clean --force # initialize npm cache
 $ npm install caver-js@latest # update caver-js to the latest version
 ```
 
-If you receive the following errors while updating the caver-js, remove `.git` folder in the `websocket` directory.
+Nếu bạn nhận được các lỗi sau khi cập nhật caver-js, hãy xóa thư mục `.git` trong thư mục `websocket`.
 
 ```bash
 npm ERR! path /Users/username/klaytn/node_modules/websocket
@@ -220,22 +221,22 @@ npm ERR!     /Users/username/.npm/_logs/2019-06-25T01_49_37_032Z-debug.log​
 $ rm /Users/username/klaytn/node_modules/websocket/.git
 ```
 
-**Note:** For all the function calls that begin with `web3.eth...` in web3.js, should be replaced with `caver.klay...`.
+**Lưu ý:** Đối với tất cả các chức năng gọi ra hàm bắt đầu bằng `web3.eth...` in web3.js, nên được thay thế bằng `caver.klay...`.
 
 `web3.eth.sendTransaction({ ... })` (X)
 
 `caver.klay.sendTransaction({ ... })` (O)
 
-### Installing Truffle <a id="installing-truffle"></a>
+### Cài đặt Truffle <a id="installing-truffle"></a>
 
-In this tutorial, Truffle is used to compile and deploy smart contracts written in Solidity. Currently, Klaytn supports Truffle version 4.1.15. For further information about Truffle, refer to the following sites:
+Trong bài hướng dẫn này, Truffle được sử dụng để lập và triển khai hợp đồng thông minh được viết bằng Solidity. Hiện tại, Klaytn hỗ trợ Truffle phiên bản 4.1.15. Để biết thêm thông tin về Truffle, hãy tham khảo các trang sau:
 
-- Truffle repository - [https://github.com/trufflesuite/truffle](https://github.com/trufflesuite/truffle)​
-- Truffle documents - [https://trufflesuite.com/docs](https://trufflesuite.com/docs)​
+- Kho lưu trữ Truffle - [https://github.com/trufflesuite/truffle](https://github.com/trufflesuite/truffle)
+- Tài liệu Truffle - [https://trufflesuite.com/docs](https://trufflesuite.com/docs)​
 
-We can install Truffle either globally or locally:
+Chúng ta có thể cài đặt Truffle theo hai cách
 
-- Globally using npm by executing the following commands:
+- 1\) theo cách toàn cục bằng npm, thực thi các lệnh sau:
 
 ```bash
 $ sudo npm install -g truffle@4.1.15
@@ -244,9 +245,9 @@ $ sudo npm install solc@0.5.6
 $ cd -
 ```
 
-or
+hoặc
 
-- Locally, i.e., in your local directory, by executing the followings:
+- 2\) theo cách cục bộ, nghĩa là tại thư mục trong máy bạn, thực thi các lệnh sau:
 
 ```bash
 # Assuming you are in $HOME/klaytn/.
@@ -258,16 +259,16 @@ $ ln -s node_modules/truffle/build/cli.bundled.js truffle
 $ export PATH=`pwd`:$PATH
 ```
 
-### Installing vvisp <a id="installing-vvisp"></a>
+### Cài đặt vvisp <a id="installing-vvisp"></a>
 
-vvisp is an easy-to-use cli tool/framework for developing smart contracts, provided by [HEACHI LABS](https://henesis.io/). You can easily set environment, deploy and execute Klaytn smart contracts with a single-command. It supports the Truffle framework, so developers familiar with Truffle can use vvisp without difficulty.
+vvisp là một công cụ/bộ khung cli dễ sử dụng để phát triển các hợp đồng thông minh, do [HEACHI LABS](https://henesis.io/) cung cấp. Bạn có thể dễ dàng thiết lập môi trường, triển khai và thực thi các hợp đồng thông minh Klaytn với một lệnh duy nhất. Nó hỗ trợ bộ khung Truffle, vì vậy, các nhà phát triển đã quen thuộc với Truffle có thể dễ dàng sử dụng vvisp.
 
-Here, we introduce how to install vvisp and use it to set up the Klaytn dApp development environment.
+Ở đây, chúng tôi giới thiệu cách cài đặt vvisp và sử dụng công cụ này để thiết lập môi trường phát triển Klaytn dApp.
 
-- vvisp repository - [https://github.com/HAECHI-LABS/vvisp](https://github.com/HAECHI-LABS/vvisp)​
-- vvisp document - [https://github.com/HAECHI-LABS/vvisp/blob/dev/README_KLAYTN.md](https://github.com/HAECHI-LABS/vvisp/blob/dev/README_KLAYTN.md)​
+- kho lưu trữ vvisp - [https://github.com/HAECHI-LABS/vvisp](https://github.com/HAECHI-LABS/vvisp)
+- tài liệu vvisp - [https://github.com/HAECHI-LABS/vvisp/blob/dev/README_KLAYTN.md](https://github.com/HAECHI-LABS/vvisp/blob/dev/README_KLAYTN.md)
 
-vvisp can be easily installed if you have npm or yarn by executing the following command:
+bạn có thể dễ dàng cài đặt vvisp nếu có npm hoặc yarn bằng cách thực thi lệnh sau:
 
 ```bash
 $ npm install -g @haechi-labs/vvisp
@@ -275,7 +276,7 @@ $ npm install -g @haechi-labs/vvisp
 $ yarn global add @haechi-labs/vvisp
 ```
 
-Upon installation, you can utilize the vvisp command to ensure it has been installed properly. **NOTE**: You should use version over **v2.1.0**.
+Sau khi cài đặt xong, bạn có thể sử dụng lệnh vvisp để đảm bảo công cụ này đã được cài đặt đúng cách. **LƯU Ý**: Bạn nên sử dụng phiên bản cao hơn **v2.1.0**.
 
 ```bash
 $ vvisp
@@ -308,30 +309,30 @@ $ vvisp --version
 v2.1.0
 ```
 
-## Deploy a Smart Contract <a id="deploy-a-smart-contract"></a>
+## Triển khai hợp đồng thông minh <a id="deploy-a-smart-contract"></a>
 
-Now we are ready to develop and deploy Klaytn smart contracts!
+Đến đây, chúng ta đã sẵn sàng phát triển và triển khai các hợp đồng thông minh Klaytn!
 
-### Creating a Project Directory <a id="creating-a-project-directory"></a>
+### Tạo thư mục dự án <a id="creating-a-project-directory"></a>
 
-First of all, create a directory where the source code locates.
+Trước tiên, hãy tạo một thư mục có chứa mã nguồn.
 
 ```bash
 $ mkdir klaytn-testboard
 $ cd klaytn-testboard
 ```
 
-### Initializing Truffle <a id="initializing-truffle"></a>
+### Khởi chạy Truffle <a id="initializing-truffle"></a>
 
-Initialize Truffle for contract deployment.
+Khởi chạy Truffle để triển khai hợp đồng.
 
 ```bash
 $ truffle init
 ```
 
-### Writing a Simple Smart Contract in Solidity <a id="writing-a-simple-smart-contract-in-solidity"></a>
+### Soạn một hợp đồng thông minh đơn giản bằng Solidity <a id="writing-a-simple-smart-contract-in-solidity"></a>
 
-Create `KlaytnGreeter.sol` at `klaytn-testboard/contracts` directory.
+Tạo `KlaytnGreeter.sol` trong thư mục `klaytn-testboard/contracts`.
 
 ```bash
 $ cd contracts
@@ -339,7 +340,7 @@ $ touch KlaytnGreeter.sol
 $ vi KlaytnGreeter.sol
 ```
 
-Write the following code in KlaytnGreeter.sol.
+Viết mã sau trong KlaytnGreeter.sol.
 
 ```text
 pragma solidity 0.5.6;
@@ -366,7 +367,7 @@ contract KlaytnGreeter is Mortal {
 }
 ```
 
-### Modifying the Migration Script <a id="modifying-the-migration-script"></a>
+### Sửa đổi tập lệnh di chuyển <a id="modifying-the-migration-script"></a>
 
 ```bash
 $ cd ..
@@ -374,7 +375,7 @@ $ cd migrations
 $ vi 1_initial_migration.js
 ```
 
-Modify `1_initial_migration.js` as the following.
+Sửa đổi `1_initial_migration.js` như sau.
 
 ```javascript
 const Migrations = artifacts.require("./Migrations.sol");
@@ -385,18 +386,18 @@ module.exports = function(deployer) {
 };
 ```
 
-### Deploying a Smart Contract using Truffle <a id="deploying-a-smart-contract-using-truffle"></a>
+### Triển khai hợp đồng thông minh bằng Truffle <a id="deploying-a-smart-contract-using-truffle"></a>
 
-Enter Klaytn's network information into truffle.js.
+Nhập thông tin mạng của Klaytn vào truffle.js.
 
-**`WARNING`**: Currently Klaytn Baobab network's gasPrice is fixed to 25 Gpeb (**It returns an error if you attempt to use any other number**).
+**`WARNING`**: Hiện tại, gasPrice của mạng Baobab Klaytn được đặt cố định là 25 Gpeb (**Kết quả trả về là lỗi nếu bạn cố gắng dùng số khác**).
 
 ```bash
 $ cd ..
 $ vi truffle-config.js
 ```
 
-Modify configuration as below
+Sửa đổi cấu hình như sau
 
 ```javascript
 // truffle-config.js
@@ -419,13 +420,13 @@ module.exports = {
 };
 ```
 
-Deploy the contract using the following command.
+Triển khai hợp đồng bằng lệnh sau.
 
-**NOTE**: Use `--network` to select which network to deploy and `--reset` to overwrite.
+**LƯU Ý**: Sử dụng `--network` để chọn mạng cần triển khai và `--reset` để ghi đè.
 
-**NOTE**: Make sure that your Klaytn node is running.
+**LƯU Ý**: Đảm bảo rằng nút Klaytn của bạn đang chạy.
 
-Your contract address is displayed followed `KlaytnGreeter`:
+Địa chỉ hợp đồng của bạn được hiển thị sau \`KlaytnGreeter:
 
 ```bash
 $ truffle deploy --network klaytn --reset
@@ -442,7 +443,7 @@ Saving successful migration to network...
 Saving artifacts...
 ```
 
-**`WARNING`**: It returns an error when your account is locked.
+**`CẢNH BÁO`**: Kết quả trả về sẽ là lỗi khi tài khoản của bạn bị khóa.
 
 ```bash
 Running migration: 1_initial_migration.js
@@ -452,7 +453,7 @@ Error encountered, bailing. Network state unknown. Review successful transaction
 Error: authentication needed: password or unlock
 ```
 
-This is how you unlock your account.
+Đây là cách bạn mở khóa tài khoản.
 
 ```javascript
 > personal.unlockAccount('0x775a59b94889a05c03c66c3c84e9d2f8308ca4abd')
@@ -461,22 +462,22 @@ Passphrase:
 true
 ```
 
-And then you are ready to go. Try deploy again.
+Vậy là bạn đã sẵn sàng. Hãy thử triển khai lại.
 
-## Check the Deployment <a id="check-the-deployment"></a>
+## Kiểm tra quy trình triển khai <a id="check-the-deployment"></a>
 
-### Checking the Deployed Byte Code using caver-js <a id="checking-the-deployed-byte-code-using-caver-js"></a>
+### Kiểm tra chỉ thị biên dịch đã triển khai bằng caver-js <a id="checking-the-deployed-byte-code-using-caver-js"></a>
 
-Use `getCode` for checking the byte code of the deployed smart contract.
+Sử dụng `getCode` để kiểm tra chỉ thị biên dịch của hợp đồng thông minh đã triển khai.
 
-First, create a test file and open it.
+Trước tiên, hãy tạo và mở một tệp thử nghiệm.
 
 ```bash
 $ touch test-klaytn.js
 $ open test-klaytn.js
 ```
 
-Write the following test code. Make sure you enter the contract address you just deployed.
+Viết mã kiểm tra sau. Đảm bảo bạn nhập địa chỉ hợp đồng mà bạn vừa triển khai.
 
 ```javascript
 // test-klaytn.js
@@ -487,20 +488,20 @@ const contractAddress = '0x65ca27ed42abeef230a37317a574058ff1372b34'
 caver.klay.getCode(contractAddress).then(console.log);
 ```
 
-Run the code.
+Chạy mã.
 
 ```bash
 $ node test-klaytn.js
 0x60806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806341c0e1b514610051578063cfae321714610068575b600080fd5b34801561005d57600080fd5b506100666100f8565b005b34801561007457600080fd5b5061007d610189565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100bd5780820151818401526020810190506100a2565b50505050905090810190601f1680156100ea5780820380516001836020036101000a031916815260200191505b509250505060405180...
 ```
 
-### Calling functions in the Deployed Smart Contract <a id="calling-functions-in-the-deployed-smart-contract"></a>
+### Gọi ra các hàm trong Hợp đồng thông minh đã triển khai <a id="calling-functions-in-the-deployed-smart-contract"></a>
 
-Use JavaScript to call the `greet()` in the contract.
+Dùng JavaScript để gọi ra`greet()` trong hợp đồng.
 
-**NOTE**: In order to call specific functions in smart contracts, you need an ABI (Application Binary Interface) file. When Truffle deploys your contract, it automatically creates .json file at `./build/contracts/` which contains `abi` property.
+**LƯU Ý**: Để gọi ra các hàm cụ thể trong hợp đồng thông minh, bạn cần tập tin ABI (Giao dịch nhị phân ứng dụng). Khi triển khai hợp đồng của bạn, Truffle sẽ tự động tạo một tập tin .json tại `./build/contracts/` trong đó có chứa thuộc tính `abi`.
 
-Append the following lines to the test code written above.
+Nối các dòng sau vào mã kiểm tra được viết ở trên.
 
 ```javascript
 // test-klaytn.js
@@ -517,7 +518,7 @@ const klaytnGreeter = new caver.klay.Contract(KlaytnGreeter.abi, contractAddress
 klaytnGreeter.methods.greet().call().then(console.log);
 ```
 
-Run the test code.
+Chạy mã kiểm tra.
 
 ```bash
 $ node test-klaytn.js
@@ -525,4 +526,4 @@ $ node test-klaytn.js
 Hello, Klaytn # This is from KlyatnGreeter.methods.greet()
 ```
 
-**If you got "Hello, Klaytn", you've completed the task. Congrats!**
+**Nếu nhận được dòng "Hello, Klaytn", bạn đã hoàn thành nhiệm vụ. Xin chúc mừng!**
