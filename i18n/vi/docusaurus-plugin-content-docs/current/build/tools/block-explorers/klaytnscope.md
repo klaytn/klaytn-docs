@@ -1,238 +1,238 @@
 # Klaytnscope
 
-Klaytnscope is the block explorer for the Klaytn Network. Klaytnscope gives you an insight about the Klaytn network by monitoring the network health and providing various statistics of Klaytn network. You can also explore the block and transaction data and the list of smart contracts on the Klaytn network.
+Klaytnscope là trình khám phá khối cho mạng lưới Klaytn. Klaytnscope cung cấp cho bạn thông tin chi tiết về mạng lưới Klaytn bằng cách theo dõi tình trạng mạng và cung cấp các số liệu thống kê khác nhau về mạng lưới Klaytn. Bạn cũng có thể khám phá dữ liệu khối và giao dịch cũng như danh sách các hợp đồng thông minh trên mạng lưới Klaytn.
 
-- For the Baobab network, visit [https://baobab.scope.klaytn.com](https://baobab.scope.klaytn.com)
-- For the Mainnet, visit [https://scope.klaytn.com](https://scope.klaytn.com)
+- Đối với mạng Baobab, hãy truy cập [https://baobab.scope.klaytn.com](https://baobab.scope.klaytn.com)
+- Đối với mạng chính, hãy truy cập [https://scope.klaytn.com](https://scope.klaytn.com)
 
 ![](/img/build/tools/scope_01_main.png)
 
-## Major Features <a id="major-features"></a>
+## Các tính năng chính <a id="major-features"></a>
 
-Please note that some of the features are under development.
+Xin lưu ý rằng một số tính năng đang được phát triển.
 
-- Overview of the network
-- Block search
-- Transaction search
-- Account search
-- Event logs search
-- Block proposer information
+- Tổng quan về mạng
+- Tìm kiếm khối
+- Tìm kiếm giao dịch
+- Tìm kiếm tài khoản
+- Tìm kiếm bản ghi sự kiện
+- Thông tin người đề xuất khối
 
-In the subsequent sections, we will visit the major functions and screenshots of Klaytnscope. Functions are grouped by four categories - dashboard, list view, detail view, and search.
+Trong các phần tiếp theo, chúng ta sẽ khám phá các chức năng chính và ảnh chụp màn hình của Klaytnscope. Các chức năng được nhóm theo bốn danh mục - bảng điều khiển, chế độ xem danh sách, chế độ xem chi tiết và tìm kiếm.
 
-## Dashboard <a id="dashboard"></a>
+## Bảng điều khiển <a id="dashboard"></a>
 
-Network information is presented in the dashboard. The information includes average block generation time, average number of transactions in a block, number of consensus nodes, and the latest trends in transactions.
+Thông tin mạng được biểu thị trong bảng điều khiển. Thông tin bao gồm thời gian tạo khối trung bình, số lượng giao dịch trung bình trong một khối, số nút đồng thuận và các xu hướng mới nhất trong giao dịch.
 
 ![](/img/build/tools/scope_02_main_indicator.png)
 
-- Block Height: The latest block height. It shows that how many blocks have been generated since the genesis.
-- Network Performance: It shows Klaytn's network performance with four indicators.
-  - Consensus Nodes: Above picture shows that 15 nodes are participated in the consensus process.
-  - Avg Block Time (1 hour): It shows the average block generation time over the last hour.
-  - Avg Block Time (24 hours): It shows the average block generation time over the last 24 hours.
-  - Avg TX Per Block (24 hours): The average number of transactions included in one block over the last 24 hours.
-- Transaction History (14 days): The graphs show the number of daily transactions over the last 14 days. You can see the trend in the transaction volume over the last two weeks.
+- Chiều cao khối: Chiều cao khối mới nhất. Thông tin này cho biết số lượng khối đã được tạo từ thời điểm khởi nguyên.
+- Hiệu suất mạng: Cho biết hiệu suất mạng của Klaytn với bốn chỉ số.
+  - Nút đồng thuận: Hình trên cho thấy 15 nút được tham gia vào quá trình đồng thuận.
+  - Thời gian tạo khối trung bình (1 giờ): Hiển thị thời gian tạo khối trung bình trong một giờ qua.
+  - Thời gian tạo khối trung bình (24 giờ): Hiển thị thời gian tạo khối trung bình trong 24 giờ qua.
+  - TX trung bình trên mỗi khối (24 giờ): Số lượng giao dịch trung bình được đưa vào một khối trong 24 giờ qua.
+- Lịch sử giao dịch (14 ngày): Biểu đồ hiển thị số lượng giao dịch hàng ngày trong 14 ngày qua. Bạn có thể xem xu hướng về khối lượng giao dịch trong hai tuần qua.
 
-### Recent Blocks & Transactions <a id="recent-blocks-transactions"></a>
+### Khối & giao dịch gần đây <a id="recent-blocks-transactions"></a>
 
-These lists show recently created blocks and transactions respectively. You can get the latest information by clicking the refresh button on the upper-right corner in the pane. In the bottom of the list, clicking the ‘view all’ button will take you to the [list view](#list-view).
+Các danh sách này lần lượt hiển thị các khối và giao dịch được tạo gần đây. Bạn có thể nhận thông tin mới nhất bằng cách nhấp vào nút refresh ở góc trên bên phải trong bảng. Ở cuối danh sách, nhấp vào nút “view all” sẽ đưa bạn đến [chế độ xem danh sách](#list-view).
 
 ![](/img/build/tools/scope_03_main_list.png)
 
-### Network Status & Network Selector <a id="network-status-network-selector"></a>
+### Trạng thái mạng & bộ chọn mạng <a id="network-status-network-selector"></a>
 
 ![](/img/build/tools/network_status.gif)
 
-On the upper-right corner of the site, there are network status indicator and the network selector drop down.
+Ở góc trên bên phải của trang web có chỉ báo trạng thái mạng và trình chọn mạng thả xuống.
 
-- Network Status Indicator
-  - Network is healthy: Klaytnscope is healthy and fully operational. The network status is normal.
-  - Data latency: Klaytnscope is undergoing system maintenance. Data is in a delayed state.
-  - Data accuracy: Klaytnscope is synchronizing data, please wait.
-- Network Selector Drop Down
-  - You can choose Klaytn mainnet and Baobab testnet from the menu.
+- Chỉ báo trạng thái mạng
+  - Mạng hoạt động ổn định: Klaytnscope ổn định và hoạt động đầy đủ. Trạng thái mạng là bình thường.
+  - Độ trễ dữ liệu: Klaytnscope đang bảo trì hệ thống. Dữ liệu ở trạng thái trễ.
+  - Độ chính xác của dữ liệu: Klaytnscope đang đồng bộ hóa dữ liệu, vui lòng đợi.
+- Danh sách trình chọn mạng thả xuống
+  - Bạn có thể chọn mạng chính Klaytn và mạng thử nghiệm Baobab từ menu này.
 
-## List View <a id="list-view"></a>
+## Xem danh sách <a id="list-view"></a>
 
-If you want to get a closer look at the status of the Klaytn network, you can check the list of recently generated blocks and transactions. To access the list page, click the button on the navigation bar which located on the left of the screen.
+Nếu muốn xem kỹ hơn trạng thái của mạng lưới Klaytn, bạn có thể kiểm tra danh sách các khối và giao dịch được tạo gần đây. Để truy cập trang danh sách, hãy nhấp vào nút trên thanh điều hướng nằm ở bên trái màn hình.
 
-### Blocks <a id="blocks"></a>
+### Khối <a id="blocks"></a>
 
 ![](/img/build/tools/scope_04_block_list.png)
 
-A list of recently generated blocks. To update the information, please click the refresh.
+Danh sách các khối được tạo gần đây. Để cập nhật thông tin, vui lòng nhấp vào refresh.
 
-- Block: The unique number of the block. Starting from zero (the genesis block), it is given sequentially each time a block is generated.
-- Time: Duration of time since the block was generated. You can check the exact date and time by hovering this.
-- Total TXs: The total number of transactions included in the block.
-- Block Proposer: Randomly but deterministically selected Consensus Node that proposed the block. By clicking the address, you can easily go to the details page.
-- Reward: Aggregation of newly minted KLAY (6.4 KLAY) and transaction fees used in the block. The list displays only the sum of Klaytn Governance Council Reward, Proof of Contribution, and Klaytn Improvement Reserve. Hover the block reward section on the block detail page to see detailed information. More details about the block reward distribution system can be found in the [Klaytn Token Economy].
-- Size: The size of blocks measured in Byte. The more transactions are included, the larger the block size.
+- Khối: Số duy nhất của khối. Bắt đầu từ số không (khối khởi nguyên), nó được đưa ra tuần tự mỗi khi một khối được tạo.
+- Thời gian: Khoảng thời gian kể từ khi khối được tạo. Bạn có thể kiểm tra ngày giờ chính xác bằng cách di chuột vào đây.
+- Tổng số TX: Tổng số giao dịch có trong khối.
+- Người đề xuất khối: Nút đồng thuận được chọn ngẫu nhiên nhưng có tính quyết định đã đề xuất khối. Bằng cách nhấp vào địa chỉ, bạn có thể dễ dàng đi đến trang thông tin chi tiết.
+- Phần thưởng: Tổng hợp KLAY (6,4 KLAY) mới được tạo và phí giao dịch được sử dụng trong khối. Danh sách này chỉ hiển thị tổng Phần thưởng của Hội đồng quản trị của Klaytn, Bằng chứng đóng góp và Khoản dự trữ cải tiến của Klaytn. Di chuột vào mục phần thưởng khối trên trang thông tin chi tiết khối để xem thông tin chi tiết. Bạn có thể tìm thêm thông tin chi tiết về hệ thống phân phối phần thưởng khối trong \[Nền kinh tế token Klaytn]\[].
+- Kích thước: Kích thước của các khối được đo bằng Byte. Giao dịch được đưa vào càng nhiều, kích thước khối càng lớn.
 
-### Transactions <a id="transactions"></a>
+### Giao dịch <a id="transactions"></a>
 
 ![](/img/build/tools/scope_05_tx_list.png)
 
-A list of recently executed transactions. To update the information, please click the refresh.
+Danh sách các giao dịch được thực hiện gần đây. Để cập nhật thông tin, vui lòng nhấp vào refresh.
 
-- TX Hash: The unique identifier of the transaction. For more information, click the hash to go to the detail page. If the transaction fails, a red exclamation mark appears next to it.
-- Block #: Number of the block which contains this transaction. Clicking on the number takes you to the details page of the block.
-- Time: Duration of time since the transaction was executed. You can check the exact date and time by hovering this.
-- From -&gt; To: The addresses of sender and receiver. By clicking the address, you can easily go to the details page. If the file icon displays next to an address, it means that the address is a contract.
-- TX Type: Type of the transaction. You can apply a filter to get the transactions of a specific type. For more information, please visit [Transactions].
-- Amount: The amount of value transferred through the transaction.
-- TX Fee: The actual cost used to process transaction.
+- Hàm băm TX: Mã định danh duy nhất của giao dịch. Để biết thêm thông tin, hãy nhấp vào hàm băm để chuyển đến trang thông tin chi tiết. Nếu giao dịch không thành công, một dấu chấm than màu đỏ sẽ xuất hiện bên cạnh nó.
+- Khối #: Số khối chứa giao dịch này. Nhấp vào số khối sẽ đưa bạn đến trang thông tin chi tiết của khối.
+- Thời gian: Khoảng thời gian kể từ khi giao dịch được thực hiện. Bạn có thể kiểm tra ngày giờ chính xác bằng cách di chuột vào đây.
+- Từ -&gt; Đến: Địa chỉ của người gửi và người nhận. Bằng cách nhấp vào địa chỉ, bạn có thể dễ dàng đi đến trang thông tin chi tiết. Nếu biểu tượng tệp hiển thị bên cạnh một địa chỉ, điều đó có nghĩa là địa chỉ đó là một hợp đồng.
+- Loại TX: Loại giao dịch. Bạn có thể áp dụng bộ lọc để nhận các giao dịch thuộc một loại cụ thể. Để biết thêm thông tin, vui lòng xem phần \[Giao dịch]\[].
+- Số lượng: Lượng giá trị được chuyển qua giao dịch.
+- Phí TX: Chi phí thực tế được sử dụng để xử lý giao dịch.
 
-## Detail View <a id="detail-view"></a>
+## Chế độ xem chi tiết <a id="detail-view"></a>
 
-Detailed information about single Block, Transaction, Account, and Contract can be found on this page. To go to the details view, you can search for the entity from the search bar or click the item from the list view.
+Có thể tìm thông tin chi tiết về Khối, Giao dịch, Tài khoản và Hợp đồng trên trang này. Để chuyển đến chế độ xem chi tiết, bạn có thể tìm kiếm thực thể từ thanh tìm kiếm hoặc nhấp vào mục chế độ xem danh sách.
 
-### Block <a id="block"></a>
+### Khối <a id="block"></a>
 
 ![](/img/build/tools/scope_08_block_detail.png)
 
-#### Overview <a id="overview"></a>
+#### Tổng quan <a id="overview"></a>
 
-Overall information about the block.
+Thông tin tổng quan về khối.
 
-- Time: Elapsed time since the block generation. Exact datetime is also displayed next to it.
-- Hash: The unique identifier of the block. By pressing the copy button, you can easily copy the hash.
-- Parent Hash: The unique identifier of the previous block. Clicking on the hash takes you to the detail view of the parent hash.
-- Total TXs: The total number of transactions included in the block.
-- Block Reward: Aggregation of the newly minted KLAY (6.4 KLAY) and the transaction fees collected in the block. If you hover, you will find detailed information on Klaytn Governance Council Reward, Proof of Contribution and Klaytn Improvement Reserve. More details about block reward distribution system can be found in the [Klaytn Token Economy].
-- Block Size: The size of block measured in Byte. The more transactions are included, the larger the block size.
+- Thời gian: Thời gian đã trôi qua kể từ khi tạo khối. Ngày giờ chính xác cũng được hiển thị bên cạnh.
+- Hàm băm: Mã định danh duy nhất của khối. Bằng cách nhấn nút Copy, bạn có thể dễ dàng sao chép hàm băm.
+- Hàm băm cha: Mã định danh duy nhất của khối trước đó. Nhấp vào hàm băm sẽ đưa bạn đến chế độ xem chi tiết của hàm băm cha.
+- Tổng số TX: Tổng số giao dịch có trong khối.
+- Phần thưởng khối: Tổng hợp KLAY (6,4 KLAY) mới được tạo và phí giao dịch thu được trong khối. Nếu di chuột, bạn sẽ tìm thấy thông tin chi tiết về Phần thưởng của Hội đồng quản trị của Klaytn, Bằng chứng đóng góp và Khoản dự trữ cải tiến của Klaytn. Bạn có thể tìm thêm thông tin chi tiết về hệ thống phân phối phần thưởng khối trong \[Nền kinh tế token Klaytn]\[].
+- Kích thước khối: Kích thước của khối được đo bằng Byte. Giao dịch được đưa vào càng nhiều, kích thước khối càng lớn.
 
-#### Committee <a id="committee"></a>
+#### Uỷ ban <a id="committee"></a>
 
-List of consensus nodes that proposed and validated the block.
+Danh sách các nút đồng thuận đã đề xuất và xác thực khối.
 
-- Block Proposer: Randomly but deterministically selected consensus node that proposed the block. By clicking the address, you can easily go to the detail view of the node.
-- Validators: Consensus nodes that validated the block. By clicking the address, you can easily go to the detail view of the node.
+- Người đề xuất khối: Nút đồng thuận được chọn ngẫu nhiên nhưng có tính quyết định đã đề xuất khối. Bằng cách nhấp vào địa chỉ, bạn có thể dễ dàng chuyển đến chế độ xem chi tiết của nút.
+- Nút xác thực: Các nút đồng thuận đã xác thực khối. Bằng cách nhấp vào địa chỉ, bạn có thể dễ dàng chuyển đến chế độ xem chi tiết của nút.
 
-#### Transactions <a id="transactions"></a>
+#### Giao dịch <a id="transactions"></a>
 
-List of transactions included in the block.
+Danh sách các giao dịch có trong khối.
 
-### Transaction <a id="transaction"></a>
+### Giao dịch <a id="transaction"></a>
 
 ![](/img/build/tools/scope_09_tx_detail.png)
 
-#### Overview <a id="overview"></a>
+#### Tổng quan <a id="overview"></a>
 
-Overall information about the transaction.
+Thông tin tổng quan về giao dịch.
 
-- Status indicator: On the upper-right corner. The indicator whether the transaction succeeded or not.
-- TX Type: Type of the transaction. For more information, please see [Transactions].
-- Block #: Number of the block which contains this transaction. Clicking on the number takes you to the detail view of the block.
-- From -&gt; To: The addresses of sender and receiver. By clicking the address, you can go to the detail view of the account. If a file icon displays next to the address, it means that address is contract.
-- Fee Payer: Displayed when TX type is either Fee Delegated or Fee Delegated with Ratio. When you click the address of fee payer you can go to the detailed view of the account.
-- Time: Elapsed time since the transaction was executed.
-- Nonce: Number of the transaction sent from the sender's address. Starting from zero, it increases sequentially each time a transaction is sent.
-- Amount: The amount of value transferred in this transaction.
-- Gas Price: Cost per gas measured in KLAY. In Klaytn network, Gas Price is fixed.
-- Gas Used: Exact gas that was used to execute the transaction.
-- Gas Limit: Maximum gas that the sender was willing to pay for this transaction.
-- TX Fee: The actual cost used to process transaction. Calculated by multiplying Gas Price by Gas Used.
-- TX Fee by Sender: Displayed when TX type is Fee Delegated with Ratio. The portion of TX fee paid by the sender.
-- TX Fee by Fee Payer: Displayed when TX type is Fee Delegated with Ratio. The portion of TX fee paid by the fee payer.
+- Chỉ báo trạng thái: Ở góc trên bên phải. Chỉ báo báo giao dịch có thành công hay không.
+- Loại TX: Loại giao dịch. Để biết thêm thông tin, vui lòng xem phần \[Giao dịch]\[].
+- Khối #: Số khối chứa giao dịch này. Nhấp vào số khối sẽ đưa bạn đến chế độ xem chi tiết khối.
+- Từ -&gt; Đến: Địa chỉ của người gửi và người nhận. Bằng cách nhấp vào địa chỉ, bạn có thể chuyển đến chế độ xem chi tiết tài khoản. Nếu biểu tượng tệp hiển thị bên cạnh địa chỉ, điều đó có nghĩa là địa chỉ đó là hợp đồng.
+- Người trả phí: Được hiển thị khi loại TX là Phí được ủy thác hoặc Phí được ủy thác theo tỷ lệ. Khi nhấp vào địa chỉ của người trả phí, bạn có thể chuyển đến chế độ xem chi tiết tài khoản.
+- Thời gian: Thời gian đã trôi qua kể từ khi giao dịch được thực hiện.
+- Số dùng một lần: Số giao dịch được gửi từ địa chỉ của người gửi. Bắt đầu từ 0, nó sẽ tăng lên liên tục mỗi khi một giao dịch được gửi đi.
+- Số lượng: Lượng giá trị được chuyển trong giao dịch này.
+- Giá gas: Chi phí cho mỗi loại gas được đo bằng KLAY. Trong mạng lưới Klaytn, Giá gas là cố định.
+- Gas đã sử dụng: Lượng gas chính xác đã được sử dụng để thực hiện giao dịch.
+- Giới hạn gas: Lượng gas tối đa mà người gửi sẵn sàng trả cho giao dịch này.
+- Phí TX: Chi phí thực tế được sử dụng để xử lý giao dịch. Được tính bằng cách nhân Giá gas với Lượng gas sử dụng.
+- Phí TX theo người gửi: Hiển thị khi loại TX là Phí được ủy thác theo tỷ lệ. Phần phí TX do người gửi thanh toán.
+- Phí TX theo người trả phí: Hiển thị khi loại TX là Phí được ủy thác theo tỷ lệ. Phần phí TX do người trả phí thanh toán.
 
-#### Input Data <a id="input-data"></a>
+#### Dữ liệu đầu vào <a id="input-data"></a>
 
-Extra data provided by the sender or contract.
+Dữ liệu bổ sung do người gửi hoặc hợp đồng cung cấp.
 
-### Account <a id="account"></a>
+### Tài khoản <a id="account"></a>
 
 ![](/img/build/tools/scope_10_account_detail.png)
 
-#### Overview <a id="overview"></a>
+#### Tổng quan <a id="overview"></a>
 
-Overall information about the account.
+Thông tin tổng quan về tài khoản.
 
-- Address (Hex): The unique address of the account.
-- Balance: The total amount of KLAY that this account has.
-- Total TXs: The total number of transactions that this account sent or received.
-- HRA: It informs whether this account type is HRA or not. (TBD)
+- Địa chỉ (Hex): Địa chỉ duy nhất của tài khoản.
+- Số dư: Tổng số KLAY mà tài khoản này có.
+- Tổng số TX: Tổng số giao dịch mà tài khoản này đã gửi hoặc nhận.
+- HRA: Cho biết loại tài khoản này có phải là HRA hay không. (TBD)
 
-#### Transactions <a id="transactions"></a>
+#### Giao dịch <a id="transactions"></a>
 
-The list of transactions related to this account. The color of the arrow indicates if the account is a sender or receiver.
+Danh sách các giao dịch liên quan đến tài khoản này. Màu của mũi tên cho biết tài khoản là người gửi hay người nhận.
 
-### Contract <a id="contract"></a>
+### Hợp đồng <a id="contract"></a>
 
 ![](/img/build/tools/scope_11_contract_detail.png)
 
-#### Overview <a id="overview"></a>
+#### Tổng quan <a id="overview"></a>
 
-Overall information about the contract.
+Thông tin tổng quan về hợp đồng.
 
-- Account (Hex): The unique address of the contract.
-- Balance: The total amount of KLAY that this contract has.
-- Contract Creator: The account that deployed this contract. By clicking the address, you can go to the detail view of the account.
-- Total TXs: The total number of transactions that this contract received.
-- Contract Created TX: The transaction that deployed this contract. Clicking on the hash takes you to the detail view of the transaction.
-- HRA: It informs whether the contract account type is HRA or not. (TBD)
+- Tài khoản (Hex): Địa chỉ duy nhất của hợp đồng.
+- Số dư: Tổng số KLAY mà hợp đồng này có.
+- Người tạo hợp đồng: Tài khoản đã triển khai hợp đồng này. Bằng cách nhấp vào địa chỉ, bạn có thể chuyển đến chế độ xem chi tiết tài khoản.
+- Tổng số TX: Tổng số giao dịch mà hợp đồng này đã nhận.
+- Hợp đồng đã tạo TX: Giao dịch đã triển khai hợp đồng này. Nhấp vào hàm băm sẽ đưa bạn đến chế độ xem chi tiết giao dịch.
+- HRA: Cho biết loại tài khoản hợp đồng có phải là HRA hay không. (TBD)
 
-#### Transactions <a id="transactions"></a>
+#### Giao dịch <a id="transactions"></a>
 
-The list of transactions related to this contract.
+Danh sách các giao dịch liên quan đến hợp đồng này.
 
-## Search <a id="search"></a>
+## Tìm kiếm <a id="search"></a>
 
-Through Klaytnscope, you can search for the information about account, contract, transactions and blocks. The search bar is placed on every page, making it easy to access. Entering a valid keyword will take you to the detail view of the entity.
+Thông qua Klaytnscope, bạn có thể tìm kiếm thông tin về tài khoản, hợp đồng, giao dịch và khối. Thanh tìm kiếm được đặt trên mọi trang, giúp bạn dễ dàng truy cập. Việc nhập từ khóa hợp lệ sẽ đưa bạn đến chế độ xem chi tiết của thực thể.
 
 ![](/img/build/tools/scope_06_search.png)
 
-### Search Keyword <a id="search-keyword"></a>
+### Từ khóa tìm kiếm <a id="search-keyword"></a>
 
-In the mainnet version, searchable keywords are as follows:
+Trong phiên bản mạng chính, các từ khóa có thể tìm kiếm như sau:
 
-- Block #
-- TX Hash
-- Address (Account, Contract)
-- Human Readable Address (.klaytn) (TBD)
+- Khối #
+- Hàm băm TX
+- Địa chỉ (Tài khoản, Hợp đồng)
+- Địa chỉ mà con người đọc được (.klaytn) (TBD)
 
-### Keyword Format <a id="keyword-format"></a>
+### Định dạng từ khóa <a id="keyword-format"></a>
 
-The unique characteristics that distinguish each keyword are as follows:
+Các đặc điểm duy nhất giúp phân biệt từng từ khóa như sau:
 
-#### Block <a id="block"></a>
+#### Khối <a id="block"></a>
 
-- Decimal numbers only [0\~9]
+- Chỉ các số thập phân [0\~9]
 
-#### TX Hash <a id="tx-hash"></a>
+#### Hàm băm TX <a id="tx-hash"></a>
 
-- 66 characters long
-- Starts with a prefix `0x`
-- Hexadecimal number only [0\~9, a\~f]
+- dài 66 ký tự
+- Bắt đầu bằng tiền tố `0x`
+- Chỉ số thập lục phân [0\~9, a\~f]
 
-#### Address <a id="address"></a>
+#### Địa chỉ <a id="address"></a>
 
-- 42 characters long
-- Start with a prefix `0x`
-- Hexadecimal number only [0\~9, a\~f]
+- dài 42 ký tự
+- Bắt đầu bằng tiền tố `0x`
+- Chỉ số thập lục phân [0\~9, a\~f]
 
-#### Human Readable Address (TBD) <a id="human-readable-address-tbd"></a>
+#### Địa chỉ mà con người đọc được (TBD) <a id="human-readable-address-tbd"></a>
 
-- 12\~20 characters long
-- Ends in `.klaytn`
+- dài 12\~20 ký tự
+- Kết thúc bằng `.klaytn`
 
-### Search Errors <a id="search-errors"></a>
+### Lỗi tìm kiếm <a id="search-errors"></a>
 
 ![](/img/build/tools/scope_07_noresult.png)
 
-If you search for a keyword that doesn't fit in the specified format or information hasn't yet been generated, no result page will appear.
+Nếu bạn tìm kiếm một từ khóa không phù hợp với định dạng được chỉ định hoặc thông tin chưa được tạo thì sẽ không xuất hiện trang kết quả nào.
 
-#### Wrong Format (TX Hash / Address) <a id="wrong-format-tx-hash-address"></a>
+#### Sai định dạng (Hàm băm TX / Địa chỉ) <a id="wrong-format-tx-hash-address"></a>
 
-- Wrong number of characters
-- Doesn't start with a prefix `0x`
-- Contains special characters or non-hexadecimal characters [g\~z]
+- Sai số ký tự
+- Không bắt đầu bằng tiền tố `0x`
+- Chứa các ký tự đặc biệt hoặc ký tự không phải hệ thập lục phân [g\~z]
 
-#### Doesn't Exist <a id="doesn-t-exist"></a>
+#### Không tồn tại <a id="doesn-t-exist"></a>
 
-- Blocks not yet generated (if the block number entered was higher than recently generated block number)
-- Non-existent TX Hash
+- Các khối chưa được tạo (nếu số khối đã nhập cao hơn số khối được tạo gần đây)
+- Hàm băm TX không tồn tại
 
 [Transactions]: ../../../learn/transactions/transactions.md
 
