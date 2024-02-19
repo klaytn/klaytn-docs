@@ -1,21 +1,21 @@
-# Test Smart Contracts
+# Hướng dẫn kiểm thử
 
-In this section, we'll introduce how to test smart contracts. Because any transaction on the blockchain is not reversible, testing your smart contract is crucial before you deploy the contract.
+Trong phần này, chúng tôi sẽ giới thiệu cách kiểm thử các hợp đồng thông minh. Các giao dịch trên blockchain không thể hoàn tác. Do đó, việc kiểm thử hợp đồng thông minh của bạn trước khi triển khai có vai trò rất quan trọng.
 
-## Testing with Truffle <a href="#testing-with-truffle" id="testing-with-truffle"></a>
+## Kiểm thử bằng Truffle <a href="#testing-with-truffle" id="testing-with-truffle"></a>
 
-Truffle provides an automated testing framework. This framework lets you write simple and manageable tests in two different ways:
+Truffle cung cấp công cụ kiểm thử tự động. Công cụ này cho phép bạn viết các kiểm thử đơn giản và dễ quản lý theo hai cách khác nhau:
 
-- In `Javascript` and `TypeScript`, for exercising your contracts from the outside world, just like application.
-- In `Solidity`, for exercising your contracts in advances, bare-to-the-metal scenarios.
+- Bằng `Javascript` và `TypeScript`, để thực hiện kiểm thử các hợp đồng từ bên ngoài, giống như ứng dụng.
+- Bằng `Solidity`, để thực hiện kiểm thử trước các hợp đồng, trong các tình huống không có hệ điều hành hoặc ứng dụng.
 
-### 1. Getting started <a href="#1-getting-started" id="1-getting-started"></a>
+### 1. Bắt đầu <a href="#1-getting-started" id="1-getting-started"></a>
 
-We will follow the [Deployment Guide using Truffle](./deploy/deploy.md#truffle) to create a contract and deploy it. But, before we deploy it, we will add a setter function `setGreet` to the contract for testing purpose. The source code is given below.
+Chúng ta sẽ làm theo [Hướng dẫn triển khai bằng Truffle](./deploy/deploy.md#truffle) để tạo và triển khai một hợp đồng. Tuy nhiên, trước khi triển khai, chúng ta sẽ thêm một hàm thiết lập `setGreet` vào hợp đồng nhằm mục đích kiểm thử. Mã nguồn được đưa ra như sau.
 
-**NOTE:** We have made some modifications to the contract for testing.
+**LƯU Ý:** Chúng tôi đã thực hiện một số sửa đổi với hợp đồng nhằm mục đích kiểm thử.
 
-Below is KlaytnGreeting contract source code.
+Dưới đây là mã nguồn của hợp đồng KlaytnGreeting.
 
 ```
 pragma solidity 0.5.6;
@@ -52,19 +52,19 @@ contract KlaytnGreeter is Mortal {
 }
 ```
 
-We will test 1) `greet()` function whether it returns "Hello, Klaytn" message properly, 2) `setGreet()` function whether it set new greeting message properly and reverts when non-owner account attempts to update the greeting.
+Chúng ta sẽ kiểm thử 1) hàm `greet()` để xem nó có trả về thông báo "Hello, Klaytn" một cách chính xác không, 2) hàm `setGreet()` để xem nó có thiết lập thông báo chào mừng mới một cách chính xác không và hoàn ngược khi tài khoản không phải là chủ sở hữu cố gắng cập nhật thông báo chào mừng không.
 
-First, we will install the Chai assertions library (or any different assertions library you use) for generic assertions, and the truffle-assertions library for the smart contract assertions.
+Đầu tiên, chúng ta sẽ cài đặt thư viện công cụ khẳng định Chai (hoặc bất kỳ thư viện công cụ khẳng định khác bạn sử dụng) cho các khẳng định chung và thư viện công cụ khẳng định truffle cho các khẳng định trong hợp đồng thông minh.
 
 ```
 npm install --save-dev chai truffle-assertions
 ```
 
-### 2. Writing test in Solidity <a href="#2-writing-test-in-solidity" id="2-writing-test-in-solidity"></a>
+### 2. Viết kiểm thử bằng Solidity <a href="#2-writing-test-in-solidity" id="2-writing-test-in-solidity"></a>
 
-Testing with Solidity can be a little bit more intuitive than JavaScript tests. Solidity test contracts live alongside JavaScript tests as .sol files.
+Kiểm thử bằng Solidity có thể trực quan hơn một chút so với kiểm thử bằng JavaScript. Các hợp đồng kiểm thử Solidity được lưu trữ cùng với các kiểm thử JavaScript dưới dạng tập tin .sol.
 
-Create a file called `TestKlaytnGreeting.sol` in the `test` folder. The Truffle suite provides us with helper libraries for testing, so we need to import those. Let's take a look at the example Solidity test:
+Tạo một tập tin có tên là `TestKlaytnGreeting.sol` trong thư mục `test`. Bộ công cụ Truffle cung cấp các thư viện hỗ trợ kiểm thử, vì vậy chúng ta cần nhập các thư viện này. Hãy cùng xem ví dụ kiểm thử bằng Solidity dưới đây:
 
 ```
 pragma solidity ^0.5.6;
@@ -74,10 +74,10 @@ import "truffle/DeployedAddresses.sol";
 import "../contracts/HashMarket.sol";
 ```
 
-- Assert : It gives us access to various testing functions, like `Assert.equals()`, `Assert.greaterThan()`, etc.
-- DeployedAddresses : Every time you change your contract, you must redeploy it to a new address. You can get the deployed contract addresses through this library.
+- Assert : Cho phép chúng ta truy cập vào các hàm kiểm thử khác nhau, như `Assert.equals()`, `Assert.greaterThan()`, v.v.
+- DeployedAddresses : Mỗi khi bạn thay đổi hợp đồng của mình, bạn phải triển khai lại hợp đồng để có một địa chỉ mới. Bạn có thể lấy các địa chỉ hợp đồng đã triển khai thông qua thư viện này.
 
-Now, Let's write a test code.
+Bây giờ, hãy cùng viết mã kiểm thử.
 
 ```
 pragma solidity ^0.5.6;
@@ -101,7 +101,7 @@ contract TestKlaytnGreeter {
 }
 ```
 
-Run your Solidity test code.
+Chạy mã kiểm thử Solidity của bạn.
 
 ```
 $ truffle test
@@ -137,8 +137,8 @@ Compiling your contracts...
       at process._tickCallback (internal/process/next_tick.js:68:7)
 ```
 
-Oops, we failed. Let's check the error message,`Error: greeting message should match (Tested: Hello, Klaytn, Against: Hello Klaytn)`. I can notice the missed `',(comma)'` at _string memory expectedGreet = "Hello Klaytn"_.\
-Fix the code and run the test again.
+Đã xảy ra lỗi. Hãy kiểm tra thông báo lỗi,`Error: greeting message should match (Tested: Hello, Klaytn, Against: Hello Klaytn)`. Tôi để ý thấy thiếu dấu `',(comma)'` ở _bộ nhớ chuỗi expectedGreet = "Hello Klaytn"_.\
+Sửa mã và chạy thử lần nữa.
 
 ```
 $ truffle test
@@ -159,15 +159,16 @@ Compiling your contracts...
   1 passing (5s)
 ```
 
-Congratulations! Your test has passed.
+Xin chúc mừng!
+Sửa mã và chạy thử lần nữa. Bạn đã kiểm thử thành công.
 
-### 3. Writing test in JavaScript <a href="#3-writing-test-in-javascript" id="3-writing-test-in-javascript"></a>
+### 3. Viết kiểm thử bằng JavaScript <a href="#3-writing-test-in-javascript" id="3-writing-test-in-javascript"></a>
 
-Truffle uses the [Mocha](https://mochajs.org/) testing framework and [Chai](https://www.chaijs.com/) assertion library to provide a solid framework for JavaScript test. JavaScript test gives you more flexibility and enables you to write more complex tests.
+Truffle sử dụng công cụ kiểm thử [Mocha](https://mochajs.org/) và thư viện công cụ khẳng định [Chai](https://www.chaijs.com/) để cung cấp công cụ vững chắc cho kiểm thử bằng JavaScript. Kiểm thử bằng JavaScript linh hoạt hơn và cho phép bạn viết các kiểm thử phức tạp hơn.
 
-Let's create a file and name it `0_KlaytnGreeting.js` under `test` directory.\\
+Hãy tạo một tập tin và đặt tên là `0_KlaytnGreeting.js` dưới thư mục `test`.\\
 
-The test code is:
+Mã kiểm thử là:
 
 ```javascript
 // Interacting directly with KlaytnGreeter contract
@@ -210,24 +211,24 @@ contract("KlaytnGreeter", async(accounts) => {
 });
 ```
 
-If you are unfamiliar with `Mocha` unit test, please check the [Mocha document](https://mochajs.org/#getting-started).
+Nếu bạn không quen thuộc với kiểm thử đơn vị `Mocha`, vui lòng tham khảo [tài liệu Mocha](https://mochajs.org/#getting-started).
 
-- Use `contract()` instead of `describe()`
+- Sử dụng `contract()` thay vì `describe()`
 
-  Structurally, the Truffle test code shouldn't be much different from the usual test code of Mocha. Your test should contain the code that Mocha will recognize it as an automated test. The difference between Mocha and Truffle test is the contract() function.
+  Về mặt cấu trúc, mã kiểm thử của Truffle không nên khác biệt nhiều so với mã kiểm thử thông thường của Mocha. Kiểm thử của bạn nên chứa mã giúp Mocha nhận ra đó là kiểm thử tự động. Khác biệt giữa kiểm thử Mocha và kiểm thử Truffle là việc sử dụng hàm contract().
 
-  **NOTE** the use of the `contract()` function, and the `accounts` array for specifying available Klaytn accounts.
-- Contract abstractions within your tests
+  **LƯU Ý** sử dụng hàm `contract()` và sử dụng mảng `tài khoảns` để chỉ định các tài khoản Klaytn đang có sẵn.
+- Tóm tắt hợp đồng trong các kiểm thử
 
-  Since Truffle has no way of detecting which contract you'll need to interact with during test, you should specify the contract explicitly. One way to do this is by using the `artifacts.require()` method.
-- `it` syntax
+  Vì Truffle không có phương pháp nào để phát hiện hợp đồng nào bạn cần tương tác trong suốt quá trình kiểm thử, bạn phải nêu chi tiết hợp đồng một cách rõ ràng. Một trong các giải pháp là sử dụng phương pháp `artifacts.require()`.
+- cú pháp `it`
 
-  This represents each test case with description. The description will print on the console on test-run.
-- `truffle-assertion` library
+  Cú pháp này thể hiện mỗi trường hợp kiểm thử cùng với mô tả. Mô tả sẽ được in ra trên bảng điều khiển khi chạy kiểm thử.
+- thư viện `truffle-assertion`
 
-  This library allows you to easily test reverts or other failures by offering the `truffleAssert.reverts()` and `truffleAssert.fails()` functions.
+  Thư viện này cho phép bạn dễ dàng kiểm thử các trường hợp hoàn ngược hoặc các lỗi khác bằng cách sử dụng hàm `truffleAssert.reverts()` và `truffleAssert.fails()`.
 
-The output should like the following:
+Kết quả phải như sau:
 
 ```
 Using network 'development'.
@@ -248,14 +249,14 @@ Compiling your contracts...
   3 passing (158ms)
 ```
 
-Congratulations! Your test has passed.
+Xin chúc mừng! Bạn đã kiểm thử thành công.
 
-### 4. Specifying test <a href="#4-specifying-test" id="4-specifying-test"></a>
+### 4. Chỉ định kiểm thử <a href="#4-specifying-test" id="4-specifying-test"></a>
 
-You can choose the test file to be executed.
+Bạn có thể lựa chọn tập tin kiểm thử cần thực thi.
 
 ```
 truffle test ./test/0_KlaytnGreeting.js
 ```
 
-For more details, please check [Truffle testing](https://www.trufflesuite.com/docs/truffle/testing/testing-your-contracts) and [Truffle commands](https://www.trufflesuite.com/docs/truffle/reference/truffle-commands#test) for details.
+Để biết thêm thông tin, vui lòng tham khảo [kiểm thử Truffle](https://www.trufflesuite.com/docs/truffle/testing/testing-your-contracts) và [các lệnh Truffle](https://www.trufflesuite.com/docs/truffle/reference/truffle-commands#test).
