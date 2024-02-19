@@ -26,16 +26,16 @@ Do đó, chúng tôi đặc biệt khuyến nghị biên dịch mã Solidity v�
 
 - Baobab: --evm-version london
 - Cypress: --evm-version london
-- Baobab: --evm-version london
+- Khác (chuỗi riêng/dịch vụ): được xác định theo trạng thái nâng cấp giao thức
 
-Cypress: --evm-version london
+Vui lòng tham khảo [cách thiết lập phiên bản EVM của solc](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target).
 
-Khác (chuỗi riêng/dịch vụ): được xác định theo trạng thái nâng cấp giao thức
+Dưới đây là một lệnh ví dụ:
 
 ```
 $ solc --evm-version london contract.sol
 ```
 
-## Vui lòng tham khảo [cách thiết lập phiên bản EVM của solc](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target).
+## Cặp khóa tách rời <a id="decoupled-key-pairs"></a>
 
-Dưới đây là một lệnh ví dụ: Cặp khóa tách rời <a id="decoupled-key-pairs"></a> Klaytn [tách riêng cặp khóa khỏi địa chỉ](../../learn/accounts.md#decoupling-key-pairs-from-addresses). Nếu người dùng [cập nhật tài khoản](../../learn/transactions/basic.md#txtypeaccountupdate), khóa riêng tư cho tài khoản cụ thể sẽ được thay thế bằng một khóa khác. Trong hầu hết các trường hợp, điều này sẽ không ảnh hưởng đến logic kinh doanh của bạn.
+Klaytn [tách riêng cặp khóa khỏi địa chỉ](../../learn/accounts.md#decoupling-key-pairs-from-addresses). Nếu người dùng [cập nhật tài khoản](../../learn/transactions/basic.md#txtypeaccountupdate), khóa riêng tư cho tài khoản cụ thể sẽ được thay thế bằng một khóa khác. Trong hầu hết các trường hợp, điều này sẽ không ảnh hưởng đến logic kinh doanh của bạn. Tuy nhiên, nếu logic kinh doanh của bạn bao gồm ecrecover, bạn nên cân nhắc sử dụng validateSender. Để biết thêm chi tiết, hãy tham khảo [tại đây](../../learn/computation/precompiled-contracts.md).
