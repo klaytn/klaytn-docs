@@ -1,25 +1,25 @@
-# Orakl Network
+# Mạng lưới Orakl
 
-## Introduction
+## Giới thiệu
 
 ![](/img/build/tools/klaytnXorakl.png)
 
 [Orakl Network](https://docs.orakl.network) is a decentralized oracle network that allows smart contracts to securely access off-chain data and other resources. It prides itself in being a native token oracle that provides [Data Feed](https://docs.orakl.network/developers-guide/data-feed), [VRF](https://docs.orakl.network/developers-guide/vrf), [Request-Response](https://docs.orakl.network/developers-guide/request-response) and [Proof of Reserve](https://docs.orakl.network/developers-guide/proof-of-reserve) solutions.
 
-With Orakl Network, users can  source for randomness that is unpredictable and unbiased in their smart contracts. Orakl Network [Verifiable Random Function (VRF)](https://docs.orakl.network/developers-guide/vrf#what-is-verifiable-random-function) allows smart contracts to generate verifiably random values, which can be used in various dApps that require randomness. Orakl Network provides developers access to the VRF services through two different account types, namely: [Permanent Account](https://docs.orakl.network/developers-guide/readme#permanent-account) or [Temporary Account](https://docs.orakl.network/developers-guide/readme#temporary-account).
+Với Mạng Orakl, người dùng có thể tìm nguồn ngẫu nhiên không thể đoán trước và không thiên vị trong hợp đồng thông minh của họ. Orakl Network [Verifiable Random Function (VRF)](https://docs.orakl.network/developers-guide/vrf#what-is-verifiable-random-function) allows smart contracts to generate verifiably random values, which can be used in various dApps that require randomness. Orakl Network provides developers access to the VRF services through two different account types, namely: [Permanent Account](https://docs.orakl.network/developers-guide/readme#permanent-account) or [Temporary Account](https://docs.orakl.network/developers-guide/readme#temporary-account).
 
 In this tutorial, you will utilize the VRF functionality from Orakl Network to request for random words from inside of your smart contract.
 
-## Prerequisites
+## Điều kiện tiên quyết
 
 - [Kaikas](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi?hl=en)
 - [Remix IDE](https://remix.ethereum.org/)
-- [Klaytn Plugin on Remix](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
-- Test KLAY from [Faucet](https://baobab.wallet.klaytn.foundation/faucet)
+- [Kaikas](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi?hl=en)
+- [Remix IDE](https://remix.ethereum.org/)
 
-## Getting Started
+## [Plugin Klaytn trên bản phối lại](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
 
-In the following steps, you will request for a random word in your smart contract using Orakl Network. Let's get started!
+In the following steps, you will request for a random word in your smart contract using Orakl Network. Bắt đầu
 
 ### Step 1: Initialize Contract State Variables
 
@@ -102,27 +102,27 @@ function fulfillRandomWords(
 }
 ```
 
-Now that we have the Orakl VRF solution code, let’s get to see it in action.
+Bước 4: Thực hiện các từ ngẫu nhiên
 
 ## Practical Implementation
 
 In the example below, the contract allows us to request for random words and receive its fulfillment.
 
-### Create and Deploy Sample Code
+### Thực hiện thực tế
 
 **Remix IDE**
 
-- Navigate to [Remix IDE](https://remix.ethereum.org/).
+- Trong ví dụ dưới đây, hợp đồng cung cấp cho chúng tôi quyền truy cập để yêu cầu các số ngẫu nhiên và thực hiện yêu cầu.
 - Click on the **File Explorer** tab, create a new file named `consumer-vrf.sol` in the contracts folder.
-- Paste the code below in your newly created file.
-- In Remix, click **Compile contract**.
-- Click the Klaytn tab on your left having installed the plugin.
-- Select **Environment** > **Injected Caver** - **Kaikas**.
+- **Remix IDE**
+- Điều hướng đến [Remix IDE](https://remix.ethereum.org/).
+- Nhấp vào tab File Explorer, tạo một tệp mới có tên demoOraklDirectVRF.sol trong thư mục hợp đồng.
+- Dán mã bên dưới trong tệp mới được tạo.
 - In **Contract**, select your contract. For example, `VRFConsumer`.
 - Pass in the coordinator contract address `0xDA8c0A00A372503aa6EC80f9b29Cc97C454bE499` (Baobab), `0x3F247f70DC083A2907B8E76635986fd09AA80EFb` (Cypress).
-- Click **Deploy**.
+- Trong hợp đồng, chọn hợp đồng của bạn.
 
-**Sample Code**
+Ví dụ, VRFConsumer.
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -178,7 +178,7 @@ contract VRFConsumer is VRFConsumerBase {
 
 ![](/img/build/tools/orakl-vrf-deploy.png)
 
-### Interact with Smart Contract
+### Truyền trong địa chỉ hợp đồng điều phối viên `0xfa605ca6dc9414e0f7fa322d3fd76535b33f7a4f`.
 
 To request for random words in your smart contract, you have to first execute the `requestRandomWordsDirect()` function. For this function to successfully execute, the user has to send KLAY (minimum of 1 KLAY) as stated previously, and supply `keyHash`, `callbackGasLimit`, `numWords`, and `refundRecipient` parameters. `keyHash` parameter uniquely defines who can fulfill the request. Orakl Network VRF provides one key hash for each Klaytn chain:
 
@@ -193,7 +193,7 @@ For the rest of the parameters, you can set them as follows:
 
 Afterwards, once the request has been fulfilled, the `sRandomWord()` function can be executed. This `sRandomWord()` function returns the random word.
 
-- **requestRandomWordsDirect()**: Will be sending 1 KLAY to execute this function. The image below illustrate this:
+- Để chức năng này thực hiện thành công, người dùng phải gửi KLAY (tối thiểu 1 KLAY) như đã nêu trước đó. Sau đó, một khi yêu cầu đã được đáp ứng, hàm `s_randomResult()` có thể được thực thi.
 
 ![](/img/build/tools/orakl-vrf-request.png)
 
@@ -201,8 +201,8 @@ Afterwards, once the request has been fulfilled, the `sRandomWord()` function ca
 
 ![](/img/build/tools/orakl-vrf-response.png)
 
-Tada 🎉! You just requested for a random word and received one in your smart contract.
+Hình ảnh dưới đây minh họa điều này: You just requested for a random word and received one in your smart contract.
 
-## Conclusion
+## Để nhận được phản hồi, hãy gọi hàm `s_response()`.
 
 In this tutorial, you learnt how to generate a random word in your smart contract using the Orakl Network VRF solution. The Orakl Network provides more oracle services such as Data Feed, Request-Response, Proof of Reserve. For more in-depth guides on Orakl Network and how it works, please refer to the [Orakl Network documentation](https://docs.orakl.network).
