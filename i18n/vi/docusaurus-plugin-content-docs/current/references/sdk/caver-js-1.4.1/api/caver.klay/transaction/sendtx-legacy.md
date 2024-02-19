@@ -1,4 +1,4 @@
-# Legacy
+# Giao dịch cũ
 
 ## sendTransaction (Legacy) <a id="sendtransaction-legacy"></a>
 
@@ -6,42 +6,42 @@
 caver.klay.sendTransaction(transactionObject [, callback])
 ```
 
-Sends a transaction to the network.
+Gửi một giao dịch đến mạng.
 
-Note: Only the account having `AccountKeyLegacy` can send this transaction.
+Lưu ý: Chỉ tài khoản có khóa `AccountKeyLegacy` mới có thể gửi giao dịch này.
 
-**Parameters**
+**Tham số**
 
-The parameters of sendTransaction are a transaction object and a callback function.
+Các tham số của hàm sendTransaction bao gồm một đối tượng giao dịch và một hàm callback.
 
-| Name              | Type     | Description                                                                                                                   |
-| ----------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| transactionObject | Object   | The transaction object to send.                                                                                               |
-| callback          | Function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Tên               | type      | Mô tả                                                                                                                              |
+| ----------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| transactionObject | Đối tượng | Đối tượng giao dịch cần gửi.                                                                                                       |
+| callback          | Hàm       | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
-A transaction object of type `LEGACY` has the following structure:
+Một đối tượng giao dịch thuộc loại `LEGACY` có cấu trúc như sau:
 
-| Name     | Type                                | Description                                                                                                                                                                                                                                          |
-| -------- | ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from     | String                              | Address of this transaction sender.                                                                                                                                                                                                                  |
-| to       | String                              | (optional) The destination address of the message, left undefined for a contract-creation transaction.                                                                                                                            |
-| value    | Number \| String \| BN \| BigNumber | (optional) The value transferred for the transaction in peb, also the endowment if it's a contract-creation transaction.                                                                                                          |
-| gas      | Number                              | The maximum amount of gas willing to pay for the transaction (unused gas is refunded).                                                                                                                                            |
-| gasPrice | Number                              | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node.                                                                                                        |
-| data     | String                              | (optional) Either an [ABI byte string](http://solidity.readthedocs.io/en/latest/abi-spec.html) containing the data of the function call on a contract, or in the case of a contract-creation transaction the initialization code. |
-| nonce    | Number                              | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`.                                                                                                               |
+| Tên     | Loại                       | Mô tả                                                                                                                                                                                                                      |
+| ------- | --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| từ      | Chuỗi                       | Địa chỉ của người gửi giao dịch này.                                                                                                                                                                                       |
+| đến     | Chuỗi                       | (tùy chọn) Địa chỉ đích của thông điệp, đối với giao dịch tạo hợp đồng, giá trị là không xác định.                                                                                                      |
+| giá trị | Số \| Chuỗi \| BN \| Số lớn | (tùy chọn) Giá trị được chuyển cho giao dịch theo peb cùng với số tiền được chuyển nếu đó là giao dịch tạo hợp đồng.                                                                                    |
+| gas     | Số                          | Lượng gas tối đa sẵn sàng trả cho giao dịch (sẽ hoàn lại số gas chưa được dùng đến).                                                                                                                    |
+| giá gas | Số                          | (tùy chọn) Giá gas được người gửi cung cấp theo đơn vị peb. Tham số gasPrice phải giống với tham số unitPrice được thiết lập trong nút Klaytn.                                                          |
+| data    | Chuỗi                       | (tùy chọn) Đây là một [chuỗi ABI byte](http://solidity.readthedocs.io/en/latest/abi-spec.html) chứa dữ liệu của lệnh gọi hàm trên hợp đồng hoặc là mã khởi tạo trong trường hợp giao dịch tạo hợp đồng. |
+| nonce   | Số                          | (tùy chọn) Giá trị nguyên của số dùng một lần. Nếu bị bỏ qua, số lượng giao dịch sẽ được caver-js thiết lập bằng cách gọi ra `caver.klay.getTransactionCount`.                                          |
 
-**Return Value**
+**Giá trị trả về**
 
-The `callback` will return the 32-byte transaction hash.
+Hàm `callback` sẽ trả về hàm băm giao dịch 32 byte.
 
-`PromiEvent`: A promise combined event emitter. Will be resolved when the transaction receipt is available. Additionally the following events are available:
+`PromiEvent`: Bộ phát hiệu ứng sự kiện kết hợp promise. Sẽ được xử lý khi có biên lai giao dịch. Ngoài ra còn có các sự kiện sau đây:
 
-- `"transactionHash"` returns `String`: Is fired right after the transaction is sent and a transaction hash is available.
-- `"receipt"` returns `Object`: Is fired when the transaction receipt is available.
-- `"error"` returns `Error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
+- `"transactionHash"` trả về `String`: Được kích hoạt ngay sau khi gửi giao dịch và có hàm băm giao dịch.
+- `"receipt"` trả về `Object`: Được kích hoạt khi có sẵn biên lai giao dịch.
+- `"error"` trả về `Error`: Được kích hoạt nếu có lỗi phát sinh trong quá trình gửi. Khi xảy ra lỗi hết gas, tham số thứ hai sẽ là biên lai.
 
-**Example**
+**Ví dụ**
 
 ```javascript
 const account = caver.klay.accounts.wallet.add('0x{private key}')
