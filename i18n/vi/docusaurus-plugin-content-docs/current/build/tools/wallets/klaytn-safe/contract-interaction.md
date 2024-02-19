@@ -1,27 +1,27 @@
-# Interact with Contracts
+# Tương tác hợp đồng
 
-In this section, you will be interacting with and sending a transaction to a simple contract deployed on Baobab using our newly created multisig wallet.
+Trong phần này, bạn sẽ tương tác và gửi giao dịch đến một hợp đồng đơn giản được triển khai trên Baobab bằng cách sử dụng ví đa chữ ký mới được tạo của chúng tôi.
 
-**Pre-requisites**
+**Điều kiện tiên quyết**
 
-- [Metamask](https://metamask.io/download/) & [Klaytn Metamask Config](../../../tutorials/connecting-metamask#send-klay)
-- [Remix](https://remix.ethereum.org/) & [Klaytn Remix Plugin](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
-- Obtain test KLAY from the [Faucet](https://baobab.wallet.klaytn.foundation/faucet)
+- [Metamask](https://metamask.io/download/) & [Cấu hình Klaytn Metamask](../../../tutorials/connecting-metamask#send-klay)
+- [Remix](https://remix.ethereum.org/) & [Plugin Klaytn Remix](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
+- Kiểm tra KLAY từ [Faucet](https://baobab.wallet.klaytn.foundation/faucet)
 
-**Step 1:** Navigate to [Remix](https://remix.ethereum.org/)
+**Bước 1:** Điều hướng đến [Remix](https://remix.ethereum.org/)
 
-**Step 2:** Compile and deploy the sample **storage contract**.
+**Bước 2:** Lập và triển khai **hợp đồng lưu trữ** mẫu.
 
-The contract must first be deployed before you may interact with it in your multisig wallet. This sample contract contains a simple uint “number” variable that can be updated by calling the **store** method and retrieved by calling the **retrieve** method.
+Trước tiên, hợp đồng phải được triển khai trước khi bạn có thể tương tác với nó trong ví nhiều chữ ký của mình. Hợp đồng mẫu này chứa một biến “number” uint đơn giản có thể được cập nhật bằng cách gọi ra phương pháp **lưu trữ** và được truy xuất bằng cách gọi ra phương pháp **truy xuất**.
 
 ![](/img/build/tools/12_remixDep.gif)
 
-**Step 3:** Initiate a new transaction.
+**Bước 3:** Bắt đầu một giao dịch mới.
 
-To interact with a smart contract in your safe wallet, click **"New Transaction"**. To complete this step, you will need your already deployed contract address and ABI, as illustrated in the previous step.
+Để tương tác với hợp đồng thông minh trong ví safe của bạn, hãy nhấp vào **“New Transaction”**. Để hoàn tất bước này, bạn sẽ cần địa chỉ hợp đồng đã được triển khai và ABI của mình như được minh họa trong bước trước.
 
 ![](/img/build/tools/13_contractInit.gif)
 
-**Step 4:** Review and submit the transaction. You will need to sign the transaction with your signer wallet, and it will be executed once the confirmation threshold is reached.
+**Bước 4:** Xem lại và gửi giao dịch. Bạn sẽ cần ký giao dịch bằng ví người ký của mình và sẽ được thực hiện sau khi đạt đến ngưỡng xác nhận.
 
 ![](/img/build/tools/14_contractExec.gif)
