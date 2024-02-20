@@ -1,14 +1,14 @@
 # Thiết lập môi trường
 
-> \*\*[MUST] For this tutorial, you must follow the versions specified on the [first page](count-dapp.md#testing-environment) when you are setting up the environment. Please change the node version to 10.16.0 by using nvm before downloading caver-js.
+> **[MUST] For this tutorial, you must follow the versions specified on the [first page](count-dapp.md#testing-environment) when you are setting up the environment. Please change the node version to 10.16.0 by using nvm before downloading caver-js.**
 
-## 1. 1.
+## 1. Cài đặt Node.js (npm) <a id="1-install-node-js-npm"></a>
 
-- Cài đặt Node.js (npm) <a id="1-install-node-js-npm"></a>
 - Tải xuống Node.js (npm) từ trang web chính thức: https\://nodejs.org/
 - Cài đặt gói bằng cách nhấp vào tập tin tải xuống.
+- Gõ lệnh `$ node --version` trong cửa sổ lệnh để xác minh `node` đã được cài đặt thành công.
   ```
-  Gõ lệnh `$ node --version` trong cửa sổ lệnh để xác minh `node` đã được cài đặt thành công.
+  v10.16.0
   ```
 
 ⚠ Tại thời điểm viết, phiên bản LTS mới nhất tương thích với `caver-js` là 10.16.0. Nếu bạn dùng phiên bản Node cao hơn, `caver-js` sẽ không cài đặt được. Cài đặt lại Node hoặc sử dụng [NVM (Trình quản lý phiên bản Node)](https://github.com/nvm-sh/nvm) để cài đặt môi trường ổn định.
