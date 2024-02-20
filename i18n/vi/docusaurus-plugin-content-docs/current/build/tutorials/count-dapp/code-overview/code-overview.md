@@ -1,10 +1,10 @@
-# Frontend Code Overview
+# Tổng quan về mã Frontend
 
-1. `src/index.js` - Entry point of our app
+1. `src/index.js` - Điểm mở đầu ứng dụng của chúng tôi
 2. `static/index.html` - index.html
-3. `src/routes.js` - Contains route definition
-4. `src/App.js` - Root component of our app
-5. `src/klaytn/caver.js` - Makes a connection with a Klaytn node
+3. `src/routes.js`: Chứa định nghĩa định tuyến
+4. `src/App.js` - Thành phần gốc trong ứng dụng của chúng tôi
+5. `src/klaytn/caver.js` - Tạo kết nối với nút Klaytn
 
 ## `src/index.js`: <a id="1-src-index-js"></a>
 
@@ -32,9 +32,9 @@ if (module.hot) {
 }
 ```
 
-`'index.js'` is main javascript file for our tutorial app. It is the entry point of our app.
+`'index.js'` là tập tin javascript chính cho ứng dụng hướng dẫn của chúng tôi. Đây là điểm khởi đầu cho ứng dụng của chúng tôi.
 
-It uses 'react-dom' library to render a React element into the DOM in the supplied container('#root') and return a reference to the component. In short, through 'react-dom' our tutorial app's DOM will be populated to `<div id="root"></div>` in `public/index.html` file.
+Nó sử dụng thư viện 'react-dom' để render một thành phần React vào DOM trong container('#root') được cấp và trả về tham chiếu đến thành phần đó. Tóm lại, qua 'react-dom' DOM ứng dụng hướng dẫn của chúng tôi sẽ được gán thành `<div id="root"></div>` trong file `public/index.html`.
 
 ## `static/index.html`: <a id="2-static-index-html"></a>
 
@@ -66,9 +66,9 @@ It uses 'react-dom' library to render a React element into the DOM in the suppli
 </html>
 ```
 
-`index.html` is a HTML file for rendering our tutorial app.
+`index.html` là tập tin HTML để render ra ứng dụng hướng dẫn của chúng tôi.
 
-For further information, visit React official site [https://reactjs.org/docs/react-dom.html#render](https://reactjs.org/docs/react-dom.html#render)
+Để biết thêm thông tin, hãy truy cập trang web React chính thức [https://reactjs.org/docs/react-dom.html#render](https://reactjs.org/docs/react-dom.html#render)
 
 ## `src/routes.js`: <a id="3-src-routes-js"></a>
 
@@ -89,11 +89,11 @@ const renderRoutes = rootComponent => (
 export default renderRoutes
 ```
 
-`'routes.js'` contains the route definition for our tutorial app.\
-As a root component, `'App.js'` component renders child components defined in `'route.js'` file.\
-By above code, `'Count'` component would be rendered as a children of rootComponent when browser's URL path is `"/"`.
+`'routes.js'` chứa định nghĩa định tuyến cho ứng dụng hướng dẫn của chúng tôi.\
+Vì là thành phần gốc, thành phần `'App.js'` render ra các thành phần con được định nghĩa trong tập tin `'route.js'`.\
+Bằng mã lệnh trên, thành phần `'Count'` sẽ được render thành con của rootComponent khi đường dẫn URL của trình duyệt là `"/"`.
 
-For further information, visit React router github [https://github.com/ReactTraining/react-router/blob/v3.2.1/docs/API.md](https://github.com/ReactTraining/react-router/blob/v3.2.1/docs/API.md)
+Để biết thêm thông tin, truy cập thư viện github React router [https://github.com/ReactTraining/react-router/blob/v3.2.1/docs/API.md](https://github.com/ReactTraining/react-router/blob/v3.2.1/docs/API.md)
 
 ## `src/App.js`: <a id="4-src-app-js"></a>
 
@@ -140,7 +140,7 @@ class App extends Component {
 export default App
 ```
 
-`'App.js'` is the root component of our tutorial app.
+`'App.js'` là thành phần gốc của ứng dụng hướng dẫn của chúng tôi.
 
 ```javascript
 render() {
@@ -154,9 +154,9 @@ render() {
 }
 ```
 
-It renders `BlockNumber`, `Auth` and `{this.props.children}` component.\
-`{this.props.children}` will be populated according to `routes.js` file.\
-If your browser's url path is `/`, it will render `<Count />` component.
+Nó render `BlockNumber`, `Auth` và thành phần `{this.props.children}`.\
+`{this.props.children}` sẽ được gán theo tập tin `routes.js`.\
+Nếu đường dẫn url của trình duyệt là `/`, nó sẽ render thành phần `<Count />`.
 
 ```javascript
 componentWillMount() {
@@ -179,13 +179,13 @@ componentWillMount() {
 }
 ```
 
-`componentWillMount` checks if there is a `walletInstance` session in the browser's sessionStorage.\
-`walletInstance` session may not exist if you have never logged in our tutorial app.\
-Otherwise, `walletInstance` session will exist as a JSON string, if so, it attempts to add the wallet instance to the caver's wallet.\
-You can add a wallet instance to caver through `cav.klay.accounts.wallet.add(JSON.parse(walletFromSession))`.\
-For further information related `caver.klay.accounts.wallet.add`, see [caver.klay.accounts.wallet.add](../../../../references/sdk/caver-js-1.4.1/api/caver.klay.accounts.md#wallet-add)
+`componentWillMount` kiểm tra xem có phiên `walletInstance` trong sessionStorage của trình duyệt không.\
+phiên `walletInstance` có thể không tồn tại nếu bạn chưa đăng nhập vào ứng dụng hướng dẫn của chúng tôi lần nào.\
+Nếu không, phiên `walletInstance` sẽ có trong chuỗi JSON string, nếu có, nó sẽ thêm một phiên bản ví vào ví của caver.\
+Bạn có thể thêm một phiên bản ví vào caver bằng `cav.klay.tài khoảns.wallet.add(JSON.parse(walletFromSession))`.\
+Để biết thêm thông tin về `caver.klay.tài khoảns.wallet.add`, hãy xem [caver.klay.tài khoảns.wallet.add](../../../../references/sdk/caver-js-1.4.1/api/caver.klay.accounts.md#wallet-add)
 
-cf) `JSON.parse` is needed since `walletInstance` session is stored as a JSON string.
+cf) Cần có `JSON.parse` vì phiên `walletInstance` được lưu trữ là chuỗi JSON.
 
 ## `src/klaytn/caver.js`: <a id="5-src-klaytn-caver-js"></a>
 
@@ -207,11 +207,11 @@ export const cav = new Caver(config.rpcURL)
 export default cav
 ```
 
-`caver-js` library makes a connection to a Klaytn node.\
-After the connection is made, you can get the current block number from the node and invoke contract methods.
+Thư viện `caver-js` tạo kết nối với nút Klaytn.\
+Sau khi tạo kết nối, bạn có thể lấy được số khối hiện tại nhờ nút và gọi các phương pháp hợp đồng.
 
-You can connect to a specific Klaytn node by specifying it in the 'rpcURL'.
+Bạn có thể kết nối với nút dành riêng cho Klaytn bằng cách chỉ định nó trong 'rpcURL'.
 
-- If you are running a Klaytn full node, you can set rpcURL to your node's URL.
+- Nếu bạn đang chạy node đầy đủ Klaytn, bạn có thể đặt rpcURL thành URL nút của mình.
 
-  for example, `rpcURL: 'http://localhost:8551'`
+  ví dụ, `rpcURL: 'http://localhost:8551'`
