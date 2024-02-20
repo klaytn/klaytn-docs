@@ -1,13 +1,13 @@
-# Frontend Code Overview
+# Tổng quan về mã Frontend
 
-1. Overview
+1. Tổng quan
 2. `src/App.js`
 3. `src/pages`
-4. What we are going to learn?
+4. Chúng ta sẽ tìm hiểu gì?
 
-## Overview <a id="1-overview"></a>
+## Tổng quan <a id="1-overview"></a>
 
-In this section, we are going to build front-end. This tutorial's main purpose is to learn how to connect contract with front-end code. We will thus briefly explain React codes and focus on the API functions interacting with contract deployed on Klaytn.
+Trong phần này, chúng ta sẽ xây dựng front-end. Mục đích chính của hướng dẫn này là tìm hiểu cách kết nối hợp đồng với mã front-end. Do đó, chúng tôi sẽ giải thích ngắn gọn mã React và tập trung vào các hàm API tương tác với hợp đồng được triển khai trên Klaytn.
 
 ```text
 |-- src
@@ -28,37 +28,37 @@ In this section, we are going to build front-end. This tutorial's main purpose i
     |-- App.js
 ```
 
-`src/klaytn`: Contains files that help interact with Klaytn blockchain.
+`src/klaytn`: Chứa các tập tin giúp tương tác với chuỗi khối Klaytn.
 
-- `src/klaytn/caver.js`: Instantiates caver within configured setting.
+- `src/klaytn/caver.js`: Khởi tạo caver trong cài đặt đã định cấu hình.
 
-  cf) caver-js is a RPC library which makes a connection to Klaytn node, interacting with node or smart contract deployed on klaytn.
+  cf) caver-js là thư viện RPC tạo kết nối với nút Klaytn, tương tác với nút hoặc hợp đồng thông minh được triển khai trên klaytn.
 
-- `src/klaytn/Klaystagram.js`: Creates an instance of contract using caver-js API. You can interact with contract through the instance.
+- `src/klaytn/Klaystagram.js`: Tạo một phiên bản hợp đồng bằng cách sử dụng API caver-js. Bạn có thể tương tác với hợp đồng thông qua phiên bản.
 
-`src/redux`: Creates API functions that interact with contract and keeps tracks of consequent data.
+`src/redux`: Tạo các hàm API tương tác với hợp đồng và theo dõi dữ liệu sau đó.
 
 - `redux/actions/auth.js`
 - `redux/actions/photos.js`
 
-`src/pages`: Contains two page files that compose Klaystagram app.
+`src/pages`: Chứa các tập tin hai trang soạn ra ứng dụng Klaystagram.
 
-- `src/pages/AuthPage.js`: Contains sign up and login form. You can generate private key in the sign up form, and use it to login on the app.
-- `src/pages/FeedPage.js`: Shows read photos from the contract, shows them to users, and provides upload feature.
+- `src/pages/AuthPage.js`: Chứa mẫu đăng ký và đăng nhập. Bạn có thể tạo khóa riêng tư trong mẫu đăng ký và sử dụng nó để đăng nhập trên ứng dụng.
+- `src/pages/FeedPage.js`: Hiển thị ảnh đã đọc từ hợp đồng, hiển thị các ảnh đó đến người dùng và cung cấp tính năng tải lên.
 
-`src/components`: Contains component files that compose page.
+`src/components`: Chứa các tập tin thành phần soạn ra trang.
 
-- `src/components/Feed.js`: Reads data from contract and displays photos.
-- `src/components/UploadPhoto.js`: Uploads photo by sending transaction to contract.
-- `src/components/TransferOwnership.js`: Transfers the ownership of photo by sending transaction.
+- `src/components/Feed.js`: Đọc dữ liệu từ hợp đồng và hiển thị ảnh.
+- `src/components/UploadPhoto.js`: Tải ảnh lên bằng cách gửi giao dịch đến hợp đồng.
+- `src/components/TransferOwnership.js`: Chuyển quyền sở hữu ảnh bằng cách gửi giao dịch.
 
-`src/App.js`: Our tutorial app's root component file for overall components.
+`src/App.js`: Tập tin thành phần gốc của ứng dụng hướng dẫn dành cho các thành phần tổng thể.
 
 ## App.js <a id="1-app-js"></a>
 
-`'App.js'` is root component file for overall components. It renders two pages depending on user's login status. Each page has functions that interact with contract. You must add wallet instance to caver to send transactions to blockchain. Let’s briefly look at the code for overview.
+`'App.js'` là tập tin thành phần gốc dành cho các thành phần tổng thể. Nó render hai trang tùy thuộc vào trạng thái đăng nhập của người dùng. Mỗi trang có các hàm tương tác với hợp đồng. Bạn phải thêm phiên bản ví vào caver để gửi giao dịch đến chuỗi khối. Hãy xem xét nhanh mã cho phần tổng quan.
 
-cf. caver-js(or `cav` in the code) is a library for interacting with Klaytn blockchain. We are going to learn in detail in the next chapter - [7-1. Connect Contract to Frontend](./feedpage.md#7-1-connect-contract-to-frontend)
+cf. caver-js(or `cav` in the code) là một thư viện để tương tác với mã Klaytn blockchain. Chúng ta sẽ tìm hiểu chi tiết trong chương tiếp theo - [7-1. Kết nối hợp đồng đến Frontend](./feedpage.md#7-1-connect-contract-to-frontend)
 
 ```javascript
 // src/App.js
@@ -138,16 +138,16 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(mapStateToProps, mapDispatchToProps)(App)
 ```
 
-cf) `JSON.parse` is needed since `walletInstance` session is stored as JSON string.
+cf) Ta cần `JSON.parse` vì phần `walletInstance` được lưu trữ dưới dạng chuỗi JSON.
 
-**1. Initialize `isLoggedIn` state**\
-To initialize state `isLoggedIn`, we use `constructor` life cycle method on App component. It checks for `walletInstance` session in browser's sessionStorage before component is mounted.
+\*\*1. Khởi chạy trạng thái `isLoggedIn` \*\*\
+Để khởi chạy trạng thái `isLoggedIn`, chúng ta dùng phương pháp vòng đời `constructor` trên thành phần ứng dụng. Trạng thái này kiểm tra phiên `walletInstance` ở sessionStorage của trình duyệt trước khi thành phần được liên kết.
 
-**2. Inject/Remove wallet**\
-If you have never logged in before, `walletInstance` session may not exist. Otherwise, `walletInstance` session may exist as JSON string in the sessionStorage.
+**2. Tích hợp/Xóa ví**\
+Nếu bạn chưa từng đăng nhập trước đây, phiên `walletInstance` có thể không tồn tại. Nếu bạn từng đăng nhập, phần `walletInstance` có thể tồn tại dưới dạng chuỗi JSON ở sessionStorage.
 
-1. Inject - If wallet instance exists in sessionStorage, try adding wallet instance to caver and redux store.
-2. Remove - If wallet instance in sessionStorage is invalid, remove it from caver's wallet and redux store.
+1. Tích hợp - Nếu phiên bản ví tồn tại trong sessionStorage, hãy thử thêm phiên bản ví vào caver và cửa hàng redux.
+2. Xóa - Nếu phiên bản ví trong sessionStorage không hợp lệ, hãy xóa ví khỏi ví của caver và cửa hàng redux.
 
 ```javascript
 // redux/actions/auth.js
@@ -183,30 +183,30 @@ export const removeWallet = () => (dispatch) => {
 }
 ```
 
-cf. For further information about caver's `privateKeyToAccount` API, see [caver.klay.accounts.privateKeyToAccount](../../../references/sdk/caver-js-1.4.1/api/caver.klay.accounts.md#privatekeytoaccount).
+cf. Để biết thêm thông tin về API `privateKeyToAccount` của caver, hãy xem [caver.klay.tài khoảns.privateKeyToAccount](../../../references/sdk/caver-js-1.4.1/api/caver.klay.accounts.md#privatekeytoaccount).
 
-**3. Render the page** Redux will initialize `isLoggedIn` state to true or false, depending on whether walletInstance exists in the session storage
+**3. Kết xuất trang** Redux sẽ khởi chạy trạng thái `isLoggedIn` thành true hoặc false, tùy thuộc vào việc walletInstance có tồn tại trong phần lưu trữ phiên hay không
 
 ## `src/pages` <a id="2-src-pages"></a>
 
-As we described in [above](#1-overview), `src/pages` contains two page files. One of these two pages will be renderded on the app depending on whether the user is logged in or not.
+Như chúng ta đã mô tả ở [above](#1-overview), `src/pages` chứa các tập tin hai trang. Một trong những tập tin hai trang này sẽ được kết xuất trên ứng dụng, tùy thuộc vào việc người dùng đã đăng nhập hay chưa.
 
-- `AuthPage.js`: Contains sign up and login form. You can generate private key in the signup form, and use it to login on the app.
-- `FeedPage.js`: Reads photo data from the contract and shows them to users. Users can also upload their pictures.
+- `AuthPage.js`: Chứa biểu mẫu đăng nhập và đăng ký. Bạn có thể tạo khóa riêng tư trong biểu mẫu đăng ký và dùng khóa này để đăng nhập trên ứng dụng.
+- `src/pages/FeedPage.js`: Đọc dữ liệu ảnh từ hợp đồng và hiển thị đến người dùng. Người dùng cũng có thể tải ảnh của họ lên.
 
-## What we are going to learn? <a id="3-what-we-are-going-to-learn"></a>
+## Chúng ta sẽ tìm hiểu gì? <a id="3-what-we-are-going-to-learn"></a>
 
-In blockchain based app, there are two ways of interacting with contracts.
+Trong ứng dụng dựa trên blockchain, có hai cách để tương tác với hợp đồng.
 
-1\) **Reading** data from contract.\
-2\) **Writing** data to contract.
+1\) **Reading** dữ liệu từ hợp đồng.\
+2\) **Writing** dữ liệu vào hợp đồng.
 
-Reading data from contract is cost-free.\
-On the otherhand, there is cost for writing data to contract (Sending a transaction). For this reason, in order to write data, you must have Klaytn account that has some KLAY to pay for it.
+Việc đọc dữ liệu từ hợp đồng không mất phí.\
+Tuy nhiên, bạn sẽ phải trả phí để viết dữ liệu vào hợp đồng (Gửi giao dịch). Vì vậy, nếu muốn viết dữ liệu, bạn phải dùng tài khoản Klaytn có KLAY để trả phí.
 
-In AuthPage, `SignupForm` helps you to create a Klaytn account (private key). After that, you can log in with the private key and pay for the transaction fee.
+Trong AuthPage, `SignupForm` giúp bạn tạo tài khoản Klaytn (khóa riêng tư). Sau đó, bạn có thể đăng nhập bằng khóa riêng tư và thanh toán phí giao dịch.
 
-If you want to learn more about the two different login methods (private key / keystore),\
-please refer to the [5.2. Auth Component](../count-dapp/code-overview/auth-component.md) page.
+Nếu bạn muốn tìm hiểu thêm về hai phương pháp đăng nhập khác nhau (khóa riêng tư / lưu trữ khóa),\
+vui lòng tham chiếu [5.2. Trang Auth Component](../count-dapp/code-overview/auth-component.md).
 
-In this tutorial, we are going to focus on `FeedPage`, so that we can learn how application **reads and writes data** from/to contracts.
+Trong hướng dẫn này, chúng ta sẽ tập trung vào `FeedPage`, rồi từ đó tìm hiểu cách ứng dụng này **reads and writes data** từ hợp đồng/vào hợp đồng.
