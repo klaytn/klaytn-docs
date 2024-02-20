@@ -204,7 +204,7 @@ Trong Count.sol, chúng ta khai báo vài biến và hàm như dưới đây:
 
 - `count`
 - `lastParticipant`
-- `plus` - tăng biến lưu trữ `count` thêm 1. (count = count + 1)\\
+- `plus` - tăng biến lưu trữ `count` thêm 1. (count = count + 1)
 - `minus` - giảm biến lưu trữ `count` đi 1. (count = count - 1)
 
 Trong thành phần Count.js, chúng ta có phương pháp tương tác với các hàm và biến của hợp đồng Count.
@@ -269,10 +269,9 @@ Trong mã lệnh ở trên, hàm `getCount` được khai báo là `async`, vì 
 
 Chúng ta có thể tìm nạp địa chỉ `lastParticipant` bằng cách gọi `this.countContract.methods.lastParticipant().call()`.
 
-Để biết thêm thông tin về lệnh gọi phương pháp hợp đồng, hãy xem [caver.klay.Contract](../../../../references/sdk/caver-js-1.4.1/api/caver.klay.Contract.md#methods)
+Sau khi lấy được các biến đó, chúng ta đặt thuộc tính trạng thái, `count` và `lastParticipant` bằng giá trị nhận được.
 
-Chúng tôi muốn tìm nạp giá trị biến `count` sau mỗi 1 giây, giá trị này có thể lấy được bằng `setInterval`.
-Nó cũng giống như cách tìm nạp `getBlockNumber` trong `BlockNumber.js` bằng cách gọi `caver.klay.getBlockNumber()` sau mỗi khoảng thời gian bằng nhau.
+Để biết thêm thông tin về lệnh gọi phương pháp hợp đồng, hãy xem [caver.klay.Contract](../../../../references/sdk/caver-js-1.4.1/api/caver.klay.Contract.md#methods)
 
 ```javascript
 componentDidMount() {
@@ -284,10 +283,10 @@ componentWillUnmount() {
 }
 ```
 
+Chúng tôi muốn tìm nạp giá trị biến `count` sau mỗi 1 giây, giá trị này có thể lấy được bằng `setInterval`.
 Nó cũng giống như cách tìm nạp `getBlockNumber` trong `BlockNumber.js` bằng cách gọi `caver.klay.getBlockNumber()` sau mỗi khoảng thời gian bằng nhau.
-5\) Tương tác với hợp đồng: phương pháp `setPlus` <a href="#5-interact-with-contract-setplus-method" id="5-interact-with-contract-setplus-method"></a>
 
-### Hàm `setPlus` là phần quan trọng nhất trong thành phần Count.
+### 5. Tương tác với hợp đồng: phương pháp `setPlus` <a href="#5-interact-with-contract-setplus-method" id="5-interact-with-contract-setplus-method"></a>
 
 ```javascript
 setPlus = () => {
@@ -329,20 +328,12 @@ setPlus = () => {
 }
 ```
 
-Nó tương tác với hợp đồng bằng cách gọi hàm hợp đồng `plus`.
+Hàm `setPlus` là phần quan trọng nhất trong thành phần Count. Nó tương tác với hợp đồng bằng cách gọi hàm hợp đồng `plus`. Vì hàm này cũng là phương pháp hợp đồng, nó nằm trong `this.counterContract.methods`.
+
 Tuy nhiên, không giống `count` và `lastParticipant` chỉ đọc dữ liệu, hàm `plus` **ghi dữ liệu** vào blockchain Klaytn.\
-Đọc dữ liệu thì miễn phí, tuy nhiên ghi dữ liệu phát sinh chi phí sử dụng hoạt động tính toán và lưu trữ.
-Sự kiện `transactionHash` sẽ kích hoạt khi bạn nhận được hàm băm giao dịch. Vì hàm này cũng là phương pháp hợp đồng, nó nằm trong `this.counterContract.methods`.
-`receipt` được kích hoạt,khi bạn có thể nhận được biên lai giao dịch. Tuy nhiên, không giống `count` và `lastParticipant` chỉ đọc dữ liệu, hàm `plus` **ghi dữ liệu** vào blockchain Klaytn.\
-Đọc dữ liệu thì miễn phí, tuy nhiên ghi dữ liệu phát sinh chi phí sử dụng hoạt động tính toán và lưu trữ.
-Đọc dữ liệu thì miễn phí, tuy nhiên ghi dữ liệu phát sinh chi phí sử dụng hoạt động tính toán và lưu trữ.
+Đọc dữ liệu thì miễn phí, tuy nhiên ghi dữ liệu phát sinh chi phí sử dụng hoạt động tính toán và lưu trữ. Chi phí được đo bằng lượng `gas` đã sử dụng.
 
-Chi phí được đo bằng lượng `gas` đã sử dụng.
-`error` được kích hoạt khi có lỗi xảy ra trong quá trình gửi giao dịch.
-Reading data is free, however writing data incurs cost for the use of computation and storage. Vì lý do này, việc gửi giao dịch cần thuộc tính `from:` để thông báo cho node Klaytn chịu trách nhiệm cho phí giao dịch.
-
-Thuộc tính `gas:` định nghĩa lượng gas tối đa người gửi giao dịch muốn trả cho giao dịch. Để gửi giao dịch, sử dụng `.send()` thay cho `.call()`.
-Sự kiện `transactionHash` sẽ kích hoạt khi bạn nhận được hàm băm giao dịch.
+Vì lý do này, việc gửi giao dịch cần thuộc tính `from:` để thông báo cho node Klaytn chịu trách nhiệm cho phí giao dịch. Thuộc tính `gas:` định nghĩa lượng gas tối đa người gửi giao dịch muốn trả cho giao dịch.
 
 ```javascript
 this.countContract.methods.plus().send({
@@ -351,8 +342,7 @@ this.countContract.methods.plus().send({
 })
 ```
 
-6. Vòng đời giao dịch <a href="#6-transaction-life-cycle" id="6-transaction-life-cycle"></a>
-   `receipt` được kích hoạt,khi bạn có thể nhận được biên lai giao dịch.
+Để gửi giao dịch, sử dụng `.send()` thay cho `.call()`.
 
 ```javascript
 .send({
@@ -361,7 +351,7 @@ this.countContract.methods.plus().send({
 })
 ```
 
-### Sau khi gửi giao dịch, bạn có thể nhận được trạng thái giao dịch trong suốt vòng đời.
+### 6. Vòng đời giao dịch <a href="#6-transaction-life-cycle" id="6-transaction-life-cycle"></a>
 
 ```javascript
 try{
@@ -385,19 +375,15 @@ try{
 }
 ```
 
-Sự kiện `transactionHash` sẽ kích hoạt khi bạn nhận được hàm băm giao dịch.
+Sau khi gửi giao dịch, bạn có thể nhận được trạng thái giao dịch trong suốt vòng đời.
+
+Sự kiện `transactionHash` sẽ kích hoạt khi bạn nhận được hàm băm giao dịch. Sự kiện này vẫn chạy trước khi gửi giao dịch lên mạng.
+
+`receipt` được kích hoạt,khi bạn có thể nhận được biên lai giao dịch. Điều này có nghĩa là giao dịch của bạn đã đi vào khối. Bạn có thể lấy được số khối chứa giao dịch của mình bằng `receipt.blockNumber`.
+
 `error` được kích hoạt khi có lỗi xảy ra trong quá trình gửi giao dịch.
-3-a.
 
-Sự kiện này vẫn chạy trước khi gửi giao dịch lên mạng. `receipt` được kích hoạt,khi bạn có thể nhận được biên lai giao dịch.
-
-Điều này có nghĩa là giao dịch của bạn đã đi vào khối. Bạn có thể lấy được số khối chứa giao dịch của mình bằng `receipt.blockNumber`. `error` được kích hoạt khi có lỗi xảy ra trong quá trình gửi giao dịch.
-
-cf) `settingDirection` được sử dụng để hiển thị một chỉ báo đang tải về(gif).
-3-a.
-
-Khi giao dịch đã nằm trong khối, gỡ chỉ báo đang tải bằng cách gán `null` cho `settingDirection`.
-Kiểm tra giao dịch trong `https://baobab.scope.klaytn.com/tx/${txHash}`. Bạn có thể gọi hàm này bằng cách nhấp vào nút +.
+cf) `settingDirection` được sử dụng để hiển thị một chỉ báo đang tải về(gif). Khi giao dịch đã nằm trong khối, gỡ chỉ báo đang tải bằng cách gán `null` cho `settingDirection`.
 
 ```javascript
 <button
@@ -410,19 +396,15 @@ Kiểm tra giao dịch trong `https://baobab.scope.klaytn.com/tx/${txHash}`. B�
 </button>
 ```
 
+Bạn có thể gọi hàm này bằng cách nhấp vào nút +.
+
 Tóm lại, sau khi nhấp vào nút +,
 
-Bạn sẽ gửi một giao dịch, giao dịch này sẽ gọi phương pháp hợp đồng `plus`.
+1. Bạn sẽ gửi một giao dịch, giao dịch này sẽ gọi phương pháp hợp đồng `plus`.
+2. Ngay sau khi gửi giao dịch, bạn sẽ nhận được hàm băm giao dịch.\
+   3-a. Sau khi giao dịch của bạn đã được xử lý và nằm trong khối, bạn sẽ nhận được biên lai biên lai giao dịch.\ 3-b. Nếu có lỗi khi gửi giao dịch, bạn sẽ nhận được thông báo lỗi. Và khối `receipt` sẽ không bao giờ được gọi.
 
-1. Ngay sau khi gửi giao dịch, bạn sẽ nhận được hàm băm giao dịch.\
-   3-a.
-   3-a.
-2. Sau khi giao dịch của bạn đã được xử lý và nằm trong khối, bạn sẽ nhận được biên lai biên lai giao dịch.\ 3-b.
-   3-a. Nếu có lỗi khi gửi giao dịch, bạn sẽ nhận được thông báo lỗi.
-   Kiểm tra giao dịch trong `https://baobab.scope.klaytn.com/tx/${txHash}`.
-   3-b. Và khối `receipt` sẽ không bao giờ được gọi. Mã lệnh đầy đủ gọi phương pháp `plus` như dưới đây:
-
-Tôi kiểm tra giao dịch của mình trong blockchain thế nào?
+Mã lệnh đầy đủ gọi phương pháp `plus` như dưới đây:
 
 ```javascript
 try{
@@ -446,9 +428,9 @@ try{
 }
 ```
 
-### <a href="#how-can-i-check-my-transaction-in-the-blockchain" id="how-can-i-check-my-transaction-in-the-blockchain"></a> Sau khi gửi giao dịch, bạn có thể kiểm tra thông tin giao dịch bằng Klaytnscope. Kiểm tra giao dịch trong `https://baobab.scope.klaytn.com/tx/${txHash}`.&#xA;Kiểm tra giao dịch trong `https://baobab.scope.klaytn.com/tx/${txHash}`.
+### Tôi kiểm tra giao dịch của mình trong blockchain thế nào? Sau khi gửi giao dịch, bạn có thể kiểm tra thông tin giao dịch bằng Klaytnscope. Kiểm tra giao dịch trong `https://baobab.scope.klaytn.com/tx/${txHash}`.&#xA;Kiểm tra giao dịch trong `https://baobab.scope.klaytn.com/tx/${txHash}`.
 
 ![check-transaction](/img/build/tutorials/tutorial-check-your-transaction.gif)
 
-B
-Check it in `https://baobab.scope.klaytn.com/tx/${txHash}`.
+Sau khi gửi giao dịch, bạn có thể kiểm tra thông tin giao dịch bằng Klaytnscope.\
+Kiểm tra giao dịch trong `https://baobab.scope.klaytn.com/tx/${txHash}`.
