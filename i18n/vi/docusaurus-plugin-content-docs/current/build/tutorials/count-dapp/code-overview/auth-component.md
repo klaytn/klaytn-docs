@@ -59,14 +59,11 @@ Dòng 2: `cav.klay.tài khoảns.wallet.add(walletInstance)`\
 Dòng 3: `sessionStorage.setItem('walletInstance', JSON.stringify(walletInstance))`\
 `sessionStorage.setItem` là API trình duyệt dùng để lưu trữ giá trị vào nơi lưu trữ phiên của trình duyệt.\
 Vì không muốn mất trạng thái đăng nhập cả khi làm mới trang ứng dụng hướng dẫn của mình, chúng tôi đã lưu phiên bản của ví vào nơi lưu trữ phiên bằng chuỗi JSON.
-`sessionStorage.setItem` is a browser API used for storing a value to the browser's session storage.\
-Since we want not to lose our logged-in status even we refresh our tutorial app page, we stored our wallet instance to the session storage as a JSON string.
 
 cf) Các mục trong phần lưu trữ phiên sẽ mất khi người dùng đóng tab trình duyệt.
 
 Dòng 4: `this.reset()`\
 Nó đặt lại trạng thái của thành phần hiện tại về trạng thái khởi tạo ban đầu để xóa dữ liệu bạn nhập.
-It resets the current component's state to the initial state to clear your input.
 
 Để biết thêm thông tin về API `privateKeyToAccount` của caver-js, hãy xem [caver.klay.tài khoảns.privateKeyToAccount](../../../../references/sdk/caver-js-1.4.1/api/caver.klay.accounts.md#privatekeytoaccount)
 
@@ -112,16 +109,12 @@ handleImport = (e) => {
 ```
 
 Để nhập tập tin từ người dùng, chúng tôi sử dụng API trình duyệt `FileReader`.\
-`e.target.files[0]` chứa thông tin meta cho tập tin.
-`e.target.files[0]` contains meta information for the file. Để đọc nội dung của tập tin, chúng tôi gọi API `fileReader.readAsText(keystore)`.\
+`e.target.files[0]` chứa thông tin meta cho tập tin. Để đọc nội dung của tập tin, chúng tôi gọi API `fileReader.readAsText(keystore)`.\
 Sau khi gọi hàm `fileReader.readAsText(keystore)`, hàm `fileReader.onload` sẽ chạy để lấy nội dung của tập tin vào `e.target.result`.\
 Sau khi nhập tập tin lưu trữ khóa, chúng tôi nhập mật khẩu.
-After calling `fileReader.readAsText(keystore)`, `fileReader.onload` function fires to take the content of the file as `e.target.result`.\
-After importing the keystore file, we get password input.
 
 cf) Lưu trữ khóa chứa khóa riêng tư được mã hóa. Chúng tôi cần mật khẩu trùng khớp để giải mã Lưu trữ khóa, từ đó lấy được khóa riêng tư thực.\
 _CẢNH BÁO Không để lộ tập tin lưu trữ khóa của mình cho người khác!_
-_WARNING Don't expose your keystore file to another person!_
 
 Điền mật khẩu vào phần `<input>`. Giá trị nhập vào sẽ được lưu trữ là trạng thái `password` bằng phương pháp `handleChange`.
 
@@ -136,8 +129,7 @@ _WARNING Don't expose your keystore file to another person!_
 ```
 
 Cả tập tin lưu trữ khóa và mật khẩu của tập tin đã sẵn sàng để sử dụng. Giờ đây chúng tôi có thể giải mã tập tin lưu trữ khóa để trích xuất khóa riêng tư bằng API `cav.klay.tài khoảns.decrypt(keystore, password)`.\
-API này trả về một phiên bản ví chứa khóa riêng tư.
-This API returns a wallet instance containing the private key. Sau khi nhập khóa riêng tư, chúng ta có thể sử dụng phương pháp `integrateWallet` đã truy cập trước đó.
+API này trả về một phiên bản ví chứa khóa riêng tư. Sau khi nhập khóa riêng tư, chúng ta có thể sử dụng phương pháp `integrateWallet` đã truy cập trước đó.
 
 ```javascript
 handleLogin = () => {
@@ -166,8 +158,6 @@ handleLogin = () => {
 'logout' nghĩa là gỡ bỏ phiên bản ví từ trình duyệt và caver.\
 `cav.klay.tài khoảns.wallet.clear()` gỡ bỏ tất cả các phiên bản ví từ caver.\
 `sessionStorage.removeItem('walletInstance')` gỡ bỏ phiên bản ví từ phần lưu trữ phiên trình duyệt.
-`cav.klay.accounts.wallet.clear()` removes all wallet instances from caver.\
-`sessionStorage.removeItem('walletInstance')` removes the wallet instance from the browser's session storage.
 
 ```javascript
 /**
