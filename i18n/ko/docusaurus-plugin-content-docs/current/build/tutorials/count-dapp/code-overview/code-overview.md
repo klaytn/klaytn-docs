@@ -98,6 +98,46 @@ export default renderRoutes
 ## `src/App.js`: <a id="4-src-app-js"></a>
 
 ```javascript
+import React, { Component } from 'react'
+
+import { cav } from 'klaytn/caver'
+import BlockNumber from 'components/BlockNumber'
+import Auth from 'components/Auth'
+
+import './App.scss'
+
+class App extends Component {
+  componentWillMount() {
+    /**
+     * sessionStorage is internet browser's feature which stores data
+     * until the browser tab is closed.
+     */
+    const walletFromSession = sessionStorage.getItem('walletInstance')
+
+    // If 'walletInstance' value exists, add it to caver's wallet
+    if (walletFromSession) {
+      try {
+        cav.klay.accounts.wallet.add(JSON.parse(walletFromSession))
+      } catch (e) {
+        // If value in sessionStorage is invalid wallet instance,
+        // remove it from sessionStorage.
+        sessionStorage.removeItem('walletInstance')
+      }
+    }
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <BlockNumber />
+        <Auth />
+        {this.props.children}
+      </div>
+    )
+  }
+}
+
+export default App
 ```
 
 `'App.js'`는 튜토리얼 앱의 전체 컴포넌트를 위한 루트 컴포넌트 파일입니다.
