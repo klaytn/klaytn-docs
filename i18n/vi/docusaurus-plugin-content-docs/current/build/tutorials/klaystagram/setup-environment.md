@@ -12,13 +12,13 @@
     v10.16.0
   ```
 
-Nếu bạn dùng phiên bản Node cao hơn, `caver-js` sẽ không cài đặt được. Hãy cài đặt lại nút hoặc sử dụng [NVM (Trình quản lý phiên bản nút)](https://github.com/nvm-sh/nvm) để thiết lập môi trường ổn định. 2.
+⚠ Tại thời điểm viết, phiên bản LTS mới nhất tương thích với `caver-js` là 10.16.0. Nếu bạn dùng phiên bản Node cao hơn, `caver-js` sẽ không cài đặt được. Hãy cài đặt lại nút hoặc sử dụng [NVM (Trình quản lý phiên bản nút)](https://github.com/nvm-sh/nvm) để thiết lập môi trường ổn định.
 
-## 2. Truffle là công cụ tuyệt vời để biên dịch và triển khai các tập tin hợp đồng.
+## 2. Cài đặt Truffle <a id="2-install-truffle"></a>
 
-\*\*Use `nvm` to set the node version to 12.0.0 only if you are using truffle.
+Truffle là công cụ tuyệt vời để biên dịch và triển khai các tập tin hợp đồng.
 
-> \*\*
+> **Use `nvm` to set the node version to 12.0.0 only if you are using truffle.**
 
 - Gõ lệnh `$ nvm install 12.0.0`
 - Gõ lệnh `$ nvm use 12.0.0`
