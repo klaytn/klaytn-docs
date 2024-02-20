@@ -1,6 +1,6 @@
-# Get Started
+# Tổng quan
 
-Try and get familiar with Klaytn. This chapter is the starting point of your journey to Klaytn dApps.
+Dùng thử và làm quen với Klaytn. Chương này là điểm khởi đầu cho hành trình của bạn đến các dApp Klaytn.
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';
