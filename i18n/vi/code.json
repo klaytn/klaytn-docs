@@ -6,103 +6,103 @@
     "message": "{tagline}"
   },
   "Klaytn Overview": {
-    "message": "Klaytn Overview"
+    "message": "Klaytn Tổng quan"
   },
   "Want to know about Klaytn?": {
-    "message": "Want to know about Klaytn?"
+    "message": "Anh có muốn biết về Klaytn không?"
   },
   "Getting Started": {
-    "message": "Getting Started"
+    "message": "Bắt đầu"
   },
   "Want to start building on Klaytn?": {
-    "message": "Want to start building on Klaytn?"
+    "message": "Anh có muốn bắt đầu xây dựng ở Klaytn không?"
   },
   "Node Operators": {
-    "message": "Node Operators"
+    "message": "Các nút điều hành"
   },
   "Instructions on running Klaytn's nodes": {
-    "message": "Instructions on running Klaytn's nodes"
+    "message": "Hướng dẫn chạy các nút Klaytn"
   },
   "API references": {
-    "message": "API references"
+    "message": "Tham chiếu API"
   },
   "APIs and libraries": {
-    "message": "APIs and libraries"
+    "message": "API và Thư viện"
   },
   "Klaytn Developer Hub": {
-    "message": "Klaytn Developer Hub"
+    "message": "Trung tâm phát triển Klaytn"
   },
   "Klaytn's Developer portal": {
-    "message": "Klaytn's Developer portal"
+    "message": "Cổng thông tin nhà phát triển Klaytn"
   },
   "Klaytn Developer Forum": {
-    "message": "Klaytn Developer Forum"
+    "message": "Diễn đàn Lập trình Klaytn"
   },
   "Got a question? Visit our forum!": {
-    "message": "Got a question? Visit our forum!"
+    "message": "Bạn có câu hỏi? Ghé thăm diễn đàn của chúng tôi!"
   },
   "theme.ErrorPageContent.title": {
-    "message": "This page crashed.",
+    "message": "Trang này đã bị lỗi.",
     "description": "The title of the fallback page when the page crashed"
   },
   "theme.BackToTopButton.buttonAriaLabel": {
-    "message": "Scroll back to top",
+    "message": "Trở lại đầu trang",
     "description": "The ARIA label for the back to top button"
   },
   "theme.blog.archive.title": {
-    "message": "Archive",
+    "message": "Lưu trữ",
     "description": "The page & hero title of the blog archive page"
   },
   "theme.blog.archive.description": {
-    "message": "Archive",
+    "message": "Lưu trữ",
     "description": "The page & hero description of the blog archive page"
   },
   "theme.blog.paginator.navAriaLabel": {
-    "message": "Blog list page navigation",
+    "message": "Thanh điều hướng của trang danh sách bài viết",
     "description": "The ARIA label for the blog pagination"
   },
   "theme.blog.paginator.newerEntries": {
-    "message": "Newer Entries",
+    "message": "Các bài mới hơn",
     "description": "The label used to navigate to the newer blog posts page (previous page)"
   },
   "theme.blog.paginator.olderEntries": {
-    "message": "Older Entries",
+    "message": "Các bài cũ hơn",
     "description": "The label used to navigate to the older blog posts page (next page)"
   },
   "theme.blog.post.plurals": {
-    "message": "One post|{count} posts",
+    "message": "{count} bài viết",
     "description": "Pluralized label for \"{count} posts\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
   },
   "theme.blog.tagTitle": {
-    "message": "{nPosts} tagged with \"{tagName}\"",
+    "message": "{nPosts} được gắn thẻ \"{tagName}\"",
     "description": "The title of the page for a blog tag"
   },
   "theme.tags.tagsPageLink": {
-    "message": "View All Tags",
+    "message": "Xem tất cả Thẻ",
     "description": "The label of the link targeting the tag list page"
   },
   "theme.colorToggle.ariaLabel": {
-    "message": "Switch between dark and light mode (currently {mode})",
+    "message": "Chuyển đổi chế độ sáng và tối (hiện tại {mode})",
     "description": "The ARIA label for the navbar color mode toggle"
   },
   "theme.colorToggle.ariaLabel.mode.dark": {
-    "message": "dark mode",
+    "message": "chế độ tối",
     "description": "The name for the dark color mode"
   },
   "theme.colorToggle.ariaLabel.mode.light": {
-    "message": "light mode",
+    "message": "chế độ sáng",
     "description": "The name for the light color mode"
   },
   "theme.blog.post.paginator.navAriaLabel": {
-    "message": "Blog post page navigation",
+    "message": "Thanh điều hướng của trang bài viết",
     "description": "The ARIA label for the blog posts pagination"
   },
   "theme.blog.post.paginator.newerPost": {
-    "message": "Newer Post",
+    "message": "Bài mới hơn",
     "description": "The blog post button label to navigate to the newer/previous post"
   },
   "theme.blog.post.paginator.olderPost": {
-    "message": "Older Post",
+    "message": "Bài cũ hơn",
     "description": "The blog post button label to navigate to the older/next post"
   },
   "theme.docs.breadcrumbs.navAriaLabel": {
@@ -110,7 +110,7 @@
     "description": "The ARIA label for the breadcrumbs"
   },
   "theme.docs.DocCard.categoryDescription": {
-    "message": "{count} items",
+    "message": "{count} mục",
     "description": "The default description for a category card in the generated index about how many items this category includes"
   },
   "theme.docs.paginator.navAriaLabel": {
