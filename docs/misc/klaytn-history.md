@@ -2,7 +2,7 @@
 
 This page shows all the hard forks to the Klaytn blockchain.
 
-## KIP-103
+## KIP-103 <a id="kip-103"></a>
 
 | ` ` | Baobab | Cypress |
 | --------------- | --------------- | --------------- |
@@ -14,7 +14,7 @@ This page shows all the hard forks to the Klaytn blockchain.
 KIP-103 hardfork was introduced with the [v1.10.2 release](https://github.com/klaytn/klaytn/releases/tag/v1.10.2). It includes an implementation of [KIP-103](https://kips.klaytn.foundation/KIPs/kip-103) that is a technical specification of treasury rebalance([KGP-6](https://govforum.klaytn.foundation/t/kgp-6-proposal-to-establish-a-sustainable-and-verifiable-klay-token-economy/157)).
 
 
-### Treasury Rebalance
+### Treasury Rebalance <a id="treasury-rebalance"></a>
 
 | ` ` | Baobab | Cypress |
 | --------------- | --------------- | --------------- |
@@ -24,7 +24,7 @@ KIP-103 hardfork was introduced with the [v1.10.2 release](https://github.com/kl
 | KCF address | 0x47E3DbB8c1602BdB0DAeeE89Ce59452c4746CA1C | 0xdd4C8d805fC110369D3B148a6692F283ffBDCcd3 |
 
 
-## Kore
+## Kore <a id="kore"></a>
 | ` ` | Baobab | Cypress |
 | --------------- | --------------- | --------------- |
 | Date | Jan 10, 2023 10:20:50 / UTC+9 | Apr 17, 2023 01:24:48 / UTC+9 |
@@ -36,7 +36,7 @@ Kore hardfork was introduced with the [v1.10.0 release](https://github.com/klayt
 
 
 
-## Magma
+## Magma <a id="magma"></a>
 | ` ` | Baobab | Cypress |
 | --------------- | --------------- | --------------- |
 | Date | Aug 08, 2022 11:01:20 / UTC+9 | Aug 29, 2022 11:51:00 / UTC+9 |
@@ -46,7 +46,7 @@ Kore hardfork was introduced with the [v1.10.0 release](https://github.com/klayt
 
 Magma hardfork was introduced with the [v1.9.0 release](https://github.com/klaytn/klaytn/releases/tag/v1.9.0). It includes dynamic gas fee pricing mechanism, [#1493](https://github.com/klaytn/klaytn/pull/1493)) and is an implementation of [KIP-71](https://kips.klaytn.foundation/KIPs/kip-71).
 
-## EthTxType
+## EthTxType <a id="eth-tx-type"></a>
 
 | ` ` | Baobab | Cypress |
 | --------------- | --------------- | --------------- |
@@ -57,7 +57,7 @@ Magma hardfork was introduced with the [v1.9.0 release](https://github.com/klayt
 
 Ethereum's EthTxType changes were introduced with the [v1.8.0 release](https://github.com/klaytn/klaytn/releases/tag/v1.8.0). It includes new transactions types to support Ethereum transaction types: TxTypeEthereumAccessListand TxTypeEthereumDynamicFee ([#1142](https://github.com/klaytn/klaytn/pull/1142), [#1158](https://github.com/klaytn/klaytn/pull/1158)).
 
-## London EVM
+## London EVM <a id="london-evm"></a>
 
 | ` ` | Baobab | Cypress |
 | --------------- | --------------- | --------------- |
@@ -68,7 +68,7 @@ Ethereum's EthTxType changes were introduced with the [v1.8.0 release](https://g
 
 Ethereum's London hard fork items were introduced with the [v1.7.3 release](https://github.com/klaytn/klaytn/releases/tag/v1.7.3), which includes BaseFee EVM opcode for Ethereum London EVM compatibility ([#1065](https://github.com/klaytn/klaytn/pull/1065), [#1066](https://github.com/klaytn/klaytn/pull/1066), [#1096](https://github.com/klaytn/klaytn/pull/1096)).
 
-## Istanbul EVM
+## Istanbul EVM <a id="istanbul-evm"></a>
 
 | ` ` | Baobab | Cypress |
 | --------------- | --------------- | --------------- |

@@ -6,7 +6,7 @@
 
 Thus, developers can leverage this compatibility and use the ethers.js library to interact with a Klaytn node.
 
-In this guide, you'll learn how to use the ethers.js library to send a transaction, read data from the blockchain and interact with an existing contract on the Klaytn Network.
+In this guide, you'll learn how to use the ethers.js library to read data from the blockchain, send a transaction and interact with an existing contract on the Klaytn Network.
 
 
 ## Prerequisites
@@ -37,7 +37,7 @@ npm install --save ethers
 
 ### Initialize ethers.js
 
-In this tutorial, we would be creating a bunch of script files to send transactions, read data from the blockchain, and also interact with an existing smart contract. To get started, you need to know how to initialize ethers.js for each of your script files.
+In this tutorial, we will create a bunch of script files to read data from the blockchain, send transactions, and also interact with an existing smart contract. To get started, you need to know how to initialize ethers.js for each of your script files.
 
 
 Import `ethers` into your script file.
@@ -93,7 +93,7 @@ getKlayBalance()
 
 **Output**
 
-To run the script and read data from the blockchain, you can run the following command in your terminal: 
+To run the script and read data from the blockchain, run the following command in your terminal: 
 
 ```bash
 node read.js
@@ -144,17 +144,17 @@ sendTx();
 
 **Output**
 
-To run the script and send data to the blockchain, you can run the following command in your terminal: 
+To run the script and send data to the blockchain, run the following command in your terminal: 
 
 ```bash
 node send.js
 ```
 
-If the transaction was succesful, you'll see the transaction receipt been logged in your terminal.
+If the transaction was successful, you'll see the transaction receipt logged in your terminal.
 
 ![](/img/references/send-ethers.png)
 
-## Interact with smart contracts
+## Interacting with smart contracts
 
 To interact with an existing smart contract on Klaytn, create a new `interact.js` file in your project folder by running this command:
 
@@ -239,12 +239,12 @@ retrieveValue()
 
 **Output**
 
-To run the script and interact with smart contracts, you can run the following command in your terminal: 
+To run the script and interact with smart contracts, run the following command in your terminal: 
 
 ```js
 node interact.js
 ```
 
-If the transaction was successful, in your terminal you'll see the transaction hash and the value stored.
+If the transaction was successful, you'll see the transaction hash and the value stored in your terminal 
 
 For more in-depth guide on ethers.js, please refer to [ethers.js docs](https://docs.ethers.org/). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/klaytn/examples/tree/main/sdk-and-libraries-for-interacting-with-klaytn-node/ethers-js)

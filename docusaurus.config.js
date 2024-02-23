@@ -65,7 +65,7 @@ const config = {
         },
         docs: {
           beforeDefaultRemarkPlugins: [
-            [remarkCodeHike, { theme: "nord" }],
+            [remarkCodeHike, { theme: "monokai" }],
           ],
           sidebarPath: require.resolve('./sidebars.js'),
           sidebarCollapsible: true,
@@ -80,8 +80,8 @@ const config = {
             'https://github.com/klaytn/klaytn-docs/tree/main/',
           
           // TODO-Klaytn : it will be activated after dacusaurus-openapi bugfix
-          // docLayoutComponent: "@theme/DocPage",
-          // docItemComponent: "@theme/ApiItem"
+          docRootComponent: "@theme/DocRoot",
+          docItemComponent: "@theme/ApiItem"
         },
         theme: {
           customCss: [
@@ -97,18 +97,90 @@ const config = {
     [
       'docusaurus-plugin-openapi-docs',
       {
-        id: "openapi", // plugin id
+        id: "api", // plugin id
         docsPluginId: "classic", // id of plugin-content-docs or preset for rendering docs
         config: {
-          web3rpc: {
+          web3rpcKlay: {
             // template: "api.mustache",
-            specPath: "web3rpc.yaml",
-            outputDir: "docs/klaytn-json-rpc",
+            specPath: "./web3rpc/yaml/web3rpc-klay.yaml",
+            outputDir: "docs/klaytn-json-rpc/klay",
             sidebarOptions: { // optional, instructs plugin to generate sidebar.js
               groupPathsBy: "tag", // group sidebar items by operation "tag"
               categoryLinkSource: "tag",
             },
-          }
+          },
+          web3rpcEth: {
+            specPath: "./web3rpc/yaml/web3rpc-eth.yaml",
+            outputDir: "docs/klaytn-json-rpc/eth",
+            sidebarOptions: { // optional, instructs plugin to generate sidebar.js
+              groupPathsBy: "tag", // group sidebar items by operation "tag"
+              categoryLinkSource: "tag",
+            },
+          },
+          web3rpcDebug: {
+            specPath: "./web3rpc/yaml/web3rpc-debug.yaml",
+            outputDir: "docs/klaytn-json-rpc/debug",
+            sidebarOptions: { // optional, instructs plugin to generate sidebar.js
+              groupPathsBy: "tag", // group sidebar items by operation "tag"
+              categoryLinkSource: "tag",
+            },
+          },
+          web3rpcAdmin: {
+            specPath: "./web3rpc/yaml/web3rpc-admin.yaml",
+            outputDir: "docs/klaytn-json-rpc/admin",
+            sidebarOptions: { // optional, instructs plugin to generate sidebar.js
+              groupPathsBy: "tag", // group sidebar items by operation "tag"
+              categoryLinkSource: "tag",
+            },
+          },
+          web3rpcPersonal: {
+            specPath: "./web3rpc/yaml/web3rpc-personal.yaml",
+            outputDir: "docs/klaytn-json-rpc/personal",
+            sidebarOptions: { // optional, instructs plugin to generate sidebar.js
+              groupPathsBy: "tag", // group sidebar items by operation "tag"
+              categoryLinkSource: "tag",
+            },
+          },
+          web3rpcNet: {
+            specPath: "./web3rpc/yaml/web3rpc-net.yaml",
+            outputDir: "docs/klaytn-json-rpc/net",
+            sidebarOptions: { // optional, instructs plugin to generate sidebar.js
+              groupPathsBy: "tag", // group sidebar items by operation "tag"
+              categoryLinkSource: "tag",
+            },
+          },
+          web3rpcGovernance: {
+            specPath: "./web3rpc/yaml/web3rpc-governance.yaml",
+            outputDir: "docs/klaytn-json-rpc/governance",
+            sidebarOptions: { // optional, instructs plugin to generate sidebar.js
+              groupPathsBy: "tag", // group sidebar items by operation "tag"
+              categoryLinkSource: "tag",
+            },
+          },
+          web3rpcTxpool: {
+            specPath: "./web3rpc/yaml/web3rpc-txpool.yaml",
+            outputDir: "docs/klaytn-json-rpc/txpool",
+            sidebarOptions: { // optional, instructs plugin to generate sidebar.js
+              groupPathsBy: "tag", // group sidebar items by operation "tag"
+              categoryLinkSource: "tag",
+            },
+          },
+          web3rpcMainbridge: {
+            specPath: "./web3rpc/yaml/web3rpc-mainbridge.yaml",
+            outputDir: "docs/klaytn-json-rpc/mainbridge",
+            sidebarOptions: { // optional, instructs plugin to generate sidebar.js
+              groupPathsBy: "tag", // group sidebar items by operation "tag"
+              categoryLinkSource: "tag",
+            },
+          },
+          web3rpcSubbridge: {
+            specPath: "./web3rpc/yaml/web3rpc-subbridge.yaml",
+            outputDir: "docs/klaytn-json-rpc/subbridge",
+            sidebarOptions: { // optional, instructs plugin to generate sidebar.js
+              groupPathsBy: "tag", // group sidebar items by operation "tag"
+              categoryLinkSource: "tag",
+            },
+          },
         }
       },
     ]

@@ -70,4 +70,4 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 - ChainID : Baobab: 1001 (0x3E9), Cypress: 8217 (0x2019)
 
 - Gas price: dynamically adjusted within the range [25, 750]. The range can be changed via on-chain governance. For more information, refer to [governance](../json-rpc/governance.md).
-[Transaction Fees](../../learn/transaction-fees.md)
+[Transaction Fees](../../learn/transaction-fees/transaction-fees.md)

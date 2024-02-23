@@ -378,7 +378,7 @@ return (
 
 With the Web3Modal provider and signer object, you can make contract interactions such as writing to and reading from a smart contract deployed to the blockchain.
 
-1. **Writing to a Contract**
+### 1. Writing to a Contract
 
 ```js
 // add to existing useState hook
@@ -463,7 +463,7 @@ return (
 )
 ```
 
-2. **Reading from a contract**
+### 2. Reading from a contract
 
 ```js
 // add to existing useState hook
