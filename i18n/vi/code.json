@@ -440,39 +440,39 @@
     "description": "The placeholder of the input of the DocSearch pop-up modal"
   },
   "theme.CodeBlock.expanded": {
-    "message": "Expanded",
+    "message": "Đã mở rộng",
     "description": "The expanded button label on code blocks"
   },
   "theme.CodeBlock.expandButtonAriaLabel": {
-    "message": "Expand code to fullscreen",
+    "message": "Mở rộng mã sang toàn màn hình",
     "description": "The ARIA label for expand code blocks button"
   },
   "theme.CodeBlock.expand": {
-    "message": "Expand",
+    "message": "Mở rộng",
     "description": "The expand button label on code blocks"
   },
   "theme.CodeBlock.exitButtonAriaLabel": {
-    "message": "Exit expanded view",
+    "message": "Thoát khỏi chế độ xem mở rộng",
     "description": "The ARIA label for exit expanded view button"
   },
   "theme.ErrorPageContent.tryAgain": {
-    "message": "Try again",
+    "message": "Thử lại",
     "description": "The label of the button to try again rendering when the React error boundary captures an error"
   },
   "theme.common.skipToMainContent": {
-    "message": "Skip to main content",
+    "message": "Nhảy tới nội dung",
     "description": "The skip to content label used for accessibility, allowing to rapidly navigate to main content with keyboard tab/enter navigation"
   },
   "theme.tags.tagsPageTitle": {
-    "message": "Tags",
+    "message": "Thẻ",
     "description": "The title of the tag list page"
   },
   "theme.unlistedContent.title": {
-    "message": "Unlisted page",
+    "message": "Trang chưa niêm yết",
     "description": "The unlisted content banner title"
   },
   "theme.unlistedContent.message": {
-    "message": "This page is unlisted. Search engines will not index it, and only users having a direct link can access it.",
+    "message": "Trang này không được liệt kê. Công cụ tìm kiếm sẽ không lập chỉ mục và chỉ người dùng có liên kết trực tiếp mới có thể truy cập trang này.",
     "description": "The unlisted content banner message"
   }
 }
