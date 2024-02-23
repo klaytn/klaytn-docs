@@ -4,7 +4,7 @@ sidebar_label: 기본
 
 # 기본 유형 트랜잭션 클래스
 
-## 레거시 트랜잭션 <a id="legacytransaction"></a>
+## LegacyTransaction <a id="legacytransaction"></a>
 
 ```javascript
 caver.transaction.legacyTransaction.create(transactionObject)
