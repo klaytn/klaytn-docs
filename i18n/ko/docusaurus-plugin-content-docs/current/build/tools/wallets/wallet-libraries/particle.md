@@ -12,7 +12,7 @@ sidebar_label: Particle Network
 
 개발자는 모바일과 데스크톱 플랫폼 모두에서 사용할 수 있는 API와 SDK를 통해 다양한 시나리오에 걸쳐 Particle의 서비스형 월렛을 통합할 수 있으며, 특정 애플리케이션의 특정 요구 사항에 맞는 방식으로 맞춤화 및 구현할 수 있습니다.
 
-안드로이드, iOS, 리액트 네이티브, 플러터, 유니티 등 다른 플랫폼에서 Particle Network를 활용하려면 Particle의 [문서](https://docs.particle.network)를 참조하시기 바랍니다.
+To leverage Particle Network on alternative platforms, such as Android, iOS, React Native, Flutter, & Unity, kindly refer to Particle’s [documentation](https://developers.particle.network/reference/introduction-to-api-sdk-reference).
 
 ## 전제 조건
 
@@ -525,4 +525,4 @@ return (
 
 ## 다음 단계
 
-Particle Network(Particle 커넥트, Particle 인증 및 기타 SDK)에 관한 추가 가이드는 [Particle Network 문서](https://docs.particle.network) 및 [Particle Network 깃허브 계정](https://github.com/Particle-Network)을 참조하세요. 또한, Particle Network의 서비스, 향후 릴리스 및 기술 스택에 대한 자세한 내용은 [Particle Network 블로그](https://blog.particle.network)를 참조하시기 바랍니다. 또한, 이 가이드에 사용된 코드의 전체 구현은 [GitHub](https://github.com/klaytn/examples/tree/main/wallet-libraries/particle-sample)에서 확인할 수 있습니다.
+For additional guides regarding Particle Network (Particle Connect, Particle Auth, and other SDKs), please refer to the [Particle Network docs](https://developers.particle.network) and the [Particle Network GitHub account](https://github.com/Particle-Network). 또한, Particle Network의 서비스, 향후 릴리스 및 기술 스택에 대한 자세한 내용은 [Particle Network 블로그](https://blog.particle.network)를 참조하시기 바랍니다. 또한, 이 가이드에 사용된 코드의 전체 구현은 [GitHub](https://github.com/klaytn/examples/tree/main/wallet-libraries/particle-sample)에서 확인할 수 있습니다.
