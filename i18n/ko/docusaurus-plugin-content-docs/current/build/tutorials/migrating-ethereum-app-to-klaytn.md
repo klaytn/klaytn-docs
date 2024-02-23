@@ -2,18 +2,18 @@
 
 ## 목차 <a href="#table-of-contents" id="table-of-contents"></a>
 
-* [1. 소개](#1-introduction)
-* [2. 클레이튼은 이더리움과 호환됩니다](#2-klaytn-has-ethereum-compatibility)
-* [3. 이더리움에서 클레이튼으로 노드 연결 변경하기](#3-change-node-connection-from-ethereum-to-klaytn)
-* [4. 클레이튼 노드와 상호작용하기: `BlockNumber` 컴포넌트](#4-interact-with-klaytn-node-blocknumber-component)
-* [5. 컨트랙트와 상호작용: `Count` 컴포넌트](#5-interact-with-the-contract-count-component)
-  * [5-1. 클레이튼에 카운트 컨트랙트 배포하기](#5-1-deploy-count-contract-on-klaytn)
-  * [5-2. 컨트랙트 인스턴스 생성](#5-2-create-a-contract-instance)
-  * [5-3. 컨트랙트와 상호작용하기](#5-3-interact-with-contract)
+- [1. 소개](#1-introduction)
+- [2. 클레이튼은 이더리움과 호환됩니다](#2-klaytn-has-ethereum-compatibility)
+- [3. 이더리움에서 클레이튼으로 노드 연결 변경하기](#3-change-node-connection-from-ethereum-to-klaytn)
+- [4. 클레이튼 노드와 상호작용하기: `BlockNumber` 컴포넌트](#4-interact-with-klaytn-node-blocknumber-component)
+- [5. 컨트랙트와 상호작용: `Count` 컴포넌트](#5-interact-with-the-contract-count-component)
+  - [5-1. 클레이튼에 카운트 컨트랙트 배포하기](#5-1-deploy-count-contract-on-klaytn)
+  - [5-2. 컨트랙트 인스턴스 생성](#5-2-create-a-contract-instance)
+  - [5-3. 컨트랙트와 상호작용하기](#5-3-interact-with-contract)
 
 ## 1. 소개 <a href="#1-introduction" id="1-introduction"></a>
 
-이 튜토리얼은 이더리움 앱을 클레이튼으로 마이그레이션하는 방법을 안내하기 위한 것입니다. 이전에 클레이튼을 사용해본 경험이 없어도 됩니다. 간단한 블록체인 앱을 샘플로 사용하여 이더리움 앱을 클레이튼으로 마이그레이션하는 방법을 보여드리겠습니다.
+이 튜토리얼은 이더리움 앱을 클레이튼으로 마이그레이션하는 방법을 안내하기 위한 것입니다. 클레이튼에 대한 사전 경험이 없어도 됩니다. 간단한 블록체인 앱을 샘플로 사용하여 이더리움 앱을 클레이튼으로 마이그레이션하는 방법을 보여드리겠습니다.
 
 여기서는 이더리움 앱을 클레이튼으로 마이그레이션하는 데 필요한 코드 수정에만 집중하겠습니다. 클레이튼 dApp 생성에 대한 자세한 내용은 [CountdApp 튜토리얼](./count-dapp/count-dapp.md)을 참고하시기 바랍니다.
 
@@ -22,17 +22,17 @@
 
 #### 대상 독자 <a href="#intended-audience" id="intended-audience"></a>
 
-* [React](https://reactjs.org/)에 대한 기본 지식이 있다고 가정합니다. 샘플 코드는 React로 제작되었습니다.
-* 블록체인 앱에 대한 기본적인 지식과 경험은 필요하지만, 클레이튼 사용 경험이 없어도 됩니다.
+- [React](https://reactjs.org/)에 대한 기본 지식이 있다고 가정합니다. 샘플 코드는 React로 제작되었습니다.
+- 블록체인 앱에 대한 기본적인 지식과 경험은 필요하지만, 클레이튼 사용 경험이 없어도 됩니다.
 
 #### 테스트 환경 <a href="#testing-environment" id="testing-environment"></a>
 
 CountdApp은 다음 환경에서 테스트되었습니다.
 
-* MacOS Mojave 10.14.5
-* Node 10.16.0(LTS)
-* npm 6.9.0
-* Python 2.7.10
+- MacOS Mojave 10.14.5
+- Node 10.16.0(LTS)
+- npm 6.9.0
+- Python 2.7.10
 
 ## 2. 클레이튼은 이더리움과 호환됩니다 <a href="#2-klaytn-has-ethereum-compatibility" id="2-klaytn-has-ethereum-compatibility"></a>
 
@@ -42,12 +42,12 @@ CountdApp은 다음 환경에서 테스트되었습니다.
 
 먼저 노드에 연결하는 라이브러리를 변경해야 합니다. 그런 다음 'rpcURL'에 노드 URL을 지정합니다. (참고. [이더리움의 롭스텐 테스트넷은 2022년 4분기에 종료될 예정입니다.](https://blog.ethereum.org/2022/06/21/testnet-deprecation) )
 
-* 이더리움
-  * `web3` 라이브러리는 이더리움 노드에 연결하여 통신합니다.
-  * `롭스텐 테스트넷` URL은 'rpcURL'에 할당됩니다.
-* 클레이튼
-  * 클레이튼 노드에 연결하고 통신하기 위해 `caver-js` 라이브러리를 사용합니다.
-  * 'rpcURL'에는 `Baobab 테스트넷` URL이 할당되어 있습니다.
+- Ethereum
+  - `web3` 라이브러리는 이더리움 노드에 연결하여 통신합니다.
+  - `롭스텐 테스트넷` URL은 'rpcURL'에 할당됩니다.
+- Klaytn
+  - 클레이튼 노드에 연결하고 통신하기 위해 `caver-js` 라이브러리를 사용합니다.
+  - 'rpcURL'에는 `Baobab 테스트넷` URL이 할당되어 있습니다.
 
 `src/klaytn/caver.js`
 
@@ -98,7 +98,7 @@ class BlockNumber extends Component {
 export default BlockNumber
 ```
 
-`BlockNumber' 컴포넌트에 대한 자세한 내용은 [CountDapp 튜토리얼 - BlockNumber 컴포넌트](count-dapp/code-overview/blocknumber-component.md)를 참고하세요.
+\`BlockNumber' 컴포넌트에 대한 자세한 내용은 [CountDapp 튜토리얼 - BlockNumber 컴포넌트](count-dapp/code-overview/blocknumber-component.md)를 참고하세요.
 
 ## 5. 컨트랙트와 상호작용: `Count` 컴포넌트 <a href="#5-interact-with-the-contract-count-component" id="5-interact-with-the-contract-count-component"></a>
 
@@ -108,13 +108,13 @@ export default BlockNumber
 
 CountDapp을 이더리움에서 클레이튼으로 마이그레이션하는 방법을 단계별로 알아봅시다!
 
-* 5-1. 클레이튼에 `Count` 컨트랙트 배포하기
-* 5-2. 컨트랙트 인스턴스 생성하기
-* 5-3. 컨트랙트와 상호작용하기
+- 5-1. 클레이튼에 `Count` 컨트랙트 배포하기
+- 5-2. 컨트랙트 인스턴스 생성하기
+- 5-3. 컨트랙트와 상호작용하기
 
 ### 5-1. 클레이튼에 `Count` 컨트랙트 배포 <a href="#5-1-deploy-count-contract-on-klaytn" id="5-1-deploy-count-contract-on-klaytn"></a>
 
-첫 번째 단계는 클레이튼에 카운트 컨트랙트를 배포하고 컨트랙트 주소를 받는 것입니다. 대부분의 경우 이더리움 컨트랙트를 클레이튼에서 수정 없이 사용할 수 있습니다. [이더리움 컨트랙트 이식하기](../../build/smart-contracts/porting-ethereum-contract.md)를 참고하세요. 이 가이드에서는 Truffle을 사용하여 컨트랙트를 배포하겠습니다.
+첫 번째 단계는 클레이튼에 카운트 컨트랙트를 배포하고 컨트랙트 주소를 받는 것입니다. 대부분의 경우 클레이튼에서 이더리움 컨트랙트를 수정하지 않고 사용할 수 있습니다. [이더리움 컨트랙트 이식하기](../../build/smart-contracts/porting-ethereum-contract.md)를 참고하세요. 이 가이드에서는 Truffle을 사용하여 컨트랙트를 배포하겠습니다.
 
 1. `Truffle-config.js`에서 네트워크 속성을 변경하여 클레이튼에 컨트랙트를 배포합니다.
 2. KLAY [Faucet](https://baobab.wallet.klaytn.foundation/access?next=faucet)를 사용하여 계정을 충전합니다.
@@ -196,9 +196,9 @@ export default Count
 
 Count 컨트랙트 인스턴스를 생성하는 데 사용되는 `ABI`(애플리케이션 바이너리 인터페이스)는 `caver-js`가 아래와 같이 컨트랙트의 메서드를 호출할 수 있도록 합니다. 카운트 컨트랙트를 마치 JavaScript 객체처럼 상호작용할 수 있습니다.
 
-* 데이터 읽기(호출)\
+- 데이터 읽기(호출)\
   `CountContract.methods.count().call()`
-* 데이터 쓰기(보내기)\
+- 데이터 쓰기(보내기)\
   `CountContract.methods.plus().send({ ... })`\
   `CountContract.methods.minus().send({ ... })`
 

@@ -14,16 +14,17 @@ ERROR[01/27,17:11:33 +09] [33] Protocol istanbul/64 failed               id=b106
 
 **Trả lời**
 
-Lỗi này có thể phát sinh khi `genesis.json` thay đổi. Vui lòng dừng nút Klaytn và xóa thư mục dữ liệu. Sau đó, chạy lại `ken init` bằng cách sử dụng đúng `genesis.json` như bên dưới.
+Lỗi này có thể phát sinh khi `genesis.json` thay đổi.
+Vui lòng dừng nút Klaytn và xóa thư mục dữ liệu. Sau đó, chạy lại `ken init` bằng cách sử dụng đúng `genesis.json` như bên dưới.
 
 Ví dụ: Khi thư mục dữ liệu là `/var/kend/data`.
+
 ```
 sudo kend stop
 sudo rm -rf /var/kend/data
 sudo ken init --datadir /var/kend/data genesis.json
 sudo kend start
 ```
-
 
 ## Không thể triển khai hợp đồng thông minh bằng cách sử dụng Truffle nếu có thông báo lỗi như sau. <a id="can-t-deploy-smart-contract-using-truffle-with-following-error-message"></a>
 
@@ -49,13 +50,13 @@ Kích hoạt `net` và API khác cho bảng điều khiển RPC bằng cách ch�
 ```
 RPC_API="admin,debug,klay,miner,net,personal,rpc,txpool,web3" # available apis: admin,debug,klay,miner,net,personal,rpc,txpool,web3
 ```
-Sau khi cập nhật `kend.conf`, khởi động lại nút Klaytn.
 
+Sau khi cập nhật `kend.conf`, khởi động lại nút Klaytn.
 
 ## Không khởi động được nút Klaytn nếu có lỗi `Unit not found` như dưới đây sau khi cài đặt gói nhị phân. <a id="can-t-start-klaytn-node-with-unit-not-found-error-as-below-after-installing-bina"></a>
 
 ```
-Không thể bắt đầu kcnd.service: Không tìm thấy đơn vị.
+Failed to start kcnd.service: Unit not found.
 ```
 
 **Trả lời**
@@ -76,7 +77,8 @@ INFO[02/20,12:35:38 Z] [21] [Dial] Add dial candidate from static nodes  id=7eaa
 
 **Trả lời**
 
-Điều này có thể xảy ra khi `genesis.json` và thông tin khóa nút/nút xác thực khác nhau. Vui lòng kiểm tra lại khóa nút/nút xác thực và tập tin `genesis.json`.
+Điều này có thể xảy ra khi `genesis.json` và thông tin khóa nút/nút xác thực khác nhau.
+Vui lòng kiểm tra lại khóa nút/nút xác thực và tập tin `genesis.json`.
 
 ## Không thể khởi động nút Klaytn nếu có thông báo bản ghi lỗi như sau. <a id="klaytn-node-can-t-start-with-following-error-log-message"></a>
 
@@ -87,7 +89,6 @@ Fatal: Error starting protocol stack: listen unix /Users/username/some_directory
 **Trả lời**
 
 Nếu bạn thấy thông báo lỗi tập hợp giao thức ở trên trong tập tin bản ghi, điều đó có nghĩa là Klaytn không khởi động được do tên đường dẫn đầy đủ đến thư mục hiện tại quá dài. Vui lòng khởi chạy nút Klaytn với thư mục dữ liệu đầy đủ ngắn hơn. Độ dài tối đa cho phép của tên đường dẫn phụ thuộc vào hệ điều hành.
-
 
 ## EN không thể kết nối với CC nếu có thông báo bản ghi như sau. <a id="en-can-t-connect-to-cc-with-following-log-message"></a>
 
@@ -106,4 +107,5 @@ ERROR[01/28,06:20:07 Z] [23] Protocol istanbul/64 failed id=845f596536450bad con
 Fatal: Error starting protocol stack: rewound to block number 0, but repair failed"
 ```
 
-**Trả lời** Do vấn đề tương thích, chúng tôi khuyên bạn nên cập nhật nhị phân của EN lên v0.9.6 nếu bạn vẫn đang chạy EN ở các phiên bản cũ (`<=` v0.8.2). Nếu đây là lần đầu bạn cập nhật EN lên v0.9.x và muốn di chuyển dữ liệu từ phiên bản cũ hơn, bạn phải chỉ định tùy chọn `ADDITIONAL="--db.num-statetrie-partitions 1"` trong tập tin cấu hình khi cài đặt phiên bản mới hơn.
+**Trả lời** Do vấn đề tương thích, chúng tôi khuyên bạn nên cập nhật nhị phân của EN lên v0.9.6 nếu bạn vẫn đang chạy EN ở các phiên bản cũ (`<=` v0.8.2).
+Due to a compatibility issue, we strongly recommend to upgrade EN's binary to v0.9.6 if you have been running an EN with older versions (`<=` v0.8.2). Nếu đây là lần đầu bạn cập nhật EN lên v0.9.x và muốn di chuyển dữ liệu từ phiên bản cũ hơn, bạn phải chỉ định tùy chọn `ADDITIONAL="--db.num-statetrie-partitions 1"` trong tập tin cấu hình khi cài đặt phiên bản mới hơn.

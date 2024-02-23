@@ -1,25 +1,25 @@
 ---
-description: >-
-  Trình bao JavaScript cho API Klaytn xung quanh không gian tên 'net'.
-
+description: |-
+  description: >-
+    Trình bao JavaScript cho API Klaytn xung quanh không gian tên 'net'.
 ---
 
 # caver.klay.net
 
 Gói `caver-klay-net` cho phép bạn tương tác với thuộc tính mạng của các nút Klaytn.
+network properties.
 
 ```javascript
 var Net = require('caver-klay-net');
 
-// "Personal.providers.givenProvider" sẽ được đặt nếu trong trình duyệt được Klaytn hỗ trợ.
+// "Personal.providers.givenProvider" will be set if in a Klaytn supported browser.
 var net = new Net(Net.givenProvider || 'ws://some.local-or-remote.node:8552');
 
-// hoặc sử dụng gói caver
+// or using the caver package
 var Caver = require('caver');
 var caver = new Caver(Caver.givenProvider || 'ws://some.local-or-remote.node:8552');
 // -> caver.klay.net
 ```
-
 
 ## getId <a id="getid"></a>
 
@@ -31,8 +31,8 @@ Nhận ID mạng hiện tại.
 
 **Tham số**
 
-| Tên      | type | Mô tả                                                                                                          |
-| -------- | ---- | -------------------------------------------------------------------------------------------------------------- |
+| Tên      | type | Mô tả                                                                                                                             |
+| -------- | ---- | --------------------------------------------------------------------------------------------------------------------------------- |
 | callback | Hàm  | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
@@ -46,7 +46,6 @@ Nhận ID mạng hiện tại.
 1000
 ```
 
-
 ## isListening <a id="islistening"></a>
 
 ```javascript
@@ -57,13 +56,14 @@ Kiểm tra xem nút có đang nghe các nút ngang hàng hay không.
 
 **Tham số**
 
-| Tên      | Loại | Mô tả                                                                                                          |
-| -------- | ----- | -------------------------------------------------------------------------------------------------------------- |
+| Tên      | Loại | Mô tả                                                                                                                             |
+| -------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
 | callback | Hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
 
 `Promise` trả về `Boolean` - `true` nếu nút đang lắng nghe nút ngang hàng, ngược lại sẽ là `false`.
+`false` otherwise.
 
 **Ví dụ**
 
@@ -71,7 +71,6 @@ Kiểm tra xem nút có đang nghe các nút ngang hàng hay không.
 > caver.klay.net.isListening().then(console.log);
 true
 ```
-
 
 ## getPeerCount <a id="getpeercount"></a>
 
@@ -83,8 +82,8 @@ Nhận số lượng các nút ngang hàng được kết nối đến.
 
 **Tham số**
 
-| Tên      | type | Mô tả                                                                                                          |
-| -------- | ---- | -------------------------------------------------------------------------------------------------------------- |
+| Tên      | type | Mô tả                                                                                                                             |
+| -------- | ---- | --------------------------------------------------------------------------------------------------------------------------------- |
 | callback | Hàm  | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
@@ -108,8 +107,8 @@ Trả về số nút được kết nối theo loại và tổng số nút đư�
 
 **Tham số**
 
-| Tên      | Loại | Mô tả                                                                                                          |
-| -------- | ----- | -------------------------------------------------------------------------------------------------------------- |
+| Tên      | Loại | Mô tả                                                                                                                             |
+| -------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
 | callback | Hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**

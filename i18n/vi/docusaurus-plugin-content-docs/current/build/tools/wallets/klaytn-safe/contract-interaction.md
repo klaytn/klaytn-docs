@@ -4,9 +4,9 @@ Trong phần này, bạn sẽ tương tác và gửi giao dịch đến một h�
 
 **Điều kiện tiên quyết**
 
-* [Metamask](https://metamask.io/download/) & [Cấu hình Klaytn Metamask](../../../tutorials/connecting-metamask#send-klay)
-* [Remix](https://remix.ethereum.org/) & [Plugin Klaytn Remix](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
-* Kiểm tra KLAY từ [Faucet](https://baobab.wallet.klaytn.foundation/faucet)
+- [Metamask](https://metamask.io/download/) & [Cấu hình Klaytn Metamask](../../../tutorials/connecting-metamask#send-klay)
+- [Remix](https://remix.ethereum.org/) & [Plugin Klaytn Remix](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
+- Kiểm tra KLAY từ [Faucet](https://baobab.wallet.klaytn.foundation/faucet)
 
 **Bước 1:** Điều hướng đến [Remix](https://remix.ethereum.org/)
 
@@ -18,7 +18,7 @@ Trước tiên, hợp đồng phải được triển khai trước khi bạn c�
 
 **Bước 3:** Bắt đầu một giao dịch mới.
 
-Để tương tác với hợp đồng thông minh trong ví safe của bạn, hãy nhấp vào **“New Transaction”** Để hoàn tất bước này, bạn sẽ cần địa chỉ hợp đồng đã được triển khai và ABI của mình như được minh họa trong bước trước.
+Để tương tác với hợp đồng thông minh trong ví safe của bạn, hãy nhấp vào **“New Transaction”**. Để hoàn tất bước này, bạn sẽ cần địa chỉ hợp đồng đã được triển khai và ABI của mình như được minh họa trong bước trước.
 
 ![](/img/build/tools/13_contractInit.gif)
 

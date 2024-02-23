@@ -1,15 +1,10 @@
 ---
-설명: >-
-  노드에서 트랜잭션 풀을 검사하는 API입니다.
-
+description: 노드에서 트랜잭션 풀을 검사하는 API입니다.
 ---
 
 # txpool
 
 네임스페이스 `txpool` API를 사용하면 현재 보류 중인 트랜잭션이 포함된 트랜잭션 풀의 내용을 검사할 수 있는 여러 비표준 RPC 메서드에 액세스할 수 있습니다.
-현재 보류 중인 모든 트랜잭션과 향후 처리를 위해 큐에 대기 중인 트랜잭션을 포함하는
-내용을 검사할 수 있습니다.
-
 
 ## txpool_content <a id="txpool_content"></a>
 
@@ -18,13 +13,13 @@
 향후 실행을 위해서만.
 
 그 결과 `pending` 및 `queued` 필드가 두 개 있는 객체가 생성됩니다. 이러한 각 필드는 연관
-배열이며, 각 항목은 출발지 주소를 예약된 트랜잭션 배치에 매핑합니다. 이러한 배치
+배열로, 각 항목은 출발지 주소를 예약된 트랜잭션 배치에 매핑합니다. 이러한 배치
 자체는 nonce를 실제 트랜잭션과 연결하는 맵입니다.
 
-| 클라이언트 | 메서드 호출 |
-|:-------:|-------------------------------------------------------------------------|
-| 콘솔 | `txpool.content` |
-| RPC | `{"method": "txpool_content"}` |
+| 클라이언트 | 메서드 호출                         |
+| :---: | ------------------------------ |
+|   콘솔  | `txpool.content`               |
+|  RPC  | `{"method": "txpool_content"}` |
 
 **매개변수**
 
@@ -32,8 +27,8 @@
 
 **리턴 값**
 
-| 유형 | 설명 |
-| --- | --- |
+| 유형          | 설명             |
+| ----------- | -------------- |
 | JSON string | 트랜잭션 풀의 내용입니다. |
 
 **예시**
@@ -132,13 +127,14 @@
   }
 }
 ```
+
 HTTP RPC
+
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"txpool_content","id":1}' https://public-en-baobab.klaytn.net
 {"jsonrpc":"2.0","id":1,"result":{"pending":{},"queued":{}}}
 #There is no pending transaction nor queued transaction.
 ```
-
 
 ## txpool_inspect <a id="txpool_inspect"></a>
 
@@ -148,13 +144,13 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"tx
 트랜잭션을 빠르게 확인하고 잠재적인 문제를 찾을 수 있도록 개발자에게 특별히 맞춤화된 방법입니다.
 
 그 결과 `pending` 및 `queued` 필드가 두 개 있는 객체가 생성됩니다. 이러한 각 필드는 연관
-배열로, 각 항목은 출발지 주소를 예약된 트랜잭션 배치에 매핑합니다. 이러한 배치
+배열이며, 각 항목은 출발지 주소를 예약된 트랜잭션 배치에 매핑합니다. 이러한 배치
 자체는 nonce를 트랜잭션 요약 문자열과 연결하는 맵입니다.
 
-| 클라이언트 | 메서드 호출 |
-|:-------:|----------------------------------------------------------------|
-| 콘솔 | `txpool.inspect` |
-| RPC | `{"method": "txpool_inspect"}` |
+| 클라이언트 | 메서드 호출                         |
+| :---: | ------------------------------ |
+|   콘솔  | `txpool.inspect`               |
+|  RPC  | `{"method": "txpool_inspect"}` |
 
 **매개변수**
 
@@ -162,13 +158,14 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"tx
 
 **리턴 값**
 
-| 유형 | 설명 |
-| --- | --- |
+| 유형          | 설명                       |
+| ----------- | ------------------------ |
 | JSON string | 보류 중 및 대기 중인 트랜잭션 목록입니다. |
 
 **예시**
 
 콘솔
+
 ```javascript
 > txpool.inspect
 {
@@ -218,6 +215,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"tx
   }
 }
 ```
+
 HTTP RPC
 
 ```shell
@@ -225,19 +223,16 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"tx
 {"jsonrpc":"2.0","id":1,"result":{"pending":{"0x1A789E38cD567a00b7Fb8e1D39100ac395fa463B":{"0":"0x87AC99835e67168d4f9a40580f8F5C33550bA88b: 0 peb + 99000000 gas × 25000000000 peb"},"0xAb552FC3d76de919c74435A4C6B04576a9763934":{"0":"0x87AC99835e67168d4f9a40580f8F5C33550bA88b: 0 peb + 99000000 gas × 25000000000 peb"}},"queued":{}}}
 ```
 
-
 ## txpool_status <a id="txpool_status"></a>
 
-`status` 검사 속성은 현재 보류 중인 트랜잭션 수에 대해 쿼리할 수 있습니다.
 다음 블록에 포함하기 위해 보류 중인 트랜잭션과 향후 실행을 위해 예약된 트랜잭션만 조회할 수 있습니다.
 
 결과는 두 개의 필드 `pending`과 `queued`이 있는 객체이며, 각 필드는 특정 상태의 트랜잭션 수를 나타내는 카운터입니다.
-트랜잭션의 수를 나타내는 카운터입니다.
 
-| 클라이언트 | 메서드 호출 |
-|:-------:|-----------------------------------------------|
-| 콘솔 | `txpool.status` |
-| RPC | `{"method": "txpool_status"}` |
+| 클라이언트 | 메서드 호출                        |
+| :---: | ----------------------------- |
+|   콘솔  | `txpool.status`               |
+|  RPC  | `{"method": "txpool_status"}` |
 
 **매개변수**
 
@@ -245,10 +240,10 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"tx
 
 **리턴 값**
 
-| 이름 | 유형 | 설명 |
-| --- | --- | --- |
-| pending | int | 보류 중인 트랜잭션의 수입니다. |
-| queued | int | 대기 중인 트랜잭션의 수입니다. |
+| 이름      | 유형  | 설명                |
+| ------- | --- | ----------------- |
+| pending | int | 대기 중인 트랜잭션의 수입니다. |
+| queued  | int | 보류 중인 트랜잭션의 수입니다. |
 
 **예시**
 
@@ -261,6 +256,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"tx
   queued: 7
 }
 ```
+
 HTTP RPC
 
 ```shell

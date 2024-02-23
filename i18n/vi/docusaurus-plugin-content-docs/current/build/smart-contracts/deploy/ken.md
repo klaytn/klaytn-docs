@@ -4,13 +4,13 @@
 
 Trước khi bắt đầu, hãy làm quen với một số thuật ngữ riêng của Klaytn.
 
-* **Nút điểm cuối \(EN\)**: Nút xử lý các yêu cầu API JSON-RPC gửi đến mạng lưới Klaytn. Nút điểm cuối không tham gia vào thuật toán đồng thuận.
-* **KLAY**: đồng tiền mặc định của Klaytn.
-* **caver-js**: Triển khai JavaScript của API JSON-RPC của Klaytn.
-* **Baobab**: mạng thử nghiệm của Klaytn
-* **Cypress**: mạng chính thức của Klaytn
+- **Nút điểm cuối (EN)**: Nút xử lý các yêu cầu API JSON-RPC gửi đến mạng lưới Klaytn. Nút điểm cuối không tham gia vào thuật toán đồng thuận.
+- **KLAY**: đồng tiền mặc định của Klaytn.
+- **caver-js**: Triển khai JavaScript của API JSON-RPC của Klaytn.
+- **Baobab**: mạng thử nghiệm của Klaytn
+- **Cypress**: mạng chính thức của Klaytn
 
-Hướng dẫn từng bước này sẽ hỗ trợ bạn trong quá trình khởi chạy Nút điểm cuối \(EN\) của mạng thử nghiệm Baobab và xây dựng hợp đồng thông minh cơ bản bằng tài khoản mới của bạn. Hướng dẫn này bao gồm hai phần, thiết lập một EN và triển khai một hợp đồng thông mình qua EN của bạn.
+Hướng dẫn từng bước này sẽ hỗ trợ bạn trong quá trình khởi chạy Nút điểm cuối (EN) của mạng thử nghiệm Baobab và xây dựng hợp đồng thông minh cơ bản bằng tài khoản mới của bạn. Hướng dẫn này bao gồm hai phần, thiết lập một EN và triển khai một hợp đồng thông mình qua EN của bạn.
 
 > Hướng dẫn này sử dụng mạng thử nghiệm **Baobab** bởi vì việc triển khai hợp đồng thông minh và gửi giao dịch sẽ cần đến phí giao dịch tính bằng KLAY. Vì mục đích phát triển, bạn có thể nhận KLAY cho mạng thử nghiệm từ [vòi Baobab](https://baobab.wallet.klaytn.foundation/faucet).
 
@@ -18,7 +18,9 @@ Hướng dẫn từng bước này sẽ hỗ trợ bạn trong quá trình khở
 
 ### Tải xuống và khởi chạy nút điểm cuối (EN) <a href="#download-and-initialize-an-endpoint-node-en" id="download-and-initialize-an-endpoint-node-en"></a>
 
-Giải nén [gói nhị phân ken](../../../nodes/downloads/downloads.md#get-the-packages) và sao chép các tập tin vào thư mục klaytn.\
+Giải nén [gói nhị phân ken](../../../nodes/downloads/downloads.md#get-the-packages) và sao chép các tập tin vào thư mục klaytn.
+**Lưu ý**: Hãy tải về gói phù hợp có tên bắt đầu bằng `ken`.
+
 **Lưu ý**: Hãy tải về gói phù hợp có tên bắt đầu bằng `ken`.
 
 Đối với người dùng Mac, hãy giải nén tập tin đã tải về bằng lệnh sau.
@@ -70,7 +72,7 @@ $ kend start
 Để kiểm tra xem EN có đang chạy hay không, hãy thực thi lệnh sau.
 
 ```bash
-$ kend trạng thái
+$ kend status
 kend is running
 ```
 
@@ -79,7 +81,7 @@ kend is running
 Để kiểm tra bản ghi của EN, hãy thực thi lệnh sau.
 
 ```bash
-$ tail -f ~/kend_home/nhật ký/kend.out
+$ tail -f ~/kend_home/logs/kend.out
 ...
 INFO[03/26,15:37:49 +09] [5] Imported new chain segment                blocks=1    txs=0  mgas=0.000  elapsed=2.135ms   mgasps=0.000    number=71340 hash=f15511…c571da cache=155.56kB
 ...
@@ -102,7 +104,7 @@ Welcome to the Klaytn JavaScript console
 !instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
  datadir: ~/kend_home
  modules: admin:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0
-
+ 
  >
 ```
 
@@ -118,7 +120,7 @@ Welcome to the Klaytn JavaScript console
 > personal.newAccount()
 Passphrase:  # enter your passphrase
 Repeat passphrase:
-"0x75a59b94889a05c03c66c3c84e9d2f8308ca4abd" # created tài khoản address
+"0x75a59b94889a05c03c66c3c84e9d2f8308ca4abd" # created account address
 ```
 
 Tập tin lưu trữ khóa sẽ được tạo trong thư mục `keystore` thuộc thư mục dữ liệu EN, `DATA_DIR` đặt trong `kend.conf`. Nếu bạn làm theo hướng dẫn mặc định bắt đầu nhanh, thư mục đó sẽ là `~/kend_home/keystore/`.
@@ -130,34 +132,41 @@ UTC--2019-06-24T11-20-15.590879000Z--75a59b94889a05c03c66c3c84e9d2f8308ca4abd
 
 ### Mở khóa tài khoản Klaytn <a id="unlocking-the-klaytn-account"></a>
 
-Để mở khóa một tài khoản đã tạo, hãy thực thi lệnh sau. Lệnh này sẽ mở khóa tài khoản trong 300 giây. **Lưu ý**: Nếu bạn muốn đặt thời gian mở khóa theo cách thủ công, hãy tham khảo [liên kết](../../../references/json-rpc/personal.md#personal_unlockaccount) này. **`CẢNH BÁO`**: Việc mở khóa một tài khoản có thể rất nguy hiểm nếu không được thực hiện thận trọng. Có khả năng token của bạn sẽ bị hacker lấy mất nếu hacker xâm nhập được EN của bạn. Để sử dụng phương pháp an toàn hơn, hãy tham khảo mục [hướng dẫn triển khai bằng mã khóa riêng tư](../../tutorials/count-dapp/deploy-contracts.md#deploy-method-1-by-private-key)
+Để mở khóa một tài khoản đã tạo, hãy thực thi lệnh sau. Lệnh này sẽ mở khóa tài khoản trong 300 giây.
+
+**Lưu ý**: Nếu bạn muốn đặt thời gian mở khóa theo cách thủ công, hãy tham khảo [liên kết](../../../references/json-rpc/personal.md#personal_unlockaccount) này.
+
+**`CẢNH BÁO`**: Việc mở khóa một tài khoản có thể rất nguy hiểm nếu không được thực hiện thận trọng. Có khả năng token của bạn sẽ bị hacker lấy mất nếu hacker xâm nhập được EN của bạn. Để sử dụng phương pháp an toàn hơn, hãy tham khảo mục [hướng dẫn triển khai bằng mã khóa riêng tư](../../tutorials/count-dapp/deploy-contracts.md#deploy-method-1-by-private-key)
 
 ```javascript
-> personal.unlockAccount('75a59b94889a05c03c66c3c84e9d2f8308ca4abd') # tài khoản address to unlock
-Unlock tài khoản 75a59b94889a05c03c66c3c84e9d2f8308ca4abd
+> personal.unlockAccount('75a59b94889a05c03c66c3c84e9d2f8308ca4abd') # account address to unlock
+Unlock account 75a59b94889a05c03c66c3c84e9d2f8308ca4abd
 Passphrase: # enter your passphrase
 true
 ```
 
 ### Nhận KLAY cho mạng thử nghiệm từ Vòi Baobab <a id="getting-testnet-klay-from-the-baobab-faucet"></a>
 
-* Sử dụng vòi Baobab trong Ví Klaytn.
-* Truy cập [https://baobab.wallet.klaytn.foundation](https://baobab.wallet.klaytn.foundation/).
-* Bạn có thể tạo tài khoản mới từ Ví, hoặc dùng tập tin lưu trữ khóa mà bạn đã tạo từ bảng điều khiển JavaScript EN ở trên để đăng nhập vào Ví.
-* Đi đến “Vòi KLAY” từ trình đơn ngăn bên trái, nhấp vào nút “Run Faucet” để nhận 150 KLAY.
+- Sử dụng vòi Baobab trong Ví Klaytn.
+
+- Truy cập [https://baobab.wallet.klaytn.foundation](https://baobab.wallet.klaytn.foundation/).
+
+- Bạn có thể tạo tài khoản mới từ Ví, hoặc dùng tập tin lưu trữ khóa mà bạn đã tạo từ bảng điều khiển JavaScript EN ở trên để đăng nhập vào Ví.
+
+- Đi đến “Vòi KLAY” từ trình đơn ngăn bên trái, nhấp vào nút “Run Faucet” để nhận 150 KLAY.
 
   Bạn có thể mở vòi KLAY mỗi 24 giờ một lần.
 
-* Nếu bạn đã tạo một tài khoản mới để nhận KLAY, hãy gửi số KLAY đó đến tài khoản đã được tạo trên EN.
+- Nếu bạn đã tạo một tài khoản mới để nhận KLAY, hãy gửi số KLAY đó đến tài khoản đã được tạo trên EN.
 
 ### Kiểm tra số dư trong tài khoản <a id="checking-the-balance-in-your-account"></a>
 
 Để xem số dư của tài khoản, hãy thực thi lệnh sau.
 
-Đơn vị mặc định là peb \(1 KLAY = 10^18 peb\). Bạn có thể tìm hiểu thêm thông tin về các đơn vị của KLAY trong phần [Các đơn vị của KLAY](../../../learn/klaytn-native-coin-klay.md#units-of-klay).
+Đơn vị mặc định là peb (1 KLAY = 10^18 peb). Bạn có thể tìm hiểu thêm thông tin về các đơn vị của KLAY trong phần [Các đơn vị của KLAY](../../../learn/klaytn-native-coin-klay.md#units-of-klay).
 
 ```javascript
-> klay.getBalance('75a59b94889a05c03c66c3c84e9d2f8308ca4abd') # enter your tài khoản address
+> klay.getBalance('75a59b94889a05c03c66c3c84e9d2f8308ca4abd') # enter your account address
 1e+21  # 1000 KLAY
 ```
 
@@ -182,7 +191,7 @@ $ mkdir $HOME/klaytn
 
 > Bạn cần cài đặt `npm` và `node.js` để tiếp tục. Vui lòng tham khảo [get-npm](https://www.npmjs.com/get-npm) và [node.js](https://nodejs.org/en/) để xem cách cài đặt trên hệ thống của bạn.
 
-[caver-js](../../../references/sdk/caver-js/caver-js.md) là bộ khung RPC JSON dành cho mạng lưới Klaytn \(tương đương với web3.js trong Ethereum\). Trước khi cài đặt caver-js, bạn phải tạo tập tin `package.json` qua lệnh `npm init`, sau đó gõ `npm install caver-js` để cài đặt caver-js.
+[caver-js](../../../references/sdk/caver-js/caver-js.md) là bộ khung RPC JSON dành cho mạng lưới Klaytn (tương đương với web3.js trong Ethereum). Trước khi cài đặt caver-js, bạn phải tạo tập tin `package.json` qua lệnh `npm init`, sau đó gõ `npm install caver-js` để cài đặt caver-js.
 
 ```bash
 $ npm init # initialize npm at the klaytn project directory
@@ -207,27 +216,27 @@ npm ERR! git Refusing to remove it. Update manually,
 npm ERR! git or move it out of the way first.
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /Users/username/.npm/_nhật ký/2019-06-25T01_49_37_032Z-debug.log​
+npm ERR!     /Users/username/.npm/_logs/2019-06-25T01_49_37_032Z-debug.log​
 
 $ rm /Users/username/klaytn/node_modules/websocket/.git
 ```
 
 **Lưu ý:** Đối với tất cả các chức năng gọi ra hàm bắt đầu bằng `web3.eth...` in web3.js, nên được thay thế bằng `caver.klay...`.
 
-`web3.eth.sendTransaction({ ... })` \(X\)
+`web3.eth.sendTransaction({ ... })` (X)
 
-`caver.klay.sendTransaction({ ... })` \(O\)
+`caver.klay.sendTransaction({ ... })` (O)
 
 ### Cài đặt Truffle <a id="installing-truffle"></a>
 
 Trong bài hướng dẫn này, Truffle được sử dụng để lập và triển khai hợp đồng thông minh được viết bằng Solidity. Hiện tại, Klaytn hỗ trợ Truffle phiên bản 4.1.15. Để biết thêm thông tin về Truffle, hãy tham khảo các trang sau:
 
-* Kho lưu trữ Truffle - [https://github.com/trufflesuite/truffle](https://github.com/trufflesuite/truffle)
-* Tài liệu Truffle - [https://trufflesuite.com/docs](https://trufflesuite.com/docs)​
+- Kho lưu trữ Truffle - [https://github.com/trufflesuite/truffle](https://github.com/trufflesuite/truffle)
+- Tài liệu Truffle - [https://trufflesuite.com/docs](https://trufflesuite.com/docs)​
 
 Chúng ta có thể cài đặt Truffle theo hai cách
 
-1\) theo cách toàn cục bằng npm, thực thi các lệnh sau:
+- 1\) theo cách toàn cục bằng npm, thực thi các lệnh sau:
 
 ```bash
 $ sudo npm install -g truffle@4.1.15
@@ -238,7 +247,7 @@ $ cd -
 
 hoặc
 
-2\) theo cách cục bộ, nghĩa là tại thư mục trong máy bạn, thực thi các lệnh sau:
+- 2\) theo cách cục bộ, nghĩa là tại thư mục trong máy bạn, thực thi các lệnh sau:
 
 ```bash
 # Assuming you are in $HOME/klaytn/.
@@ -256,8 +265,8 @@ vvisp là một công cụ/bộ khung cli dễ sử dụng để phát triển c
 
 Ở đây, chúng tôi giới thiệu cách cài đặt vvisp và sử dụng công cụ này để thiết lập môi trường phát triển Klaytn dApp.
 
-* kho lưu trữ vvisp - [https://github.com/HAECHI-LABS/vvisp](https://github.com/HAECHI-LABS/vvisp)
-* tài liệu vvisp - [https://github.com/HAECHI-LABS/vvisp/blob/dev/README\_KLAYTN.md](https://github.com/HAECHI-LABS/vvisp/blob/dev/README_KLAYTN.md)
+- kho lưu trữ vvisp - [https://github.com/HAECHI-LABS/vvisp](https://github.com/HAECHI-LABS/vvisp)
+- tài liệu vvisp - [https://github.com/HAECHI-LABS/vvisp/blob/dev/README_KLAYTN.md](https://github.com/HAECHI-LABS/vvisp/blob/dev/README_KLAYTN.md)
 
 bạn có thể dễ dàng cài đặt vvisp nếu có npm hoặc yarn bằng cách thực thi lệnh sau:
 
@@ -381,7 +390,7 @@ module.exports = function(deployer) {
 
 Nhập thông tin mạng của Klaytn vào truffle.js.
 
-**`WARNING`**: Hiện tại, gasPrice của mạng Baobab Klaytn được đặt cố định là 25 Gpeb \(**Kết quả trả về là lỗi nếu bạn cố gắng dùng số khác**\).
+**`WARNING`**: Hiện tại, gasPrice của mạng Baobab Klaytn được đặt cố định là 25 Gpeb (**Kết quả trả về là lỗi nếu bạn cố gắng dùng số khác**).
 
 ```bash
 $ cd ..
@@ -397,7 +406,7 @@ module.exports = {
         klaytn: {
             host: '127.0.0.1',
             port: 8551,
-            from: '0x75a59b94889a05c03c66c3c84e9d2f8308ca4abd', // enter your tài khoản address
+            from: '0x75a59b94889a05c03c66c3c84e9d2f8308ca4abd', // enter your account address
             network_id: '1001', // Baobab network id
             gas: 20000000, // transaction gas limit
             gasPrice: 25000000000, // gasPrice of Baobab is 25 Gpeb
@@ -448,7 +457,7 @@ Error: authentication needed: password or unlock
 
 ```javascript
 > personal.unlockAccount('0x775a59b94889a05c03c66c3c84e9d2f8308ca4abd')
-Unlock tài khoản 0x75a59b94889a05c03c66c3c84e9d2f8308ca4abd
+Unlock account 0x75a59b94889a05c03c66c3c84e9d2f8308ca4abd
 Passphrase:
 true
 ```
@@ -490,7 +499,7 @@ $ node test-klaytn.js
 
 Dùng JavaScript để gọi ra`greet()` trong hợp đồng.
 
-**LƯU Ý**: Để gọi ra các hàm cụ thể trong hợp đồng thông minh, bạn cần tập tin ABI \(Giao dịch nhị phân ứng dụng\). Khi triển khai hợp đồng của bạn, Truffle sẽ tự động tạo một tập tin .json tại `./build/contracts/` trong đó có chứa thuộc tính `abi`.
+**LƯU Ý**: Để gọi ra các hàm cụ thể trong hợp đồng thông minh, bạn cần tập tin ABI (Giao dịch nhị phân ứng dụng). Khi triển khai hợp đồng của bạn, Truffle sẽ tự động tạo một tập tin .json tại `./build/contracts/` trong đó có chứa thuộc tính `abi`.
 
 Nối các dòng sau vào mã kiểm tra được viết ở trên.
 

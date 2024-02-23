@@ -14,11 +14,11 @@ sidebar_label: Web3Auth
 
 ## 전제 조건
 
-* 작동하는 리액트 프로젝트(`npx create-react-app project-name` 실행)
-* 필요한 지갑 설치([Coinbase Wallet](https://www.coinbase.com/wallet/downloads), [MetaMask](https://metamask.io/download/)).
-* RPC 엔드포인트: 지원되는 [엔드포인트 공급자](../../../../references/service-providers/public-en.md) 중 하나에서 얻을 수 있습니다.
-* [Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 KLAY 테스트: 충분한 KLAY로 계정에 자금을 충전합니다.
-* [Web3Auth 대시보드](https://dashboard.web3auth.io/)에서 클라이언트 ID를 받습니다.
+- 작동하는 리액트 프로젝트(`npx create-react-app project-name` 실행)
+- 필요한 지갑 설치([Coinbase Wallet](https://www.coinbase.com/wallet/downloads), [MetaMask](https://metamask.io/download/)).
+- RPC 엔드포인트: 지원되는 [엔드포인트 공급자](../../../../references/service-providers/public-en.md) 중 하나에서 얻을 수 있습니다.
+- [Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 KLAY 테스트: 충분한 KLAY로 계정에 자금을 충전합니다.
+- [Web3Auth 대시보드](https://dashboard.web3auth.io/)에서 클라이언트 ID를 받습니다.
 
 ## 설치
 
@@ -229,6 +229,7 @@ return (
 ```
 
 ## 사용자 정보 가져오기
+
 Web3Auth의 고유한 기능은 소셜 로그인입니다. 사용자가 소셜 플랫폼을 사용하여 로그인하면 Web3Auth 인스턴스는 로그인한 사용자에 대한 몇 가지 정보를 반환합니다. 로그인한 사용자 정보를 가져오는 방법은 Web3Auth 인스턴스에서 getUserInfo() 메서드를 호출하는 것만큼 간단합니다.
 
 ```js
@@ -339,7 +340,7 @@ return (
 
 ## 스마트 컨트랙트로 작업하기
 
-1. **컨트랙트 배포하기**
+### 1. Deploying a Contract
 
 애플리케이션 바이너리 인터페이스(ABI)와 컨트랙트 바이트 코드가 주어지면 스마트 컨트랙트를 배포할 수 있습니다.
 
@@ -422,7 +423,7 @@ return (
 
 Web3Auth 공급자 및 서명자 개체를 사용하면 블록체인에 배포된 스마트 컨트랙트에 쓰기 및 읽기와 같은 컨트랙트 상호 작용을 할 수 있습니다.
 
-2. **컨트랙트 작성하기**
+### 2. Writing to a Contract
 
 ```js
   // add to existing useState hook
@@ -511,7 +512,7 @@ return (
 );
 ```
 
-3. **컨트랙트에서 읽기**
+### 3. Reading from a Contract
 
 ```js
 // add to existing useState hook
@@ -598,4 +599,5 @@ BREAKING CHANGES: webpack<5 used to include polyfills for node.js core modules b
 이 오류는 웹팩 버전 5를 사용할 때 발생합니다. 이 버전에서는 NodeJS 폴리필이 더 이상 기본적으로 지원되지 않습니다. 이 문제를 해결하려면 이 [가이드](https://web3auth.io/docs/troubleshooting/webpack-issues)를 참조하세요.
 
 ## 다음 단계
+
 Web3Auth에 대한 자세한 가이드는 [Web3Auth 문서](https://web3auth.io/docs/connect-blockchain/klaytn) 및 [Web3Auth Github 리포지토리](https://github.com/web3auth)를 참조하세요. 또한 이 가이드에 사용된 코드의 전체 구현은 [GitHub](https://github.com/klaytn/examples/tree/main/wallet-libraries/web3Auth-sample)에서 확인할 수 있습니다.

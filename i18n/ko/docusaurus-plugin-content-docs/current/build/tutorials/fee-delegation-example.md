@@ -2,18 +2,18 @@
 
 ## 목차 <a href="#table-of-contents" id="table-of-contents"></a>
 
-* [1. 소개](#1-introduction)
-* [2.수수료 위임의 작동 방식](#2-how-fee-delegation-works)
-  * 2.1 발신자의 트랜잭션 서명
-  * 2.2 수수료 납부자의 트랜잭션 서명
-* [3. 수수료 대납을 위한 간단한 서버와 클라이언트](#3-simple-server-and-client-for-fee-delegation)
-  * 3.1 발신자 클라이언트
-  * 3.2 수수료 납부자 서버
-* [4. 실행 예제](#4-run-example)
-  * 4.1 `feepayer_server.js` 실행
-  * 4.2 `발신자_클라이언트.js` 실행
-  * 4.3 `feepayer_server.js` 확인
-  * 4.4 클레이튼 스코프
+- [1. 소개](#1-introduction)
+- [2. [2.수수료 위임의 작동 방식](#2-how-fee-delegation-works)
+  - 2.1 발신자의 트랜잭션 서명
+  - 2.2 수수료 납부자의 트랜잭션 서명
+- [3. 수수료 대납을 위한 간단한 서버와 클라이언트](#3-simple-server-and-client-for-fee-delegation)
+  - 3.1 발신자 클라이언트
+  - 3.2 수수료 납부자 서버
+- [4. 실행 예제](#4-run-example)
+  - 4.1 `feepayer_server.js` 실행
+  - 4.2 `발신자_클라이언트.js` 실행
+  - 4.3 `feepayer_server.js` 확인
+  - 4.4 클레이튼 스코프
 
 ## 1. 소개 <a href="#1-introduction" id="1-introduction"></a>
 
@@ -40,7 +40,7 @@ const { rawTransaction: senderRawTransaction } = await caver.klay.accounts.signT
   from: senderAddress,
   to: toAddress,
   gas: '300000',
-  value: caver.utils.toPeb('1', `klay`),
+  value: caver.utils.toPeb('1', 'KLAY'),
 }, senderPrivateKey)
 ```
 
@@ -111,7 +111,7 @@ sendFeeDelegateTx = async() => {
       from: senderAddress,
       to: toAddress,
       gas: '300000',
-      value: caver.utils.toPeb('0.00001', `klay`),
+      value: caver.utils.toPeb('0.00001', 'KLAY'),
     }, senderPrivateKey)
 
     // send signed raw transaction to fee payer's server
@@ -189,7 +189,7 @@ console.log('Fee delegate service started ...');
 
 ## 4. 실행 예제 <a href="#4-run-example" id="4-run-example"></a>
 
-두 개의 터미널을 준비합니다. 하나는 `sender_client.js`용, 다른 하나는 `feepayer_server.js`용입니다.
+하나는 `sender_client.js`용, 다른 하나는 `feepayer_server.js`용입니다.
 
 ### 4.1 `feepayer_server.js` 실행하기 <a href="#4-1-run-feepayer_server-js" id="4-1-run-feepayer_server-js"></a>
 

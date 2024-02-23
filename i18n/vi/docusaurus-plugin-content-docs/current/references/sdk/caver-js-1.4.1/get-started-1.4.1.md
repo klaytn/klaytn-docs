@@ -6,17 +6,17 @@
 
 Cần có các gói sau đây để dùng thư viện caver-js.
 
-* [Node.js](https://nodejs.org/en/download/)
-* [npm](https://www.npmjs.com/get-npm)
-* [gcc-c++](https://gcc.gnu.org/)
-* [Trình biên dịch Solidity](https://solidity.readthedocs.io/en/develop/installing-solidity.html)
+- [Node.js](https://nodejs.org/en/download/)
+- [npm](https://www.npmjs.com/get-npm)
+- [gcc-c++](https://gcc.gnu.org/)
+- [Trình biên dịch Solidity](https://solidity.readthedocs.io/en/develop/installing-solidity.html)
 
 **Lưu ý** caver-js có thể chạy trên Node.js phiên bản 8 và 10, và các phiên bản được khuyên dùng là:
 
-* lts/carbon \([8.16.0](https://nodejs.org/dist/latest-v8.x/)\)
-* lts/dubnium \([10.16.0](https://nodejs.org/dist/latest-v10.x/)\)
+- lts/carbon ([8.16.0](https://nodejs.org/dist/latest-v8.x/))
+- lts/dubnium ([10.16.0](https://nodejs.org/dist/latest-v10.x/))
 
-Nếu bạn đã dùng một phiên bản khác của Node \(ví dụ như Node v12\), hãy dùng Trình quản lý phiên bản Node\([VNM](https://github.com/nvm-sh/nvm)\) để cài đặt và sử dụng phiên bản được caver-js hỗ trợ.
+Nếu bạn đã dùng một phiên bản khác của Node (ví dụ như Node v12), hãy dùng Trình quản lý phiên bản Node([VNM](https://github.com/nvm-sh/nvm)) để cài đặt và sử dụng phiên bản được caver-js hỗ trợ.
 
 ### Cài đặt <a id="installation"></a>
 
@@ -61,23 +61,23 @@ $ node
 Bạn có thể dùng `caver-js` để tạo một tài khoản như dưới đây. Bạn cũng có thể tạo một tài khoản qua [Ví Klaytn](../../../build/tools/wallets/klaytn-wallet.md#create-a-new-account).
 
 ```text
-> const tài khoản = caver.klay.tài khoảns.create()
+> const account = caver.klay.accounts.create()
 
-> tài khoản
+> account
 { address: '0x3bd32d55e64d6cbe54bec4f5200e678ee8d1a990',
   privateKey: '0x{private key}',
   ... }
 ```
 
-**Lưu ý**: Các hàm liên quan đến [caver.klay.tài khoảns][] không có tác dụng đối với mạng lưới Klaytn thật.
+**Lưu ý**: Các hàm liên quan đến \[caver.klay.tài khoảns]\[] không có tác dụng đối với mạng lưới Klaytn thật.
 
 ### Thêm tài khoản vào caver-js <a id="add-accounts-to-caver-js"></a>
 
 Bạn có thể dễ dàng dùng tài khoản của mình bằng cách sử dụng ví trong bôn nhớ mà caver-js cung cấp. Các ví dụ dưới đây minh họa cách để thêm một tài khoản vào ví bằng một đối tượng tài khoản và một tập tin lưu trữ khóa được tạo bởi Ví Klaytn.
 
 ```text
-// Using an tài khoản object
-> caver.klay.tài khoảns.wallet.add(caver.klay.tài khoảns.create())
+// Using an account object
+> caver.klay.accounts.wallet.add(caver.klay.accounts.create())
 { 
     address: '0xebec0df19ed2f8b4070dec94d55a69077c544403',
     privateKey: '0x{private key}',
@@ -89,7 +89,7 @@ Bạn có thể dễ dàng dùng tài khoản của mình bằng cách sử dụ
 }
 
 // Using a keystore file.
-> const decryptedAccount = caver.klay.tài khoảns.decrypt({
+> const decryptedAccount = caver.klay.accounts.decrypt({
         "version": 3,
         "id": "7c05d545-85ce-46c9-b6e9-9110d6597931",
         "address": "0x460406d822b5908504353deabc890e0de61eb42b",
@@ -110,7 +110,7 @@ Bạn có thể dễ dàng dùng tài khoản của mình bằng cách sử dụ
             "mac": "99e4c25ac8acf1571d4161f2c40db92a391aefd42ec871e23601a7af446432a7"
         }
     }, 'password')
-> caver.klay.tài khoảns.wallet.add(decryptedAccount)
+> caver.klay.accounts.wallet.add(decryptedAccount)
 { 
     address: '0x460406d822b5908504353deabc890e0de61eb42b',
     privateKey: '0x{private key}',
@@ -136,14 +136,14 @@ Nếu bạn cần KLAY để thử nghiệm, bạn có thể nhận KLAY dùng t
 Bạn có thể sử dụng ví caver-js để tạo chữ ký của giao dịch. Nếu bạn có một tài khoản trong ví caver-js, việc tạo chữ ký sẽ được thực hiện bằng khóa riêng tư bên trong ví caver-js khi bạn thực thi `caver.klay.sendTransaction`. Lưu ý rằng `caver.klay.sendTransaction` thực hiể cả việc tạo chữ ký và gửi giao dịch cùng một lúc.
 
 ```text
-// If you have not added an tài khoản to caver-js's wallet, add it to your wallet by running 'caver.klay.tài khoảns.wallet.add'.
-// If the same tài khoản is already in the wallet, 'Error: Account exists with {hex in address}' is returned. Trong trường hợp này, bạn có thể dùng chuỗi địa chỉ trong trường `from` để tham chiếu đến tài khoản trong ví.
+// If you have not added an account to caver-js's wallet, add it to your wallet by running 'caver.klay.accounts.wallet.add'.
+// If the same account is already in the wallet, 'Error: Account exists with {hex in address}' is returned. In this case, you can use the address string in the `from` field to reference the account in the wallet.
 
-> const tài khoản = caver.klay.tài khoảns.wallet.add('0x{private key}')
+> const account = caver.klay.accounts.wallet.add('0x{private key}')
 
 > caver.klay.sendTransaction({
     type: 'VALUE_TRANSFER',
-    from: tài khoản.address',
+    from: account.address',
     to: '0xeF5cd886C7f8d85fbe8023291761341aCBb4DA01',
     gas: '300000',
     value: 1,
@@ -154,7 +154,7 @@ Bạn có thể sử dụng ví caver-js để tạo chữ ký của giao dịch
     contractAddress: null,
     from: '0x3bd32d55e64d6cbe54bec4f5200e678ee8d1a990',
     ...
-    trạng thái: true,
+    status: true,
     to: '0xef5cd886c7f8d85fbe8023291761341acbb4da01',
     transactionHash: '0xb09f6d26734074a259f6cbe4d509d2bf40f6f0a4559081354527ae211dd9d00f',
     transactionIndex: 1,
@@ -174,7 +174,7 @@ Trước tiên, để ký giao dịch, hãy chỉ định người gửi, ngư�
 **Lưu ý:** Người gửi phải có đủ lượng KLAY.
 
 ```text
-> caver.klay.tài khoảns.signTransaction({
+> caver.klay.accounts.signTransaction({
     type: 'VALUE_TRANSFER',
     from: '0x71959675eeb7c7ec1e0c74f206a9c488d7f178d4',
     to: '0xeF5cd886C7f8d85fbe8023291761341aCBb4DA01',
@@ -185,7 +185,7 @@ Trước tiên, để ký giao dịch, hãy chỉ định người gửi, ngư�
   })
 ```
 
-Bạn có thể nhận một giao dịch mã hóa RLP \(`rawTransaction`\) bằng [caver.klay.tài khoảns.signTransaction][] như trên, và dùng nó để chuyển giao dịch đến mạng lưới Klaytn như dưới đây.
+Bạn có thể nhận một giao dịch mã hóa RLP (`rawTransaction`) bằng \[caver.klay.tài khoảns.signTransaction]\[] như trên, và dùng nó để chuyển giao dịch đến mạng lưới Klaytn như dưới đây.
 
 ```text
 > caver.klay.sendSignedTransaction(rawTransaction).on('transactionHash', console.log)
@@ -209,7 +209,7 @@ Ví dụ dưới đây cho thấy cách để nhận biên lai bằng đối tư
     contractAddress: null,
     from: '0x71959675eeb7c7ec1e0c74f206a9c488d7f178d4',
     ...
-    trạng thái: true,
+    status: true,
     to: '0xef5cd886c7f8d85fbe8023291761341acbb4da01',
     transactionHash: '0xac418c96f7386a3343d149eeb29e48e28905525dda2e5afe55b0661f9ab01aca',
     transactionIndex: 0,
@@ -226,7 +226,7 @@ Ví dụ dưới đây cho thấy cách để nhận biên lai bằng đối tư
     contractAddress: null,
     from: '0x71959675eeb7c7ec1e0c74f206a9c488d7f178d4',
     ...
-    trạng thái: true,
+    status: true,
     to: '0xef5cd886c7f8d85fbe8023291761341acbb4da01',
     transactionHash: '0xac418c96f7386a3343d149eeb29e48e28905525dda2e5afe55b0661f9ab01aca',
     transactionIndex: 0,
@@ -248,8 +248,8 @@ Như mô tả trong ví dụ trên, bạn có thể nhận được kết quả 
     gas: '0x493e0',
     gasPrice: '0x5d21dba00',
     gasUsed: 21000,
-    nhật ký: [],
-    nhật kýBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+    logs: [],
+    logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
     nonce: '0x2',
     senderTxHash: '0xbad4dd6d80beda6c04d90f1db7e4179557ab48423d4f14295b33e38a9418e59f',
     signatures: [ 
@@ -259,7 +259,7 @@ Như mô tả trong ví dụ trên, bạn có thể nhận được kết quả 
             S: '0x621d65429322d3ed961ca04a00cf050ee85b35fa69aaa300a41bf483febdc91' 
         } 
     ],
-    trạng thái: true,
+    status: true,
     to: '0xef5cd886c7f8d85fbe8023291761341acbb4da01',
     transactionHash: '0xbad4dd6d80beda6c04d90f1db7e4179557ab48423d4f14295b33e38a9418e59f',
     transactionIndex: 2,
@@ -269,7 +269,7 @@ Như mô tả trong ví dụ trên, bạn có thể nhận được kết quả 
 }
 ```
 
-Bạn có thể tìm thấy kết quả của giao dịch qua `trạng thái` của biên lai. Để xem mô ta chi tiết về các giá trị trả về, hãy tham khảo [getTransactionReceipt][]. Nếu một giao dịch thất bại, bạn có thể kiểm tra lỗi chi tiết tại `txError` của biên lai. Để biết thêm thông tin về `txError`, hãy xem [txError: Thông tin chi tiết về các lỗi giao dịch][].
+Bạn có thể tìm thấy kết quả của giao dịch qua `trạng thái` của biên lai. Để xem mô ta chi tiết về các giá trị trả về, hãy tham khảo [getTransactionReceipt][]. Nếu một giao dịch thất bại, bạn có thể kiểm tra lỗi chi tiết tại `txError` của biên lai. Để biết thêm thông tin về `txError`, hãy xem \[txError: Thông tin chi tiết về các lỗi giao dịch]\[].
 
 ## Thực thi các loại giao dịch khác <a id="executing-other-transaction-types"></a>
 
@@ -277,12 +277,12 @@ Klaytn cung cấp nhiều loại giao dịch đa dạng để đẩy mạnh kh�
 
 ### Ủy thác phí <a id="fee-delegation"></a>
 
-Klaytn cung cấp tính năng [Ủy thác phí][]. Dưới đây là mã ví dụ.
+Klaytn cung cấp tính năng \[Ủy thác phí]\[]. Dưới đây là mã ví dụ.
 
 Khi bạn là người gửi, hãy dùng mã dưới đây để tạo một đối tượng giao dịch mã hóa RLP:
 
 ```text
-> caver.klay.tài khoảns.signTransaction({
+> caver.klay.accounts.signTransaction({
     type: 'FEE_DELEGATED_VALUE_TRANSFER',
     from: '0x3bd32d55e64d6cbe54bec4f5200e678ee8d1a990',
     to: '0xeF5cd886C7f8d85fbe8023291761341aCBb4DA01',
@@ -294,12 +294,12 @@ Khi bạn là người gửi, hãy dùng mã dưới đây để tạo một đ�
 '0x09f88d038505d21dba00830493e094ef5cd886c7f8d85fbe8023291761341acbb4da01880de0b6b3a7640000943bd32d55e64d6cbe54bec4f5200e678ee8d1a990f847f8458207f5a0a48374bbf227fbbdcb28f3360d0cc1f5e36922be409a3edd8b0c6fa5aa5c57dda07e15ebe1c9dd78d1c0f36a5f7970e578c2e57d9360cd25928674d1c05d7e161d80c4c3018080'
 ```
 
-Với đối tượng giao dịch mã hóa RLP đã ký \(`rawTransaction`\), người trả phí có thể gửi giao dịch sau khi đính kèm chữ ký của mình. Người trả phí đặt `rawTransaction` thành senderRawTransaction và ký bằng địa chỉ của người trả phí như trong ví dụ dưới đây.
+Với đối tượng giao dịch mã hóa RLP đã ký (`rawTransaction`), người trả phí có thể gửi giao dịch sau khi đính kèm chữ ký của mình. Người trả phí đặt `rawTransaction` thành senderRawTransaction và ký bằng địa chỉ của người trả phí như trong ví dụ dưới đây.
 
 ```text
-// If you have not added a fee payer tài khoản to caver-js's wallet, add it to your wallet by running 'caver.klay.tài khoảns.wallet.add'.
-// If an tài khoản is already added to the wallet, 'Error: Account is existed with {hex in address}' is returned. Trong trường hợp này, hãy dùng địa chỉ của tài khoản thay cho `feePayer.address`.
-> const feePayer = caver.klay.tài khoảns.wallet.add('0x{private key}')
+// If you have not added a fee payer account to caver-js's wallet, add it to your wallet by running 'caver.klay.accounts.wallet.add'.
+// If an account is already added to the wallet, 'Error: Account is existed with {hex in address}' is returned. In this case, please use the account's address instead of `feePayer.address`.
+> const feePayer = caver.klay.accounts.wallet.add('0x{private key}')
 
 > caver.klay.sendTransaction({
     senderRawTransaction: rawTransaction,
@@ -321,16 +321,16 @@ Với đối tượng giao dịch mã hóa RLP đã ký \(`rawTransaction`\), ng
 
 ### Cập nhật tài khoản <a id="account-update"></a>
 
-Nếu bạn muốn thay đổi khóa của tài khoản, hãy gửi một giao dịch như dưới đây. Vui lòng xem [Cập nhật tài khoản][] để biết trường giao dịch tương ứng theo loại khóa.
+Nếu bạn muốn thay đổi khóa của tài khoản, hãy gửi một giao dịch như dưới đây. Vui lòng xem \[Cập nhật tài khoản]\[] để biết trường giao dịch tương ứng theo loại khóa.
 
 ```text
-// If you have not added an tài khoản to caver-js's wallet, add it to your wallet by running 'caver.klay.tài khoảns.wallet.add'.
-// If the same tài khoản is already in the wallet, 'Error: Account exists with {hex in address}' is returned. Trong trường hợp này, bạn có thể dùng chuỗi địa chỉ trong trường `from` để tham chiếu đến tài khoản trong ví.
-> const tài khoản = caver.klay.tài khoảns.wallet.add('0x{private key}')
+// If you have not added an account to caver-js's wallet, add it to your wallet by running 'caver.klay.accounts.wallet.add'.
+// If the same account is already in the wallet, 'Error: Account exists with {hex in address}' is returned. In this case, you can use the address string in the `from` field to reference the account in the wallet.
+> const account = caver.klay.accounts.wallet.add('0x{private key}')
 
 > caver.klay.sendTransaction({
     type: 'ACCOUNT_UPDATE',
-    from: tài khoản.address,
+    from: account.address,
     publicKey:  '0x9016de15ebb219b1e8bc732070df93a28903e5799d0cd24a807a5afabf4601f7e5ab312b5a682dd8c0e72e71e67552174d5082cde25db3626a5b025f97f8a005',
     gas: '300000',
 }).then(console.log);
@@ -338,7 +338,7 @@ Nếu bạn muốn thay đổi khóa của tài khoản, hãy gửi một giao d
 
 ### Hợp đồng thông minh <a id="smart-contract"></a>
 
-Gói [caver.klay.Contract][] giúp việc tương tác với hợp đồng thông minh trên Klaytn trở nên dễ dàng hơn. Nó tự động chuyển đổi tất cả các phương pháp của hợp đồng thông minh thành những cuộc gọi javascript khi ABI mức độ thấp \(Giao diện nhị phân ứng dụng\) được đưa ra. Điều này cho phép bạn tương tác với các hợp đồng thông minh như thể chúng là các đối tượng JavaScript.
+Gói [caver.klay.Contract][] giúp việc tương tác với hợp đồng thông minh trên Klaytn trở nên dễ dàng hơn. Nó tự động chuyển đổi tất cả các phương pháp của hợp đồng thông minh thành những cuộc gọi javascript khi ABI mức độ thấp (Giao diện nhị phân ứng dụng) được đưa ra. Điều này cho phép bạn tương tác với các hợp đồng thông minh như thể chúng là các đối tượng JavaScript.
 
 Trước tiên, chúng ta bắt đầu bằng việc lập một hợp đồng thông minh để nhận chỉ thị biên dịch và ABI của nó.
 
@@ -353,19 +353,19 @@ Contract JSON ABI
 
 **LƯU Ý**: Để lập một hợp đồng thông minh, bạn phải cài đặt trước trình biên dịch solidity.
 
-Đối với việc triển khai hợp đồng thông minh, bạn có thể dùng [caver.klay.Contract][] để triển khai, hoặc bạn có thể triên khai bằng cách sử dụng giao dịch [SMART_CONTRACT_DEPLOY][]. Dưới đây là một ví dụ về việc sử dụng [caver.klay.Contract][].
+Đối với việc triển khai hợp đồng thông minh, bạn có thể dùng [caver.klay.Contract][] để triển khai, hoặc bạn có thể triên khai bằng cách sử dụng giao dịch [SMART\_CONTRACT\_DEPLOY][SMART_CONTRACT_DEPLOY]. Dưới đây là một ví dụ về việc sử dụng [caver.klay.Contract][].
 
 Nếu phiên bản hợp đồng cụ thể được tạo ra, bạn có thể triển khai nó bằng cách đưa chỉ thị biên dịch vào trường `data` như dưới đây:
 
 ```text
-// If you have not added an tài khoản to caver-js's wallet, add it to your wallet by running 'caver.klay.tài khoảns.wallet.add'.
-// If the same tài khoản is already in the wallet, 'Error: Account exists with {hex in address}' is returned. Trong trường hợp này, bạn có thể dùng chuỗi địa chỉ trong trường `from` để tham chiếu đến tài khoản trong ví.
-> const tài khoản = caver.klay.tài khoảns.wallet.add('0x{private key}')
+// If you have not added an account to caver-js's wallet, add it to your wallet by running 'caver.klay.accounts.wallet.add'.
+// If the same account is already in the wallet, 'Error: Account exists with {hex in address}' is returned. In this case, you can use the address string in the `from` field to reference the account in the wallet.
+> const account = caver.klay.accounts.wallet.add('0x{private key}')
 
 > contractInstance.deploy({
     data:  '60806040526000805534801561001457600080fd5b50610123806100246000396000f3fe6080604052600436106053576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806306661abd14605857806342cbb15c146080578063d14e62b81460a8575b600080fd5b348015606357600080fd5b50606a60df565b6040518082815260200191505060405180910390f35b348015608b57600080fd5b50609260e5565b6040518082815260200191505060405180910390f35b34801560b357600080fd5b5060dd6004803603602081101560c857600080fd5b810190808035906020019092919050505060ed565b005b60005481565b600043905090565b806000819055505056fea165627a7a72305820e381897039d8e48bf74b4a096bb1c4ed02f331bd1a7a4add6217b72fa888f2f10029',
 }).send({
-    from: tài khoản.address,
+    from: account.address,
     gas: '0x4bfd200',
     value: '0x0',
 }).then(console.log)
@@ -395,16 +395,16 @@ Bạn có thể tìm thấy địa chỉ hợp đồng đã triển khai tại `
 '0xC9f0b868e5103b6823171a2Df85E7B696660E466'
 ```
 
-Một cách để gọi một phương pháp cụ thể của hợp đồng thông minh là sử dụng nó với `caver.klay.Contract` hoặc dùng [SMART_CONTRACT_EXECUTION][].
+Một cách để gọi một phương pháp cụ thể của hợp đồng thông minh là sử dụng nó với `caver.klay.Contract` hoặc dùng [SMART\_CONTRACT\_EXECUTION][SMART_CONTRACT_EXECUTION].
 
 Để giao dịch với một hợp đồng thông minh:
 
 ```text
-// If you have not added an tài khoản to caver-js's wallet, add it to your wallet by running 'caver.klay.tài khoảns.wallet.add'.
-// If the same tài khoản is already in the wallet, 'Error: Account exists with {hex in address}' is returned. Trong trường hợp này, bạn có thể dùng chuỗi địa chỉ trong trường `from` để tham chiếu đến tài khoản trong ví.
-> const tài khoản = caver.klay.tài khoảns.wallet.add('0x{private key}')
+// If you have not added an account to caver-js's wallet, add it to your wallet by running 'caver.klay.accounts.wallet.add'.
+// If the same account is already in the wallet, 'Error: Account exists with {hex in address}' is returned. In this case, you can use the address string in the `from` field to reference the account in the wallet.
+> const account = caver.klay.accounts.wallet.add('0x{private key}')
 
-> contractInstance.methods.setCount(1).send({from:tài khoản.address, gas:'0x4bfd200'}).then(console.log)
+> contractInstance.methods.setCount(1).send({from:account.address, gas:'0x4bfd200'}).then(console.log)
 { 
     blockHash: '0x159f8515102951bca9c403b2b1b37850ca01a08dffb9a763837f55a6d518bbb6',
     blockNumber: 644,
@@ -440,17 +440,19 @@ Các ví dụ dưới đây mô tả ví dụ trong một tập tin Node.js. Đ�
 ```bash
 $ touch test.js
 ```
+
 Bạn có thể thấy tập tin `test.js` được tạo ra trong thư mục làm việc.
 
 Viết mã sau trong test.js.
+
 ```javascript
 // test.js file
 const Caver = require('caver-js')
 const caver = new Caver('https://public-en-baobab.klaytn.net/')
 
 async function testFunction() {
-    const version = await caver.klay.getNodeInfo()
-    console.log(version)
+	const version = await caver.klay.getNodeInfo()
+	console.log(version)
 }
 
 testFunction()
@@ -467,34 +469,36 @@ Nếu bạn thấy kết quả đầu ra của console.log, hãy tiếp tục v�
 **LƯU Ý** Các lớp trên được hỗ trợ kể từ caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
 ### Tài khoản <a id="account"></a>
+
 Tài khoản là một lớp có chứa địa chỉ và khóa của một tài khoản. Một lớp Tài khoản có [AccountKey](#accountkey), có thể là loại [AccountKeyPublic](#accountkeypublic), [AccountKeyMultiSig](#accountkeymultisig), hoặc [AccountKeyRoleBased](#accountkeyrolebased).
 
 Gói caver.klay.tài khoảns sử dụng [AccountKeyPublic](#accountkeypublic), theo mặc định sẽ chứa và quản lý chuỗi khóa riêng tư.
 
 Ví dụ dưới đây tạo một tài khoản với AccountKeyPublic là tài khoảnKey.
+
 ```javascript
 // test.js file
 async function testFunction() {
-    // Create random tài khoản with tài khoảnKeyPublic by default
-    const tài khoản = caver.klay.tài khoảns.create()
-    printAccount(tài khoản)
+	// Create random account with accountKeyPublic by default
+	const account = caver.klay.accounts.create()
+	printAccount(account)
 
-    // Create tài khoản with specific private key string
-    const privateKey = caver.klay.tài khoảns.create().privateKey
-    const tài khoảnFromKey = caver.klay.tài khoảns.privateKeyToAccount(privateKey)
-    printAccount(tài khoảnFromKey)
+    // Create account with specific private key string
+    const privateKey = caver.klay.accounts.create().privateKey
+    const accountFromKey = caver.klay.accounts.privateKeyToAccount(privateKey)
+    printAccount(accountFromKey)
 }
 
-function printAccount(tài khoản) {
-    console.log(`address: ${tài khoản.address}`)
-    console.log(`privateKey: ${tài khoản.privateKey}`)
-    console.log(`tài khoảnKeyType: ${tài khoản.tài khoảnKeyType}`)
-    console.log(`tài khoảnKey`)
-    console.log(tài khoản.tài khoảnKey)
-    console.log(`tài khoản.keys: ${tài khoản.keys}`)
-    console.log(`tài khoản.transactionKey: ${tài khoản.transactionKey}`)
-    console.log(`tài khoản.updateKey: ${tài khoản.updateKey}`)
-    console.log(`tài khoản.feePayerKey: ${tài khoản.feePayerKey}\n`)
+function printAccount(account) {
+	console.log(`address: ${account.address}`)
+	console.log(`privateKey: ${account.privateKey}`)
+	console.log(`accountKeyType: ${account.accountKeyType}`)
+	console.log(`accountKey`)
+    console.log(account.accountKey)
+	console.log(`account.keys: ${account.keys}`)
+	console.log(`account.transactionKey: ${account.transactionKey}`)
+	console.log(`account.updateKey: ${account.updateKey}`)
+	console.log(`account.feePayerKey: ${account.feePayerKey}\n`)
 }
 ```
 
@@ -507,15 +511,16 @@ printAccount ở trên cho thấy cách sử dụng các thuộc tính của đ�
 | tài khoảnKeyType | Loại tài khoảnKey mà tài khoản có. Đây có thể là `AccountKeyPublic`, `AccountKeyMultiSig` hoặc `AccountKeyRoleBased`                                                                                                                                                                                                       |
 | tài khoảnKey     | Khóa của tài khoản. Đây có thể là AccountKeyPublic, AccountKeyMultiSig hoặc AccountKeyRoleBased.                                                                                                                                                                                                                           |
 | keys             | Tất cả các khóa bên trong tài khoảnKey mà tài khoản có.                                                                                                                                                                                                                                                                    |
-| transactionKey   | Khóa được sử dụng cho [RoleTransaction](../../../learn/accounts.md#roles). AccountKeyPublic hoặc AccountKeyMultiSig không bị ràng buộc với bất kỳ vai trò nào, do đó, transactionKey giữ giá trị giống như các khóa.                                                                                          |
-| updateKey        | Khóa được sử dụng cho [RoleAccountUpdate](../../../learn/accounts.md#roles). AccountKeyPublic hoặc AccountKeyMultiSig không bị ràng buộc với bất kỳ vai trò nào, vì vậy updateKey giữ giá trị giống như các khóa.                                                                                             |
-| feePayerKey      | Khóa được sử dụng cho [RoleFeePayer](../../../learn/accounts.md#roles). AccountKeyPublic hoặc AccountKeyMultiSig không bị ràng buộc với bất kỳ vai trò nào, do đó, feePayerKey giữ cùng một giá trị như các khóa.                                                                                             |
+| transactionKey   | Khóa được sử dụng cho [RoleTransaction](../../../learn/accounts.md#roles). AccountKeyPublic hoặc AccountKeyMultiSig không bị ràng buộc với bất kỳ vai trò nào, do đó, transactionKey giữ giá trị giống như các khóa.                                                                                                       |
+| updateKey        | Khóa được sử dụng cho [RoleAccountUpdate](../../../learn/accounts.md#roles). AccountKeyPublic hoặc AccountKeyMultiSig không bị ràng buộc với bất kỳ vai trò nào, vì vậy updateKey giữ giá trị giống như các khóa.                                                                                                          |
+| feePayerKey      | Khóa được sử dụng cho [RoleFeePayer](../../../learn/accounts.md#roles). AccountKeyPublic hoặc AccountKeyMultiSig không bị ràng buộc với bất kỳ vai trò nào, do đó, feePayerKey giữ cùng một giá trị như các khóa.                                                                                                          |
 
 **LƯU Ý** `transactionKey`, `updateKey` và `feePayerKey` trả về một chuỗi khóa riêng tư hoặc một mảng gồm nhiều chuỗi khóa riêng tư cần được dùng cho vai trò. Vì thế, thay vì dùng thuộc tính privateKey, bạn nên dùng `transactionKey`, `updateKey` và `feePayerKey` tùy tình huống phù hợp mà không phải lo lắng về loại tài khoảnKey.
 
 Nội dung giải thích về các lớp AccountKey khác nhau được cung cấp trong phần [AccountKey](#accountkey).
 
 ### AccountKey  <a id="accountkey"></a>
+
 AccountKey là một cấu trúc dữ liệu có chứa các khóa của một tài khoản. Một tài khoản có thể có một chuỗi khóa riêng tư hoặc nhiều chuỗi khóa riêng tư để sử dụng cho việc ký tên. Tài khoản cũng có thể quản lý các khỏa riêng tư bằng [roles](../../../learn/accounts.md#roles).
 
 Để hỗ trợ cho cấu trúc này, caver-js giới thiệu các lớp mới gồm AccountKeyPublic, AccountKeyMultiSig và AccountKeyRoleBased.
@@ -525,20 +530,21 @@ AccountKey là một cấu trúc dữ liệu có chứa các khóa của một t
 **LƯU Ý** Các lớp cho `AccountKey` được xác định trong caver-js là các cấu trúc dữ liệu có chứa khóa riêng tư để sử dụng trong caver-js. Nó có thể khác với khóa trong tài khoản của bạn trên mạng lưới Klaytn.
 
 #### AccountKeyPublic  <a id="accountkeypublic"></a>
+
 AccountKeyPublic là một lớp dùng để chứa và quản lý một chuỗi khóa riêng tư đơn lẻ.
 
 Phần dưới đây mô tả cách để cập nhật tài khoản bằng AccountKeyPublic. Hãy viết mã dưới đây vào testFunction() và chạy mã.
 
 ```javascript
-const privateKey = caver.klay.tài khoảns.create().privateKey
-const tài khoảnKey = caver.klay.tài khoảns.createAccountKey(privateKey)
+const privateKey = caver.klay.accounts.create().privateKey
+const accountKey = caver.klay.accounts.createAccountKey(privateKey)
 
-console.log(tài khoảnKey)
-console.log(`type: ${tài khoảnKey.type}`)
-console.log(`keys: ${tài khoảnKey.keys}`)
-console.log(`transactionKey: ${tài khoảnKey.transactionKey}`)
-console.log(`updateKey: ${tài khoảnKey.updateKey}`)
-console.log(`feePayerKey: ${tài khoảnKey.feePayerKey}`)
+console.log(accountKey)
+console.log(`type: ${accountKey.type}`)
+console.log(`keys: ${accountKey.keys}`)
+console.log(`transactionKey: ${accountKey.transactionKey}`)
+console.log(`updateKey: ${accountKey.updateKey}`)
+console.log(`feePayerKey: ${accountKey.feePayerKey}`)
 ```
 
 AccountKeyPublic lưu trữ và quản lý một chuỗi khóa riêng tư, vì thế, nếu bạn chạy ví dụ trên, bạn sẽ thấy `keys`, `transactionKey`, `updateKey` và `feePayerKey` đều tương ứng với cùng một chuỗi khóa riêng tư.
@@ -546,33 +552,34 @@ AccountKeyPublic lưu trữ và quản lý một chuỗi khóa riêng tư, vì t
 Hãy xem ví dụ dưới đây về việc tạo một Tài khoản với AccountKeyPublic là tài khoảnKey của nó.
 
 ```javascript
-const privateKey = caver.klay.tài khoảns.create().privateKey
-const tài khoảnKey = caver.klay.tài khoảns.createAccountKey(privateKey)
+const privateKey = caver.klay.accounts.create().privateKey
+const accountKey = caver.klay.accounts.createAccountKey(privateKey)
 
-const address = caver.klay.tài khoảns.create().address
+const address = caver.klay.accounts.create().address
 
 // Create an Account instance with a private key string
-const tài khoảnFromStringKey = caver.klay.tài khoảns.createWithAccountKey(address, privateKey)
+const accountFromStringKey = caver.klay.accounts.createWithAccountKey(address, privateKey)
 
 // Create an Account instance with an AccountKeyPublic instance
-const tài khoảnFromAccountKey = caver.klay.tài khoảns.createWithAccountKey(address, tài khoảnKey)
+const accountFromAccountKey = caver.klay.accounts.createWithAccountKey(address, accountKey)
 ```
 
 #### AccountKeyMultiSig  <a id="accountkeymultisig"></a>
+
 AccountKeyMultiSig là một lớp dùng để chứa và quản lý nhiều chuỗi khóa riêng tư.
 
 Phần dưới đây mô tả cách để cập nhật tài khoản bằng AccountKeyMultiSig. Hãy viết mã dưới đây vào testFunction() và chạy mã.
 
 ```javascript
-const privateKeyArray = [caver.klay.tài khoảns.create().privateKey, caver.klay.tài khoảns.create().privateKey, caver.klay.tài khoảns.create().privateKey]
-const tài khoảnKey = caver.klay.tài khoảns.createAccountKey(privateKeyArray)
+const privateKeyArray = [caver.klay.accounts.create().privateKey, caver.klay.accounts.create().privateKey, caver.klay.accounts.create().privateKey]
+const accountKey = caver.klay.accounts.createAccountKey(privateKeyArray)
 
-console.log(tài khoảnKey)
-console.log(`type: ${tài khoảnKey.type}`)
-console.log(`keys: ${tài khoảnKey.keys}`)
-console.log(`transactionKey: ${tài khoảnKey.transactionKey}`)
-console.log(`updateKey: ${tài khoảnKey.updateKey}`)
-console.log(`feePayerKey: ${tài khoảnKey.feePayerKey}`)
+console.log(accountKey)
+console.log(`type: ${accountKey.type}`)
+console.log(`keys: ${accountKey.keys}`)
+console.log(`transactionKey: ${accountKey.transactionKey}`)
+console.log(`updateKey: ${accountKey.updateKey}`)
+console.log(`feePayerKey: ${accountKey.feePayerKey}`)
 ```
 
 AccountKeyMultiSig lưu trữ và quản lý các chuỗi khóa riêng tư, vì thế, nếu bạn chạy ví dụ trên, bạn sẽ thấy `keys`, `transactionKey`, `updateKey` và `feePayerKey` đều tương ứng với các chuỗi khóa riêng tư giống nhau.
@@ -582,38 +589,39 @@ Nếu bạn không chỉ định một khóa riêng tư (hoặc một mảng cá
 Hãy xem ví dụ dưới đây về việc tạo một Tài khoản với AccountKeyMultiSig là tài khoảnKey của nó.
 
 ```javascript
-const privateKeyArray = [caver.klay.tài khoảns.create().privateKey, caver.klay.tài khoảns.create().privateKey]
-const tài khoảnKey = caver.klay.tài khoảns.createAccountKey(privateKeyArray)
+const privateKeyArray = [caver.klay.accounts.create().privateKey, caver.klay.accounts.create().privateKey]
+const accountKey = caver.klay.accounts.createAccountKey(privateKeyArray)
 
-const address = caver.klay.tài khoảns.create().address
+const address = caver.klay.accounts.create().address
 
 // Create Account instance with an array of private key strings
-const tài khoảnFromStringKey = caver.klay.tài khoảns.createWithAccountKey(address, privateKeyArray)
+const accountFromStringKey = caver.klay.accounts.createWithAccountKey(address, privateKeyArray)
 
 // Create Account instance with AccountKeyMultiSig instance
-const tài khoảnFromAccountKey = caver.klay.tài khoảns.createWithAccountKey(address, tài khoảnKey)
+const accountFromAccountKey = caver.klay.accounts.createWithAccountKey(address, accountKey)
 ```
 
 #### AccountKeyRoleBased  <a id="accountkeyrolebased"></a>
+
 AccountKeyRoleBased là một lớp dùng để lưu trữ và quản lý các khóa cho từng vai trò. Từng vai trò có thể có một chuỗi khóa riêng tư hoặc nhiều chuỗi khóa riêng tư.
 
 Phần dưới đây mô tả cách để cập nhật tài khoản bằng AccountKeyRoleBased. Hãy viết mã dưới đây vào testFunction() và chạy mã.
 
 ```javascript
 const keyobject = {
-    transactionKey: [caver.klay.tài khoảns.create().privateKey, caver.klay.tài khoảns.create().privateKey, caver.klay.tài khoảns.create().privateKey],
-    updateKey: caver.klay.tài khoảns.create().privateKey,
-    feePayerKey: [caver.klay.tài khoảns.create().privateKey, caver.klay.tài khoảns.create().privateKey, caver.klay.tài khoảns.create().privateKey]
+    transactionKey: [caver.klay.accounts.create().privateKey, caver.klay.accounts.create().privateKey, caver.klay.accounts.create().privateKey],
+    updateKey: caver.klay.accounts.create().privateKey,
+    feePayerKey: [caver.klay.accounts.create().privateKey, caver.klay.accounts.create().privateKey, caver.klay.accounts.create().privateKey]
 }
-const tài khoảnKey = caver.klay.tài khoảns.createAccountKey(keyobject)
+const accountKey = caver.klay.accounts.createAccountKey(keyobject)
 
-console.log(tài khoảnKey)
-console.log(`type: ${tài khoảnKey.type}`)
+console.log(accountKey)
+console.log(`type: ${accountKey.type}`)
 console.log(`keys:`)
-console.log(tài khoảnKey.keys)
-console.log(`transactionKey: ${tài khoảnKey.transactionKey}`)
-console.log(`updateKey: ${tài khoảnKey.updateKey}`)
-console.log(`feePayerKey: ${tài khoảnKey.feePayerKey}`)
+console.log(accountKey.keys)
+console.log(`transactionKey: ${accountKey.transactionKey}`)
+console.log(`updateKey: ${accountKey.updateKey}`)
+console.log(`feePayerKey: ${accountKey.feePayerKey}`)
 ```
 
 AccountKeyRoleBased lưu trữ và quản lý các khóa theo vai trò, vì thế, nếu bạn chạy ví dụ trên, bạn sẽ thấy ba vai trò (transactionKey, updateKey, feePayerKey) được xác định trong thuộc tính `keys`. Vì thế, không như AccountKey khác ([AccountKeyPublic](#accountkeypublic) or [AccountKeyMultiSig](#accountkeymultisig)), từng transactionKey, updateKey và feePayerKey đều tương ứng với một khóa khác nhau.
@@ -622,19 +630,19 @@ Hãy xem ví dụ dưới đây về việc tạo một Tài khoản với Accou
 
 ```javascript
 const keyobject = {
-    transactionKey: [caver.klay.tài khoảns.create().privateKey, caver.klay.tài khoảns.create().privateKey, caver.klay.tài khoảns.create().privateKey],
-    updateKey: caver.klay.tài khoảns.create().privateKey,
-    feePayerKey: [caver.klay.tài khoảns.create().privateKey, caver.klay.tài khoảns.create().privateKey, caver.klay.tài khoảns.create().privateKey]
+    transactionKey: [caver.klay.accounts.create().privateKey, caver.klay.accounts.create().privateKey, caver.klay.accounts.create().privateKey],
+    updateKey: caver.klay.accounts.create().privateKey,
+    feePayerKey: [caver.klay.accounts.create().privateKey, caver.klay.accounts.create().privateKey, caver.klay.accounts.create().privateKey]
 }
-const tài khoảnKey = caver.klay.tài khoảns.createAccountKey(keyobject)
+const accountKey = caver.klay.accounts.createAccountKey(keyobject)
 
-const address = caver.klay.tài khoảns.create().address
+const address = caver.klay.accounts.create().address
 
 // Create Account instance with an object that defines key by role
-const tài khoảnFromStringKey = caver.klay.tài khoảns.createWithAccountKey(address, keyobject)
+const accountFromStringKey = caver.klay.accounts.createWithAccountKey(address, keyobject)
 
 // Create Account instance with AccountKeyRoleBased instance
-const tài khoảnFromAccountKey = caver.klay.tài khoảns.createWithAccountKey(address, tài khoảnKey)
+const accountFromAccountKey = caver.klay.accounts.createWithAccountKey(address, accountKey)
 ```
 
 Qua các ví dụ trên, bạn sẽ thấy cách để dùng Tài khoản và các loại AccountKey khác nhau trong caver-js.
@@ -652,36 +660,37 @@ AccountForUpdate chỉ chứa khóa công khai để dùng cho việc cập nh�
 Các ví dụ dưới đây bắt đầu bằng việc cập nhật tài khoản bằng tài khoảnKey. Trong tài khoản phải có đủ KLAY để dùng khi thử nghiệm. KLAY thử nghiệm cho mạng Baobab có sẵn qua [Vòi Baobab](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay).
 
 #### Tạo một AccountForUpdate  <a id="create-an-accountforupdate"></a>
+
 Hãy bắt đầu bằng cách tạo một AccountForUpdate.
 
 Bạn có thể tạo bằng cách gọi `createAccountForUpdate()` với địa chỉ tài khoản đích và khóa mới mà bạn muốn sử dụng.
 
 ```javascript
-const tài khoản = caver.klay.tài khoảns.create()
+const account = caver.klay.accounts.create()
 
 // AccountForUpdate with AccountKeyPublic
-const privateKeyString = caver.klay.tài khoảns.create().privateKey
-const tài khoảnForUpdateForAccountKeyPublic = caver.klay.tài khoảns.createAccountForUpdate(tài khoản.address, privateKeyString)
+const privateKeyString = caver.klay.accounts.create().privateKey
+const accountForUpdateForAccountKeyPublic = caver.klay.accounts.createAccountForUpdate(account.address, privateKeyString)
 
 // AccountForUpdate with AccountKeyMultiSig
-const privateKeyArray = [caver.klay.tài khoảns.create().privateKey, caver.klay.tài khoảns.create().privateKey]
+const privateKeyArray = [caver.klay.accounts.create().privateKey, caver.klay.accounts.create().privateKey]
 const multiSigOptions = { threshold: 2, weight: [1, 1] }
-const tài khoảnForUpdateForAccountKeyMultiSig = caver.klay.tài khoảns.createAccountForUpdate(tài khoản.address, privateKeyArray, multiSigOptions)
+const accountForUpdateForAccountKeyMultiSig = caver.klay.accounts.createAccountForUpdate(account.address, privateKeyArray, multiSigOptions)
 
 // AccountForUpdate with AccountKeyRoleBased
 const keyObject = {
-    transactionKey: [caver.klay.tài khoảns.create().privateKey, caver.klay.tài khoảns.create().privateKey],
-    updateKey: caver.klay.tài khoảns.create().privateKey,
-    feePayerKey: caver.klay.tài khoảns.create().privateKey,
+    transactionKey: [caver.klay.accounts.create().privateKey, caver.klay.accounts.create().privateKey],
+    updateKey: caver.klay.accounts.create().privateKey,
+    feePayerKey: caver.klay.accounts.create().privateKey,
 }
 const roleBasedOptions = { transactionKey: { threshold: 2, weight: [1, 1] } }
-const tài khoảnForUpdateForAccountKeyRoleBased = caver.klay.tài khoảns.createAccountForUpdate(tài khoản.address, keyObject, roleBasedOptions)
+const accountForUpdateForAccountKeyRoleBased = caver.klay.accounts.createAccountForUpdate(account.address, keyObject, roleBasedOptions)
 
 // AccountForUpdate with LegacyKey
-const tài khoảnForUpdateForLegacyKey = caver.klay.tài khoảns.createAccountForUpdateWithLegacyKey(tài khoản.address)
+const accountForUpdateForLegacyKey = caver.klay.accounts.createAccountForUpdateWithLegacyKey(account.address)
 
 // AccountForUpdate with FailKey
-const tài khoảnForUpdateForFailKey = caver.klay.tài khoảns.createAccountForUpdateWithFailKey(tài khoản.address)
+const accountForUpdateForFailKey = caver.klay.accounts.createAccountForUpdateWithFailKey(account.address)
 ```
 
 **LƯU Ý** Nếu bạn muốn cập nhật với nhiều chuỗi khóa riêng tư, bạn phải xác định ngưỡng và trọng số trong đối tượng tùy chọn.
@@ -692,27 +701,27 @@ Bạn có thể dễ dàng tạo một giao dịch cập nhật tài khoản b�
 
 Có ba loại giao dịch dùng để cập nhật một tài khoản: `ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE` và `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`.
 
-Trong ví dụ bên dưới, `tài khoản` là một tài khoản có đủ số dư KLAY, và `tài khoảnForUpdate` là một đối tượng AccountForUpdate cụ thể có chứa khóa mới và địa chỉ tài khoản đích. `tài khoảnForUpdate được tạo ra bằng `caver.klay.tài khoảns.createAccountForUpdate`.
+Trong ví dụ bên dưới, `tài khoản` là một tài khoản có đủ số dư KLAY, và `tài khoảnForUpdate` là một đối tượng AccountForUpdate cụ thể có chứa khóa mới và địa chỉ tài khoản đích. `tài khoảnForUpdate được tạo ra bằng `caver.klay.tài khoảns.createAccountForUpdate\`.
 
 Ví dụ dưới đây cho thấy cách để tạo một giao dịch bằng AccountForUpdate và gửi nó đến mạng lưới Klaytn.
 
 ```javascript
 const updateTx = {
     type: 'ACCOUNT_UPDATE',
-    from: tài khoản.address,
-    key: tài khoảnForUpdate,
+    from: account.address,
+    key: accountForUpdate,
     gas: 300000,
 }
 
-// Sign transaction with updateKey of tài khoản
-const signed = await caver.klay.tài khoảns.signTransaction(updateTx, tài khoản.updateKey)
+// Sign transaction with updateKey of account
+const signed = await caver.klay.accounts.signTransaction(updateTx, account.updateKey)
 
-// Send tài khoản update transaction
+// Send account update transaction
 const receipt = await caver.klay.sendSignedTransaction(signed)
 console.log(receipt)
 
-// Get tài khoảnKey from Klaytn network
-const updatedKey = await caver.klay.getAccountKey(tài khoản.address)
+// Get accountKey from Klaytn network
+const updatedKey = await caver.klay.getAccountKey(account.address)
 console.log(updatedKey)
 ```
 
@@ -721,23 +730,23 @@ Nếu bạn muốn dùng giao dịch `FEE_DELEGATED_ACCOUNT_UPDATE`, hãy xem v�
 ```javascript
 const updateTx = {
     type: 'FEE_DELEGATED_ACCOUNT_UPDATE',
-    from: tài khoản.address,
-    key: tài khoảnForUpdate,
+    from: account.address,
+    key: accountForUpdate,
     gas: 300000,
 }
 
-// Sender signs transaction with updateKey of tài khoản
-const senderSigned = await caver.klay.tài khoảns.signTransaction(updateTx, tài khoản.updateKey)
+// Sender signs transaction with updateKey of account
+const senderSigned = await caver.klay.accounts.signTransaction(updateTx, account.updateKey)
 
 // Fee payer signs transaction with feePayerKey of fee payer
-const feePayerSigned = await caver.klay.tài khoảns.feePayerSignTransaction(senderSigned.rawTransaction, feePayer.address, feePayer.feePayerKey)
+const feePayerSigned = await caver.klay.accounts.feePayerSignTransaction(senderSigned.rawTransaction, feePayer.address, feePayer.feePayerKey)
 
-// Send fee delegated tài khoản update transaction
+// Send fee delegated account update transaction
 const receipt = await caver.klay.sendSignedTransaction(feePayerSigned)
 console.log(receipt)
 
-// Get tài khoảnKey from Klaytn network
-const updatedKey = await caver.klay.getAccountKey(tài khoản.address)
+// Get accountKey from Klaytn network
+const updatedKey = await caver.klay.getAccountKey(account.address)
 console.log(updatedKey)
 ```
 
@@ -748,8 +757,8 @@ Nếu bạn muốn dùng giao dịch `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`, 
 ```javascript
 const updateTx = {
     type: 'FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO',
-    from: tài khoản.address,
-    key: tài khoảnForUpdate,
+    from: account.address,
+    key: accountForUpdate,
     gas: 300000,
     feeRatio: 30,
 }
@@ -760,17 +769,17 @@ Nếu tài khoản của bạn đã được cập nhật thành công, khóa c�
 Khi trực tiếp cập nhật thuộc tính `tài khoảnKey` của một tài khoản, giá trị chỉ định phải là một đối tượng cụ thể của AccountKeyPublic, AccountKeyMultiSig hoặc AccountKeyRoleBased.
 
 ```javascript
-const tài khoảnKey = caver.klay.tài khoảns.createAccountKey(newKey)
-tài khoản.tài khoảnKey = tài khoảnKey
+const accountKey = caver.klay.accounts.createAccountKey(newKey)
+account.accountKey = accountKey
 ```
 
 Nếu tài khoản của bạn nằm trong ví trong bộ nhớ của caver-js, hãy cập nhật như sau.
 
 ```javascript
-// Add tài khoản to in-memory wallet
-caver.klay.tài khoảns.wallet.add(tài khoản)
+// Add account to in-memory wallet
+caver.klay.accounts.wallet.add(account)
 
-caver.klay.tài khoảns.wallet.updateAccountKey(tài khoản.address, newKey)
+caver.klay.accounts.wallet.updateAccountKey(account.address, newKey)
 ```
 
 Giờ bạn đã sẵn sàng sử dụng tài khoản được cập nhật trong caver-js.
@@ -782,26 +791,28 @@ Nếu tài khoảnKey của tài khoản là AccountKeyMultiSig hoặc AccountKe
 Phần này mô tả cách để thu thập nhiều chữ ký và gửi giao dịch nếu có nhiều người ký.
 
 ### Ký tuần tự <a id="sequential-sign"></a>
-Đối tượng kết quả của [caver.klay.tài khoảns.signTransaction][] có một trường rawTransaction.
+
+Đối tượng kết quả của \[caver.klay.tài khoảns.signTransaction]\[] có một trường rawTransaction.
 
 `rawTransaction` có một giao dịch mã hóa RLP chứa cả `signatures` và `feePayerSignatures`. `feePayerSignature` chỉ được đưa vào khi giao dịch là giao dịch có phí ủy thác.
 
-Ví dụ sau đây cho thấy cách để tuần tự ký một giao dịch với nhiều khóa riêng tư. Giả sử transactionKey của tài khoản có hai chuỗi khóa riêng tư.
+Ví dụ sau đây cho thấy cách để tuần tự ký một giao dịch với nhiều khóa riêng tư.
+Giả sử transactionKey của tài khoản có hai chuỗi khóa riêng tư.
 
 ```javascript
 const tx = {
     type: 'VALUE_TRANSFER',
-    from: tài khoản.address,
-    to: caver.klay.tài khoảns.create().address,
+    from: account.address,
+    to: caver.klay.accounts.create().address,
     value: 1,
     gas: 900000,
 }
 
 // Sign with transactionKey[0]
-const user1Signed = await caver.klay.tài khoảns.signTransaction(tx, tài khoản.transactionKey[0])
+const user1Signed = await caver.klay.accounts.signTransaction(tx, account.transactionKey[0])
 
 // Append sender's signatures with transactionKey[1]
-const user2Signed = await caver.klay.tài khoảns.signTransaction(user1Signed.rawTransaction, tài khoản.transactionKey[1])
+const user2Signed = await caver.klay.accounts.signTransaction(user1Signed.rawTransaction, account.transactionKey[1])
 
 const receipt = await caver.klay.sendSignedTransaction(user2Signed)
 console.log(receipt)
@@ -812,20 +823,20 @@ Hãy xem ví dụ dưới đây để biết cách ký với khóa của ngườ
 ```javascript
 const tx = {
     type: 'FEE_DELEGATED_VALUE_TRANSFER',
-    from: tài khoản.address,
-    to: caver.klay.tài khoảns.create().address,
+    from: account.address,
+    to: caver.klay.accounts.create().address,
     value: 1,
     gas: 900000,
 }
 
 // Sign with transactionKey[0] and transactionKey[1]
-const userSigned = await caver.klay.tài khoảns.signTransaction(tx, [tài khoản.transactionKey[0], tài khoản.transactionKey[1]])
+const userSigned = await caver.klay.accounts.signTransaction(tx, [account.transactionKey[0], account.transactionKey[1]])
 
 // Fee payer signs transaction with feePayerKey[0]
-const feePayer1Signed = await caver.klay.tài khoảns.feePayerSignTransaction(userSigned.rawTransaction, feePayer.address, feePayer.feePayerKey[0])
+const feePayer1Signed = await caver.klay.accounts.feePayerSignTransaction(userSigned.rawTransaction, feePayer.address, feePayer.feePayerKey[0])
 
 // Append feePayerSignatures with feePayerKey[1] and feePayerKey[2]
-const feePayer2Signed = await caver.klay.tài khoảns.feePayerSignTransaction(feePayer1Signed.rawTransaction, feePayer.address, [feePayer.feePayerKey[1], feePayer.feePayerKey[2]])
+const feePayer2Signed = await caver.klay.accounts.feePayerSignTransaction(feePayer1Signed.rawTransaction, feePayer.address, [feePayer.feePayerKey[1], feePayer.feePayerKey[2]])
 
 const receipt = await caver.klay.sendSignedTransaction(feePayer2Signed)
 console.log(receipt)
@@ -838,18 +849,18 @@ Nếu tài khoản mà bạn dùng đã tồn tại trong ví trong bộ nhớ c
 ```javascript
 const tx = {
     type: 'FEE_DELEGATED_VALUE_TRANSFER_WITH_RATIO',
-    from: tài khoản.address,
-    to: caver.klay.tài khoảns.create().address,
+    from: account.address,
+    to: caver.klay.accounts.create().address,
     value: 1,
     gas: 900000,
     feeRatio: 10,
 }
 
 // Sign with transactionKey[0] and transactionKey[1]
-const userSigned = await caver.klay.tài khoảns.signTransaction(tx)
+const userSigned = await caver.klay.accounts.signTransaction(tx)
 
 // Fee payer signs transaction with feePayerKey[0], feePayerKey[1] and feePayerKey[2]
-const feePayerSigned = await caver.klay.tài khoảns.feePayerSignTransaction(userSigned.rawTransaction, feePayer.address)
+const feePayerSigned = await caver.klay.accounts.feePayerSignTransaction(userSigned.rawTransaction, feePayer.address)
 
 const receipt = await caver.klay.sendSignedTransaction(feePayerSigned)
 console.log(receipt)
@@ -860,32 +871,33 @@ console.log(receipt)
 Nếu bạn nhận được đối tượng kết quả của `caver.klay.tài khoảns.signTransaction` hoặc `caver.klay.tài khoảns.feePayerSignTransaction` từ nhiều người, bạn có thể tạo một giao dịch mã hóa RLP duy nhất có chứa tất cả thông tin chữ ký.
 
 Ví dụ dưới đây cho thấy cách để kết hợp và gửi các giao dịch mã hóa RLP.
+
 ```javascript
 const tx = {
     type: 'FEE_DELEGATED_VALUE_TRANSFER',
-    from: tài khoản.address,
-    to: caver.klay.tài khoảns.create().address,
+    from: account.address,
+    to: caver.klay.accounts.create().address,
     value: 1,
     gas: 900000,
 }
 
 // Sign with transactionKey[0]
-const user1Signed = await caver.klay.tài khoảns.signTransaction(tx, tài khoản.transactionKey[0])
+const user1Signed = await caver.klay.accounts.signTransaction(tx, account.transactionKey[0])
 
 // Sign with transactionKey[1]
-const user2Signed = await caver.klay.tài khoảns.signTransaction(tx, tài khoản.transactionKey[1])
+const user2Signed = await caver.klay.accounts.signTransaction(tx, account.transactionKey[1])
 
 // Fee payer signs transaction with feePayerKey[0]
-const feePayer1Signed = await caver.klay.tài khoảns.feePayerSignTransaction(tx, feePayer.address, feePayer.feePayerKey[0])
+const feePayer1Signed = await caver.klay.accounts.feePayerSignTransaction(tx, feePayer.address, feePayer.feePayerKey[0])
 
 // Fee payer signs transaction with feePayerKey[1]
-const feePayer2Signed = await caver.klay.tài khoảns.feePayerSignTransaction(tx, feePayer.address, feePayer.feePayerKey[1])
+const feePayer2Signed = await caver.klay.accounts.feePayerSignTransaction(tx, feePayer.address, feePayer.feePayerKey[1])
 
 // Fee payer signs transaction with feePayerKey[2]
-const feePayer3Signed = await caver.klay.tài khoảns.feePayerSignTransaction(tx, feePayer.address, feePayer.feePayerKey[2])
+const feePayer3Signed = await caver.klay.accounts.feePayerSignTransaction(tx, feePayer.address, feePayer.feePayerKey[2])
 
 const rawTransactionArray = [user1Signed.rawTransaction, user2Signed.rawTransaction, feePayer1Signed.rawTransaction, feePayer2Signed.rawTransaction, feePayer3Signed.rawTransaction]
-const combined = await caver.klay.tài khoảns.combineSignatures(rawTransactionArray)
+const combined = await caver.klay.accounts.combineSignatures(rawTransactionArray)
 
 const receipt = await caver.klay.sendSignedTransaction(combined)
 console.log(receipt)
@@ -900,18 +912,18 @@ Nếu bạn chỉ nhận được `signatures` hoặc `feePayerSignatures` từ 
 ```javascript
 const tx = {
     type: 'FEE_DELEGATED_VALUE_TRANSFER_WITH_RATIO',
-    from: tài khoản.address,
-    to: caver.klay.tài khoảns.create().address,
+    from: account.address,
+    to: caver.klay.accounts.create().address,
     value: 1,
     gas: 900000,
     feeRatio: 10,
 }
 
 // Sign with transactionKey[0] and transactionKey[1]
-const { signatures } = await caver.klay.tài khoảns.signTransaction(tx)
+const { signatures } = await caver.klay.accounts.signTransaction(tx)
 
 // Fee payer signs transaction with feePayerKey[0], feePayerKey[1] and feePayerKey[2]
-const { feePayerSignatures } = await caver.klay.tài khoảns.feePayerSignTransaction(tx, feePayer.address)
+const { feePayerSignatures } = await caver.klay.accounts.feePayerSignTransaction(tx, feePayer.address)
 
 // Fill in the missing information in the tx object.
 tx.signatures = signatures
@@ -927,25 +939,25 @@ Bạn cũng có thể gọi `caver.klay.tài khoảns.getRawTransactionWithSigna
 ```javascript
 const tx = {
     type: 'FEE_DELEGATED_VALUE_TRANSFER_WITH_RATIO',
-    from: tài khoản.address,
-    to: caver.klay.tài khoảns.create().address,
+    from: account.address,
+    to: caver.klay.accounts.create().address,
     value: 1,
     gas: 900000,
     feeRatio: 10,
 }
 
 // Sign with transactionKey[0] and transactionKey[1]
-const { signatures } = await caver.klay.tài khoảns.signTransaction(tx)
+const { signatures } = await caver.klay.accounts.signTransaction(tx)
 
 // Fee payer signs transaction with feePayerKey[0], feePayerKey[1] and feePayerKey[2]
-const { feePayerSignatures } = await caver.klay.tài khoảns.feePayerSignTransaction(tx, feePayer.address)
+const { feePayerSignatures } = await caver.klay.accounts.feePayerSignTransaction(tx, feePayer.address)
 
 // Fill in the missing information in the tx object.
 tx.signatures = signatures
 tx.feePayer = feePayer.address
 tx.feePayerSignatures = feePayerSignatures
 
-const { rawTransaction } = await caver.klay.tài khoảns.getRawTransactionWithSignatures(tx)
+const { rawTransaction } = await caver.klay.accounts.getRawTransactionWithSignatures(tx)
 console.log(rawTransaction)
 ```
 
@@ -953,26 +965,34 @@ console.log(rawTransaction)
 
 ## Dự án mẫu <a id="sample-projects"></a>
 
-Bạn có thể tìm thấy các dự án mẫu để phát triển dApp \(Ứng dụng phi tập trung\) dùng canver-js dưới đây:
+Bạn có thể tìm thấy các dự án mẫu để phát triển dApp (Ứng dụng phi tập trung) dùng canver-js dưới đây:
 
-* [Count DApp](../../../build/tutorials/count-dapp/count-dapp.md)
-* [Klaystagram](../../../build/tutorials/klaystagram/klaystagram.md)
+- [Count DApp](../../../build/tutorials/count-dapp/count-dapp.md)
+- [Klaystagram](../../../build/tutorials/klaystagram/klaystagram.md)
 
 ## Liên kết <a id="links"></a>
 
-* caver-js [Kho GitHub](https://github.com/klaytn/caver-js)
-* caver-js trên [npm](https://www.npmjs.com/package/caver-js)
-
-
+- caver-js [Kho GitHub](https://github.com/klaytn/caver-js)
+- caver-js trên [npm](https://www.npmjs.com/package/caver-js)
 
 [caver.klay.Contract]: api/caver.klay.Contract.md
+
 [caver.klay.accounts]: api/caver.klay.accounts.md
+
 [caver.klay.accounts.signTransaction]: api/caver.klay.accounts.md#signtransaction
+
 [caver.klay.getTransactionReceipt]: api/caver.klay/transaction/transaction.md#gettransactionreceipt
+
 [getTransactionReceipt]: api/caver.klay/transaction/transaction.md#gettransactionreceipt
-[txError: Thông tin chi tiết về các lỗi giao dịch]: ../../transaction-error-codes.md
-[Ủy thác phí]: ../../../learn/transactions/transactions.md#fee-delegation
+
+[txError: Detailed Information of Transaction Failures]: ../../transaction-error-codes.md
+
+[Fee Delegation]: ../../../learn/transactions/transactions.md#fee-delegation
+
 [AccountKey]: ../../../learn/accounts.md#account-key
-[Cập nhật tài khoản]: api/caver.klay/transaction/sendtx-account-update.md
+
+[Account Update]: api/caver.klay/transaction/sendtx-account-update.md
+
 [SMART_CONTRACT_DEPLOY]: api/caver.klay/transaction/sendtx-smart-contract-deploy.md
+
 [SMART_CONTRACT_EXECUTION]: api/caver.klay/transaction/sendtx-smart-contract-execution.md

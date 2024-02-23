@@ -2,17 +2,17 @@
 
 ## 1. Klaystagram dApp 클론하기 <a id="2-clone-klaystagram-dapp"></a>
 
-### 1) Klaystagram 저장소 복제 <a id="1-clone-klaystagram-repository"></a>
+### 1. Klaystagram 저장소 복제 <a id="1-clone-klaystagram-repository"></a>
 
 ```text
 $ git clone https://github.com/klaytn/klaystagram
 ```
 
-### 2) Klaystagram dApp 설치 및 실행 <a id="2-install-run-klaystagram-dapp"></a>
+### 2. Klaystagram dApp 설치 및 실행 <a id="2-install-run-klaystagram-dapp"></a>
 
 방금 복제한 패키지는 수정 없이 바로 실행할 수 있습니다.
 
-샘플 컨트랙트는 이미 Baobab 테스트넷에 배포되어 있으며, contract ABI는 저희 패키지에 포함되어 있습니다.  
+샘플 컨트랙트는 이미 Baobab 테스트넷에 배포되어 있으며, contract ABI는 저희 패키지에 포함되어 있습니다.\
 Klaystagram 프론트엔드 코드는 초기에 Baobab 테스트넷의 스마트 컨트랙트에 연결하도록 구성됩니다.
 
 앱을 바로 실행하여 작동 방식을 확인하려면 아래에 입력하세요.
@@ -24,7 +24,7 @@ $ npm install
 $ npm run local
 ```
 
-&#9888; 작동하지 않는 경우 파일 및 디렉터리 권한을 확인하세요.
+⚠ 작동하지 않는 경우 파일 및 디렉터리 권한을 확인하세요.
 
 애플리케이션이 바로 팝업됩니다!
 (**처음에는 많은 피드 이미지를 로드하는 데 시간이 오래 걸릴 수 있습니다.**)
@@ -35,23 +35,23 @@ $ npm run local
 2. 컨트랙트 설정
 3. 이벤트 및 데이터 구조 설정
 4. 함수 쓰기\
-  4.1. `uploadPhoto`\
-  4.2. `transferOwnership`\
-  4.3. `getPhoto`
+   4.1. `uploadPhoto`\
+   4.2. `transferOwnership`\
+   4.3. `getPhoto`
 
 ### 1) 배경 <a id="1-background"></a>
 
 우리는 "Klaystagram"이라는 간단한 컨트랙트를 맺을 것입니다.
 
-* 다양한 사진 데이터를 저장하기 위해 정의된 `PhotoData` 구조체입니다.  
-* 사용자는 `uploadPhoto`, `transferOwnership` 함수를 통해 사진을 업로드하고 소유권 사진을 전송할 수 있습니다.
+- 다양한 사진 데이터를 저장하기 위해 정의된 `PhotoData` 구조체입니다.
+- 사용자는 `uploadPhoto`, `transferOwnership` 함수를 통해 사진을 업로드하고 소유권 사진을 전송할 수 있습니다.
 
-### 2) 컨트랙트 설정 <a id="2-컨트랙트 설정"></a>
+### 2) 컨트랙트 설정 <a id="2-contract-setup"></a>
 
-* Solidity 버전을 지정합니다. 0.5.6 안정 버전 사용을 권장합니다.
-* 대체 불가능한 토큰을 만들기 위해 ERC721 표준을 사용할 것입니다.  
-  * `ERC721.sol`과 `ERC721Enumerable.sol`을 가져옵니다.
-  * ERC721에 대한 자세한 정보는 [erc721.org](http://erc721.org)에서 확인하시기 바랍니다.
+- Solidity 버전을 지정합니다. 0.5.6 안정 버전 사용을 권장합니다.
+- 대체 불가능한 토큰을 만들기 위해 ERC721 표준을 사용할 것입니다.
+  - `ERC721.sol`과 `ERC721Enumerable.sol`을 가져옵니다.
+  - ERC721에 대한 자세한 정보는 [erc721.org](http://erc721.org)에서 확인하시기 바랍니다.
 
 ```text
 pragma solidity 0.5.6;
@@ -62,7 +62,7 @@ import "./ERC721/ERC721Enumerable.sol";
 contract Klaystagram is ERC721, ERC721Enumerable {
 ```
 
-### 3) 이벤트 및 데이터 구조 설정 <a id="3-set-events-and-data-structure"></a>
+### 3. 이벤트 및 데이터 구조 설정 <a id="3-set-events-and-data-structure"></a>
 
 블록체인에서 활동을 추적하기 위해 이벤트를 설정해야 합니다.
 
@@ -84,7 +84,7 @@ struct PhotoData {
 }
 ```
 
-### 4) 함수 쓰기 <a id="4-write-functions"></a>
+### 4. 함수 쓰기 <a id="4-write-functions"></a>
 
 컨트랙트와 상호작용하는 몇 가지 함수를 작성해 봅시다. 이 튜토리얼에서는 `uploadPhoto`와 `transferOwnership`이라는 두 가지 함수만 살펴봅시다. 전체 함수 집합을 보려면 Klaystagram.sol을 확인하세요.
 
@@ -123,7 +123,7 @@ function uploadPhoto(bytes memory photo, string memory title, string memory loca
 
 #### 4-2) `transferOwnership` <a id="4-2-transferownership"></a>
 
-트랜스퍼 오너십` 함수를 살펴보겠습니다. 사진 소유권을 이전할 때는 두 가지 작업을 수행해야 합니다. 먼저 소유자를 재할당하고, 새로운 소유자 주소를 `ownerHistory` 배열에 푸시해야 합니다.
+트랜스퍼 오너십`함수를 살펴보겠습니다. 사진 소유권을 이전할 때는 두 가지 작업을 수행해야 합니다. 먼저 소유자를 재할당하고, 새로운 소유자 주소를`ownerHistory\` 배열에 푸시해야 합니다.
 
 이를 위해 `transferOwnership`은 먼저 ERC721 표준의 `safeTransferFrom` 함수를 호출하고, 이 함수는 결국 `transferFrom` 함수를 호출합니다. 위에서 언급했듯이 토큰 전송이 성공적으로 완료된 직후에는 새로운 소유자 정보를 `ownerHistory` 배열에 푸시해야 하는데, 바로 이 때문에 `transferFrom`이 아래와 같이 오버라이드됩니다.
 
@@ -186,15 +186,15 @@ returns(uint256, address[] memory, bytes memory, string memory, string memory, s
 
 ### 1) KLAY 받기 <a href="#1-get-some-klay" id="1-get-some-klay"></a>
 
-컨트랙트를 배포하려면 가스값을 지불하기 위해 계정에 약간의 KLAY가 필요합니다. 테스트넷의 클레이튼 지갑을 통해 150 KLAY를 받을 수 있습니다. 
+컨트랙트를 배포하려면 가스값을 지불하기 위해 계정에 약간의 KLAY가 필요합니다. 테스트넷의 클레이튼 지갑을 통해 150 KLAY를 받을 수 있습니다.
 
-1. [Baobab 클레이튼 지갑](https://baobab.wallet.klaytn.foundation/create)에서 클레이튼 계정을 생성합니다 -> Truffle 설정에 `PRIVATE `key`가 사용됩니다. 따라서 어딘가에 복사해 두세요. 
+1. [Baobab 클레이튼 지갑](https://baobab.wallet.klaytn.foundation/create)에서 클레이튼 계정을 생성합니다 -> Truffle 설정에 `PRIVATE `key\`가 사용됩니다. 따라서 어딘가에 복사해 두세요.
 
 2. 클레이튼 계정을 생성한 후, [Baobab 클레이튼 Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 Faucet를 실행하여 Baobab 테스트넷 KLAY 5개를 받습니다.
 
 ![create-계정 생성 및 실행-KLAY Faucet](/img/build/tutorials/klaystagram-run-faucet.png)
 
-### 2) Truffle 구성 <a href="#2-truffle-configuration" id="2-truffle-configuration"></a>
+### 2. Truffle 구성 <a href="#2-truffle-configuration" id="2-truffle-configuration"></a>
 
 `truffle-config.js`는 배포 구성을 포함한 구성 파일입니다. 이전 단계에서 방금 생성한 `Private `key`를 사용하여 컨트랙트를 배포할 것입니다. 충분한 KLAY가 있는 `Private `key`를 Truffle-config.js에 붙여넣습니다.
 
@@ -217,7 +217,7 @@ const NETWORK_ID = '1001'
  */
 const URL = 'https://public-en-baobab.klaytn.net'
 
-// Paste your `Private `key` that has enough KLAY to truffle.js
+// Paste your `Private key` that has enough KLAY to truffle.js
 const PRIVATE_KEY = 'your_private_key'
 
 module.exports = {
@@ -244,18 +244,18 @@ module.exports = {
 위의 `networks` 속성을 참조하십시오. `klaytn` 네트워크에는 4개의 프로퍼티가 있습니다.\
 `provider`, `network_id`, `gas`, `gasPrice`
 
-* `provider: () => new HDWalletProvider(PRIVATE_KEY, URL)` 이름 그대로 위에서 정의한 개인키와 URL을 삽입합니다.
-* `network_id: NETWORK_ID` 클레이튼에서 네트워크 아이디를 지정하는데, 클레이튼 Baobab 네트워크(테스트넷)를 사용하려면 `1001`로 설정해야 합니다.
-* `gas: GASLIMIT` 지출하고자 하는 최대 가스입니다.
-* `gasPrice: null` 가스 단위당 가격입니다. 현재 클레이튼에서 가스 가격은 `'25000000000'`로 고정되어 있습니다. 이를 `null`로 설정하면 Truffle이 자동으로 가스 가격을 설정합니다.
+- `provider: () => new HDWalletProvider(PRIVATE_KEY, URL)` 이름 그대로 위에서 정의한 개인키와 URL을 삽입합니다.
+- `network_id: NETWORK_ID` 클레이튼에서 네트워크 아이디를 지정하는데, 클레이튼 Baobab 네트워크(테스트넷)를 사용하려면 `1001`로 설정해야 합니다.
+- `gas: GASLIMIT` 지출하고자 하는 최대 가스입니다.
+- `gasPrice: null` 가스 단위당 가격입니다. 현재 클레이튼에서 가스 가격은 `'25000000000'`로 고정되어 있습니다. 이를 `null`로 설정하면 Truffle이 자동으로 가스 가격을 설정합니다.
 
 #### `compiler` 속성 <a href="#컴파일러-프로퍼티" id="컴파일러-프로퍼티"></a>
 
 Solidity 컨트랙트의 경우 0.5.6 버전을 사용했으므로 여기에 컴파일러 버전을 지정하세요.
 
-### 3) 배포 설정 <a href="#3-deploy-setup" id="3-deploy-setup"></a>
+### 3. 배포 설정 <a href="#3-deploy-setup" id="3-deploy-setup"></a>
 
-`migrations/2_deploy_contacts.js`:
+`migrations/2_deploy_contracts.js`:
 
 ```javascript
 const Klaystagram = artifacts.require('./Klaystagram.sol')
@@ -289,22 +289,21 @@ module.exports = function (deployer) {
 
 `contracts/` 디렉터리에 어떤 계약 코드를 배포할지 지정할 수 있습니다.
 
-1.  다음을 통해 컨트랙트 파일(`Klaystagram.sol`)을 가져옵니다.
+1. 다음을 통해 컨트랙트 파일(`Klaystagram.sol`)을 가져옵니다.
 
-    `const Klaystagram = artifacts.require('./Klaystagram.sol')`
+   `const Klaystagram = artifacts.require('./Klaystagram.sol')`
 2. `deployer`를 사용하여 컨트랙트를 배포하는 `deployer.deploy(Klaystagram)`를 사용합니다.
 3. 컨트랙트를 배포한 후 로직을 추가하려면 `.then()`을 사용합니다(선택 사항).
-4.  컨트랙트의 `deployedABI`와 `deployedAddress`를 저장하려면 `fs` node.js 모듈을 사용합니다.
+4. 컨트랙트의 `deployedABI`와 `deployedAddress`를 저장하려면 `fs` node.js 모듈을 사용합니다.
 
-    `fs.writeFile(filename, content, callback)` (선택 사항)
+   `fs.writeFile(filename, content, callback)` (선택 사항)
 
-참고: `artifacts.require()`에 대한 자세한 내용은 트러플 공식 문서 [트러플 문서](https://trufflesuite.com/docs/truffle/getting-started/running-migrations#artifacts-require-)를 참고하세요.
+참고: `artifacts.require()`에 대한 자세한 내용은 Truffle 공식 문서 [Truffle 문서](https://trufflesuite.com/docs/truffle/getting-started/running-migrations#artifacts-require-)를 참고하세요.
 
-### 4) 배포 <a href="#4-deploy" id="4-deploy"></a>
+### 4. 배포 <a href="#4-deploy" id="4-deploy"></a>
 
 ![배포 컨트랙트](/img/build/tutorials/klaystagram-deploy-contract.png)
 
-터미널에서 `$ truffle deploy --network baobab`을 입력합니다.
 `truffle-config.js` 및 `migrations/2_deploy_contracts.js` 구성에 따라 컨트랙트를 배포합니다.
 
 배포가 성공하면 터미널에 배포된 컨트랙트 주소가 표시됩니다.

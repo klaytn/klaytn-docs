@@ -3,8 +3,9 @@
 ![](/img/build/tools/klaytnXkaikas.png)
 
 Kaikas là ví tiện ích của trình duyệt cho Mạng lưới Klaytn. Khả dụng trong Google Chrome, Kaikas cung cấp một phương pháp an toàn và có thể sử dụng được để tương tác với mạng lưới Klaytn thông qua trình duyệt web. Với Kaikas, bạn có thể lưu trữ và giao dịch bằng token dựa trên KLAY và Klaytn của mình. Bạn cũng có thể ký các yêu cầu từ dApp (Ứng dụng phi tập trung) dựa trên web theo thời gian thực.
+realtime.
 
-* Tải xuống từ Cửa hàng Chrome trực tuyến: [liên kết](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi)
+- Tải xuống từ Cửa hàng Chrome trực tuyến: [liên kết](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi)
 
 Đối với nhà phát triển, vui lòng truy cập [https://docs.kaikas.io](https://docs.kaikas.io) để tìm hiểu cách bạn có thể phát triển ứng dụng dApp bằng Kaikas.
 
@@ -26,7 +27,7 @@ Kaikas hỗ trợ mạng thử nghiệm Baobab của Klaytn cũng như mạng ch
 
 ## Ký giao dịch dApp dựa trên web
 
-Kaikas chỉ đơn giản là thu hẹp khoảng cách giữa bạn và dApp, cho phép bạn ký các giao dịch/dữ liệu chuyển đến bạn từ dApp bằng tài khoản Kaikas. Kaikas cũng là một tiện ích hữu ích dành cho các nhà phát triển để xử lý [các giao dịch có phí ủy thác](../../../learn/transactions/transactions.md#fee-delegation). Khi sử dụng Kaikas, cả người gửi giao dịch và người trả phí đều có thể nhanh chóng ký các giao dịch có phí ủy thác.
+Kaikas chỉ đơn giản là thu hẹp khoảng cách giữa bạn và dApp, cho phép bạn ký các giao dịch/dữ liệu chuyển đến bạn từ dApp bằng tài khoản Kaikas.
+Kaikas cũng là một tiện ích hữu ích dành cho các nhà phát triển để xử lý [các giao dịch có phí ủy thác](../../../learn/transactions/transactions.md#fee-delegation). Khi sử dụng Kaikas, cả người gửi giao dịch và người trả phí đều có thể nhanh chóng ký các giao dịch có phí ủy thác.
 
-
-[Klaytnscope]: ../block-explorers//klaytnscope.md
+[Klaytnscope]: ../block-explorers/klaytnscope.md

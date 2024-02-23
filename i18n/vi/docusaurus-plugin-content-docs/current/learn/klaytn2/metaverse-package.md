@@ -2,7 +2,7 @@
 
 ## Giảm thiểu rào cản gia nhập <a href="#lowering-the-barrier-to-entry" id="lowering-the-barrier-to-entry"></a>
 
-![Klaytn cung cấp tính năng tích hợp toàn diện bao gồm giải pháp L2 cài đặt sẵn](/img/learn/mainnet-integration.png)
+![Klaytn offers end-to-end integration including a built-in L2 solution](/img/learn/mainnet-integration.png)
 
 Rõ ràng là công nghệ chuỗi khối sẽ đóng vai trò là lớp tin cậy quan trọng cho metaverse.
 

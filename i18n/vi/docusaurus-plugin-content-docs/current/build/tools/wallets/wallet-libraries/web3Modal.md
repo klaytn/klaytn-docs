@@ -14,10 +14,10 @@ Trong hướng dẫn này, bạn sẽ sử dụng thư viện web3Modal để t�
 
 ## Điều kiện tiên quyết
 
-* Một dự án react đang hoạt động (bằng cách thực hiện `npx create-react-app project-name`)
-* Cài đặt các ví cần thiết ([Kaikas](https://app.kaikas.io/), [Ví Coinbase Wallet](https://www.coinbase.com/wallet/downloads), và [Metamask](https://metamask.io/download/)).
-* Điểm cuối RPC: bạn có thể nhận từ một trong những [Nhà cung cấp điểm cuối](../../../../references/service-providers/public-en.md) được hỗ trợ.à cung cấp endpoint được hỗ trợ.
-* KLAY thử nghiệm từ [Vòi](https://baobab.wallet.klaytn.foundation/faucet): nạp tiền vào tài khoản với một lượng KLAY vừa đủ.
+- Một dự án react đang hoạt động (bằng cách thực hiện `npx create-react-app project-name`)
+- Cài đặt các ví cần thiết ([Kaikas](https://app.kaikas.io/), [Ví Coinbase Wallet](https://www.coinbase.com/wallet/downloads), và [Metamask](https://metamask.io/download/)).
+- Điểm cuối RPC: bạn có thể nhận từ một trong những [Nhà cung cấp điểm cuối](../../../../references/service-providers/public-en.md) được hỗ trợ.à cung cấp endpoint được hỗ trợ.
+- KLAY thử nghiệm từ [Vòi](https://baobab.wallet.klaytn.foundation/faucet): nạp tiền vào tài khoản với một lượng KLAY vừa đủ.
 
 ## Thiết lập các tùy chọn của nhà cung cấp Ví và Web3Modal
 
@@ -39,6 +39,7 @@ npm install --save @coinbase/wallet-sdk
 npm install --save @klaytn/kaikas-web3-provider
 npm install --save @klaytn/klip-web3-provider
 ```
+
 Trong tệp `App.js` của bạn, nhập CoinbaseWalletSDK, KaikasWeb3Provider và KlipWeb3Provider và khởi tạo các tùy chọn nhà cung cấp khác nhau để tích hợp với dapp của bạn.
 
 ```js
@@ -69,21 +70,22 @@ const providerOptions = {
       infuraId: "NFURA_KEY", // required
       rpc: "https://klaytn-mainnet-rpc.allthatnode.com:8551", // Optional if `infuraId` is provided; otherwise it's required
       chainId: 1001, // Optional. It defaults to 1 if not provided
-darkMode: false // Optional. Use dark theme, defaults to false
-}
+      darkMode: false // Optional. Use dark theme, defaults to false
+    }
+  },
+  klip: {
+    package: KlipWeb3Provider, //required
+    options: {
+        bappName: "Web3Modal Klaytn dApp", //required
+        rpcUrl: "https://klaytn-mainnet-rpc.allthatnode.com:8551" //required
+    }
 },
-klip: {
-package: KlipWeb3Provider, //required
-options: {
-bappName: "Web3Modal Klaytn dApp", //required
-rpcUrl: "https://klaytn-mainnet-rpc.allthatnode.com:8551" //required
-}
-},
-kaikas: {
-package: KaikasWeb3Provider // required
-}
+  kaikas: {
+    package: KaikasWeb3Provider // required
+  }
 };
 ```
+
 **Bước 3**: Instantiate web3modal
 
 Sau đó, khởi tạo Web3Modal bằng cách chuyển các tùy chọn của nhà cung cấp.
@@ -105,28 +107,28 @@ import { ethers } from 'ethers';
 import { useState } from 'react';
 
 function App() {
-const [provider, setProvider] = useState();
+  const [provider, setProvider] = useState();
 
-const connectWallet = async () => {
-try {
+  const connectWallet = async () => {
+    try {
 
-const web3ModalProvider = await web3Modal.connect();
-
-// this guide uses ethers version 6.3.0.
+    const web3ModalProvider = await web3Modal.connect();
+	
+    // this guide uses ethers version 6.3.0.
     const ethersProvider = new ethers.BrowserProvider(web3ModalProvider);
-// for ethers version below 6.3.0.
+    // for ethers version below 6.3.0.
     // const provider = new ethers.providers.Web3Provider(web3ModalProvider);
-setProvider(web3ModalProvider);
-} catch (error) {
-console.error(error);
-}
-};
-
-return (
-<div className="App">
-<button onClick={connectWallet}>Connect Wallet</button> 
-</div>
-);
+      setProvider(web3ModalProvider);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  
+ return (
+   <div className="App">
+       <button onClick={connectWallet}>Connect Wallet</button>  
+   </div>
+ );
 }
 ```
 
@@ -155,6 +157,7 @@ export const truncateAddress = (address) => {
     return "0x" + val.toString(16);
   };
 ```
+
 **Bước 2**: Nhập các chức năng trong tệp `app.js` của bạn.
 
 ```js
@@ -167,7 +170,7 @@ Như vậy, Web3Modal không cung cấp hỗ trợ tích hợp cho các tương 
 
 ```js
 const [provider, setProvider] = useState();
-const [tài khoản, setAccount] = useState();
+const [account, setAccount] = useState();
 const [chainId, setChainId] = useState();
 
 const connectWallet = async () => {
@@ -179,11 +182,11 @@ const connectWallet = async () => {
     // for ethers version below 6.3.0.
     // const provider = new ethers.providers.Web3Provider(web3ModalProvider);
 
-    const tài khoảns = await ethersProvider.listAccounts();
+    const accounts = await ethersProvider.listAccounts();
     const network = await ethersProvider.getNetwork();
 
     setProvider(provider);
-    if (tài khoảns) setAccount(tài khoảns[0]);
+    if (accounts) setAccount(accounts[0]);
     setChainId(network.chainId.toString());
   } catch (error) {
     console.error(error);
@@ -194,17 +197,18 @@ return (
   <div className="App">
        <button onClick={connectWallet}>Connect Wallet</button>
        <div>Connected To Chain ID: ${chainId}</div>
-       <div>Wallet Address: ${truncateAddress(tài khoản)}</div>
+       <div>Wallet Address: ${truncateAddress(account)}</div>
   </div>
 );
 ```
+
 ## Ngắt kết nối ví
 
 Ngắt kết nối khỏi ví đạt được bằng cách sử dụng phương pháp `clearCachedProvider()` trên phiên bản Web3Modal. Ngoài ra, một thực tế tốt là làm mới trạng thái để xóa bất kỳ dữ liệu kết nối được lưu trữ trước đó.
 
 ```js
 function App() {
-
+    
 const disconnect = async () => {
     await web3Modal.clearCachedProvider();
       refreshState();
@@ -216,7 +220,7 @@ const refreshState = () => {
   setChainId();
 // make sure to add every other state variable declared here.
 }
-
+  
   return (
     <div className="App">
           <button onClick={disconnect}>Disconnect</button>
@@ -230,25 +234,25 @@ const refreshState = () => {
 ```js
   useEffect(() => {
     if (provider?.on) {
-      const handleAccountsChanged = (tài khoảns) => {
-        setAccount(tài khoảns);
+      const handleAccountsChanged = (accounts) => {
+        setAccount(accounts);
       };
-
+  
       const handleChainChanged = (chainId) => {
         setChainId(chainId);
       };
-
+  
       const handleDisconnect = () => {
         disconnect();
       };
-
-      provider.on("tài khoảnsChanged", handleAccountsChanged);
+  
+      provider.on("accountsChanged", handleAccountsChanged);
       provider.on("chainChanged", handleChainChanged);
       provider.on("disconnect", handleDisconnect);
-
+  
       return () => {
         if (provider.removeListener) {
-          provider.removeListener("tài khoảnsChanged", handleAccountsChanged);
+          provider.removeListener("accountsChanged", handleAccountsChanged);
           provider.removeListener("chainChanged", handleChainChanged);
           provider.removeListener("disconnect", handleDisconnect);
         }
@@ -291,7 +295,7 @@ Như đã thiết lập trước đây, Web3Modal không hỗ trợ tích hợp 
     }
   };
 
-return (    
+return (	
     <div className="App">
         <button onClick={switchNetwork}>Switch Network</button>  
     </div>
@@ -312,11 +316,11 @@ const signMessage = async(e) => {
       try {
       const signature = await provider.request({
         method: "personal_sign",
-        params: [message, tài khoản]
+        params: [message, account]
       });
 
     setSignedMessage(signature);
-
+ 
     } catch (error) {
       console.log(error);
     }
@@ -349,7 +353,7 @@ Bạn có thể thực hiện các giao dịch gốc, như gửi Klay từ ngư�
     // const provider = new ethers.providers.Web3Provider(provider);
 
     const signer = await ethersProvider.getSigner();
-
+      
     // Submit transaction to the blockchain and wait for it to be mined
     const tx = await signer.sendTransaction({
         to: destination,
@@ -357,8 +361,8 @@ Bạn có thể thực hiện các giao dịch gốc, như gửi Klay từ ngư�
         maxPriorityFeePerGas: "5000000000", // Max priority fee per gas
         maxFeePerGas: "6000000000000", // Max fee per gas
     })
-
-
+  
+      
     const receipt = await tx.wait();
     setTxHash(receipt.hash)
 }
@@ -375,7 +379,7 @@ return (
 
 Với nhà cung cấp Web3Modal và đối tượng người ký, bạn có thể thực hiện các tương tác hợp đồng như viết và đọc từ hợp đồng thông minh được triển khai cho chuỗi khối.
 
-1. **Viết cho một hợp đồng**
+### 1. Viết cho một hợp đồng
 
 ```js
 // add to existing useState hook
@@ -391,7 +395,7 @@ Với nhà cung cấp Web3Modal và đối tượng người ký, bạn có th�
     // const provider = new ethers.providers.Web3Provider(provider);
 
     const signer = await ethersProvider.getSigner();
-
+  
     // Paste your contractABI
     const contractABI = [
       {
@@ -432,20 +436,20 @@ Với nhà cung cấp Web3Modal và đối tượng người ký, bạn có th�
         "type": "function"
       }
     ]
-
+  
      // Paste your contract address
     const contractAddress = "0x3b01E4025B428fFad9481a500BAc36396719092C";
     const contract = new ethers.Contract(contractAddress, contractABI, signer);
-
+  
     const value = e.target.store_value.value;
-
+  
     // Send transaction to smart contract to update message
     const tx = await contract.store(value);
-
+  
     // Wait for transaction to finish
     const receipt = await tx.wait();
     const result = receipt.hash;
-
+  
     setContractTx(result)
   }
 
@@ -460,7 +464,7 @@ return (
 )
 ```
 
-2. **Đọc từ một hợp đồng**
+### 2. Đọc từ một hợp đồng
 
 ```js
 // add to existing useState hook
@@ -470,13 +474,13 @@ return (
       console.log("provider not initialized yet");
       return;
     }
-
-
+  	
+	
     // this guide uses ethers version 6.3.0.
     const ethersProvider = new ethers.BrowserProvider(provider);
     // for ethers version below 6.3.0.
     // const provider = new ethers.providers.Web3Provider(provider);
-
+  
     // paste your contract ABI
     const contractABI = [
       {
@@ -517,12 +521,12 @@ return (
         "type": "function"
       }
     ]
-
+  
      // paste your contract address
     const contractAddress = "0x3b01E4025B428fFad9481a500BAc36396719092C"; 
-
+  
     const contract = new ethers.Contract(contractAddress, contractABI, ethersProvider)
-
+  
     // Reading a message from the smart contract
     const contractMessage = await contract.retrieve();
     setContractMessage(contractMessage.toString())
@@ -539,7 +543,7 @@ return (
 
 ## Khắc phục sự cố
 
-1. **Node fs error, add browser \{fs: false\} to package.json**
+**Node fs error, add browser {fs: false} to package.json**
 
 ```bash
 Node fs error, add browser {fs: false} to package.json
@@ -549,7 +553,7 @@ Node fs error, add browser {fs: false} to package.json
 
 **Bước 1**: Mở và điều hướng đến thư mục node_modules của bạn. Tìm thư mục @Klaytn/klip-web3-provider và điều hướng đến tệp pack.json của nó như hiển thị bên dưới:
 
-> **@klaytn/klip-web3-provider/node_modules/caver-js/packages/caver.ipfs/pack.json**
+> **@klaytn/klip-web3-provider/node_modules/caver-js/packages/caver.ipfs/package.json**
 
 **Bước 2**: Dán mã bên dưới vào @klaytn/klip-web3-provider/node_modules/caver-js/packages/caver.ipfs/pack.json.
 
@@ -559,16 +563,14 @@ Node fs error, add browser {fs: false} to package.json
      },
 ```
 
-2. **Lỗi mô-đun lõi nút polyfill**
+**Polyfill node core module error**
 
 ```js
-THAY ĐỔI ĐỘT PHÁ: webpack<5 được sử dụng để bao gồm polyfills cho node.js lõi node.js theo mặc định.
+BREAKING CHANGES: webpack<5 used to include polyfills for node.js core modules by default.
 ```
+
 Lỗi này xảy ra khi bạn sử dụng webpack phiên bản 5. Trong phiên bản này, NodeJS polyfills không còn được hỗ trợ theo mặc định. Để giải quyết vấn đề này, hãy tham khảo [hướng dẫn](https://web3auth.io/docs/troubleshooting/webpack-issues).
 
 ## Bước tiếp theo
 
 Để biết thêm các hướng dẫn chuyên sâu về Web3Modal, vui lòng tham khảo [Web3Modal Docs](https://docs.walletconnect.com/2.0/web3modal/about) và [Kho lưu trữ Web3Modal GitHub](https://github.com/klaytn/klaytn-web3modal). Ngoài ra, bạn có thể tìm thấy việc triển khai đầy đủ mã cho hướng dẫn này trên [GitHub](https://github.com/klaytn/examples/tree/main/wallet-libraries/web3Modal-sample).
-
-
-

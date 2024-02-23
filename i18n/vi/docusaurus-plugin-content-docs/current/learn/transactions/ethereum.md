@@ -2,16 +2,15 @@
 
 Klaytn cung cấp các loại giao dịch được bọc nhằm hỗ trợ khả năng tương thích với Ethereum. Các loại giao dịch Ethereum trong Klaytn có cùng các thuộc tính và sơ đồ mã hóa RLP với thiết kể của Ethereum, ngoại trừ dấu phân tách loại một byte có tên là `EthereumTxTypeEnvelope`. Vì thế, người dùng có thể triển khai thành công các giao dịch được tạo bằng công cụ phát triển Ethereum trên Klaytn. Dấu phân tách loại cũng được bỏ qua khi người dùng sử dụng API không gian tên `eth` để họ có thể sử dụng Klaytn như Ethereum. Khi sử dụng các API không gian tên `klay`, người dùng có thể triển khai và truy xuất các giao dịch có định dạng Ethereum như một loại giao dịch Klaytn và không bị nhầm lẫn với các loại giao dịch Klaytn hiện có.
 
-
 ## EthereumTxTypeEnvelope <a id="ethereumtxtypeenvelope"></a>
 
 EthereumTxTypeEnvelope là tiền tố một byte cho các giao dịch thô, biểu thị các loại giao dịch Ethereum. Ethereum đã ứng dụng sơ đồ loại giao dịch có thể mở rộng từ [EIP-2718](https://eips.ethereum.org/EIPS/eip-2718) và sử dụng một hệ thống đánh số phân loại có xung đột với Klaytn. Để giải quyết xung đột giữa hai sơ đồ loại giao dịch khác nhau, Klaytn đã giới thiệu `EthereumTxTypeEnvelope`, cho phép phân tách và mở rộng các loại giao dịch Ethereum trong tương lai.
 
 `EthereumTxTypeEnvelope` là một dấu phân tách loại bổ sung và chỉ được sử dụng cho các giao dịch thô và đánh số phân loại. Nó không được sử dụng cho hàm băm giao dịch hoặc hàm băm chữ ký. Vì mục đích đó, `EthereumTransactionType`, như được định nghĩa trong EIP, sẽ được sử dụng.
+
 - EthereumTxTypeEnvelope: `0x78`
 - TxHashRLP : EthereumTransactionType || TransactionPayload
-- RawTransaction : EthereumTxTypeEnvelope || Loại giao dịch Ethereum || TransactionPayload
-
+- RawTransaction : EthereumTxTypeEnvelope || EthereumTransactionType || TransactionPayload
 
 ## TxTypeEthereumAccessList <a id="txtypeethereumaccesslist"></a>
 
@@ -31,18 +30,18 @@ LƯU Ý: Loại giao dịch này chỉ hỗ trợ định dạng của loại gi
 
 ### Thuộc tính <a id="attributes"></a>
 
-| Thuộc tính | type                        | Mô tả                                                                                                                                                                                                                                                                                    |
-|:---------- |:--------------------------- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type       | uint8 \(Go\)              | Loại `TxTypeEthereumAccessList` là sự kết nối của `EthereumTxTypeEnvelope` và `EthereumTransactionType`. Thuộc tính này phải là 0x7801.                                                                                                                                                  |
-| chainId    | \*big.Int \(Go\)        | ID chuỗi đích.                                                                                                                                                                                                                                                                           |
-| nonce      | uint64 \(Go\)             | Giá trị dùng để định danh duy nhất cho một giao dịch của người gửi. Nếu hai giao dịch có cùng một giá trị số dùng một lần do người gửi tạo ra, chỉ có một giao dịch sẽ được thực thi.                                                                                                    |
-| giá gas    | \*big.Int \(Go\)        | Hệ số nhân để tính toán số lượng token mà người gửi sẽ thanh toán. Lượng token mà người gửi sẽ thanh toán được tính theo công thức `gas` \* `gasPrice`. Ví dụ: Người gửi sẽ thanh toán khoản phí giao dịch là 10 KLAY nếu gas bằng 10 và gasPrice là 10^18. Hãy xem [Đơn vị của KLAY]. |
-| gas        | uint64 \(Go\)             | Giá trị phí giao dịch tối đa mà giao dịch được phép sử dụng.                                                                                                                                                                                                                             |
-| đến        | \*common.Address \(Go\) | Địa chỉ tài khoản sẽ nhận giá trị được chuyển.                                                                                                                                                                                                                                           |
-| giá trị    | \*big.Int \(Go\)        | Số lượng KLAY tính bằng `peb` sẽ được chuyển.                                                                                                                                                                                                                                            |
-| data       | \[\]byte \(Go\)         | Dữ liệu được gắn kèm giao dịch, dùng để thực thi giao dịch.                                                                                                                                                                                                                              |
-| accessList | type.AccessList \(Go\)    | Một danh sách gồm các địa chỉ và khóa lưu trữ bao gồm \[\](common.Address, []common.Hash).                                                                                                                                                                                             |
-| v, r, s    | \*big.Int \(Go\)        | Chữ ký mật mã được tạo bởi người gửi để cho phép người nhận lấy được địa chỉ của người gửi.                                                                                                                                                                                              |
+| Thuộc tính | type                                                                               | Mô tả                                                                                                                                                                                                                                                                                                                                      |
+| :--------- | :--------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type       | uint8 (Go)                                                      | Loại `TxTypeEthereumAccessList` là sự kết nối của `EthereumTxTypeEnvelope` và `EthereumTransactionType`. Thuộc tính này phải là 0x7801.                                                                                                                                                                                                    |
+| chainId    | \*big.Int (Go)                                                  | ID chuỗi đích.                                                                                                                                                                                                                                                                                                                             |
+| nonce      | uint64 (Go)                                                     | Giá trị dùng để định danh duy nhất cho một giao dịch của người gửi. Nếu hai giao dịch có cùng một giá trị số dùng một lần do người gửi tạo ra, chỉ có một giao dịch sẽ được thực thi.                                                                                                                                                      |
+| giá gas    | \*big.Int (Go)                                                  | Hệ số nhân để tính toán số lượng token mà người gửi sẽ thanh toán. Lượng token mà người gửi sẽ thanh toán được tính theo công thức `gas` \* `gasPrice`. Ví dụ: Người gửi sẽ thanh toán khoản phí giao dịch là 10 KLAY nếu gas bằng 10 và gasPrice là 10^18. Hãy xem [Đơn vị của KLAY]. |
+| gas        | uint64 (Go)                                                     | Giá trị phí giao dịch tối đa mà giao dịch được phép sử dụng.                                                                                                                                                                                                                                                                               |
+| đến        | \*common.Address (Go)                                           | Địa chỉ tài khoản sẽ nhận giá trị được chuyển.                                                                                                                                                                                                                                                                                             |
+| giá trị    | \*big.Int (Go)                                                  | Số lượng KLAY tính bằng `peb` sẽ được chuyển.                                                                                                                                                                                                                                                                                              |
+| data       | []byte (Go) | Dữ liệu được gắn kèm giao dịch, dùng để thực thi giao dịch.                                                                                                                                                                                                                                                                                |
+| accessList | type.AccessList (Go)                                            | Một danh sách gồm các địa chỉ và khóa lưu trữ bao gồm [](common.Address, []common.Hash).                                                                                                                        |
+| v, r, s    | \*big.Int (Go)                                                  | Chữ ký mật mã được tạo bởi người gửi để cho phép người nhận lấy được địa chỉ của người gửi.                                                                                                                                                                                                                                                |
 
 ### Mã hóa RLP cho chữ ký <a id="rlp-encoding-for-signature"></a>
 
@@ -80,11 +79,12 @@ TxHash = keccak256(TxHashRLP)
 ```
 
 ### Giao dịch thô <a id="raw-transaction"></a>
+
 ```javascript
 RawTx = EthereumTxTypeEnvelope || EthereumTransactionType || encode([chainId, nonce, gasPrice, gasLimit, to, value, data, accessList, v, r, s])
 ```
 
-### Mã hóa RLP \(Ví dụ\) <a id="rlp-encoding-example"></a>
+### Mã hóa RLP (Ví dụ) <a id="rlp-encoding-example"></a>
 
 Phần dưới đây cho thấy kết quả của quá trình tuần tự hóa RLP và đối tượng giao dịch:
 
@@ -104,15 +104,16 @@ Phần dưới đây cho thấy kết quả của quá trình tuần tự hóa R
     R:        0xbfc80a874c43b71b67c68fa5927d1443407f31aef4ec6369bbecdb76fc39b0c0
     S:        0x193e62c1dd63905aee7073958675dcb45d78c716a9a286b54a496e82cb762f26
     Hex:      7801f8a1028204d219830f4240947b65b75d204abed71587c9e519a89277766ee1d00a8431323334f838f7940000000000000000000000000000000000000001e1a0000000000000000000000000000000000000000000000000000000000000000001a0bfc80a874c43b71b67c68fa5927d1443407f31aef4ec6369bbecdb76fc39b0c0a0193e62c1dd63905aee7073958675dcb45d78c716a9a286b54a496e82cb762f26
-
+        
 
 ```
 
-### Kết quả đầu ra RPC \(Example\) <a id="rpc-output-example"></a>
+### Kết quả đầu ra RPC (Example) <a id="rpc-output-example"></a>
 
 Phần dưới đây cho thấy một đối tượng giao dịch được trả về qua JSON RPC.
 
 Kết quả trả về của `eth_getTransactionByHash`
+
 ```javascript
 {
   "blockHash": "0x7bd7e8a92ecaa5781a15a8b6fff589f8ac8a79325b517a1ba5d5f2f3d7af1b00",
@@ -143,6 +144,7 @@ Kết quả trả về của `eth_getTransactionByHash`
 ```
 
 Kết quả trả về của `klay_getTransactionByHash`
+
 ```javascript
 {
   "accessList": [
@@ -178,7 +180,6 @@ Kết quả trả về của `klay_getTransactionByHash`
 }
 ```
 
-
 ## TxTypeEthereumDynamicFee <a id="txtypeethereumdynamicfee"></a>
 
 `TxTypeEthereumDynamicFee` đại diện cho một loại giao dịch Ethereum được chỉ định trong [EIP-1559](https://eips.ethereum.org/EIPS/eip-1559). Loại giao dịch này chứa `gasTipCap` và `gasFeeCap` thay vì `gasPrice`. Vì loại giao dịch này tồn tại để hỗ trợ khả năng tương thích, nó chỉ hoạt động với các EOA liên kết với [AccountKeyLegacy]. Các EOA liên kết với loại khóa tài khoản khác sẽ sử dụng những loại giao dịch khác như `TxTypeValueTransfer`, `TxTypeSmartContractExecution`, v.v. Loại giao dịch này có thể tạo tài khoản, chuyển token, triển khai/thực thi hợp đồng thông minh hoặc kết hợp những hoạt động vừa nêu.
@@ -203,19 +204,19 @@ LƯU Ý: Vì Klaytn có giá gas cố định, `gasTipCap` và `gasFeeCap` nên 
 
 ### Thuộc tính <a id="attributes"></a>
 
-| Thuộc tính | Loại                       | Mô tả                                                                                                                                                                                                                                                                                                        |
-|:---------- |:--------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| type       | uint8 \(Go\)              | Loại `TxTypeEthereumDynamicFee` là sự kết nối của `EthereumTxTypeEnvelope` và `EthereumTransactionType`. Thuộc tính này phải là `0x7802`.                                                                                                                                                                    |
-| chainId    | \*big.Int \(Go\)        | ID chuỗi đích.                                                                                                                                                                                                                                                                                               |
-| nonce      | uint64 \(Go\)             | Giá trị dùng để định danh duy nhất cho một giao dịch của người gửi. Nếu hai giao dịch có cùng một giá trị số dùng một lần do người gửi tạo ra, chỉ có một giao dịch sẽ được thực thi.                                                                                                                        |
-| gasTipCap  | \*big.Int \(Go\)        | Hệ số nhân để biết mức phí người gửi phải thanh toán ngoài `baseFee`. Vì Klaytn có giá gas cố định, `gasTipCap` và `gasFeeCap` nên lấy giá gas cho mạng lưới tương ứng, mức giá này là 250 ston vào thời điểm viết bài.                                                                                      |
-| gasFeeCap  | \*big.Int \(Go\)        | Hệ số nhân để tính toán số lượng token mà người gửi sẽ thanh toán. Lượng token mà người gửi sẽ thanh toán được tính theo công thức `gas` \* `gasFeeCap`. Vì Klaytn có giá gas cố định, `gasTipCap` và `gasFeeCap` nên lấy giá gas cho mạng lưới tương ứng, mức giá này là 250 ston vào thời điểm viết bài. |
-| gas        | uint64 \(Go\)             | Giá trị phí giao dịch tối đa mà giao dịch được phép sử dụng.                                                                                                                                                                                                                                                 |
-| đến        | \*common.Address \(Go\) | Địa chỉ tài khoản sẽ nhận giá trị được chuyển.                                                                                                                                                                                                                                                               |
-| giá trị    | \*big.Int \(Go\)        | Số lượng KLAY tính bằng `peb` sẽ được chuyển.                                                                                                                                                                                                                                                                |
-| data       | \[\]byte \(Go\)         | Dữ liệu được gắn kèm giao dịch, dùng để thực thi giao dịch.                                                                                                                                                                                                                                                  |
-| accessList | type.AccessList \(Go\)    | Một danh sách gồm các địa chỉ và khóa lưu trữ bao gồm \[\](common.Address, []common.Hash).                                                                                                                                                                                                                 |
-| v, r, s    | \*big.Int \(Go\)        | Chữ ký mật mã được tạo bởi người gửi để cho phép người nhận lấy được địa chỉ của người gửi.                                                                                                                                                                                                                  |
+| Thuộc tính | Loại                                                                              | Mô tả                                                                                                                                                                                                                                                                                                      |
+| :--------- | :--------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type       | uint8 (Go)                                                      | Loại `TxTypeEthereumDynamicFee` là sự kết nối của `EthereumTxTypeEnvelope` và `EthereumTransactionType`. Thuộc tính này phải là `0x7802`.                                                                                                                                                                  |
+| chainId    | \*big.Int (Go)                                                  | ID chuỗi đích.                                                                                                                                                                                                                                                                                             |
+| nonce      | uint64 (Go)                                                     | Giá trị dùng để định danh duy nhất cho một giao dịch của người gửi. Nếu hai giao dịch có cùng một giá trị số dùng một lần do người gửi tạo ra, chỉ có một giao dịch sẽ được thực thi.                                                                                                                      |
+| gasTipCap  | \*big.Int (Go)                                                  | Hệ số nhân để biết mức phí người gửi phải thanh toán ngoài `baseFee`. Vì Klaytn có giá gas cố định, `gasTipCap` và `gasFeeCap` nên lấy giá gas cho mạng lưới tương ứng, mức giá này là 250 ston vào thời điểm viết bài.                                                                                    |
+| gasFeeCap  | \*big.Int (Go)                                                  | Hệ số nhân để tính toán số lượng token mà người gửi sẽ thanh toán. Lượng token mà người gửi sẽ thanh toán được tính theo công thức `gas` \* `gasFeeCap`. Vì Klaytn có giá gas cố định, `gasTipCap` và `gasFeeCap` nên lấy giá gas cho mạng lưới tương ứng, mức giá này là 250 ston vào thời điểm viết bài. |
+| gas        | uint64 (Go)                                                     | Giá trị phí giao dịch tối đa mà giao dịch được phép sử dụng.                                                                                                                                                                                                                                               |
+| đến        | \*common.Address (Go)                                           | Địa chỉ tài khoản sẽ nhận giá trị được chuyển.                                                                                                                                                                                                                                                             |
+| giá trị    | \*big.Int (Go)                                                  | Số lượng KLAY tính bằng `peb` sẽ được chuyển.                                                                                                                                                                                                                                                              |
+| data       | []byte (Go) | Dữ liệu được gắn kèm giao dịch, dùng để thực thi giao dịch.                                                                                                                                                                                                                                                |
+| accessList | type.AccessList (Go)                                            | Một danh sách gồm các địa chỉ và khóa lưu trữ bao gồm [](common.Address, []common.Hash).                                                                                        |
+| v, r, s    | \*big.Int (Go)                                                  | Chữ ký mật mã được tạo bởi người gửi để cho phép người nhận lấy được địa chỉ của người gửi.                                                                                                                                                                                                                |
 
 ### Mã hóa RLP cho chữ ký <a id="rlp-encoding-for-signature"></a>
 
@@ -253,11 +254,12 @@ TxHash = keccak256(TxHashRLP)
 ```
 
 ### Giao dịch thô <a id="raw-transaction"></a>
+
 ```javascript
 RawTx = EthereumTxTypeEnvelope || EthereumTransactionType || encode([chainId, nonce, gasTipCap, gasFeeCap, gasLimit, to, value, data, accessList, v, r, s])
 ```
 
-### Mã hóa RLP \(Ví dụ\) <a id="rlp-encoding-example"></a>
+### Mã hóa RLP (Ví dụ) <a id="rlp-encoding-example"></a>
 
 Phần dưới đây cho thấy kết quả của quá trình tuần tự hóa RLP và đối tượng giao dịch:
 
@@ -280,11 +282,12 @@ Phần dưới đây cho thấy kết quả của quá trình tuần tự hóa R
     Hex:      7802f8a1028204d21919830f4240947b65b75d204abed71587c9e519a89277766ee1d00a8431323334f838f7940000000000000000000000000000000000000001e1a0000000000000000000000000000000000000000000000000000000000000000080a0ca14aa0bada2da7ca1b143c16e2dd4a69f2a1e77ce54c7f6d440fe828a777f4f9f117f0f78aed398b2995b5ee7c67ace25d52be3c72c1384c2aaa9683b351556
 ```
 
-### Kết quả đầu ra RPC \(Example\) <a id="rpc-output-example"></a>
+### Kết quả đầu ra RPC (Example) <a id="rpc-output-example"></a>
 
 Phần dưới đây cho thấy một đối tượng giao dịch được trả về qua JSON RPC.
 
 Kết quả trả về của `eth_getTransactionByHash`
+
 ```javascript
 {
   "blockHash": "0x55792fe186e3d1515fe35a68c2c8d7977b2d7db184d80526f906c53222b77833",
@@ -317,6 +320,7 @@ Kết quả trả về của `eth_getTransactionByHash`
 ```
 
 Kết quả trả về của `klay_getTransactionByHash`
+
 ```javascript
 {
   "accessList": [

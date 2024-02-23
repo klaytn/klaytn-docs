@@ -4,7 +4,7 @@
     "description": "The title in the navbar"
   },
   "logo.alt": {
-    "message": "Klaytn Logo",
+    "message": "Biểu trưng Klaytn",
     "description": "The alt text of navbar logo"
   },
   "item.label.Learn": {
@@ -12,11 +12,11 @@
     "description": "Navbar item with label Learn"
   },
   "item.label.Build": {
-    "message": "Xây Dựng",
+    "message": "Xây dựng",
     "description": "Navbar item with label Build"
   },
   "item.label.Nodes": {
-    "message": "Nodes",
+    "message": "Nút",
     "description": "Navbar item with label Nodes"
   },
   "item.label.References": {

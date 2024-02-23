@@ -2,9 +2,9 @@
 
 KlaytnDoc có sẵn bằng các ngôn ngữ sau:
 
-* [English](https://docs.klaytn.foundation/)
-* [한국어](https://docs.klaytn.foundation/ko/)
-* [Tiếng Việt](https://docs.klaytn.foundation/vi/)
+- [English](https://docs.klaytn.foundation/)
+- [한국어](https://docs.klaytn.foundation/ko/)
+- [Tiếng Việt](https://docs.klaytn.foundation/vi/)
 
 ## Tham gia! <a href="#get-involved" id="get-involved"></a>
 
@@ -14,12 +14,12 @@ Nếu bạn thông thạo và tự tin về một ngôn ngữ và sẵn sàng đ
 
 Crowdin là một dịch vụ trang web dịch thuật cộng tác. Để đóng góp vào việc bản địa hóa, vui lòng làm theo các bước sau:
 
-* Truy cập [Dự án Klaytn-Doc trên Crowdin](https://crowdin.com/project/klaytn-docs).
-* Tạo một tài khoản ở đó.
-* Chọn ngôn ngữ bạn muốn đóng góp. Không tìm thấy ngôn ngữ của mình? Gửi yêu cầu cho chủ sở hữu dự án để khởi tạo một bản dịch bằng ngôn ngữ mới.
-* Tham gia nhóm dịch thuật. Đợi cho đến khi một trong số các quản lý phê duyệt yêu cầu của bạn.
-* Chọn tập tin mà bạn muốn đóng góp.
-* Bạn có thể gửi bản dịch của mình cho một câu, bình chọn cho một bản dịch, hoặc để lại bình luận. Khi bạn gửi một bản dịch, hãy đảm bảo rằng từ ngữ bạn chọn phù hợp với Bảng thuật ngữ của Klaytn.
+- Truy cập [Dự án Klaytn-Doc trên Crowdin](https://crowdin.com/project/klaytn-docs).
+- Tạo một tài khoản ở đó.
+- Chọn ngôn ngữ bạn muốn đóng góp. Không tìm thấy ngôn ngữ của mình? Gửi yêu cầu cho chủ sở hữu dự án để khởi tạo một bản dịch bằng ngôn ngữ mới.
+- Tham gia nhóm dịch thuật. Đợi cho đến khi một trong số các quản lý phê duyệt yêu cầu của bạn.
+- Chọn tập tin mà bạn muốn đóng góp.
+- Bạn có thể gửi bản dịch của mình cho một câu, bình chọn cho một bản dịch, hoặc để lại bình luận. Khi bạn gửi một bản dịch, hãy đảm bảo rằng từ ngữ bạn chọn phù hợp với Bảng thuật ngữ của Klaytn.
 
 ![](/img/misc/crowdin-editor.png)
 

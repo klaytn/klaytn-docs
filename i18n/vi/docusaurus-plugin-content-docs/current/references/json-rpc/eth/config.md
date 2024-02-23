@@ -17,17 +17,16 @@ Không có
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_coinbase","params":[],"id":1}' http://localhost:8551
 
-// Kết quả
+// Result
 {
   "jsonrpc": "2.0",
   "id":1,
   "result": "0xc94770007dda54cF92009BFF0dE90c06F603a09f"
 }
 ```
-
 
 ## eth_etherbase <a id="eth_etherbase"></a>
 
@@ -46,17 +45,16 @@ Không có
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_etherbase","params":[],"id":1}' http://localhost:8551
 
-// Kết quả
+// Result
 {
   "jsonrpc": "2.0",
   "id":1,
   "result": "0xc94770007dda54cF92009BFF0dE90c06F603a09f"
 }
 ```
-
 
 ## eth_chainId <a id="eth_chainid"></a>
 
@@ -75,10 +73,10 @@ Không có
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_chainId","params":[],"id":1}' http://localhost:8551
 
-// Kết quả
+// Result
 {
   "jsonrpc": "2.0",
   "id":1,
@@ -86,12 +84,12 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 }
 ```
 
-
 ## eth_gasPrice <a id="eth_gasprice"></a>
 
 Trả về mức giá hiện tại cho mỗi gas tính bằng peb.
 
 **LƯU Ý**: API này có hành vi khác với hành vi của Ethereum và trả về giá gas của Klaytn thay vì đề xuất giá gas như trong Ethereum.
+returns a gas price of Klaytn instead of suggesting a gas price as in Ethereum.
 
 **Tham số**
 
@@ -106,10 +104,10 @@ Không có
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_gasPrice","params":[],"id":1}' http://localhost:8551
 
-// Kết quả
+// Result
 {
   "jsonrpc": "2.0",
   "id":1,

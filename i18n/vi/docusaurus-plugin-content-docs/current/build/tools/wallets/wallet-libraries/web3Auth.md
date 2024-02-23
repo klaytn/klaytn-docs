@@ -14,11 +14,11 @@ Là một cơ sở hạ tầng ví, nó cung cấp hỗ trợ vượt trội cho
 
 ## Điều kiện tiên quyết
 
-* Một dự án react đang hoạt động (bằng cách thực hiện `npx create-react-app project-name`)
-* Cài đặt các ví cần thiết ([Ví Coinbase Wallet](https://www.coinbase.com/wallet/downloads), [Metamask](https://metamask.io/download/)).
-* Điểm cuối RPC: bạn có thể nhận từ một trong những [Nhà cung cấp điểm cuối](../../../../references/service-providers/public-en.md) được hỗ trợ.à cung cấp endpoint được hỗ trợ.
-* KLAY thử nghiệm từ [Vòi](https://baobab.wallet.klaytn.foundation/faucet): nạp tiền vào tài khoản với một lượng KLAY vừa đủ.
-* Nhận ID Khách hàng của bạn từ [Bảng điều khiển Web3Auth](https://dashboard.web3auth.io/).
+- Một dự án react đang hoạt động (bằng cách thực hiện `npx create-react-app project-name`)
+- Cài đặt các ví cần thiết ([Ví Coinbase Wallet](https://www.coinbase.com/wallet/downloads), [Metamask](https://metamask.io/download/)).
+- Điểm cuối RPC: bạn có thể nhận từ một trong những [Nhà cung cấp điểm cuối](../../../../references/service-providers/public-en.md) được hỗ trợ.à cung cấp endpoint được hỗ trợ.
+- KLAY thử nghiệm từ [Vòi](https://baobab.wallet.klaytn.foundation/faucet): nạp tiền vào tài khoản với một lượng KLAY vừa đủ.
+- Nhận ID Khách hàng của bạn từ [Bảng điều khiển Web3Auth](https://dashboard.web3auth.io/).
 
 ## Cài đặt
 
@@ -26,7 +26,7 @@ Là một cơ sở hạ tầng ví, nó cung cấp hỗ trợ vượt trội cho
 
 ```bash
 npm install --save @web3auth/modal
-npm install --save ethers   
+npm install --save ethers	
 ```
 
 ## Khởi tạo phiên bản Web3Auth và nhà cung cấp
@@ -51,7 +51,7 @@ useEffect(() => {
           web3AuthNetwork: "cyan",
           chainConfig: {
             chainNamespace: "eip155",
-            // modify if mainnet => “0x2019”
+	        // modify if mainnet => “0x2019”
             chainId: "0x3e9", // hex of 1001, Klaytn Baobab testnet. 
             rpcTarget: "https://public-en-baobab.klaytn.net", // modify if mainnet
             displayName: "Klaytn Testnet", //  modify if mainnet
@@ -90,6 +90,7 @@ const connectWallet = async() => {
     </div>
   );
 ```
+
 ![](/img/build/tools/web3Auth.png)
 
 ## Thiết lập chức năng sử dụng
@@ -110,6 +111,7 @@ export const truncateAddress = (address) => {
     return `${match[1]}…${match[2]}`;
   };
 ```
+
 **Bước 2**: Nhập hàm trong tệp `app.js` của bạn.
 
 ```js
@@ -133,10 +135,10 @@ import { truncateAddress } from "./utils";
     }
     const web3authProvider = await web3auth.connect();
     setProvider(web3authProvider);
-
+    
     // this guide uses ethers version 6.3.0.
     const ethersProvider = new ethers.BrowserProvider(web3authProvider);
-// for ethers version below 6.3.0.
+    // for ethers version below 6.3.0.
     // const provider = new ethers.providers.Web3Provider(web3authProvider);
     const ethersProvider = new ethers.BrowserProvider(web3authProvider);
 
@@ -168,7 +170,7 @@ Ngắt kết nối với ví đạt được bằng cách sử dụng phương p
 
 ```js
 function App() {
-
+    
 const disconnect = async () => {
   if (!web3auth) {
     console.log("web3auth not initialized yet");
@@ -184,7 +186,7 @@ const refreshState = () => {
   setBalance();
 // make sure to add every other useState modifier function declared here.
 }
-
+  
 return (
     <div className="App">
         <button onClick={disconnect}>Disconnect</button>
@@ -221,18 +223,19 @@ const switchChain = async () => {
 
 return (
     <div className="App">
-        <button  onClick={switchChain}>Switch Chain</button>
+    	<button  onClick={switchChain}>Switch Chain</button>
     </div>
 );
 ```
 
 ## Nhận thông tin người dùng
+
 Một tính năng độc đáo của Web3Auth là đăng nhập xã hội. Khi đăng nhập người dùng bằng các nền tảng xã hội của họ, phiên bản Web3Auth trả về một số thông tin về người dùng đã đăng nhập. Nhận được thông tin người dùng đã đăng nhập đơn giản như gọi phương pháp getUserInfo() trên phiên bản Web3Auth.
 
 ```js
  // add to the existing useState hook.
   const [userData, setUserData] = useState({});
-
+	
    const getUserInfo = async () => {
     if (!web3auth) {
       console.log("web3auth not initialized yet");
@@ -299,7 +302,7 @@ Bạn có thể thực hiện các giao dịch gốc, như gửi Klay từ ngư�
     const [txHash, setTxHash] = useState();
 
     const sendKlay = async () => {
-
+    
       if (!provider) {
         console.log("provider not initialized yet");
         return;
@@ -312,7 +315,7 @@ Bạn có thể thực hiện các giao dịch gốc, như gửi Klay từ ngư�
       // const provider = new ethers.providers.Web3Provider(provider);
 
       const signer = await ethersProvider.getSigner();
-
+        
       // Submit transaction to the blockchain and wait for it to be mined
       const tx = await signer.sendTransaction({
           to: destination,
@@ -320,8 +323,8 @@ Bạn có thể thực hiện các giao dịch gốc, như gửi Klay từ ngư�
           maxPriorityFeePerGas: "5000000000", // Max priority fee per gas
           maxFeePerGas: "6000000000000", // Max fee per gas
         })
-
-
+    
+      
       const receipt = await tx.wait();
       setTxHash(receipt.hash)
 }
@@ -337,7 +340,7 @@ return (
 
 ## Làm việc với một hợp đồng thông minh
 
-1. **Triển khai một hợp đồng**
+### 1. Triển khai một hợp đồng
 
 Bạn có thể triển khai một hợp đồng thông minh với giao diện nhị phân ứng dụng (ABI) và mã byte hợp đồng của nó.
 
@@ -404,7 +407,7 @@ const contractABI = [
   const contractFactory = new ContractFactory(contractABI, contractBytecode, signer);
 
   const contract = await contractFactory.deploy(400);
-
+  
   // get contract address
   setContractAddress(contract.target)
 }
@@ -420,7 +423,7 @@ return (
 
 Với nhà cung cấp Web3Auth và đối tượng người ký, bạn có thể thực hiện các tương tác hợp đồng như viết và đọc từ hợp đồng thông minh được triển khai trên chuỗi khối.
 
-2. **Viết cho một hợp đồng**
+### 2. Viết cho một hợp đồng
 
 ```js
   // add to existing useState hook
@@ -432,14 +435,14 @@ Với nhà cung cấp Web3Auth và đối tượng người ký, bạn có thể
       console.log("provider not initialized yet");
       return;
     }
-
+  
     // this guide uses ethers version 6.3.0.
     const ethersProvider = new ethers.BrowserProvider(provider);
     // for ethers version below 6.3.0.
     // const provider = new ethers.providers.Web3Provider(provider);
 
     const signer = await ethersProvider.getSigner();
-
+  
     // Paste your contractABI
     const contractABI = [
       {
@@ -480,21 +483,21 @@ Với nhà cung cấp Web3Auth và đối tượng người ký, bạn có thể
         "type": "function"
       }
     ]
-
+  
      // Paste your contract address
     const contractAddress = "0x3b01E4025B428fFad9481a500BAc36396719092C";
 
     const contract = new ethers.Contract(contractAddress, contractABI, signer);
-
+  
     const value = e.target.store_value.value;
-
+  
     // Send a transaction to smart contract to update the value
     const tx = await contract.store(value);
-
+  
     // Wait for the transaction to finish
     const receipt = await tx.wait();
     const result = receipt.hash;
-
+  
     setContractTx(result)
   }
 
@@ -509,7 +512,7 @@ return (
 );
 ```
 
-3. **Đọc từ một hợp đồng**
+### 3. Đọc từ một hợp đồng
 
 ```js
 // add to existing useState hook
@@ -520,13 +523,13 @@ return (
       console.log("provider not initialized yet");
       return;
     }
-
-
+  	
+	
    // this guide uses ethers version 6.3.0.
    const ethersProvider = new ethers.BrowserProvider(provider);
    // for ethers version below 6.3.0.
    // const provider = new ethers.providers.Web3Provider(provider);
-
+  
    // paste your contract ABI
     const contractABI = [
       {
@@ -567,12 +570,12 @@ return (
         "type": "function"
       }
     ]
-
+  
      // paste your contract address
     const contractAddress = "0x3b01E4025B428fFad9481a500BAc36396719092C"; 
-
+  
     const contract = new ethers.Contract(contractAddress, contractABI, ethersProvider)
-
+  
     // Reading a message from the smart contract
     const contractMessage = await contract.retrieve();
     setContractMessage(contractMessage.toString())
@@ -585,25 +588,16 @@ return (
   )
 ```
 
-
 ## Khắc phục sự cố
 
-**Lỗi mô-đun lõi nút polyfill**
+**Polyfill node core module error**
 
 ```js
-THAY ĐỔI ĐỘT PHÁ: webpack<5 được sử dụng để bao gồm polyfills cho node.js lõi node.js theo mặc định.
+BREAKING CHANGES: webpack<5 used to include polyfills for node.js core modules by default.
 ```
+
 Lỗi này xảy ra khi bạn sử dụng webpack phiên bản 5. Trong phiên bản này, NodeJS polyfills không còn được hỗ trợ theo mặc định. Để giải quyết vấn đề này, hãy tham khảo [hướng dẫn](https://web3auth.io/docs/troubleshooting/webpack-issues).
 
 ## Bước tiếp theo
+
 Để biết thêm các hướng dẫn chuyên sâu trên Web3Auth, vui lòng tham khảo [Web3Auth Docs](https://web3auth.io/docs/connect-blockchain/klaytn) và Kho lưu trữ [Web3Auth Github](https://github.com/web3auth). Ngoài ra, bạn có thể tìm thấy việc triển khai đầy đủ mã trong hướng dẫn này trên [GitHub](https://github.com/klaytn/examples/tree/main/wallet-libraries/web3Auth-sample).
-
-
-
-
-
-
-
-
-
-

@@ -6,8 +6,8 @@ Ví Klaytn là một công cụ quản lý tài khoản dựa trên trình duy�
 
 > **Xin lưu ý:** Chỉ nên sử dụng Ví Klaytn cho mục đích phát triển và thử nghiệm. KHÔNG sử dụng Ví Klaytn cho mục đích thương mại hoặc cá nhân, kể cả việc lưu trữ hoặc chuyển KLAY hoặc token Klaytn. Ví Klaytn CHƯA được thử nghiệm về bảo mật ở cấp độ thương mại và có thể dễ bị tấn công bằng mã độc. Ví Klaytn lưu trữ khóa riêng tư của người dùng vào bộ nhớ cục bộ của trình duyệt, bộ nhớ này có thể dễ bị tấn công khai thác các lỗ hổng bảo mật của trình duyệt.
 
-* Ví Klaytn dành cho mạng chính Cypress: [https://wallet.klaytn.com](https://wallet.klaytn.com)
-* Ví Klaytn dành cho mạng thử nghiệm Baobab: [https://baobab.wallet.klaytn.foundation](https://baobab.wallet.klaytn.foundation)
+- Ví Klaytn dành cho mạng chính Cypress: [https://wallet.klaytn.com](https://wallet.klaytn.com)
+- Ví Klaytn dành cho mạng thử nghiệm Baobab: [https://baobab.wallet.klaytn.foundation](https://baobab.wallet.klaytn.foundation)
 
 ![](/img/build/tools/00-main.png)
 
@@ -15,15 +15,15 @@ Ví Klaytn là một công cụ quản lý tài khoản dựa trên trình duy�
 
 Ví Klaytn hỗ trợ danh sách các tính năng sau đây.
 
-* Quản lý tài khoản và khóa
-  * Tạo tài khoản mới
-  * Tải tài khoản hiện có bằng khóa riêng tư hoặc tệp lưu trữ khóa
-  * Tải xuống tệp lưu trữ khóa mới
-* Quản lý tài sản
-  * Xem số dư tài khoản
-  * Thêm token vào ví
-  * Chuyển token KLAY và Klaytn
-* Mạng thử nghiệm và Vòi KLAY Baobab
+- Quản lý tài khoản và khóa
+  - Tạo tài khoản mới
+  - Tải tài khoản hiện có bằng khóa riêng tư hoặc tệp lưu trữ khóa
+  - Tải xuống tệp lưu trữ khóa mới
+- Quản lý tài sản
+  - Xem số dư tài khoản
+  - Thêm token vào ví
+  - Chuyển token KLAY và Klaytn
+- Mạng thử nghiệm và Vòi KLAY Baobab
 
 ## Tạo tài khoản mới <a id="create-a-new-account"></a>
 
@@ -31,16 +31,16 @@ Ví Klaytn hỗ trợ danh sách các tính năng sau đây.
 
 Bạn có thể sử dụng Ví Klaytn để tạo tài khoản Klaytn mới. Để tạo tài khoản mới, hãy nhấp vào nút `Create Account` trên thanh menu ở bên trái, sau đó thực hiện theo các bước bên dưới.
 
-* Bước 1. Thiết lập mật khẩu cho tệp lưu trữ khóa tài khoản mới của bạn
-* Bước 2. Tải tệp lưu trữ khóa xuống bộ nhớ cục bộ của bạn
-* Bước 3. Lưu Khóa ví Klaytn cho tài khoản mới của bạn
+- Bước 1. Thiết lập mật khẩu cho tệp lưu trữ khóa tài khoản mới của bạn
+- Bước 2. Tải tệp lưu trữ khóa xuống bộ nhớ cục bộ của bạn
+- Bước 3. Lưu Khóa ví Klaytn cho tài khoản mới của bạn
 
 ### Trước khi tiếp tục, hãy lưu ý: <a id="before-continuing-a-few-words-of-caution"></a>
 
-* TUYỆT ĐỐI KHÔNG chia sẻ 'Khóa ví' hoặc 'khóa riêng tư' của bạn với bất kỳ ai. Cung cấp thông tin về 'Khóa ví' hoặc 'khóa riêng tư' của bạn có nghĩa là cung cấp quyền truy cập toàn diện và vĩnh viễn vào tài khoản của bạn.
-* Không lưu giữ thông tin này trên thiết bị được kết nối Internet. Tin tặc có thể đánh cắp thông tin đăng nhập của bạn từ bộ nhớ cục bộ.
-* Chọn một mật khẩu mạnh và lưu trữ thông tin quan trọng ở nhiều vị trí.
-* Klaytn KHÔNG THỂ khôi phục 'Khóa ví' hoặc 'khóa riêng tư' trong trường hợp bạn làm mất khóa. Hãy hết sức cẩn thận để không làm mất thông tin quan trọng của bạn.
+- TUYỆT ĐỐI KHÔNG chia sẻ 'Khóa ví' hoặc 'khóa riêng tư' của bạn với bất kỳ ai. Cung cấp thông tin về 'Khóa ví' hoặc 'khóa riêng tư' của bạn có nghĩa là cung cấp quyền truy cập toàn diện và vĩnh viễn vào tài khoản của bạn.
+- Không lưu giữ thông tin này trên thiết bị được kết nối Internet. Tin tặc có thể đánh cắp thông tin đăng nhập của bạn từ bộ nhớ cục bộ.
+- Chọn một mật khẩu mạnh và lưu trữ thông tin quan trọng ở nhiều vị trí.
+- Klaytn KHÔNG THỂ khôi phục 'Khóa ví' hoặc 'khóa riêng tư' trong trường hợp bạn làm mất khóa. Hãy hết sức cẩn thận để không làm mất thông tin quan trọng của bạn.
 
 ### Bước 1. Thiết lập mật khẩu cho tệp lưu trữ khóa của bạn <a id="step-1-set-password-for-your-keystore-file"></a>
 
@@ -68,8 +68,8 @@ Khi bạn nhấp vào biểu mẫu nhập mật khẩu, một chú giải công 
 
 Để kiểm tra số dư KLAY hoặc token Klay trong tài khoản hoặc để chuyển token sang tài khoản khác, bạn cần truy cập vào tài khoản của mình. Ví Klaytn cung cấp hai cách để truy cập vào tài khoản của bạn.
 
-* **Sử dụng Khóa ví Klaytn hoặc Khóa riêng tư** Khóa ví Klaytn là một chuỗi gồm 110 ký tự thập lục phân được liên kết với một tài khoản, trong khi khóa riêng tư là một chuỗi gồm 64 ký tự thập lục phân (Số ký tự không bao gồm "0x" cho biết số thập lục phân. Nếu được tính, Khóa ví Klaytn dài 112 ký tự và khóa riêng tư dài 66 ký tự). Việc sử dụng khóa riêng tư để truy cập nên là phương cách cuối cùng, chỉ sử dụng khi tất cả các cách khác đều không thành công. Đây không phải là cách truy cập tài khoản đúng đắn. Khóa riêng tư là thông tin nhạy cảm nhất vì khóa này cho phép truy cập toàn diện vào tài khoản. Do đó, bạn cần giữ khóa riêng của bạn an toàn, bảo mật và bí mật.
-* **Tệp lưu trữ khóa và mật khẩu** Tệp lưu trữ khóa là tệp JSON lưu trữ khóa riêng tư được mã hóa và thông tin địa chỉ tài khoản. Tệp này được mã hóa bằng mật khẩu do người dùng cung cấp.
+- **Sử dụng Khóa ví Klaytn hoặc Khóa riêng tư** Khóa ví Klaytn là một chuỗi gồm 110 ký tự thập lục phân được liên kết với một tài khoản, trong khi khóa riêng tư là một chuỗi gồm 64 ký tự thập lục phân (Số ký tự không bao gồm "0x" cho biết số thập lục phân. Nếu được tính, Khóa ví Klaytn dài 112 ký tự và khóa riêng tư dài 66 ký tự). Việc sử dụng khóa riêng tư để truy cập nên là phương cách cuối cùng, chỉ sử dụng khi tất cả các cách khác đều không thành công. Đây không phải là cách truy cập tài khoản đúng đắn. Khóa riêng tư là thông tin nhạy cảm nhất vì khóa này cho phép truy cập toàn diện vào tài khoản. Do đó, bạn cần giữ khóa riêng của bạn an toàn, bảo mật và bí mật.
+- **Tệp lưu trữ khóa và mật khẩu** Tệp lưu trữ khóa là tệp JSON lưu trữ khóa riêng tư được mã hóa và thông tin địa chỉ tài khoản. Tệp này được mã hóa bằng mật khẩu do người dùng cung cấp.
 
 ### Truy cập tài khoản hiện có bằng Khóa ví Klaytn hoặc Khóa riêng tư <a id="access-existing-account-using-klaytn-wallet-key-or-private-key"></a>
 
@@ -175,8 +175,8 @@ Vòi KLAY dùng cho mạng thử nghiệm chạy trên mạng Baobab. Vòi này 
 
 Để nhận được KLAY dùng cho mạng thử nghiệm, bạn cần phải có tài khoản Klaytn hợp lệ.
 
-* Nếu bạn chưa có tài khoản, vui lòng tạo một tài khoản bằng cách thực hiện theo các bước trong phần [Create Account mới](#create-a-new-account).
-* Thêm tài khoản của bạn vào ví bằng cách thực hiện theo các bước trong phần [Truy cập tài khoản hiện có](#access-existing-account). Đồng KLAY dùng cho mạng thử nghiệm sẽ được gửi đến tài khoản được tải.
+- Nếu bạn chưa có tài khoản, vui lòng tạo một tài khoản bằng cách thực hiện theo các bước trong phần [Create Account mới](#create-a-new-account).
+- Thêm tài khoản của bạn vào ví bằng cách thực hiện theo các bước trong phần [Truy cập tài khoản hiện có](#access-existing-account). Đồng KLAY dùng cho mạng thử nghiệm sẽ được gửi đến tài khoản được tải.
 
 ### Bước 1. Truy cập Vòi KLAY mạng thử nghiệm <a id="step-1-go-to-the-testnet-klay-faucet"></a>
 

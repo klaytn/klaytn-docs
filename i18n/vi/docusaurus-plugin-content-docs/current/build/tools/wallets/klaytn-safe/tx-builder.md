@@ -12,8 +12,6 @@ Trong hướng dẫn này, chúng tôi đã tạo token DRIP đến địa chỉ
 
 Hãy bắt đầu với ví dụ này bằng Trình tạo giao dịch!
 
-
-
 **Bước 1:** Mở Ứng dụng Safe.
 
 ![](/img/build/tools/15_safeApps.png)
@@ -29,7 +27,6 @@ Hãy bắt đầu với ví dụ này bằng Trình tạo giao dịch!
 **Bước 4:** Chọn phương pháp và điền thông tin giao dịch
 
 Từ danh sách thả xuống, bạn có thể chọn một phương pháp. Trong trường hợp này, chúng tôi chọn phương pháp **chuyển**. Để hoàn thành bước này, bạn phải điền thông tin giao dịch, chẳng hạn như **đến(địa chỉ)** và **số lượng(uint256)**.
-
 
 Lưu ý: Giá trị là một số nguyên không dấu không có bất kỳ số thập phân nào. Trong ví dụ này, token DRIP có 18 số thập phân. Vì vậy, nếu muốn gửi 1 DRIP, bạn phải nhập 1000000000000000000.
 

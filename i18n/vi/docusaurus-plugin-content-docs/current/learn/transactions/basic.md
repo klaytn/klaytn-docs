@@ -13,15 +13,15 @@ TxTypeLegacyTransaction đại diện cho một loại giao dịch đã tồn t�
 
 ### Thuộc tính <a id="attributes"></a>
 
-| Thuộc tính | type                        | Mô tả                                                                                                                                                                                                                                                                                      |
-|:---------- |:--------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| giá trị    | \*big.Int \(Go\)        | Số lượng KLAY tính bằng `peb` sẽ được chuyển.                                                                                                                                                                                                                                              |
-| đến        | \*common.Address \(Go\) | Địa chỉ tài khoản sẽ nhận giá trị được chuyển.                                                                                                                                                                                                                                             |
-| nhập       | \[\]byte \(Go\)         | Dữ liệu được gắn kèm giao dịch, dùng để thực thi giao dịch.                                                                                                                                                                                                                                |
-| v, r, s    | \*big.Int \(Go\)        | Chữ ký mật mã được tạo bởi người gửi để cho phép người nhận lấy được địa chỉ của người gửi.                                                                                                                                                                                                |
-| nonce      | uint64 \(Go\)             | Giá trị dùng để định danh duy nhất cho một giao dịch của người gửi. Nếu hai giao dịch có cùng một giá trị số dùng một lần do người gửi tạo ra, chỉ có một giao dịch sẽ được thực thi.                                                                                                      |
-| gas        | uint64 \(Go\)             | Giá trị phí giao dịch tối đa mà giao dịch được phép sử dụng.                                                                                                                                                                                                                               |
-| giá gas    | \*big.Int \(Go\)        | Hệ số nhân để tính toán số lượng token mà người gửi sẽ thanh toán. Lượng token mà người gửi sẽ thanh toán được tính theo công thức `gas` \* `gasPrice`. Ví dụ: Người gửi sẽ thanh toán khoản phí giao dịch là 10 KLAY nếu gas bằng 10 và gasPrice là 10^18. Hãy xem [Đơn vị của KLAY][]. |
+| Thuộc tính | type                                                                               | Mô tả                                                                                                                                                                                                                                                                                      |
+| :--------- | :--------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| giá trị    | \*big.Int (Go)                                                  | Số lượng KLAY tính bằng `peb` sẽ được chuyển.                                                                                                                                                                                                                                              |
+| đến        | \*common.Address (Go)                                           | Địa chỉ tài khoản sẽ nhận giá trị được chuyển.                                                                                                                                                                                                                                             |
+| nhập       | []byte (Go) | Dữ liệu được gắn kèm giao dịch, dùng để thực thi giao dịch.                                                                                                                                                                                                                                |
+| v, r, s    | \*big.Int (Go)                                                  | Chữ ký mật mã được tạo bởi người gửi để cho phép người nhận lấy được địa chỉ của người gửi.                                                                                                                                                                                                |
+| nonce      | uint64 (Go)                                                     | Giá trị dùng để định danh duy nhất cho một giao dịch của người gửi. Nếu hai giao dịch có cùng một giá trị số dùng một lần do người gửi tạo ra, chỉ có một giao dịch sẽ được thực thi.                                                                                                      |
+| gas        | uint64 (Go)                                                     | Giá trị phí giao dịch tối đa mà giao dịch được phép sử dụng.                                                                                                                                                                                                                               |
+| giá gas    | \*big.Int (Go)                                                  | Hệ số nhân để tính toán số lượng token mà người gửi sẽ thanh toán. Lượng token mà người gửi sẽ thanh toán được tính theo công thức `gas` \* `gasPrice`. Ví dụ: Người gửi sẽ thanh toán khoản phí giao dịch là 10 KLAY nếu gas bằng 10 và gasPrice là 10^18. Hãy xem \[Đơn vị của KLAY]\[]. |
 
 ### Mã hóa RLP cho chữ ký <a id="rlp-encoding-for-signature"></a>
 
@@ -51,7 +51,7 @@ TxHashRLP = encode([nonce, gasPrice, gas, to, value, input, v, r, s])
 TxHash = keccak256(TxHashRLP)
 ```
 
-### Mã hóa RLP \(Ví dụ\) <a id="rlp-encoding-example"></a>
+### Mã hóa RLP (Ví dụ) <a id="rlp-encoding-example"></a>
 
 Phần dưới đây cho thấy kết quả của quá trình tuần tự hóa RLP và đối tượng giao dịch:
 
@@ -83,7 +83,7 @@ SenderTxHash e434257753bf31a130c839fec0bd34fc6ea4aa256b825288ee82db31c2ed7524
     Hex:      f8668204d219830f4240947b65b75d204abed71587c9e519a89277766ee1d00a843132333425a0b2a5a15550ec298dc7dddde3774429ed75f864c82caeb5ee24399649ad731be9a029da1014d16f2011b3307f7bbe1035b6e699a4204fc416c763def6cefd976567
 ```
 
-### Kết quả đầu ra RPC \(Example\) <a id="rpc-output-example"></a>
+### Kết quả đầu ra RPC (Example) <a id="rpc-output-example"></a>
 
 Phần dưới đây cho thấy một đối tượng giao dịch được trả về qua JSON RPC.
 
@@ -97,8 +97,8 @@ Phần dưới đây cho thấy một đối tượng giao dịch được trả
   "gasPrice": "0x5d21dba00",
   "gasUsed": "0x5208",
   "input": "0x",
-  "nhật ký": [],
-  "nhật kýBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "logs": [],
+  "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
   "nonce": "0x0",
   "senderTxHash": "0xff0e9a45aa8741d528baf84069cd3b52c43a51bf7cf69d896672c3c909507888",
   "signatures": [
@@ -108,7 +108,7 @@ Phần dưới đây cho thấy một đối tượng giao dịch được trả
       "S": "0x524dbf481ea1d77c20f4d4354cc208c3149ddfa06f7ab53a03ad82d2d7fed3"
     }
   ],
-  "trạng thái": "0x1",
+  "status": "0x1",
   "to": "0xd03227635c90c7986f0e3a4e551cefbca8c55316",
   "transactionHash": "0xff0e9a45aa8741d528baf84069cd3b52c43a51bf7cf69d896672c3c909507888",
   "transactionIndex": "0x0",
@@ -128,16 +128,16 @@ TxTypeValueTransfer được sử dụng khi người dùng muốn gửi KLAY. V
 
 ### Thuộc tính <a id="attributes"></a>
 
-| Thuộc tính   | Loại                                                  | Mô tả                                                                                                                                                                                                                                                                          |
-|:------------ |:------------------------------------------------------ |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| type         | uint8 \(Go\)                                         | Loại TxTypeValueTransfer. Thuộc tính này phải là 0x08.                                                                                                                                                                                                                         |
-| nonce        | uint64 \(Go\)                                        | Giá trị dùng để định danh duy nhất cho một giao dịch của người gửi. Nếu hai giao dịch có cùng một giá trị số dùng một lần do người gửi tạo ra, chỉ có một giao dịch sẽ được thực thi.                                                                                          |
-| giá gas      | \*big.Int \(Go\)                                   | Đơn giá của gas tính bằng `peb` mà người gửi sẽ dùng để thanh toán phí giao dịch. Số tiền phí giao dịch được tính theo công thức `gas` \* `gasPrice`. Ví dụ: nếu giao dịch tốn 10 đơn vị gas và gasPrice là 10^18, phí giao dịch sẽ là 10 KLAY. Hãy xem [Đơn vị của KLAY][]. |
-| gas          | uint64 \(Go\)                                        | Lượng gas tối đa mà giao dịch được phép sử dụng.                                                                                                                                                                                                                               |
-| đến          | common.Address \(Go\)                                | Địa chỉ tài khoản sẽ nhận giá trị được chuyển.                                                                                                                                                                                                                                 |
-| giá trị      | \*big.Int \(Go\)                                   | Số lượng KLAY tính bằng `peb` sẽ được chuyển.                                                                                                                                                                                                                                  |
-| từ           | common.Address \(Go\)                                | Địa chỉ của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch](./transactions.md#signature-validation-of-transactions).                                                                                                                                         |
-| txSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | Chữ ký của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch](./transactions.md#signature-validation-of-transactions).                                                                                                                                          |
+| Thuộc tính   | Loại                                                                                                           | Mô tả                                                                                                                                                                                                                                                                          |
+| :----------- | :-------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type         | uint8 (Go)                                                                                   | Loại TxTypeValueTransfer. Thuộc tính này phải là 0x08.                                                                                                                                                                                                                         |
+| nonce        | uint64 (Go)                                                                                  | Giá trị dùng để định danh duy nhất cho một giao dịch của người gửi. Nếu hai giao dịch có cùng một giá trị số dùng một lần do người gửi tạo ra, chỉ có một giao dịch sẽ được thực thi.                                                                                          |
+| gasPrice     | \*big.Int (Go)                                                                               | Đơn giá của gas tính bằng `peb` mà người gửi sẽ dùng để thanh toán phí giao dịch. Số tiền phí giao dịch được tính theo công thức `gas` \* `gasPrice`. Ví dụ: nếu giao dịch tốn 10 đơn vị gas và gasPrice là 10^18, phí giao dịch sẽ là 10 KLAY. Hãy xem \[Đơn vị của KLAY]\[]. |
+| gas          | uint64 (Go)                                                                                  | Lượng gas tối đa mà giao dịch được phép sử dụng.                                                                                                                                                                                                                               |
+| đến          | common.Address (Go)                                                                          | Địa chỉ tài khoản sẽ nhận giá trị được chuyển.                                                                                                                                                                                                                                 |
+| giá trị      | \*big.Int (Go)                                                                               | Số lượng KLAY tính bằng `peb` sẽ được chuyển.                                                                                                                                                                                                                                  |
+| từ           | common.Address (Go)                                                                          | Địa chỉ của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch](./transactions.md#signature-validation-of-transactions).                                                                                                                                 |
+| txSignatures | []{\*big.Int, \*big.Int, \*big.Int} (Go) | Chữ ký của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch](./transactions.md#signature-validation-of-transactions).                                                                                                                                  |
 
 ### Mã hóa RLP cho chữ ký <a id="rlp-encoding-for-signature"></a>
 
@@ -171,7 +171,7 @@ TxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, txSignatures])
 TxHash = keccak256(TxHashRLP)
 ```
 
-### Mã hóa RLP \(Ví dụ\) <a id="rlp-encoding-example"></a>
+### Mã hóa RLP (Ví dụ) <a id="rlp-encoding-example"></a>
 
 Phần dưới đây cho thấy kết quả của quá trình tuần tự hóa RLP với các tham số cho trước và thông tin của đối tượng giao dịch:
 
@@ -200,7 +200,7 @@ SenderTxHash 762f130342569e9669a4d8547f1248bd2554fbbf3062d63a97ce28bfa97aa9d7
     Hex:           08f87a8204d219830f4240947b65b75d204abed71587c9e519a89277766ee1d00a94a94f5374fce5edbc8e2a8697c15331677e6ebf0bf845f84325a0f3d0cd43661cabf53425535817c5058c27781f478cb5459874feaa462ed3a29aa06748abe186269ff10b8100a4b7d7fea274b53ea2905acbf498dc8b5ab1bf4fbc
 ```
 
-### Kết quả đầu ra RPC \(Example\) <a id="rpc-output-example"></a>
+### Kết quả đầu ra RPC (Example) <a id="rpc-output-example"></a>
 
 Phần dưới đây cho thấy một đối tượng giao dịch được trả về qua JSON RPC.
 
@@ -213,8 +213,8 @@ Phần dưới đây cho thấy một đối tượng giao dịch được trả
   "gas": "0x174876e800",
   "gasPrice": "0x5d21dba00",
   "gasUsed": "0x5208",
-  "nhật ký": [],
-  "nhật kýBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "logs": [],
+  "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
   "nonce": "0x1",
   "senderTxHash": "0x8c18c9a609d2b22c921ce0b282e64924bf073e84f7c3850d99ec71da4054f79d",
   "signatures": [
@@ -224,7 +224,7 @@ Phần dưới đây cho thấy một đối tượng giao dịch được trả
       "S": "0x3ca52ee9d23954a278e6a30f3ec40951b26fb8b3f784c236c5bb1d5c9a8b2c82"
     }
   ],
-  "trạng thái": "0x1",
+  "status": "0x1",
   "to": "0x75c3098be5e4b63fbac05838daaee378dd48098d",
   "transactionHash": "0x8c18c9a609d2b22c921ce0b282e64924bf073e84f7c3850d99ec71da4054f79d",
   "transactionIndex": "0x1",
@@ -244,17 +244,17 @@ TxTypeValueTransferMemo được sử dụng khi người dùng muốn gửi KLA
 
 ### Thuộc tính <a id="attributes"></a>
 
-| Thuộc tính   | type                                                   | Mô tả                                                                                                                                                                                                                                                                          |
-|:------------ |:------------------------------------------------------ |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| type         | uint8 \(Go\)                                         | Loại TxTypeValueTransferMemo. Thuộc tính này phải là 0x10.                                                                                                                                                                                                                     |
-| nonce        | uint64 \(Go\)                                        | Giá trị dùng để định danh duy nhất cho một giao dịch của người gửi. Nếu hai giao dịch có cùng một giá trị số dùng một lần do người gửi tạo ra, chỉ có một giao dịch sẽ được thực thi.                                                                                          |
-| giá gas      | \*big.Int \(Go\)                                   | Đơn giá của gas tính bằng `peb` mà người gửi sẽ dùng để thanh toán phí giao dịch. Số tiền phí giao dịch được tính theo công thức `gas` \* `gasPrice`. Ví dụ: nếu giao dịch tốn 10 đơn vị gas và gasPrice là 10^18, phí giao dịch sẽ là 10 KLAY. Hãy xem [Đơn vị của KLAY][]. |
-| gas          | uint64 \(Go\)                                        | Lượng gas tối đa mà giao dịch được phép sử dụng.                                                                                                                                                                                                                               |
-| đến          | common.Address \(Go\)                                | Địa chỉ tài khoản sẽ nhận giá trị được chuyển.                                                                                                                                                                                                                                 |
-| giá trị      | \*big.Int \(Go\)                                   | Số lượng KLAY tính bằng `peb` sẽ được chuyển.                                                                                                                                                                                                                                  |
-| từ           | common.Address \(Go\)                                | Địa chỉ của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch](./transactions.md#signature-validation-of-transactions).                                                                                                                                         |
-| nhập         | \[\]byte \(Go\)                                    | Dữ liệu gắn kèm theo giao dịch. Thông điệp cần được truyền vào thuộc tính này.                                                                                                                                                                                                 |
-| txSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | Chữ ký của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch](./transactions.md#signature-validation-of-transactions).                                                                                                                                          |
+| Thuộc tính   | type                                                                                                            | Mô tả                                                                                                                                                                                                                                                                          |
+| :----------- | :-------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type         | uint8 (Go)                                                                                   | Loại TxTypeValueTransferMemo. Thuộc tính này phải là 0x10.                                                                                                                                                                                                                     |
+| nonce        | uint64 (Go)                                                                                  | Giá trị dùng để định danh duy nhất cho một giao dịch của người gửi. Nếu hai giao dịch có cùng một giá trị số dùng một lần do người gửi tạo ra, chỉ có một giao dịch sẽ được thực thi.                                                                                          |
+| gasPrice     | \*big.Int (Go)                                                                               | Đơn giá của gas tính bằng `peb` mà người gửi sẽ dùng để thanh toán phí giao dịch. Số tiền phí giao dịch được tính theo công thức `gas` \* `gasPrice`. Ví dụ: nếu giao dịch tốn 10 đơn vị gas và gasPrice là 10^18, phí giao dịch sẽ là 10 KLAY. Hãy xem \[Đơn vị của KLAY]\[]. |
+| gas          | uint64 (Go)                                                                                  | Lượng gas tối đa mà giao dịch được phép sử dụng.                                                                                                                                                                                                                               |
+| đến          | common.Address (Go)                                                                          | Địa chỉ tài khoản sẽ nhận giá trị được chuyển.                                                                                                                                                                                                                                 |
+| giá trị      | \*big.Int (Go)                                                                               | Số lượng KLAY tính bằng `peb` sẽ được chuyển.                                                                                                                                                                                                                                  |
+| từ           | common.Address (Go)                                                                          | Địa chỉ của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch](./transactions.md#signature-validation-of-transactions).                                                                                                                                 |
+| nhập         | []byte (Go)                              | Dữ liệu gắn kèm theo giao dịch. Thông điệp cần được truyền vào thuộc tính này.                                                                                                                                                                                                 |
+| txSignatures | []{\*big.Int, \*big.Int, \*big.Int} (Go) | Chữ ký của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch](./transactions.md#signature-validation-of-transactions).                                                                                                                                  |
 
 ### Mã hóa RLP cho chữ ký <a id="rlp-encoding-for-signature"></a>
 
@@ -288,7 +288,7 @@ TxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, input, txSigna
 TxHash = keccak256(TxHashRLP)
 ```
 
-### Mã hóa RLP \(Ví dụ\) <a id="rlp-encoding-example"></a>
+### Mã hóa RLP (Ví dụ) <a id="rlp-encoding-example"></a>
 
 Phần dưới đây cho thấy kết quả của quá trình tuần tự hóa RLP và đối tượng giao dịch:
 
@@ -318,7 +318,7 @@ SenderTxHash 6c7ee543c24e5b928b638a9f4502c1eca69103f5467ed4b6a2ed0ea5aede2e6b
     Hex:           10f8808204d219830f4240947b65b75d204abed71587c9e519a89277766ee1d00a94a94f5374fce5edbc8e2a8697c15331677e6ebf0b8568656c6c6ff845f84325a07d2b0c89ee8afa502b3186413983bfe9a31c5776f4f820210cffe44a7d568d1ca02b1cbd587c73b0f54969f6b76ef2fd95cea0c1bb79256a75df9da696278509f3
 ```
 
-### Kết quả đầu ra RPC \(Example\) <a id="rpc-output-example"></a>
+### Kết quả đầu ra RPC (Example) <a id="rpc-output-example"></a>
 
 Phần dưới đây cho thấy một đối tượng giao dịch được trả về qua JSON RPC.
 
@@ -332,8 +332,8 @@ Phần dưới đây cho thấy một đối tượng giao dịch được trả
   "gasPrice": "0x5d21dba00",
   "gasUsed": "0x53fc",
   "input": "0x68656c6c6f",
-  "nhật ký": [],
-  "nhật kýBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "logs": [],
+  "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
   "nonce": "0x4",
   "senderTxHash": "0x7311ef305064f2a6997c16cc8b5fc3fdf301549e7b7d0baa3a995a8e79479e5e",
   "signatures": [
@@ -343,7 +343,7 @@ Phần dưới đây cho thấy một đối tượng giao dịch được trả
       "S": "0x57bc916a50856b4d197f6856f16370f72f3bb0ac411b1da793fdb5bb7066966f"
     }
   ],
-  "trạng thái": "0x1",
+  "status": "0x1",
   "to": "0x75c3098be5e4b63fbac05838daaee378dd48098d",
   "transactionHash": "0x7311ef305064f2a6997c16cc8b5fc3fdf301549e7b7d0baa3a995a8e79479e5e",
   "transactionIndex": "0x4",
@@ -364,19 +364,19 @@ TxTypeSmartContractDeploy triển khai hợp đồng thông minh đến địa c
 
 ### Thuộc tính <a id="attributes"></a>
 
-| Thuộc tính    | Loại                                                  | Mô tả                                                                                                                                                                                                                                                                          |
-|:------------- |:------------------------------------------------------ |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| type          | uint8 \(Go\)                                         | Loại TxTypeSmartContractDeploy. Thuộc tính này phải là 0x28.                                                                                                                                                                                                                   |
-| nonce         | uint64 \(Go\)                                        | Giá trị dùng để định danh duy nhất cho một giao dịch của người gửi. Nếu hai giao dịch có cùng một giá trị số dùng một lần do người gửi tạo ra, chỉ có một giao dịch sẽ được thực thi.                                                                                          |
-| giá gas       | \*big.Int \(Go\)                                   | Đơn giá của gas tính bằng `peb` mà người gửi sẽ dùng để thanh toán phí giao dịch. Số tiền phí giao dịch được tính theo công thức `gas` \* `gasPrice`. Ví dụ: nếu giao dịch tốn 10 đơn vị gas và gasPrice là 10^18, phí giao dịch sẽ là 10 KLAY. Hãy xem [Đơn vị của KLAY][]. |
-| gas           | uint64 \(Go\)                                        | Lượng gas tối đa mà giao dịch được phép sử dụng.                                                                                                                                                                                                                               |
-| đến           | \*common.Address \(Go\)                            | Địa chỉ tài khoản sẽ nhận giá trị được chuyển. Hiện tại giá trị này phải bằng 0. Tính năng xác định địa chỉ sẽ được hỗ trợ trong tương lai.                                                                                                                                    |
-| giá trị       | \*big.Int \(Go\)                                   | Số lượng KLAY tính bằng `peb` sẽ được chuyển.                                                                                                                                                                                                                                  |
-| từ            | common.Address \(Go\)                                | Địa chỉ của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch](./transactions.md#signature-validation-of-transactions).                                                                                                                                         |
-| nhập          | \[\]byte \(Go\)                                    | Dữ liệu được gắn kèm giao dịch, dùng để thực thi giao dịch.                                                                                                                                                                                                                    |
-| humanReadable | bool \(Go\)                                          | Đây phải là giá trị false vì địa chỉ có thể đọc chưa được hỗ trợ. Nếu giá trị là true, giao dịch sẽ bị từ chối.                                                                                                                                                                |
-| codeFormat    | uint8 \(Go\)                                         | Định dạng mã của mã hợp đồng thông minh. Hiện tại, giá trị được hỗ trợ chỉ có EVM\(0x00\).                                                                                                                                                                                   |
-| txSignatures  | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | Chữ ký của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch](./transactions.md#signature-validation-of-transactions).                                                                                                                                          |
+| Thuộc tính    | Loại                                                                                                           | Mô tả                                                                                                                                                                                                                                                                          |
+| :------------ | :-------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type          | uint8 (Go)                                                                                   | Loại TxTypeSmartContractDeploy. Thuộc tính này phải là 0x28.                                                                                                                                                                                                                   |
+| nonce         | uint64 (Go)                                                                                  | Giá trị dùng để định danh duy nhất cho một giao dịch của người gửi. Nếu hai giao dịch có cùng một giá trị số dùng một lần do người gửi tạo ra, chỉ có một giao dịch sẽ được thực thi.                                                                                          |
+| gasPrice      | \*big.Int (Go)                                                                               | Đơn giá của gas tính bằng `peb` mà người gửi sẽ dùng để thanh toán phí giao dịch. Số tiền phí giao dịch được tính theo công thức `gas` \* `gasPrice`. Ví dụ: nếu giao dịch tốn 10 đơn vị gas và gasPrice là 10^18, phí giao dịch sẽ là 10 KLAY. Hãy xem \[Đơn vị của KLAY]\[]. |
+| gas           | uint64 (Go)                                                                                  | Lượng gas tối đa mà giao dịch được phép sử dụng.                                                                                                                                                                                                                               |
+| đến           | \*common.Address (Go)                                                                        | Địa chỉ tài khoản sẽ nhận giá trị được chuyển. Hiện tại giá trị này phải bằng 0. Tính năng xác định địa chỉ sẽ được hỗ trợ trong tương lai.                                                                                                                                    |
+| giá trị       | \*big.Int (Go)                                                                               | Số lượng KLAY tính bằng `peb` sẽ được chuyển.                                                                                                                                                                                                                                  |
+| từ            | common.Address (Go)                                                                          | Địa chỉ của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch](./transactions.md#signature-validation-of-transactions).                                                                                                                                 |
+| nhập          | []byte (Go)                              | Dữ liệu được gắn kèm giao dịch, dùng để thực thi giao dịch.                                                                                                                                                                                                                    |
+| humanReadable | bool (Go)                                                                                    | Đây phải là giá trị false vì địa chỉ có thể đọc chưa được hỗ trợ. Nếu giá trị là true, giao dịch sẽ bị từ chối.                                                                                                                                                                |
+| codeFormat    | uint8 (Go)                                                                                   | Định dạng mã của mã hợp đồng thông minh. Hiện tại, giá trị được hỗ trợ chỉ có EVM(0x00).                                                                                                                                                                    |
+| txSignatures  | []{\*big.Int, \*big.Int, \*big.Int} (Go) | Chữ ký của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch](./transactions.md#signature-validation-of-transactions).                                                                                                                                  |
 
 ### Mã hóa RLP cho chữ ký <a id="rlp-encoding-for-signature"></a>
 
@@ -410,7 +410,7 @@ TxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, input, humanRe
 TxHash = keccak256(TxHashRLP)
 ```
 
-### Mã hóa RLP \(Ví dụ\) <a id="rlp-encoding-example"></a>
+### Mã hóa RLP (Ví dụ) <a id="rlp-encoding-example"></a>
 
 Phần dưới đây cho thấy kết quả của quá trình tuần tự hóa RLP và đối tượng giao dịch:
 
@@ -442,7 +442,7 @@ SenderTxHash e983f38b814891990f3ca57028c2230dc7e907eb313c827e7c99fadcc9b4c58b
     Hex:           28f9027d8204d219830f4240947b65b75d204abed71587c9e519a89277766ee1d00a94a94f5374fce5edbc8e2a8697c15331677e6ebf0bb901fe608060405234801561001057600080fd5b506101de806100206000396000f3006080604052600436106100615763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416631a39d8ef81146100805780636353586b146100a757806370a08231146100ca578063fd6b7ef8146100f8575b3360009081526001602052604081208054349081019091558154019055005b34801561008c57600080fd5b5061009561010d565b60408051918252519081900360200190f35b6100c873ffffffffffffffffffffffffffffffffffffffff60043516610113565b005b3480156100d657600080fd5b5061009573ffffffffffffffffffffffffffffffffffffffff60043516610147565b34801561010457600080fd5b506100c8610159565b60005481565b73ffffffffffffffffffffffffffffffffffffffff1660009081526001602052604081208054349081019091558154019055565b60016020526000908152604090205481565b336000908152600160205260408120805490829055908111156101af57604051339082156108fc029083906000818181858888f193505050501561019c576101af565b3360009081526001602052604090208190555b505600a165627a7a72305820627ca46bb09478a015762806cc00c431230501118c7c26c30ac58c4e09e51c4f00290180f845f84325a0fcd107738fb47750ba727610aefd6d5f51ac8163d62ce500e7ab7e15defe7088a0383d68220d0266490ea4173c1d7847f22fcbe22f8c8125e1c0589189845c902a
 ```
 
-### Kết quả đầu ra RPC \(Example\) <a id="rpc-output-example"></a>
+### Kết quả đầu ra RPC (Example) <a id="rpc-output-example"></a>
 
 Phần dưới đây cho thấy một đối tượng giao dịch được trả về qua JSON RPC.
 
@@ -458,8 +458,8 @@ Phần dưới đây cho thấy một đối tượng giao dịch được trả
   "gasUsed": "0xee6e343d",
   "humanReadable": true,
   "input": "0x608060405234801561001057600080fd5b506101de806100206000396000f3006080604052600436106100615763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416631a39d8ef81146100805780636353586b146100a757806370a08231146100ca578063fd6b7ef8146100f8575b3360009081526001602052604081208054349081019091558154019055005b34801561008c57600080fd5b5061009561010d565b60408051918252519081900360200190f35b6100c873ffffffffffffffffffffffffffffffffffffffff60043516610113565b005b3480156100d657600080fd5b5061009573ffffffffffffffffffffffffffffffffffffffff60043516610147565b34801561010457600080fd5b506100c8610159565b60005481565b73ffffffffffffffffffffffffffffffffffffffff1660009081526001602052604081208054349081019091558154019055565b60016020526000908152604090205481565b336000908152600160205260408120805490829055908111156101af57604051339082156108fc029083906000818181858888f193505050501561019c576101af565b3360009081526001602052604090208190555b505600a165627a7a72305820627ca46bb09478a015762806cc00c431230501118c7c26c30ac58c4e09e51c4f0029",
-  "nhật ký": [],
-  "nhật kýBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "logs": [],
+  "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
   "nonce": "0xa",
   "senderTxHash": "0x78a5633ee5b453ed2f00937e65945a3b76e96623634e1555e2f15d44930168af",
   "signatures": [
@@ -469,7 +469,7 @@ Phần dưới đây cho thấy một đối tượng giao dịch được trả
       "S": "0x12fc22c390a89484d1cb70e1f19c4fa8a203b1406044ee9c263264876f0dd724"
     }
   ],
-  "trạng thái": "0x1",
+  "status": "0x1",
   "to": "0x636f6e74726163742e6b6c6179746e0000000000",
   "transactionHash": "0x78a5633ee5b453ed2f00937e65945a3b76e96623634e1555e2f15d44930168af",
   "transactionIndex": "0x3",
@@ -490,17 +490,17 @@ TxTypeSmartContractExecution thực thi hợp đồng thông minh với dữ li�
 
 ### Thuộc tính <a id="attributes"></a>
 
-| Thuộc tính   | Loại                                                  | Mô tả                                                                                                                                                                                                                                                                          |
-|:------------ |:------------------------------------------------------ |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| type         | uint8 \(Go\)                                         | Loại TxTypeSmartContractExecution. Thuộc tính này phải là 0x30.                                                                                                                                                                                                                |
-| nonce        | uint64 \(Go\)                                        | Giá trị dùng để định danh duy nhất cho một giao dịch của người gửi. Nếu hai giao dịch có cùng một giá trị số dùng một lần do người gửi tạo ra, chỉ có một giao dịch sẽ được thực thi.                                                                                          |
-| giá gas      | \*big.Int \(Go\)                                   | Đơn giá của gas tính bằng `peb` mà người gửi sẽ dùng để thanh toán phí giao dịch. Số tiền phí giao dịch được tính theo công thức `gas` \* `gasPrice`. Ví dụ: nếu giao dịch tốn 10 đơn vị gas và gasPrice là 10^18, phí giao dịch sẽ là 10 KLAY. Hãy xem [Đơn vị của KLAY][]. |
-| gas          | uint64 \(Go\)                                        | Lượng gas tối đa mà giao dịch được phép sử dụng.                                                                                                                                                                                                                               |
-| đến          | common.Address \(Go\)                                | Địa chỉ thực thi tài khoản hợp đồng thông minh.                                                                                                                                                                                                                                |
-| giá trị      | \*big.Int \(Go\)                                   | Số lượng KLAY tính bằng `peb` sẽ được chuyển.                                                                                                                                                                                                                                  |
-| từ           | common.Address \(Go\)                                | Địa chỉ của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch](./transactions.md#signature-validation-of-transactions).                                                                                                                                         |
-| nhập         | \[\]byte \(Go\)                                    | Dữ liệu được gắn kèm giao dịch, dùng để thực thi giao dịch.                                                                                                                                                                                                                    |
-| txSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | Chữ ký của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch](./transactions.md#signature-validation-of-transactions).                                                                                                                                          |
+| Thuộc tính   | Loại                                                                                                           | Mô tả                                                                                                                                                                                                                                                                          |
+| :----------- | :-------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type         | uint8 (Go)                                                                                   | Loại TxTypeSmartContractExecution. Thuộc tính này phải là 0x30.                                                                                                                                                                                                                |
+| nonce        | uint64 (Go)                                                                                  | Giá trị dùng để định danh duy nhất cho một giao dịch của người gửi. Nếu hai giao dịch có cùng một giá trị số dùng một lần do người gửi tạo ra, chỉ có một giao dịch sẽ được thực thi.                                                                                          |
+| giá gas      | \*big.Int (Go)                                                                               | Đơn giá của gas tính bằng `peb` mà người gửi sẽ dùng để thanh toán phí giao dịch. Số tiền phí giao dịch được tính theo công thức `gas` \* `gasPrice`. Ví dụ: nếu giao dịch tốn 10 đơn vị gas và gasPrice là 10^18, phí giao dịch sẽ là 10 KLAY. Hãy xem \[Đơn vị của KLAY]\[]. |
+| gas          | uint64 (Go)                                                                                  | Lượng gas tối đa mà giao dịch được phép sử dụng.                                                                                                                                                                                                                               |
+| đến          | common.Address (Go)                                                                          | Địa chỉ thực thi tài khoản hợp đồng thông minh.                                                                                                                                                                                                                                |
+| giá trị      | \*big.Int (Go)                                                                               | Số lượng KLAY tính bằng `peb` sẽ được chuyển.                                                                                                                                                                                                                                  |
+| từ           | common.Address (Go)                                                                          | Địa chỉ của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch](./transactions.md#signature-validation-of-transactions).                                                                                                                                 |
+| nhập         | []byte (Go)                              | Dữ liệu được gắn kèm giao dịch, dùng để thực thi giao dịch.                                                                                                                                                                                                                    |
+| txSignatures | []{\*big.Int, \*big.Int, \*big.Int} (Go) | Chữ ký của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch](./transactions.md#signature-validation-of-transactions).                                                                                                                                  |
 
 ### Mã hóa RLP cho chữ ký <a id="rlp-encoding-for-signature"></a>
 
@@ -534,7 +534,7 @@ TxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, input, txSigna
 TxHash = keccak256(TxHashRLP)
 ```
 
-### Mã hóa RLP \(Ví dụ\) <a id="rlp-encoding-example"></a>
+### Mã hóa RLP (Ví dụ) <a id="rlp-encoding-example"></a>
 
 Phần dưới đây cho thấy kết quả của quá trình tuần tự hóa RLP và đối tượng giao dịch:
 
@@ -564,7 +564,7 @@ SenderTxHash 23bb192bd58d56527843eb63225c5213f3aded95e4c9776f1ff0bdd8ee0b6826
     Hex:           30f89f8204d219830f4240947b65b75d204abed71587c9e519a89277766ee1d00a94a94f5374fce5edbc8e2a8697c15331677e6ebf0ba46353586b000000000000000000000000bc5951f055a85f41a3b62fd6f68ab7de76d299b2f845f84326a0e4276df1a779274fbb04bc18a0184809eec1ce9770527cebb3d64f926dc1810ba04103b828a0671a48d64fe1a3879eae229699f05a684d9c5fd939015dcdd9709b
 ```
 
-### Kết quả đầu ra RPC \(Example\) <a id="rpc-output-example"></a>
+### Kết quả đầu ra RPC (Example) <a id="rpc-output-example"></a>
 
 Phần dưới đây cho thấy một đối tượng giao dịch được trả về qua JSON RPC.
 
@@ -578,8 +578,8 @@ Phần dưới đây cho thấy một đối tượng giao dịch được trả
   "gasPrice": "0x5d21dba00",
   "gasUsed": "0xfedc",
   "input": "0x6353586b0000000000000000000000000fcda0f2efbe1b4e61b487701ce4f2f8abc3723d",
-  "nhật ký": [],
-  "nhật kýBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "logs": [],
+  "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
   "nonce": "0xd",
   "senderTxHash": "0xe216873dedd72d8d67a9f5e51eb5a7ed2b5f34bca334adff7a3601d6d3e2e132",
   "signatures": [
@@ -589,7 +589,7 @@ Phần dưới đây cho thấy một đối tượng giao dịch được trả
       "S": "0x6b84fbedcb4ff785120890596fad3f797c178cda8908f3b02ee0a4442fbf4189"
     }
   ],
-  "trạng thái": "0x1",
+  "status": "0x1",
   "to": "0x636f6e74726163742e6b6c6179746e0000000000",
   "transactionHash": "0xe216873dedd72d8d67a9f5e51eb5a7ed2b5f34bca334adff7a3601d6d3e2e132",
   "transactionIndex": "0x6",
@@ -610,15 +610,15 @@ TxTypeAccountUpdate cập nhật khóa của tài khoản đã cho. Các thay đ
 
 ### Thuộc tính <a id="attributes"></a>
 
-| Thuộc tính   | type                                                   | Mô tả                                                                                                                                                                                                                                                                                      |
-|:------------ |:------------------------------------------------------ |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| type         | uint8 \(Go\)                                         | Loại TxTypeAccountUpdate. Thuộc tính này phải là 0x20.                                                                                                                                                                                                                                     |
-| nonce        | uint64 \(Go\)                                        | Giá trị dùng để định danh duy nhất cho một giao dịch của người gửi. Nếu hai giao dịch có cùng một giá trị số dùng một lần do người gửi tạo ra, chỉ có một giao dịch sẽ được thực thi.                                                                                                      |
-| giá gas      | \*big.Int \(Go\)                                   | Hệ số nhân để tính toán số lượng token mà người gửi sẽ thanh toán. Lượng token mà người gửi sẽ thanh toán được tính theo công thức `gas` \* `gasPrice`. Ví dụ: Người gửi sẽ thanh toán khoản phí giao dịch là 10 KLAY nếu gas bằng 10 và gasPrice là 10^18. Hãy xem [Đơn vị của KLAY][]. |
-| gas          | uint64 \(Go\)                                        | Giá trị phí giao dịch tối đa mà giao dịch được phép sử dụng.                                                                                                                                                                                                                               |
-| từ           | common.Address \(Go\)                                | Địa chỉ của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch](./transactions.md#signature-validation-of-transactions).                                                                                                                                                     |
-| khóa         | AccountKey \(Go\)                                    | [AccountKey][] cần cập nhật cho tài khoản.                                                                                                                                                                                                                                                 |
-| txSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | Chữ ký của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch](./transactions.md#signature-validation-of-transactions).                                                                                                                                                      |
+| Thuộc tính   | type                                                                                                            | Mô tả                                                                                                                                                                                                                                                                                      |
+| :----------- | :-------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type         | uint8 (Go)                                                                                   | Loại TxTypeAccountUpdate. Thuộc tính này phải là 0x20.                                                                                                                                                                                                                                     |
+| nonce        | uint64 (Go)                                                                                  | Giá trị dùng để định danh duy nhất cho một giao dịch của người gửi. Nếu hai giao dịch có cùng một giá trị số dùng một lần do người gửi tạo ra, chỉ có một giao dịch sẽ được thực thi.                                                                                                      |
+| giá gas      | \*big.Int (Go)                                                                               | Hệ số nhân để tính toán số lượng token mà người gửi sẽ thanh toán. Lượng token mà người gửi sẽ thanh toán được tính theo công thức `gas` \* `gasPrice`. Ví dụ: Người gửi sẽ thanh toán khoản phí giao dịch là 10 KLAY nếu gas bằng 10 và gasPrice là 10^18. Hãy xem \[Đơn vị của KLAY]\[]. |
+| gas          | uint64 (Go)                                                                                  | Giá trị phí giao dịch tối đa mà giao dịch được phép sử dụng.                                                                                                                                                                                                                               |
+| từ           | common.Address (Go)                                                                          | Địa chỉ của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch](./transactions.md#signature-validation-of-transactions).                                                                                                                                             |
+| khóa         | AccountKey (Go)                                                                              | [AccountKey][] cần cập nhật cho tài khoản.                                                                                                                                                                                                                                                 |
+| txSignatures | []{\*big.Int, \*big.Int, \*big.Int} (Go) | Chữ ký của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch](./transactions.md#signature-validation-of-transactions).                                                                                                                                              |
 
 ### Mã hóa RLP cho chữ ký <a id="rlp-encoding-for-signature"></a>
 
@@ -652,7 +652,7 @@ TxHashRLP = type + encode([nonce, gasPrice, gas, from, rlpEncodedKey, txSignatur
 TxHash = keccak256(TxHashRLP)
 ```
 
-### Mã hóa RLP \(Ví dụ\) <a id="rlp-encoding-example"></a>
+### Mã hóa RLP (Ví dụ) <a id="rlp-encoding-example"></a>
 
 Phần dưới đây cho thấy kết quả của quá trình tuần tự hóa RLP và đối tượng giao dịch:
 
@@ -680,7 +680,7 @@ SenderTxHash 8c70627d6b637c7d033ead083fc5e43e5cad10c704a86dd9bda7ac104a0e5ad0
     Hex:           20f8888204d219830f424094a94f5374fce5edbc8e2a8697c15331677e6ebf0ba302a1033a514176466fa815ed481ffad09110a2d344f6c9b78c1d14afc351c3a51be33df845f84325a0f7d479628f05f51320f0842193e3f7ae55a5b49d3645bf55c35bee1e8fd2593aa04de8eab5338fdc86e96f8c49ed516550f793fc2c4007614ce3d2a6b33cf9e451
 ```
 
-### Kết quả đầu ra RPC \(Example\) <a id="rpc-output-example"></a>
+### Kết quả đầu ra RPC (Example) <a id="rpc-output-example"></a>
 
 Phần dưới đây cho thấy một đối tượng giao dịch được trả về qua JSON RPC.
 
@@ -694,8 +694,8 @@ Phần dưới đây cho thấy một đối tượng giao dịch được trả
   "gasPrice": "0x5d21dba00",
   "gasUsed": "0xa028",
   "key": "0x02a1034ef27ba4b7d1ae09b166744c5b7ee4a7a0cc5c76b2e5d74523a0a4fb56db3191",
-  "nhật ký": [],
-  "nhật kýBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "logs": [],
+  "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
   "nonce": "0x0",
   "senderTxHash": "0x3f154903f92a179007b45b807af2d971ada9a23657e80bf5c18a75ac6516fd0b",
   "signatures": [
@@ -705,7 +705,7 @@ Phần dưới đây cho thấy một đối tượng giao dịch được trả
       "S": "0x59d43ed3e0ed0f9d69d0c08ccca29913a8b138c000029f878f61337220a1ca1b"
     }
   ],
-  "trạng thái": "0x1",
+  "status": "0x1",
   "transactionHash": "0x3f154903f92a179007b45b807af2d971ada9a23657e80bf5c18a75ac6516fd0b",
   "transactionIndex": "0x0",
   "type": "TxTypeAccountUpdate",
@@ -731,14 +731,14 @@ Các thay đổi sau có thể xuất hiện do loại giao dịch này. 1. Số
 
 ### Thuộc tính <a id="attributes"></a>
 
-| Thuộc tính   | Loại                                                  | Mô tả                                                                                                                                                                                                                                                                                                      |
-|:------------ |:------------------------------------------------------ |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type         | uint8 \(Go\)                                         | Loại TxTypeCancel. Thuộc tính này phải là 0x38.                                                                                                                                                                                                                                                            |
-| nonce        | uint64 \(Go\)                                        | Giá trị dùng để định danh duy nhất cho một giao dịch của người gửi. Nếu hai giao dịch có cùng một giá trị số dùng một lần do người gửi tạo ra, chỉ có một giao dịch sẽ được thực thi.  Đối với giao dịch `TxTypeCancel`, giá trị này phải khớp với số dùng một lần mà giao dịch đích cần hủy đang sử dụng. |
-| giá gas      | \*big.Int \(Go\)                                   | Đơn giá của gas tính bằng `peb` mà người gửi sẽ dùng để thanh toán phí giao dịch. Số tiền phí giao dịch được tính theo công thức `gas` \* `gasPrice`. Ví dụ: nếu giao dịch tốn 10 đơn vị gas và gasPrice là 10^18, phí giao dịch sẽ là 10 KLAY. Hãy xem [Đơn vị của KLAY][].                             |
-| gas          | uint64 \(Go\)                                        | Giá trị phí giao dịch tối đa mà giao dịch được phép sử dụng.                                                                                                                                                                                                                                               |
-| từ           | common.Address \(Go\)                                | Địa chỉ của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch](./transactions.md#signature-validation-of-transactions).                                                                                                                                                                     |
-| txSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | Chữ ký của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch](./transactions.md#signature-validation-of-transactions).                                                                                                                                                                      |
+| Thuộc tính   | Loại                                                                                                           | Mô tả                                                                                                                                                                                                                                                                                                      |
+| :----------- | :-------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type         | uint8 (Go)                                                                                   | Loại TxTypeCancel. Thuộc tính này phải là 0x38.                                                                                                                                                                                                                                                            |
+| nonce        | uint64 (Go)                                                                                  | Giá trị dùng để định danh duy nhất cho một giao dịch của người gửi. Nếu hai giao dịch có cùng một giá trị số dùng một lần do người gửi tạo ra, chỉ có một giao dịch sẽ được thực thi.  Đối với giao dịch `TxTypeCancel`, giá trị này phải khớp với số dùng một lần mà giao dịch đích cần hủy đang sử dụng. |
+| giá gas      | \*big.Int (Go)                                                                               | Đơn giá của gas tính bằng `peb` mà người gửi sẽ dùng để thanh toán phí giao dịch. Số tiền phí giao dịch được tính theo công thức `gas` \* `gasPrice`. Ví dụ: nếu giao dịch tốn 10 đơn vị gas và gasPrice là 10^18, phí giao dịch sẽ là 10 KLAY. Hãy xem \[Đơn vị của KLAY]\[].                             |
+| gas          | uint64 (Go)                                                                                  | Giá trị phí giao dịch tối đa mà giao dịch được phép sử dụng.                                                                                                                                                                                                                                               |
+| từ           | common.Address (Go)                                                                          | Địa chỉ của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch](./transactions.md#signature-validation-of-transactions).                                                                                                                                                             |
+| txSignatures | []{\*big.Int, \*big.Int, \*big.Int} (Go) | Chữ ký của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch](./transactions.md#signature-validation-of-transactions).                                                                                                                                                              |
 
 Kết quả:
 
@@ -778,7 +778,7 @@ TxHashRLP = type + encode([nonce, gasPrice, gas, from, txSignatures])
 TxHash = keccak256(TxHashRLP)
 ```
 
-### Mã hóa RLP \(Ví dụ\) <a id="rlp-encoding-example"></a>
+### Mã hóa RLP (Ví dụ) <a id="rlp-encoding-example"></a>
 
 Phần dưới đây cho thấy kết quả của quá trình tuần tự hóa RLP và đối tượng giao dịch:
 
@@ -805,7 +805,7 @@ SenderTxHash 10d135d590cb587cc45c1f94f4a0e3b8c24d24a6e4243f09ca395fb4e2450413
     Hex:           38f8648204d219830f424094a94f5374fce5edbc8e2a8697c15331677e6ebf0bf845f84325a0fb2c3d53d2f6b7bb1deb5a09f80366a5a45429cc1e3956687b075a9dcad20434a05c6187822ee23b1001e9613d29a5d6002f990498d2902904f7f259ab3358216e
 ```
 
-### Kết quả đầu ra RPC \(Example\) <a id="rpc-output-example"></a>
+### Kết quả đầu ra RPC (Example) <a id="rpc-output-example"></a>
 
 Phần dưới đây cho thấy một đối tượng giao dịch được trả về qua JSON RPC.
 
@@ -818,8 +818,8 @@ Phần dưới đây cho thấy một đối tượng giao dịch được trả
   "gas": "0x174876e800",
   "gasPrice": "0x5d21dba00",
   "gasUsed": "0x5208",
-  "nhật ký": [],
-  "nhật kýBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "logs": [],
+  "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
   "nonce": "0x10",
   "senderTxHash": "0x0370adf89b2463d3d1fd894d6328929c931ef0cc3a8f1481affedd2e9c88d9d6",
   "signatures": [
@@ -829,7 +829,7 @@ Phần dưới đây cho thấy một đối tượng giao dịch được trả
       "S": "0x7ec2d6f052d8f916d12db2e0310381201888cb12d3a3696da80cab5195833706"
     }
   ],
-  "trạng thái": "0x1",
+  "status": "0x1",
   "transactionHash": "0x0370adf89b2463d3d1fd894d6328929c931ef0cc3a8f1481affedd2e9c88d9d6",
   "transactionIndex": "0x9",
   "type": "TxTypeCancel",
@@ -843,15 +843,15 @@ TxTypeChainDataAnchoringTransaction là một giao dịch neo dữ liệu chuỗ
 
 ### Thuộc tính <a id="attributes"></a>
 
-| Thuộc tính   | Loại                                                  | Mô tả                                                                                                                                                                                                                                                                          |
-|:------------ |:------------------------------------------------------ |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| type         | uint8 \(Go\)                                         | Loại TxTypeChainDataAnchoringTransaction. Thuộc tính này phải là 0x48.                                                                                                                                                                                                         |
-| nonce        | uint64 \(Go\)                                        | Giá trị dùng để định danh duy nhất cho một giao dịch của người gửi. Nếu hai giao dịch có cùng một giá trị số dùng một lần do người gửi tạo ra, chỉ có một giao dịch sẽ được thực thi.                                                                                          |
-| giá gas      | \*big.Int \(Go\)                                   | Đơn giá của gas tính bằng `peb` mà người gửi sẽ dùng để thanh toán phí giao dịch. Số tiền phí giao dịch được tính theo công thức `gas` \* `gasPrice`. Ví dụ: nếu giao dịch tốn 10 đơn vị gas và gasPrice là 10^18, phí giao dịch sẽ là 10 KLAY. Hãy xem [Đơn vị của KLAY][]. |
-| gas          | uint64 \(Go\)                                        | Giá trị phí giao dịch tối đa mà giao dịch được phép sử dụng.                                                                                                                                                                                                                   |
-| từ           | common.Address \(Go\)                                | Địa chỉ của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch](./transactions.md#signature-validation-of-transactions).                                                                                                                                         |
-| nhập         | \[\]byte \(Go\)                                    | Dữ liệu của chuỗi dịch vụ.                                                                                                                                                                                                                                                     |
-| txSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | Chữ ký của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch](./transactions.md#signature-validation-of-transactions).                                                                                                                                          |
+| Thuộc tính   | Loại                                                                                                           | Mô tả                                                                                                                                                                                                                                                                          |
+| :----------- | :-------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type         | uint8 (Go)                                                                                   | Loại TxTypeChainDataAnchoringTransaction. Thuộc tính này phải là 0x48.                                                                                                                                                                                                         |
+| nonce        | uint64 (Go)                                                                                  | Giá trị dùng để định danh duy nhất cho một giao dịch của người gửi. Nếu hai giao dịch có cùng một giá trị số dùng một lần do người gửi tạo ra, chỉ có một giao dịch sẽ được thực thi.                                                                                          |
+| giá gas      | \*big.Int (Go)                                                                               | Đơn giá của gas tính bằng `peb` mà người gửi sẽ dùng để thanh toán phí giao dịch. Số tiền phí giao dịch được tính theo công thức `gas` \* `gasPrice`. Ví dụ: nếu giao dịch tốn 10 đơn vị gas và gasPrice là 10^18, phí giao dịch sẽ là 10 KLAY. Hãy xem \[Đơn vị của KLAY]\[]. |
+| gas          | uint64 (Go)                                                                                  | Giá trị phí giao dịch tối đa mà giao dịch được phép sử dụng.                                                                                                                                                                                                                   |
+| từ           | common.Address (Go)                                                                          | Địa chỉ của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch](./transactions.md#signature-validation-of-transactions).                                                                                                                                 |
+| nhập         | []byte (Go)                              | Dữ liệu của chuỗi dịch vụ.                                                                                                                                                                                                                                                     |
+| txSignatures | []{\*big.Int, \*big.Int, \*big.Int} (Go) | Chữ ký của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch](./transactions.md#signature-validation-of-transactions).                                                                                                                                  |
 
 ### Mã hóa RLP cho chữ ký <a id="rlp-encoding-for-signature"></a>
 
@@ -885,7 +885,7 @@ TxHashRLP = type + encode([nonce, gasPrice, gas, from, anchoredData, txSignature
 TxHash = keccak256(TxHashRLP)
 ```
 
-### Mã hóa RLP \(Ví dụ\) <a id="rlp-encoding-example"></a>
+### Mã hóa RLP (Ví dụ) <a id="rlp-encoding-example"></a>
 
 Phần dưới đây cho thấy kết quả của quá trình tuần tự hóa RLP và đối tượng giao dịch:
 
@@ -913,7 +913,7 @@ SenderTxHash 4aad85735e777795d24aa3eab51be959d8ebdf9683083d85b66f70b7170f2ea3
     AnchoredData:  f8a6a00000000000000000000000000000000000000000000000000000000000000000a00000000000000000000000000000000000000000000000000000000000000001a00000000000000000000000000000000000000000000000000000000000000002a00000000000000000000000000000000000000000000000000000000000000003a0000000000000000000000000000000000000000000000000000000000000000405
 ```
 
-### Kết quả đầu ra RPC \(Example\) <a id="rpc-output-example"></a>
+### Kết quả đầu ra RPC (Example) <a id="rpc-output-example"></a>
 
 Phần dưới đây cho thấy một đối tượng giao dịch được trả về qua JSON RPC.
 
@@ -927,8 +927,8 @@ Phần dưới đây cho thấy một đối tượng giao dịch được trả
   "gasPrice": "0x5d21dba00",
   "gasUsed": "0x93a8",
   "input": "0xf8a6a00000000000000000000000000000000000000000000000000000000000000000a00000000000000000000000000000000000000000000000000000000000000001a00000000000000000000000000000000000000000000000000000000000000002a00000000000000000000000000000000000000000000000000000000000000003a0000000000000000000000000000000000000000000000000000000000000000405",
-  "nhật ký": [],
-  "nhật kýBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "logs": [],
+  "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
   "nonce": "0x13",
   "senderTxHash": "0x28b56268d18b116b08b1673caad80212f271d6e36ceef225b44c6d2a1f0413db",
   "signatures": [
@@ -938,7 +938,7 @@ Phần dưới đây cho thấy một đối tượng giao dịch được trả
       "S": "0x3c58fd9ae9390e6484e965572821846445983d9b5eb7866aa4113c56a5bf253e"
     }
   ],
-  "trạng thái": "0x1",
+  "status": "0x1",
   "transactionHash": "0x28b56268d18b116b08b1673caad80212f271d6e36ceef225b44c6d2a1f0413db",
   "transactionIndex": "0xc",
   "type": "TxTypeChainDataAnchoring",
@@ -946,7 +946,8 @@ Phần dưới đây cho thấy một đối tượng giao dịch được trả
 }
 ```
 
+[Unit of KLAY]: ../klaytn-native-coin-klay.md#units-of-klay
 
-[Đơn vị của KLAY]: ../klaytn-native-coin-klay.md#units-of-klay
 [AccountKeyLegacy]: ../accounts.md#accountkeylegacy
+
 [AccountKey]: ../accounts.md#account-key

@@ -8,15 +8,15 @@ KAS cung cấp nhiều API để hỗ trợ việc phát triển ứng dụng bl
 
 ### Tính năng
 
-* 10.000 yêu cầu/ngày (100 yêu cầu/giây) cho gói miễn phí
-* Hỗ trợ cộng đồng cho gói miễn phí và hỗ trợ theo yêu cầu cho gói trả phí (Starter, Pro và Pro Plus)
-* API nút Klaytn, API lịch sử token, API ví, API neo, API KIP-7, 17, 37 và API Metadata
+- 10.000 yêu cầu/ngày (100 yêu cầu/giây) cho gói miễn phí
+- Hỗ trợ cộng đồng cho gói miễn phí và hỗ trợ theo yêu cầu cho gói trả phí (Starter, Pro và Pro Plus)
+- API nút Klaytn, API lịch sử token, API ví, API neo, API KIP-7, 17, 37 và API Metadata
 
 ### Tài liệu tham khảo
 
-* [Tài liệu](https://www.klaytnapi.com/en/resource/docs/readme)
-* [Gói đăng ký](https://www.klaytnapi.com/en/landing/pricings)
-* [Trang web](https://www.klaytnapi.com/en/landing/main)
+- [Tài liệu](https://www.klaytnapi.com/en/resource/docs/readme)
+- [Gói đăng ký](https://www.klaytnapi.com/en/landing/pricings)
+- [Trang web](https://www.klaytnapi.com/en/landing/main)
 
 ## All That Node
 
@@ -49,34 +49,34 @@ Tatum là cách nhanh nhất để xây dựng, thử nghiệm và chạy các �
 
 ### Tính năng
 
-* 5 yêu cầu/giây cho gói miễn phí và 200 yêu cầu/giây cho gói trả phí (Bắt đầu, Cơ bản)
-* Hỗ trợ cộng đồng
+- 5 yêu cầu/giây cho gói miễn phí và 200 yêu cầu/giây cho gói trả phí (Bắt đầu, Cơ bản)
+- Hỗ trợ cộng đồng
 
 ### Tài liệu tham khảo
 
-* [Tài liệu](https://apidoc.tatum.io/tag/Klaytn?_gl=1\*1dhfv8u\*_ga\*MzY5NDMyNzg5LjE2NDQ1NTk1MzA.\*_ga_BH6F6RKJW6\*MTY2MjAxNDQ0OS4xNy4xLjE2NjIwMTQ2MTQuMjQuMC4w)
-* [Giá](https://tatum.io/pricing)
-* [Trang web](https://tatum.io/)
+- [Tài liệu](https://apidoc.tatum.io/tag/Klaytn?_gl=1*1dhfv8u*_ga*MzY5NDMyNzg5LjE2NDQ1NTk1MzA.*_ga_BH6F6RKJW6*MTY2MjAxNDQ0OS4xNy4xLjE2NjIwMTQ2MTQuMjQuMC4w)
+- [Giá](https://tatum.io/pricing)
+- [Trang web](https://tatum.io/)
 
 ## BlockPi
 
 Mục tiêu của mạng lưới BlockPI là cung cấp dịch vụ RPC chất lượng cao, mạnh mẽ và hiệu quả. Để tránh sự hư hỏng tại cục bộ và sự hạn chế trong khả năng mở rộng, mạng lưới được thiết kế để có cấu trúc phân phối với các nút RPC có thể mở rộng.
 
-BlockPI cung cấp các điểm cuối công khai miễn phí cho cộng đồng Klaytn và các tính năng nâng cao cho người dùng trả phí.  BlockPI được thiết kế với hai gói trả phí và hỗ trợ chi tiêu theo khả năng để đáp ứng nhu cầu linh hoạt của người dùng. Bạn có thể xem chi tiết giá cho mỗi gói (https://docs.blockpi.io/documentations/pricing) và chi phí của từng phương pháp của Klaytn (https://docs.blockpi.io/documentations/request-unit-ru)
+BlockPI cung cấp các điểm cuối công khai miễn phí cho cộng đồng Klaytn và các tính năng nâng cao cho người dùng trả phí.  BlockPI được thiết kế với hai gói trả phí và hỗ trợ chi tiêu theo khả năng để đáp ứng nhu cầu linh hoạt của người dùng. Bạn có thể xem chi tiết giá cho mỗi gói (https\://docs.blockpi.io/documentations/pricing) và chi phí của từng phương pháp của Klaytn (https\://docs.blockpi.io/documentations/request-unit-ru)
 
 ### Tính năng
 
-* 20 yêu cầu/giây cho các dịch vụ miễn phí và không giới hạn cho các gói trả phí.
-* Lựa chọn nút lưu trữ và nút điểm cuối Klaytn
-* Có thể lập danh sách ưu tiên cho các nút điểm cuối
-* Hiện có WSS và sắp ra mắt gói đăng ký
-* Hỗ trợ theo dõi
+- 20 yêu cầu/giây cho các dịch vụ miễn phí và không giới hạn cho các gói trả phí.
+- Lựa chọn nút lưu trữ và nút điểm cuối Klaytn
+- Có thể lập danh sách ưu tiên cho các nút điểm cuối
+- Hiện có WSS và sắp ra mắt gói đăng ký
+- Hỗ trợ theo dõi
 
 ### Tài liệu tham khảo
 
-* [Tài liệu](https://docs.blockpi.io/)
-* [Gói đăng ký](https://dashboard.blockpi.io/wallet/overview)
-* [Trang web](https://blockpi.io/)
+- [Tài liệu](https://docs.blockpi.io/)
+- [Gói đăng ký](https://dashboard.blockpi.io/wallet/overview)
+- [Trang web](https://blockpi.io/)
 
 ## Mạng lưới Pocket
 
@@ -86,27 +86,27 @@ Pocket hỗ trợ rất nhiều blockchain và vẫn đang không ngừng hỗ t
 
 ### Tính năng
 
-* Thị trường và giao thức RPC phi tập trung
-* 250.000 yêu cầu/ngày cho cấp miễn phí (tối đa hai ứng dụng với vô số điểm cuối)
-* Điểm cuối công khai
-* Gói Chi tiêu theo khả năng (nếu bạn cần hơn 250.000 yêu cầu/ngày)
-* Hỗ trợ hơn 30 blockchain
-* Hơn 25.000 nút kiếm POKT sẵn sàng phục vụ các ứng dụng
-* Nút lưu trữ, Nút lưu trữ và theo dõi, & Hỗ trợ nút testnet
-* Không xảy ra hư hỏng tại cục bộ
-* Không có thời gian chết
-* Tokenomics hiệu quả về chi phí, gần như không mất phí (nắm giữ POKT một lần cho băng thông mạng)
-* Không phát sinh chi phí ẩn hàng tháng, biến hạ tầng của bạn thành một tài sản
-* Chức năng cân bằng tải được tích hợp vào giao thức
-* Mở rộng vô hạn số lượng yêu cầu mỗi ngày và số nút mỗi giờ khi bạn sử dụng
-* Tùy chọn riêng tư, chống kiểm duyệt
-* Hỗ trợ thực tế cho nhà phát triển
+- Thị trường và giao thức RPC phi tập trung
+- 250.000 yêu cầu/ngày cho cấp miễn phí (tối đa hai ứng dụng với vô số điểm cuối)
+- Điểm cuối công khai
+- Gói Chi tiêu theo khả năng (nếu bạn cần hơn 250.000 yêu cầu/ngày)
+- Hỗ trợ hơn 30 blockchain
+- Hơn 25.000 nút kiếm POKT sẵn sàng phục vụ các ứng dụng
+- Nút lưu trữ, Nút lưu trữ và theo dõi, & Hỗ trợ nút testnet
+- Không xảy ra hư hỏng tại cục bộ
+- Không có thời gian chết
+- Tokenomics hiệu quả về chi phí, gần như không mất phí (nắm giữ POKT một lần cho băng thông mạng)
+- Không phát sinh chi phí ẩn hàng tháng, biến hạ tầng của bạn thành một tài sản
+- Chức năng cân bằng tải được tích hợp vào giao thức
+- Mở rộng vô hạn số lượng yêu cầu mỗi ngày và số nút mỗi giờ khi bạn sử dụng
+- Tùy chọn riêng tư, chống kiểm duyệt
+- Hỗ trợ thực tế cho nhà phát triển
 
 ### Tài liệu tham khảo
 
-* [Tài liệu](https://docs.pokt.network/api-docs/klaytn-evm/#/)
-* [Trang web](https://docs.pokt.network/)
-* Trang tổng quan và dữ liệu phân tích [Pocket Portal](https://bit.ly/ETHorg_POKTportal)
+- [Tài liệu](https://docs.pokt.network/api-docs/klaytn-evm/#/)
+- [Trang web](https://docs.pokt.network/)
+- Trang tổng quan và dữ liệu phân tích [Pocket Portal](https://bit.ly/ETHorg_POKTportal)
 
 ## ANKR
 
@@ -114,15 +114,15 @@ Mạng lưới nút phân phối của ANKR tạo ra sự kết hợp mạnh m�
 
 ### Tính năng
 
-* 500 yêu cầu/giây cho gói miễn phí và 1.500 yêu cầu/giây cho gói cao cấp. Có thể nâng cấp theo yêu cầu.
-* Cổng Discord và Hỗ trợ cho gói miễn phí và hỗ trợ riêng cho gói cao cấp.
-* WebSocket nằm trong gói cao cấp.
+- 500 yêu cầu/giây cho gói miễn phí và 1.500 yêu cầu/giây cho gói cao cấp. Có thể nâng cấp theo yêu cầu.
+- Cổng Discord và Hỗ trợ cho gói miễn phí và hỗ trợ riêng cho gói cao cấp.
+- WebSocket nằm trong gói cao cấp.
 
 ### Tài liệu tham khảo
 
-* [Tài liệu](https://www.ankr.com/docs/build-blockchain/overview)
-* [Gói đăng ký](https://www.ankr.com/rpc/pricing/)
-* [Trang web](https://www.ankr.com/rpc/)
+- [Tài liệu](https://www.ankr.com/docs/build-blockchain/overview)
+- [Gói đăng ký](https://www.ankr.com/rpc/pricing/)
+- [Trang web](https://www.ankr.com/rpc/)
 
 ## NodeReal
 
@@ -137,6 +137,6 @@ NodeReal là hạ tầng blockchain và nhà cung cấp dịch vụ. NodeReal g
 
 ### Tài liệu tham khảo
 
-* [Tài liệu](https://docs.nodereal.io/docs/getting-started)
-* [Gói đăng ký](https://nodereal.io/api-marketplace/klaytn-rpc)
-* [Trang web](https://nodereal.io)
+- [Tài liệu](https://docs.nodereal.io/docs/getting-started)
+- [Gói đăng ký](https://nodereal.io/api-marketplace/klaytn-rpc)
+- [Trang web](https://nodereal.io)

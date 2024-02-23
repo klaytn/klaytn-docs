@@ -6,10 +6,9 @@ Có! Sau khi tạo tài khoản Safe, Klaytn Safe sẽ cấp cho bạn quyền t
 
 Lưu ý: Để thực hiện thay đổi này, bạn cần kết nối với một trong những chủ sở hữu hiện tại.
 
-
 Các bước bên dưới sẽ giải thích cách thêm chủ sở hữu hoặc người ký mới vào tài khoản Safe của bạn sau khi tạo.
 
-**Bước 1:** Vào phần *Settings* trong menu thanh bên và chọn phần *Owners*.
+**Bước 1:** Vào phần _Settings_ trong menu thanh bên và chọn phần _Owners_.
 
 ![](/img/build/tools/addOwnersSettings.png)
 
@@ -33,15 +32,13 @@ Sau khi nhấp vào “Submit” ví được kết nối của bạn sẽ yêu 
 
 ![](/img/build/tools/addOwnersCon.png)
 
-
 ## Tôi có thể thay đổi số lượng người ký xác nhận bắt buộc không? <a id="Can i change the number of required signer confirmation"></a>
 
 Có! Bạn có thể thay đổi số lượng người ký xác nhận bắt buộc bằng cách thực hiện theo các bước được minh họa bên dưới. Điều này quan trọng vì bạn có thể cần thay đổi chủ sở hữu hoặc người ký tên bắt buộc để xác nhận các giao dịch được liên kết với tài khoản Safe của mình.
 
-**Bước 1:** Vào phần *Settings* trong menu thanh bên và chọn phần *Policy*. Phần này sẽ cho bạn thấy chính sách chữ ký hiện tại của mình và từ hình ảnh bên dưới, 2 trong số 4 chủ sở hữu bắt buộc phải xác nhận mọi giao dịch.
+**Bước 1:** Vào phần _Settings_ trong menu thanh bên và chọn phần _Policy_. Phần này sẽ cho bạn thấy chính sách chữ ký hiện tại của mình và từ hình ảnh bên dưới, 2 trong số 4 chủ sở hữu bắt buộc phải xác nhận mọi giao dịch.
 
 ![](/img/build/tools/safePolicy.png)
-
 
 **Bước 2:** Nhấp vào nút **Change**. Thao tác này sẽ bật lên một cửa sổ mới cho phép bạn chọn ngưỡng chữ ký mới của mình.
 
@@ -55,13 +52,13 @@ Có! Bạn có thể thay đổi số lượng người ký xác nhận bắt bu
 
 Khi sử dụng địa chỉ Safe, bạn có thể dễ dàng thêm tài khoản Safe của mình. Nhu cầu thêm hoặc tải Safe sẵn có vào giao diện rất đa dạng. Các nhu cầu bao gồm:
 
-* Bạn muốn truy cập Safe từ một trình duyệt khác.
-* Bạn muốn tương tác với Safe khi một bên khác đã chỉ định bạn làm chủ sở hữu.
-* Bạn muốn thêm Safe sẵn có bất kỳ ở chế độ chỉ đọc.
+- Bạn muốn truy cập Safe từ một trình duyệt khác.
+- Bạn muốn tương tác với Safe khi một bên khác đã chỉ định bạn làm chủ sở hữu.
+- Bạn muốn thêm Safe sẵn có bất kỳ ở chế độ chỉ đọc.
 
 Hãy thực hiện quy trình thêm Safe sẵn có của bạn theo các bước sau. Lưu ý: Vui lòng đảm bảo rằng ví của người ký của bạn được kết nối.
 
-**Bước 1:** Nhấp vào **“Add Safe”.** Ở góc trên cùng bên trái của menu thanh bên, tìm nút **Add Safe**.
+**Bước 1:** Nhấp vào **“Add Safe”**. Ở góc trên cùng bên trái của menu thanh bên, tìm nút **Add Safe**.
 
 ![](/img/build/tools/addSafe.gif)
 
@@ -77,7 +74,7 @@ Bạn cũng có thể truy cập trang bằng cách nhấp vào [liên kết](ht
 
 **Bước 4:** Nhập **tên** và **địa chỉ** của Safe. Bạn nên đặt tên cho Safe để dễ nhận biết trong danh sách Safe trên giao diện.
 
-![](/img/build/tools/addSafeName&Addr.png)
+![](/img/build/tools/addSafeName\&Addr.png)
 
 Sau khi đặt tên, dán địa chỉ của Safe bạn muốn thêm vào. Dấu kiểm màu xanh lục cho biết đây đúng là Safe đã được xác minh có thể được thêm vào.
 
@@ -93,10 +90,11 @@ Sau khi đặt tên, dán địa chỉ của Safe bạn muốn thêm vào. Dấu
 
 Thao tác này thường cung cấp một số gợi ý liên quan đến các quyết định cần thực hiện khi thiết lập Safe. Các gợi ý này gồm:
 
-* Bao nhiêu chủ sở hữu?
-* Chọn ngưỡng nào?
-* Ví nào tương thích?
+- Bao nhiêu chủ sở hữu?
 
+- Chọn ngưỡng nào?
+
+- Ví nào tương thích?
 
 Không có câu trả lời nào tốt nhất cho ba câu hỏi này, do đó không có một cấu hình Safe tối ưu nào. Câu trả lời thực sự phụ thuộc vào từng trường hợp sử dụng cụ thể. Tuy nhiên, chúng tôi cố gắng đưa ra một số gợi ý về những điều cần lưu ý:
 
@@ -110,4 +108,5 @@ Ngưỡng của Safe là số lượng tài khoản chủ sở hữu tối thi�
 
 Ngoài ra, bạn nên chọn ngưỡng 51% tổng số chủ sở hữu, ví dụ như 2 trên 3, 3 trên 5, v.v. Do đó, ngay cả khi một chủ sở hữu mất quyền truy cập vào tài khoản của họ, người dùng sẽ không bị khóa ngay lập tức hết số tiền của họ trong Safe; thay vào đó, các chủ sở hữu khác vẫn có thể thực hiện các giao dịch và thay thế tài khoản chủ sở hữu bị mất đó. Người ta có thể cho rằng điều này có vai trò như một cơ chế phục hồi.
 
-**Những loại ví nào tương thích?** Hiện tại, Klaytn Safe tương thích với [MetaMask](../../../tutorials/connecting-metamask).
+**Những loại ví nào tương thích?**
+Hiện tại, Klaytn Safe tương thích với [MetaMask](../../../tutorials/connecting-metamask).

@@ -6,31 +6,31 @@
 
 ## 기능 <a href="#features" id="features"></a>
 
-* HTTP와 웹소켓을 통한 클레이튼의 JSON-RPC 클라이언트 API의 완벽한 구현
-* 클레이튼 트랜잭션, 계정, 계정 키 유형 지원
-* 클레이튼 네트워크에서 스마트 컨트랙트를 배포하고 실행하기 위한 JavaScript 스마트 컨트랙트 패키지
-* 클레이튼 계정 관리를 위한 인메모리 지갑
-* 수수료 위임 지원
-* 클레이튼 지갑 키 포맷 지원
-* 트랜잭션 객체를 RLP로 인코딩/디코딩
-* 트랜잭션 객체 서명
-* web3-js 애플리케이션을 caver-js로 쉽게 포팅 가능
+- HTTP와 웹소켓을 통한 클레이튼의 JSON-RPC 클라이언트 API의 완벽한 구현
+- 클레이튼 트랜잭션, 계정, 계정 키 유형 지원
+- 클레이튼 네트워크에서 스마트 컨트랙트를 배포하고 실행하기 위한 JavaScript 스마트 컨트랙트 패키지
+- 클레이튼 계정 관리를 위한 인메모리 지갑
+- 수수료 위임 지원
+- 클레이튼 지갑 키 포맷 지원
+- 트랜잭션 객체를 RLP로 인코딩/디코딩
+- 트랜잭션 객체 서명
+- web3-js 애플리케이션을 caver-js로 쉽게 포팅 가능
 
 ## caver-js의 패키지 <a href="#packages-in-caver-js" id="packages-in-caver-js"></a>
 
 아래는 `caver-js`로 제공되는 패키지입니다.
 
-* [caver.account](./api/caver.account.md)
-* [caver.wallet.keyring](./api/caver-wallet/keyring.md)
-* [caver.wallet](./api/caver-wallet/caver-wallet.md)
-* [caver.transaction](./api/caver-transaction/caver-transaction.md)
-* [caver.rpc](./api/caver-rpc/caver-rpc.md)
-* [caver.contract](./api/caver.contract.md)
-* [caver.abi](./api/caver.abi.md)
-* [caver.kct](./api/caver-kct/caver-kct.md)
-* [caver.validator](./api/caver.validator.md)
-* [caver.utils](./api/caver.utils.md)
-* [caver.ipfs](./api/caver.ipfs.md)
+- [caver.account](./api/caver.account.md)
+- [caver.wallet.keyring](./api/caver-wallet/keyring.md)
+- [caver.wallet](./api/caver-wallet/caver-wallet.md)
+- [caver.transaction](./api/caver-transaction/caver-transaction.md)
+- [caver.rpc](./api/caver-rpc/caver-rpc.md)
+- [caver.contract](./api/caver.contract.md)
+- [caver.abi](./api/caver.abi.md)
+- [caver.kct](./api/caver-kct/caver-kct.md)
+- [caver.validator](./api/caver.validator.md)
+- [caver.utils](./api/caver.utils.md)
+- [caver.ipfs](./api/caver.ipfs.md)
 
 ## 오류 코드 개선 <a href="#error-code-improvement" id="error-code-improvement"></a>
 
@@ -97,9 +97,9 @@ const tx = caver.transaction.valueTransfer.create({ from, to, value, gas })
 tx.gasPrice = await tx.suggestGasPrice() 
 ```
 
-가스 가격에 대한 자세한 내용은 [가스 및 단가 개요](../../../learn/transaction-fees.md#gas-and-unit-price-overview)를 참조하세요. 네트워크에서 사용되는 가스 가격은 [caver.rpc.klay.getGasPrice](https://kips.klaytn.foundation/KIPs/kip-71)를 통해 확인할 수 있습니다.
+For more information about the gas price, see [GasPrice Overview](../../../learn/transaction-fees/transaction-fees.md#gas-price-overview) The price of gas used in the network can be obtained by using [caver.rpc.klay.getGasPrice](./api/caver-rpc/klay.md#caver-rpc-klay-getgasprice).
 
 ## 링크 <a href="#links" id="links"></a>
 
-* caver-js [GitHub 리포지토리](./api/caver-rpc/klay.md#caver-rpc-klay-getgasprice)
-* caver-js [npm](https://github.com/klaytn/caver-js)
+- caver-js [GitHub 리포지토리](./api/caver-rpc/klay.md#caver-rpc-klay-getgasprice)
+- caver-js [npm](https://github.com/klaytn/caver-js)

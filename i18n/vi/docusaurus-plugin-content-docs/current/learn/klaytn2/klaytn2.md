@@ -22,9 +22,11 @@ Là một dự án chuỗi khối công khai mã nguồn mở, Klaytn được x
 
 ## Chuỗi "Một cửa" dành cho các nhà xây dựng metaverse <a id="one-stop-chain-for-metaverse-builders"></a>
 
-Klaytn sẽ cung cấp cho các nhà xây dựng metaverse các giải pháp tích hợp để họ có thể dễ dàng sử dụng Klaytn làm lớp tin cậy cho metaverse trong quá trình biến các ý tưởng của họ thành hiện thực. Các sản phẩm tích hợp của chúng tôi bao gồm:
+Klaytn sẽ cung cấp cho các nhà xây dựng metaverse các giải pháp tích hợp để họ có thể dễ dàng sử dụng Klaytn làm lớp tin cậy cho metaverse trong quá trình biến các ý tưởng của họ thành hiện thực.
+can easily utilize Klaytn as the trust layer for the metaverse to bring their ideas to life. Các sản phẩm tích hợp của chúng tôi bao gồm:
 
 ### 1. Gói hạ tầng dành cho nhà phát triển mã nguồn mở <a id="open-source-dev-infra-package"></a>
+
 - Giải pháp Lớp 2
 - SDK
 - Thư viện hợp đồng thông minh
@@ -39,11 +41,13 @@ Klaytn sẽ cung cấp cho các nhà xây dựng metaverse các giải pháp tí
 - ... + "Kết hợp" tất cả các yếu tố này
 
 ### 2. Mainnet hiệu năng cao <a id="high-performing-mainnet"></a>
+
 - Thông lượng cao/TPS
-- Tính hoàn thiện tức thời (~1 giây)
+- Tính hoàn thiện tức thời (\~1 giây)
 - Khả năng liên thông liền mạch với các chuỗi khối khác (bao gồm cả chuỗi Klaytn L2), ví, cầu nối và trình khám phá
 
 ### 3. Cùng xây dựng cộng đồng <a id="community-co-building"></a>
+
 - Nhóm cộng đồng trò chơi điện tử
 - DAO đầu tư
 - DAO cộng đồng
@@ -51,12 +55,13 @@ Klaytn sẽ cung cấp cho các nhà xây dựng metaverse các giải pháp tí
 - Liên minh với người chơi toàn cầu
 
 ### 4. Quản lý và hỗ trợ tài chính <a id="management-and-financial-support"></a>
+
 - Tư vấn ngân quỹ
 - Quỹ tăng trưởng Klaytn
 - Quỹ đầu tư tập trung vào IP
 - Ưu đãi hiệu suất
 - Mời tham gia Hội đồng quản trị
 
----
+***
 
 Để hiểu rõ hơn về Klaytn 2.0, vui lòng tham khảo [Tài liệu tóm tắt](https://klaytn.foundation/wp-content/uploads/2022/01/Klaytn-2.0_Light-Paper-20220128.pdf) của chúng tôi.

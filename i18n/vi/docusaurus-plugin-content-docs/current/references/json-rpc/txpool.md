@@ -1,22 +1,27 @@
 ---
-description: >-
-  API dùng để kiểm tra bể giao dịch trong nút.
-
+description: |-
+  description: >-
+    API dùng để kiểm tra bể giao dịch trong nút.
 ---
 
 # txpool
 
 API không gian tên `txpool` cung cấp cho bạn quyền truy cập vào một số phương pháp RPC phi tiêu chuẩn để kiểm tra nội dung của bể giao dịch chứa tất cả các giao dịch đang chờ xử lý cũng như các giao dịch được xếp hàng chờ xử lý trong tương lai.
-
+transaction pool containing all the currently pending transactions as well as the ones queued for
+future processing.
 
 ## txpool_content <a id="txpool_content"></a>
 
 Thuộc tính kiểm tra `content` có thể được truy vấn để liệt kê thông tin chính xác của tất cả các giao dịch hiện đang chờ đưa vào (các) khối tiếp theo, cũng như những khối đang được lên lịch để thực thi trong tương lai.
+currently pending for inclusion in the next block(s), as well as the ones that are being scheduled
+for future execution only.
 
-Kết quả là một đối tượng có hai trường `pending` và `queued`. Mỗi trường trong số này là các mảng kết hợp, trong đó mỗi mục ánh xạ một địa chỉ gốc đến một lô giao dịch đã được lên lịch. Bản thân các lô này là các bản đồ liên kết các số dùng một lần với các giao dịch thực tế.
+Kết quả là một đối tượng có hai trường `pending` và `queued`. Mỗi trường trong số này là các mảng kết hợp, trong đó mỗi mục ánh xạ một địa chỉ gốc đến một lô giao dịch đã được lên lịch.
+arrays, in which each entry maps an origin-address to a batch of scheduled transactions. Bản thân các lô này là các bản đồ liên kết các số dùng một lần với các giao dịch thực tế.
+themselves are maps associating nonces with actual transactions.
 
 |    Máy khách    | Gọi phương pháp                |
-|:---------------:| ------------------------------ |
+| :-------------: | ------------------------------ |
 | Bảng điều khiển | `txpool.content`               |
 |       RPC       | `{"method": "txpool_content"}` |
 
@@ -126,22 +131,28 @@ Bảng điều khiển
   }
 }
 ```
+
 HTTP RPC
+
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"txpool_content","id":1}' https://public-en-baobab.klaytn.net
 {"jsonrpc":"2.0","id":1,"result":{"pending":{},"queued":{}}}
-#Không có giao dịch đang chờ xử lý cũng như giao dịch được xếp hàng chờ.
+#There is no pending transaction nor queued transaction.
 ```
-
 
 ## txpool_inspect <a id="txpool_inspect"></a>
 
-Thuộc tính kiểm tra `inspect` có thể được truy vấn để liệt kê một bản tóm tắt bằng văn bản của tất cả các giao dịch hiện đang chờ đưa vào (các) khối tiếp theo cũng như các giao dịch đang được lên lịch để thực thi trong tương lai. Đây là một phương pháp được thiết kế riêng cho các nhà phát triển để nhanh chóng xem các giao dịch trong bể và tìm ra bất kỳ vấn đề tiềm ẩn nào.
+Thuộc tính kiểm tra `inspect` có thể được truy vấn để liệt kê một bản tóm tắt bằng văn bản của tất cả các giao dịch hiện đang chờ đưa vào (các) khối tiếp theo cũng như các giao dịch đang được lên lịch để thực thi trong tương lai.
+currently pending for inclusion in the next block(s), as well as the ones that are being scheduled
+for future execution only. Đây là một phương pháp được thiết kế riêng cho các nhà phát triển để nhanh chóng xem các giao dịch trong bể và tìm ra bất kỳ vấn đề tiềm ẩn nào.
+transactions in the pool and find any potential issues.
 
-Kết quả là một đối tượng có hai trường `pending` và `queued`. Mỗi trường trong số này là các mảng kết hợp, trong đó mỗi mục ánh xạ một địa chỉ gốc đến một lô giao dịch đã được lên lịch. Bản thân các lô này là các bản đồ liên kết các số dùng một lần với các chuỗi tóm tắt giao dịch.
+Kết quả là một đối tượng có hai trường `pending` và `queued`. Mỗi trường trong số này là các mảng kết hợp, trong đó mỗi mục ánh xạ một địa chỉ gốc đến một lô giao dịch đã được lên lịch.
+arrays, in which each entry maps an origin-address to a batch of scheduled transactions. Bản thân các lô này là các bản đồ liên kết các số dùng một lần với các chuỗi tóm tắt giao dịch.
+themselves are maps associating nonces with transactions summary strings.
 
 |    Máy khách    | Gọi phương pháp                |
-|:---------------:| ------------------------------ |
+| :-------------: | ------------------------------ |
 | Bảng điều khiển | `txpool.inspect`               |
 |       RPC       | `{"method": "txpool_inspect"}` |
 
@@ -158,6 +169,7 @@ Không có
 **Ví dụ**
 
 Bảng điều khiển
+
 ```javascript
 > txpool.inspect
 {
@@ -207,6 +219,7 @@ Bảng điều khiển
   }
 }
 ```
+
 HTTP RPC
 
 ```shell
@@ -214,15 +227,16 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"tx
 {"jsonrpc":"2.0","id":1,"result":{"pending":{"0x1A789E38cD567a00b7Fb8e1D39100ac395fa463B":{"0":"0x87AC99835e67168d4f9a40580f8F5C33550bA88b: 0 peb + 99000000 gas × 25000000000 peb"},"0xAb552FC3d76de919c74435A4C6B04576a9763934":{"0":"0x87AC99835e67168d4f9a40580f8F5C33550bA88b: 0 peb + 99000000 gas × 25000000000 peb"}},"queued":{}}}
 ```
 
-
 ## txpool_trạng thái <a id="txpool_status"></a>
 
 Có thể truy vấn thuộc tính kiểm tra `trạng thái` để biết số lượng giao dịch hiện đang chờ xử lý để đưa vào (các) khối tiếp theo, cũng như các giao dịch đang được lên lịch để thực thi trong tương lai.
+inclusion in the next block(s), as well as the ones that are being scheduled for future execution only.
 
 Kết quả là một đối tượng có hai trường `pending` và `queued`, mỗi trường là một bộ đếm đại diện cho số lượng giao dịch ở trạng thái cụ thể đó.
+the number of transactions in that particular state.
 
 |    Máy khách    | Gọi phương pháp                   |
-|:---------------:| --------------------------------- |
+| :-------------: | --------------------------------- |
 | Bảng điều khiển | `txpool.trạng thái`               |
 |       RPC       | `{"method": "txpool_trạng thái"}` |
 
@@ -242,15 +256,16 @@ Không có
 Bảng điều khiển
 
 ```javascript
-> txpool.trạng thái
+> txpool.status
 {
   pending: 10,
   queued: 7
 }
 ```
+
 HTTP RPC
 
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"txpool_trạng thái","id":1}' https://public-en-baobab.klaytn.net
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"txpool_status","id":1}' https://public-en-baobab.klaytn.net
 {"jsonrpc":"2.0","id":1,"result":{"pending":"0x0","queued":"0x0"}}
 ```

@@ -5,18 +5,18 @@
 ## caver.rpc.klay.tài khoảnCreated <a href="#caver-rpc-klay-accountcreated" id="caver-rpc-klay-accountcreated"></a>
 
 ```javascript
-caver.rpc.klay.tài khoảnCreated(address [, blockNumber] [, callback])
+caver.rpc.klay.accountCreated(address [, blockNumber] [, callback])
 ```
 
 Trả về `true` nếu tài khoản được liên kết với địa chỉ được tạo trong nền tảng chuỗi khối Klaytn. Nếu không sẽ trả về `false`.
 
 **Tham số**
 
-| Tên         | type  | Mô tả                                                                                                             |
-| ----------- | ----- | ----------------------------------------------------------------------------------------------------------------- |
-| address     | chuỗi | Địa chỉ của tài khoản mà bạn muốn truy vấn nếu tài khoản đã được tạo trong mạng.                                  |
-| blockNumber | số \ | chuỗi | (tùy chọn) Số khối hoặc chuỗi `mới nhất` hoặc `cũ nhất`. Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng. |
-| callback    | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.    |
+| Tên         | type        | Mô tả                                                                                                                             |
+| ----------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| address     | chuỗi       | Địa chỉ của tài khoản mà bạn muốn truy vấn nếu tài khoản đã được tạo trong mạng.                                                  |
+| blockNumber | số \| chuỗi | (tùy chọn) Số khối hoặc chuỗi `mới nhất` hoặc `cũ nhất`. Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng.      |
+| callback    | hàm         | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
 
@@ -29,7 +29,7 @@ Trả về `true` nếu tài khoản được liên kết với địa chỉ đ�
 **Ví dụ**
 
 ```javascript
-> caver.rpc.klay.tài khoảnCreated('0x{address in hex}').then(console.log)
+> caver.rpc.klay.accountCreated('0x{address in hex}').then(console.log)
 true
 ```
 
@@ -45,11 +45,11 @@ Trả về thông tin tài khoản của một địa chỉ nhất định trong
 
 **Tham số**
 
-| Tên         | type  | Mô tả                                                                                                             |
-| ----------- | ----- | ----------------------------------------------------------------------------------------------------------------- |
-| address     | chuỗi | Địa chỉ của tài khoản mà bạn muốn có thông tin tài khoản.                                                         |
-| blockNumber | số \ | chuỗi | (tùy chọn) Số khối hoặc chuỗi `mới nhất` hoặc `cũ nhất`. Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng. |
-| callback    | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.    |
+| Tên         | type        | Mô tả                                                                                                                             |
+| ----------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| address     | chuỗi       | Địa chỉ của tài khoản mà bạn muốn có thông tin tài khoản.                                                                         |
+| blockNumber | số \| chuỗi | (tùy chọn) Số khối hoặc chuỗi `mới nhất` hoặc `cũ nhất`. Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng.      |
+| callback    | hàm         | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
 
@@ -62,11 +62,11 @@ Trả về thông tin tài khoản của một địa chỉ nhất định trong
 **Ví dụ**
 
 ```javascript
-// Nhận tài khoản với EOA
+// Get account with EOA
 > caver.rpc.klay.getAccount('0x{address in hex}').then(console.log)
 {
     accType: 1,
-    tài khoản: {
+    account: {
         nonce: 0,
         balance: '0x',
         humanReadable: false,
@@ -74,11 +74,11 @@ Trả về thông tin tài khoản của một địa chỉ nhất định trong
     }
 }
 
-// Nhận tài khoản với SCA
+// Get account with SCA
 > caver.rpc.klay.getAccount('0x{address in hex}').then(console.log)
 {
     accType: 2,
-    tài khoản: {
+    account: {
         nonce: 1,
         balance: '0x0',
         humanReadable: false,
@@ -102,11 +102,11 @@ Trả về AccountKey của một địa chỉ đã cho. Nếu tài khoản có 
 
 **Tham số**
 
-| Tên         | Loại | Mô tả                                                                                                             |
-| ----------- | ----- | ----------------------------------------------------------------------------------------------------------------- |
-| address     | chuỗi | Địa chỉ của tài khoản Klaytn mà bạn muốn lấy một đối tượng của thông tin AccountKey.                              |
-| blockNumber | số \ | chuỗi | (tùy chọn) Số khối hoặc chuỗi `mới nhất` hoặc `cũ nhất`. Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng. |
-| callback    | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.    |
+| Tên         | Loại       | Mô tả                                                                                                                             |
+| ----------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| address     | chuỗi       | Địa chỉ của tài khoản Klaytn mà bạn muốn lấy một đối tượng của thông tin AccountKey.                                              |
+| blockNumber | số \| chuỗi | (tùy chọn) Số khối hoặc chuỗi `mới nhất` hoặc `cũ nhất`. Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng.      |
+| callback    | hàm         | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
 
@@ -119,22 +119,22 @@ Trả về AccountKey của một địa chỉ đã cho. Nếu tài khoản có 
 **Ví dụ**
 
 ```javascript
-// Loại AccountKey: AccountKeyLegacy
+// AccountKey type: AccountKeyLegacy
 > caver.rpc.klay.getAccountKey('0x{address in hex}').then(console.log)
 { keyType: 1, key: {} }
 
-// Loại AccountKey: AccountKeyPublic
+// AccountKey type: AccountKeyPublic
 > caver.rpc.klay.getAccountKey('0x{address in hex}').then(console.log)
 {
     keyType: 2,
     key: { x:'0xb9a4b...', y:'0x7a285...' }
 }
 
-// Loại AccountKey: AccountKeyFail
+// AccountKey type: AccountKeyFail
 > caver.rpc.klay.getAccountKey('0x{address in hex}').then(console.log)
 { keyType: 3, key:{} }
 
-// Loại AccountKey: AccountKeyWeightedMultiSig
+// AccountKey type: AccountKeyWeightedMultiSig
 > caver.rpc.klay.getAccountKey('0x{address in hex}').then(console.log)
 {
     keyType: 4,
@@ -157,7 +157,7 @@ Trả về AccountKey của một địa chỉ đã cho. Nếu tài khoản có 
     }
 }
 
-// Loại AccountKey: AccountKeyRoleBased
+// AccountKey type: AccountKeyRoleBased
 > caver.rpc.klay.getAccountKey('0x{address in hex}').then(console.log)
 {
     keyType: 5,
@@ -181,17 +181,17 @@ Trả về AccountKey của một địa chỉ đã cho. Nếu tài khoản có 
 ## caver.rpc.klay.encodeAccountKey <a href="#caver-rpc-klay-encodeaccountkey" id="caver-rpc-klay-encodeaccountkey"></a>
 
 ```javascript
-caver.rpc.klay.encodeAccountKey(tài khoảnKey [, callback])
+caver.rpc.klay.encodeAccountKey(accountKey [, callback])
 ```
 
 Mã hóa một đối tượng chứa thông tin AccountKey bằng sơ đồ mã hóa Tiền tố độ dài đệ quy (RLP). Ngoài ra, bạn có thể sử dụng [tài khoản.getRLPEncodingAccountKey](../caver.account.md#account-getrlpencodingaccountkey) để lấy AccountKey được mã hóa bằng RLP.
 
 **Tham số**
 
-| Tên          | Loại     | Mô tả                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| ------------ | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Tên          | Loại     | Mô tả                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| ------------ | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | tài khoảnKey | đối tượng | Một đối tượng xác định `keyType` và `khóa` bên trong hoặc một phiên bản của `AccountKey` ([AccountKeyLegacy](../caver.account.md#accountkeylegacy), [AccountKeyPublic](../caver.account.md#accountkeypublic), [AccountKeyFail](../caver.account.md#accountkeyfail), [AccountKeyWeightedMultiSig](../caver.account.md#accountkeyweightedmultisig) hoặc [AccountKeyRoleBased](../caver.account.md#accountkeyrolebased)). |
-| callback     | hàm       | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                                                                                                                                                                                                                                                                                                             |
+| callback     | hàm       | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                                                                                                                                                                                                                                                                                         |
 
 **Giá trị trả về**
 
@@ -204,11 +204,11 @@ Mã hóa một đối tượng chứa thông tin AccountKey bằng sơ đồ mã
 **Ví dụ**
 
 ```javascript
-// Loại AccountKey: AccountKeyLegacy
+// AccountKey type: AccountKeyLegacy
 > caver.rpc.klay.encodeAccountKey({ keyType: 1, key: {} }).then(console.log)
 0x01c0
 
-// Loại AccountKey: AccountKeyPublic
+// AccountKey type: AccountKeyPublic
 > caver.rpc.klay.encodeAccountKey({
         keyType: 2,
         key: {
@@ -218,11 +218,11 @@ Mã hóa một đối tượng chứa thông tin AccountKey bằng sơ đồ mã
     }).then(console.log)
 0x02a102dbac81e8486d68eac4e6ef9db617f7fbd79a04a3b323c982a09cdfc61f0ae0e8
 
-// Loại AccountKey: AccountKeyFail
+// AccountKey type: AccountKeyFail
 > caver.rpc.klay.encodeAccountKey({ keyType: 3, key: {} }).then(console.log)
 0x03c0
 
-// Loại AccountKey: AccountKeyWeightedMultiSig
+// AccountKey type: AccountKeyWeightedMultiSig
 > caver.rpc.klay.encodeAccountKey({
         keyType: 4,
         key: {
@@ -247,7 +247,7 @@ Mã hóa một đối tượng chứa thông tin AccountKey bằng sơ đồ mã
     }).then(console.log)
 0x04f84b02f848e301a102c734b50ddb229be5e929fc4aa8080ae8240a802d23d3290e5e6156ce029b110ee301a10212d45f1cc56fbd6cd8fc877ab63b5092ac77db907a8a42c41dad3e98d7c64dfb
 
-// Loại AccountKey: AccountKeyRoleBased
+// AccountKey type: AccountKeyRoleBased
 > caver.rpc.klay.encodeAccountKey({
         keyType: 5,
         key: [
@@ -291,9 +291,9 @@ Mã hóa một đối tượng chứa thông tin AccountKey bằng sơ đồ mã
     }).then(console.log)
 0x05f898a302a103e4a01407460c1c03ac0c82fd84f303a699b210c0b054f4aff72ff7dcdf01512db84e04f84b02f848e301a103e4a01407460c1c03ac0c82fd84f303a699b210c0b054f4aff72ff7dcdf01512de301a10336f6355f5b532c3c160
 
-// Sử dụng một phiên bản AccountKey
-> const tài khoảnKey = caver.tài khoản.create('0x{address in hex}', '0xf1d2e...').tài khoảnKey
-> caver.rpc.klay.encodeAccountKey(tài khoảnKey).then(console.log)
+// Use an AccountKey instance
+> const accountKey = caver.account.create('0x{address in hex}', '0xf1d2e...').accountKey
+> caver.rpc.klay.encodeAccountKey(accountKey).then(console.log)
 0x02a102f1d2e558cfa07151534cd406b1ac5c25d99e9c1cf925328d14fd15c6fe50df27
 ```
 
@@ -307,9 +307,9 @@ Giải mã AccountKey được mã hóa RLP. Ngoài ra, bạn có thể sử d�
 
 **Tham số**
 
-| Tên        | Loại | Mô tả                                                                                                          |
-| ---------- | ----- | -------------------------------------------------------------------------------------------------------------- |
-| encodedKey | chuỗi | AccountKey được mã hóa RLP.                                                                                    |
+| Tên        | Loại | Mô tả                                                                                                                             |
+| ---------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
+| encodedKey | chuỗi | AccountKey được mã hóa RLP.                                                                                                       |
 | callback   | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
@@ -323,11 +323,11 @@ Giải mã AccountKey được mã hóa RLP. Ngoài ra, bạn có thể sử d�
 **Ví dụ**
 
 ```javascript
-// Loại AccountKey: AccountKeyLegacy
+// AccountKey type: AccountKeyLegacy
 > caver.rpc.klay.decodeAccountKey('0x01c0').then(console.log)
 { keyType: 1, key: {} }
 
-// Loại AccountKey: AccountKeyPublic
+// AccountKey type: AccountKeyPublic
 > caver.rpc.klay.decodeAccountKey('0x02a102dbac81e8486d68eac4e6ef9db617f7fbd79a04a3b323c982a09cdfc61f0ae0e8').then(console.log)
 {
     keyType: 2,
@@ -337,11 +337,11 @@ Giải mã AccountKey được mã hóa RLP. Ngoài ra, bạn có thể sử d�
     },
 }
 
-// Loại AccountKey: AccountKeyFail
+// AccountKey type: AccountKeyFail
 > caver.rpc.klay.decodeAccountKey('0x03c0').then(console.log)
 { keyType: 3, key: {} }
 
-// Loại AccountKey: AccountKeyWeightedMultiSig
+// AccountKey type: AccountKeyWeightedMultiSig
 > caver.rpc.klay.decodeAccountKey('0x04f84b02f848e301a102c734b50ddb229be5e929fc4aa8080ae8240a802d23d3290e5e6156ce029b110ee301a10212d45f1cc56fbd6cd8fc877ab63b5092ac77db907a8a42c41dad3e98d7c64dfb').then(console.log)
 {
     keyType: 4,
@@ -367,7 +367,7 @@ Giải mã AccountKey được mã hóa RLP. Ngoài ra, bạn có thể sử d�
 }
 
 
-// Loại AccountKey: AccountKeyRoleBased
+// AccountKey type: AccountKeyRoleBased
 > caver.rpc.klay.decodeAccountKey('0x05f898a302a103e4a01407460c1c03ac0c82fd84f303a699b210c0b054f4aff72ff7dcdf01512db84e04f84b02f848e301a103e4a01407460c1c03ac0c82fd84f303a699b210c0b054f4aff72ff7dcdf01512de301a10336f6355f5b532c3c160').then(console.log)
 {
     keyType: 5,
@@ -422,11 +422,11 @@ Trả về số dư tài khoản của địa chỉ đã cho trong Klaytn.
 
 **Tham số**
 
-| Tên         | Loại | Mô tả                                                                                                             |
-| ----------- | ----- | ----------------------------------------------------------------------------------------------------------------- |
-| address     | chuỗi | Địa chỉ của tài khoản mà bạn muốn lấy số dư.                                                                      |
-| blockNumber | số \ | chuỗi | (tùy chọn) Số khối hoặc chuỗi `mới nhất` hoặc `cũ nhất`. Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng. |
-| callback    | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.    |
+| Tên         | Loại       | Mô tả                                                                                                                             |
+| ----------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| address     | chuỗi       | Địa chỉ của tài khoản mà bạn muốn lấy số dư.                                                                                      |
+| blockNumber | số \| chuỗi | (tùy chọn) Số khối hoặc chuỗi `mới nhất` hoặc `cũ nhất`. Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng.      |
+| callback    | hàm         | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
 
@@ -453,11 +453,11 @@ Trả về mã ở địa chỉ đã cho.
 
 **Tham số**
 
-| Tên         | Loại | Mô tả                                                                                                             |
-| ----------- | ----- | ----------------------------------------------------------------------------------------------------------------- |
-| address     | chuỗi | Địa chỉ nơi để nhận mã.                                                                                           |
-| blockNumber | số \ | chuỗi | (tùy chọn) Số khối hoặc chuỗi `mới nhất` hoặc `cũ nhất`. Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng. |
-| callback    | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.    |
+| Tên         | Loại       | Mô tả                                                                                                                             |
+| ----------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| address     | chuỗi       | Địa chỉ nơi để nhận mã.                                                                                                           |
+| blockNumber | số \| chuỗi | (tùy chọn) Số khối hoặc chuỗi `mới nhất` hoặc `cũ nhất`. Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng.      |
+| callback    | hàm         | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
 
@@ -484,11 +484,11 @@ Trả về tổng số lượng giao dịch đã gửi từ một địa chỉ.
 
 **Tham số**
 
-| Tên         | Loại | Mô tả                                                                                                                                                                                                                                                                                                   |
-| ----------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address     | chuỗi | Địa chỉ nơi để nhận số lượng giao dịch.                                                                                                                                                                                                                                                                 |
-| blockNumber | số \ | chuỗi | (tùy chọn) Số khối, chuỗi `đang chờ xử lý` để lấy số dùng một lần đang chờ xử lý, hoặc chuỗi `cũ nhất` hoặc `mới nhất` giống như trong [tham số khối mặc định](../../../../json-rpc/klay/block.md#the-default-block-parameter). Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng. |
-| callback    | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                                                                                                                                                                          |
+| Tên         | Loại       | Mô tả                                                                                                                                                                                                                                                                                               |
+| ----------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address     | chuỗi       | Địa chỉ nơi để nhận số lượng giao dịch.                                                                                                                                                                                                                                                             |
+| blockNumber | số \| chuỗi | (tùy chọn) Số khối, chuỗi `đang chờ xử lý` để lấy số dùng một lần đang chờ xử lý, hoặc chuỗi `cũ nhất` hoặc `mới nhất` giống như trong [tham số khối mặc định](../../../../json-rpc/klay/block.md#the-default-block-parameter). Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng. |
+| callback    | hàm         | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                                                                                                                                                   |
 
 **Giá trị trả về**
 
@@ -515,11 +515,11 @@ Trả về `true` nếu tài khoản đầu vào có codeHash không trống và
 
 **Tham số**
 
-| Tên         | type  | Mô tả                                                                                                             |
-| ----------- | ----- | ----------------------------------------------------------------------------------------------------------------- |
-| address     | chuỗi | Địa chỉ mà bạn muốn kiểm tra isContractAccount.                                                                   |
-| blockNumber | số \ | chuỗi | (tùy chọn) Số khối hoặc chuỗi `mới nhất` hoặc `cũ nhất`. Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng. |
-| callback    | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.    |
+| Tên         | type        | Mô tả                                                                                                                             |
+| ----------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| address     | chuỗi       | Địa chỉ mà bạn muốn kiểm tra isContractAccount.                                                                                   |
+| blockNumber | số \| chuỗi | (tùy chọn) Số khối hoặc chuỗi `mới nhất` hoặc `cũ nhất`. Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng.      |
+| callback    | hàm         | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
 
@@ -545,18 +545,18 @@ true
 caver.rpc.klay.sign(address, message [, blockNumber] [, callback])
 ```
 
-Tạo dữ liệu đã ký dành riêng cho Klaytn. Tham khảo [API Nền tảng Klaytn - klay\_sign](../../../../json-rpc/klay/account.md#klay_sign) để biết cách tạo chữ ký.
+Tạo dữ liệu đã ký dành riêng cho Klaytn. Tham khảo [API Nền tảng Klaytn - klay_sign](../../../../json-rpc/klay/account.md#klay_sign) để biết cách tạo chữ ký.
 
 **LƯU Ý**: API này cung cấp chức năng ký thông báo bằng cách sử dụng [tài khoản đã nhập](../../../../json-rpc/personal.md#personal_importrawkey) trong nút Klaytn của bạn. Tài khoản đã nhập trong nút của bạn phải được [mở khóa](../../../../json-rpc/personal.md#personal_unlockaccount) để ký thông báo. Để ký giao dịch bằng tài khoản đã nhập trong nút Klaytn của bạn, hãy sử dụng [caver.rpc.klay.signTransaction](#caver-rpc-klay-signtransaction).
 
 **Tham số**
 
-| Tên         | Loại | Mô tả                                                                                                             |
-| ----------- | ----- | ----------------------------------------------------------------------------------------------------------------- |
-| address     | Chuỗi | Địa chỉ của tài khoản đã nhập để ký thông báo.                                                                    |
-| thông báo   | Chuỗi | Tin nhắn có thể ký.                                                                                               |
-| blockNumber | số \ | chuỗi | (tùy chọn) Số khối hoặc chuỗi `mới nhất` hoặc `cũ nhất`. Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng. |
-| callback    | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.    |
+| Tên         | Loại       | Mô tả                                                                                                                             |
+| ----------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| address     | Chuỗi       | Địa chỉ của tài khoản đã nhập để ký thông báo.                                                                                    |
+| thông báo   | Chuỗi       | Tin nhắn có thể ký.                                                                                                               |
+| blockNumber | số \| chuỗi | (tùy chọn) Số khối hoặc chuỗi `mới nhất` hoặc `cũ nhất`. Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng.      |
+| callback    | hàm         | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
 
@@ -583,8 +583,8 @@ Trả về danh sách các địa chỉ thuộc sở hữu của Nút Klaytn.
 
 **Tham số**
 
-| Tên      | Loại | Mô tả                                                                                                          |
-| -------- | ----- | -------------------------------------------------------------------------------------------------------------- |
+| Tên      | Loại | Mô tả                                                                                                                             |
+| -------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
 | callback | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
@@ -615,8 +615,8 @@ Trả về số của khối gần đây nhất.
 
 **Tham số**
 
-| Tên      | Loại | Mô tả                                                                                                          |
-| -------- | ----- | -------------------------------------------------------------------------------------------------------------- |
+| Tên      | Loại | Mô tả                                                                                                                             |
+| -------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
 | callback | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
@@ -644,17 +644,17 @@ Trả về tiêu đề khối theo hàm băm khối hoặc số khối. Nếu ng
 
 **Tham số**
 
-| Tên               | type  | Mô tả                                                                                                          |
-| ----------------- | ----- | -------------------------------------------------------------------------------------------------------------- |
-| blockNumberOrHash | số \ | chuỗi | Hàm băm khối, số hoặc chuỗi thẻ khối.                                                                  |
-| callback          | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
+| Tên               | type        | Mô tả                                                                                                                             |
+| ----------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| blockNumberOrHash | số \| chuỗi | Hàm băm khối, số hoặc chuỗi thẻ khối.                                                                                             |
+| callback          | hàm         | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
 
 `Promise` trả về `đối tượng`
 
-| Loại     | Mô tả                                                                                                                                                              |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Loại     | Mô tả                                                                                                                                                       |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | đối tượng | Một đối tượng tiêu đề khối. Để biết mô tả chi tiết về giá trị trả về, vui lòng tham khảo [caver.rpc.klay.getHeaderByHash](#caver-rpc-klay-getheaderbyhash). |
 
 **Ví dụ**
@@ -668,7 +668,7 @@ Trả về tiêu đề khối theo hàm băm khối hoặc số khối. Nếu ng
   gasUsed: '0x0',
   governanceData: '0x',
   hash: '0x1b6582f0908add2221317288482aada596551e9f9d779a2aebc55d81d3149ba3',
-  nhật kýBloom: '0x00000...',
+  logsBloom: '0x00000...',
   number: '0xbacd3',
   parentHash: '0xd6e36611a6722b94b8e4bb4d164755445409cf43aa5db0a5d4ae01e621c81ce7',
   receiptsRoot: '0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470',
@@ -690,17 +690,17 @@ Trả về tiêu đề khối theo số khối.
 
 **Tham số**
 
-| Tên         | Loại | Mô tả                                                                                                          |
-| ----------- | ----- | -------------------------------------------------------------------------------------------------------------- |
-| blockNumber | số \ | chuỗi | Số khối hoặc chuỗi thẻ khối.                                                                           |
-| callback    | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
+| Tên         | Loại       | Mô tả                                                                                                                             |
+| ----------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| blockNumber | số \| chuỗi | Số khối hoặc chuỗi thẻ khối.                                                                                                      |
+| callback    | hàm         | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
 
 `Promise` trả về `đối tượng`
 
-| Loại     | Mô tả                                                                                                                                                              |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Loại     | Mô tả                                                                                                                                                       |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | đối tượng | Một đối tượng tiêu đề khối. Để biết mô tả chi tiết về giá trị trả về, vui lòng tham khảo [caver.rpc.klay.getHeaderByHash](#caver-rpc-klay-getheaderbyhash). |
 
 **Ví dụ**
@@ -714,7 +714,7 @@ Trả về tiêu đề khối theo số khối.
   gasUsed: '0x0',
   governanceData: '0x',
   hash: '0x1b6582f0908add2221317288482aada596551e9f9d779a2aebc55d81d3149ba3',
-  nhật kýBloom: '0x00000...',
+  logsBloom: '0x00000...',
   number: '0xbacd3',
   parentHash: '0xd6e36611a6722b94b8e4bb4d164755445409cf43aa5db0a5d4ae01e621c81ce7',
   receiptsRoot: '0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470',
@@ -736,9 +736,9 @@ Trả về số khối của khối mới nhất bằng cách sử dụng `block
 
 **Tham số**
 
-| Tên       | Loại | Mô tả                                                                                                          |
-| --------- | ----- | -------------------------------------------------------------------------------------------------------------- |
-| blockHash | chuỗi | Hàm băm khối.                                                                                                  |
+| Tên       | Loại | Mô tả                                                                                                                             |
+| --------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
+| blockHash | chuỗi | Hàm băm khối.                                                                                                                     |
 | callback  | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
@@ -774,7 +774,7 @@ Trả về số khối của khối mới nhất bằng cách sử dụng `block
   gasUsed: '0x0',
   governanceData: '0x',
   hash: '0x1b6582f0908add2221317288482aada596551e9f9d779a2aebc55d81d3149ba3',
-  nhật kýBloom: '0x00000...',
+  logsBloom: '0x00000...',
   number: '0xbacd3',
   parentHash: '0xd6e36611a6722b94b8e4bb4d164755445409cf43aa5db0a5d4ae01e621c81ce7',
   receiptsRoot: '0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470',
@@ -796,18 +796,18 @@ Trả về thông tin của một khối theo hàm băm khối hoặc số khố
 
 **Tham số**
 
-| Tên                      | Loại   | Mô tả                                                                                                                                                                |
-| ------------------------ | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockNumberOrHash        | số \   | chuỗi | Hàm băm khối, số hoặc chuỗi thẻ khối.                                                                                                                        |
-| returnTransactionObjects | boolean | (tùy chọn, mặc định `false`) Nếu `true`, khối được trả về sẽ chứa tất cả giao dịch dưới dạng đối tượng và khối sẽ chỉ chứa các hàm băm giao dịch nếu trả về `false`. |
-| callback                 | hàm     | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                                       |
+| Tên                      | Loại       | Mô tả                                                                                                                                                                                   |
+| ------------------------ | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockNumberOrHash        | số \| chuỗi | Hàm băm khối, số hoặc chuỗi thẻ khối.                                                                                                                                                   |
+| returnTransactionObjects | boolean     | (tùy chọn, mặc định `false`) Nếu `true`, khối được trả về sẽ chứa tất cả giao dịch dưới dạng đối tượng và khối sẽ chỉ chứa các hàm băm giao dịch nếu trả về `false`. |
+| callback                 | hàm         | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                                       |
 
 **Giá trị trả về**
 
 `Promise` trả về `đối tượng`
 
-| Loại     | Mô tả                                                                                                                                                    |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Loại     | Mô tả                                                                                                                                             |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
 | đối tượng | Một đối tượng khối. Để biết mô tả chi tiết về giá trị trả về, vui lòng tham khảo [caver.rpc.klay.getBlockByHash](#caver-rpc-klay-getblockbyhash). |
 
 **Ví dụ**
@@ -821,7 +821,7 @@ Trả về thông tin của một khối theo hàm băm khối hoặc số khố
     gasUsed: '0x0',
     governanceData: '0x',
     hash: '0x58482921af951cf42a069436ac9338de50fd963bdbea40e396f416f9ac96a08b',
-    nhật kýBloom: '0x00000...',
+    logsBloom: '0x00000...',
     number: '0x1',
     parentHash: '0x6b7c0a49f445d39b6d7dc9ba5b593b326f3a953e75ff1fcf64b9a5fa51c2725b',
     receiptsRoot: '0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470',
@@ -847,18 +847,18 @@ Trả về thông tin của một khối theo số khối.
 
 **Tham số**
 
-| Tên                      | Loại   | Mô tả                                                                                                                                                                |
-| ------------------------ | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockNumber              | số \   | chuỗi | Số khối hoặc khối được gắn thẻ bằng một chuỗi (`khởi nguyên` hoặc `mới nhất`).                                                                               |
-| returnTransactionObjects | boolean | (tùy chọn, mặc định `false`) Nếu `true`, khối được trả về sẽ chứa tất cả giao dịch dưới dạng đối tượng và khối sẽ chỉ chứa các hàm băm giao dịch nếu trả về `false`. |
-| callback                 | hàm     | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                                       |
+| Tên                      | Loại       | Mô tả                                                                                                                                                                                   |
+| ------------------------ | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockNumber              | số \| chuỗi | Số khối hoặc khối được gắn thẻ bằng một chuỗi (`khởi nguyên` hoặc `mới nhất`).                                                                                       |
+| returnTransactionObjects | boolean     | (tùy chọn, mặc định `false`) Nếu `true`, khối được trả về sẽ chứa tất cả giao dịch dưới dạng đối tượng và khối sẽ chỉ chứa các hàm băm giao dịch nếu trả về `false`. |
+| callback                 | hàm         | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                                       |
 
 **Giá trị trả về**
 
 `Promise` trả về `đối tượng`
 
-| Loại     | Mô tả                                                                                                                                               |
-| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Loại     | Mô tả                                                                                                                                        |
+| --------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
 | đối tượng | Một đối tượng khối. Để biết mô tả chi tiết về giá trị trả về, hãy tham khảo [caver.rpc.klay.getBlockByHash](#caver-rpc-klay-getblockbyhash). |
 
 **Ví dụ**
@@ -872,7 +872,7 @@ Trả về thông tin của một khối theo số khối.
     gasUsed: '0x0',
     governanceData: '0x',
     hash: '0x58482921af951cf42a069436ac9338de50fd963bdbea40e396f416f9ac96a08b',
-    nhật kýBloom: '0x00000...',
+    logsBloom: '0x00000...',
     number: '0x1',
     parentHash: '0x6b7c0a49f445d39b6d7dc9ba5b593b326f3a953e75ff1fcf64b9a5fa51c2725b',
     receiptsRoot: '0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470',
@@ -898,9 +898,9 @@ Trả về số khối của khối mới nhất bằng cách sử dụng `block
 
 **Tham số**
 
-| Tên                      | Loại   | Mô tả                                                                                                                                                                |
-| ------------------------ | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockHash                | chuỗi   | Hàm băm khối.                                                                                                                                                        |
+| Tên                      | Loại   | Mô tả                                                                                                                                                                                   |
+| ------------------------ | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockHash                | chuỗi   | Hàm băm khối.                                                                                                                                                                           |
 | returnTransactionObjects | boolean | (tùy chọn, mặc định `false`) Nếu `true`, khối được trả về sẽ chứa tất cả giao dịch dưới dạng đối tượng và khối sẽ chỉ chứa các hàm băm giao dịch nếu trả về `false`. |
 | callback                 | hàm     | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                                       |
 
@@ -941,7 +941,7 @@ Trả về số khối của khối mới nhất bằng cách sử dụng `block
     gasUsed: '0x0',
     governanceData: '0x',
     hash: '0x58482921af951cf42a069436ac9338de50fd963bdbea40e396f416f9ac96a08b',
-    nhật kýBloom: '0x00000...',
+    logsBloom: '0x00000...',
     number: '0x1',
     parentHash: '0x6b7c0a49f445d39b6d7dc9ba5b593b326f3a953e75ff1fcf64b9a5fa51c2725b',
     receiptsRoot: '0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470',
@@ -967,17 +967,17 @@ Trả về các biên lai được gộp vào khối được xác định bằn
 
 **Tham số**
 
-| Tên       | Loại | Mô tả                                                                                                          |
-| --------- | ----- | -------------------------------------------------------------------------------------------------------------- |
-| blockHash | chuỗi | Hàm băm khối.                                                                                                  |
+| Tên       | Loại | Mô tả                                                                                                                             |
+| --------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
+| blockHash | chuỗi | Hàm băm khối.                                                                                                                     |
 | callback  | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
 
 `Promise` trả về `Mảng`
 
-| type | Mô tả                                                                                                                                                                                                                                                                      |
-| ---- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type | Mô tả                                                                                                                                                                                                                                                               |
+| ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Mảng | Biên lai giao dịch được đưa vào một khối. Nếu khối mục tiêu không chứa giao dịch, thì hàm sẽ trả về một mảng trống `[]`. Để biết mô tả chi tiết về biên lai giao dịch, hãy tham khảo [caver.rpc.klay.getTransactionReceipt](#caver-rpc-klay-gettransactionreceipt). |
 
 **Ví dụ**
@@ -993,8 +993,8 @@ Trả về các biên lai được gộp vào khối được xác định bằn
         gas: '0x61a8',
         gasPrice: '0x5d21dba00',
         gasUsed: '0x5208',
-        nhật ký: [],
-        nhật kýBloom: '0x00000...',
+        logs: [],
+        logsBloom: '0x00000...',
         nonce: '0x5e',
         senderTxHash: '0x413f080a498ae3973490c2f80e75e6a492cfcdac8be8051220bb7a964768d28c',
         signatures: [
@@ -1004,7 +1004,7 @@ Trả về các biên lai được gộp vào khối được xác định bằn
                 S: '0x9b9e5257293e3b986842b6a203dd16ce46f16ed42dd3e9592fcaab9ea2696cb'
             }    
         ],
-        trạng thái: '0x1',
+        status: '0x1',
         to: '0xc0aabc441129991dd3a9363a9a43b745527ea4e7',
         transactionHash: '0x413f080a498ae3973490c2f80e75e6a492cfcdac8be8051220bb7a964768d28c',
         transactionIndex: '0x0',
@@ -1025,10 +1025,10 @@ Trả về số lượng giao dịch trong một khối khớp với số khối
 
 **Tham số**
 
-| Tên         | Loại | Mô tả                                                                                                          |
-| ----------- | ----- | -------------------------------------------------------------------------------------------------------------- |
-| blockNumber | số \ | chuỗi | Số khối hoặc chuỗi thẻ khối (`khởi nguyên` hoặc `mới nhất`).                                           |
-| callback    | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
+| Tên         | Loại       | Mô tả                                                                                                                             |
+| ----------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| blockNumber | số \| chuỗi | Số khối hoặc chuỗi thẻ khối (`khởi nguyên` hoặc `mới nhất`).                                                   |
+| callback    | hàm         | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
 
@@ -1055,9 +1055,9 @@ Trả về số lượng giao dịch trong một khối khớp với hàm băm k
 
 **Tham số**
 
-| Tên       | type  | Mô tả                                                                                                          |
-| --------- | ----- | -------------------------------------------------------------------------------------------------------------- |
-| blockHash | chuỗi | Hàm băm khối.                                                                                                  |
+| Tên       | type  | Mô tả                                                                                                                             |
+| --------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
+| blockHash | chuỗi | Hàm băm khối.                                                                                                                     |
 | callback  | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
@@ -1085,17 +1085,17 @@ Trả về một khối có thông tin đồng thuận khớp với số khối 
 
 **Tham số**
 
-| Tên         | Loại | Mô tả                                                                                                          |
-| ----------- | ----- | -------------------------------------------------------------------------------------------------------------- |
-| blockNumber | số \ | chuỗi | Số khối hoặc chuỗi thẻ khối (`khởi nguyên` hoặc `mới nhất`).                                           |
-| callback    | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
+| Tên         | Loại       | Mô tả                                                                                                                             |
+| ----------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| blockNumber | số \| chuỗi | Số khối hoặc chuỗi thẻ khối (`khởi nguyên` hoặc `mới nhất`).                                                   |
+| callback    | hàm         | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
 
 `Promise` trả về `đối tượng`
 
-| Loại | Mô tả                                                                                                                                                                                                                  |
-| ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Loại | Mô tả                                                                                                                                                                                                           |
+| ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | chuỗi | Một đối tượng bao gồm khối với thông tin đồng thuận. Để biết mô tả chi tiết về giá trị trả về, hãy tham khảo [caver.rpc.klay.getBlockWithConsensusInfoByHash](#caver-rpc-klay-getblockwithconsensusinfobyhash). |
 
 **Ví dụ**
@@ -1109,7 +1109,7 @@ Trả về một khối có thông tin đồng thuận khớp với số khối 
     gasUsed: '0x5208',
     governanceData: '0x',
     hash: '0x4584bea6b8b2abe7f024d1e63dd0571cfd28cd5157b4f6cb2ac4160a7b0057e0',
-    nhật kýBloom: '0x00000...',
+    logsBloom: '0x00000...',
     number: '0x5301',
     parentHash: '0x024f05c0e7428e33331104bedbfc453d481ce6a2f5e57f7fd68a4391ba6c2619',
     proposer: '0xa1d2665c4c9f77410844dd4c22ed11aabbd4033e',
@@ -1129,8 +1129,8 @@ Trả về một khối có thông tin đồng thuận khớp với số khối 
             gas: '0x61a8',
             gasPrice: '0x5d21dba00',
             gasUsed: '0x5208',
-            nhật ký: [],
-            nhật kýBloom: '0x00000...',
+            logs: [],
+            logsBloom: '0x00000...',
             nonce: '0x5e',
             senderTxHash: '0x413f080a498ae3973490c2f80e75e6a492cfcdac8be8051220bb7a964768d28c',
             signatures: {
@@ -1138,7 +1138,7 @@ Trả về một khối có thông tin đồng thuận khớp với số khối 
                 R: '0x98583ffa8d9a6d5f9e60e4daebb33f18e8ad4d32653c4a2fa7f12ce025af763d',
                 S: '0x9b9e5257293e3b986842b6a203dd16ce46f16ed42dd3e9592fcaab9ea2696cb'
             },
-            trạng thái: '0x1',
+            status: '0x1',
             to: '0xc0aabc441129991dd3a9363a9a43b745527ea4e7',
             transactionHash: '0x413f080a498ae3973490c2f80e75e6a492cfcdac8be8051220bb7a964768d28c',
             transactionIndex: '0x0',
@@ -1162,9 +1162,9 @@ Trả về một khối có thông tin đồng thuận khớp với hàm băm đ
 
 **Tham số**
 
-| Tên       | Loại | Mô tả                                                                                                          |
-| --------- | ----- | -------------------------------------------------------------------------------------------------------------- |
-| blockHash | chuỗi | Hàm băm khối.                                                                                                  |
+| Tên       | Loại | Mô tả                                                                                                                             |
+| --------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
+| blockHash | chuỗi | Hàm băm khối.                                                                                                                     |
 | callback  | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
@@ -1207,7 +1207,7 @@ Trả về một khối có thông tin đồng thuận khớp với hàm băm đ
     gasUsed: '0x3ea49',
     governanceData: '0x',
     hash: '0x188d4531d668ae3da20d70d4cb4c5d96a0cc5190771f0920c56b461c4d356566',
-    nhật kýBloom: '0x00000...',
+    logsBloom: '0x00000...',
     number: '0x3f79aa7',
     originProposer: '0x99fb17d324fa0e07f23b49d09028ac0919414db6',
     parentHash: '0x777d344c8c59c4d8d0041bb4c2ee66e95ec110303fb59d3e329f80e7a9c9c617',
@@ -1238,7 +1238,7 @@ Trả về một khối có thông tin đồng thuận khớp với hàm băm đ
             gasPrice: '0x5d21dba00',
             gasUsed: '0x3ea49',
             input: '0x850ba...',
-            nhật ký: [
+            logs: [
                 {
                     address: '0x78ca9a1105c3392b56625f3fcfd149b29322c56f',
                     topics: [ '0xddf25...', '0x00000...', '0x00000...', '0x00000...' ],
@@ -1251,7 +1251,7 @@ Trả về một khối có thông tin đồng thuận khớp với hàm băm đ
                     removed: false,
                 },
             ],
-            nhật kýBloom: '0x00000...',
+            logsBloom: '0x00000...',
             nonce: '0x0',
             senderTxHash: '0xeca2d3650403a1e27af0bbe9878dcbb248d764fc88751f35a6e05636d2ad9e78',
             signatures: [
@@ -1261,7 +1261,7 @@ Trả về một khối có thông tin đồng thuận khớp với hàm băm đ
                     S: '0xfac0e417f7f7b15023e3f5ac95f1fb5b3280746a2eff04394ddedbdd259fc1',
                 },
             ],
-            trạng thái: '0x1',
+            status: '0x1',
             to: '0x78ca9a1105c3392b56625f3fcfd149b29322c56f',
             transactionHash: '0x109d2836d9fde9d8081a27dd6ac545fd7a53530a56bdc40f2a11e5d6dbc2a09f',
             transactionIndex: '0x0',
@@ -1285,10 +1285,10 @@ Trả về danh sách tất cả các nút xác thực của ủy ban tại kh�
 
 **Tham số**
 
-| Tên         | Loại | Mô tả                                                                                                             |
-| ----------- | ----- | ----------------------------------------------------------------------------------------------------------------- |
-| blockNumber | số \ | chuỗi | (tùy chọn) Số khối hoặc chuỗi `mới nhất` hoặc `cũ nhất`. Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng. |
-| callback    | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.    |
+| Tên         | Loại       | Mô tả                                                                                                                             |
+| ----------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| blockNumber | số \| chuỗi | (tùy chọn) Số khối hoặc chuỗi `mới nhất` hoặc `cũ nhất`. Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng.      |
+| callback    | hàm         | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
 
@@ -1318,10 +1318,10 @@ Trả về quy mô của ủy ban tại khối được chỉ định.
 
 **Tham số**
 
-| Tên         | Loại | Mô tả                                                                                                             |
-| ----------- | ----- | ----------------------------------------------------------------------------------------------------------------- |
-| blockNumber | số \ | chuỗi | (tùy chọn) Số khối hoặc chuỗi `mới nhất` hoặc `cũ nhất`. Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng. |
-| callback    | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.    |
+| Tên         | Loại       | Mô tả                                                                                                                             |
+| ----------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| blockNumber | số \| chuỗi | (tùy chọn) Số khối hoặc chuỗi `mới nhất` hoặc `cũ nhất`. Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng.      |
+| callback    | hàm         | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
 
@@ -1348,10 +1348,10 @@ Trả về danh sách tất cả các nút xác thực của hội đồng tại
 
 **Tham số**
 
-| Tên         | Loại | Mô tả                                                                                                             |
-| ----------- | ----- | ----------------------------------------------------------------------------------------------------------------- |
-| blockNumber | số \ | chuỗi | (tùy chọn) Số khối hoặc chuỗi `mới nhất` hoặc `cũ nhất`. Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng. |
-| callback    | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.    |
+| Tên         | Loại       | Mô tả                                                                                                                             |
+| ----------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| blockNumber | số \| chuỗi | (tùy chọn) Số khối hoặc chuỗi `mới nhất` hoặc `cũ nhất`. Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng.      |
+| callback    | hàm         | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
 
@@ -1381,10 +1381,10 @@ Trả về quy mô của hội đồng tại khối được chỉ định.
 
 **Tham số**
 
-| Tên         | Loại | Mô tả                                                                                                             |
-| ----------- | ----- | ----------------------------------------------------------------------------------------------------------------- |
-| blockNumber | số \ | chuỗi | (tùy chọn) Số khối hoặc chuỗi `mới nhất` hoặc `cũ nhất`. Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng. |
-| callback    | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.    |
+| Tên         | Loại       | Mô tả                                                                                                                             |
+| ----------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| blockNumber | số \| chuỗi | (tùy chọn) Số khối hoặc chuỗi `mới nhất` hoặc `cũ nhất`. Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng.      |
+| callback    | hàm         | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
 
@@ -1411,12 +1411,12 @@ Trả về giá trị từ vị trí lưu trữ tại một địa chỉ đã ch
 
 **Tham số**
 
-| Tên         | Loại | Mô tả                                                                                                                                                                                          |
-| ----------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address     | chuỗi | Địa chỉ nơi để nhận bộ nhớ lưu trữ.                                                                                                                                                            |
-| vị trí      | số    | Vị trí chỉ mục của bộ nhớ lưu trữ. Để biết thêm thông tin về `tính toán vị trí`, hãy tham khảo [klay\_getStorageAt](../../../../json-rpc/klay/block.md#klay_getstorageat). |
-| blockNumber | số \ | chuỗi | (tùy chọn) Số khối hoặc chuỗi `mới nhất` hoặc `cũ nhất`. Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng.                                                                              |
-| callback    | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                                                                 |
+| Tên         | Loại       | Mô tả                                                                                                                                                                                          |
+| ----------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address     | chuỗi       | Địa chỉ nơi để nhận bộ nhớ lưu trữ.                                                                                                                                                            |
+| vị trí      | số          | Vị trí chỉ mục của bộ nhớ lưu trữ. Để biết thêm thông tin về `tính toán vị trí`, hãy tham khảo [klay_getStorageAt](../../../../json-rpc/klay/block.md#klay_getstorageat). |
+| blockNumber | số \| chuỗi | (tùy chọn) Số khối hoặc chuỗi `mới nhất` hoặc `cũ nhất`. Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng.                                                                   |
+| callback    | hàm         | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                                              |
 
 **Giá trị trả về**
 
@@ -1443,8 +1443,8 @@ Giá trị trả về là `true` nếu máy khách đang tích cực khai thác 
 
 **Tham số**
 
-| Tên      | Loại | Mô tả                                                                                                          |
-| -------- | ----- | -------------------------------------------------------------------------------------------------------------- |
+| Tên      | Loại | Mô tả                                                                                                                             |
+| -------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
 | callback | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
@@ -1468,13 +1468,13 @@ Trả về đối tượng có dữ liệu về trạng thái đồng bộ hóa 
 
 **Tham số**
 
-| Tên      | Loại | Mô tả                                                                                                          |
-| -------- | ----- | -------------------------------------------------------------------------------------------------------------- |
+| Tên      | Loại | Mô tả                                                                                                                             |
+| -------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
 | callback | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
 
-`Promise` trả về `object|boolean` - `false` nếu Nút Klaytn không đồng bộ hóa. Nếu không, một đối tượng đồng bộ sẽ được trả về:
+`Promise` trả về `object | boolean` - `false` nếu Nút Klaytn không đồng bộ hóa. Nếu không, một đối tượng đồng bộ sẽ được trả về:
 
 | Tên           | Loại | Mô tả                                                    |
 | ------------- | ----- | -------------------------------------------------------- |
@@ -1510,16 +1510,16 @@ Thực thi lệnh gọi thông báo ngay mà không gửi giao dịch trên chu�
 
 **Tham số**
 
-| Tên         | Loại     | Mô tả                                                                                                             |
-| ----------- | --------- | ----------------------------------------------------------------------------------------------------------------- |
-| callObject  | đối tượng | Đối tượng lệnh gọi giao dịch. Xem bảng tiếp theo để biết thuộc tính của đối tượng.                                |
-| blockNumber | số \     | chuỗi | (tùy chọn) Số khối hoặc chuỗi `mới nhất` hoặc `cũ nhất`. Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng. |
-| callback    | hàm       | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.    |
+| Tên         | Loại       | Mô tả                                                                                                                             |
+| ----------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| callObject  | đối tượng   | Đối tượng lệnh gọi giao dịch. Xem bảng tiếp theo để biết thuộc tính của đối tượng.                                                |
+| blockNumber | số \| chuỗi | (tùy chọn) Số khối hoặc chuỗi `mới nhất` hoặc `cũ nhất`. Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng.      |
+| callback    | hàm         | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 `callObject` có các thuộc tính như sau:
 
-| Tên     | Loại | Mô tả                                                                                                                                               |
-| ------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Tên     | Loại | Mô tả                                                                                                                                                                  |
+| ------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | đến     | chuỗi | (tùy chọn khi thử nghiệm triển khai hợp đồng mới) Địa chỉ mà giao dịch được chuyển đến.                                                             |
 | nhập    | chuỗi | (tùy chọn) Hàm băm của chữ ký phương pháp và tham số mã hóa. Bạn có thể sử dụng [caver.abi.encodeFunctionCall](../caver.abi.md#encodefunctioncall). |
 | từ      | chuỗi | (tùy chọn) Địa chỉ nơi giao dịch được gửi đi.                                                                                                       |
@@ -1615,18 +1615,18 @@ Trả về thông tin về giao dịch của khối theo hàm băm và vị trí
 
 **Tham số**
 
-| Tên       | Loại | Mô tả                                                                                                          |
-| --------- | ----- | -------------------------------------------------------------------------------------------------------------- |
-| blockHash | chuỗi | Hàm băm khối.                                                                                                  |
-| chỉ mục   | số    | Một vị trí chỉ mục giao dịch bên trong khối.                                                                   |
+| Tên       | Loại | Mô tả                                                                                                                             |
+| --------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
+| blockHash | chuỗi | Hàm băm khối.                                                                                                                     |
+| chỉ mục   | số    | Một vị trí chỉ mục giao dịch bên trong khối.                                                                                      |
 | callback  | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
 
 `Promise` trả về `đối tượng`
 
-| Loại     | Mô tả                                                                                                                                                |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Loại     | Mô tả                                                                                                                                         |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | đối tượng | Một đối tượng giao dịch, hãy xem [caver.rpc.klay.getTransactionByHash](#caver-rpc-klay-gettransactionbyhash) để biết thêm thông tin chi tiết. |
 
 **Ví dụ**
@@ -1661,18 +1661,18 @@ Trả về thông tin về giao dịch theo `số khối` và vị trí `chỉ m
 
 **Tham số**
 
-| Tên         | Loại | Mô tả                                                                                                          |
-| ----------- | ----- | -------------------------------------------------------------------------------------------------------------- |
-| blockNumber | số \ | chuỗi | Số khối hoặc chuỗi thẻ khối (`khởi nguyên` hoặc `mới nhất`).                                           |
-| chỉ mục     | số    | Một vị trí chỉ mục giao dịch bên trong khối.                                                                   |
-| callback    | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
+| Tên         | Loại       | Mô tả                                                                                                                             |
+| ----------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| blockNumber | số \| chuỗi | Số khối hoặc chuỗi thẻ khối (`khởi nguyên` hoặc `mới nhất`).                                                   |
+| chỉ mục     | số          | Một vị trí chỉ mục giao dịch bên trong khối.                                                                                      |
+| callback    | hàm         | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
 
 `Promise` trả về `đối tượng`
 
-| Loại     | Mô tả                                                                                                                                                |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Loại     | Mô tả                                                                                                                                         |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | đối tượng | Một đối tượng giao dịch, hãy xem [caver.rpc.klay.getTransactionByHash](#caver-rpc-klay-gettransactionbyhash) để biết thêm thông tin chi tiết. |
 
 **Ví dụ**
@@ -1707,38 +1707,38 @@ Trả về thông tin về một giao dịch được yêu cầu theo hàm băm 
 
 **Tham số**
 
-| Tên             | Loại | Mô tả                                                                                                          |
-| --------------- | ----- | -------------------------------------------------------------------------------------------------------------- |
-| transactionHash | chuỗi | Hàm băm của giao dịch.                                                                                         |
+| Tên             | Loại | Mô tả                                                                                                                             |
+| --------------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
+| transactionHash | chuỗi | Hàm băm của giao dịch.                                                                                                            |
 | callback        | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
 
 `Promise` trả về `đối tượng` - Một đối tượng giao dịch hoặc `null` khi không tìm thấy giao dịch:
 
-| Tên                | Loại   | Mô tả                                                                                                                                                                                                       |
-| ------------------ | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockHash          | chuỗi   | Hàm băm của khối chứa giao dịch này.                                                                                                                                                                        |
-| blockNumber        | chuỗi   | Số khối chứa giao dịch này.                                                                                                                                                                                 |
-| codeFormat         | chuỗi   | (tùy chọn) Định dạng mã của mã hợp đồng thông minh.                                                                                                                                                         |
-| feePayer           | chuỗi   | (tùy chọn) Địa chỉ của người trả phí.                                                                                                                                                                       |
-| feePayerSignatures | Mảng    | (tùy chọn) Mảng các đối tượng chữ ký của người trả phí. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa mã khôi phục ECDSA. R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s.                  |
-| feeRatio           | chuỗi   | (tùy chọn) Tỷ lệ phí của người trả phí. Nếu tỷ lệ là 30 thì người trả phí phải trả 30% phí. 70% còn lại sẽ được trả bởi người gửi.                                                                          |
-| từ                 | chuỗi   | Địa chỉ của người gửi.                                                                                                                                                                                      |
-| gas                | chuỗi   | Gas được người gửi cung cấp.                                                                                                                                                                                |
-| giá gas            | chuỗi   | Giá gas được người gửi cung cấp theo đơn vị peb.                                                                                                                                                            |
-| hash               | chuỗi   | Hàm băm của giao dịch.                                                                                                                                                                                      |
-| humanReadable      | Boolean | (tùy chọn) `true` nếu địa chỉ con người có thể đọc được, ngược lại sẽ là `false`.                                                                                                                           |
-| khóa               | chuỗi   | (tùy chọn) AccountKey được mã hóa RLP được sử dụng để cập nhật AccountKey của tài khoản Klaytn. Xem [AccountKey](../../../../../learn/accounts.md#account-key) để biết thêm thông tin chi tiết. |
-| nhập               | chuỗi   | (tùy chọn) Dữ liệu được gửi cùng với giao dịch.                                                                                                                                                             |
-| số dùng một lần    | chuỗi   | Số lượng giao dịch được người gửi thực hiện trước giao dịch này.                                                                                                                                            |
-| senderTxHash       | chuỗi   | (tùy chọn) Hàm băm của tx mà không có địa chỉ và chữ ký của người trả phí. Giá trị này luôn giống với giá trị của `hàm băm` đối với các giao dịch không ủy thác phí.                                        |
-| chữ ký             | Mảng    | Một mảng các đối tượng chữ ký. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa mã khôi phục ECDSA. R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s.                                           |
-| đến                | chuỗi   | Địa chỉ của người nhận. `null` nếu đó là giao dịch triển khai hợp đồng.                                                                                                                                     |
-| transactionIndex   | chuỗi   | Giá trị nguyên biểu thị vị trí chỉ mục của giao dịch trong khối.                                                                                                                                            |
-| loại              | chuỗi   | Chuỗi biểu thị loại giao dịch.                                                                                                                                                                              |
-| typeInt            | số      | Giá trị nguyên biểu thị loại giao dịch.                                                                                                                                                                     |
-| giá trị            | chuỗi   | Giá trị được chuyển tính bằng đơn vị peb.                                                                                                                                                                   |
+| Tên                | Loại   | Mô tả                                                                                                                                                                                                                            |
+| ------------------ | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockHash          | chuỗi   | Hàm băm của khối chứa giao dịch này.                                                                                                                                                                                             |
+| blockNumber        | chuỗi   | Số khối chứa giao dịch này.                                                                                                                                                                                                      |
+| codeFormat         | chuỗi   | (tùy chọn) Định dạng mã của mã hợp đồng thông minh.                                                                                                                                                           |
+| feePayer           | chuỗi   | (tùy chọn) Địa chỉ của người trả phí.                                                                                                                                                                         |
+| feePayerSignatures | Mảng    | (tùy chọn) Mảng các đối tượng chữ ký của người trả phí. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa mã khôi phục ECDSA. R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s. |
+| feeRatio           | chuỗi   | (tùy chọn) Tỷ lệ phí của người trả phí. Nếu tỷ lệ là 30 thì người trả phí phải trả 30% phí. 70% còn lại sẽ được trả bởi người gửi.                                                                            |
+| từ                 | chuỗi   | Địa chỉ của người gửi.                                                                                                                                                                                                           |
+| gas                | chuỗi   | Gas được người gửi cung cấp.                                                                                                                                                                                                     |
+| giá gas            | chuỗi   | Giá gas được người gửi cung cấp theo đơn vị peb.                                                                                                                                                                                 |
+| hash               | chuỗi   | Hàm băm của giao dịch.                                                                                                                                                                                                           |
+| humanReadable      | Boolean | (tùy chọn) `true` nếu địa chỉ con người có thể đọc được, ngược lại sẽ là `false`.                                                                                                                             |
+| khóa               | chuỗi   | (tùy chọn) AccountKey được mã hóa RLP được sử dụng để cập nhật AccountKey của tài khoản Klaytn. Xem [AccountKey](../../../../../learn/accounts.md#account-key) để biết thêm thông tin chi tiết.               |
+| nhập               | chuỗi   | (tùy chọn) Dữ liệu được gửi cùng với giao dịch.                                                                                                                                                               |
+| số dùng một lần    | chuỗi   | Số lượng giao dịch được người gửi thực hiện trước giao dịch này.                                                                                                                                                                 |
+| senderTxHash       | chuỗi   | (tùy chọn) Hàm băm của tx mà không có địa chỉ và chữ ký của người trả phí. Giá trị này luôn giống với giá trị của `hàm băm` đối với các giao dịch không ủy thác phí.                                          |
+| chữ ký             | Mảng    | Một mảng các đối tượng chữ ký. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa mã khôi phục ECDSA. R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s.                                             |
+| đến                | chuỗi   | Địa chỉ của người nhận. `null` nếu đó là giao dịch triển khai hợp đồng.                                                                                                                                                          |
+| transactionIndex   | chuỗi   | Giá trị nguyên biểu thị vị trí chỉ mục của giao dịch trong khối.                                                                                                                                                                 |
+| loại              | chuỗi   | Chuỗi biểu thị loại giao dịch.                                                                                                                                                                                                   |
+| typeInt            | số      | Giá trị nguyên biểu thị loại giao dịch.                                                                                                                                                                                          |
+| giá trị            | chuỗi   | Giá trị được chuyển tính bằng đơn vị peb.                                                                                                                                                                                        |
 
 Nếu giao dịch ở trạng thái `đang chờ xử lý` chưa được xử lý, các giá trị mặc định cho `blockHash`, `blockNumber` và `transactionIndex` sẽ được trả về. Xem ví dụ bên dưới.
 
@@ -1766,7 +1766,7 @@ Nếu giao dịch ở trạng thái `đang chờ xử lý` chưa được xử l
     value: '0x0',
 }
 
-// Khi giao dịch đang chờ xử lý, các giá trị mặc định cho `blockHash`, `blockNumber` và `trasnactionIndex` sẽ được trả về.
+// When transaction is in pending, default values for `blockHash`, `blockNumber` and `trasnactionIndex` are returned.
 > caver.rpc.klay.getTransactionByHash('0x72e3838a42fbe75724a685ca03e50ff25ebc564e32d06dadf41be2190e5b11d1').then(console.log)
 {
     blockHash: '0x0000000000000000000000000000000000000000000000000000000000000000',
@@ -1798,17 +1798,17 @@ Xin lưu ý rằng API này chỉ trả về kết quả chính xác nếu tính
 
 **Tham số**
 
-| Tên          | Loại | Mô tả                                                                                                                                               |
-| ------------ | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Tên          | Loại | Mô tả                                                                                                                                                      |
+| ------------ | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | senderTxHash | chuỗi | Hàm băm giao dịch của người gửi. Tham khảo [SenderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash) để biết thêm thông tin chi tiết. |
-| callback     | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                      |
+| callback     | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                          |
 
 **Giá trị trả về**
 
 `Promise` trả về `đối tượng`
 
-| Loại     | Mô tả                                                                                                                                                |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Loại     | Mô tả                                                                                                                                         |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | đối tượng | Một đối tượng giao dịch, hãy xem [caver.rpc.klay.getTransactionByHash](#caver-rpc-klay-gettransactionbyhash) để biết thêm thông tin chi tiết. |
 
 **Ví dụ**
@@ -1848,52 +1848,52 @@ Trả về biên lai của một giao dịch theo hàm băm giao dịch.
 
 **Tham số**
 
-| Tên             | Loại | Mô tả                                                                                                          |
-| --------------- | ----- | -------------------------------------------------------------------------------------------------------------- |
-| transactionHash | chuỗi | Hàm băm của giao dịch.                                                                                         |
+| Tên             | Loại | Mô tả                                                                                                                             |
+| --------------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
+| transactionHash | chuỗi | Hàm băm của giao dịch.                                                                                                            |
 | callback        | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
 
 `Promise` trả về `đối tượng` - Đối tượng biên lai giao dịch hoặc `null` khi không tìm thấy biên lai:
 
-| Tên                | Loại   | Mô tả                                                                                                                                                                                                                             |
-| ------------------ | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockHash          | chuỗi   | Hàm băm của khối chứa giao dịch này.                                                                                                                                                                                              |
-| blockNumber        | chuỗi   | Số khối chứa giao dịch này.                                                                                                                                                                                                       |
-| codeFormat         | chuỗi   | (tùy chọn) Định dạng mã của mã hợp đồng thông minh.                                                                                                                                                                               |
-| contractAddress    | chuỗi   | Địa chỉ hợp đồng được tạo nếu giao dịch là giao dịch tạo hợp đồng, nếu không, giá trị sẽ là `null`.                                                                                                                               |
-| effectiveGasPrice  | chuỗi   | Giá trị thực tế trên mỗi gas được khấu trừ từ người gửi. Trước khi nâng cấp căn bản Magma, giá trị này bằng với giá gas của giao dịch. Sau nâng cấp căn bản Magma, giá trị này bằng với giá trị của `baseFee` trong tiêu đề khối. |
-| feePayer           | chuỗi   | (tùy chọn) Địa chỉ của người trả phí.                                                                                                                                                                                             |
-| feePayerSignatures | Mảng    | (tùy chọn) Mảng các đối tượng chữ ký của người trả phí. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa mã khôi phục ECDSA. R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s.                                        |
-| feeRatio           | chuỗi   | (tùy chọn) Tỷ lệ phí của người trả phí. Nếu tỷ lệ là 30 thì người trả phí phải trả 30% phí. 70% còn lại sẽ được trả bởi người gửi.                                                                                                |
-| từ                 | chuỗi   | Địa chỉ của người gửi.                                                                                                                                                                                                            |
-| gas                | chuỗi   | Gas được người gửi cung cấp.                                                                                                                                                                                                      |
-| giá gas            | chuỗi   | Giá gas được người gửi cung cấp theo đơn vị peb.                                                                                                                                                                                  |
-| gasUsed            | chuỗi   | Lượng gas được sử dụng bởi riêng giao dịch cụ thể này.                                                                                                                                                                            |
-| humanReadable      | Boolean | (tùy chọn) `true` nếu địa chỉ con người có thể đọc được, ngược lại sẽ là `false`.                                                                                                                                                 |
-| khóa               | chuỗi   | (tùy chọn) AccountKey được mã hóa RLP được sử dụng để cập nhật AccountKey của tài khoản Klaytn.                                                                                                                                   |
-| nhập               | chuỗi   | (tùy chọn) Dữ liệu được gửi cùng với giao dịch.                                                                                                                                                                                   |
-| bản ghi            | Mảng    | Mảng đối tượng bản ghi mà giao dịch này tạo ra.                                                                                                                                                                                   |
-| nhật kýBloom       | chuỗi   | Bộ lọc Bloom dành cho các ứng dụng khách nhẹ giúp truy xuất nhanh các bản ghi liên quan.                                                                                                                                          |
-| số dùng một lần    | chuỗi   | Số lượng giao dịch được người gửi thực hiện trước giao dịch này.                                                                                                                                                                  |
-| senderTxHash       | chuỗi   | (tùy chọn) Hàm băm của một giao dịch chỉ được người gửi ký. Xem [SenderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash). Giá trị này luôn giống với `transactionHash` đối với các giao dịch không ủy thác phí.    |
-| chữ ký             | Mảng    | Một mảng các đối tượng chữ ký. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa mã khôi phục ECDSA. R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s.                                                                 |
-| trạng thái         | chuỗi   | `0x1` nếu giao dịch thành công, `0x0` nếu Máy ảo Klaytn đặt lại giao dịch.                                                                                                                                                        |
-| txError            | chuỗi   | (tùy chọn) mã lỗi chi tiết nếu `trạng thái` bằng `0x0`.                                                                                                                                                                           |
-| đến                | chuỗi   | Địa chỉ của người nhận. `null` nếu đó là giao dịch tạo hợp đồng.                                                                                                                                                                  |
-| transactionHash    | chuỗi   | Hàm băm của giao dịch.                                                                                                                                                                                                            |
-| transactionIndex   | chuỗi   | Giá trị nguyên biểu thị vị trí chỉ mục của giao dịch trong khối.                                                                                                                                                                  |
-| loại              | chuỗi   | Chuỗi biểu thị loại giao dịch.                                                                                                                                                                                                    |
-| typeInt            | số      | Giá trị nguyên biểu thị loại giao dịch.                                                                                                                                                                                           |
-| giá trị            | chuỗi   | Giá trị được chuyển tính bằng đơn vị peb.                                                                                                                                                                                         |
+| Tên                | Loại   | Mô tả                                                                                                                                                                                                                                                    |
+| ------------------ | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockHash          | chuỗi   | Hàm băm của khối chứa giao dịch này.                                                                                                                                                                                                                     |
+| blockNumber        | chuỗi   | Số khối chứa giao dịch này.                                                                                                                                                                                                                              |
+| codeFormat         | chuỗi   | (tùy chọn) Định dạng mã của mã hợp đồng thông minh.                                                                                                                                                                                   |
+| contractAddress    | chuỗi   | Địa chỉ hợp đồng được tạo nếu giao dịch là giao dịch tạo hợp đồng, nếu không, giá trị sẽ là `null`.                                                                                                                                                      |
+| effectiveGasPrice  | chuỗi   | Giá trị thực tế trên mỗi gas được khấu trừ từ người gửi. Trước khi nâng cấp căn bản Magma, giá trị này bằng với giá gas của giao dịch. Sau nâng cấp căn bản Magma, giá trị này bằng với giá trị của `baseFee` trong tiêu đề khối.                        |
+| feePayer           | chuỗi   | (tùy chọn) Địa chỉ của người trả phí.                                                                                                                                                                                                 |
+| feePayerSignatures | Mảng    | (tùy chọn) Mảng các đối tượng chữ ký của người trả phí. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa mã khôi phục ECDSA. R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s.                         |
+| feeRatio           | chuỗi   | (tùy chọn) Tỷ lệ phí của người trả phí. Nếu tỷ lệ là 30 thì người trả phí phải trả 30% phí. 70% còn lại sẽ được trả bởi người gửi.                                                                                                    |
+| từ                 | chuỗi   | Địa chỉ của người gửi.                                                                                                                                                                                                                                   |
+| gas                | chuỗi   | Gas được người gửi cung cấp.                                                                                                                                                                                                                             |
+| giá gas            | chuỗi   | Giá gas được người gửi cung cấp theo đơn vị peb.                                                                                                                                                                                                         |
+| gasUsed            | chuỗi   | Lượng gas được sử dụng bởi riêng giao dịch cụ thể này.                                                                                                                                                                                                   |
+| humanReadable      | Boolean | (tùy chọn) `true` nếu địa chỉ con người có thể đọc được, ngược lại sẽ là `false`.                                                                                                                                                     |
+| khóa               | chuỗi   | (tùy chọn) AccountKey được mã hóa RLP được sử dụng để cập nhật AccountKey của tài khoản Klaytn.                                                                                                                                       |
+| nhập               | chuỗi   | (tùy chọn) Dữ liệu được gửi cùng với giao dịch.                                                                                                                                                                                       |
+| bản ghi            | Mảng    | Mảng đối tượng bản ghi mà giao dịch này tạo ra.                                                                                                                                                                                                          |
+| nhật kýBloom       | chuỗi   | Bộ lọc Bloom dành cho các ứng dụng khách nhẹ giúp truy xuất nhanh các bản ghi liên quan.                                                                                                                                                                 |
+| số dùng một lần    | chuỗi   | Số lượng giao dịch được người gửi thực hiện trước giao dịch này.                                                                                                                                                                                         |
+| senderTxHash       | chuỗi   | (tùy chọn) Hàm băm của một giao dịch chỉ được người gửi ký. Xem [SenderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash). Giá trị này luôn giống với `transactionHash` đối với các giao dịch không ủy thác phí. |
+| chữ ký             | Mảng    | Một mảng các đối tượng chữ ký. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa mã khôi phục ECDSA. R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s.                                                                     |
+| trạng thái         | chuỗi   | `0x1` nếu giao dịch thành công, `0x0` nếu Máy ảo Klaytn đặt lại giao dịch.                                                                                                                                                                               |
+| txError            | chuỗi   | (tùy chọn) mã lỗi chi tiết nếu `trạng thái` bằng `0x0`.                                                                                                                                                                               |
+| đến                | chuỗi   | Địa chỉ của người nhận. `null` nếu đó là giao dịch tạo hợp đồng.                                                                                                                                                                                         |
+| transactionHash    | chuỗi   | Hàm băm của giao dịch.                                                                                                                                                                                                                                   |
+| transactionIndex   | chuỗi   | Giá trị nguyên biểu thị vị trí chỉ mục của giao dịch trong khối.                                                                                                                                                                                         |
+| loại              | chuỗi   | Chuỗi biểu thị loại giao dịch.                                                                                                                                                                                                                           |
+| typeInt            | số      | Giá trị nguyên biểu thị loại giao dịch.                                                                                                                                                                                                                  |
+| giá trị            | chuỗi   | Giá trị được chuyển tính bằng đơn vị peb.                                                                                                                                                                                                                |
 
 **LƯU Ý** `effectiveGasPrice` được hỗ trợ kể từ caver-js phiên bản [v1.9.0](https://www.npmjs.com/package/caver-js/v/1.9.0).
 
 **Ví dụ**
 
 ```javascript
-// Trước khi nâng cấp căn bản Magma
+// Before the Magma hard fork
 > caver.rpc.klay.getTransactionReceipt('0xdb63fb385e51fbfd84a98873c994aef622c5f1c72c5760a9ff95c55bbfd99898').then(console.log)
 {
     blockHash: '0xc9f643c0ebe84932c10695cbc9eb75228af09516931b58952de3e12c21a50576',
@@ -1904,12 +1904,12 @@ Trả về biên lai của một giao dịch theo hàm băm giao dịch.
     gas: '0x61a8',
     gasPrice: '0x5d21dba00',
     gasUsed: '0x5208',
-    nhật ký: [],
-    nhật kýBloom: '0x00000...',
+    logs: [],
+    logsBloom: '0x00000...',
     nonce: '0x0',
     senderTxHash: '0xdb63fb385e51fbfd84a98873c994aef622c5f1c72c5760a9ff95c55bbfd99898',
     signatures: [ { V: '0x4e44', R: '0xf1a9a...', S: '0x9116c...' } ],
-    trạng thái: '0x1',
+    status: '0x1',
     to: '0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
     transactionHash: '0xdb63fb385e51fbfd84a98873c994aef622c5f1c72c5760a9ff95c55bbfd99898',
     transactionIndex: '0x0',
@@ -1918,7 +1918,7 @@ Trả về biên lai của một giao dịch theo hàm băm giao dịch.
     value: '0x8ac7230489e80000',
 }
 
-// Sau nâng cấp căn bản Magma
+// After the Magma hard fork
 > caver.rpc.klay.getTransactionReceipt('0xf0554493c273352eac667eb30a1b70fffa8e8a0f682928b31baaceccc17c64b9').then(console.log)
 {
   blockHash: '0xaa358681023db9d967ff44577a34aea487c37433ebf6ef349baee50f9d1d2f03',
@@ -1929,12 +1929,12 @@ Trả về biên lai của một giao dịch theo hàm băm giao dịch.
   gas: '0x61a8',
   gasPrice: '0xba43b7400',
   gasUsed: '0x5208',
-  nhật ký: [],
-  nhật kýBloom: '0x00000...',
+  logs: [],
+  logsBloom: '0x00000...',
   nonce: '0x2',
   senderTxHash: '0xf0554493c273352eac667eb30a1b70fffa8e8a0f682928b31baaceccc17c64b9',
   signatures: [ { V: '0x1cb4c6', R: '0x1605e...', S: '0x459cf...' } ],
-  trạng thái: '0x1',
+  status: '0x1',
   to: '0x08ef5d2def29ff4384dd93a73e076d959abbd2f4',
   transactionHash: '0xf0554493c273352eac667eb30a1b70fffa8e8a0f682928b31baaceccc17c64b9',
   transactionIndex: '0x0',
@@ -1958,17 +1958,17 @@ Xin lưu ý rằng API này chỉ trả về kết quả chính xác nếu tính
 
 **Tham số**
 
-| Tên          | Loại | Mô tả                                                                                                                                               |
-| ------------ | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| senderTxHash | chuỗi | Hàm băm giao dịch của người gửi. Tham khảo [SenderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash) để biết thêm thông tin chi tiết. |
-| callback     | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                      |
+| Tên          | Loại | Mô tả                                                                                                                                                     |
+| ------------ | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| senderTxHash | chuỗi | Hàm băm giao dịch của người gửi. ham khảo [SenderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash) để biết thêm thông tin chi tiết. |
+| callback     | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                         |
 
 **Giá trị trả về**
 
 `Promise` trả về `đối tượng`
 
-| Loại     | Mô tả                                                                                                                                                           |
-| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Loại     | Mô tả                                                                                                                                                    |
+| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | đối tượng | Một đối tượng biên lai giao dịch, hãy xem [caver.rpc.klay.getTransactionReceipt](#caver-rpc-klay-gettransactionreceipt) để biết thêm thông tin chi tiết. |
 
 **Ví dụ**
@@ -1984,12 +1984,12 @@ Xin lưu ý rằng API này chỉ trả về kết quả chính xác nếu tính
     gas: '0x61a8',
     gasPrice: '0x5d21dba00',
     gasUsed: '0x5208',
-    nhật ký: [],
-    nhật kýBloom: '0x00000...',
+    logs: [],
+    logsBloom: '0x00000...',
     nonce: '0x0',
     senderTxHash: '0xdb63fb385e51fbfd84a98873c994aef622c5f1c72c5760a9ff95c55bbfd99898',
     signatures: [ { V: '0x4e44', R: '0xf1a9a...', S: '0x9116c...' } ],
-    trạng thái: '0x1',
+    status: '0x1',
     to: '0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
     transactionHash: '0xdb63fb385e51fbfd84a98873c994aef622c5f1c72c5760a9ff95c55bbfd99898',
     transactionIndex: '0x0',
@@ -2011,10 +2011,10 @@ Tham số `signedTransaction` có thể là "Giao dịch đã ký được mã h
 
 **Tham số**
 
-| Tên               | Loại    | Mô tả                                                                                                          |
-| ----------------- | -------- | -------------------------------------------------------------------------------------------------------------- |
-| signedTransaction | chuỗi \ | đối tượng | Giao dịch đã ký được mã hóa RLP hoặc một phiên bản của giao dịch đã ký.                            |
-| callback          | hàm      | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
+| Tên               | Loại              | Mô tả                                                                                                                             |
+| ----------------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------- |
+| signedTransaction | chuỗi \| đối tượng | Giao dịch đã ký được mã hóa RLP hoặc một phiên bản của giao dịch đã ký.                                                           |
+| callback          | hàm                | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
 
@@ -2024,14 +2024,14 @@ Tham số `signedTransaction` có thể là "Giao dịch đã ký được mã h
 
 Đối với PromiEvent, sẽ có các sự kiện sau đây:
 
-* `transactionHash` trả về `chuỗi`: Được kích hoạt ngay sau khi gửi giao dịch và có hàm băm giao dịch.
-* `biên lai` trả về `đối tượng`: Được kích hoạt khi có sẵn biên lai giao dịch. Xem [caver.rpc.klay.getTransactionReceipt](#caver-rpc-klay-gettransactionreceipt) để biết thêm thông tin chi tiết.
-* `lỗi` trả về `Lỗi`: Được kích hoạt nếu có lỗi phát sinh trong quá trình gửi. Khi xảy ra lỗi hết gas, tham số thứ hai sẽ là biên lai.
+- `transactionHash` trả về `chuỗi`: Được kích hoạt ngay sau khi gửi giao dịch và có hàm băm giao dịch.
+- `biên lai` trả về `đối tượng`: Được kích hoạt khi có sẵn biên lai giao dịch. Xem [caver.rpc.klay.getTransactionReceipt](#caver-rpc-klay-gettransactionreceipt) để biết thêm thông tin chi tiết.
+- `lỗi` trả về `Lỗi`: Được kích hoạt nếu có lỗi phát sinh trong quá trình gửi. Khi xảy ra lỗi hết gas, tham số thứ hai sẽ là biên lai.
 
 **Ví dụ**
 
 ```javascript
-// Sử dụng promise
+// Using promise
 > caver.rpc.klay.sendRawTransaction('0x08f88...').then(console.log)
 {
     blockHash: '0x8bff3eb5444711f53707c1c006dac54164af6f873c0f012aff98479155de3c46',
@@ -2041,12 +2041,12 @@ Tham số `signedTransaction` có thể là "Giao dịch đã ký được mã h
     gas: '0x61a8',
     gasPrice: '0x5d21dba00',
     gasUsed: '0x5208',
-    nhật ký: [],
-    nhật kýBloom: '0x00000...',
+    logs: [],
+    logsBloom: '0x00000...',
     nonce: '0xc',
     senderTxHash: '0x72ea9179350cf2943e966eaf1e1e651d4e1b50ead4b6e6a574a4297c9f0f7017',
     signatures: [ { V: '0x4e43', R: '0x3bee4...', S: '0x101a1...' } ],
-    trạng thái: '0x1',
+    status: '0x1',
     to: '0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
     transactionHash: '0x72ea9179350cf2943e966eaf1e1e651d4e1b50ead4b6e6a574a4297c9f0f7017',
     transactionIndex: '0x0',
@@ -2055,7 +2055,7 @@ Tham số `signedTransaction` có thể là "Giao dịch đã ký được mã h
     value: '0x8ac7230489e80000',
 }
 
-// Sử dụng bộ phát hiệu ứng sự kiện
+// Using event emitter
 > caver.rpc.klay.sendRawTransaction('0x08f88...').on('transactionHash', h => {...}).on('receipt', r => {...}).on('error', console.error)
 ```
 
@@ -2073,9 +2073,9 @@ Ký giao dịch với tư cách là `người gửi` giao dịch bằng "khóa r
 
 **Tham số**
 
-| Tên       | Loại     | Mô tả                                                                                                          |
-| --------- | --------- | -------------------------------------------------------------------------------------------------------------- |
-| giao dịch | đối tượng | Một phiên bản của một giao dịch được gửi đến Klaytn.                                                           |
+| Tên       | Loại     | Mô tả                                                                                                                             |
+| --------- | --------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| giao dịch | đối tượng | Một phiên bản của một giao dịch được gửi đến Klaytn.                                                                              |
 | callback  | hàm       | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
@@ -2086,20 +2086,20 @@ Ký giao dịch với tư cách là `người gửi` giao dịch bằng "khóa r
 
 Đối với PromiEvent, sẽ có các sự kiện sau đây:
 
-* `transactionHash` trả về `chuỗi`: Được kích hoạt ngay sau khi gửi giao dịch và có hàm băm giao dịch.
-* `biên lai` trả về `đối tượng`: Được kích hoạt khi có sẵn biên lai giao dịch. Xem [caver.rpc.klay.getTransactionReceipt](#caver-rpc-klay-gettransactionreceipt) để biết thêm thông tin chi tiết.
-* `lỗi` trả về `Lỗi`: Được kích hoạt nếu có lỗi phát sinh trong quá trình gửi. Khi xảy ra lỗi hết gas, tham số thứ hai sẽ là biên lai.
+- `transactionHash` trả về `chuỗi`: Được kích hoạt ngay sau khi gửi giao dịch và có hàm băm giao dịch.
+- `biên lai` trả về `đối tượng`: Được kích hoạt khi có sẵn biên lai giao dịch. Xem [caver.rpc.klay.getTransactionReceipt](#caver-rpc-klay-gettransactionreceipt) để biết thêm thông tin chi tiết.
+- `lỗi` trả về `Lỗi`: Được kích hoạt nếu có lỗi phát sinh trong quá trình gửi. Khi xảy ra lỗi hết gas, tham số thứ hai sẽ là biên lai.
 
 **Ví dụ**
 
 ```javascript
 > const tx = caver.transaction.valueTransfer.create({
-    from: '0x{address in hex}', // The address of imported tài khoản in Klaytn Node
+    from: '0x{address in hex}', // The address of imported account in Klaytn Node
     to: '0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
     value: caver.utils.convertToPeb(10, 'KLAY'),
     gas: 25000
 })
-// Sử dụng promise
+// Using promise
 > caver.rpc.klay.sendTransaction(tx).then(console.log)
 {
     blockHash: '0xbfce3abcad0204e363ee9e3b94d15a20c1a4b86ac6cf51dd74db2226ab5b9e99',
@@ -2109,12 +2109,12 @@ Ký giao dịch với tư cách là `người gửi` giao dịch bằng "khóa r
     gas: '0x61a8',
     gasPrice: '0x5d21dba00',
     gasUsed: '0x5208',
-    nhật ký: [],
-    nhật kýBloom: '0x00000...',
+    logs: [],
+    logsBloom: '0x00000...',
     nonce: '0x13',
     senderTxHash: '0x2c001a776290ac55ac53a82a70a0b71e07c985fe57fd9d8e422b919d4317002e',
     signatures: [ { V: '0x4e43', R: '0xeac91...', S: '0xa0aa4...' } ],
-    trạng thái: '0x1',
+    status: '0x1',
     to: '0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
     transactionHash: '0x2c001a776290ac55ac53a82a70a0b71e07c985fe57fd9d8e422b919d4317002e',
     transactionIndex: '0x0',
@@ -2123,7 +2123,7 @@ Ký giao dịch với tư cách là `người gửi` giao dịch bằng "khóa r
     value: '0x8ac7230489e80000',
 }
 
-// Sử dụng bộ phát hiệu ứng sự kiện
+// Using event emitter
 > caver.rpc.klay.sendTransaction(tx).on('transactionHash', h => {...}).on('receipt', r => {...}).on('error', console.error)
 ```
 
@@ -2143,9 +2143,9 @@ Trước khi sử dụng `sendTransaction` với tư cách người trả phí, 
 
 **Tham số**
 
-| Tên       | Loại     | Mô tả                                                                                                          |
-| --------- | --------- | -------------------------------------------------------------------------------------------------------------- |
-| giao dịch | đối tượng | Một phiên bản giao dịch có ủy thác phí để gửi đến Klaytn.                                                      |
+| Tên       | Loại     | Mô tả                                                                                                                             |
+| --------- | --------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| giao dịch | đối tượng | Một phiên bản giao dịch có ủy thác phí để gửi đến Klaytn.                                                                         |
 | callback  | hàm       | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
@@ -2156,9 +2156,9 @@ Trước khi sử dụng `sendTransaction` với tư cách người trả phí, 
 
 Đối với PromiEvent, sẽ có các sự kiện sau đây:
 
-* `transactionHash` trả về `chuỗi`: Được kích hoạt ngay sau khi gửi giao dịch và có hàm băm giao dịch.
-* `biên lai` trả về `đối tượng`: Được kích hoạt khi có sẵn biên lai giao dịch. Xem [caver.rpc.klay.getTransactionReceipt](#caver-rpc-klay-gettransactionreceipt) để biết thêm thông tin chi tiết.
-* `lỗi` trả về `Lỗi`: Được kích hoạt nếu có lỗi phát sinh trong quá trình gửi. Khi xảy ra lỗi hết gas, tham số thứ hai sẽ là biên lai.
+- `transactionHash` trả về `chuỗi`: Được kích hoạt ngay sau khi gửi giao dịch và có hàm băm giao dịch.
+- `biên lai` trả về `đối tượng`: Được kích hoạt khi có sẵn biên lai giao dịch. Xem [caver.rpc.klay.getTransactionReceipt](#caver-rpc-klay-gettransactionreceipt) để biết thêm thông tin chi tiết.
+- `lỗi` trả về `Lỗi`: Được kích hoạt nếu có lỗi phát sinh trong quá trình gửi. Khi xảy ra lỗi hết gas, tham số thứ hai sẽ là biên lai.
 
 **Ví dụ**
 
@@ -2176,9 +2176,9 @@ Trước khi sử dụng `sendTransaction` với tư cách người trả phí, 
             '0x15d206781cc8ac9ffb02c08545cb832e1f1700b46b886d72bb0cfeb4a230871e',
         ],
     ],
-    feePayer: '0x3af68ad73f45a1e7686e8fcd23e910625ef2186e', // The address of imported tài khoản in Klaytn Node
+    feePayer: '0x3af68ad73f45a1e7686e8fcd23e910625ef2186e', // The address of imported account in Klaytn Node
 })
-// Sử dụng promise
+// Using promise
 > caver.rpc.klay.signTransaction(tx).then(console.log)
 {
     blockHash: '0x3be2f5b17eb35d0cf83b493ddfaa96d44cba40d1839778b4a8267f4c0aa61449',
@@ -2190,12 +2190,12 @@ Trước khi sử dụng `sendTransaction` với tư cách người trả phí, 
     gas: '0xc350',
     gasPrice: '0x5d21dba00',
     gasUsed: '0x7918',
-    nhật ký: [],
-    nhật kýBloom: '0x00000...',
+    logs: [],
+    logsBloom: '0x00000...',
     nonce: '0x1',
     senderTxHash: '0x71ca2e169a9c6c7b5bfdfa68e584314978f2abef955f8a2666325b860e2c9df5',
     signatures: [ { V: '0x4e43', R: '0x873e9...', S: '0x15d20...' } ],
-    trạng thái: '0x1',
+    status: '0x1',
     to: '0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
     transactionHash: '0x04fa82ce10168e05db04a235f025e5b8bc004ab36710798a512fab75a95bfc52',
     transactionIndex: '0x0',
@@ -2204,7 +2204,7 @@ Trước khi sử dụng `sendTransaction` với tư cách người trả phí, 
     value: '0xde0b6b3a7640000',
 }
 
-// Sử dụng bộ phát hiệu ứng sự kiện
+// Using event emitter
 > caver.rpc.klay.sendTransactionAsFeePayer(tx).on('transactionHash', h => {...}).on('receipt', r => {...}).on('error', console.error)
 ```
 
@@ -2222,9 +2222,9 @@ Ký giao dịch với tư cách là người gửi giao dịch bằng "khóa ri�
 
 **Tham số**
 
-| Tên       | Loại     | Mô tả                                                                                                          |
-| --------- | --------- | -------------------------------------------------------------------------------------------------------------- |
-| giao dịch | đối tượng | Phiên bản của một giao dịch dùng để ký.                                                                        |
+| Tên       | Loại     | Mô tả                                                                                                                             |
+| --------- | --------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| giao dịch | đối tượng | Phiên bản của một giao dịch dùng để ký.                                                                                           |
 | callback  | hàm       | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
@@ -2240,7 +2240,7 @@ Ký giao dịch với tư cách là người gửi giao dịch bằng "khóa ri�
 
 ```javascript
 > const tx = caver.transaction.valueTransfer.create({
-    from: '0x3af68ad73f45a1e7686e8fcd23e910625ef2186e', // The address of imported tài khoản in Klaytn Node
+    from: '0x3af68ad73f45a1e7686e8fcd23e910625ef2186e', // The address of imported account in Klaytn Node
     to: '0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
     value: caver.utils.toPeb(10, 'KLAY'),
     gas: 25000
@@ -2278,9 +2278,9 @@ Ký giao dịch với tư cách là người trả phí giao dịch bằng "khó
 
 **Tham số**
 
-| Tên       | type      | Mô tả                                                                                                          |
-| --------- | --------- | -------------------------------------------------------------------------------------------------------------- |
-| giao dịch | đối tượng | Phiên bản của một giao dịch dùng để ký.                                                                        |
+| Tên       | type      | Mô tả                                                                                                                             |
+| --------- | --------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| giao dịch | đối tượng | Phiên bản của một giao dịch dùng để ký.                                                                                           |
 | callback  | hàm       | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
@@ -2308,7 +2308,7 @@ Ký giao dịch với tư cách là người trả phí giao dịch bằng "khó
             '0x26dcf6f3702110230b806628165e28771e1152ea864ee4c69557faccd4d3dae8',
         ],
     ],
-    feePayer: '0xe8b3a6ef12f9506e1df9fd445f9bb4488a482122', // The address of imported tài khoản in Klaytn Node
+    feePayer: '0xe8b3a6ef12f9506e1df9fd445f9bb4488a482122', // The address of imported account in Klaytn Node
 })
 
 > caver.rpc.klay.signTransactionAsFeePayer(tx).then(console.log)
@@ -2341,9 +2341,9 @@ Trả về dữ liệu neo đã được giải mã trong giao dịch cho hàm b
 
 **Tham số**
 
-| Tên             | Loại | Mô tả                                                                                                          |
-| --------------- | ----- | -------------------------------------------------------------------------------------------------------------- |
-| transactionHash | chuỗi | Hàm băm của giao dịch.                                                                                         |
+| Tên             | Loại | Mô tả                                                                                                                             |
+| --------------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
+| transactionHash | chuỗi | Hàm băm của giao dịch.                                                                                                            |
 | callback        | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
@@ -2387,8 +2387,8 @@ Trả về mã chuỗi của chuỗi.
 
 **Tham số**
 
-| Tên      | Loại | Mô tả                                                                                                          |
-| -------- | ----- | -------------------------------------------------------------------------------------------------------------- |
+| Tên      | Loại | Mô tả                                                                                                                             |
+| -------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
 | callback | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
@@ -2416,8 +2416,8 @@ Trả về phiên bản máy khách hiện tại của nút Klaytn.
 
 **Tham số**
 
-| Tên      | Loại | Mô tả                                                                                                          |
-| -------- | ----- | -------------------------------------------------------------------------------------------------------------- |
+| Tên      | Loại | Mô tả                                                                                                                             |
+| -------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
 | callback | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
@@ -2445,8 +2445,8 @@ Trả về mức giá hiện tại cho mỗi gas tính bằng peb.
 
 **Tham số**
 
-| Tên      | Loại | Mô tả                                                                                                          |
-| -------- | ----- | -------------------------------------------------------------------------------------------------------------- |
+| Tên      | Loại | Mô tả                                                                                                                             |
+| -------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
 | callback | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
@@ -2474,8 +2474,8 @@ Trả về giá hiện tại cho mỗi gas tính bằng peb cho khối đã cho.
 
 **Tham số**
 
-| Tên         | Loại | Mô tả                                                                                                          |
-| ----------- | ----- | -------------------------------------------------------------------------------------------------------------- |
+| Tên         | Loại | Mô tả                                                                                                                             |
+| ----------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
 | blockNumber | số    | (tùy chọn) Số khối. Nếu bị bỏ qua, hệ thống sẽ trả về đơn giá mới nhất.                                        |
 | callback    | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
@@ -2504,8 +2504,8 @@ Trả về đề xuất giới hạn tối đa phí gas trả thêm cho giao d�
 
 **Tham số**
 
-| Tên      | Loại | Mô tả                                                                                                          |
-| -------- | ----- | -------------------------------------------------------------------------------------------------------------- |
+| Tên      | Loại | Mô tả                                                                                                                             |
+| -------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
 | callback | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
@@ -2533,8 +2533,8 @@ Trả về giá gas giới hạn dưới tính bằng peb.
 
 **Tham số**
 
-| Tên      | Loại | Mô tả                                                                                                          |
-| -------- | ----- | -------------------------------------------------------------------------------------------------------------- |
+| Tên      | Loại | Mô tả                                                                                                                             |
+| -------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
 | callback | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
@@ -2562,8 +2562,8 @@ Trả về giá gas giới hạn trên tính bằng peb.
 
 **Tham số**
 
-| Tên      | Loại | Mô tả                                                                                                          |
-| -------- | ----- | -------------------------------------------------------------------------------------------------------------- |
+| Tên      | Loại | Mô tả                                                                                                                             |
+| -------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
 | callback | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
@@ -2591,12 +2591,12 @@ Trả về lịch sử phí cho phạm vi khối được trả về. Đây có 
 
 **Tham số**
 
-| Tên               | Loại | Mô tả                                                                                                                                                                                                                                                                              |
-| ----------------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockCount        | số\  | BigNumber\|BN\|string | Số khối trong phạm vi được yêu cầu. Có thể yêu cầu từ 1 đến 1024 khối trong một yêu cầu truy vấn duy nhất. Nếu không có đủ các khối cần truy vấn, thì số lượng khối trả về có thể ít hơn số lượng khối yêu cầu.                                          |
-| lastBlock         | số\  | BigNumber\|BN\|string | Khối số cao nhất (hoặc chuỗi thẻ khối) của phạm vi được yêu cầu.                                                                                                                                                                                         |
-| rewardPercentiles | Mảng  | Một danh sách các giá trị phần trăm tăng dần đơn điệu để lấy mẫu từ phí ưu tiên hiệu quả của mỗi khối cho mỗi loại gas theo thứ tự tăng dần, được tính khối lượng theo loại gas được sử dụng. (Ví dụ, `['0', '25', '50', '75', '100']` hoặc `['0', '0.5', '1', '1.5', '3', '80']`) |
-| callback          | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                                                                                                                                                     |
+| Tên               | Loại                     | Mô tả                                                                                                                                                                                                                                                                                                 |
+| ----------------- | ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockCount        | số\|BigNumber\|BN\|string | Số khối trong phạm vi được yêu cầu. Có thể yêu cầu từ 1 đến 1024 khối trong một yêu cầu truy vấn duy nhất. Nếu không có đủ các khối cần truy vấn, thì số lượng khối trả về có thể ít hơn số lượng khối yêu cầu.                                                                                       |
+| lastBlock         | số\|BigNumber\|BN\|string | Khối số cao nhất (hoặc chuỗi thẻ khối) của phạm vi được yêu cầu.                                                                                                                                                                                                                   |
+| rewardPercentiles | Mảng                      | Một danh sách các giá trị phần trăm tăng dần đơn điệu để lấy mẫu từ phí ưu tiên hiệu quả của mỗi khối cho mỗi loại gas theo thứ tự tăng dần, được tính khối lượng theo loại gas được sử dụng. (Ví dụ, `['0', '25', '50', '75', '100']` hoặc `['0', '0.5', '1', '1.5', '3', '80']`) |
+| callback          | hàm                       | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                                                                                                                                                     |
 
 **Giá trị trả về**
 
@@ -2635,11 +2635,11 @@ Phương thức sẽ này tạo một accessList dựa trên một Giao dịch n
 
 **Tham số**
 
-| Tên            | Loại     | Mô tả                                                                                                                                                    |
-| -------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| callObject     | đối tượng | Đối tượng lệnh gọi giao dịch. Vui lòng xem các tham số [caver.rpc.klay.call](#caver-rpc-klay-call).                                               |
-| blockParameter | số\      | BigNumber\|BN\|chuỗi | (tùy chọn) Số khối, blockhash hoặc chuỗi thẻ khối (`mới nhất` hoặc `cũ nhất`). Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng. |
-| callback       | hàm       | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                           |
+| Tên            | Loại                    | Mô tả                                                                                                                                                                 |
+| -------------- | ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| callObject     | đối tượng                | Đối tượng lệnh gọi giao dịch. Vui lòng xem các tham số [caver.rpc.klay.call](#caver-rpc-klay-call).                                                                   |
+| blockParameter | số\|BigNumber\|BN\|chuỗi | (tùy chọn) Số khối, blockhash hoặc chuỗi thẻ khối (`mới nhất` hoặc `cũ nhất`). Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng. |
+| callback       | hàm                      | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                     |
 
 **Giá trị trả về**
 
@@ -2675,8 +2675,8 @@ Trả về giá trị `true` nếu nút đang ghi dữ liệu chuỗi khối the
 
 **Tham số**
 
-| Tên      | Loại | Mô tả                                                                                                          |
-| -------- | ----- | -------------------------------------------------------------------------------------------------------------- |
+| Tên      | Loại | Mô tả                                                                                                                             |
+| -------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
 | callback | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
@@ -2704,8 +2704,8 @@ Trả về giá trị `true` nếu nút đang lập chỉ mục hàm băm giao d
 
 **Tham số**
 
-| Tên      | Loại | Mô tả                                                                                                          |
-| -------- | ----- | -------------------------------------------------------------------------------------------------------------- |
+| Tên      | Loại | Mô tả                                                                                                                             |
+| -------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
 | callback | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
@@ -2733,8 +2733,8 @@ Trả về phiên bản giao thức Klaytn của nút. Phiên bản hiện tại
 
 **Tham số**
 
-| Tên      | Loại | Mô tả                                                                                                          |
-| -------- | ----- | -------------------------------------------------------------------------------------------------------------- |
+| Tên      | Loại | Mô tả                                                                                                                             |
+| -------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
 | callback | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
@@ -2762,8 +2762,8 @@ Trả về địa chỉ ví rewardbase của nút hiện tại. Rewardbase là �
 
 **Tham số**
 
-| Tên      | Loại | Mô tả                                                                                                          |
-| -------- | ----- | -------------------------------------------------------------------------------------------------------------- |
+| Tên      | Loại | Mô tả                                                                                                                             |
+| -------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
 | callback | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
@@ -2784,35 +2784,35 @@ Trả về địa chỉ ví rewardbase của nút hiện tại. Rewardbase là �
 ## caver.rpc.klay.getFilterChanges <a href="#caver-rpc-klay-getfilterchanges" id="caver-rpc-klay-getfilterchanges"></a>
 
 ```javascript
-caver.rpc.klay.getFilterChanges(bộ lọcId [, callback])
+caver.rpc.klay.getFilterChanges(filterId [, callback])
 ```
 
 Phương thức truy vấn lần lượt đối với bộ lọc, trả về một mảng các bản ghi kể từ lần truy vấn trước đó.
 
 **Tham số**
 
-| Tên      | Loại | Mô tả                                                                                                          |
-| -------- | ----- | -------------------------------------------------------------------------------------------------------------- |
-| bộ lọcId | Chuỗi | Id bộ lọc.                                                                                                     |
+| Tên      | Loại | Mô tả                                                                                                                             |
+| -------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
+| bộ lọcId | Chuỗi | Id bộ lọc.                                                                                                                        |
 | callback | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
 
 `Promise` trả về `Mảng` - Mảng các đối tượng bản ghi hoặc mảng trống nếu không có thay đổi kể từ lần truy vấn cuối cùng.
 
-* Đối với các bộ lọc được tạo bằng [caver.rpc.klay.newBlockFilter](#caver-rpc-klay-newblockfilter), kết quả trả về là các hàm băm khối, _ví dụ_: `["0x3454645634534..."]`.
-* Đối với các bộ lọc được tạo bằng [caver.rpc.klay.newPendingTransactionFilter](#caver-rpc-klay-newpendingtransactionfilter), kết quả trả về là các giá trị băm giao dịch, _ví dụ_: `["0x6345343454645..."]`.
-* Đối với các bộ lọc được tạo bằng [caver.rpc.klay.newFilter](#caver-rpc-klay-newfilter), bản ghi là các đối tượng có tham số như sau:
+- Đối với các bộ lọc được tạo bằng [caver.rpc.klay.newBlockFilter](#caver-rpc-klay-newblockfilter), kết quả trả về là các hàm băm khối, _ví dụ_: `["0x3454645634534..."]`.
+- Đối với các bộ lọc được tạo bằng [caver.rpc.klay.newPendingTransactionFilter](#caver-rpc-klay-newpendingtransactionfilter), kết quả trả về là các giá trị băm giao dịch, _ví dụ_: `["0x6345343454645..."]`.
+- Đối với các bộ lọc được tạo bằng [caver.rpc.klay.newFilter](#caver-rpc-klay-newfilter), bản ghi là các đối tượng có tham số như sau:
 
-| Tên              | Loại | Mô tả                                                                                                                                                                                                                                                          |
-| ---------------- | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| logIndex         | chuỗi | Vị trí chỉ mục bản ghi trong khối.                                                                                                                                                                                                                             |
-| transactionIndex | chuỗi | Vị trí chỉ mục của các giao dịch nơi bản ghi này được tạo.                                                                                                                                                                                                     |
-| transactionHash  | chuỗi | Hàm băm của giao dịch mà bản ghi này được tạo từ đó. Giá trị là `null` nếu giao dịch đang chờ xử lý.                                                                                                                                                           |
-| blockHash        | chuỗi | Hàm băm của khối chứa bản ghi này. Giá trị là `null` nếu giao dịch đang chờ xử lý.                                                                                                                                                                             |
-| blockNumber      | chuỗi | Số khối chứa bản ghi này. Giá trị là `null` nếu giao dịch đang chờ xử lý.                                                                                                                                                                                      |
-| address          | chuỗi | Địa chỉ mà bản ghi này được khởi tạo.                                                                                                                                                                                                                          |
-| data             | chuỗi | Chứa các đối số không được lập chỉ mục của bản ghi.                                                                                                                                                                                                            |
+| Tên              | Loại | Mô tả                                                                                                                                                                                                                                                                                                |
+| ---------------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| logIndex         | chuỗi | Vị trí chỉ mục bản ghi trong khối.                                                                                                                                                                                                                                                                   |
+| transactionIndex | chuỗi | Vị trí chỉ mục của các giao dịch nơi bản ghi này được tạo.                                                                                                                                                                                                                                           |
+| transactionHash  | chuỗi | Hàm băm của giao dịch mà bản ghi này được tạo từ đó. Giá trị là `null` nếu giao dịch đang chờ xử lý.                                                                                                                                                                                                 |
+| blockHash        | chuỗi | Hàm băm của khối chứa bản ghi này. Giá trị là `null` nếu giao dịch đang chờ xử lý.                                                                                                                                                                                                                   |
+| blockNumber      | chuỗi | Số khối chứa bản ghi này. Giá trị là `null` nếu giao dịch đang chờ xử lý.                                                                                                                                                                                                                            |
+| address          | chuỗi | Địa chỉ mà bản ghi này được khởi tạo.                                                                                                                                                                                                                                                                |
+| data             | chuỗi | Chứa các đối số không được lập chỉ mục của bản ghi.                                                                                                                                                                                                                                                  |
 | chủ đề           | Mảng  | Mảng gồm 0 đến 4 DỮ LIỆU 32 byte của các đối số được lập chỉ mục trong bản ghi. (Trong Solidity: Chủ đề đầu tiên là hàm băm chữ ký của sự kiện (_ví dụ_: `Deposit(address,bytes32,uint256)`), trừ khi bạn khai báo sự kiện với giá trị chỉ định `anonymous`.). |
 
 **Ví dụ**
@@ -2836,7 +2836,7 @@ Phương thức truy vấn lần lượt đối với bộ lọc, trả về m�
 ## caver.rpc.klay.getFilterLogs <a href="#caver-rpc-klay-getfilterlogs" id="caver-rpc-klay-getfilterlogs"></a>
 
 ```javascript
-caver.rpc.klay.getFilterLogs(bộ lọcId [, callback])
+caver.rpc.klay.getFilterLogs(filterId [, callback])
 ```
 
 Trả về một mảng gồm tất cả các bản ghi khớp với bộ lọc bằng id cho trước. Đối tượng bộ lọc phải được lấy bằng cách sử dụng [newFilter](#caver-rpc-klay-newfilter).
@@ -2845,9 +2845,9 @@ Lưu ý rằng id bộ lọc được trả về bởi các hàm tạo bộ lọ
 
 **Tham số**
 
-| Tên      | Loại | Mô tả                                                                                                          |
-| -------- | ----- | -------------------------------------------------------------------------------------------------------------- |
-| bộ lọcId | chuỗi | Id bộ lọc.                                                                                                     |
+| Tên      | Loại | Mô tả                                                                                                                             |
+| -------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
+| bộ lọcId | chuỗi | Id bộ lọc.                                                                                                                        |
 | callback | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
@@ -2882,19 +2882,19 @@ Trả về một mảng gồm tất cả bản ghi khớp với một đối tư
 
 **Tham số**
 
-| Tên      | Loại     | Mô tả                                                                                                          |
-| -------- | --------- | -------------------------------------------------------------------------------------------------------------- |
-| tùy chọn | đối tượng | Các tùy chọn bộ lọc. Xem bảng dưới đây để tìm phần thông tin mô tả.                                            |
+| Tên      | Loại     | Mô tả                                                                                                                             |
+| -------- | --------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| tùy chọn | đối tượng | Các tùy chọn bộ lọc. Xem bảng dưới đây để tìm phần thông tin mô tả.                                                               |
 | callback | hàm       | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 Đối tượng tùy chọn có thể chứa các thông tin sau:
 
-| Tên       | Loại    | Mô tả                                                                                                                                                                                                                                                                               |
-| --------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| fromBlock | số \    | chuỗi | (tùy chọn) Số khối của khối cũ nhất dùng để lấy bản ghi. (`"mới nhất"` nghĩa là khối gần đây nhất.) Giá trị mặc định là `"mới nhất"`.                                                                                                                                       |
-| toBlock   | số \    | chuỗi | (tùy chọn) Số khối của khối mới nhất dùng để lấy bản ghi. (`"mới nhất"` nghĩa là khối gần đây nhất.). Giá trị mặc định là `"mới nhất"`.                                                                                                                                     |
-| address   | chuỗi \ | Mảng | (tùy chọn) Địa chỉ hoặc danh sách các địa chỉ. Hàm sẽ chỉ trả về các bản ghi liên quan đến (các) tài khoản cụ thể.                                                                                                                                                           |
-| chủ đề    | Mảng     | (tùy chọn) Mảng các giá trị phải xuất hiện trong bản ghi. Quan trọng là thứ tự. Nếu bạn muốn loại bỏ các chủ đề, hãy sử dụng `null`, _vd_: `[null, '0x12...']`. Bạn có thể truyền một mảng của mỗi chủ đề với các tùy chọn cho chủ đề đó _ví dụ:_ `[null, ['option1', 'option2']]`. |
+| Tên       | Loại         | Mô tả                                                                                                                                                                                                                                                                                                  |
+| --------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| fromBlock | số \| chuỗi   | (tùy chọn) Số khối của khối cũ nhất dùng để lấy bản ghi. (`"mới nhất"` nghĩa là khối gần đây nhất.) Giá trị mặc định là `"mới nhất"`.                                                                                                                            |
+| toBlock   | số \| chuỗi   | (tùy chọn) Số khối của khối mới nhất dùng để lấy bản ghi. (`"mới nhất"` nghĩa là khối gần đây nhất.). Giá trị mặc định là `"mới nhất"`.                                                                                                                          |
+| address   | chuỗi \| Mảng | (tùy chọn) Địa chỉ hoặc danh sách các địa chỉ. Hàm sẽ chỉ trả về các bản ghi liên quan đến (các) tài khoản cụ thể.                                                                                                                                               |
+| chủ đề    | Mảng          | (tùy chọn) Mảng các giá trị phải xuất hiện trong bản ghi. Quan trọng là thứ tự. Nếu bạn muốn loại bỏ các chủ đề, hãy sử dụng `null`, _vd_: `[null, '0x12...']`. Bạn có thể truyền một mảng của mỗi chủ đề với các tùy chọn cho chủ đề đó _ví dụ:_ `[null, ['option1', 'option2']]`. |
 
 **Giá trị trả về**
 
@@ -2935,8 +2935,8 @@ Tạo một bộ lọc trong nút để thông báo khi có khối mới. Để 
 
 **Tham số**
 
-| Tên      | Loại | Mô tả                                                                                                          |
-| -------- | ----- | -------------------------------------------------------------------------------------------------------------- |
+| Tên      | Loại | Mô tả                                                                                                                             |
+| -------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
 | callback | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
@@ -2962,26 +2962,26 @@ caver.rpc.klay.newFilter(options [, callback])
 
 Tạo đối tượng bộ lọc sử dụng các tùy chọn bộ lọc nhất định để nhận thông tin thay đổi trạng thái cụ thể (bản ghi).
 
-* Để kiểm tra xem trạng thái đã thay đổi hay chưa, hãy gọi ra [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges).
-* Để có được tất cả các bản ghi khớp với bộ lọc được tạo bởi `newFilter`, hãy gọi [caver.rpc.klay.getFilterLogs](#caver-rpc-klay-getfilterlogs).
+- Để kiểm tra xem trạng thái đã thay đổi hay chưa, hãy gọi ra [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges).
+- Để có được tất cả các bản ghi khớp với bộ lọc được tạo bởi `newFilter`, hãy gọi [caver.rpc.klay.getFilterLogs](#caver-rpc-klay-getfilterlogs).
 
-Để biết thông tin chi tiết về các chủ đề trong đối tượng bộ lọc, vui lòng tham khảo [API nền tảng Klaytn - klay\_newFilter](../../../../json-rpc/klay/filter.md#klay_newfilter).
+Để biết thông tin chi tiết về các chủ đề trong đối tượng bộ lọc, vui lòng tham khảo [API nền tảng Klaytn - klay_newFilter](../../../../json-rpc/klay/filter.md#klay_newfilter).
 
 **Tham số**
 
-| Tên      | Loại     | Mô tả                                                                                                          |
-| -------- | --------- | -------------------------------------------------------------------------------------------------------------- |
-| tùy chọn | đối tượng | Các tùy chọn bộ lọc. Xem bảng dưới đây để tìm phần thông tin mô tả.                                            |
+| Tên      | Loại     | Mô tả                                                                                                                             |
+| -------- | --------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| tùy chọn | đối tượng | Các tùy chọn bộ lọc. Xem bảng dưới đây để tìm phần thông tin mô tả.                                                               |
 | callback | hàm       | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 Đối tượng tùy chọn có thể chứa các thông tin sau:
 
-| Tên       | Loại    | Mô tả                                                                                                                                                                                                                                                                               |
-| --------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| fromBlock | số \    | chuỗi | (tùy chọn) Số khối của khối cũ nhất dùng để lấy bản ghi. (`"mới nhất"` nghĩa là khối gần đây nhất.) Giá trị mặc định là `"mới nhất"`.                                                                                                                                       |
-| toBlock   | số \    | chuỗi | (tùy chọn) Số khối của khối mới nhất dùng để lấy bản ghi. (`"mới nhất"` nghĩa là khối gần đây nhất.). Giá trị mặc định là `"mới nhất"`.                                                                                                                                     |
-| address   | chuỗi \ | Mảng | (tùy chọn) Địa chỉ hoặc danh sách các địa chỉ. Hàm sẽ chỉ trả về các bản ghi liên quan đến (các) tài khoản cụ thể.                                                                                                                                                           |
-| chủ đề    | Mảng     | (tùy chọn) Mảng các giá trị phải xuất hiện trong bản ghi. Quan trọng là thứ tự. Nếu bạn muốn loại bỏ các chủ đề, hãy sử dụng `null`, _vd_: `[null, '0x12...']`. Bạn có thể truyền một mảng của mỗi chủ đề với các tùy chọn cho chủ đề đó _ví dụ:_ `[null, ['option1', 'option2']]`. |
+| Tên       | Loại         | Mô tả                                                                                                                                                                                                                                                                                                  |
+| --------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| fromBlock | số \| chuỗi   | (tùy chọn) Số khối của khối cũ nhất dùng để lấy bản ghi. (`"mới nhất"` nghĩa là khối gần đây nhất.) Giá trị mặc định là `"mới nhất"`.                                                                                                                            |
+| toBlock   | số \| chuỗi   | (tùy chọn) Số khối của khối mới nhất dùng để lấy bản ghi. (`"mới nhất"` nghĩa là khối gần đây nhất.). Giá trị mặc định là `"mới nhất"`.                                                                                                                          |
+| address   | chuỗi \| Mảng | (tùy chọn) Địa chỉ hoặc danh sách các địa chỉ. Hàm sẽ chỉ trả về các bản ghi liên quan đến (các) tài khoản cụ thể.                                                                                                                                               |
+| chủ đề    | Mảng          | (tùy chọn) Mảng các giá trị phải xuất hiện trong bản ghi. Quan trọng là thứ tự. Nếu bạn muốn loại bỏ các chủ đề, hãy sử dụng `null`, _vd_: `[null, '0x12...']`. Bạn có thể truyền một mảng của mỗi chủ đề với các tùy chọn cho chủ đề đó _ví dụ:_ `[null, ['option1', 'option2']]`. |
 
 **Giá trị trả về**
 
@@ -3011,8 +3011,8 @@ Tạo bộ lọc trong nút để nhận thông tin về sự xuất hiện củ
 
 **Tham số**
 
-| Tên      | Loại | Mô tả                                                                                                          |
-| -------- | ----- | -------------------------------------------------------------------------------------------------------------- |
+| Tên      | Loại | Mô tả                                                                                                                             |
+| -------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
 | callback | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
@@ -3033,16 +3033,16 @@ Tạo bộ lọc trong nút để nhận thông tin về sự xuất hiện củ
 ## caver.rpc.klay.uninstallFilter <a href="#caver-rpc-klay-uninstallfilter" id="caver-rpc-klay-uninstallfilter"></a>
 
 ```javascript
-caver.rpc.klay.uninstallFilter(bộ lọcId [, callback])
+caver.rpc.klay.uninstallFilter(filterId [, callback])
 ```
 
 Gỡ cài đặt bộ lọc với id đã cho. Luôn phải được gọi ra khi không còn cần theo dõi. Ngoài ra, các bộ lọc sẽ hết thời gian chờ nếu lệnh [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges) không được gọi ra trong một khoảng thời gian.
 
 **Tham số**
 
-| Tên      | Loại | Mô tả                                                                                                          |
-| -------- | ----- | -------------------------------------------------------------------------------------------------------------- |
-| bộ lọcId | chuỗi | Id bộ lọc.                                                                                                     |
+| Tên      | Loại | Mô tả                                                                                                                             |
+| -------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
+| bộ lọcId | chuỗi | Id bộ lọc.                                                                                                                        |
 | callback | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**
@@ -3070,9 +3070,9 @@ Trả về Keccak-256 (không phải SHA3-256 đã chuẩn hóa) của dữ li�
 
 **Tham số**
 
-| Tên      | Loại | Mô tả                                                                                                          |
-| -------- | ----- | -------------------------------------------------------------------------------------------------------------- |
-| data     | Chuỗi | Dữ liệu được chuyển đổi thành hàm băm SHA3.                                                                    |
+| Tên      | Loại | Mô tả                                                                                                                             |
+| -------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
+| data     | Chuỗi | Dữ liệu được chuyển đổi thành hàm băm SHA3.                                                                                       |
 | callback | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**

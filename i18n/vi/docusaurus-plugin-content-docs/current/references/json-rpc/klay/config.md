@@ -28,7 +28,6 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-
 ## klay_clientVersion <a id="klay_clientversion"></a>
 
 Trả về phiên bản máy khách hiện tại của nút Klaytn.
@@ -56,7 +55,6 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
     "result":"Klaytn/v0.9.1+3518232250/linux-amd64/go1.11.2"
 }
 ```
-
 
 ## klay_gasPrice <a id="klay_gasprice"></a>
 
@@ -93,7 +91,6 @@ Trả về các giá trị khác nhau dựa trên điều kiện được mô t�
 - Nếu `baseFee` không được xác định trong tiêu đề, nó sẽ trả về đơn giá từ tham số quản trị
 - Nếu khối là một khối đang chờ xử lý, nó sẽ trả về giá gas của txpool.
 - Nếu không, nó trả về phí cơ bản của khối đã cho.
-
 
 **Tham số**
 
@@ -149,10 +146,10 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-
 ## klay_isSenderTxHashIndexingEnabled <a id="klay_issendertxhashindexingenabled"></a>
 
-Trả về giá trị `true` nếu nút đang lập chỉ mục hàm băm giao dịch của người gửi thành thông tin ánh xạ hàm băm giao dịch. Tính năng này bị tắt theo mặc định và có thể được bật bằng cách `--sendertxhashindexing`.
+Trả về giá trị `true` nếu nút đang lập chỉ mục hàm băm giao dịch của người gửi thành thông tin ánh xạ hàm băm giao dịch.
+Tính năng này bị tắt theo mặc định và có thể được bật bằng cách `--sendertxhashindexing`.
 
 **Tham số**
 
@@ -178,10 +175,10 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-
 ## klay_protocolVersion <a id="klay_protocolversion"></a>
 
-Trả về phiên bản giao thức Klaytn của nút. Phiên bản hiện tại (kể từ v1.9.0) của Cypress/Baobab là `istanbul/65`.
+Trả về phiên bản giao thức Klaytn của nút.
+Phiên bản hiện tại (kể từ v1.9.0) của Cypress/Baobab là `istanbul/65`.
 
 **Tham số**
 
@@ -206,7 +203,6 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
    "result":"0x40"
 }
 ```
-
 
 ## klay_rewardbase <a id="klay_rewardbase"></a>
 
@@ -245,4 +241,3 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
     "result":"0x96Fd91f34Cc8da9f6338C106Ba37aA8B48FB4Fa5"
 }
 ```
-

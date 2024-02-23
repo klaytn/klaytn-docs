@@ -12,7 +12,7 @@
 
 ## Telegraf 설치 <a id="telegraf-installation"></a>
 
-Telegraf 설치 가이드 \(Amazon Linux 2 사용자, 아래 참조\): [https://docs.influxdata.com/telegraf/latest/introduction/installation/](https://docs.influxdata.com/telegraf/latest/introduction/installation/)
+Telegraf 설치 가이드 (Amazon Linux 2 사용자, 아래 참조): [https://docs.influxdata.com/telegraf/latest/introduction/installation/](https://docs.influxdata.com/telegraf/latest/introduction/installation/)
 
 **Amazon Linux 2 참고**
 
@@ -21,11 +21,11 @@ Amazon Linux 2에 Telegraph를 설치하려면 다음과 같이 InfluxData의 RH
 ```text
 cat <<EOF | sudo tee /etc/yum.repos.d/influxdb.repo
 [influxdb]
-name = InfluxDB Repository - RHEL 7
-baseurl = https://repos.influxdata.com/rhel/7/\$basearch/stable
+name = InfluxData Repository - Stable
+baseurl = https://repos.influxdata.com/stable/\$basearch/main
 enabled = 1
 gpgcheck = 1
-gpgkey = https://repos.influxdata.com/influxdb.key
+gpgkey = https://repos.influxdata.com/influxdata-archive_compat.key
 EOF
 ```
 
@@ -53,7 +53,7 @@ tcp        0      0 :::61001        :::*       LISTEN      8989/kcn
 
 **Telegraf 서비스 구성하기**
 
-다음 파일을 `telegraf` 설정 디렉터리 \(`/etc/telegraf/telegraf.d/`\)에 복사하고 각 노드에 맞게 `nodetype`, `instance`, `hostname`을 편집합니다:
+다음 파일을 `telegraf` 설정 디렉터리 (`/etc/telegraf/telegraf.d/`)에 복사하고 각 노드에 맞게 `nodetype`, `instance`, `hostname`을 편집합니다:
 
 ```text
 [global_tags]
@@ -77,7 +77,7 @@ tcp        0      0 :::61001        :::*       LISTEN      8989/kcn
 
 `etc/telegraf/telegraf.conf`에서 다음을 변경합니다:
 
-* `[[outputs.influxdb]]` 섹션을 주석 처리합니다.
+- `[[outputs.influxdb]]` 섹션을 주석 처리합니다.
 
 **Telegraf 시작**
 

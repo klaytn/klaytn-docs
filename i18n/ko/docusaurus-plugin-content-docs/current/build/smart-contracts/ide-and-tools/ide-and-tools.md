@@ -10,9 +10,9 @@ Remix Online IDE는 EVM 호환 스마트 컨트랙트를 개발, 배포, 디버�
 
 Klaytn Contracts Wizard는 스마트 컨트랙트를 부트스트랩하고 클레이튼 컨트랙트에 대해 배울 수 있는 대화형 생성기입니다. OpenZeppelin 마법사를 기반으로 합니다.
 
-#### [Truffle](./truffle.md) <a href="#truffle" id="truffle"></a>
+#### [Thirdweb](../deploy/thirdweb.md) <a href="#thirdweb" id="thirdweb"></a>
 
-Solidity로 작성된 클레이튼 스마트 컨트랙트는 Truffle을 사용하여 컴파일하고 배포할 수 있습니다. 현재 클레이튼은 Truffle v5.0.26까지 지원합니다.
+Thirdweb은 앱과 게임을 탈중앙화 네트워크에 연결하는 데 필요한 모든 것을 제공하는 완전한 웹 3.0 개발 프레임워크입니다.
 
 #### [Kaikas](../../tools/wallets/kaikas.md) <a href="#kaikas" id="kaikas"></a>
 

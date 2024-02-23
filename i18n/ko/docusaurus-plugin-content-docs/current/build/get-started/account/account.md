@@ -1,4 +1,4 @@
-# 계정 기본 사항
+# Account
 
 **`경고`**: 비밀번호를 기억하세요. 계정의 비밀번호를 잊어버리면 해당 계정에 액세스할 수 없습니다. **"비밀번호를 잊어버렸습니다"라는 옵션은 없습니다. 절대 분실하지 마세요.**
 
@@ -14,7 +14,7 @@
 $ ken account <command> [options...] [arguments...]
 ```
 
-**명령어**
+**예시**
 
 ```bash
 $ ken account -help
@@ -55,8 +55,8 @@ $ ken account new --datadir "~/kend_home"
 
 데이터 디렉터리를 지정하지 않으면 기본 위치는 다음과 같습니다.
 
-* Mac: `~/Library/KEN`
-* Linux: `~/.ken`
+- Mac: `~/Library/KEN`
+- Linux: `~/.ken`
 
 ## JavaScript 콘솔 <a id="javascript-console"></a>
 
@@ -78,7 +78,7 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
 >
 ```
 
-**명령어**
+**예시**
 
 `personal` 또는 `klay`를 입력하면 사용 가능한 함수 목록을 볼 수 있습니다. 이 튜토리얼에서는 다음 함수를 살펴보겠습니다.
 
@@ -92,4 +92,4 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
 
 ### 데이터 디렉터리 <a id="data-directory"></a>
 
-계정을 생성하면 키스토어 파일은 `<DATADIR>/keystore`에 저장됩니다. ``<DATADIR>``은 'kend.conf'에 설정된 'DATA_DIR'입니다. 주어진 예제로 빠른 시작 가이드를 따르는 경우 `~/kend_home`이어야 합니다.
+계정을 생성하면 키스토어 파일은 `<DATADIR>/keystore`에 저장됩니다. `<DATADIR>`은 'kend.conf'에 설정된 'DATA_DIR'입니다. 주어진 예제로 빠른 시작 가이드를 따르는 경우 `~/kend_home`이어야 합니다.

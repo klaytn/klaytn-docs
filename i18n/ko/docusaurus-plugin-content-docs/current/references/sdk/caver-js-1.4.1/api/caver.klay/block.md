@@ -7,7 +7,7 @@ caver.klay.defaultBlock
 ```
 
 기본 블록은 특정 메서드에 사용됩니다.  기본 블록을 재정의하려면 마지막 매개변수로
-을 마지막 매개변수로 전달하여 재정의할 수 있습니다.  기본값은 ``latest``입니다.
+을 마지막 매개변수로 전달하여 재정의할 수 있습니다.  기본값은 `latest`입니다.
 
 - [caver.klay.getBalance()](./account.md#getbalance)
 - [caver.klay.getCode()](./account.md#getcode)
@@ -24,7 +24,7 @@ caver.klay.defaultBlock
 - `"genesis"` - String: 제네시스 블록
 - `"latest"` - String: 최신 블록(블록체인의 현재 헤드)
 
-기본값은 ``latest``입니다.
+기본값은 `latest`입니다.
 
 **예시**
 
@@ -46,8 +46,8 @@ caver.klay.getBlockNumber([callback])
 
 **매개변수**
 
-| 이름 | 유형 | 설명 |
-| --- | --- | --- |
+| 이름       | 유형       | 설명                                                                                |
+| -------- | -------- | --------------------------------------------------------------------------------- |
 | callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 매개변수로 오류 객체를 반환하고 두 번째 매개변수로 결과를 반환합니다. |
 
 **리턴 값**
@@ -66,40 +66,41 @@ caver.klay.getBlockNumber([callback])
 ```javascript
 caver.klay.getBlock(blockHashOrBlockNumber [, returnTransactionObjects] [, callback])
 ```
+
 블록 해시 또는 블록 번호와 일치하는 블록을 반환합니다.
 
 **매개변수**
 
-| 이름 | 유형 | 설명 |
-| --- | --- | --- |
-| blockHashOrBlockNumber | String \| Number | 블록 해시 또는 블록 번호입니다. 또는 문자열 ``genesis`` 또는 ``latest``입니다. |
-| returnTransactionObjects | Boolean | (선택 사항, 기본값 ``false``) ``true``이면 반환된 블록에 모든 트랜잭션이 오브젝트로 포함되고, ``false``이면 트랜잭션 해시만 포함됩니다. |
-| callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 매개변수로 오류 객체를 반환하고 두 번째 매개변수로 결과를 반환합니다. |
+| 이름                       | 유형               | 설명                                                                                                      |
+| ------------------------ | ---------------- | ------------------------------------------------------------------------------------------------------- |
+| blockHashOrBlockNumber   | String \| Number | 블록 해시 또는 블록 번호입니다. 또는 문자열 `genesis` 또는 `latest`입니다.                                                     |
+| returnTransactionObjects | Boolean          | (선택 사항, 기본값 `false`) `true`이면 반환된 블록에 모든 트랜잭션이 오브젝트로 포함되고, `false`이면 트랜잭션 해시만 포함됩니다. |
+| callback                 | Function         | (선택 사항) 선택적 콜백으로, 첫 번째 매개변수로 오류 객체를 반환하고 두 번째 매개변수로 결과를 반환합니다.                       |
 
 **리턴 값**
 
-`Promise`는 블록 객체인 ``Object``를 반환합니다:
+`Promise`는 블록 객체인 `Object`를 반환합니다:
 
-| 이름 | 유형 | 설명 |
-| --- | --- | --- |
-| blockScore | QUANTITY | 이전 난이도. BFT 합의 엔진에서는 항상 1입니다.
-| extraData | String | 이 블록의 "추가 데이터" 필드입니다. |
-| gasUsed | Number | 이 블록의 모든 트랜잭션이 사용한 총 가스 사용량입니다. |
-| governanceData | DATA | RLP로 인코딩된 거버넌스 구성 |
-| hash | 32-byte String | 블록의 해시. 보류 중인 블록인 경우 ``null``입니다. |
-| logsBloom | 256-byte String | 블록의 로그에 대한 블룸 필터입니다. 보류 중인 블록인 경우 ``null``입니다. |
-| number | Number | 블록 번호입니다. 보류 중인 블록인 경우 ``null``입니다. |
-| parentHash | 32-byte String | 상위 블록의 해시입니다. |
-| receiptsRoot | 32-byte DATA | 블록의 영수증 트라이의 루트입니다. |
-| reward | 20-byte DATA | 블록 보상을 받은 수혜자의 주소입니다. |
-| size | Number | 이 블록의 크기(바이트)를 정수로 나타냅니다. |
-| stateRoot | 32-byte String | 블록의 최종 상태 증명 시도 루트입니다. |
-| timestamp | Number | 블록이 콜레이션된 시점의 유닉스 타임스탬프입니다. |
-| timestampFoS | QUANTITY | 블록이 콜레이트된 시점에 대한 타임스탬프의 1초 단위입니다. |
-| totalBlockScore | QUANTITY | 이 블록까지 체인의 총 블록스코어의 정수입니다. |
-| transactions | Array | 트랜잭션 객체의 배열, 또는 ``returnTransactionObjects`` 매개변수에 따라 32바이트 트랜잭션 해시입니다. |
-| transactionsRoot | 32-byte String | 블록의 트랜잭션 트라이의 루트입니다. |
-| voteData | DATA | 제안자의 RLP 인코딩된 거버넌스 투표 |
+| 이름               | 유형              | 설명                                                                    |
+| ---------------- | --------------- | --------------------------------------------------------------------- |
+| blockScore       | QUANTITY        | 이전 난이도 BFT 합의 엔진에서는 항상 1입니다.                                          |
+| extraData        | String          | 이 블록의 "추가 데이터" 필드입니다.                                                 |
+| gasUsed          | Number          | 이 블록의 모든 트랜잭션이 사용한 총 가스 사용량입니다.                                       |
+| governanceData   | DATA            | RLP로 인코딩된 거버넌스 구성                                                     |
+| hash             | 32-byte String  | 블록의 해시. 보류 중인 블록인 경우 `null`.                                          |
+| logsBloom        | 256-byte String | 블록의 로그에 대한 블룸 필터입니다. 보류 중인 블록인 경우 `null`입니다.                          |
+| number           | Number          | 블록 번호입니다. 보류 중인 블록인 경우 `null`입니다.                                     |
+| parentHash       | 32-byte String  | 부모 블록의 해시.                                                            |
+| receiptsRoot     | 32-byte DATA    | 블록의 영수증 트라이의 루트입니다.                                                   |
+| reward           | 20-byte DATA    | 블록 보상을 받은 수혜자의 주소입니다.                                                 |
+| size             | Number          | 이 블록의 크기(바이트)를 정수로 나타냅니다.                          |
+| stateRoot        | 32-byte String  | 블록의 최종 상태 증명 시도 루트입니다.                                                |
+| timestamp        | Number          | 블록이 콜레이션된 시점의 유닉스 타임스탬프입니다.                                           |
+| timestampFoS     | QUANTITY        | 블록이 콜레이트된 시점에 대한 타임스탬프의 1초 단위입니다.                                     |
+| totalBlockScore  | QUANTITY        | 이 블록까지 체인의 총 블록스코어의 정수입니다.                                            |
+| transactions     | Array           | 트랜잭션 객체의 배열, 또는 `returnTransactionObjects` 매개변수에 따라 32바이트 트랜잭션 해시입니다. |
+| transactionsRoot | 32-byte String  | 블록의 트랜잭션 트라이의 루트입니다.                                                  |
+| voteData         | DATA            | 제안자의 RLP 인코딩된 거버넌스 투표                                                 |
 
 **예시**
 
@@ -132,19 +133,19 @@ caver.klay.getBlock(blockHashOrBlockNumber [, returnTransactionObjects] [, callb
 ```javascript
 caver.klay.getBlockReceipts(blockHash [, callback])
 ```
+
 주어진 블록 해시로 식별된 블록에 포함된 트랜잭션 영수증 목록을 반환합니다.
 
 **매개변수**
 
-| 이름 | 유형 | 설명 |
-| --- | --- | --- |
-| blockHash | String | 블록의 해시. |
-| callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 매개변수로 오류 객체를 반환하고 두 번째 매개변수로 결과를 반환합니다. |
+| 이름        | 유형       | 설명                                                                                |
+| --------- | -------- | --------------------------------------------------------------------------------- |
+| blockHash | String   | 블록의 해시.                                                                           |
+| callback  | Function | (선택 사항) 선택적 콜백으로, 첫 번째 매개변수로 오류 객체를 반환하고 두 번째 매개변수로 결과를 반환합니다. |
 
 **리턴 값**
 
 `Promise`는 블록에 포함된 영수증인 `Array`를 반환합니다.  대상 블록에 트랜잭션이 없는 경우 빈 배열 `[]`이 반환됩니다.
-
 
 **예시**
 
@@ -189,14 +190,15 @@ caver.klay.getBlockReceipts(blockHash [, callback])
 ```javascript
 caver.klay.getBlockTransactionCount(blockHashOrBlockNumber [, callback])
 ```
+
 주어진 블록의 트랜잭션 수를 반환합니다.
 
 **매개변수**
 
-| 이름 | 유형 | 설명 |
-| --- | --- | --- |
-| blockHashOrBlockNumber | String \| Number | block number or hash입니다. 또는 문자열 ``genesis`` 또는 ``latest``입니다. |
-| callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 매개변수로 오류 객체를 반환하고 두 번째 매개변수로 결과를 반환합니다. |
+| 이름                     | 유형               | 설명                                                                                |
+| ---------------------- | ---------------- | --------------------------------------------------------------------------------- |
+| blockHashOrBlockNumber | String \| Number | block number or hash입니다. 또는 문자열 `genesis` 또는 `latest`입니다.                         |
+| callback               | Function         | (선택 사항) 선택적 콜백으로, 첫 번째 매개변수로 오류 객체를 반환하고 두 번째 매개변수로 결과를 반환합니다. |
 
 **리턴 값**
 
@@ -209,7 +211,6 @@ caver.klay.getBlockTransactionCount(blockHashOrBlockNumber [, callback])
 1
 ```
 
-
 ## getBlockWithConsensusInfo <a id="getblockwithconsensusinfo"></a>
 
 ```javascript
@@ -220,40 +221,40 @@ caver.klay.getBlockWithConsensusInfo(blockHashOrBlockNumber [, callback])
 
 **매개변수**
 
-| 이름 | 유형 | 설명 |
-| --- | --- | --- |
-| blockHashOrBlockNumber | String \| Number | 블록 해시 또는 블록 번호입니다. 또는 문자열 `"genesis"` 또는 `"latest"`입니다. |
-| callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 매개변수로 오류 객체를 반환하고 두 번째 매개변수로 결과를 반환합니다. |
+| 이름                     | 유형               | 설명                                                                                |
+| ---------------------- | ---------------- | --------------------------------------------------------------------------------- |
+| blockHashOrBlockNumber | String \| Number | 블록 해시 또는 블록 번호입니다. 또는 문자열 `"genesis"` 또는 `"latest"`입니다.                           |
+| callback               | Function         | (선택 사항) 선택적 콜백으로, 첫 번째 파라미터로 오류 객체를 반환하고 두 번째 파라미터로 결과를 반환합니다. |
 
 **리턴 값**
 
 `Promise`는 `Object`를 반환합니다 - 합의 정보(제안자 및 위원회 멤버 목록)가 포함된 블록 오브젝트입니다.
-블록 객체에는 다음이 포함됩니다:
 
-| 이름 | 유형 | 설명 |
-| --- | --- | --- |
-| blockScore | QUANTITY | 이전 난이도. BFT 합의 엔진에서는 항상 1입니다.
-| committee | Array | 이 블록의 위원회 멤버 주소 배열입니다. 위원회는 이 블록의 합의 프로토콜에 참여한 검증자의 하위 집합입니다. |
-| extraData | String | 이 블록의 "추가 데이터" 필드입니다. |
-| gasUsed | QUANTITY | 이 블록의 모든 트랜잭션에서 사용한 총 가스 사용량입니다. |
-| governanceData | DATA | RLP 인코딩된 거버넌스 구성 |
-| hash | 32-byte DATA | 블록의 해시. 보류 중인 블록인 경우 `null`. |
-| logsBloom | 256-byte String | 블록의 로그에 대한 블룸 필터. 보류 중인 블록인 경우 ``null``. |
-| number | QUANTITY | 블록 번호입니다. 보류 중인 블록인 경우 ``null``. |
-| parentHash | 32-byte DATA | 부모 블록의 해시. |
-| proposer | 20-byte DATA | 블록 제안자의 주소입니다. |
-| receiptsRoot | 32-byte DATA | 블록의 영수증 트라이의 루트입니다. |
-| reward | 20-byte DATA | 블록 보상을 받은 수혜자의 주소입니다. |
-| size | QUANTITY | 이 블록의 크기(바이트)를 정수로 나타냅니다. |
-| stateRoot | 32-byte DATA | 블록의 최종 상태 증명 시도 루트입니다. |
-| timestamp | QUANTITY | 블록이 콜레이션된 시점의 유닉스 타임스탬프입니다. |
-| timestampFoS | QUANTITY | 블록이 콜레이트된 시점에 대한 타임스탬프의 1초 단위입니다. |
-| totalBlockScore | QUANTITY | 이 블록까지 체인의 총 블록스코어의 정수입니다. |
-| transactions | Array | 트랜잭션 개체의 배열입니다. |
-| transactionsRoot | 32-byte DATA | 블록의 트랜잭션 트라이의 루트입니다. |
-| voteData | DATA | 제안자의 RLP 인코딩된 거버넌스 투표 |
+| 이름               | 유형              | 설명                                                            |
+| ---------------- | --------------- | ------------------------------------------------------------- |
+| blockScore       | QUANTITY        | 이전 난이도 BFT 합의 엔진에서는 항상 1입니다.                                  |
+| committee        | Array           | 이 블록의 위원회 멤버 주소 배열입니다. 위원회는 이 블록의 합의 프로토콜에 참여한 검증자의 하위 집합입니다. |
+| extraData        | String          | 이 블록의 "추가 데이터" 필드입니다.                                         |
+| gasUsed          | QUANTITY        | 이 블록의 모든 트랜잭션에서 사용한 총 가스 사용량입니다.                              |
+| governanceData   | DATA            | RLP 인코딩된 거버넌스 구성                                              |
+| hash             | 32-byte DATA    | 블록의 해시. 보류 중인 블록인 경우 `null`.                                  |
+| logsBloom        | 256-byte String | 블록의 로그에 대한 블룸 필터. 보류 중인 블록인 경우 `null`입니다.                     |
+| number           | QUANTITY        | 블록 번호입니다. 보류 중인 블록인 경우 `null`.                                |
+| parentHash       | 32-byte DATA    | 상위 블록의 해시입니다.                                                 |
+| proposer         | 20-byte DATA    | 블록 제안자의 주소입니다.                                                |
+| receiptsRoot     | 32-byte DATA    | 블록의 영수증 트라이의 루트입니다.                                           |
+| reward           | 20-byte DATA    | 블록 보상을 받은 수혜자의 주소입니다.                                         |
+| size             | QUANTITY        | 이 블록의 크기(바이트)를 정수로 나타냅니다.                  |
+| stateRoot        | 32-byte DATA    | 블록의 최종 상태 증명 시도 루트입니다.                                        |
+| timestamp        | QUANTITY        | 블록이 콜레이션된 시점의 유닉스 타임스탬프입니다.                                   |
+| timestampFoS     | QUANTITY        | 블록이 콜레이트된 시점에 대한 타임스탬프의 1초 단위입니다.                             |
+| totalBlockScore  | QUANTITY        | 이 블록까지 체인의 총 블록스코어의 정수입니다.                                    |
+| transactions     | Array           | 트랜잭션 개체의 배열입니다.                                               |
+| transactionsRoot | 32-byte DATA    | 블록의 트랜잭션 트라이의 루트입니다.                                          |
+| voteData         | DATA            | 제안자의 RLP 인코딩된 거버넌스 투표                                         |
 
 **예제**
+
 ```javascript
 > caver.klay.getBlockWithConsensusInfo(19097).then(console.log);
 { 
@@ -321,10 +322,10 @@ caver.klay.getCommittee([defaultBlock] [, callback])
 
 **매개변수**
 
-| 이름 | 유형 | 설명 |
-| --- | --- | --- |
+| 이름           | 유형               | 설명                                                                                                       |
+| ------------ | ---------------- | -------------------------------------------------------------------------------------------------------- |
 | defaultBlock | Number \| String | (선택 사항) 이 매개변수를 전달하면 [caver.klay.defaultBlock](#defaultblock)으로 설정된 기본 블록을 사용하지 않습니다. |
-| callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 파라미터로 오류 객체를 반환하고 두 번째 파라미터로 결과를 반환합니다. |
+| callback     | Function         | (선택 사항) 선택적 콜백으로, 첫 번째 매개변수로 오류 객체를 반환하고 두 번째 매개변수로 결과를 반환합니다.                        |
 
 **리턴 값**
 
@@ -352,10 +353,10 @@ caver.klay.getCommitteeSize([defaultBlock] [, callback])
 
 **매개변수**
 
-| 이름 | 유형 | 설명 |
-| --- | --- | --- |
+| 이름           | 유형               | 설명                                                                                                       |
+| ------------ | ---------------- | -------------------------------------------------------------------------------------------------------- |
 | defaultBlock | Number \| String | (선택 사항) 이 매개변수를 전달하면 [caver.klay.defaultBlock](#defaultblock)으로 설정된 기본 블록을 사용하지 않습니다. |
-| callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 매개변수로 오류 객체를 반환하고 두 번째 매개변수로 결과를 반환합니다. |
+| callback     | Function         | (선택 사항) 선택적 콜백으로, 첫 번째 매개변수로 오류 객체를 반환하고 두 번째 매개변수로 결과를 반환합니다.                        |
 
 **리턴 값**
 
@@ -369,6 +370,7 @@ caver.klay.getCommitteeSize([defaultBlock] [, callback])
 ```
 
 ## getCouncil <a id="getcouncil"></a>
+
 **참고**: `getValidators`는 이 메서드로 대체되었으며 더 이상 지원되지 않습니다.
 
 ```javascript
@@ -379,10 +381,10 @@ caver.klay.getCouncil([defaultBlock] [, callback])
 
 **매개변수**
 
-| 이름 | 유형 | 설명 |
-| --- | --- | --- |
+| 이름           | 유형               | 설명                                                                                                       |
+| ------------ | ---------------- | -------------------------------------------------------------------------------------------------------- |
 | defaultBlock | Number \| String | (선택 사항) 이 매개변수를 전달하면 [caver.klay.defaultBlock](#defaultblock)으로 설정된 기본 블록을 사용하지 않습니다. |
-| callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 매개변수로 오류 객체를 반환하고 두 번째 매개변수로 결과를 반환합니다. |
+| callback     | Function         | (선택 사항) 선택적 콜백으로, 첫 번째 매개변수로 오류 객체를 반환하고 두 번째 매개변수로 결과를 반환합니다.                        |
 
 **리턴 값**
 
@@ -410,10 +412,10 @@ caver.klay.getCouncilSize([defaultBlock] [, callback])
 
 **매개변수**
 
-| 이름 | 유형 | 설명 |
-| --- | --- | --- |
+| 이름           | 유형               | 설명                                                                                                       |
+| ------------ | ---------------- | -------------------------------------------------------------------------------------------------------- |
 | defaultBlock | Number \| String | (선택 사항) 이 매개변수를 전달하면 [caver.klay.defaultBlock](#defaultblock)으로 설정된 기본 블록을 사용하지 않습니다. |
-| callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 매개변수로 오류 객체를 반환하고 두 번째 매개변수로 결과를 반환합니다. |
+| callback     | Function         | (선택 사항) 선택적 콜백으로, 첫 번째 매개변수로 오류 객체를 반환하고 두 번째 매개변수로 결과를 반환합니다.                        |
 
 **리턴 값**
 
@@ -426,22 +428,22 @@ caver.klay.getCouncilSize([defaultBlock] [, callback])
 4
 ```
 
-
 ## getStorageAt <a id="getstorageat"></a>
 
 ```javascript
 caver.klay.getStorageAt(address, position [, defaultBlock] [, callback])
 ```
+
 주소의 특정 위치에 있는 스토리지를 가져옵니다.
 
 **매개변수**
 
-| 이름 | 유형 | 설명 |
-| --- | --- | --- |
-| address | String | 저장소를 가져올 주소입니다. |
-| location | Number | 스토리지의 인덱스 위치입니다. |
+| 이름           | 유형               | 설명                                                                                                       |
+| ------------ | ---------------- | -------------------------------------------------------------------------------------------------------- |
+| address      | String           | 저장소를 가져올 주소입니다.                                                                                          |
+| location     | Number           | 스토리지의 인덱스 위치입니다.                                                                                         |
 | defaultBlock | Number \| String | (선택 사항) 이 매개변수를 전달하면 [caver.klay.defaultBlock](#defaultblock)으로 설정된 기본 블록이 사용되지 않습니다. |
-| callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 매개변수로 오류 객체를 반환하고 두 번째 매개변수로 결과를 반환합니다. |
+| callback     | Function         | (선택 사항) 선택적 콜백으로, 첫 번째 매개변수로 오류 객체를 반환하고 두 번째 매개변수로 결과를 반환합니다.                        |
 
 **리턴 값**
 
@@ -454,7 +456,6 @@ caver.klay.getStorageAt(address, position [, defaultBlock] [, callback])
 "0x033456732123ffff2342342dd12342434324234234fd234fd23fd4f23d4234"
 ```
 
-
 ## isMining <a id="ismining"></a>
 
 ```javascript
@@ -465,10 +466,9 @@ caver.klay.isMining([callback])
 
 **매개변수**
 
-| 이름 | 유형 | 설명 |
-| --- | --- | --- |
+| 이름       | 유형       | 설명                                                                                |
+| -------- | -------- | --------------------------------------------------------------------------------- |
 | callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 매개변수로 오류 객체를 반환하고 두 번째 매개변수로 결과를 반환합니다. |
-
 
 **리턴 값**
 
@@ -491,22 +491,21 @@ caver.klay.isSyncing([callback])
 
 **매개변수**
 
-| 이름 | 유형 | 설명 |
-| --- | --- | --- |
+| 이름       | 유형       | 설명                                                                                |
+| -------- | -------- | --------------------------------------------------------------------------------- |
 | callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 매개변수로 오류 객체를 반환하고 두 번째 매개변수로 결과를 반환합니다. |
-
 
 **리턴 값**
 
 `Promise`는 노드가 현재 동기화 중이거나 `false`일 때 동기화 오브젝트인 `Object|Boolean`을 반환합니다:
 
-| 이름 | 유형 | 설명 |
-| --- | --- | --- |
-| startingBlock | Number | 동기화가 시작된 블록 번호입니다. |
-| currentBlock | Number | 노드가 현재 동기화된 블록의 블록 번호입니다. |
-| highestBlock | Number | 동기화할 예상 블록 번호입니다. |
-| knownStates | Number | 다운로드할 것으로 예상되는 상태입니다. |
-| pulledStates | Number | 이미 다운로드한 상태입니다. |
+| 이름            | 유형     | 설명                        |
+| ------------- | ------ | ------------------------- |
+| startingBlock | Number | 동기화가 시작된 블록 번호입니다.        |
+| currentBlock  | Number | 노드가 현재 동기화된 블록의 블록 번호입니다. |
+| highestBlock  | Number | 동기화할 예상 블록 번호입니다.         |
+| knownStates   | Number | 다운로드할 것으로 예상되는 상태입니다.     |
+| pulledStates  | Number | 이미 다운로드한 상태입니다.           |
 
 **예시**
 

@@ -1,13 +1,12 @@
 ---
-description: >-
+description: |-
   API được sử dụng để truy vấn cấu hình mạng.
-
+    API được sử dụng để truy vấn cấu hình mạng.
 ---
 
 # net
 
 Không gian tên `net` cung cấp các hàm liên quan đến mạng lưới Klaytn.
-
 
 ## net_networkID <a id="net_networkid"></a>
 
@@ -19,9 +18,9 @@ Không có
 
 **Giá trị trả về**
 
-| Loại    | Mô tả                                                                                                                                  |
-| -------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| SỐ LƯỢNG | Số nguyên của số định danh mạng.<br/> - `"1001"`: Mạng thử nghiệm Klaytn Baobab.<br/> - `"8217"`: Mạng chính Klaytn Cypress. |
+| Loại    | Mô tả                                                                                                              |
+| -------- | ------------------------------------------------------------------------------------------------------------------ |
+| SỐ LƯỢNG | Số nguyên của số định danh mạng. - `"1001"`: Mạng thử nghiệm Klaytn Baobab. - `"8217"`: Mạng chính Klaytn Cypress. |
 
 **Ví dụ**
 
@@ -36,7 +35,6 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_
     "result":"1001"
 }
 ```
-
 
 ## net_listening <a id="net_listening"></a>
 
@@ -65,7 +63,6 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"net_
     "result":true
 }
 ```
-
 
 ## net_peerCount <a id="net_peercount"></a>
 
@@ -133,9 +130,9 @@ Không có
 
 **Giá trị trả về**
 
-| Loại    | Mô tả                                                                                                                                           |
-| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| SỐ LƯỢNG | Số nguyên của phiên bản giao thức klaytn.<br/> - `"1001"`: Mạng thử nghiệm Klaytn Baobab.<br/> - `"8217"`: Mạng chính Klaytn Cypress. |
+| Loại    | Mô tả                                                                                                                      |
+| -------- | -------------------------------------------------------------------------------------------------------------------------- |
+| SỐ LƯỢNG | Số nguyên của phiên bản giao thức klaytn - `"1001"`: Mạng thử nghiệm Klaytn Baobab. - `"8217"`: Mạng chính Klaytn Cypress. |
 
 **Ví dụ**
 

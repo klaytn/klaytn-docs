@@ -12,14 +12,14 @@ caver.abi.encodeFunctionSignature(functionSignature)
 
 **매개변수**
 
-| 이름 | 유형 | 설명 |
-| --- | --- | --- |
-| functionSignature | String \| Object | 인코딩할 함수의 함수 서명 또는 JSON 인터페이스 객체입니다. 문자열인 경우 ``function(type, type,...)`` 형식이어야 합니다(예: ``myFunction(uint256,uint32[],bytes10,bytes)``).
+| 이름                | 유형               | 설명                                                                                                                                                    |
+| ----------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| functionSignature | String \| Object | 인코딩할 함수의 함수 서명 또는 JSON 인터페이스 객체입니다. 문자열인 경우 `function(type, type,...)` 형식이어야 합니다(예: `myFunction(uint256,uint32[],bytes10,bytes)`). |
 
 **리턴 값**
 
-| 유형 | 설명 |
-| --- | --- |
+| Type   | 설명             |
+| ------ | -------------- |
 | string | 함수의 ABI 서명입니다. |
 
 **예시**
@@ -54,14 +54,14 @@ caver.abi.encodeEventSignature(eventSignature)
 
 **매개변수**
 
-| 이름 | 유형 | 설명 |
-| --- | --- | --- |
-| eventSignature | String \| Object | 인코딩할 이벤트의 이벤트 서명 또는 JSON 인터페이스 객체입니다. 문자열인 경우 `event(type,type,...)` 형식이어야 합니다(예: `myEvent(uint256,uint32[],bytes10,bytes)` |).
+| 이름             | 유형               | 설명                                                                                                                                             |
+| -------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| eventSignature | String \| Object | 인코딩할 이벤트의 이벤트 서명 또는 JSON 인터페이스 객체입니다. 문자열인 경우 `event(type,type,...)` 형식이어야 합니다(예: `myEvent(uint256,uint32[],bytes10,bytes)` |
 
 **리턴 값**
 
-| 유형 | 설명 |
-| --- | --- |
+| Type   | 설명              |
+| ------ | --------------- |
 | string | 이벤트의 ABI 서명입니다. |
 
 **예시**
@@ -96,17 +96,17 @@ caver.abi.encodeParameter(type, parameter)
 
 **매개변수**
 
-| 이름 | 유형 | 설명 |
-| --- | --- | --- |
-| Type | String \| Object | 매개변수의 유형, 유형 목록은 [Solidity 문서](http://solidity.readthedocs.io/en/develop/types.html)를 참조하세요. |
-| parameter | Mixed | 인코딩할 실제 매개변수입니다. |
+| 이름        | 유형               | 설명                                                                                           |
+| --------- | ---------------- | -------------------------------------------------------------------------------------------- |
+| type      | String \| Object | 매개변수의 유형, 유형 목록은 [Solidity 문서](http://solidity.readthedocs.io/en/develop/types.html)를 참조하세요. |
+| parameter | Mixed            | 인코딩할 실제 매개변수입니다.                                                                             |
 
 **참고** `tuple` 타입은 caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0) 부터 지원됩니다. `tuple` 타입에 대한 자세한 내용은 [Solidity 문서](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types)를 참고하시기 바랍니다.
 
 **리턴 값**
 
-| 유형 | 설명 |
-| --- | --- |
+| Type   | 설명                |
+| ------ | ----------------- |
 | string | ABI 인코딩된 매개변수입니다. |
 
 **예시**
@@ -148,17 +148,17 @@ JSON 인터페이스 객체를 기반으로 함수 매개변수를 인코딩합�
 
 **매개변수**
 
-| 이름 | 유형 | 설명 |
-| --- | --- | --- |
-| typesArray | Array \| object| 타입이 있는 배열 또는 함수의 JSON 인터페이스입니다. 유형 목록은 [Solidity 문서](http://solidity.readthedocs.io/en/develop/types.html)를 참조하세요. |
-| parameter | Array | 인코딩할 매개변수입니다. |
+| 이름         | 유형              | 설명                                                                                                                 |
+| ---------- | --------------- | ------------------------------------------------------------------------------------------------------------------ |
+| typesArray | Array \| object | 타입이 있는 배열 또는 함수의 JSON 인터페이스입니다. 유형 목록은 [Solidity 문서](http://solidity.readthedocs.io/en/develop/types.html)를 참조하세요. |
+| parameters | Array           | 인코딩할 매개변수입니다.                                                                                                      |
 
 **참고** `tuple` 타입은 caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0) 부터 지원됩니다. `tuple` 타입에 대한 자세한 내용은 [Solidity 문서](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types)를 참고하시기 바랍니다.
 
 **리턴 값**
 
-| 유형 | 설명 |
-| --- | --- |
+| Type   | 설명                |
+| ------ | ----------------- |
 | string | ABI 인코딩된 매개변수입니다. |
 
 **예시**
@@ -210,15 +210,15 @@ JSON 인터페이스 객체와 지정된 매개변수를 사용하여 함수 호
 
 **매개변수**
 
-| 이름 | 유형 | 설명 |
-| --- | --- | --- |
-| jsonInterface | Object | 함수의 JSON 인터페이스 객체입니다. |
-| parameter | Array | 인코딩할 매개변수입니다. |
+| 이름            | Type   | 설명                    |
+| ------------- | ------ | --------------------- |
+| jsonInterface | object | 함수의 JSON 인터페이스 객체입니다. |
+| parameters    | Array  | 인코딩할 매개변수입니다.         |
 
 **리턴 값**
 
-| 유형 | 설명 |
-| --- | --- |
+| Type   | 설명                                     |
+| ------ | -------------------------------------- |
 | string | 함수 서명 + 매개 변수를 의미하는 ABI 인코딩된 함수 호출입니다. |
 
 **예시**
@@ -250,15 +250,15 @@ caver.abi.decodeFunctionCall(abi, functionCall)
 
 **매개변수**
 
-| 이름 | 유형 | 설명 |
-| --- | --- | --- |
-| abi | Object | 함수의 abi 개체입니다. |
-| functionCall | String | 인코딩된 함수 호출 문자열입니다. |
+| 이름           | Type   | 설명                 |
+| ------------ | ------ | ------------------ |
+| abi          | object | 함수의 abi 개체입니다.     |
+| functionCall | string | 인코딩된 함수 호출 문자열입니다. |
 
 **리턴 값**
 
-| 유형 | 설명 |
-| --- | --- |
+| Type   | 설명                                                                       |
+| ------ | ------------------------------------------------------------------------ |
 | object | 일반 매개변수를 포함하는 개체입니다. 매개변수 순서대로 배열처럼 접근하도록 제공되므로 `result[0]`을 사용할 수 있습니다. |
 
 **예시**
@@ -294,17 +294,17 @@ ABI로 인코딩된 매개변수를 해당 JavaScript 유형으로 디코딩합�
 
 **매개변수**
 
-| 이름 | 유형 | 설명 |
-| --- | --- | --- |
-| type | String \| Object | 매개변수의 유형, 유형 목록은 [Solidity 문서](http://solidity.readthedocs.io/en/develop/types.html)를 참조하세요. |
-| hexstring | Array | 디코딩할 ABI 바이트 코드입니다. |
+| 이름        | Type             | 설명                                                                                           |
+| --------- | ---------------- | -------------------------------------------------------------------------------------------- |
+| type      | String \| Object | 매개변수의 유형, 유형 목록은 [Solidity 문서](http://solidity.readthedocs.io/en/develop/types.html)를 참조하세요. |
+| hexstring | Array            | 디코딩할 ABI 바이트 코드입니다.                                                                          |
 
 **참고** `tuple` 타입은 caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0) 부터 지원됩니다. `tuple` 타입에 대한 자세한 내용은 [Solidity 문서](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types)를 참고하시기 바랍니다.
 
 **리턴 값**
 
-| 유형 | 설명 |
-| --- | --- |
+| Type  | 설명            |
+| ----- | ------------- |
 | Mixed | 디코딩된 매개변수입니다. |
 
 **예시**
@@ -344,17 +344,18 @@ caver.abi.decodeParameters(typesArray, hexstring)
 ABI 인코딩된 매개변수를 해당 JavaScript 유형으로 디코딩합니다.
 
 **매개변수**
-| 이름 | 유형 | 설명 |
-| --- | --- | --- |
+
+| 이름         | Type            | 설명                                                                                                                 |
+| ---------- | --------------- | ------------------------------------------------------------------------------------------------------------------ |
 | typesArray | Array \| object | 유형이 있는 배열 또는 JSON 인터페이스 출력의 배열. 유형 목록은 [Solidity 문서](http://solidity.readthedocs.io/en/develop/types.html)를 참조하세요. |
-| hexstring | String | 디코딩할 ABI 바이트 코드입니다. |
+| hexstring  | string          | 디코딩할 ABI 바이트 코드입니다.                                                                                                |
 
 **참고** `tuple` 타입은 caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0) 부터 지원됩니다. `tuple` 타입에 대한 자세한 내용은 [Solidity 문서](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types)를 참고하시기 바랍니다.
 
 **리턴 값**
 
-| 유형 | 설명 |
-| --- | --- |
+| Type   | 설명                       |
+| ------ | ------------------------ |
 | object | 디코딩된 매개변수가 포함된 결과 개체입니다. |
 
 **예시**
@@ -438,16 +439,17 @@ caver.abi.decodeLog(inputs, hexstring, topics)
 ABI 인코딩된 로그 데이터와 인덱싱된 토픽 데이터를 디코딩합니다.
 
 **매개변수**
-| 이름 | 유형 | 설명 |
-| --- | --- | --- |
-| input | Array | JSON 인터페이스 입력값의 배열입니다. 유형 목록은 [Solidity 문서](http://solidity.readthedocs.io/en/develop/types.html)를 참조하세요. |
-| hexstring | String | 로그의 ``data`` 필드에 있는 ABI 바이트 코드입니다. |
-| topics | Array | 로그의 인덱스 매개변수 주제 배열입니다. 이 배열은 익명이 아닌 이벤트인 경우 topic[0]을 갖지 않으며, 그렇지 않은 경우 topic[0]을 갖습니다. |
+
+| 이름        | Type   | 설명                                                                                                                                                                                              |
+| --------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| input     | Array  | JSON 인터페이스 입력값의 배열입니다. 유형 목록은 [Solidity 문서](http://solidity.readthedocs.io/en/develop/types.html)를 참조하세요.                                                                                       |
+| hexstring | string | 로그의 `data` 필드에 있는 ABI 바이트 코드입니다.                                                                                                                                                                |
+| topics    | Array  | 로그의 인덱스 매개변수 주제 배열입니다. 이 배열은 익명이 아닌 이벤트인 경우 topic[0]을 갖지 않으며, 그렇지 않은 경우 topic[0]을 갖습니다. |
 
 **리턴 값**
 
-| 유형 | 설명 |
-| --- | --- |
+| Type   | 설명                     |
+| ------ | ---------------------- |
 | object | 디코딩된 로그가 포함된 결과 개체입니다. |
 
 **예시**
@@ -486,16 +488,17 @@ caver.abi.encodeContractDeploy(jsonInterface, hexstring [, params])
 생성자의 인수를 사용하여 스마트 컨트랙트 바이트코드를 인코딩합니다.
 
 **매개변수**
-| 이름 | 유형 | 설명 |
-| --- | --- | --- |
-| jsonInterface | Array | 컨트랙트의 JSON 인터페이스입니다. |
-| hexstring | String | 배포할 스마트 컨트랙트의 바이트코드입니다. |
-| parameter | Mixed | (선택 사항) 생성자에게 전달할 인수입니다. |
+
+| 이름            | Type   | 설명                                          |
+| ------------- | ------ | ------------------------------------------- |
+| jsonInterface | Array  | 컨트랙트의 JSON 인터페이스입니다.                        |
+| hexstring     | string | 배포할 스마트 컨트랙트의 바이트코드입니다.                     |
+| params        | Mixed  | (선택 사항) 생성자에게 전달할 인수입니다. |
 
 **리턴 값**
 
-| 유형 | 설명 |
-| --- | --- |
+| Type   | 설명                                                                          |
+| ------ | --------------------------------------------------------------------------- |
 | string | 생성자 인수가 있는 ABI 인코딩된 스마트 컨트랙트 배포(byteCode + 매개변수를 의미)입니다. |
 
 **예시**

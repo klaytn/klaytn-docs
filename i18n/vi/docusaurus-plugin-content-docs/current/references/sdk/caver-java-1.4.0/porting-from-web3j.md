@@ -29,4 +29,3 @@ KlayTransactionReceipt.TransactionReceipt transactionReceipt = ValueTransfer.sen
 ```
 
 ## <a id=""></a>
-

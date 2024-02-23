@@ -5,27 +5,28 @@
 ```javascript
 caver.klay.sendTransaction(transactionObject [, callback])
 ```
+
 Gửi giao dịch [Tạo tài khoản](../../../../../../learn/transactions/basic.md) đến mạng.
 
 **Tham số**
 
-| Tên                                    | type                                    | Mô tả                                                                                                                                                                                                                                                                                                    |
-| -------------------------------------- | --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| transactionObject                      | Đối tượng                               | Đối tượng giao dịch cần gửi.                                                                                                                                                                                                                                                                             |
-| transactionObject.type                 | Chuỗi                                   | Loại giao dịch "ACCOUNT_CREATION".                                                                                                                                                                                                                                                                       |
-| transactionObject.from                 | Chuỗi                                   | Địa chỉ người gửi của giao dịch.                                                                                                                                                                                                                                                                         |
-| transactionObject.to                   | Chuỗi                                   | Địa chỉ sẽ được tạo mới.                                                                                                                                                                                                                                                                                 |
-| transactionObject.value                | Số \| Chuỗi \| BN \| Số lớn | Giá trị được chuyển cho tài khoản tạo mới theo peb.                                                                                                                                                                                                                                                      |
-| transactionObject.gas                  | Số                                      | Lượng gas được sử dụng cho giao dịch (sẽ hoàn lại số gas chưa được dùng đến).                                                                                                                                                                                                                            |
-| transactionObject.gasPrice             | Số                                      | (tùy chọn) Giá gas được người gửi cung cấp theo đơn vị peb. Tham số gasPrice phải giống với tham số unitPrice được thiết lập trong nút Klaytn.                                                                                                                                                           |
-| transactionObject.nonce                | Số                                      | (tùy chọn) Giá trị nguyên của số dùng một lần. Nếu bị bỏ qua, số lượng giao dịch sẽ được caver-js thiết lập bằng cách gọi ra `caver.klay.getTransactionCount`.                                                                                                                                           |
-| transactionObject.publicKey            | Chuỗi                                   | (tùy chọn) Nếu tạo tài khoản với khóa công khai, hãy ghi lại khóa công khai 64 byte.                                                                                                                                                                                                                     |
-| transactionObject.multisig             | Chuỗi                                   | (tùy chọn) Nếu tạo tài khoản với khóa đa chữ ký, hãy ghi lại cơ chế đa chữ ký với nhiều khóa công khai. Các khóa công khai tạo thành cơ chế đa chữ ký có trọng số riêng. Đối với các giao dịch được ký bằng cơ chế đa chữ ký, tổng trọng số của các chữ ký phải lớn hơn hoặc bằng ngưỡng được thiết lập. |
-| transactionObject.roleTransactionKey   | Chuỗi                                   | (tùy chọn) Nếu tạo tài khoản với khóa dựa trên vai trò, hãy ghi lại roleTransactionKey với khóa công khai hoặc khóa đa chữ ký. Khóa roleTransactionKey này được sử dụng khi ký giao dịch.                                                                                                                |
-| transactionObject.roleAccountUpdateKey | Chuỗi                                   | (tùy chọn) Nếu tạo tài khoản với khóa dựa trên vai trò, hãy ghi lại roleAccountUpdateKey với khóa công khai hoặc khóa đa chữ ký. Khóa roleAccountUpdateKey này được sử dụng khi ký giao dịch AccountUpdate.                                                                                              |
-| transactionObject.roleFeePayerKey      | Chuỗi                                   | (tùy chọn) Nếu tạo tài khoản với khóa dựa trên vai trò, hãy ghi lại roleFeePayerKey với khóa công khai hoặc khóa đa chữ ký. Khóa roleFeePayerKey này được sử dụng khi ký giao dịch với vai trò là người trả phí.                                                                                         |
-| transactionObject.failKey              | Bool                                    | (tùy chọn) Nếu tạo tài khoản với khóa fail, hãy đặt giá trị là true                                                                                                                                                                                                                                      |
-| callback                               | Hàm                                     | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                                                                                                                                                                          |
+| Tên                                    | type                        | Mô tả                                                                                                                                                                                                                                                                                                                       |
+| -------------------------------------- | --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| transactionObject                      | Đối tượng                   | Đối tượng giao dịch cần gửi.                                                                                                                                                                                                                                                                                                |
+| transactionObject.type                 | Chuỗi                       | Loại giao dịch "ACCOUNT_CREATION".                                                                                                                                                                                                                                                                     |
+| transactionObject.from                 | Chuỗi                       | Địa chỉ người gửi của giao dịch.                                                                                                                                                                                                                                                                                            |
+| transactionObject.to                   | Chuỗi                       | Địa chỉ sẽ được tạo mới.                                                                                                                                                                                                                                                                                                    |
+| transactionObject.value                | Số \| Chuỗi \| BN \| Số lớn | Giá trị được chuyển cho tài khoản tạo mới theo peb.                                                                                                                                                                                                                                                                         |
+| transactionObject.gas                  | Số                          | Lượng gas được sử dụng cho giao dịch (sẽ hoàn lại số gas chưa được dùng đến).                                                                                                                                                                                                                            |
+| transactionObject.gasPrice             | Số                          | (tùy chọn) Giá gas được người gửi cung cấp theo đơn vị peb. Tham số gasPrice phải giống với tham số unitPrice được thiết lập trong nút Klaytn.                                                                                                                                                           |
+| transactionObject.nonce                | Số                          | (tùy chọn) Giá trị nguyên của số dùng một lần. Nếu bị bỏ qua, số lượng giao dịch sẽ được caver-js thiết lập bằng cách gọi ra `caver.klay.getTransactionCount`.                                                                                                                                           |
+| transactionObject.publicKey            | Chuỗi                       | (tùy chọn) Nếu tạo tài khoản với khóa công khai, hãy ghi lại khóa công khai 64 byte.                                                                                                                                                                                                                     |
+| transactionObject.multisig             | Chuỗi                       | (tùy chọn) Nếu tạo tài khoản với khóa đa chữ ký, hãy ghi lại cơ chế đa chữ ký với nhiều khóa công khai. Các khóa công khai tạo thành cơ chế đa chữ ký có trọng số riêng. Đối với các giao dịch được ký bằng cơ chế đa chữ ký, tổng trọng số của các chữ ký phải lớn hơn hoặc bằng ngưỡng được thiết lập. |
+| transactionObject.roleTransactionKey   | Chuỗi                       | (tùy chọn) Nếu tạo tài khoản với khóa dựa trên vai trò, hãy ghi lại roleTransactionKey với khóa công khai hoặc khóa đa chữ ký. Khóa roleTransactionKey này được sử dụng khi ký giao dịch.                                                                                                                |
+| transactionObject.roleAccountUpdateKey | Chuỗi                       | (tùy chọn) Nếu tạo tài khoản với khóa dựa trên vai trò, hãy ghi lại roleAccountUpdateKey với khóa công khai hoặc khóa đa chữ ký. Khóa roleAccountUpdateKey này được sử dụng khi ký giao dịch AccountUpdate.                                                                                              |
+| transactionObject.roleFeePayerKey      | Chuỗi                       | (tùy chọn) Nếu tạo tài khoản với khóa dựa trên vai trò, hãy ghi lại roleFeePayerKey với khóa công khai hoặc khóa đa chữ ký. Khóa roleFeePayerKey này được sử dụng khi ký giao dịch với vai trò là người trả phí.                                                                                         |
+| transactionObject.failKey              | Bool                        | (tùy chọn) Nếu tạo tài khoản với khóa fail, hãy đặt giá trị là true                                                                                                                                                                                                                                      |
+| callback                               | Hàm                         | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                                                                                                                                                                          |
 
 **Giá trị trả về**
 
@@ -41,9 +42,9 @@ Hàm `callback` sẽ trả về hàm băm giao dịch 32 byte.
 
 ```javascript
 
-// Trường hợp 1: Tạo tài khoản bằng khóa công khai (con người có thể đọc được)
+// Case 1: Creating account with public key (human-readable)
 
-// sử dụng promise
+// using the promise
 caver.klay.sendTransaction({
     type: 'ACCOUNT_CREATION',
     from: '0x90B3E9A3770481345A7F17f22f16D020Bccfd33e',
@@ -56,7 +57,7 @@ caver.klay.sendTransaction({
     ...
 });
 
-// sử dụng bộ phát hiệu ứng sự kiện
+// using the event emitter
 caver.klay.sendTransaction({
     type: 'ACCOUNT_CREATION',
     from: '0x90B3E9A3770481345A7F17f22f16D020Bccfd33e',
@@ -71,11 +72,11 @@ caver.klay.sendTransaction({
 .on('receipt', function(receipt){
     ...
 })
-.on('error', console.error); // Khi xảy ra lỗi hết gas, tham số thứ hai sẽ là biên lai.
+.on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
 
-// Trường hợp 2: Tạo tài khoản bằng khóa công khai (con người không đọc được)
+// Case 2: Creating account with public key (non-humanreadable)
 
-// sử dụng promise
+// using the promise
 caver.klay.sendTransaction({
     type: 'ACCOUNT_CREATION',
     from: '0x90B3E9A3770481345A7F17f22f16D020Bccfd33e',
@@ -88,7 +89,7 @@ caver.klay.sendTransaction({
     ...
 });
 
-// sử dụng bộ phát hiệu ứng sự kiện
+// using the event emitter
 caver.klay.sendTransaction({
     type: 'ACCOUNT_CREATION',
     from: '0x90B3E9A3770481345A7F17f22f16D020Bccfd33e',
@@ -103,11 +104,11 @@ caver.klay.sendTransaction({
 .on('receipt', function(receipt){
     ...
 })
-.on('error', console.error); // Khi xảy ra lỗi hết gas, tham số thứ hai sẽ là biên lai.
+.on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
 
-// Trường hợp 3: Tạo tài khoản bằng khóa fail
+// Case 3: Creating account with fail key
 
-// sử dụng promise
+// using the promise
 caver.klay.sendTransaction({
     type: 'ACCOUNT_CREATION',
     from: '0x90B3E9A3770481345A7F17f22f16D020Bccfd33e',
@@ -120,7 +121,7 @@ caver.klay.sendTransaction({
     ...
 });
 
-// sử dụng bộ phát hiệu ứng sự kiện
+// using the event emitter
 caver.klay.sendTransaction({
     type: 'ACCOUNT_CREATION',
     from: '0x90B3E9A3770481345A7F17f22f16D020Bccfd33e',
@@ -135,11 +136,11 @@ caver.klay.sendTransaction({
 .on('receipt', function(receipt){
     ...
 })
-.on('error', console.error); // Khi xảy ra lỗi hết gas, tham số thứ hai sẽ là biên lai.
+.on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
 
-// Trường hợp 4: Tạo tài khoản bằng đa chữ ký có trọng số
+// Case 4: Creating account with weighted-multisig
 
-// sử dụng promise
+// using the promise
 caver.klay.sendTransaction({
   type: 'ACCOUNT_CREATION',
   from: '0x492c06ff9f5fbd51ace4ff214bfc9ca06fe4c601',
@@ -159,7 +160,7 @@ caver.klay.sendTransaction({
     ...
 });
 
-// sử dụng bộ phát hiệu ứng sự kiện
+// using the event emitter
 caver.klay.sendTransaction({
   type: 'ACCOUNT_CREATION',
   from: '0x492c06ff9f5fbd51ace4ff214bfc9ca06fe4c601',
@@ -181,11 +182,11 @@ caver.klay.sendTransaction({
 .on('receipt', function(receipt){
     ...
 })
-.on('error', console.error); // Khi xảy ra lỗi hết gas, tham số thứ hai sẽ là biên lai.
+.on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
 
-// Trường hợp 5: Tạo tài khoản bằng khóa theo vai trò
+// Case 5: Creating account with role-based key
 
-// sử dụng promise
+// using the promise
 caver.klay.sendTransaction({
   type: 'ACCOUNT_CREATION',
   from: '0x492c06ff9f5fbd51ace4ff214bfc9ca06fe4c601',
@@ -205,7 +206,7 @@ caver.klay.sendTransaction({
     ...
 });
 
-// sử dụng bộ phát hiệu ứng sự kiện
+// using the event emitter
 caver.klay.sendTransaction({
   type: 'ACCOUNT_CREATION',
   from: '0x492c06ff9f5fbd51ace4ff214bfc9ca06fe4c601',
@@ -227,6 +228,6 @@ caver.klay.sendTransaction({
 .on('receipt', function(receipt){
     ...
 })
-.on('error', console.error); // Khi xảy ra lỗi hết gas, tham số thứ hai sẽ là biên lai.
+.on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
 
 ```

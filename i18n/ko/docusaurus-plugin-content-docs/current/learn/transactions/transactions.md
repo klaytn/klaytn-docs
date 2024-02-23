@@ -4,14 +4,14 @@
 
 블록체인 플랫폼에서 트랜잭션은 노드 간에 전송되는 메시지로, 블록체인의 상태를 변경합니다. 예를 들어 앨리스의 계정에서 밥의 계정으로 10 KLAY를 전송하는 트랜잭션이 실행되면 앨리스의 잔액은 10 KLAY 감소하고 밥의 잔액은 10 KLAY 증가합니다. 트랜잭션은 원자 연산이므로 다른 트랜잭션에 끼워 넣을 수 없다는 점에 유의하시기 바랍니다. 일반적인 블록체인 트랜잭션은 아래와 같은 구성 요소를 가지고 있습니다:
 
-| 구성 요소 | 설명 |
-| :--- | :--- |
-| value | 전송할 `peb`의 KLAY 양입니다. |
-| to | 이체된 값을 받을 계정 주소입니다. |
-| input | 트랜잭션 실행에 사용되는 트랜잭션에 첨부된 데이터입니다. |
-| v, r, s | 수신자가 발신자의 주소를 알 수 있도록 발신자가 생성한 암호화 서명입니다. |
-| nonce | 발신자의 트랜잭션을 고유하게 식별하는 데 사용되는 값입니다. 발신자가 동일한 nonce를 가진 두 개의 트랜잭션을 생성한 경우 하나만 실행됩니다. |
-| gas | 트랜잭션이 사용할 수 있는 최대 트랜잭션 수수료 금액입니다. |
+| 구성 요소    | 설명                                                                                                                                                                                                                    |
+| :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| value    | 전송할 `peb`의 KLAY 양입니다.                                                                                                                                                                                                 |
+| to       | 이체된 값을 받을 계정 주소입니다.                                                                                                                                                                                                   |
+| input    | 트랜잭션 실행에 사용되는 트랜잭션에 첨부된 데이터입니다.                                                                                                                                                                                       |
+| v, r, s  | 수신자가 발신자의 주소를 알 수 있도록 발신자가 생성한 암호화 서명입니다.                                                                                                                                                                             |
+| nonce    | 발신자의 트랜잭션을 고유하게 식별하는 데 사용되는 값입니다. 발신자가 동일한 nonce를 가진 두 개의 트랜잭션을 생성한 경우 하나만 실행됩니다.                                                                                                                                     |
+| gas      | 트랜잭션이 사용할 수 있는 최대 트랜잭션 수수료 금액입니다.                                                                                                                                                                                     |
 | gasPrice | 발신자가 토큰으로 지불할 금액을 얻기 위한 승수입니다. 발신자가 지불할 토큰의 양은 `gas` \* `gasPrice`를 통해 계산됩니다. 예를 들어, 가스값이 10이고 가스가격이 10^18이면 발신자는 트랜잭션 수수료로 10 KLAY를 지불하게 됩니다. KLAY 단위는 [여기](../klaytn-native-coin-klay.md#units-of-klay)에 설명되어 있습니다. |
 
 ## 클레이튼 트랜잭션 <a id="klaytn-transactions"></a>
@@ -34,15 +34,13 @@ SenderTxHash는 수수료 납부자의 주소와 서명이 없는 트랜잭션�
 
 각 거래 유형에 대해 자세히 설명합니다:
 
-| | 기본 | feeDelegation | 부분 수수료 위임 |
-| :--- | :--- | :--- | :--- |
-| Legacy | [TxTypeLegacyTransaction](./basic.md#txtypelegacytransaction) | N/A | N/A | N/A |
-| ValueTransfer | [TxTypeValueTransfer](./basic.md#txtypevaluetransfer) | [TxTypeFeeDelegatedValueTransfer](./fee-delegation.md#txtypefeedelegatedvaluetransfer) | [TxTypeFeeDelegatedValueTransferWithRatio](./partial-fee-delegation.md#txtypefeedelegatedvaluetransferwithratio) |
-| ValueTransferMemo | [TxTypeValueTransferMemo](./basic.md#txtypevaluetransfermemo) | [TxTypeFeeDelegatedValueTransferMemo](./fee-delegation.md#txtypefeedelegatedvaluetransfermemo) | [TxTypeFeeDelegatedValueTransferMemoWithRatio](./partial-fee-delegation.md#txtypefeedelegatedvaluetransfermemowithratio) |
-| SmartContractDeploy | [TxTypeSmartContractDeploy](./basic.md#txtypesmartcontractdeploy) | [TxTypeFeeDelegatedSmartContractDeploy](./fee-delegation.md#txtypefeedelegatedsmartcontractdeploy) | [TxTypeFeeDelegatedSmartContractDeployWithRatio](./partial-fee-delegation.md#txtypefeedelegatedsmartcontractdeploywithratio) |
+|                        | 기본                                                                      | feeDelegation                                                                                            | 부분 수수료 위임                                                                                                                          |
+| :--------------------- | :---------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------- |
+| Legacy                 | [TxTypeLegacyTransaction](./basic.md#txtypelegacytransaction)           | N/A                                                                                                      | N/A                                                                                                                                |
+| ValueTransfer          | [TxTypeValueTransfer](./basic.md#txtypevaluetransfer)                   | [TxTypeFeeDelegatedValueTransfer](./fee-delegation.md#txtypefeedelegatedvaluetransfer)                   | [TxTypeFeeDelegatedValueTransferWithRatio](./partial-fee-delegation.md#txtypefeedelegatedvaluetransferwithratio)                   |
+| ValueTransferMemo      | [TxTypeValueTransferMemo](./basic.md#txtypevaluetransfermemo)           | [TxTypeFeeDelegatedValueTransferMemo](./fee-delegation.md#txtypefeedelegatedvaluetransfermemo)           | [TxTypeFeeDelegatedValueTransferMemoWithRatio](./partial-fee-delegation.md#txtypefeedelegatedvaluetransfermemowithratio)           |
+| SmartContractDeploy    | [TxTypeSmartContractDeploy](./basic.md#txtypesmartcontractdeploy)       | [TxTypeFeeDelegatedSmartContractDeploy](./fee-delegation.md#txtypefeedelegatedsmartcontractdeploy)       | [TxTypeFeeDelegatedSmartContractDeployWithRatio](./partial-fee-delegation.md#txtypefeedelegatedsmartcontractdeploywithratio)       |
 | SmartContractExecution | [TxTypeSmartContractExecution](./basic.md#txtypesmartcontractexecution) | [TxTypeFeeDelegatedSmartContractExecution](./fee-delegation.md#txtypefeedelegatedsmartcontractexecution) | [TxTypeFeeDelegatedSmartContractExecutionWithRatio](./partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio) |
-| AccountUpdate | [TxTypeAccountUpdate](./basic.md#txtypeaccountupdate) | [TxTypeFeeDelegatedAccountUpdate](./fee-delegation.md#txtypefeedelegatedaccountupdate) | [TxTypeFeeDelegatedAccountUpdateWithRatio](./partial-fee-delegation.md#txtypefeedelegatedaccountupdatewithratio) |
-| Cancel | [TxTypeCancel](./basic.md#txtypecancel) | [TxTypeFeeDelegatedCancel](./fee-delegation.md#txtypefeedelegatedcancel) | [TxTypeFeeDelegatedCancelWithRatio](./partial-fee-delegation.md#txtypefeedelegatedcancelwithratio) |
-| ChainDataAnchoring | [TxTypeChainDataAnchoring](./basic.md#txtypechaindataanchoring) | [TxTypeFeeDelegatedChainDataAnchoring](./fee-delegation.md#txtypefeedelegatedchaindataanchoring) | [TxTypeFeeDelegatedChainDataAnchoringWithRatio](./partial-fee-delegation.md#txtypefeedelegatedchaindataanchoringwithratio)|
-
-
+| AccountUpdate          | [TxTypeAccountUpdate](./basic.md#txtypeaccountupdate)                   | [TxTypeFeeDelegatedAccountUpdate](./fee-delegation.md#txtypefeedelegatedaccountupdate)                   | [TxTypeFeeDelegatedAccountUpdateWithRatio](./partial-fee-delegation.md#txtypefeedelegatedaccountupdatewithratio)                   |
+| Cancel                 | [TxTypeCancel](./basic.md#txtypecancel)                                 | [TxTypeFeeDelegatedCancel](./fee-delegation.md#txtypefeedelegatedcancel)                                 | [TxTypeFeeDelegatedCancelWithRatio](./partial-fee-delegation.md#txtypefeedelegatedcancelwithratio)                                 |
+| ChainDataAnchoring     | [TxTypeChainDataAnchoring](./basic.md#txtypechaindataanchoring)         | [TxTypeFeeDelegatedChainDataAnchoring](./fee-delegation.md#txtypefeedelegatedchaindataanchoring)         | [TxTypeFeeDelegatedChainDataAnchoringWithRatio](./partial-fee-delegation.md#txtypefeedelegatedchaindataanchoringwithratio)         |

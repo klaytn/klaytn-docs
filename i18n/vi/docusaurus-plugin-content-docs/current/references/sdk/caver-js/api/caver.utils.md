@@ -1,6 +1,5 @@
 ---
-description: caver-js utility APIs.
-
+description: "description: caver-js utility APIs."
 ---
 
 # caver.utils
@@ -46,7 +45,7 @@ Thư viện [randomHex](https://github.com/frozeman/randomHex) để tạo các 
 '0x'
 ```
 
-## \_ <a href="#_" id="_"></a>
+## _ <a href="#_" id="_"></a>
 
 ```javascript
 caver.utils._()
@@ -78,9 +77,9 @@ Chuyển đổi một cách an toàn mọi giá trị đã cho (bao gồm đối
 
 **Tham số**
 
-| Tên    | type     | Mô tả                                   |
-| ------ | -------- | --------------------------------------- |
-| number | chuỗi \ | số | số để chuyển đổi thành một số lớn. |
+| Tên    | type        | Mô tả                              |
+| ------ | ----------- | ---------------------------------- |
+| number | chuỗi \| số | số để chuyển đổi thành một số lớn. |
 
 **Giá trị trả về**
 
@@ -209,8 +208,8 @@ Tính toán sha3 của các tham số đầu vào đã cho theo cách tương t�
 
 **Tham số**
 
-| Tên    | Loại   | Mô tả                     |
-| ------ | ------- | ------------------------- |
+| Tên    | Loại   | Mô tả                                                                                                                                                                                                                                                                                           |
+| ------ | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | paramX | Hỗn hợp | <p>Bất kỳ loại hoặc đối tượng nào có <code>`{type: 'uint', value: '123456'}`</code> hoặc <code>`{t: 'bytes', v: '0xfff456'}`</code>. Các loại cơ bản được tự động phát hiện như sau:<br/>- <code>string</code> chuỗi UTF-8 không phải là số được hiểu là <code>string</code>.<br/>- `string</p> |
 
 **Giá trị trả về**
@@ -223,7 +222,7 @@ Tính toán sha3 của các tham số đầu vào đã cho theo cách tương t�
 
 ```javascript
 > caver.utils.soliditySha3('234564535', '0xfff23243', true, -10)
-// tự động phát hiện: uint256, bytes, bool, int256
+// auto detects: uint256, bytes, bool, int256
 '0x3e27a893dc40ef8a7f0841d96639de2f58a132be5ae466d40087a2cfa83b7179'
 
 > caver.utils.soliditySha3('Hello!%') // auto detects: string
@@ -438,9 +437,9 @@ Chuyển đổi giá trị đã cho bất kỳ thành HEX. Các chuỗi số s�
 
 **Tham số**
 
-| Tên   | Loại    | Mô tả                                                     |
-| ----- | -------- | --------------------------------------------------------- |
-| mixed | chuỗi \ | số \| BN \| BigNumber | Đầu vào để chuyển đổi sang HEX. |
+| Tên   | Loại                          | Mô tả                           |
+| ----- | ------------------------------ | ------------------------------- |
+| mixed | chuỗi \| số \| BN \| BigNumber | Đầu vào để chuyển đổi sang HEX. |
 
 **Giá trị trả về**
 
@@ -533,9 +532,9 @@ Trả về biểu diễn HEX của một giá trị số đã cho.
 
 **Tham số**
 
-| Tên    | Loại    | Mô tả                                                     |
-| ------ | -------- | --------------------------------------------------------- |
-| number | chuỗi \ | số \| BN \| BigNumber | Một số dưới dạng chuỗi hoặc số. |
+| Tên    | Loại                          | Mô tả                           |
+| ------ | ------------------------------ | ------------------------------- |
+| number | chuỗi \| số \| BN \| BigNumber | Một số dưới dạng chuỗi hoặc số. |
 
 **Giá trị trả về**
 
@@ -726,16 +725,16 @@ Chuyển đổi giá trị KLAY bất kỳ thành peb.
 
 **Tham số**
 
-| Tên    | Loại    | Mô tả                      |
-| ------ | -------- | -------------------------- |
-| number | chuỗi \ | số \| BN | Giá trị.       |
-| đơn vị | chuỗi    | <p>(tùy chọn, mặc định là <code>"KLAY"</code>) Đơn vị KLAY để chuyển đổi. <code>number</code> sẽ được nhân với một trong các hệ số sau cho đơn vị được cung cấp:<br/>- <code>peb</code>: '1'<br/>- <code>kpeb</code>: '1000'<br/>- <code>Mpeb</code>: '1000000'<br/>- <code>Gpeb</code>: '1000000000'<br/>- <code>Ston</code>: '1000000000'<br/>- <code>uKLAY</code>: '1000000000000'<br/>- <code>mKLAY</code>: '1000000000000000'<br/>- <code>KLAY</code>: '1000000000000000000'<br/>- <code>kKLAY</code>: '1000000000000000000000'<br/>- <code>MKLAY</code>: '1000000000000000000000000'<br/>- <code>GKLAY</code>: '1000000000000000000000000000'<br/></p> |
+| Tên    | Loại             | Mô tả                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| ------ | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| number | chuỗi \| số \| BN | Giá trị.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| đơn vị | chuỗi             | <p>(tùy chọn, mặc định là <code>"KLAY"</code>) Đơn vị KLAY để chuyển đổi. <code>number</code> sẽ được nhân với một trong các hệ số sau cho đơn vị được cung cấp:<br/>- <code>peb</code>: '1'<br/>- <code>kpeb</code>: '1000'<br/>- <code>Mpeb</code>: '1000000'<br/>- <code>Gpeb</code>: '1000000000'<br/>- <code>Ston</code>: '1000000000'<br/>- <code>uKLAY</code>: '1000000000000'<br/>- <code>mKLAY</code>: '1000000000000000'<br/>- <code>KLAY</code>: '1000000000000000000'<br/>- <code>kKLAY</code>: '1000000000000000000000'<br/>- <code>MKLAY</code>: '1000000000000000000000000'<br/>- <code>GKLAY</code>: '1000000000000000000000000000'<br/></p> |
 
 **Giá trị trả về**
 
-| Loại    | Mô tả                                                                                                                                           |
-| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| chuỗi \ | BN | Nếu tham số số là một đối tượng [BN](https://github.com/indutny/bn.js/) thì nó trả về một đối tượng BN, nếu không thì sẽ trả về một chuỗi. |
+| Loại       | Mô tả                                                                                                                                      |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| chuỗi \| BN | Nếu tham số số là một đối tượng [BN](https://github.com/indutny/bn.js/) thì nó trả về một đối tượng BN, nếu không thì sẽ trả về một chuỗi. |
 
 **Ví dụ**
 
@@ -757,10 +756,10 @@ caver.utils.convertFromPeb(number [, unit])
 
 **Tham số**
 
-| Tên    | Loại    | Mô tả                                            |
-| ------ | -------- | ------------------------------------------------ |
-| number | chuỗi \ | số \| BN \| BigNumber | Giá trị tính bằng peb. |
-| đơn vị | chuỗi    | <p>(tùy chọn, mặc định là <code>"KLAY"</code>) Đơn vị KLAY để chuyển đổi "peb" của bạn thành. <code>number</code> sẽ được chia cho một trong các mẫu số sau cho đơn vị được cung cấp:<br/>- <code>peb</code>: '1'<br/>- <code>kpeb</code>: '1000'<br/>- <code>Mpeb</code>: '1000000'<br/>- <code>Gpeb</code>: '1000000000'<br/>- <code>Ston</code>: '1000000000'<br/>- <code>uKLAY</code>: '1000000000000'<br/>- <code>mKLAY</code>: '1000000000000000'<br/>- <code>KLAY</code>: '1000000000000000000'<br/>- <code>kKLAY</code>: '1000000000000000000000'<br/>- <code>MKLAY</code>: '1000000000000000000000000'<br/>- <code>GKLAY</code>: '1000000000000000000000000000'<br/></p>                       |
+| Tên    | Loại                          | Mô tả                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ------ | ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| number | chuỗi \| số \| BN \| BigNumber | Giá trị tính bằng peb.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| đơn vị | chuỗi                          | <p>(tùy chọn, mặc định là <code>"KLAY"</code>) Đơn vị KLAY để chuyển đổi "peb" của bạn thành. <code>number</code> sẽ được chia cho một trong các mẫu số sau cho đơn vị được cung cấp:<br/>- <code>peb</code>: '1'<br/>- <code>kpeb</code>: '1000'<br/>- <code>Mpeb</code>: '1000000'<br/>- <code>Gpeb</code>: '1000000000'<br/>- <code>Ston</code>: '1000000000'<br/>- <code>uKLAY</code>: '1000000000000'<br/>- <code>mKLAY</code>: '1000000000000000'<br/>- <code>KLAY</code>: '1000000000000000000'<br/>- <code>kKLAY</code>: '1000000000000000000000'<br/>- <code>MKLAY</code>: '1000000000000000000000000'<br/>- <code>GKLAY</code>: '1000000000000000000000000000'<br/></p> |
 
 **Giá trị trả về**
 
@@ -785,8 +784,8 @@ Hiển thị tất cả các giá trị KLAY có thể có và số lượng c�
 
 **Giá trị trả về**
 
-| Loại     | Mô tả                      |
-| --------- | -------------------------- |
+| Loại     | Mô tả                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Đối tượng | <p>Với các thuộc tính sau:<br/>- <code>peb</code>: '1'<br/>- <code>kpeb</code>: '1000'<br/>- <code>Mpeb</code>: '1000000'<br/>- <code>Gpeb</code>: '1000000000'<br/>- <code>Ston</code>: '1000000000'<br/>- <code>uKLAY</code>: '1000000000000'<br/>- <code>mKLAY</code>: '1000000000000000'<br/>- <code>KLAY</code>: '1000000000000000000'<br/>- <code>kKLAY</code>: '1000000000000000000000'<br/>- <code>MKLAY</code>: '1000000000000000000000000'<br/>- <code>GKLAY</code>: '1000000000000000000000000000'<br/>- <code>TKLAY</code>: '1000000000000000000000000000000'<br/></p> |
 
 **Ví dụ**
@@ -854,10 +853,10 @@ Thêm khoảng trống vào bên trái của một chuỗi. Hữu ích khi thêm
 
 **Tham số**
 
-| Tên             | Loại | Mô tả                                                  |
-| --------------- | ----- | ------------------------------------------------------ |
-| string          | chuỗi | Chuỗi để thêm phần đệm vào bên trái.                   |
-| characterAmount | số    | Số lượng ký tự mà tổng chuỗi phải có.                  |
+| Tên             | Loại | Mô tả                                                                     |
+| --------------- | ----- | ------------------------------------------------------------------------- |
+| string          | chuỗi | Chuỗi để thêm phần đệm vào bên trái.                                      |
+| characterAmount | số    | Số lượng ký tự mà tổng chuỗi phải có.                                     |
 | sign            | chuỗi | (tùy chọn) Dấu hiệu ký tự để sử dụng, mặc định là `0`. |
 
 **Giá trị trả về**
@@ -890,10 +889,10 @@ Thêm khoảng trống vào bên phải của chuỗi, Hữu ích khi thêm ph�
 
 **Tham số**
 
-| Tên             | Loại | Mô tả                                                  |
-| --------------- | ----- | ------------------------------------------------------ |
-| str             | chuỗi | Chuỗi để thêm phần đệm vào bên phải.                   |
-| characterAmount | số    | Số lượng ký tự mà tổng chuỗi phải có.                  |
+| Tên             | Loại | Mô tả                                                                     |
+| --------------- | ----- | ------------------------------------------------------------------------- |
+| str             | chuỗi | Chuỗi để thêm phần đệm vào bên phải.                                      |
+| characterAmount | số    | Số lượng ký tự mà tổng chuỗi phải có.                                     |
 | sign            | chuỗi | (tùy chọn) Dấu hiệu ký tự để sử dụng, mặc định là `0`. |
 
 **Giá trị trả về**
@@ -979,9 +978,9 @@ Chuyển đổi một số âm thành phần bù hai.
 
 **Tham số**
 
-| Tên | Loại | Mô tả                                   |
-| --- | ----- | --------------------------------------- |
-| num | số \ | chuỗi \| BigNumber | Số để chuyển đổi. |
+| Tên | Loại                    | Mô tả             |
+| --- | ------------------------ | ----------------- |
+| num | số \| chuỗi \| BigNumber | Số để chuyển đổi. |
 
 **Giá trị trả về**
 
@@ -1018,8 +1017,8 @@ Trả về `true` nếu giao dịch đã cho là giao dịch triển khai hợp 
 
 **Tham số**
 
-| Tên               | Loại     | Mô tả                                                                                                |
-| ----------------- | --------- | ---------------------------------------------------------------------------------------------------- |
+| Tên               | Loại     | Mô tả                                                                                                                      |
+| ----------------- | --------- | -------------------------------------------------------------------------------------------------------------------------- |
 | transactionObject | đối tượng | Đối tượng [Giao dịch](./caver-transaction/caver-transaction.md#class) để kiểm tra giao dịch triển khai hợp đồng hay không. |
 
 **Giá trị trả về**
@@ -1207,9 +1206,9 @@ Hàm này chuyển đổi đầu vào thành [Bộ đệm](https://nodejs.org/ap
 
 **Tham số**
 
-| Tên  | Loại     | Mô tả                                                                                            |
-| ---- | --------- | ------------------------------------------------------------------------------------------------ |
-| nhập | Bộ đệm \ | chuỗi \| số \| Mảng \| BN \| BigNumber \| đối tượng | Giá trị được chuyển đổi thành Bộ đệm. |
+| Tên  | Loại                                                         | Mô tả                                 |
+| ---- | ------------------------------------------------------------- | ------------------------------------- |
+| nhập | Bộ đệm \| chuỗi \| số \| Mảng \| BN \| BigNumber \| đối tượng | Giá trị được chuyển đổi thành Bộ đệm. |
 
 **LƯU Ý** Loại `BigNumber` được hỗ trợ kể từ caver-js phiên bản [v1.6.4](https://www.npmjs.com/package/caver-js/v/1.6.4).
 
@@ -1226,15 +1225,15 @@ Hàm này chuyển đổi đầu vào thành [Bộ đệm](https://nodejs.org/ap
 > caver.utils.toBuffer(Buffer.alloc(0))
 <Buffer >
 
-// Chuỗi số hex có tiền tố 0x
+// 0x-prefixed hex string
 > caver.utils.toBuffer('0x1234')
 <Buffer 12 34>
 
-// số
+// number
 > caver.utils.toBuffer(1)
 <Buffer 01>
 
-// Mảng
+// Array
 > caver.utils.toBuffer([1,2,3])
 <Buffer 01 02 03>
 
@@ -1242,24 +1241,24 @@ Hàm này chuyển đổi đầu vào thành [Bộ đệm](https://nodejs.org/ap
 > caver.utils.toBuffer(new caver.utils.BN(255))
 <Buffer ff>
 
-// Đối tượng thực hiện hàm toArray
+// Object that implements toArray function
 > caver.utils.toBuffer({toArray: function() {return [1,2,3,4]}})
 <Buffer 01 02 03 04>
 
-// null hoặc không xác định
+// null or undefined
 > caver.utils.toBuffer(null)
 <Buffer >
 
 > caver.utils.toBuffer(undefined)
 <Buffer >
 
-// chuỗi số hex không có tiền tố 0x
+// non 0x-prefixed hex string
 > caver.utils.toBuffer('0xqwer')
-Lỗi: Không thể chuyển đổi chuỗi thành Bộ đệm. 'toBuffer' function only supports 0x-prefixed hex string
+Error: Failed to convert string to Buffer. 'toBuffer' function only supports 0x-prefixed hex string
 
-// Đối tượng không triển khai hàm toArray
+// Object that does not implement toArray function
 > caver.utils.toBuffer({})
-Lỗi: Để chuyển đổi một đối tượng thành bộ đệm, hàm toArray phải được triển khai bên trong đối tượng
+Error: To convert an object to a buffer, the toArray function must be implemented inside the object
 ```
 
 ## numberToBuffer <a href="#numbertobuffer" id="numbertobuffer"></a>
@@ -1272,9 +1271,9 @@ Hàm này chuyển đổi một số thành [Bộ đệm](https://nodejs.org/api
 
 **Tham số**
 
-| Tên  | Loại    | Mô tả                                                          |
-| ---- | -------- | -------------------------------------------------------------- |
-| nhập | chuỗi \ | số \| BN \| BigNumber | Một số được chuyển đổi thành Bộ đệm. |
+| Tên  | Loại                          | Mô tả                                |
+| ---- | ------------------------------ | ------------------------------------ |
+| nhập | chuỗi \| số \| BN \| BigNumber | Một số được chuyển đổi thành Bộ đệm. |
 
 **Giá trị trả về**
 
@@ -1321,11 +1320,11 @@ Trả về `true` nếu đầu vào ở định dạng hàm băm 32 byte nếu k
 **Ví dụ**
 
 ```javascript
-// với tiền tố hex '0x'
+// with '0x' hex prefix
 > caver.utils.isValidHash('0xe9a11d9ef95fb437f75d07ce768d43e74f158dd54b106e7d3746ce29d545b550')
 true
 
-// không có tiền tố hex '0x'
+// without '0x' hex prefix
 > caver.utils.isValidHash('e9a11d9ef95fb437f75d07ce768d43e74f158dd54b106e7d3746ce29d545b550')
 true
 
@@ -1356,11 +1355,11 @@ Trả về `true` nếu đầu vào ở định dạng hàm băm 32 byte có ti�
 **Ví dụ**
 
 ```javascript
-// với tiền tố hex '0x'
+// with '0x' hex prefix
 > caver.utils.isValidHashStrict('0xe9a11d9ef95fb437f75d07ce768d43e74f158dd54b106e7d3746ce29d545b550')
 true
 
-// không có tiền tố hex '0x'
+// without '0x' hex prefix
 > caver.utils.isValidHashStrict('e9a11d9ef95fb437f75d07ce768d43e74f158dd54b106e7d3746ce29d545b550')
 false
 
@@ -1393,11 +1392,11 @@ Trả về `true` nếu đầu vào ở định dạng hàm băm giao dịch, n�
 **Ví dụ**
 
 ```javascript
-// với tiền tố hex '0x'
+// with '0x' hex prefix
 > caver.utils.isTxHash('0xe9a11d9ef95fb437f75d07ce768d43e74f158dd54b106e7d3746ce29d545b550')
 true
 
-// không có tiền tố hex '0x'
+// without '0x' hex prefix
 > caver.utils.isTxHash('e9a11d9ef95fb437f75d07ce768d43e74f158dd54b106e7d3746ce29d545b550')
 true
 
@@ -1430,11 +1429,11 @@ Trả về `true` nếu đầu vào ở định dạng hàm băm giao dịch, n�
 **Ví dụ**
 
 ```javascript
-// với tiền tố hex '0x'
+// with '0x' hex prefix
 > caver.utils.isTxHashStrict('0xe9a11d9ef95fb437f75d07ce768d43e74f158dd54b106e7d3746ce29d545b550')
 true
 
-// không có tiền tố hex '0x'
+// without '0x' hex prefix
 > caver.utils.isTxHashStrict('e9a11d9ef95fb437f75d07ce768d43e74f158dd54b106e7d3746ce29d545b550')
 false
 
@@ -1498,11 +1497,11 @@ Trả về `true` nếu publicKey hợp lệ, nếu không sẽ trả về `fals
 **Ví dụ**
 
 ```javascript
-// xác thực bằng khóa công khai không nén
+// validation with uncompressed public key
 > caver.utils.isValidPublicKey('0xbd6405a7f14f57ecea4a6ffe774ee26d051f7eed13257c9a574055b20e42bab0e8beba92e2e675101eb2a55ba4693080d0bf14548beae7bc93b18b72d10dd350')
 true
 
-// xác thực bằng khóa công khai được nén
+// validation with compressed public key
 > caver.utils.isValidPublicKey('0x02bd6405a7f14f57ecea4a6ffe774ee26d051f7eed13257c9a574055b20e42bab0')
 true
 
@@ -1556,15 +1555,15 @@ Xác thực số khối (hoặc chuỗi thẻ khối).
 
 Số khối phải là một trong các loại dưới đây:
 
-* số khối được xác định trước, ví dụ:) 'mới nhất', 'cũ nhất', 'đang chờ xử lý', 'khởi nguyên'
-* hex
-* số giới hạn
+- số khối được xác định trước, ví dụ:) 'mới nhất', 'cũ nhất', 'đang chờ xử lý', 'khởi nguyên'
+- hex
+- số giới hạn
 
 **Tham số**
 
-| Tên         | Loại    | Mô tả                                                                                                                 |
-| ----------- | -------- | --------------------------------------------------------------------------------------------------------------------- |
-| blockNumber | chuỗi \ | số | Số khối để xác thực. Đây có thể là số khối ở dạng số hoặc thẻ khối (`latest`, `pending`, `earliest`, `genesis`). |
+| Tên         | Loại       | Mô tả                                                                                                                               |
+| ----------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| blockNumber | chuỗi \| số | Số khối để xác thực. Đây có thể là số khối ở dạng số hoặc thẻ khối (`latest`, `pending`, `earliest`, `genesis`). |
 
 **Giá trị trả về**
 
@@ -1627,9 +1626,9 @@ Trong caver-js, nếu signatures hoặc feePayerSignatures trống thì giá tr�
 
 **Tham số**
 
-| Tên | Loại        | Mô tả                                                                                                                                                                     |
-| --- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| sig | đối tượng \ | Mảng | Một đối tượng [SignatureData](caver-wallet/keyring.md#signaturedata) hoặc mảng [SignatureData](caver-wallet/keyring.md#signaturedata) để kiểm tra trống hay không. |
+| Tên | Loại             | Mô tả                                                                                                                                                              |
+| --- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| sig | đối tượng \| Mảng | Một đối tượng [SignatureData](caver-wallet/keyring.md#signaturedata) hoặc mảng [SignatureData](caver-wallet/keyring.md#signaturedata) để kiểm tra trống hay không. |
 
 **Giá trị trả về**
 
@@ -1720,8 +1719,8 @@ Phân tích chuỗi [KlaytnWalletKey](../../../../learn/accounts.md#klaytn-walle
 
 **Tham số**
 
-| Tên  | Loại | Mô tả                                                                                          |
-| ---- | ----- | ---------------------------------------------------------------------------------------------- |
+| Tên  | Loại | Mô tả                                                                                |
+| ---- | ----- | ------------------------------------------------------------------------------------ |
 | khóa | chuỗi | Một chuỗi [KlaytnWalletKey](../../../../learn/accounts.md#klaytn-wallet-key-format). |
 
 **Giá trị trả về**
@@ -1778,11 +1777,11 @@ Khôi phục địa chỉ Klaytn dùng để ký dữ liệu đã cho.
 
 **Tham số**
 
-| Tên       | Loại        | Mô tả                                                                                                                                                                                                            |
-| --------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| thông báo | chuỗi        | Tin nhắn hoặc tin nhắn băm.                                                                                                                                                                                      |
-| chữ ký    | đối tượng \ | Mảng | Một đối tượng [SignatureData](caver-wallet/keyring.md#signaturedata).                                                                                                                                     |
-| isHashed  | boolean      | (tùy chọn, mặc định: `false`) Nếu tham số cuối cùng là `true` thì `message` đã cho sẽ KHÔNG tự động có tiền tố là `"\x19Klaytn Signed Message:\n" + message.length + message` và sẽ được coi là đã có tiền tố. |
+| Tên       | Loại             | Mô tả                                                                                                                                                                                                                             |
+| --------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| thông báo | chuỗi             | Tin nhắn hoặc tin nhắn băm.                                                                                                                                                                                                       |
+| chữ ký    | đối tượng \| Mảng | Một đối tượng [SignatureData](caver-wallet/keyring.md#signaturedata).                                                                                                                                                             |
+| isHashed  | boolean           | (tùy chọn, mặc định: `false`) Nếu tham số cuối cùng là `true` thì `message` đã cho sẽ KHÔNG tự động có tiền tố là `"\x19Klaytn Signed Message:\n" + message.length + message` và sẽ được coi là đã có tiền tố. |
 
 **Giá trị trả về**
 
@@ -1818,11 +1817,11 @@ Khôi phục khóa công khai dùng để ký dữ liệu đã cho.
 
 **Tham số**
 
-| Tên       | Loại        | Mô tả                                                                                                                                                                  |
-| --------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| thông báo | chuỗi        | Tin nhắn hoặc tin nhắn băm.                                                                                                                                            |
-| chữ ký    | đối tượng \ | Mảng | Một đối tượng [SignatureData](caver-wallet/keyring.md#signaturedata).                                                                                           |
-| isHashed  | boolean      | (tùy chọn, mặc định: `false`) Liệu tin nhắn được truyền làm tham số có ở dạng băm với tiền tố `"\x19Klaytn Signed Message:\n" + message.length + message` hay không. |
+| Tên       | Loại             | Mô tả                                                                                                                                                                                   |
+| --------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| thông báo | chuỗi             | Tin nhắn hoặc tin nhắn băm.                                                                                                                                                             |
+| chữ ký    | đối tượng \| Mảng | Một đối tượng [SignatureData](caver-wallet/keyring.md#signaturedata).                                                                                                                   |
+| isHashed  | boolean           | (tùy chọn, mặc định: `false`) Liệu tin nhắn được truyền làm tham số có ở dạng băm với tiền tố `"\x19Klaytn Signed Message:\n" + message.length + message` hay không. |
 
 **Giá trị trả về**
 
@@ -1834,23 +1833,23 @@ Khôi phục khóa công khai dùng để ký dữ liệu đã cho.
 
 ```javascript
 > caver.utils.recoverPublicKey('Some Message', new caver.wallet.keyring.signatureData([
-    '0x1b',
-    '0x8213e560e7bbe1f2e28fd69cbbb41c9108b84c98cd7c2c88d3c8e3549fd6ab10',
-    '0x3ca40c9e20c1525348d734a6724db152b9244bff6e0ff0c2b811d61d8f874f00',
+	'0x1b',
+	'0x8213e560e7bbe1f2e28fd69cbbb41c9108b84c98cd7c2c88d3c8e3549fd6ab10',
+	'0x3ca40c9e20c1525348d734a6724db152b9244bff6e0ff0c2b811d61d8f874f00',
 ]))
 '0xb5df4d5e6b4ee7a136460b911a69030fdd42c18ed067bcc2e25eda1b851314fad994c5fe946aad01ca2e348d4ff3094960661a8bc095f358538af54aeea48ff3'
 
 > caver.utils.recoverPublicKey('Some Message', [
-    '0x1b',
-    '0x8213e560e7bbe1f2e28fd69cbbb41c9108b84c98cd7c2c88d3c8e3549fd6ab10',
-    '0x3ca40c9e20c1525348d734a6724db152b9244bff6e0ff0c2b811d61d8f874f00',
+	'0x1b',
+	'0x8213e560e7bbe1f2e28fd69cbbb41c9108b84c98cd7c2c88d3c8e3549fd6ab10',
+	'0x3ca40c9e20c1525348d734a6724db152b9244bff6e0ff0c2b811d61d8f874f00',
 ])
 '0xb5df4d5e6b4ee7a136460b911a69030fdd42c18ed067bcc2e25eda1b851314fad994c5fe946aad01ca2e348d4ff3094960661a8bc095f358538af54aeea48ff3'
 
 > caver.utils.recoverPublicKey('0x8ed2036502ed7f485b81feaec1c581d236a8b711e55a24077724879c8a263c2a', {
-    v: '0x1b',
-    r: '0x3acab5ba6f884eccfb9642018aa6debab1310d99b7a84ae9acb8f52f567cf16a',
-    s: '0x3501ae03809bf93222c4683642fa8fdc36385709c70ed8e7b883b34d66a5b8a4',
+	v: '0x1b',
+	r: '0x3acab5ba6f884eccfb9642018aa6debab1310d99b7a84ae9acb8f52f567cf16a',
+	s: '0x3501ae03809bf93222c4683642fa8fdc36385709c70ed8e7b883b34d66a5b8a4',
 }, true)
 '0xdd352dbe1c49aa9addaa3ca762de476a1b4deca3ac15fbb7fac153737b3ddb1e3249e1c2d86d5cbeaf6d30d366a211532683b59cb5f402bf3fe14989a378d45d'
 ```
@@ -1977,8 +1976,8 @@ Giải mã dữ liệu chữ ký thô bao gồm 'R(32 byte) + S(32 byte) + V(1by
 
 **Tham số**
 
-| Tên    | Loại | Mô tả                                                                   |
-| ------ | ----- | ----------------------------------------------------------------------- |
+| Tên    | Loại | Mô tả                                                                                                                            |
+| ------ | ----- | -------------------------------------------------------------------------------------------------------------------------------- |
 | chữ ký | chuỗi | Chuỗi chữ ký để giải mã. Nó bao gồm R(32bytes) + S(32bytes) + V(1byte). |
 
 **Giá trị trả về**

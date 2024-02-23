@@ -4,5 +4,5 @@
 
 클레이튼이 지원하는 탐색기 목록은 아래와 같습니다:
 
-* [Klaytnscope](https://scope.klaytn.com/)
-* [Klaytnfinder](https://www.klaytnfinder.io/)
+- [Klaytnscope](https://scope.klaytn.com/)
+- [Klaytnfinder](https://www.klaytnfinder.io/)

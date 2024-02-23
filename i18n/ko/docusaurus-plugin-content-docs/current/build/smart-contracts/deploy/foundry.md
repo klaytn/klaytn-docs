@@ -8,27 +8,27 @@ Foundry는 개발자가 Solidity 스크립트를 통해 명령줄에서 컨트�
 
 Foundry는 빠르고 모듈화된 스마트 컨트랙트 개발을 가능하게 하는 네 가지 주요 CLI 도구로 구성되어 있습니다:
 
-* [Forge](https://github.com/foundry-rs/foundry/tree/master/forge):  Forge를 사용하여 스마트 컨트랙트를 배포, 테스트 및 컴파일할 수 있습니다.
-* [Cast](https://github.com/foundry-rs/foundry/tree/master/cast): 캐스트는 EVM 스마트 컨트랙트와의 상호작용을 간단하게 만들어줍니다. 여기에는 체인 데이터 가져오기, 트랜잭션 전송 등이 포함됩니다.
-* [Anvil](https://github.com/foundry-rs/foundry/tree/master/anvil): 로컬 노드를 스핀업해야 하나요? Anvil은 Foundry에서 제공하는 로컬 노드 환경입니다.
-* [Chisel](https://github.com/foundry-rs/foundry/blob/master/chisel): 빠르고 유용하며 자세한 Solidity REPL.
+- [Forge](https://github.com/foundry-rs/foundry/tree/master/forge):  Forge를 사용하여 스마트 컨트랙트를 배포, 테스트 및 컴파일할 수 있습니다.
+- [Cast](https://github.com/foundry-rs/foundry/tree/master/cast): 캐스트는 EVM 스마트 컨트랙트와의 상호작용을 간단하게 만들어줍니다. 여기에는 체인 데이터 가져오기, 트랜잭션 전송 등이 포함됩니다.
+- [Anvil](https://github.com/foundry-rs/foundry/tree/master/anvil): 로컬 노드를 스핀업해야 하나요? Anvil은 Foundry에서 제공하는 로컬 노드 환경입니다.
+- [Chisel](https://github.com/foundry-rs/foundry/blob/master/chisel): 빠르고 유용하며 자세한 Solidity REPL.
 
 이 가이드에서는 다음을 수행합니다:
 
-* 간단한 Foundry 프로젝트를 생성합니다.
-* Foundry를 사용하여 스마트 컨트랙트 샘플을 컴파일하고 테스트합니다.
-* Foundry를 사용하여 스마트 컨트랙트를 클레이튼 Baobab 네트워크에 배포합니다.
-* Cast와 Anvil로 메인넷 포크 살펴보기.
+- 간단한 Foundry 프로젝트를 생성합니다.
+- Foundry를 사용하여 스마트 컨트랙트 샘플을 컴파일하고 테스트합니다.
+- Foundry를 사용하여 스마트 컨트랙트를 클레이튼 Baobab 네트워크에 배포합니다.
+- Cast와 Anvil로 메인넷 포크 살펴보기.
 
 ## 사전 요구 사항
 
 이 튜토리얼을 따르기 위한 전제 조건은 다음과 같습니다:
 
-* 코드 편집기: [VS-Code](https://code.visualstudio.com/download)와 같은 소스 코드 편집기.
-* [MetaMask](../../tutorials/connecting-metamask#install-metamask): 컨트랙트를 배포하고, 트랜잭션에 서명하고, 컨트랙트와 상호 작용하는 데 사용됩니다.
-* RPC 엔드포인트: 지원되는 [엔드포인트 공급자](../../../references/service-providers/public-en.md) 중 하나에서 얻을 수 있습니다.
-* [Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 KLAY 테스트: 충분한 KLAY로 계정에 자금을 충전합니다.
-* [Rust](https://www.rust-lang.org/tools/install) 및 [Foundry](https://github.com/foundry-rs/foundry#installation)를 설치합니다.
+- 코드 편집기: [VS-Code](https://code.visualstudio.com/download)와 같은 소스 코드 편집기.
+- [MetaMask](../../tutorials/connecting-metamask#install-metamask): 컨트랙트를 배포하고, 트랜잭션에 서명하고, 컨트랙트와 상호 작용하는 데 사용됩니다.
+- RPC 엔드포인트: 지원되는 [엔드포인트 공급자](../../../references/service-providers/public-en.md) 중 하나에서 얻을 수 있습니다.
+- [Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 KLAY 테스트: 충분한 KLAY로 계정에 자금을 충전합니다.
+- [Rust](https://www.rust-lang.org/tools/install) 및 [Foundry](https://github.com/foundry-rs/foundry#installation)를 설치합니다.
 
 ## 개발 환경 설정하기
 
@@ -52,18 +52,18 @@ forge init foundry_example
 
 **2단계**: 프로젝트 폴더로 이동합니다.
 
-```bash 
+```bash
 cd foundry_example
 ls	 
 ```
 
 Foundry 프로젝트를 초기화한 후, 현재 디렉터리에 다음이 포함되어야 합니다:
 
-* **src**: 스마트 컨트랙트의 기본 디렉터리입니다.
-* **tests**: 테스트를 위한 기본 디렉터리.
-* **foundry.toml**: 기본 프로젝트 구성 파일.
-* **lib**: 프로젝트 종속성을 위한 기본 디렉터리.
-* **script**: Solidity 스크립팅 파일의 기본 디렉터리.
+- **src**: 스마트 컨트랙트의 기본 디렉터리입니다.
+- **tests**: 테스트를 위한 기본 디렉터리.
+- **foundry.toml**: 기본 프로젝트 구성 파일.
+- **lib**: 프로젝트 종속성을 위한 기본 디렉터리.
+- **script**: Solidity 스크립팅 파일의 기본 디렉터리.
 
 ## 스마트 컨트랙트 샘플
 
@@ -85,7 +85,7 @@ contract Counter {
 
 **코드 연습**
 
-이것이 스마트 컨트랙트입니다. **1행**은 Solidity 버전 0.8.13 이상을 사용함을 보여줍니다. 4줄부터 12줄까지는 스마트 컨트랙트 `Counter`가 생성됩니다. 이 컨트랙트는 **setNumber** 함수를 사용하여 새로운 숫자를 저장하고 **increment** 함수를 호출하여 숫자를 증가시킵니다.
+이것이 여러분의 스마트 컨트랙트입니다. **1행**은 Solidity 버전 0.8.13 이상을 사용함을 보여줍니다. 4줄부터 12줄까지는 스마트 컨트랙트 `Counter`가 생성됩니다. 이 컨트랙트는 **setNumber** 함수를 사용하여 새로운 숫자를 저장하고 **increment** 함수를 호출하여 숫자를 증가시킵니다.
 
 ## 스마트 컨트랙트 테스트
 
@@ -117,8 +117,8 @@ contract CounterTest is Test {
 
 위의 테스트는 다음을 확인합니다:
 
-* 숫자가 증가하고 있는가?
-* 숫자가 설정된 숫자와 같은가?
+- 숫자가 증가하고 있는가?
+- 숫자가 설정된 숫자와 같은가?
 
 테스트가 정상적으로 작동하는지 확인하려면 다음 명령을 실행하세요:
 
@@ -193,11 +193,13 @@ cast call 0xe4d576c447733da7ca9197e88d34a74c3c865cff "number()" --rpc-url https:
 ```bash
 0x0000000000000000000000000000000000000000000000000000000000000000
 ```
+
 그러나 원하는 결과를 얻으려면 캐스팅을 사용하여 위의 결과를 변환합니다. 이 경우 데이터가 숫자이므로 기본 10으로 변환하여 결과 0을 얻을 수 있습니다:
 
 ```bash
 cast --to-base 0x0000000000000000000000000000000000000000000000000000000000000000 10
 ```
+
 **출력**
 
 ![](/img/build/get-started/cast-call-0.png)
@@ -277,6 +279,7 @@ curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H
 위 작업의 결과는 [16진수를 10진수로 변환](https://www.rapidtables.com/convert/number/hex-to-decimal.html)을 사용하여 변환할 수 있습니다. 네트워크를 포크한 시점의 최신 블록 번호를 얻어야 합니다. 이를 확인하려면 [Klaytnscope](https://klaytnscope.com/block/118704896?tabId=txList)에서 블록 번호를 상호 참조하세요.
 
 ### 따라하기
+
 이 섹션에서는 oUSDC 토큰을 보유한 사람으로부터 Anvil이 생성한 계정(0x70997970C51812dc3A010C7d01b50e0d17dc79C8 - Bob)으로 토큰을 전송하는 방법을 알아보세요.
 
 **oUSDC 전송하기**

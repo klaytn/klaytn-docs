@@ -16,25 +16,25 @@ import renderRoutes from './routes'
 
 import './index.scss'
 
-// Render App(thành phần gốc).
+// Render App(root component).
 ReactDOM.render(
   renderRoutes(App),
   document.getElementById('root')
 )
 
-// thay hot module.
+// hot module replacement.
 if (module.hot) {
   module.hot.accept('./App.js', () => {
     const NextApp = require('./App').default
     ReactDOM.render(renderRoutes(NextApp), document.getElementById('root'))
-    console.log('Đã thay hot module..')
+    console.log('Hot module replaced..')
   })
 }
 ```
 
 `'index.js'` là tập tin javascript chính cho ứng dụng hướng dẫn của chúng tôi. Đây là điểm khởi đầu cho ứng dụng của chúng tôi.
 
-Nó sử dụng thư viện 'react-dom' để render một thành phần React vào DOM trong container\('\#root'\) được cấp và trả về tham chiếu đến thành phần đó. Tóm lại, qua 'react-dom' DOM ứng dụng hướng dẫn của chúng tôi sẽ được gán thành `<div id="root"></div>` trong file `public/index.html`.
+Nó sử dụng thư viện 'react-dom' để render một thành phần React vào DOM trong container('#root') được cấp và trả về tham chiếu đến thành phần đó. Tóm lại, qua 'react-dom' DOM ứng dụng hướng dẫn của chúng tôi sẽ được gán thành `<div id="root"></div>` trong file `public/index.html`.
 
 ## `static/index.html`: <a id="2-static-index-html"></a>
 
@@ -49,18 +49,18 @@ Nó sử dụng thư viện 'react-dom' để render một thành phần React v
   </head>
   <body>
     <noscript>
-      Bạn cần bật JavaScript để chạy ứng dụng này.
+      You need to enable JavaScript to run this app.
     </noscript>
-    <div id="root"></div> <!-- DOM sẽ được gán vào đây. -->
+    <div id="root"></div> <!-- DOM will be populated into here. -->
     <!--
-      Đây là tập tin HTML mẫu.
-      Nếu mở trực tiếp từ trình duyệt, bạn sẽ thấy một trang trống.
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
 
-      Bạn có thể thêm webfonts, tag meta hoặc dữ liệu phân tích vào tập tin này.
-      Bước built sẽ đặt các script bundle vào tag <body>.
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
 
-      Để bắt đầu phát triển, chạy `npm start` hoặc `yarn start`.
-      Để tạo bundle cho môi trường production, sử dụng `npm run build` hoặc `yarn build`.
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
 </html>
@@ -68,7 +68,7 @@ Nó sử dụng thư viện 'react-dom' để render một thành phần React v
 
 `index.html` là tập tin HTML để render ra ứng dụng hướng dẫn của chúng tôi.
 
-Để biết thêm thông tin, hãy truy cập trang web React chính thức [https://reactjs.org/docs/react-dom.html\#render](https://reactjs.org/docs/react-dom.html#render)
+Để biết thêm thông tin, hãy truy cập trang web React chính thức [https://reactjs.org/docs/react-dom.html#render](https://reactjs.org/docs/react-dom.html#render)
 
 ## `src/routes.js`: <a id="3-src-routes-js"></a>
 
@@ -89,8 +89,8 @@ const renderRoutes = rootComponent => (
 export default renderRoutes
 ```
 
-`'routes.js'` chứa định nghĩa định tuyến cho ứng dụng hướng dẫn của chúng tôi.  
-Vì là thành phần gốc, thành phần `'App.js'` render ra các thành phần con được định nghĩa trong tập tin `'route.js'`.  
+`'routes.js'` chứa định nghĩa định tuyến cho ứng dụng hướng dẫn của chúng tôi.\
+Vì là thành phần gốc, thành phần `'App.js'` render ra các thành phần con được định nghĩa trong tập tin `'route.js'`.\
 Bằng mã lệnh trên, thành phần `'Count'` sẽ được render thành con của rootComponent khi đường dẫn URL của trình duyệt là `"/"`.
 
 Để biết thêm thông tin, truy cập thư viện github React router [https://github.com/ReactTraining/react-router/blob/v3.2.1/docs/API.md](https://github.com/ReactTraining/react-router/blob/v3.2.1/docs/API.md)
@@ -109,18 +109,18 @@ import './App.scss'
 class App extends Component {
   componentWillMount() {
     /**
-     * sessionStorage là tính năng của trình duyệt internet dùng để lưu trữ dữ liệu
-     * đến khi đóng tab trình duyệt.
+     * sessionStorage is internet browser's feature which stores data
+     * until the browser tab is closed.
      */
     const walletFromSession = sessionStorage.getItem('walletInstance')
 
-    // Nếu tồn tại giá trị 'walletInstance', thêm giá trị này vào ví của caver
+    // If 'walletInstance' value exists, add it to caver's wallet
     if (walletFromSession) {
       try {
-        cav.klay.tài khoảns.wallet.add(JSON.parse(walletFromSession))
+        cav.klay.accounts.wallet.add(JSON.parse(walletFromSession))
       } catch (e) {
-        // Nếu giá trị trong sessionStorage không phải là phiên bản ví hợp lệ,
-        // gỡ nó khỏi sessionStorage.
+        // If value in sessionStorage is invalid wallet instance,
+        // remove it from sessionStorage.
         sessionStorage.removeItem('walletInstance')
       }
     }
@@ -154,46 +154,46 @@ render() {
 }
 ```
 
-Nó render `BlockNumber`, `Auth` và thành phần `{this.props.children}`.  
-`{this.props.children}` sẽ được gán theo tập tin `routes.js`.  
+Nó render `BlockNumber`, `Auth` và thành phần `{this.props.children}`.\
+`{this.props.children}` sẽ được gán theo tập tin `routes.js`.\
 Nếu đường dẫn url của trình duyệt là `/`, nó sẽ render thành phần `<Count />`.
 
 ```javascript
 componentWillMount() {
   /**
-     * sessionStorage là tính năng của trình duyệt internet dùng để lưu trữ dữ liệu
-     * đến khi đóng tab trình duyệt.
+   * sessionStorage is internet browser's feature which stores data
+   * until the browser tab is closed.
    */
   const walletFromSession = sessionStorage.getItem('walletInstance')
 
-  // Nếu tồn tại giá trị 'walletInstance', thêm giá trị này vào ví của caver
+  // If 'walletInstance' value exists, add it to caver's wallet
   if (walletFromSession) {
     try {
-      cav.klay.tài khoảns.wallet.add(JSON.parse(walletFromSession))
+      cav.klay.accounts.wallet.add(JSON.parse(walletFromSession))
     } catch (e) {
-       // Nếu giá trị trong sessionStorage không phải là phiên bản ví hợp lệ,
-       // gỡ nó khỏi sessionStorage.
+      // If value in sessionStorage is invalid wallet instance,
+      // remove it from sessionStorage.
       sessionStorage.removeItem('walletInstance')
     }
   }
 }
 ```
 
-`componentWillMount` kiểm tra xem có phiên `walletInstance` trong sessionStorage của trình duyệt không.  
-phiên `walletInstance` có thể không tồn tại nếu bạn chưa đăng nhập vào ứng dụng hướng dẫn của chúng tôi lần nào.  
-Nếu không, phiên `walletInstance` sẽ có trong chuỗi JSON string, nếu có, nó sẽ thêm một phiên bản ví vào ví của caver.  
-Bạn có thể thêm một phiên bản ví vào caver bằng `cav.klay.tài khoảns.wallet.add(JSON.parse(walletFromSession))`.  
+`componentWillMount` kiểm tra xem có phiên `walletInstance` trong sessionStorage của trình duyệt không.\
+phiên `walletInstance` có thể không tồn tại nếu bạn chưa đăng nhập vào ứng dụng hướng dẫn của chúng tôi lần nào.\
+Nếu không, phiên `walletInstance` sẽ có trong chuỗi JSON string, nếu có, nó sẽ thêm một phiên bản ví vào ví của caver.\
+Bạn có thể thêm một phiên bản ví vào caver bằng `cav.klay.tài khoảns.wallet.add(JSON.parse(walletFromSession))`.\
 Để biết thêm thông tin về `caver.klay.tài khoảns.wallet.add`, hãy xem [caver.klay.tài khoảns.wallet.add](../../../../references/sdk/caver-js-1.4.1/api/caver.klay.accounts.md#wallet-add)
 
-cf\) Cần có `JSON.parse` vì phiên `walletInstance` được lưu trữ là chuỗi JSON.
+cf) Cần có `JSON.parse` vì phiên `walletInstance` được lưu trữ là chuỗi JSON.
 
 ## `src/klaytn/caver.js`: <a id="5-src-klaytn-caver-js"></a>
 
 ```javascript
 /**
- * thư viện caver-js tạo kết nối với nút klaytn.
- * Bạn có thể kết nối với node klaytn cụ thể bằng cách thay đổi giá trị của 'rpcURL'.
- * Nếu bạn đang chạy node đầy đủ klaytn, đặt rpcURL thành URL nút của mình.
+ * caver-js library make a connection with klaytn node.
+ * You could connect to specific klaytn node by changing 'rpcURL' value.
+ * If you are running a klaytn full node, set rpcURL to your node's URL.
  * ex) rpcURL: 'http://localhost:8551'
  */
 import Caver from 'caver-js'
@@ -207,12 +207,11 @@ export const cav = new Caver(config.rpcURL)
 export default cav
 ```
 
-Thư viện `caver-js` tạo kết nối với nút Klaytn.  
+Thư viện `caver-js` tạo kết nối với nút Klaytn.\
 Sau khi tạo kết nối, bạn có thể lấy được số khối hiện tại nhờ nút và gọi các phương pháp hợp đồng.
 
 Bạn có thể kết nối với nút dành riêng cho Klaytn bằng cách chỉ định nó trong 'rpcURL'.
 
-* Nếu bạn đang chạy node đầy đủ Klaytn, bạn có thể đặt rpcURL thành URL nút của mình.
+- Nếu bạn đang chạy node đầy đủ Klaytn, bạn có thể đặt rpcURL thành URL nút của mình.
 
-  ví dụ, `rpcURL: 'http://localhost:8551'`  
-
+  ví dụ, `rpcURL: 'http://localhost:8551'`

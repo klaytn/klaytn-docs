@@ -1,18 +1,22 @@
 # Loại giao dịch
 
 ## Làm việc với các loại giao dịch của Klaytn <a id="working-with-klaytn-transaction-types"></a>
-Klaytn có nhiều loại giao dịch khác nhau và mỗi loại giao dịch bao gồm các trường khác nhau. Do đó, người dùng cần nắm rõ các loại giao dịch và chỉ định đúng khi gửi và ký giao dịch. API liên quan: `klay_signTransaction`, `klay_sendTransaction`, `klay_signTransactionAsFeePayer`, `klay_sendTransactionAsFeePayer`, `personal_signTransaction`, `personal_sendTransaction`.
 
+Klaytn có nhiều loại giao dịch khác nhau và mỗi loại giao dịch bao gồm các trường khác nhau.
+Do đó, người dùng cần nắm rõ các loại giao dịch và chỉ định đúng khi gửi và ký giao dịch.
+API liên quan: `klay_signTransaction`, `klay_sendTransaction`, `klay_signTransactionAsFeePayer`, `klay_sendTransactionAsFeePayer`, `personal_signTransaction`, `personal_sendTransaction`.
 
 ## TxTypeLegacyTransaction <a id="txtypelegacytransaction"></a>
 
-TxTypeLegacyTransaction đại diện cho một loại giao dịch đã tồn tại trước đây trong Klaytn. Loại giao dịch này tồn tại để hỗ trợ khả năng tương thích. Để biết thêm thông tin, hãy xem [TxTypeLegacyTransaction](../../../learn/transactions/basic.md#txtypelegacytransaction).
+TxTypeLegacyTransaction đại diện cho một loại giao dịch đã tồn tại trước đây trong Klaytn.
+Loại giao dịch này tồn tại để hỗ trợ khả năng tương thích.
+Để biết thêm thông tin, hãy xem [TxTypeLegacyTransaction](../../../learn/transactions/basic.md#txtypelegacytransaction).
 
 **Tham số**
 
-| Tên             | type            | Mô tả                                                                                                                                                                                                                           |
-| --------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| từ              | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được gửi đi.                                                                                                                                                                                               |
+| Tên             | type            | Mô tả                                                                                                                                                                                                                                              |
+| --------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| từ              | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được gửi đi.                                                                                                                                                                                                                  |
 | đến             | DỮ LIỆU 20 byte | (không bắt buộc khi tạo hợp đồng mới) Địa chỉ mà giao dịch được gửi đến.                                                                                                                                                        |
 | gas             | SỐ LƯỢNG        | (tùy chọn, mặc định: 90000) Giá trị nguyên của gas được cung cấp để thực hiện giao dịch. Gas chưa sử dụng sẽ được hoàn lại cho người gửi. Nếu gas được chỉ định không đủ để thực hiện giao dịch, giao dịch sẽ được hoàn nguyên. |
 | giá gas         | SỐ LƯỢNG        | (tùy chọn, mặc định: 25000000000 Peb) Giá trị nguyên của gasPrice. Phí giao dịch được tính bằng cách nhân gas với gasPrice.                                                                                                     |
@@ -21,6 +25,7 @@ TxTypeLegacyTransaction đại diện cho một loại giao dịch đã tồn t�
 | số dùng một lần | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên của số dùng một lần.                                                                                                                                                                                  |
 
 **Ví dụ**
+
 ```shell
 // Request
 curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method":"klay_signTransaction", "params":[{"from":"0x77982323172e5b6182539d3522d5a33a944206d4", "to":"0xcd6bfdb523a4d030890d28bf1eb6ef36307c9aaa", "value":"0x10000", "gas":"0x1000000", "nonce":"0x2", "gasprice":"0x25000000000"}],"id":73}' https://public-en-baobab.klaytn.net
@@ -47,24 +52,25 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 }
 ```
 
-
 ## TxTypeValueTransfer <a id="txtypevaluetransfer"></a>
 
-TxTypeValueTransfer được sử dụng khi người dùng muốn gửi KLAY. Để biết thêm thông tin, hãy xem [TxTypeValueTransfer](../../../learn/transactions/basic.md#txtypevaluetransfer).
+TxTypeValueTransfer được sử dụng khi người dùng muốn gửi KLAY.
+Để biết thêm thông tin, hãy xem [TxTypeValueTransfer](../../../learn/transactions/basic.md#txtypevaluetransfer).
 
 **Tham số**
 
-| Tên             | Loại           | Mô tả                                                                                                                                                                                                                           |
-| --------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| typeInt         | Giá trị nguyên  | Giá trị nguyên biểu thị TxTypeValueTransfer: 8                                                                                                                                                                                  |
-| từ              | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được gửi đi.                                                                                                                                                                                               |
-| đến             | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được chuyển hướng đến.                                                                                                                                                                                     |
+| Tên             | Loại           | Mô tả                                                                                                                                                                                                                                              |
+| --------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| typeInt         | Giá trị nguyên  | Giá trị nguyên biểu thị TxTypeValueTransfer: 8                                                                                                                                                                                                     |
+| từ              | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được gửi đi.                                                                                                                                                                                                                  |
+| đến             | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được chuyển hướng đến.                                                                                                                                                                                                        |
 | gas             | SỐ LƯỢNG        | (tùy chọn, mặc định: 90000) Giá trị nguyên của gas được cung cấp để thực hiện giao dịch. Gas chưa sử dụng sẽ được hoàn lại cho người gửi. Nếu gas được chỉ định không đủ để thực hiện giao dịch, giao dịch sẽ được hoàn nguyên. |
 | giá gas         | SỐ LƯỢNG        | (tùy chọn, mặc định: 25000000000 Peb) Giá trị nguyên của gasPrice. Phí giao dịch được tính bằng cách nhân gas với gasPrice.                                                                                                     |
 | số dùng một lần | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên của số dùng một lần.                                                                                                                                                                                  |
-| giá trị         | SỐ LƯỢNG        | Giá trị nguyên được gửi cùng với giao dịch.                                                                                                                                                                                     |
+| giá trị         | SỐ LƯỢNG        | Giá trị nguyên được gửi cùng với giao dịch.                                                                                                                                                                                                        |
 
 **Ví dụ**
+
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 8, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": "0x44711E89b0c23845b5B2ed9D3716BA42b8a3e075", "gas": "0x76c0", "gasPrice": "0x5d21dba00", "value": "0xf4"}], "id": 69}' http://127.0.0.1:8551
@@ -97,26 +103,27 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 
-
 ## TxTypeFeeDelegatedValueTransfer <a id="txtypefeedelegatedvaluetransfer"></a>
 
-Phiên bản ủy thác phí của TxTypeValueTransfer. Để biết thêm thông tin, hãy xem [TxTypeFeeDelegatedValueTransfer](../../../learn/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfer).
+Phiên bản ủy thác phí của TxTypeValueTransfer.
+Để biết thêm thông tin, hãy xem [TxTypeFeeDelegatedValueTransfer](../../../learn/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfer).
 
 **Tham số**
 
-| Tên             | type            | Mô tả                                                                                                                                                                                                                            |
-| --------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| typeInt         | Giá trị nguyên  | Giá trị nguyên biểu thị TxTypeFeeDelegatedValueTransfer: 9                                                                                                                                                                       |
-| từ              | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được gửi đi.                                                                                                                                                                                                |
-| đến             | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được chuyển hướng đến.                                                                                                                                                                                      |
-| gas             | SỐ LƯỢNG        | (tùy chọn, mặc định: 90000) Giá trị nguyên của gas được cung cấp để thực hiện giao dịch. Gas chưa sử dụng sẽ được hoàn lại cho người gửi. Nếu gas được chỉ định không đủ để thực hiện giao dịch, giao dịch sẽ được hoàn nguyên.  |
-| giá gas         | SỐ LƯỢNG        | (tùy chọn, mặc định: 25000000000 Peb) Giá trị nguyên của gasPrice. Phí giao dịch được tính bằng cách nhân gas với gasPrice.                                                                                                      |
-| số dùng một lần | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên của số dùng một lần.                                                                                                                                                                                   |
-| giá trị         | SỐ LƯỢNG        | Giá trị nguyên được gửi cùng với giao dịch.                                                                                                                                                                                      |
-| feePayer        | DỮ LIỆU 20 byte | Địa chỉ thanh toán phí giao dịch.                                                                                                                                                                                                |
+| Tên             | type            | Mô tả                                                                                                                                                                                                                                                                  |
+| --------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| typeInt         | Giá trị nguyên  | Giá trị nguyên biểu thị TxTypeFeeDelegatedValueTransfer: 9                                                                                                                                                                                                             |
+| từ              | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được gửi đi.                                                                                                                                                                                                                                      |
+| đến             | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được chuyển hướng đến.                                                                                                                                                                                                                            |
+| gas             | SỐ LƯỢNG        | (tùy chọn, mặc định: 90000) Giá trị nguyên của gas được cung cấp để thực hiện giao dịch. Gas chưa sử dụng sẽ được hoàn lại cho người gửi. Nếu gas được chỉ định không đủ để thực hiện giao dịch, giao dịch sẽ được hoàn nguyên.                     |
+| giá gas         | SỐ LƯỢNG        | (tùy chọn, mặc định: 25000000000 Peb) Giá trị nguyên của gasPrice. Phí giao dịch được tính bằng cách nhân gas với gasPrice.                                                                                                                         |
+| số dùng một lần | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên của số dùng một lần.                                                                                                                                                                                                      |
+| giá trị         | SỐ LƯỢNG        | Giá trị nguyên được gửi cùng với giao dịch.                                                                                                                                                                                                                            |
+| feePayer        | DỮ LIỆU 20 byte | Địa chỉ thanh toán phí giao dịch.                                                                                                                                                                                                                                      |
 | chữ ký          | DATA            | (tùy chọn - chỉ dành cho `klay_sendTransactionAsFeePayer` API) Một mảng các đối tượng chữ ký. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa mã khôi phục ECDSA. R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s. |
 
 **Ví dụ 1 (`klay_signTransaction`)**
+
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 9, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": "0x44711E89b0c23845b5B2ed9D3716BA42b8a3e075", "gas": "0x76c0", "gasPrice": "0x5d21dba00", "value": "0xf4", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d"}], "id": 59}' http://127.0.0.1:8551
@@ -152,6 +159,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 ```
 
 **Ví dụ 2 (`klay_sendTransactionAsFeePayer`)**
+
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_sendTransactionAsFeePayer", "params": [{"typeInt": 9, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "nonce": "0x1c", "to": "0x44711E89b0c23845b5B2ed9D3716BA42b8a3e075", "gas": "0x2e6300", "gasPrice": "0x5d21dba00", "value": "0xf4", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "signatures": [{"V": "0x4e43", "R": "0x416a7d1833322359ae7b0f9aad10185f94739a81997af0abd1330ee866564957", "S": "0x1f6bd04c4ebcccced7d2f6b57be088c69070b94ad62898427e906f35b2b48b35"}]}], "id": 69}' http://127.0.0.1:8551
@@ -164,27 +172,28 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 
-
 ## TxTypeFeeDelegatedValueTransferWithRatio <a id="txtypefeedelegatedvaluetransferwithratio"></a>
 
-Phiên bản ủy thác một phần phí của TxTypeValueTransfer. Để biết thêm thông tin, hãy xem [TxTypeFeeDelegatedValueTransferWithRatio](../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedvaluetransferwithratio).
+Phiên bản ủy thác một phần phí của TxTypeValueTransfer.
+Để biết thêm thông tin, hãy xem [TxTypeFeeDelegatedValueTransferWithRatio](../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedvaluetransferwithratio).
 
 **Tham số**
 
-| Tên             | Loại           | Mô tả                                                                                                                                                                                                                            |
-| --------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| typeInt         | Giá trị nguyên  | Giá trị nguyên biểu thị TxTypeFeeDelegatedValueTransferWithRatio: 10                                                                                                                                                             |
-| từ              | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được gửi đi.                                                                                                                                                                                                |
-| đến             | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được chuyển hướng đến.                                                                                                                                                                                      |
-| gas             | SỐ LƯỢNG        | (tùy chọn, mặc định: 90000) Giá trị nguyên của gas được cung cấp để thực hiện giao dịch. Gas chưa sử dụng sẽ được hoàn lại cho người gửi. Nếu gas được chỉ định không đủ để thực hiện giao dịch, giao dịch sẽ được hoàn nguyên.  |
-| giá gas         | SỐ LƯỢNG        | (tùy chọn, mặc định: 25000000000 Peb) Giá trị nguyên của gasPrice được sử dụng cho mỗi gas đã thanh toán.                                                                                                                        |
-| số dùng một lần | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên của số dùng một lần.                                                                                                                                                                                   |
-| giá trị         | SỐ LƯỢNG        | Giá trị nguyên được gửi cùng với giao dịch.                                                                                                                                                                                      |
-| feePayer        | DỮ LIỆU 20 byte | Địa chỉ người trả phí của giao dịch.                                                                                                                                                                                             |
-| feeRatio        | SỐ LƯỢNG        | Tỷ lệ phí của người trả phí. Nếu tỷ lệ là 30 thì người trả phí phải trả 30% phí. 70% còn lại sẽ được trả bởi người gửi. Phạm vi của tỷ lệ phí là 1 ~ 99, nếu nằm ngoài phạm vi, giao dịch sẽ không được chấp nhận.               |
+| Tên             | Loại           | Mô tả                                                                                                                                                                                                                                                                  |
+| --------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| typeInt         | Giá trị nguyên  | Giá trị nguyên biểu thị TxTypeFeeDelegatedValueTransferWithRatio: 10                                                                                                                                                                                                   |
+| từ              | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được gửi đi.                                                                                                                                                                                                                                      |
+| đến             | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được chuyển hướng đến.                                                                                                                                                                                                                            |
+| gas             | SỐ LƯỢNG        | (tùy chọn, mặc định: 90000) Giá trị nguyên của gas được cung cấp để thực hiện giao dịch. Gas chưa sử dụng sẽ được hoàn lại cho người gửi. Nếu gas được chỉ định không đủ để thực hiện giao dịch, giao dịch sẽ được hoàn nguyên.                     |
+| giá gas         | SỐ LƯỢNG        | (tùy chọn, mặc định: 25000000000 Peb) Giá trị nguyên của gasPrice được sử dụng cho mỗi gas đã thanh toán.                                                                                                                                           |
+| số dùng một lần | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên của số dùng một lần.                                                                                                                                                                                                      |
+| giá trị         | SỐ LƯỢNG        | Giá trị nguyên được gửi cùng với giao dịch.                                                                                                                                                                                                                            |
+| feePayer        | DỮ LIỆU 20 byte | Địa chỉ người trả phí của giao dịch.                                                                                                                                                                                                                                   |
+| feeRatio        | SỐ LƯỢNG        | Tỷ lệ phí của người trả phí. Nếu tỷ lệ là 30 thì người trả phí phải trả 30% phí. 70% còn lại sẽ được trả bởi người gửi. Phạm vi của tỷ lệ phí là 1 \~ 99, nếu nằm ngoài phạm vi, giao dịch sẽ không được chấp nhận.                                                    |
 | chữ ký          | DATA            | (tùy chọn - chỉ dành cho `klay_sendTransactionAsFeePayer` API) Một mảng các đối tượng chữ ký. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa mã khôi phục ECDSA. R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s. |
 
 **Ví dụ 1 (`klay_signTransaction`)**
+
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 10, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": "0x44711E89b0c23845b5B2ed9D3716BA42b8a3e075", "gas": "0x76c0", "gasPrice": "0x5d21dba00", "value": "0xf4", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "feeRatio": 30}], "id": 42}' http://127.0.0.1:8551
@@ -221,6 +230,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 ```
 
 **Ví dụ 2 (`klay_sendTransactionAsFeePayer`)**
+
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_sendTransactionAsFeePayer", "params": [{"typeInt": 10, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "nonce": "0x1d", "to": "0x44711E89b0c23845b5B2ed9D3716BA42b8a3e075", "gas": "0x2e6300", "gasPrice": "0x5d21dba00", "value": "0xf4", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "feeRatio": 30, "signatures": [{"V": "0x4e44", "R": "0x76377a0c1a050475fd06dfb192ef1724394a5f77ec6441764f7732d6ab0cbc4d", "S": "0xfb518b09210692bd530586cd484a9f6f653f9bb170e5da8b99d417e58692845"}]}], "id": 47}' http://127.0.0.1:8551
@@ -233,26 +243,26 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 
-
 ## TxTypeValueTransferMemo <a id="txtypevaluetransfermemo"></a>
 
-TxTypeValueTransferMemo được sử dụng khi người dùng muốn gửi KLAY với một tin nhắn cụ thể. Để biết thêm thông tin, hãy xem [TxTypeValueTransferMemo](../../../learn/transactions/basic.md#txtypevaluetransfermemo).
+TxTypeValueTransferMemo được sử dụng khi người dùng muốn gửi KLAY với một tin nhắn cụ thể.
+Để biết thêm thông tin, hãy xem [TxTypeValueTransferMemo](../../../learn/transactions/basic.md#txtypevaluetransfermemo).
 
 **Tham số**
 
-| Tên             | Loại           | Mô tả                                                                                                                                                                                                                           |
-| --------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| typeInt         | Giá trị nguyên  | Giá trị nguyên biểu thị TxTypeValueTransferMemo: 16                                                                                                                                                                             |
-| từ              | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được gửi đi.                                                                                                                                                                                               |
-| đến             | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được chuyển hướng đến.                                                                                                                                                                                     |
+| Tên             | Loại           | Mô tả                                                                                                                                                                                                                                              |
+| --------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| typeInt         | Giá trị nguyên  | Giá trị nguyên biểu thị TxTypeValueTransferMemo: 16                                                                                                                                                                                                |
+| từ              | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được gửi đi.                                                                                                                                                                                                                  |
+| đến             | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được chuyển hướng đến.                                                                                                                                                                                                        |
 | gas             | SỐ LƯỢNG        | (tùy chọn, mặc định: 90000) Giá trị nguyên của gas được cung cấp để thực hiện giao dịch. Gas chưa sử dụng sẽ được hoàn lại cho người gửi. Nếu gas được chỉ định không đủ để thực hiện giao dịch, giao dịch sẽ được hoàn nguyên. |
 | giá gas         | SỐ LƯỢNG        | (tùy chọn, mặc định: 25000000000 Peb) Giá trị nguyên của gasPrice được sử dụng cho mỗi gas đã thanh toán.                                                                                                                       |
 | số dùng một lần | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên của số dùng một lần.                                                                                                                                                                                  |
-| giá trị         | SỐ LƯỢNG        | Giá trị nguyên được gửi cùng với giao dịch.                                                                                                                                                                                     |
-| nhập            | DATA            | Dữ liệu được gửi cùng với giao dịch.                                                                                                                                                                                            |
-
+| giá trị         | SỐ LƯỢNG        | Giá trị nguyên được gửi cùng với giao dịch.                                                                                                                                                                                                        |
+| nhập            | DATA            | Dữ liệu được gửi cùng với giao dịch.                                                                                                                                                                                                               |
 
 **Ví dụ**
+
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 16, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": "0x44711E89b0c23845b5B2ed9D3716BA42b8a3e075", "gas": "0x76c0", "gasPrice": "0x5d21dba00", "value": "0xf4", "input": "0xb3f98adc0000000000000000000000000000000000000000000000000000000000000001"}], "id": 39}' http://127.0.0.1:8551
@@ -286,28 +296,28 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 
-
 ## TxTypeFeeDelegatedValueTransferMemo <a id="txtypefeedelegatedvaluetransfermemo"></a>
 
-Phiên bản ủy thác phí của TxTypeValueTransferMemo. Để biết thêm thông tin, hãy xem [TxTypeFeeDelegatedValueTransferMemo](../../../learn/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfermemo).
+Phiên bản ủy thác phí của TxTypeValueTransferMemo.
+Để biết thêm thông tin, hãy xem [TxTypeFeeDelegatedValueTransferMemo](../../../learn/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfermemo).
 
 **Tham số**
 
-| Tên             | Loại           | Mô tả                                                                                                                                                                                                                            |
-| --------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| typeInt         | Giá trị nguyên  | Giá trị nguyên biểu thị TxTypeFeeDelegatedValueTransferMemo: 17                                                                                                                                                                  |
-| từ              | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được gửi đi.                                                                                                                                                                                                |
-| đến             | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được chuyển hướng đến.                                                                                                                                                                                      |
-| gas             | SỐ LƯỢNG        | (tùy chọn, mặc định: 90000) Giá trị nguyên của gas được cung cấp để thực hiện giao dịch. Gas chưa sử dụng sẽ được hoàn lại cho người gửi. Nếu gas được chỉ định không đủ để thực hiện giao dịch, giao dịch sẽ được hoàn nguyên.  |
-| giá gas         | SỐ LƯỢNG        | (tùy chọn, mặc định: 25000000000 Peb) Giá trị nguyên của gasPrice được sử dụng cho mỗi gas đã thanh toán.                                                                                                                        |
-| số dùng một lần | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên của số dùng một lần.                                                                                                                                                                                   |
-| giá trị         | SỐ LƯỢNG        | Giá trị nguyên được gửi cùng với giao dịch.                                                                                                                                                                                      |
-| nhập            | DATA            | Dữ liệu được gửi cùng với giao dịch.                                                                                                                                                                                             |
-| feePayer        | DỮ LIỆU 20 byte | Địa chỉ người trả phí của giao dịch.                                                                                                                                                                                             |
+| Tên             | Loại           | Mô tả                                                                                                                                                                                                                                                                  |
+| --------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| typeInt         | Giá trị nguyên  | Giá trị nguyên biểu thị TxTypeFeeDelegatedValueTransferMemo: 17                                                                                                                                                                                                        |
+| từ              | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được gửi đi.                                                                                                                                                                                                                                      |
+| đến             | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được chuyển hướng đến.                                                                                                                                                                                                                            |
+| gas             | SỐ LƯỢNG        | (tùy chọn, mặc định: 90000) Giá trị nguyên của gas được cung cấp để thực hiện giao dịch. Gas chưa sử dụng sẽ được hoàn lại cho người gửi. Nếu gas được chỉ định không đủ để thực hiện giao dịch, giao dịch sẽ được hoàn nguyên.                     |
+| giá gas         | SỐ LƯỢNG        | (tùy chọn, mặc định: 25000000000 Peb) Giá trị nguyên của gasPrice được sử dụng cho mỗi gas đã thanh toán.                                                                                                                                           |
+| số dùng một lần | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên của số dùng một lần.                                                                                                                                                                                                      |
+| giá trị         | SỐ LƯỢNG        | Giá trị nguyên được gửi cùng với giao dịch.                                                                                                                                                                                                                            |
+| nhập            | DATA            | Dữ liệu được gửi cùng với giao dịch.                                                                                                                                                                                                                                   |
+| feePayer        | DỮ LIỆU 20 byte | Địa chỉ người trả phí của giao dịch.                                                                                                                                                                                                                                   |
 | chữ ký          | DATA            | (tùy chọn - chỉ dành cho `klay_sendTransactionAsFeePayer` API) Một mảng các đối tượng chữ ký. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa mã khôi phục ECDSA. R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s. |
 
-
 **Ví dụ 1 (`klay_signTransaction`)**
+
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 17, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": "0x44711E89b0c23845b5B2ed9D3716BA42b8a3e075", "gas": "0x76c0", "gasPrice": "0x5d21dba00", "value": "0xf4", "input": "0xb3f98adc0000000000000000000000000000000000000000000000000000000000000001", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d"}], "id": 80}' http://127.0.0.1:8551
@@ -344,6 +354,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 ```
 
 **Ví dụ 2 (`klay_sendTransactionAsFeePayer`)**
+
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_sendTransactionAsFeePayer", "params": [{"typeInt": 17, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": "0x44711E89b0c23845b5B2ed9D3716BA42b8a3e075", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "value": "0xf4", "input": "0xb3f98adc0000000000000000000000000000000000000000000000000000000000000001", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "signatures": [{"V": "0x4e43", "R": "0xf343844adff1cde850c0215c78b7f9258ab158e125ee100888f454c91c51cf51", "S": "0x245f5e78ae1b52aafd18b86de6ca615af6676f3f3b70baba601748caaf1c813f"}], "nonce": "0x1e"}], "id": 81}' http://127.0.0.1:8551
@@ -356,28 +367,29 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 
-
 ## TxTypeFeeDelegatedValueTransferMemoWithRatio <a id="txtypefeedelegatedvaluetransfermemowithratio"></a>
 
-Phiên bản ủy thác một phần phí của TxTypeValueTransferMemo. Để biết thêm thông tin, hãy xem [TxTypeFeeDelegatedValueTransferMemoWithRatio](../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedvaluetransfermemowithratio).
+Phiên bản ủy thác một phần phí của TxTypeValueTransferMemo.
+Để biết thêm thông tin, hãy xem [TxTypeFeeDelegatedValueTransferMemoWithRatio](../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedvaluetransfermemowithratio).
 
 **Tham số**
 
-| Tên             | Loại           | Mô tả                                                                                                                                                                                                                            |
-| --------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| typeInt         | Giá trị nguyên  | Giá trị nguyên biểu thị TxTypeFeeDelegatedValueTransferMemoWithRatio: 18                                                                                                                                                         |
-| từ              | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được gửi đi.                                                                                                                                                                                                |
-| đến             | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được chuyển hướng đến.                                                                                                                                                                                      |
-| gas             | SỐ LƯỢNG        | (tùy chọn, mặc định: 90000) Giá trị nguyên của gas được cung cấp để thực hiện giao dịch. Gas chưa sử dụng sẽ được hoàn lại cho người gửi. Nếu gas được chỉ định không đủ để thực hiện giao dịch, giao dịch sẽ được hoàn nguyên.  |
-| giá gas         | SỐ LƯỢNG        | (tùy chọn, mặc định: 25000000000 Peb) Giá trị nguyên của gasPrice được sử dụng cho mỗi gas đã thanh toán.                                                                                                                        |
-| số dùng một lần | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên của số dùng một lần.                                                                                                                                                                                   |
-| giá trị         | SỐ LƯỢNG        | Giá trị nguyên được gửi cùng với giao dịch.                                                                                                                                                                                      |
-| nhập            | DATA            | Dữ liệu được gửi cùng với giao dịch.                                                                                                                                                                                             |
-| feePayer        | DỮ LIỆU 20 byte | Địa chỉ người trả phí của giao dịch.                                                                                                                                                                                             |
-| feeRatio        | SỐ LƯỢNG        | Tỷ lệ phí của người trả phí. Nếu tỷ lệ là 30 thì người trả phí phải trả 30% phí. 70% còn lại sẽ được trả bởi người gửi. Phạm vi của tỷ lệ phí là 1 ~ 99, nếu nằm ngoài phạm vi, giao dịch sẽ không được chấp nhận.               |
+| Tên             | Loại           | Mô tả                                                                                                                                                                                                                                                                  |
+| --------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| typeInt         | Giá trị nguyên  | Giá trị nguyên biểu thị TxTypeFeeDelegatedValueTransferMemoWithRatio: 18                                                                                                                                                                                               |
+| từ              | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được gửi đi.                                                                                                                                                                                                                                      |
+| đến             | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được chuyển hướng đến.                                                                                                                                                                                                                            |
+| gas             | SỐ LƯỢNG        | (tùy chọn, mặc định: 90000) Giá trị nguyên của gas được cung cấp để thực hiện giao dịch. Gas chưa sử dụng sẽ được hoàn lại cho người gửi. Nếu gas được chỉ định không đủ để thực hiện giao dịch, giao dịch sẽ được hoàn nguyên.                     |
+| giá gas         | SỐ LƯỢNG        | (tùy chọn, mặc định: 25000000000 Peb) Giá trị nguyên của gasPrice được sử dụng cho mỗi gas đã thanh toán.                                                                                                                                           |
+| số dùng một lần | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên của số dùng một lần.                                                                                                                                                                                                      |
+| giá trị         | SỐ LƯỢNG        | Giá trị nguyên được gửi cùng với giao dịch.                                                                                                                                                                                                                            |
+| nhập            | DATA            | Dữ liệu được gửi cùng với giao dịch.                                                                                                                                                                                                                                   |
+| feePayer        | DỮ LIỆU 20 byte | Địa chỉ người trả phí của giao dịch.                                                                                                                                                                                                                                   |
+| feeRatio        | SỐ LƯỢNG        | Tỷ lệ phí của người trả phí. Nếu tỷ lệ là 30 thì người trả phí phải trả 30% phí. 70% còn lại sẽ được trả bởi người gửi. Phạm vi của tỷ lệ phí là 1 \~ 99, nếu nằm ngoài phạm vi, giao dịch sẽ không được chấp nhận.                                                    |
 | chữ ký          | DATA            | (tùy chọn - chỉ dành cho `klay_sendTransactionAsFeePayer` API) Một mảng các đối tượng chữ ký. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa mã khôi phục ECDSA. R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s. |
 
 **Ví dụ 1 (`klay_signTransaction`)**
+
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 18, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": "0x44711E89b0c23845b5B2ed9D3716BA42b8a3e075", "gas": "0x76c0", "gasPrice": "0x5d21dba00", "value": "0xf4", "input": "0xb3f98adc0000000000000000000000000000000000000000000000000000000000000001", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "feeRatio": 30}], "id": 38}' http://127.0.0.1:8551
@@ -415,6 +427,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 ```
 
 **Ví dụ 2 (`klay_sendTransactionAsFeePayer`)**
+
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_sendTransactionAsFeePayer", "params": [{"typeInt": 18, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": "0x44711E89b0c23845b5B2ed9D3716BA42b8a3e075", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "value": "0xf4", "input": "0xb3f98adc0000000000000000000000000000000000000000000000000000000000000001", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "feeRatio": 30, "signatures": [{"V": "0x4e43", "R": "0x5fecba257917e6677c51d94f0d9670621650a511aae86bd1e50a01c771fb68a0", "S": "0x441a9632f499dbce3d4fc974db3b431cf8ff0a2f93a6490c018796278f6edb2b"}], "nonce": "0x1f"}], "id": 81}' http://127.0.0.1:8551
@@ -427,23 +440,24 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 
-
 ## TxTypeAccountUpdate <a id="txtypeaccountupdate"></a>
 
-TxTypeAccountUpdate cập nhật khóa của tài khoản đã cho. Để biết thêm thông tin, hãy xem [TxTypeAccountUpdate](../../../learn/transactions/basic.md#txtypeaccountupdate).
+TxTypeAccountUpdate cập nhật khóa của tài khoản đã cho.
+Để biết thêm thông tin, hãy xem [TxTypeAccountUpdate](../../../learn/transactions/basic.md#txtypeaccountupdate).
 
 **Tham số**
 
-| Tên             | Loại           | Mô tả                                                                                                                                                                                                                           |
-| --------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| typeInt         | Giá trị nguyên  | Giá trị nguyên cho biết TxTypeAccountUpdate: 32                                                                                                                                                                                 |
-| từ              | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được gửi đi.                                                                                                                                                                                               |
+| Tên             | Loại           | Mô tả                                                                                                                                                                                                                                              |
+| --------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| typeInt         | Giá trị nguyên  | Giá trị nguyên cho biết TxTypeAccountUpdate: 32                                                                                                                                                                                                    |
+| từ              | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được gửi đi.                                                                                                                                                                                                                  |
 | gas             | SỐ LƯỢNG        | (tùy chọn, mặc định: 90000) Giá trị nguyên của gas được cung cấp để thực hiện giao dịch. Gas chưa sử dụng sẽ được hoàn lại cho người gửi. Nếu gas được chỉ định không đủ để thực hiện giao dịch, giao dịch sẽ được hoàn nguyên. |
 | giá gas         | SỐ LƯỢNG        | (tùy chọn, mặc định: 25000000000 Peb) Giá trị nguyên của gasPrice được sử dụng cho mỗi gas đã thanh toán.                                                                                                                       |
 | số dùng một lần | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên của số dùng một lần.                                                                                                                                                                                  |
-| khóa            | DATA            | Khóa tài khoản mới của tài khoản `từ` ở định dạng được mã hóa RLP. Để biết thêm thông tin về khóa tài khoản, hãy xem phần [Khóa tài khoản](../../../learn/accounts.md#account-key).                           |
+| khóa            | DATA            | Khóa tài khoản mới của tài khoản `từ` ở định dạng được mã hóa RLP. Để biết thêm thông tin về khóa tài khoản, hãy xem phần [Khóa tài khoản](../../../learn/accounts.md#account-key).                                                                |
 
 **Ví dụ**
+
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 32, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "key": "0x01c0"}], "id": 68}' http://127.0.0.1:8551
@@ -475,26 +489,26 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 
-
 ## TxTypeFeeDelegatedAccountUpdate <a id="txtypefeedelegatedaccountupdate"></a>
 
-Phiên bản ủy thác phí của TxTypeAccountUpdate. Để biết thêm thông tin, hãy xem [TxTypeFeeDelegatedAccountUpdate](../../../learn/transactions/fee-delegation.md#txtypefeedelegatedaccountupdate).
-
+Phiên bản ủy thác phí của TxTypeAccountUpdate.
+Để biết thêm thông tin, hãy xem [TxTypeFeeDelegatedAccountUpdate](../../../learn/transactions/fee-delegation.md#txtypefeedelegatedaccountupdate).
 
 **Tham số**
 
-| Tên             | type            | Mô tả                                                                                                                                                                                                                            |
-| --------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| typeInt         | Giá trị nguyên  | Giá trị nguyên biểu thị TxTypeFeeDelegatedAccountUpdate: 33                                                                                                                                                                      |
-| từ              | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được gửi đi.                                                                                                                                                                                                |
-| gas             | SỐ LƯỢNG        | (tùy chọn, mặc định: 90000) Giá trị nguyên của gas được cung cấp để thực hiện giao dịch. Gas chưa sử dụng sẽ được hoàn lại cho người gửi. Nếu gas được chỉ định không đủ để thực hiện giao dịch, giao dịch sẽ được hoàn nguyên.  |
-| giá gas         | SỐ LƯỢNG        | (tùy chọn, mặc định: 25000000000 Peb) Giá trị nguyên của gasPrice được sử dụng cho mỗi gas đã thanh toán.                                                                                                                        |
-| số dùng một lần | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên của số dùng một lần.                                                                                                                                                                                   |
-| khóa            | DATA            | Khóa tài khoản mới của tài khoản `từ` ở định dạng được mã hóa RLP. Để biết thêm thông tin về khóa tài khoản, hãy xem phần [Khóa tài khoản](../../../learn/accounts.md#account-key).                            |
-| feePayer        | DỮ LIỆU 20 byte | Địa chỉ người trả phí của giao dịch.                                                                                                                                                                                             |
+| Tên             | type            | Mô tả                                                                                                                                                                                                                                                                  |
+| --------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| typeInt         | Giá trị nguyên  | Giá trị nguyên biểu thị TxTypeFeeDelegatedAccountUpdate: 33                                                                                                                                                                                                            |
+| từ              | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được gửi đi.                                                                                                                                                                                                                                      |
+| gas             | SỐ LƯỢNG        | (tùy chọn, mặc định: 90000) Giá trị nguyên của gas được cung cấp để thực hiện giao dịch. Gas chưa sử dụng sẽ được hoàn lại cho người gửi. Nếu gas được chỉ định không đủ để thực hiện giao dịch, giao dịch sẽ được hoàn nguyên.                     |
+| giá gas         | SỐ LƯỢNG        | (tùy chọn, mặc định: 25000000000 Peb) Giá trị nguyên của gasPrice được sử dụng cho mỗi gas đã thanh toán.                                                                                                                                           |
+| số dùng một lần | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên của số dùng một lần.                                                                                                                                                                                                      |
+| khóa            | DATA            | Khóa tài khoản mới của tài khoản `từ` ở định dạng được mã hóa RLP. Để biết thêm thông tin về khóa tài khoản, hãy xem phần [Khóa tài khoản](../../../learn/accounts.md#account-key).                                                                                    |
+| feePayer        | DỮ LIỆU 20 byte | Địa chỉ người trả phí của giao dịch.                                                                                                                                                                                                                                   |
 | chữ ký          | DATA            | (tùy chọn - chỉ dành cho `klay_sendTransactionAsFeePayer` API) Một mảng các đối tượng chữ ký. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa mã khôi phục ECDSA. R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s. |
 
 **Ví dụ 1 (`klay_signTransaction`)**
+
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 33, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "key": "0x01c0", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d"}], "id": 85}' http://127.0.0.1:8551
@@ -529,6 +543,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 ```
 
 **Ví dụ 2 (`klay_sendTransactionAsFeePayer`)**
+
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_sendTransactionAsFeePayer", "params": [{"typeInt": 33, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "key": "0x01c0", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "signatures": [{"V": "0x4e43", "R": "0x87da8ac5c398bcf379d3034d72d239c8de167cafe240da13019606aad628aa8b", "S": "0x3d11215843cbc25cdf3076e4ead6272e20d72b22e0b9d498bfcd1ceff497baf4"}], "nonce": "0x20"}], "id": 78}' http://127.0.0.1:8551
@@ -541,27 +556,27 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 
-
 ## TxTypeFeeDelegatedAccountUpdateWithRatio <a id="txtypefeedelegatedaccountupdatewithratio"></a>
 
-Phiên bản ủy thác một phần phí của TxTypeAccountUpdate. Để biết thêm thông tin, hãy xem [TxTypeFeeDelegatedAccountUpdateWithRatio](../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedaccountupdatewithratio).
-
+Phiên bản ủy thác một phần phí của TxTypeAccountUpdate.
+Để biết thêm thông tin, hãy xem [TxTypeFeeDelegatedAccountUpdateWithRatio](../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedaccountupdatewithratio).
 
 **Tham số**
 
-| Tên             | type            | Mô tả                                                                                                                                                                                                                            |
-| --------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| typeInt         | Giá trị nguyên  | Giá trị nguyên biểu thị TxTypeFeeDelegatedAccountUpdateWithRatio: 34                                                                                                                                                             |
-| từ              | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được gửi đi.                                                                                                                                                                                                |
-| gas             | SỐ LƯỢNG        | (tùy chọn, mặc định: 90000) Giá trị nguyên của gas được cung cấp để thực hiện giao dịch. Gas chưa sử dụng sẽ được hoàn lại cho người gửi. Nếu gas được chỉ định không đủ để thực hiện giao dịch, giao dịch sẽ được hoàn nguyên.  |
-| giá gas         | SỐ LƯỢNG        | (tùy chọn, mặc định: 25000000000 Peb) Giá trị nguyên của gasPrice được sử dụng cho mỗi gas đã thanh toán.                                                                                                                        |
-| số dùng một lần | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên của số dùng một lần.                                                                                                                                                                                   |
-| khóa            | DATA            | Khóa tài khoản mới của tài khoản `từ` ở định dạng được mã hóa RLP. Để biết thêm thông tin về khóa tài khoản, hãy xem phần [Khóa tài khoản](../../../learn/accounts.md#account-key).                            |
-| feePayer        | DỮ LIỆU 20 byte | Địa chỉ người trả phí của giao dịch.                                                                                                                                                                                             |
-| feeRatio        | SỐ LƯỢNG        | Tỷ lệ phí của người trả phí. Nếu tỷ lệ là 30 thì người trả phí phải trả 30% phí. 70% còn lại sẽ được trả bởi người gửi. Phạm vi của tỷ lệ phí là 1 ~ 99, nếu nằm ngoài phạm vi, giao dịch sẽ không được chấp nhận.               |
+| Tên             | type            | Mô tả                                                                                                                                                                                                                                                                  |
+| --------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| typeInt         | Giá trị nguyên  | Giá trị nguyên biểu thị TxTypeFeeDelegatedAccountUpdateWithRatio: 34                                                                                                                                                                                                   |
+| từ              | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được gửi đi.                                                                                                                                                                                                                                      |
+| gas             | SỐ LƯỢNG        | (tùy chọn, mặc định: 90000) Giá trị nguyên của gas được cung cấp để thực hiện giao dịch. Gas chưa sử dụng sẽ được hoàn lại cho người gửi. Nếu gas được chỉ định không đủ để thực hiện giao dịch, giao dịch sẽ được hoàn nguyên.                     |
+| giá gas         | SỐ LƯỢNG        | (tùy chọn, mặc định: 25000000000 Peb) Giá trị nguyên của gasPrice được sử dụng cho mỗi gas đã thanh toán.                                                                                                                                           |
+| số dùng một lần | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên của số dùng một lần.                                                                                                                                                                                                      |
+| khóa            | DATA            | Khóa tài khoản mới của tài khoản `từ` ở định dạng được mã hóa RLP. Để biết thêm thông tin về khóa tài khoản, hãy xem phần [Khóa tài khoản](../../../learn/accounts.md#account-key).                                                                                    |
+| feePayer        | DỮ LIỆU 20 byte | Địa chỉ người trả phí của giao dịch.                                                                                                                                                                                                                                   |
+| feeRatio        | SỐ LƯỢNG        | Tỷ lệ phí của người trả phí. Nếu tỷ lệ là 30 thì người trả phí phải trả 30% phí. 70% còn lại sẽ được trả bởi người gửi. Phạm vi của tỷ lệ phí là 1 \~ 99, nếu nằm ngoài phạm vi, giao dịch sẽ không được chấp nhận.                                                    |
 | chữ ký          | DATA            | (tùy chọn - chỉ dành cho `klay_sendTransactionAsFeePayer` API) Một mảng các đối tượng chữ ký. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa mã khôi phục ECDSA. R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s. |
 
 **Ví dụ 1 (`klay_signTransaction`)**
+
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 34, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "key": "0x01c0", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "feeRatio": 30}], "id": 78}' http://127.0.0.1:8551
@@ -597,6 +612,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 ```
 
 **Ví dụ 2 (`klay_sendTransactionAsFeePayer`)**
+
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_sendTransactionAsFeePayer", "params": [{"typeInt": 34, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "key": "0x01c0", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "feeRatio": 30, "signatures": [{"V": "0x4e44", "R": "0xd285969e88c3cc92471bda4bbcdce2d23eaa9bdcc47a64421de4858b7a51fd04", "S": "0x5b8123f9666580c51fdbd5a8b1d67bf1ae774e5a8e3e1ebfbf4f2024e94e82cc"}], "nonce": "0x21"}], "id": 100}' http://127.0.0.1:8551
@@ -609,28 +625,28 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 
-
 ## TxTypeSmartContractDeploy <a id="txtypesmartcontractdeploy"></a>
 
-TxTypeSmartContractDeploy triển khai hợp đồng thông minh đến địa chỉ đã cho. Để biết thêm thông tin, hãy xem [TxTypeSmartContractDeploy](../../../learn/transactions/basic.md#txtypesmartcontractdeploy).
+TxTypeSmartContractDeploy triển khai hợp đồng thông minh đến địa chỉ đã cho.
+Để biết thêm thông tin, hãy xem [TxTypeSmartContractDeploy](../../../learn/transactions/basic.md#txtypesmartcontractdeploy).
 
 **Tham số**
 
-| Tên             | Loại           | Mô tả                                                                                                                                                                                                                           |
-| --------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| typeInt         | Giá trị nguyên  | Giá trị nguyên biểu thị TxTypeSmartContractDeploy: 40                                                                                                                                                                           |
-| từ              | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được gửi đi.                                                                                                                                                                                               |
-| đến             | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được chuyển hướng đến.                                                                                                                                                                                     |
+| Tên             | Loại           | Mô tả                                                                                                                                                                                                                                              |
+| --------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| typeInt         | Giá trị nguyên  | Giá trị nguyên biểu thị TxTypeSmartContractDeploy: 40                                                                                                                                                                                              |
+| từ              | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được gửi đi.                                                                                                                                                                                                                  |
+| đến             | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được chuyển hướng đến.                                                                                                                                                                                                        |
 | gas             | SỐ LƯỢNG        | (tùy chọn, mặc định: 90000) Giá trị nguyên của gas được cung cấp để thực hiện giao dịch. Gas chưa sử dụng sẽ được hoàn lại cho người gửi. Nếu gas được chỉ định không đủ để thực hiện giao dịch, giao dịch sẽ được hoàn nguyên. |
 | giá gas         | SỐ LƯỢNG        | (tùy chọn, mặc định: 25000000000 Peb) Giá trị nguyên của gasPrice được sử dụng cho mỗi gas đã thanh toán.                                                                                                                       |
 | số dùng một lần | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên của số dùng một lần.                                                                                                                                                                                  |
-| giá trị         | SỐ LƯỢNG        | Giá trị nguyên được gửi cùng với giao dịch.                                                                                                                                                                                     |
-| nhập            | DATA            | Dữ liệu được gửi cùng với giao dịch.                                                                                                                                                                                            |
-| humanReadable   | Boolean         | `true` nếu địa chỉ mà con người đọc được, ngược lại sẽ là `false`. Hiện tại, giá trị phải là `false`. Địa chỉ mà con người đọc được sẽ được hỗ trợ sau này.                                                                     |
-| codeFormat      | SỐ LƯỢNG        | Định dạng mã của mã hợp đồng thông minh. Giá trị `0` cho biết EVM.                                                                                                                                                              |
-
+| giá trị         | SỐ LƯỢNG        | Giá trị nguyên được gửi cùng với giao dịch.                                                                                                                                                                                                        |
+| nhập            | DATA            | Dữ liệu được gửi cùng với giao dịch.                                                                                                                                                                                                               |
+| humanReadable   | Boolean         | `true` nếu địa chỉ mà con người đọc được, ngược lại sẽ là `false`. Hiện tại, giá trị phải là `false`. Địa chỉ mà con người đọc được sẽ được hỗ trợ sau này.                                                                                        |
+| codeFormat      | SỐ LƯỢNG        | Định dạng mã của mã hợp đồng thông minh. Giá trị `0` cho biết EVM.                                                                                                                                                                                 |
 
 **Ví dụ**
+
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 40, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": null, "gas": "0x4a380", "gasPrice": "0x5d21dba00", "value": "0x0", "input": "0x608060405234801561001057600080fd5b506040516020806102fb8339810180604052602081101561003057600080fd5b810190808051906020019092919050505033600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550600160026000600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600001819055508060ff166003816100fd919061010c565b50600f6000819055505061015f565b815481835581811115610133578183600052602060002091820191016101329190610138565b5b505050565b61015c91905b80821115610158576000808201600090555060010161013e565b5090565b90565b61018d8061016e6000396000f3fe60806040526004361061003b576000357c010000000000000000000000000000000000000000000000000000000090048063b3f98adc14610040575b600080fd5b34801561004c57600080fd5b5061007c6004803603602081101561006357600080fd5b81019080803560ff16906020019092919050505061007e565b005b6000600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002090508060010160009054906101000a900460ff16806100e657506003805490508260ff1610155b156100f1575061015e565b60018160010160006101000a81548160ff021916908315150217905550818160010160016101000a81548160ff021916908360ff160217905550806000015460038360ff1681548110151561014257fe5b9060005260206000200160000160008282540192505081905550505b5056fea165627a7a72305820dad6d3e144a160eb6e34d8d99084ed29d207271e201aaac513007f652a26e2200029", "humanReadable": false, "codeFormat": 0}], "id": 78}' http://127.0.0.1:8551
@@ -666,30 +682,30 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 
-
 ## TxTypeFeeDelegatedSmartContractDeploy <a id="txtypefeedelegatedsmartcontractdeploy"></a>
 
-Phiên bản ủy thác phí của TxTypeSmartContractDeploy. Để biết thêm thông tin, hãy xem [TxTypeFeeDelegatedSmartContractDeploy](../../../learn/transactions/fee-delegation.md#txtypefeedelegatedsmartcontractdeploy).
+Phiên bản ủy thác phí của TxTypeSmartContractDeploy.
+Để biết thêm thông tin, hãy xem [TxTypeFeeDelegatedSmartContractDeploy](../../../learn/transactions/fee-delegation.md#txtypefeedelegatedsmartcontractdeploy).
 
 **Tham số**
 
-| Tên             | type            | Mô tả                                                                                                                                                                                                                            |
-| --------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| typeInt         | Giá trị nguyên  | Giá trị nguyên biểu thị TxTypeFeeDelegatedValueTransfer: 41                                                                                                                                                                      |
-| từ              | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được gửi đi.                                                                                                                                                                                                |
-| đến             | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được chuyển hướng đến.                                                                                                                                                                                      |
-| gas             | SỐ LƯỢNG        | (tùy chọn, mặc định: 90000) Giá trị nguyên của gas được cung cấp để thực hiện giao dịch. Gas chưa sử dụng sẽ được hoàn lại cho người gửi. Nếu gas được chỉ định không đủ để thực hiện giao dịch, giao dịch sẽ được hoàn nguyên.  |
-| giá gas         | SỐ LƯỢNG        | (tùy chọn, mặc định: 25000000000 Peb) Giá trị nguyên của gasPrice được sử dụng cho mỗi gas đã thanh toán.                                                                                                                        |
-| số dùng một lần | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên của số dùng một lần.                                                                                                                                                                                   |
-| giá trị         | SỐ LƯỢNG        | Giá trị nguyên được gửi cùng với giao dịch.                                                                                                                                                                                      |
-| nhập            | DATA            | Dữ liệu được gửi cùng với giao dịch.                                                                                                                                                                                             |
-| humanReadable   | Boolean         | `true` nếu địa chỉ mà con người đọc được, ngược lại sẽ là `false`. Hiện tại, giá trị phải là `false`. Địa chỉ mà con người đọc được sẽ được hỗ trợ sau này.                                                                      |
-| codeFormat      | SỐ LƯỢNG        | Định dạng mã của mã hợp đồng thông minh. Giá trị `0` cho biết EVM.                                                                                                                                                               |
-| feePayer        | DỮ LIỆU 20 byte | Địa chỉ người trả phí của giao dịch.                                                                                                                                                                                             |
+| Tên             | type            | Mô tả                                                                                                                                                                                                                                                                  |
+| --------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| typeInt         | Giá trị nguyên  | Giá trị nguyên biểu thị TxTypeFeeDelegatedValueTransfer: 41                                                                                                                                                                                                            |
+| từ              | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được gửi đi.                                                                                                                                                                                                                                      |
+| đến             | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được chuyển hướng đến.                                                                                                                                                                                                                            |
+| gas             | SỐ LƯỢNG        | (tùy chọn, mặc định: 90000) Giá trị nguyên của gas được cung cấp để thực hiện giao dịch. Gas chưa sử dụng sẽ được hoàn lại cho người gửi. Nếu gas được chỉ định không đủ để thực hiện giao dịch, giao dịch sẽ được hoàn nguyên.                     |
+| giá gas         | SỐ LƯỢNG        | (tùy chọn, mặc định: 25000000000 Peb) Giá trị nguyên của gasPrice được sử dụng cho mỗi gas đã thanh toán.                                                                                                                                           |
+| số dùng một lần | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên của số dùng một lần.                                                                                                                                                                                                      |
+| giá trị         | SỐ LƯỢNG        | Giá trị nguyên được gửi cùng với giao dịch.                                                                                                                                                                                                                            |
+| nhập            | DATA            | Dữ liệu được gửi cùng với giao dịch.                                                                                                                                                                                                                                   |
+| humanReadable   | Boolean         | `true` nếu địa chỉ mà con người đọc được, ngược lại sẽ là `false`. Hiện tại, giá trị phải là `false`. Địa chỉ mà con người đọc được sẽ được hỗ trợ sau này.                                                                                                            |
+| codeFormat      | SỐ LƯỢNG        | Định dạng mã của mã hợp đồng thông minh. Giá trị `0` cho biết EVM.                                                                                                                                                                                                     |
+| feePayer        | DỮ LIỆU 20 byte | Địa chỉ người trả phí của giao dịch.                                                                                                                                                                                                                                   |
 | chữ ký          | DATA            | (tùy chọn - chỉ dành cho `klay_sendTransactionAsFeePayer` API) Một mảng các đối tượng chữ ký. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa mã khôi phục ECDSA. R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s. |
 
-
 **Ví dụ 1 (`klay_signTransaction`)**
+
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 41, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": null, "gas": "0x4a380", "gasPrice": "0x5d21dba00", "value": "0x0", "input": "0x608060405234801561001057600080fd5b506040516020806102fb8339810180604052602081101561003057600080fd5b810190808051906020019092919050505033600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550600160026000600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600001819055508060ff166003816100fd919061010c565b50600f6000819055505061015f565b815481835581811115610133578183600052602060002091820191016101329190610138565b5b505050565b61015c91905b80821115610158576000808201600090555060010161013e565b5090565b90565b61018d8061016e6000396000f3fe60806040526004361061003b576000357c010000000000000000000000000000000000000000000000000000000090048063b3f98adc14610040575b600080fd5b34801561004c57600080fd5b5061007c6004803603602081101561006357600080fd5b81019080803560ff16906020019092919050505061007e565b005b6000600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002090508060010160009054906101000a900460ff16806100e657506003805490508260ff1610155b156100f1575061015e565b60018160010160006101000a81548160ff021916908315150217905550818160010160016101000a81548160ff021916908360ff160217905550806000015460038360ff1681548110151561014257fe5b9060005260206000200160000160008282540192505081905550505b5056fea165627a7a72305820dad6d3e144a160eb6e34d8d99084ed29d207271e201aaac513007f652a26e2200029", "humanReadable": false, "codeFormat": 0, "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d"}], "id": 30}' http://127.0.0.1:8551
@@ -728,6 +744,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 ```
 
 **Ví dụ 2 (`klay_sendTransactionAsFeePayer`)**
+
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_sendTransactionAsFeePayer", "params": [{"typeInt": 41, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": null, "gas": "0x4a380", "gasPrice": "0x5d21dba00", "value": "0x0", "input": "0x608060405234801561001057600080fd5b506040516020806102fb8339810180604052602081101561003057600080fd5b810190808051906020019092919050505033600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550600160026000600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600001819055508060ff166003816100fd919061010c565b50600f6000819055505061015f565b815481835581811115610133578183600052602060002091820191016101329190610138565b5b505050565b61015c91905b80821115610158576000808201600090555060010161013e565b5090565b90565b61018d8061016e6000396000f3fe60806040526004361061003b576000357c010000000000000000000000000000000000000000000000000000000090048063b3f98adc14610040575b600080fd5b34801561004c57600080fd5b5061007c6004803603602081101561006357600080fd5b81019080803560ff16906020019092919050505061007e565b005b6000600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002090508060010160009054906101000a900460ff16806100e657506003805490508260ff1610155b156100f1575061015e565b60018160010160006101000a81548160ff021916908315150217905550818160010160016101000a81548160ff021916908360ff160217905550806000015460038360ff1681548110151561014257fe5b9060005260206000200160000160008282540192505081905550505b5056fea165627a7a72305820dad6d3e144a160eb6e34d8d99084ed29d207271e201aaac513007f652a26e2200029", "humanReadable": false, "codeFormat": 0, "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "signatures": [{"V": "0x4e44", "R": "0x25aaa9dcd863ec742299c7204d7720277ae39a277232a3b1ad61d4b665c89da9", "S": "0x4c00c144ac183f6b61224f4721e7e0d2c5f583e5793175cf35c04bdfb46e1b16"}], "nonce": "0x22"}], "id": 84}' http://127.0.0.1:8551
@@ -740,31 +757,31 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 
-
 ## TxTypeFeeDelegatedSmartContractDeployWithRatio <a id="txtypefeedelegatedsmartcontractdeploywithratio"></a>
 
-Phiên bản ủy thác một phần phí của TxTypeSmartContractDeploy. Để biết thêm thông tin, hãy xem [TxTypeFeeDelegatedSmartContractDeployWithRatio](../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractdeploywithratio).
+Phiên bản ủy thác một phần phí của TxTypeSmartContractDeploy.
+Để biết thêm thông tin, hãy xem [TxTypeFeeDelegatedSmartContractDeployWithRatio](../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractdeploywithratio).
 
 **Tham số**
 
-| Tên             | Loại           | Mô tả                                                                                                                                                                                                                            |
-| --------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| typeInt         | Giá trị nguyên  | Giá trị nguyên biểu thị TxTypeFeeDelegatedSmartContractDeployWithRatio: 42                                                                                                                                                       |
-| từ              | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được gửi đi.                                                                                                                                                                                                |
-| đến             | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được chuyển hướng đến.                                                                                                                                                                                      |
-| gas             | SỐ LƯỢNG        | (tùy chọn, mặc định: 90000) Giá trị nguyên của gas được cung cấp để thực hiện giao dịch. Gas chưa sử dụng sẽ được hoàn lại cho người gửi. Nếu gas được chỉ định không đủ để thực hiện giao dịch, giao dịch sẽ được hoàn nguyên.  |
-| giá gas         | SỐ LƯỢNG        | (tùy chọn, mặc định: 25000000000 Peb) Giá trị nguyên của gasPrice được sử dụng cho mỗi gas đã thanh toán.                                                                                                                        |
-| số dùng một lần | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên của số dùng một lần.                                                                                                                                                                                   |
-| giá trị         | SỐ LƯỢNG        | Giá trị nguyên được gửi cùng với giao dịch.                                                                                                                                                                                      |
-| nhập            | DATA            | Dữ liệu được gửi cùng với giao dịch.                                                                                                                                                                                             |
-| humanReadable   | Boolean         | `true` nếu địa chỉ mà con người đọc được, ngược lại sẽ là `false`. Hiện tại, giá trị phải là `false`. Địa chỉ mà con người đọc được sẽ được hỗ trợ sau này.                                                                      |
-| codeFormat      | SỐ LƯỢNG        | Định dạng mã của mã hợp đồng thông minh. Giá trị `0` cho biết EVM.                                                                                                                                                               |
-| feePayer        | DỮ LIỆU 20 byte | Địa chỉ người trả phí của giao dịch.                                                                                                                                                                                             |
-| feeRatio        | SỐ LƯỢNG        | Tỷ lệ phí của người trả phí. Nếu tỷ lệ là 30 thì người trả phí phải trả 30% phí. 70% còn lại sẽ được trả bởi người gửi. Phạm vi của tỷ lệ phí là 1 ~ 99, nếu nằm ngoài phạm vi, giao dịch sẽ không được chấp nhận.               |
+| Tên             | Loại           | Mô tả                                                                                                                                                                                                                                                                  |
+| --------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| typeInt         | Giá trị nguyên  | Giá trị nguyên biểu thị TxTypeFeeDelegatedSmartContractDeployWithRatio: 42                                                                                                                                                                                             |
+| từ              | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được gửi đi.                                                                                                                                                                                                                                      |
+| đến             | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được chuyển hướng đến.                                                                                                                                                                                                                            |
+| gas             | SỐ LƯỢNG        | (tùy chọn, mặc định: 90000) Giá trị nguyên của gas được cung cấp để thực hiện giao dịch. Gas chưa sử dụng sẽ được hoàn lại cho người gửi. Nếu gas được chỉ định không đủ để thực hiện giao dịch, giao dịch sẽ được hoàn nguyên.                     |
+| giá gas         | SỐ LƯỢNG        | (tùy chọn, mặc định: 25000000000 Peb) Giá trị nguyên của gasPrice được sử dụng cho mỗi gas đã thanh toán.                                                                                                                                           |
+| số dùng một lần | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên của số dùng một lần.                                                                                                                                                                                                      |
+| giá trị         | SỐ LƯỢNG        | Giá trị nguyên được gửi cùng với giao dịch.                                                                                                                                                                                                                            |
+| nhập            | DATA            | Dữ liệu được gửi cùng với giao dịch.                                                                                                                                                                                                                                   |
+| humanReadable   | Boolean         | `true` nếu địa chỉ mà con người đọc được, ngược lại sẽ là `false`. Hiện tại, giá trị phải là `false`. Địa chỉ mà con người đọc được sẽ được hỗ trợ sau này.                                                                                                            |
+| codeFormat      | SỐ LƯỢNG        | Định dạng mã của mã hợp đồng thông minh. Giá trị `0` cho biết EVM.                                                                                                                                                                                                     |
+| feePayer        | DỮ LIỆU 20 byte | Địa chỉ người trả phí của giao dịch.                                                                                                                                                                                                                                   |
+| feeRatio        | SỐ LƯỢNG        | Tỷ lệ phí của người trả phí. Nếu tỷ lệ là 30 thì người trả phí phải trả 30% phí. 70% còn lại sẽ được trả bởi người gửi. Phạm vi của tỷ lệ phí là 1 \~ 99, nếu nằm ngoài phạm vi, giao dịch sẽ không được chấp nhận.                                                    |
 | chữ ký          | DATA            | (tùy chọn - chỉ dành cho `klay_sendTransactionAsFeePayer` API) Một mảng các đối tượng chữ ký. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa mã khôi phục ECDSA. R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s. |
 
-
 **Ví dụ 1 (`klay_signTransaction`)**
+
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 42, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": null, "gas": "0x4a380", "gasPrice": "0x5d21dba00", "value": "0x0", "input": "0x608060405234801561001057600080fd5b506040516020806102fb8339810180604052602081101561003057600080fd5b810190808051906020019092919050505033600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550600160026000600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600001819055508060ff166003816100fd919061010c565b50600f6000819055505061015f565b815481835581811115610133578183600052602060002091820191016101329190610138565b5b505050565b61015c91905b80821115610158576000808201600090555060010161013e565b5090565b90565b61018d8061016e6000396000f3fe60806040526004361061003b576000357c010000000000000000000000000000000000000000000000000000000090048063b3f98adc14610040575b600080fd5b34801561004c57600080fd5b5061007c6004803603602081101561006357600080fd5b81019080803560ff16906020019092919050505061007e565b005b6000600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002090508060010160009054906101000a900460ff16806100e657506003805490508260ff1610155b156100f1575061015e565b60018160010160006101000a81548160ff021916908315150217905550818160010160016101000a81548160ff021916908360ff160217905550806000015460038360ff1681548110151561014257fe5b9060005260206000200160000160008282540192505081905550505b5056fea165627a7a72305820dad6d3e144a160eb6e34d8d99084ed29d207271e201aaac513007f652a26e2200029", "humanReadable": false, "codeFormat": 0, "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "feeRatio": 30}], "id": 49}' http://127.0.0.1:8551
@@ -804,6 +821,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 ```
 
 **Ví dụ 2 (`klay_sendTransactionAsFeePayer`)**
+
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_sendTransactionAsFeePayer", "params": [{"typeInt": 42, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": null, "gas": "0x4a380", "gasPrice": "0x5d21dba00", "value": "0x0", "input": "0x608060405234801561001057600080fd5b506040516020806102fb8339810180604052602081101561003057600080fd5b810190808051906020019092919050505033600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550600160026000600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600001819055508060ff166003816100fd919061010c565b50600f6000819055505061015f565b815481835581811115610133578183600052602060002091820191016101329190610138565b5b505050565b61015c91905b80821115610158576000808201600090555060010161013e565b5090565b90565b61018d8061016e6000396000f3fe60806040526004361061003b576000357c010000000000000000000000000000000000000000000000000000000090048063b3f98adc14610040575b600080fd5b34801561004c57600080fd5b5061007c6004803603602081101561006357600080fd5b81019080803560ff16906020019092919050505061007e565b005b6000600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002090508060010160009054906101000a900460ff16806100e657506003805490508260ff1610155b156100f1575061015e565b60018160010160006101000a81548160ff021916908315150217905550818160010160016101000a81548160ff021916908360ff160217905550806000015460038360ff1681548110151561014257fe5b9060005260206000200160000160008282540192505081905550505b5056fea165627a7a72305820dad6d3e144a160eb6e34d8d99084ed29d207271e201aaac513007f652a26e2200029", "humanReadable": false, "codeFormat": 0, "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "feeRatio": 30, "signatures": [{"V": "0x4e44", "R": "0xc4e11861dd7c2849a727c979cc96ff4dfbfddc36ffe443437e9a27a9dcd028c2", "S": "0x475dc05fe78c62ced1c3d2b260c47c3e971cd66edad28da5adeeb7de63ed9413"}], "nonce": "0x23"}], "id": 68}' http://127.0.0.1:8551
@@ -816,26 +834,26 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 
-
 ## TxTypeSmartContractExecution <a id="txtypesmartcontractexecution"></a>
 
-TxTypeSmartContractExecution thực thi hợp đồng thông minh với dữ liệu đã cho trong `đầu vào`. Để biết thêm thông tin, hãy xem [TxTypeSmartContractExecution](../../../learn/transactions/basic.md#txtypesmartcontractexecution).
+TxTypeSmartContractExecution thực thi hợp đồng thông minh với dữ liệu đã cho trong `đầu vào`.
+Để biết thêm thông tin, hãy xem [TxTypeSmartContractExecution](../../../learn/transactions/basic.md#txtypesmartcontractexecution).
 
 **Tham số**
 
-| Tên             | type            | Mô tả                                                                                                                                                                                                                           |
-| --------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| typeInt         | Giá trị nguyên  | Giá trị nguyên biểu thị TxTypeSmartContractExecution: 48                                                                                                                                                                        |
-| từ              | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được gửi đi.                                                                                                                                                                                               |
-| đến             | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được chuyển hướng đến.                                                                                                                                                                                     |
+| Tên             | type            | Mô tả                                                                                                                                                                                                                                              |
+| --------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| typeInt         | Giá trị nguyên  | Giá trị nguyên biểu thị TxTypeSmartContractExecution: 48                                                                                                                                                                                           |
+| từ              | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được gửi đi.                                                                                                                                                                                                                  |
+| đến             | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được chuyển hướng đến.                                                                                                                                                                                                        |
 | gas             | SỐ LƯỢNG        | (tùy chọn, mặc định: 90000) Giá trị nguyên của gas được cung cấp để thực hiện giao dịch. Gas chưa sử dụng sẽ được hoàn lại cho người gửi. Nếu gas được chỉ định không đủ để thực hiện giao dịch, giao dịch sẽ được hoàn nguyên. |
 | giá gas         | SỐ LƯỢNG        | (tùy chọn, mặc định: 25000000000 Peb) Giá trị nguyên của gasPrice được sử dụng cho mỗi gas đã thanh toán.                                                                                                                       |
 | số dùng một lần | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên của số dùng một lần.                                                                                                                                                                                  |
-| giá trị         | SỐ LƯỢNG        | Giá trị nguyên được gửi cùng với giao dịch.                                                                                                                                                                                     |
-| nhập            | DATA            | Dữ liệu được gửi cùng với giao dịch.                                                                                                                                                                                            |
-
+| giá trị         | SỐ LƯỢNG        | Giá trị nguyên được gửi cùng với giao dịch.                                                                                                                                                                                                        |
+| nhập            | DATA            | Dữ liệu được gửi cùng với giao dịch.                                                                                                                                                                                                               |
 
 **Ví dụ**
+
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 48, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": "0x5614dd922069d284ac9219f53cd235935c527954", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "value": "0x0", "input": "0xb3f98adc0000000000000000000000000000000000000000000000000000000000000001"}], "id": 69}' http://127.0.0.1:8551
@@ -869,28 +887,28 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 
-
 ## TxTypeFeeDelegatedSmartContractExecution <a id="txtypefeedelegatedsmartcontractexecution"></a>
 
-Phiên bản ủy thác phí của TxTypeSmartContractExecution. Để biết thêm thông tin, hãy xem [TxTypeFeeDelegatedSmartContractExecution](../../../learn/transactions/fee-delegation.md#txtypefeedelegatedsmartcontractexecution).
+Phiên bản ủy thác phí của TxTypeSmartContractExecution.
+Để biết thêm thông tin, hãy xem [TxTypeFeeDelegatedSmartContractExecution](../../../learn/transactions/fee-delegation.md#txtypefeedelegatedsmartcontractexecution).
 
 **Tham số**
 
-| Tên             | Loại           | Mô tả                                                                                                                                                                                                                            |
-| --------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| typeInt         | Giá trị nguyên  | Giá trị nguyên biểu thị TxTypeFeeDelegatedSmartContractExecution: 49                                                                                                                                                             |
-| từ              | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được gửi đi.                                                                                                                                                                                                |
-| đến             | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được chuyển hướng đến.                                                                                                                                                                                      |
-| gas             | SỐ LƯỢNG        | (tùy chọn, mặc định: 90000) Giá trị nguyên của gas được cung cấp để thực hiện giao dịch. Gas chưa sử dụng sẽ được hoàn lại cho người gửi. Nếu gas được chỉ định không đủ để thực hiện giao dịch, giao dịch sẽ được hoàn nguyên.  |
-| giá gas         | SỐ LƯỢNG        | (tùy chọn, mặc định: 25000000000 Peb) Giá trị nguyên của gasPrice được sử dụng cho mỗi gas đã thanh toán.                                                                                                                        |
-| số dùng một lần | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên của số dùng một lần.                                                                                                                                                                                   |
-| giá trị         | SỐ LƯỢNG        | Giá trị nguyên được gửi cùng với giao dịch.                                                                                                                                                                                      |
-| nhập            | DATA            | Dữ liệu được gửi cùng với giao dịch.                                                                                                                                                                                             |
-| feePayer        | DỮ LIỆU 20 byte | Địa chỉ người trả phí của giao dịch.                                                                                                                                                                                             |
+| Tên             | Loại           | Mô tả                                                                                                                                                                                                                                                                  |
+| --------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| typeInt         | Giá trị nguyên  | Giá trị nguyên biểu thị TxTypeFeeDelegatedSmartContractExecution: 49                                                                                                                                                                                                   |
+| từ              | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được gửi đi.                                                                                                                                                                                                                                      |
+| đến             | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được chuyển hướng đến.                                                                                                                                                                                                                            |
+| gas             | SỐ LƯỢNG        | (tùy chọn, mặc định: 90000) Giá trị nguyên của gas được cung cấp để thực hiện giao dịch. Gas chưa sử dụng sẽ được hoàn lại cho người gửi. Nếu gas được chỉ định không đủ để thực hiện giao dịch, giao dịch sẽ được hoàn nguyên.                     |
+| giá gas         | SỐ LƯỢNG        | (tùy chọn, mặc định: 25000000000 Peb) Giá trị nguyên của gasPrice được sử dụng cho mỗi gas đã thanh toán.                                                                                                                                           |
+| số dùng một lần | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên của số dùng một lần.                                                                                                                                                                                                      |
+| giá trị         | SỐ LƯỢNG        | Giá trị nguyên được gửi cùng với giao dịch.                                                                                                                                                                                                                            |
+| nhập            | DATA            | Dữ liệu được gửi cùng với giao dịch.                                                                                                                                                                                                                                   |
+| feePayer        | DỮ LIỆU 20 byte | Địa chỉ người trả phí của giao dịch.                                                                                                                                                                                                                                   |
 | chữ ký          | DATA            | (tùy chọn - chỉ dành cho `klay_sendTransactionAsFeePayer` API) Một mảng các đối tượng chữ ký. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa mã khôi phục ECDSA. R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s. |
 
-
 **Ví dụ 1 (`klay_signTransaction`)**
+
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 49, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": "0x5614dd922069d284ac9219f53cd235935c527954", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "value": "0x0", "input": "0xb3f98adc0000000000000000000000000000000000000000000000000000000000000001", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d"}], "id": 25}' http://127.0.0.1:8551
@@ -927,6 +945,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 ```
 
 **Ví dụ 2 (`klay_sendTransactionAsFeePayer`)**
+
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_sendTransactionAsFeePayer", "params": [{"typeInt": 49, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": "0xa85553604e37603a461e9b085cdac5f713210339", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "value": "0x0", "input": "0xb3f98adc0000000000000000000000000000000000000000000000000000000000000001", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "signatures": [{"V": "0x4e43", "R": "0x8d179a52bd2c819a6b8a61bac63ec6e68583696bb7a2968e8071cb687808e92f", "S": "0x68b47095625c2af8c9996d19d64356a54b98f23de2585af7cb21db56c24e168"}], "nonce": "0x24"}], "id": 84}' http://127.0.0.1:8551
@@ -939,29 +958,29 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 
-
 ## TxTypeFeeDelegatedSmartContractExecutionWithRatio <a id="txtypefeedelegatedsmartcontractexecutionwithratio"></a>
 
-Phiên bản ủy thác một phần phí của TxTypeSmartContractExecution. Để biết thêm thông tin, hãy xem [TxTypeFeeDelegatedSmartContractExecutionWithRatio](../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio).
+Phiên bản ủy thác một phần phí của TxTypeSmartContractExecution.
+Để biết thêm thông tin, hãy xem [TxTypeFeeDelegatedSmartContractExecutionWithRatio](../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio).
 
 **Tham số**
 
-| Tên             | Loại           | Mô tả                                                                                                                                                                                                                            |
-| --------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| typeInt         | Giá trị nguyên  | Giá trị nguyên biểu thị TxTypeFeeDelegatedSmartContractExecutionWithRatio: 50                                                                                                                                                    |
-| từ              | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được gửi đi.                                                                                                                                                                                                |
-| đến             | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được chuyển hướng đến.                                                                                                                                                                                      |
-| gas             | SỐ LƯỢNG        | (tùy chọn, mặc định: 90000) Giá trị nguyên của gas được cung cấp để thực hiện giao dịch. Gas chưa sử dụng sẽ được hoàn lại cho người gửi. Nếu gas được chỉ định không đủ để thực hiện giao dịch, giao dịch sẽ được hoàn nguyên.  |
-| giá gas         | SỐ LƯỢNG        | (tùy chọn, mặc định: 25000000000 Peb) Giá trị nguyên của gasPrice được sử dụng cho mỗi gas đã thanh toán.                                                                                                                        |
-| số dùng một lần | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên của số dùng một lần.                                                                                                                                                                                   |
-| giá trị         | SỐ LƯỢNG        | Giá trị nguyên được gửi cùng với giao dịch.                                                                                                                                                                                      |
-| nhập            | DATA            | Dữ liệu được gửi cùng với giao dịch.                                                                                                                                                                                             |
-| feePayer        | DỮ LIỆU 20 byte | Địa chỉ người trả phí của giao dịch.                                                                                                                                                                                             |
-| feeRatio        | SỐ LƯỢNG        | Tỷ lệ phí của người trả phí. Nếu tỷ lệ là 30 thì người trả phí phải trả 30% phí. 70% còn lại sẽ được trả bởi người gửi. Phạm vi của tỷ lệ phí là 1 ~ 99, nếu nằm ngoài phạm vi, giao dịch sẽ không được chấp nhận.               |
+| Tên             | Loại           | Mô tả                                                                                                                                                                                                                                                                  |
+| --------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| typeInt         | Giá trị nguyên  | Giá trị nguyên biểu thị TxTypeFeeDelegatedSmartContractExecutionWithRatio: 50                                                                                                                                                                                          |
+| từ              | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được gửi đi.                                                                                                                                                                                                                                      |
+| đến             | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được chuyển hướng đến.                                                                                                                                                                                                                            |
+| gas             | SỐ LƯỢNG        | (tùy chọn, mặc định: 90000) Giá trị nguyên của gas được cung cấp để thực hiện giao dịch. Gas chưa sử dụng sẽ được hoàn lại cho người gửi. Nếu gas được chỉ định không đủ để thực hiện giao dịch, giao dịch sẽ được hoàn nguyên.                     |
+| giá gas         | SỐ LƯỢNG        | (tùy chọn, mặc định: 25000000000 Peb) Giá trị nguyên của gasPrice được sử dụng cho mỗi gas đã thanh toán.                                                                                                                                           |
+| số dùng một lần | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên của số dùng một lần.                                                                                                                                                                                                      |
+| giá trị         | SỐ LƯỢNG        | Giá trị nguyên được gửi cùng với giao dịch.                                                                                                                                                                                                                            |
+| nhập            | DATA            | Dữ liệu được gửi cùng với giao dịch.                                                                                                                                                                                                                                   |
+| feePayer        | DỮ LIỆU 20 byte | Địa chỉ người trả phí của giao dịch.                                                                                                                                                                                                                                   |
+| feeRatio        | SỐ LƯỢNG        | Tỷ lệ phí của người trả phí. Nếu tỷ lệ là 30 thì người trả phí phải trả 30% phí. 70% còn lại sẽ được trả bởi người gửi. Phạm vi của tỷ lệ phí là 1 \~ 99, nếu nằm ngoài phạm vi, giao dịch sẽ không được chấp nhận.                                                    |
 | chữ ký          | DATA            | (tùy chọn - chỉ dành cho `klay_sendTransactionAsFeePayer` API) Một mảng các đối tượng chữ ký. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa mã khôi phục ECDSA. R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s. |
 
-
 **Ví dụ 1 (`klay_signTransaction`)**
+
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 50, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": "0x5614dd922069d284ac9219f53cd235935c527954", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "value": "0x0", "input": "0xb3f98adc0000000000000000000000000000000000000000000000000000000000000001", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "feeRatio": 30}], "id": 13}' http://127.0.0.1:8551
@@ -999,6 +1018,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 ```
 
 **Ví dụ 2 (`klay_sendTransactionAsFeePayer`)**
+
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_sendTransactionAsFeePayer", "params": [{"typeInt": 50, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "to": "0xa85553604e37603a461e9b085cdac5f713210339", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "value": "0x0", "input": "0xb3f98adc0000000000000000000000000000000000000000000000000000000000000001", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "feeRatio": 30, "signatures": [{"V": "0x4e44", "R": "0xd742608c411371d7b1db08dc6f43adabdb9b75ec03c2fa185216103de600556b", "S": "0x24b541a84945f8bc96f563909aa0ad2c7ac8376d31a65eca7a2d79b721701170"}], "nonce": "0x25"}], "id": 44}' http://127.0.0.1:8551
@@ -1011,23 +1031,23 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 
-
 ## TxTypeCancel <a id="txtypecancel"></a>
 
-TxTypeCancel hủy bỏ việc thực thi giao dịch có cùng số dùng một lần trong bể giao dịch. Để biết thêm thông tin, hãy xem [TxTypeCancel](../../../learn/transactions/basic.md#txtypecancel).
+TxTypeCancel hủy bỏ việc thực thi giao dịch có cùng số dùng một lần trong bể giao dịch.
+Để biết thêm thông tin, hãy xem [TxTypeCancel](../../../learn/transactions/basic.md#txtypecancel).
 
 **Tham số**
 
-| Tên             | type            | Mô tả                                                                                                                                                                                                                           |
-| --------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| typeInt         | Giá trị nguyên  | Giá trị nguyên biểu thị TxTypeCancel: 56                                                                                                                                                                                        |
-| từ              | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được gửi đi.                                                                                                                                                                                               |
+| Tên             | type            | Mô tả                                                                                                                                                                                                                                              |
+| --------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| typeInt         | Giá trị nguyên  | Giá trị nguyên biểu thị TxTypeCancel: 56                                                                                                                                                                                                           |
+| từ              | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được gửi đi.                                                                                                                                                                                                                  |
 | gas             | SỐ LƯỢNG        | (tùy chọn, mặc định: 90000) Giá trị nguyên của gas được cung cấp để thực hiện giao dịch. Gas chưa sử dụng sẽ được hoàn lại cho người gửi. Nếu gas được chỉ định không đủ để thực hiện giao dịch, giao dịch sẽ được hoàn nguyên. |
 | giá gas         | SỐ LƯỢNG        | (tùy chọn, mặc định: 25000000000 Peb) Giá trị nguyên của gasPrice được sử dụng cho mỗi gas đã thanh toán.                                                                                                                       |
 | số dùng một lần | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên của số dùng một lần.                                                                                                                                                                                  |
 
-
 **Ví dụ**
+
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 56, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "gas": "0x4a380", "gasPrice": "0x5d21dba00"}], "id": 81}' http://127.0.0.1:8551
@@ -1058,25 +1078,25 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 
-
 ## TxTypeFeeDelegatedCancel <a id="txtypefeedelegatedcancel"></a>
 
-Phiên bản ủy thác phí của TxTypeCancel. Để biết thêm thông tin, hãy xem [TxTypeFeeDelegatedCancel](../../../learn/transactions/fee-delegation.md#txtypefeedelegatedcancel).
+Phiên bản ủy thác phí của TxTypeCancel.
+Để biết thêm thông tin, hãy xem [TxTypeFeeDelegatedCancel](../../../learn/transactions/fee-delegation.md#txtypefeedelegatedcancel).
 
 **Tham số**
 
-| Tên             | type            | Mô tả                                                                                                                                                                                                                            |
-| --------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| typeInt         | Giá trị nguyên  | Giá trị nguyên biểu thị TxTypeFeeDelegatedCancel: 57                                                                                                                                                                             |
-| từ              | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được gửi đi.                                                                                                                                                                                                |
-| gas             | SỐ LƯỢNG        | (tùy chọn, mặc định: 90000) Giá trị nguyên của gas được cung cấp để thực hiện giao dịch. Gas chưa sử dụng sẽ được hoàn lại cho người gửi. Nếu gas được chỉ định không đủ để thực hiện giao dịch, giao dịch sẽ được hoàn nguyên.  |
-| giá gas         | SỐ LƯỢNG        | (tùy chọn, mặc định: 25000000000 Peb) Giá trị nguyên của gasPrice được sử dụng cho mỗi gas đã thanh toán.                                                                                                                        |
-| số dùng một lần | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên của số dùng một lần.                                                                                                                                                                                   |
-| feePayer        | DỮ LIỆU 20 byte | Địa chỉ người trả phí của giao dịch.                                                                                                                                                                                             |
+| Tên             | type            | Mô tả                                                                                                                                                                                                                                                                  |
+| --------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| typeInt         | Giá trị nguyên  | Giá trị nguyên biểu thị TxTypeFeeDelegatedCancel: 57                                                                                                                                                                                                                   |
+| từ              | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được gửi đi.                                                                                                                                                                                                                                      |
+| gas             | SỐ LƯỢNG        | (tùy chọn, mặc định: 90000) Giá trị nguyên của gas được cung cấp để thực hiện giao dịch. Gas chưa sử dụng sẽ được hoàn lại cho người gửi. Nếu gas được chỉ định không đủ để thực hiện giao dịch, giao dịch sẽ được hoàn nguyên.                     |
+| giá gas         | SỐ LƯỢNG        | (tùy chọn, mặc định: 25000000000 Peb) Giá trị nguyên của gasPrice được sử dụng cho mỗi gas đã thanh toán.                                                                                                                                           |
+| số dùng một lần | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên của số dùng một lần.                                                                                                                                                                                                      |
+| feePayer        | DỮ LIỆU 20 byte | Địa chỉ người trả phí của giao dịch.                                                                                                                                                                                                                                   |
 | chữ ký          | DATA            | (tùy chọn - chỉ dành cho `klay_sendTransactionAsFeePayer` API) Một mảng các đối tượng chữ ký. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa mã khôi phục ECDSA. R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s. |
 
-
 **Ví dụ 1 (`klay_signTransaction`)**
+
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 57, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d"}], "id": 15}' http://127.0.0.1:8551
@@ -1110,6 +1130,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 ```
 
 **Ví dụ 2 (`klay_sendTransactionAsFeePayer`)**
+
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_sendTransactionAsFeePayer", "params": [{"typeInt": 57, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "signatures": [{"V": "0x4e44", "R": "0xf276dcf90e7ba5aef0c77a940d7f360bb60d761ba0ddced96584ededf56e87d3", "S": "0x2e5feb5b09985da167cce835a93ad60d56b4c125e62da4d3379fc6bcb37ef479"}], "nonce": "0x26"}], "id": 87}' http://127.0.0.1:8551
@@ -1122,26 +1143,26 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 }
 ```
 
-
 ## TxTypeFeeDelegatedCancelWithRatio <a id="txtypefeedelegatedcancelwithratio"></a>
 
-Phiên bản ủy thác một phần phí của TxTypeCancel. Để biết thêm thông tin, hãy xem [TxTypeFeeDelegatedCancelWithRatio](../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedcancelwithratio).
+Phiên bản ủy thác một phần phí của TxTypeCancel.
+Để biết thêm thông tin, hãy xem [TxTypeFeeDelegatedCancelWithRatio](../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedcancelwithratio).
 
 **Tham số**
 
-| Tên             | Loại           | Mô tả                                                                                                                                                                                                                            |
-| --------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| typeInt         | Giá trị nguyên  | Giá trị nguyên biểu thị TxTypeFeeDelegatedCancelWithRatio: 58                                                                                                                                                                    |
-| từ              | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được gửi đi.                                                                                                                                                                                                |
-| gas             | SỐ LƯỢNG        | (tùy chọn, mặc định: 90000) Giá trị nguyên của gas được cung cấp để thực hiện giao dịch. Gas chưa sử dụng sẽ được hoàn lại cho người gửi. Nếu gas được chỉ định không đủ để thực hiện giao dịch, giao dịch sẽ được hoàn nguyên.  |
-| giá gas         | SỐ LƯỢNG        | (tùy chọn, mặc định: 25000000000 Peb) Giá trị nguyên của gasPrice được sử dụng cho mỗi gas đã thanh toán.                                                                                                                        |
-| số dùng một lần | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên của số dùng một lần.                                                                                                                                                                                   |
-| feePayer        | DỮ LIỆU 20 byte | Địa chỉ người trả phí của giao dịch.                                                                                                                                                                                             |
-| feeRatio        | SỐ LƯỢNG        | Tỷ lệ phí của người trả phí. Nếu tỷ lệ là 30 thì người trả phí phải trả 30% phí. 70% còn lại sẽ được trả bởi người gửi. Phạm vi của tỷ lệ phí là 1 ~ 99, nếu nằm ngoài phạm vi, giao dịch sẽ không được chấp nhận.               |
+| Tên             | Loại           | Mô tả                                                                                                                                                                                                                                                                  |
+| --------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| typeInt         | Giá trị nguyên  | Giá trị nguyên biểu thị TxTypeFeeDelegatedCancelWithRatio: 58                                                                                                                                                                                                          |
+| từ              | DỮ LIỆU 20 byte | Địa chỉ mà giao dịch được gửi đi.                                                                                                                                                                                                                                      |
+| gas             | SỐ LƯỢNG        | (tùy chọn, mặc định: 90000) Giá trị nguyên của gas được cung cấp để thực hiện giao dịch. Gas chưa sử dụng sẽ được hoàn lại cho người gửi. Nếu gas được chỉ định không đủ để thực hiện giao dịch, giao dịch sẽ được hoàn nguyên.                     |
+| giá gas         | SỐ LƯỢNG        | (tùy chọn, mặc định: 25000000000 Peb) Giá trị nguyên của gasPrice được sử dụng cho mỗi gas đã thanh toán.                                                                                                                                           |
+| số dùng một lần | SỐ LƯỢNG        | (tùy chọn) Giá trị nguyên của số dùng một lần.                                                                                                                                                                                                      |
+| feePayer        | DỮ LIỆU 20 byte | Địa chỉ người trả phí của giao dịch.                                                                                                                                                                                                                                   |
+| feeRatio        | SỐ LƯỢNG        | Tỷ lệ phí của người trả phí. Nếu tỷ lệ là 30 thì người trả phí phải trả 30% phí. 70% còn lại sẽ được trả bởi người gửi. Phạm vi của tỷ lệ phí là 1 \~ 99, nếu nằm ngoài phạm vi, giao dịch sẽ không được chấp nhận.                                                    |
 | chữ ký          | DATA            | (tùy chọn - chỉ dành cho `klay_sendTransactionAsFeePayer` API) Một mảng các đối tượng chữ ký. Một đối tượng chữ ký chứa ba trường (V, R và S). V chứa mã khôi phục ECDSA. R chứa chữ ký ECDSA r trong khi S chứa chữ ký ECDSA s. |
 
-
 **Ví dụ 1 (`klay_signTransaction`)**
+
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_signTransaction", "params": [{"typeInt": 58, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "feeRatio": 30}], "id": 100}' http://127.0.0.1:8551
@@ -1176,6 +1197,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "k
 ```
 
 **Ví dụ 2 (`klay_sendTransactionAsFeePayer`)**
+
 ```shell
 // Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "klay_sendTransactionAsFeePayer", "params": [{"typeInt": 58, "from": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "gas": "0x4a380", "gasPrice": "0x5d21dba00", "feePayer": "0xcd01b2b44584fb143824c1ea0231bebaea826b9d", "feeRatio": 30, "signatures": [{"V": "0x4e44", "R": "0x8f966ed84221298383ad1d7599a18aa461f42206284a9121a58351b1e4a51bd8", "S": "0x2272e9eb953ed69a65a392c3a67b58a981acd503abeceaf60679ddb38e4fb4b0"}], "nonce": "0x27"}], "id": 96}' http://127.0.0.1:8551

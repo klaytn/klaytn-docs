@@ -8,15 +8,15 @@ Tài liệu này dành cho các nhà phát triển dùng caver-js v1.5.0 trở l
 
 Cần có các gói sau đây để dùng thư viện caver-js.
 
-* [Node.js](https://nodejs.org/en/download/)
-* [npm](https://www.npmjs.com/get-npm)
-* [gcc-c++](https://gcc.gnu.org/)
-* [Trình biên dịch Solidity](https://solidity.readthedocs.io/en/develop/installing-solidity.html)
+- [Node.js](https://nodejs.org/en/download/)
+- [npm](https://www.npmjs.com/get-npm)
+- [gcc-c++](https://gcc.gnu.org/)
+- [Trình biên dịch Solidity](https://solidity.readthedocs.io/en/develop/installing-solidity.html)
 
 **Lưu ý** caver-js có thể chạy trên Node.js phiên bản 12 và 14. Chúng tôi khuyến nghị sử dụng các phiên bản sau:
 
-* lts/erbium ([12.21.0](https://nodejs.org/dist/latest-v12.x/))
-* lts/fermium ([14.16.0](https://nodejs.org/dist/latest-v14.x/))
+- lts/erbium ([12.21.0](https://nodejs.org/dist/latest-v12.x/))
+- lts/fermium ([14.16.0](https://nodejs.org/dist/latest-v14.x/))
 
 Nếu bạn dùng một phiên bản khác của Node (ví dụ như Node v15), hãy dùng Trình quản lý phiên bản Node ([nvm](https://github.com/nvm-sh/nvm)) để cài đặt và sử dụng phiên bản được caver-js hỗ trợ.
 
@@ -56,8 +56,8 @@ const Caver = require('caver-js')
 const caver = new Caver('https://public-en-baobab.klaytn.net/')
 
 async function testFunction() {
-    const version = await caver.rpc.klay.getClientVersion()
-    console.log(version)
+	const version = await caver.rpc.klay.getClientVersion()
+	console.log(version)
 }
 
 testFunction()
@@ -112,8 +112,8 @@ const Caver = require('caver-js')
 const caver = new Caver('https://public-en-baobab.klaytn.net/')
 
 async function testFunction() {
-    const keyring = caver.wallet.keyring.generate()
-    console.log(keyring)
+	const keyring = caver.wallet.keyring.generate()
+	console.log(keyring)
 }
 
 testFunction()
@@ -124,8 +124,8 @@ Khi chạy mã trên, bạn sẽ nhận được kết quả sau.
 ```bash
 $ node ./test.js
 SingleKeyring {
-    _address: '0x3d263c3c0df60c5516f932d244531742f45eed5c',
-    _key: PrivateKey { _privateKey: '0x{private key}' }
+	_address: '0x3d263c3c0df60c5516f932d244531742f45eed5c',
+	_key: PrivateKey { _privateKey: '0x{private key}' }
 }
 ```
 
@@ -141,9 +141,9 @@ const Caver = require('caver-js')
 const caver = new Caver('https://public-en-baobab.klaytn.net/')
 
 async function testFunction() {
-    // Create a keyring from a private key
-    const keyringFromPrivateKey = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
-    console.log(keyringFromPrivateKey)
+	// Create a keyring from a private key
+	const keyringFromPrivateKey = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
+	console.log(keyringFromPrivateKey)
 }
 
 testFunction()
@@ -154,12 +154,12 @@ Khi chạy mã trên, bạn sẽ nhận được kết quả sau.
 ```bash
 $ node ./test.js
 SingleKeyring {
-    _address: '0xf5a9079f311f9ec55170af351627aff0c5d2e287',
-    _key: PrivateKey { _privateKey: '0x{private key}' } 
+	_address: '0xf5a9079f311f9ec55170af351627aff0c5d2e287',
+	_key: PrivateKey { _privateKey: '0x{private key}' } 
 }
 ```
 
-Kết quả của `caver.wallet.keyring.createFromPrivateKey`, cũng như kết quả của `caver.wallet.keyring.generate` ở trên, là một đối tượng [SingleKeyring](api/caver-wallet/keyring.md#singlekeyring) cụ thể với một địa chỉ được xác định bên trong nó, và một đối tượng \[PrivateKey] cụ thể trong `keyring.key`.
+Kết quả của `caver.wallet.keyring.createFromPrivateKey`, cũng như kết quả của `caver.wallet.keyring.generate` ở trên, là một đối tượng [SingleKeyring](api/caver-wallet/keyring.md#singlekeyring) cụ thể với một địa chỉ được xác định bên trong nó, và một đối tượng [PrivateKey] cụ thể trong `keyring.key`.
 
 #### Tạo một SingleKeyring bằng một khóa riêng tư và một địa chỉ <a href="#creating-a-singlekeyring-with-a-private-key-and-an-address" id="creating-a-singlekeyring-with-a-private-key-and-an-address"></a>
 
@@ -171,13 +171,13 @@ const Caver = require('caver-js')
 const caver = new Caver('https://public-en-baobab.klaytn.net/')
 
 async function testFunction() {
-    // Create a keyring with an address and a private key
-    const keyring = caver.wallet.keyring.createWithSingleKey('0x{address in hex}', '0x{private key}')
-    console.log(keyring)
+	// Create a keyring with an address and a private key
+	const keyring = caver.wallet.keyring.createWithSingleKey('0x{address in hex}', '0x{private key}')
+	console.log(keyring)
 
-    // Create a keyring from a KlaytnWalletKey
-    const keyringFromKlaytnWalletKey = caver.wallet.keyring.createFromKlaytnWalletKey('0x{private key}0x{type}0x{address in hex}')
-    console.log(keyringFromKlaytnWalletKey)
+	// Create a keyring from a KlaytnWalletKey
+	const keyringFromKlaytnWalletKey = caver.wallet.keyring.createFromKlaytnWalletKey('0x{private key}0x{type}0x{address in hex}')
+	console.log(keyringFromKlaytnWalletKey)
 }
 
 testFunction()
@@ -188,12 +188,12 @@ Chạy mã này trong bảng điều khiển như dưới đây.
 ```bash
 $ node ./test.js
 SingleKeyring {
-    _address: '0x17e7531b40ad5d7b5fa7b4ec78df64ce1cb36d24',
-    _key: PrivateKey { _privateKey: '0x{private key}' }
+	_address: '0x17e7531b40ad5d7b5fa7b4ec78df64ce1cb36d24',
+	_key: PrivateKey { _privateKey: '0x{private key}' }
 }
 SingleKeyring {
-    _address: '0x17e7531b40ad5d7b5fa7b4ec78df64ce1cb36d24',
-    _key: PrivateKey { _privateKey: '0x{private key}' }
+	_address: '0x17e7531b40ad5d7b5fa7b4ec78df64ce1cb36d24',
+	_key: PrivateKey { _privateKey: '0x{private key}' }
 }
 ```
 
@@ -207,9 +207,9 @@ const Caver = require('caver-js')
 const caver = new Caver('https://public-en-baobab.klaytn.net/')
 
 async function testFunction() {
-    // Create a keyring with an address and private keys
-    const keyring = caver.wallet.keyring.createWithMultipleKey('0x{address in hex}', [ '0x{private key1}', '0x{private key2}' ])
-    console.log(keyring)
+	// Create a keyring with an address and private keys
+	const keyring = caver.wallet.keyring.createWithMultipleKey('0x{address in hex}', [ '0x{private key1}', '0x{private key2}' ])
+	console.log(keyring)
 }
 
 testFunction()
@@ -220,11 +220,11 @@ Khi chạy mã trên, bạn sẽ nhận được kết quả sau.
 ```bash
 $ node ./test.js
 MultipleKeyring {
-    _address: '0x17e7531b40ad5d7b5fa7b4ec78df64ce1cb36d24',
-    _keys: [
-        PrivateKey { _privateKey: '0x{private key1}' },
-        PrivateKey { _privateKey: '0x{private key2}' } 
-    ]
+	_address: '0x17e7531b40ad5d7b5fa7b4ec78df64ce1cb36d24',
+	_keys: [
+		PrivateKey { _privateKey: '0x{private key1}' },
+		PrivateKey { _privateKey: '0x{private key2}' } 
+	]
 }
 ```
 
@@ -240,13 +240,13 @@ const Caver = require('caver-js')
 const caver = new Caver('https://public-en-baobab.klaytn.net/')
 
 async function testFunction() {
-    // Create a keyring with an address and private keys defined by each roles
-    const keyring = caver.wallet.keyring.createWithRoleBasedKey('0x{address in hex}', [
-        [ '0x{private key1}', '0x{private key2}', '0x{private key3}' ],
-        [ '0x{private key4}'],
-        [ '0x{private key5}', '0x{private key6}' ],
-    ])
-    console.log(keyring)
+	// Create a keyring with an address and private keys defined by each roles
+	const keyring = caver.wallet.keyring.createWithRoleBasedKey('0x{address in hex}', [
+		[ '0x{private key1}', '0x{private key2}', '0x{private key3}' ],
+		[ '0x{private key4}'],
+		[ '0x{private key5}', '0x{private key6}' ],
+	])
+	console.log(keyring)
 }
 
 testFunction()
@@ -257,19 +257,19 @@ Khi chạy mã trên, bạn sẽ nhận được kết quả sau.
 ```bash
 $ node ./test.js
 RoleBasedKeyring {
-    _address: '0x17e7531b40ad5d7b5fa7b4ec78df64ce1cb36d24',
-    _keys: [ 
-        [ 
-            PrivateKey { _privateKey: '0x{private key1}' },
-            PrivateKey { _privateKey: '0x{private key2}' },
-            PrivateKey { _privateKey: '0x{private key3}' }
-        ],
-        [ PrivateKey { _privateKey: '0x{private key4}' } ],
-        [ 
-            PrivateKey { _privateKey: '0x{private key5}' },
-            PrivateKey { _privateKey: '0x{private key6}' }
-        ]
-    ]
+	_address: '0x17e7531b40ad5d7b5fa7b4ec78df64ce1cb36d24',
+	_keys: [ 
+		[ 
+			PrivateKey { _privateKey: '0x{private key1}' },
+			PrivateKey { _privateKey: '0x{private key2}' },
+			PrivateKey { _privateKey: '0x{private key3}' }
+		],
+		[ PrivateKey { _privateKey: '0x{private key4}' } ],
+		[ 
+			PrivateKey { _privateKey: '0x{private key5}' },
+			PrivateKey { _privateKey: '0x{private key6}' }
+		]
+	]
 }
 ```
 
@@ -287,36 +287,36 @@ const Caver = require('caver-js')
 const caver = new Caver('https://public-en-baobab.klaytn.net/')
 
 async function testFunction() {
-    // Using a keyring instance
-    const keyring = caver.wallet.keyring.generate()
-    caver.wallet.add(keyring)
-    console.log(caver.wallet.getKeyring(keyring.address))
+	// Using a keyring instance
+	const keyring = caver.wallet.keyring.generate()
+	caver.wallet.add(keyring)
+	console.log(caver.wallet.getKeyring(keyring.address))
 
-    // Using a keystore file
-    const decrypted = caver.wallet.keyring.decrypt({ 
-        version: 4,
-        id: '9c12de05-0153-41c7-a8b7-849472eb5de7',
-        address: '0xc02cec4d0346bf4124deeb55c5216a4138a40a8c',
-        keyring: [
-            { 
-                ciphertext: 'eacf496cea5e80eca291251b3743bf93cdbcf7072efc3a74efeaf518e2796b15',
-                cipherparams: { iv: 'd688a4319342e872cefcf51aef3ec2da' },
-                cipher: 'aes-128-ctr',
-                kdf: 'scrypt',
-                kdfparams: {
-                    dklen: 32,
-                    salt: 'c3cee502c7157e0faa42386c6d666116ffcdf093c345166c502e23bc34e6ba40',
-                    n: 4096,
-                    r: 8,
-                    p: 1
-                },
-                mac: '4b49574f3d3356fa0d04f73e07d5a2a6bbfdd185bedfa31f37f347bc98f2ef26'
-            }
-        ]
-    }, 'password')
+	// Using a keystore file
+	const decrypted = caver.wallet.keyring.decrypt({ 
+		version: 4,
+		id: '9c12de05-0153-41c7-a8b7-849472eb5de7',
+		address: '0xc02cec4d0346bf4124deeb55c5216a4138a40a8c',
+		keyring: [
+			{ 
+				ciphertext: 'eacf496cea5e80eca291251b3743bf93cdbcf7072efc3a74efeaf518e2796b15',
+				cipherparams: { iv: 'd688a4319342e872cefcf51aef3ec2da' },
+				cipher: 'aes-128-ctr',
+				kdf: 'scrypt',
+				kdfparams: {
+					dklen: 32,
+					salt: 'c3cee502c7157e0faa42386c6d666116ffcdf093c345166c502e23bc34e6ba40',
+					n: 4096,
+					r: 8,
+					p: 1
+				},
+				mac: '4b49574f3d3356fa0d04f73e07d5a2a6bbfdd185bedfa31f37f347bc98f2ef26'
+			}
+		]
+	}, 'password')
 
-    caver.wallet.add(decrypted)
-    console.log(caver.wallet.getKeyring(decrypted.address))
+	caver.wallet.add(decrypted)
+	console.log(caver.wallet.getKeyring(decrypted.address))
 }
 
 testFunction()
@@ -327,12 +327,12 @@ Chạy trong bảng điều kiển của bạn.
 ```bash
 $ node ./test.js
 SingleKeyring {
-    _address: '0x66391720b488a3fb2c7c69d99cd4cd6e23ca18e3',
-    _key: PrivateKey { _privateKey: '0x{private key}' }
+	_address: '0x66391720b488a3fb2c7c69d99cd4cd6e23ca18e3',
+	_key: PrivateKey { _privateKey: '0x{private key}' }
 }
 SingleKeyring {
-    _address: '0xc02cec4d0346bf4124deeb55c5216a4138a40a8c',
-    _key: PrivateKey { _privateKey: '0x{private key}' }
+	_address: '0xc02cec4d0346bf4124deeb55c5216a4138a40a8c',
+	_key: PrivateKey { _privateKey: '0x{private key}' }
 }
 ```
 
@@ -346,21 +346,21 @@ const Caver = require('caver-js')
 const caver = new Caver('https://public-en-baobab.klaytn.net/')
 
 async function testFunction() {
-    // Add to wallet with an address and a private key
-    const addedSingle = caver.wallet.newKeyring('0x{address in hex}', '0x{private key1}')
-    console.log(caver.wallet.getKeyring(addedSingle.address))
+	// Add to wallet with an address and a private key
+	const addedSingle = caver.wallet.newKeyring('0x{address in hex}', '0x{private key1}')
+	console.log(caver.wallet.getKeyring(addedSingle.address))
 
-    // Add to wallet with an address and private keys
-    const addedMultiple = caver.wallet.newKeyring('0x{address in hex}', ['0x{private key2}', '0x{private key3}', '0x{private key4}'])
-    console.log(caver.wallet.getKeyring(addedMultiple.address))
+	// Add to wallet with an address and private keys
+	const addedMultiple = caver.wallet.newKeyring('0x{address in hex}', ['0x{private key2}', '0x{private key3}', '0x{private key4}'])
+	console.log(caver.wallet.getKeyring(addedMultiple.address))
 
-    // Add to wallet with an address and private keys defined by each roles
-    const addedRoleBased = caver.wallet.newKeyring('0x{address in hex}', [
-        ['0x{private key5}', '0x{private key6}', '0x{private key7}'],
-        ['0x{private key8}', '0x{private key9}'],
-        ['0x{private key10}', '0x{private key11}']
-    ])
-    console.log(caver.wallet.getKeyring(addedRoleBased.address))
+	// Add to wallet with an address and private keys defined by each roles
+	const addedRoleBased = caver.wallet.newKeyring('0x{address in hex}', [
+		['0x{private key5}', '0x{private key6}', '0x{private key7}'],
+		['0x{private key8}', '0x{private key9}'],
+		['0x{private key10}', '0x{private key11}']
+	])
+	console.log(caver.wallet.getKeyring(addedRoleBased.address))
 }
 
 testFunction()
@@ -371,34 +371,34 @@ Khi chạy mã trên, bạn sẽ nhận được kết quả sau. Kết quả c�
 ```bash
 $ node ./test.js
 SingleKeyring {
-    _address: '0x651f6ae6b45750082b22805583acc989399c6552',
-    _key: PrivateKey { _privateKey: '0x{private key1}' }
+	_address: '0x651f6ae6b45750082b22805583acc989399c6552',
+	_key: PrivateKey { _privateKey: '0x{private key1}' }
 }
 MultipleKeyring {
-    _address: '0xce3ee92aeb4d600a41c98bdf92e8b337e186bf58',
-    _keys: [ 
-        PrivateKey { _privateKey: '0x{private key2}' },
-        PrivateKey { _privateKey: '0x{private key3}' },
-        PrivateKey { _privateKey: '0x{private key4}' }
+	_address: '0xce3ee92aeb4d600a41c98bdf92e8b337e186bf58',
+	_keys: [ 
+		PrivateKey { _privateKey: '0x{private key2}' },
+		PrivateKey { _privateKey: '0x{private key3}' },
+		PrivateKey { _privateKey: '0x{private key4}' }
     ]
 }
 RoleBasedKeyring {
-    _address: '0x626d5b94ec76a105c5afa370bb7e59050a22b8b5',
-    _keys: [ 
-        [ 
-            PrivateKey { _privateKey: '0x{private key5}' },
-            PrivateKey { _privateKey: '0x{private key6}' },
-            PrivateKey { _privateKey: '0x{private key7}' }
-        ],
-        [ 
-            PrivateKey { _privateKey: '0x{private key8}' },
-            PrivateKey { _privateKey: '0x{private key9}' }
-        ],
-        [ 
-            PrivateKey { _privateKey: '0x{private key10}' },
-            PrivateKey { _privateKey: '0x{private key11}' }
-        ]
-    ]
+	_address: '0x626d5b94ec76a105c5afa370bb7e59050a22b8b5',
+	_keys: [ 
+		[ 
+			PrivateKey { _privateKey: '0x{private key5}' },
+			PrivateKey { _privateKey: '0x{private key6}' },
+			PrivateKey { _privateKey: '0x{private key7}' }
+		],
+		[ 
+			PrivateKey { _privateKey: '0x{private key8}' },
+			PrivateKey { _privateKey: '0x{private key9}' }
+		],
+		[ 
+			PrivateKey { _privateKey: '0x{private key10}' },
+			PrivateKey { _privateKey: '0x{private key11}' }
+		]
+	]
 }
 ```
 
@@ -417,8 +417,8 @@ Nếu bạn cần KLAY để thử nghiệm, bạn có thể nhận KLAY dùng t
 Bạn có thể sử dụng ví caver-js để tạo chữ ký của giao dịch. Bạn sẽ phải thực hiện hai bước dưới đây để gửi giao dịch đến mạng lưới.
 
 1. Ký giao dịch
-   * Nếu keyring mà bạn muốn dùng đã được thêm vào [caver.wallet](api/caver-wallet/caver-wallet.md), bạn có thể dùng hàm `caver.wallet.sign` để ký.
-   * Nếu bạn quản ký keyring riêng biệt và không thêm nó vào `caver.wallet`, bạn có thể ký giao dịch thông qua hàm `transaction.sign`.
+   - Nếu keyring mà bạn muốn dùng đã được thêm vào [caver.wallet](api/caver-wallet/caver-wallet.md), bạn có thể dùng hàm `caver.wallet.sign` để ký.
+   - Nếu bạn quản ký keyring riêng biệt và không thêm nó vào `caver.wallet`, bạn có thể ký giao dịch thông qua hàm `transaction.sign`.
 2. Gửi chuỗi mã hóa RLP của giao dịch đã ký đến Klaytn qua `caver.rpc.klay.sendRawTransaction`.
 
 **Lưu ý:** Người gửi phải có đủ lượng KLAY.
@@ -435,23 +435,23 @@ const Caver = require('caver-js')
 const caver = new Caver('https://public-en-baobab.klaytn.net/')
 
 async function testFunction() {
-    // Add a keyring to caver.wallet
-    const keyring = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
-    caver.wallet.add(keyring)
+	// Add a keyring to caver.wallet
+	const keyring = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
+	caver.wallet.add(keyring)
 
-    // Create a value transfer transaction
-    const valueTransfer = caver.transaction.valueTransfer.create({
-        from: keyring.address,
-        to: '0x176ff0344de49c04be577a3512b6991507647f72',
-        value: 1,
-        gas: 30000,
-    })
+	// Create a value transfer transaction
+	const valueTransfer = caver.transaction.valueTransfer.create({
+		from: keyring.address,
+		to: '0x176ff0344de49c04be577a3512b6991507647f72',
+		value: 1,
+		gas: 30000,
+	})
 
-    // Sign the transaction via caver.wallet.sign
-    await caver.wallet.sign(keyring.address, valueTransfer)
+	// Sign the transaction via caver.wallet.sign
+	await caver.wallet.sign(keyring.address, valueTransfer)
 
-    const rlpEncoded = valueTransfer.getRLPEncoding()
-    console.log(`RLP-encoded string: ${rlpEncoded}`)
+	const rlpEncoded = valueTransfer.getRLPEncoding()
+	console.log(`RLP-encoded string: ${rlpEncoded}`)
 }
 
 testFunction()
@@ -475,11 +475,11 @@ const Caver = require('caver-js')
 const caver = new Caver('https://public-en-baobab.klaytn.net/')
 
 async function testFunction() {
-    const rlpEncoding = `0x{RLP-encoded string}`
+	const rlpEncoding = `0x{RLP-encoded string}`
 
-    // Send the transaction using `caver.rpc.klay.sendRawTransaction`.
-    const receipt = await caver.rpc.klay.sendRawTransaction(rlpEncoding)
-    console.log(receipt)
+	// Send the transaction using `caver.rpc.klay.sendRawTransaction`.
+	const receipt = await caver.rpc.klay.sendRawTransaction(rlpEncoding)
+	console.log(receipt)
 }
 
 testFunction()
@@ -490,26 +490,26 @@ Khi chạy mã trên, bạn sẽ nhận được kết quả sau. Khi mã trên 
 ```bash
 $ node ./test.js
 { 
-    blockHash: '0xd20066b448da77a41a46fbf0856792b85b60c42213126f661f6434b5b1263072',
-    blockNumber: '0x1efb',
-    contractAddress: null,
-    from: '0x09a08f2289d3eb3499868908f1c84fd9523fe11b',
-    gas: '0x7530',
-    ...
-    signatures: [
-        { 
-            V: '0x4e43',
-            R: '0x5737aa8c88f019a3ee184faed6d34d103f77773bd5434cb0328c11738c8d9755',
-            S: '0x578b118f4400999e5232bd0860cfbdbf89622f6e11cc6bd9722a86767d2723b7'
-        }
-    ],
-    trạng thái: '0x1',
-    to: '0x176ff0344de49c04be577a3512b6991507647f72',
-    transactionHash: '0x43e8ab1a2365ad598448b4402c1cfce6a71b3a103fce3a69905613e50b978113',
-    transactionIndex: 0,
-    type: 'TxTypeValueTransfer',
-    typeInt: 8,
-    value: '0x1'
+	blockHash: '0xd20066b448da77a41a46fbf0856792b85b60c42213126f661f6434b5b1263072',
+	blockNumber: '0x1efb',
+	contractAddress: null,
+	from: '0x09a08f2289d3eb3499868908f1c84fd9523fe11b',
+	gas: '0x7530',
+	...
+	signatures: [
+		{ 
+			V: '0x4e43',
+			R: '0x5737aa8c88f019a3ee184faed6d34d103f77773bd5434cb0328c11738c8d9755',
+			S: '0x578b118f4400999e5232bd0860cfbdbf89622f6e11cc6bd9722a86767d2723b7'
+		}
+	],
+	status: '0x1',
+	to: '0x176ff0344de49c04be577a3512b6991507647f72',
+	transactionHash: '0x43e8ab1a2365ad598448b4402c1cfce6a71b3a103fce3a69905613e50b978113',
+	transactionIndex: 0,
+	type: 'TxTypeValueTransfer',
+	typeInt: 8,
+	value: '0x1'
 }
 ```
 
@@ -521,21 +521,21 @@ const Caver = require('caver-js')
 const caver = new Caver('https://public-en-baobab.klaytn.net/')
 
 async function testFunction() {
-    // Create a value transfer transaction
-    const keyring = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
-    const valueTransfer = caver.transaction.valueTransfer.create({
-        from: keyring.address,
-        to: '0x176ff0344de49c04be577a3512b6991507647f72',
-        value: 1,
-        gas: 30000,
-    })
+	// Create a value transfer transaction
+	const keyring = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
+	const valueTransfer = caver.transaction.valueTransfer.create({
+		from: keyring.address,
+		to: '0x176ff0344de49c04be577a3512b6991507647f72',
+		value: 1,
+		gas: 30000,
+	})
 
-    // Sign the transaction via transaction.sign
-    await valueTransfer.sign(keyring)
+	// Sign the transaction via transaction.sign
+	await valueTransfer.sign(keyring)
 
-    // Send the transaction to the Klaytn using `caver.rpc.klay.sendRawTransaction`.
-    const receipt = await caver.rpc.klay.sendRawTransaction(valueTransfer)
-    console.log(receipt)
+	// Send the transaction to the Klaytn using `caver.rpc.klay.sendRawTransaction`.
+	const receipt = await caver.rpc.klay.sendRawTransaction(valueTransfer)
+	console.log(receipt)
 }
 
 testFunction()
@@ -569,8 +569,8 @@ const Caver = require('caver-js')
 const caver = new Caver('https://public-en-baobab.klaytn.net/')
 
 async function testFunction() {
-    const receipt = await caver.rpc.klay.getTransactionReceipt('0x40552efbba23347d36f6f5aaba6b9aeb6602e004df62c1988d9b7b1f036e676a')
-    console.log(receipt)
+	const receipt = await caver.rpc.klay.getTransactionReceipt('0x40552efbba23347d36f6f5aaba6b9aeb6602e004df62c1988d9b7b1f036e676a')
+	console.log(receipt)
 }
 
 testFunction()
@@ -581,26 +581,26 @@ Khi chạy mã trên, bạn sẽ nhận được kết quả sau. Khi mã trên 
 ```bash
 $ node ./test.js
 { 
-    blockHash: '0x65d041011440e04643c546eb8bbb1dcabb659c3b3216e01473cb0712e47b5f69',
-    blockNumber: '0x20db',
-    contractAddress: null,
-    from: '0x09a08f2289d3eb3499868908f1c84fd9523fe11b',
-    gas: '0x7530',
-    ...
-    signatures: [
-        { 
-            V: '0x4e43',
-            R: '0xfabe48071a8b72f0c340b2ee9d948a496cce467aebe027159d66a175e6b4b5b4',
-            S: '0x1d4e503f1b084cda15edeba6b7b8eba15057b9d2484f7f3d095c980c2d98f13'
-        }
-    ],
-    trạng thái: '0x1',
-    to: '0x176ff0344de49c04be577a3512b6991507647f72',
-    transactionHash: '0x40552efbba23347d36f6f5aaba6b9aeb6602e004df62c1988d9b7b1f036e676a',
-    transactionIndex: 0,
-    type: 'TxTypeValueTransfer',
-    typeInt: 8,
-    value: '0x1'
+	blockHash: '0x65d041011440e04643c546eb8bbb1dcabb659c3b3216e01473cb0712e47b5f69',
+	blockNumber: '0x20db',
+	contractAddress: null,
+	from: '0x09a08f2289d3eb3499868908f1c84fd9523fe11b',
+	gas: '0x7530',
+	...
+	signatures: [
+		{ 
+			V: '0x4e43',
+			R: '0xfabe48071a8b72f0c340b2ee9d948a496cce467aebe027159d66a175e6b4b5b4',
+			S: '0x1d4e503f1b084cda15edeba6b7b8eba15057b9d2484f7f3d095c980c2d98f13'
+		}
+	],
+	status: '0x1',
+	to: '0x176ff0344de49c04be577a3512b6991507647f72',
+	transactionHash: '0x40552efbba23347d36f6f5aaba6b9aeb6602e004df62c1988d9b7b1f036e676a',
+	transactionIndex: 0,
+	type: 'TxTypeValueTransfer',
+	typeInt: 8,
+	value: '0x1'
 }
 ```
 
@@ -620,20 +620,20 @@ const Caver = require('caver-js')
 const caver = new Caver('https://public-en-baobab.klaytn.net/')
 
 async function testFunction() {
-    const sender = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
-    caver.wallet.add(sender)
+	const sender = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
+	caver.wallet.add(sender)
 
-    const feeDelegatedTx = caver.transaction.feeDelegatedValueTransfer.create({
-        from: sender.address,
-        to: '0x176ff0344de49c04be577a3512b6991507647f72',
-        value: 5,
-        gas: 50000,
-    })
+	const feeDelegatedTx = caver.transaction.feeDelegatedValueTransfer.create({
+		from: sender.address,
+		to: '0x176ff0344de49c04be577a3512b6991507647f72',
+		value: 5,
+		gas: 50000,
+	})
 
-    await caver.wallet.sign(sender.address, feeDelegatedTx)
+	await caver.wallet.sign(sender.address, feeDelegatedTx)
 
-    const rlpEncoded = feeDelegatedTx.getRLPEncoding()
-    console.log(rlpEncoded)
+	const rlpEncoded = feeDelegatedTx.getRLPEncoding()
+	console.log(rlpEncoded)
 }
 
 testFunction()
@@ -654,18 +654,18 @@ const Caver = require('caver-js')
 const caver = new Caver('https://public-en-baobab.klaytn.net/')
 
 async function testFunction() {
-    const feePayer = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
-    caver.wallet.add(feePayer)
+	const feePayer = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
+	caver.wallet.add(feePayer)
 
-    const rlpEncoded = '0x{RLP-encoded string}'
+	const rlpEncoded = '0x{RLP-encoded string}'
 
-    const feeDelegateTxFromRLPEncoding = caver.transaction.feeDelegatedValueTransfer.create(rlpEncoded)
+	const feeDelegateTxFromRLPEncoding = caver.transaction.feeDelegatedValueTransfer.create(rlpEncoded)
 
-    // Set the fee payer address.
-    feeDelegateTxFromRLPEncoding.feePayer = feePayer.address
-    await caver.wallet.signAsFeePayer(feePayer.address, feeDelegateTxFromRLPEncoding)
+	// Set the fee payer address.
+	feeDelegateTxFromRLPEncoding.feePayer = feePayer.address
+	await caver.wallet.signAsFeePayer(feePayer.address, feeDelegateTxFromRLPEncoding)
 
-    console.log(feeDelegateTxFromRLPEncoding.getRLPEncoding())
+	console.log(feeDelegateTxFromRLPEncoding.getRLPEncoding())
 }
 
 testFunction()
@@ -686,9 +686,9 @@ const Caver = require('caver-js')
 const caver = new Caver('https://public-en-baobab.klaytn.net/')
 
 async function testFunction() {
-    const rlpEncoded = '0x{RLP-encoded string}'
-    const receipt = await caver.rpc.klay.sendRawTransaction(rlpEncoded)
-    console.log(receipt)
+	const rlpEncoded = '0x{RLP-encoded string}'
+	const receipt = await caver.rpc.klay.sendRawTransaction(rlpEncoded)
+	console.log(receipt)
 }
 
 testFunction()
@@ -699,34 +699,34 @@ Khi chạy mã trên, bạn sẽ nhận được kết quả sau. Qua kết qu�
 ```bash
 $ node ./test.js
 { 
-    blockHash: '0xb6a76163c4c558f50bdae77968a0f35dcfececf78b5cb780c3514a30a1c0a864',
-    blockNumber: '0xede',
-    contractAddress: null,
-    feePayer: '0x17e7531b40ad5d7b5fa7b4ec78df64ce1cb36d24',
-    feePayerSignatures: [
-        {
-            V: '0x4e44',
-            R: '0x921b7c3be69db96ce14134b306c2ada423613cb66ecc6697ee8067983c268b6e',
-            S: '0x7b86b255d1c781781315d85d7904226fb2101eb9498c4a03f3fbd30ba3ec5b79'
-        }
-    ],
-    from: '0xf5a9079f311f9ec55170af351627aff0c5d2e287',
-    gas: '0xc350',
-    ...
-    signatures: [
-        {
-            V: '0x4e43',
-            R: '0xf4b53dbd4c915cb73b9c7fa17e22106ee9640155a06ab4a7ed8661f846d2a5cc',
-            S: '0x35b5bba6a26d4ccd20c65e8f31cce265c193f1c874806f9fae6b0ee9df0addf0'
-        }
-    ],
-    trạng thái: '0x1',
-    to: '0x176ff0344de49c04be577a3512b6991507647f72',
-    transactionHash: '0x1878cc27b7f259a98d3248b41bffb6158640b4a07c503095deac1913fb3856c2',
-    transactionIndex: 0,
-    type: 'TxTypeFeeDelegatedValueTransfer',
-    typeInt: 9,
-    value: '0x5'
+	blockHash: '0xb6a76163c4c558f50bdae77968a0f35dcfececf78b5cb780c3514a30a1c0a864',
+	blockNumber: '0xede',
+	contractAddress: null,
+	feePayer: '0x17e7531b40ad5d7b5fa7b4ec78df64ce1cb36d24',
+	feePayerSignatures: [
+		{
+			V: '0x4e44',
+			R: '0x921b7c3be69db96ce14134b306c2ada423613cb66ecc6697ee8067983c268b6e',
+			S: '0x7b86b255d1c781781315d85d7904226fb2101eb9498c4a03f3fbd30ba3ec5b79'
+		}
+	],
+	from: '0xf5a9079f311f9ec55170af351627aff0c5d2e287',
+	gas: '0xc350',
+	...
+	signatures: [
+		{
+			V: '0x4e43',
+			R: '0xf4b53dbd4c915cb73b9c7fa17e22106ee9640155a06ab4a7ed8661f846d2a5cc',
+			S: '0x35b5bba6a26d4ccd20c65e8f31cce265c193f1c874806f9fae6b0ee9df0addf0'
+		}
+	],
+	status: '0x1',
+	to: '0x176ff0344de49c04be577a3512b6991507647f72',
+	transactionHash: '0x1878cc27b7f259a98d3248b41bffb6158640b4a07c503095deac1913fb3856c2',
+	transactionIndex: 0,
+	type: 'TxTypeFeeDelegatedValueTransfer',
+	typeInt: 9,
+	value: '0x5'
 }
 ```
 
@@ -758,27 +758,27 @@ const Caver = require('caver-js')
 const caver = new Caver('https://public-en-baobab.klaytn.net/')
 
 async function testFunction() {
-    let sender = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
-    caver.wallet.add(sender)
+	let sender = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
+	caver.wallet.add(sender)
 
-    const newPrivateKey = caver.wallet.keyring.generateSingleKey()
-    console.log(`new private key string: ${newPrivateKey}`)
-    const newKeyring = caver.wallet.keyring.createWithSingleKey(sender.address, newPrivateKey)
+	const newPrivateKey = caver.wallet.keyring.generateSingleKey()
+	console.log(`new private key string: ${newPrivateKey}`)
+	const newKeyring = caver.wallet.keyring.createWithSingleKey(sender.address, newPrivateKey)
 
-    // create an Account instance
-    const tài khoản = newKeyring.toAccount()
+	// create an Account instance
+	const account = newKeyring.toAccount()
 
-    const updateTx = caver.transaction.tài khoảnUpdate.create({
-        from: sender.address,
-        tài khoản: tài khoản,
-        gas: 50000,
-    })
-    await caver.wallet.sign(sender.address, updateTx)
-    const receipt = await caver.rpc.klay.sendRawTransaction(updateTx)
-    console.log(receipt)
+	const updateTx = caver.transaction.accountUpdate.create({
+		from: sender.address,
+		account: account,
+		gas: 50000,
+	})
+	await caver.wallet.sign(sender.address, updateTx)
+	const receipt = await caver.rpc.klay.sendRawTransaction(updateTx)
+	console.log(receipt)
 
-    // Update the keyring in caver.wallet for signing afterward.
-    sender = caver.wallet.updateKeyring(newKeyring)
+	// Update the keyring in caver.wallet for signing afterward.
+	sender = caver.wallet.updateKeyring(newKeyring)
 }
 
 testFunction()
@@ -792,82 +792,82 @@ Khi chạy mã trên, bạn sẽ nhận được kết quả sau. Trong kết qu
 $ node ./test.js
 new private key string: 0x{private key}
 { 
-    blockHash: '0x4c0221245e7c810cc19b05257e8d7cd34f24cc829f8787a832c08682640173f5',
-    blockNumber: '0x26d6',
-    contractAddress: null,
-    from: '0xeec694a4143e05945823b216d0c62ab91c192a63',
-    gas: '0xc350',
-    gasPrice: '0x5d21dba00',
-    gasUsed: 41000,
-    key: '0x02a1024cc461670797071be16c34b22df1a3588653da5c1e9279b1d9e4b24fbcba07d8',
-    ...
-    signatures: [
-        {
-            V: '0x4e43',
-            R: '0xd0fa2d25711de4bfc3a7a6a660d307264fa3b2cacbb7eb71ab68f47661ebcfaf',
-            S: '0x4652102241e61968988a22f9fa2d5d38d4e654d1f4b193fba5627c0856c9da7b'
-        } 
-    ],
-    trạng thái: '0x1',
-    transactionHash: '0x4efdeeb1bb1e52ace11d64a19f564a973b36c29a0d85899a215621659b793665',
-    transactionIndex: 0,
-    type: 'TxTypeAccountUpdate',
-    typeInt: 32
+	blockHash: '0x4c0221245e7c810cc19b05257e8d7cd34f24cc829f8787a832c08682640173f5',
+	blockNumber: '0x26d6',
+	contractAddress: null,
+	from: '0xeec694a4143e05945823b216d0c62ab91c192a63',
+	gas: '0xc350',
+	gasPrice: '0x5d21dba00',
+	gasUsed: 41000,
+	key: '0x02a1024cc461670797071be16c34b22df1a3588653da5c1e9279b1d9e4b24fbcba07d8',
+	...
+	signatures: [
+		{
+			V: '0x4e43',
+			R: '0xd0fa2d25711de4bfc3a7a6a660d307264fa3b2cacbb7eb71ab68f47661ebcfaf',
+			S: '0x4652102241e61968988a22f9fa2d5d38d4e654d1f4b193fba5627c0856c9da7b'
+		} 
+	],
+	status: '0x1',
+	transactionHash: '0x4efdeeb1bb1e52ace11d64a19f564a973b36c29a0d85899a215621659b793665',
+	transactionIndex: 0,
+	type: 'TxTypeAccountUpdate',
+	typeInt: 32
 }
 ```
 
-Sau đây là hướng dẫn về cách cập nhật AccountKey của tài khoản Klayt có nhiều \[AccountKeys]? Ví dụ dưới đây giải thích về cách để tạo một đối tượng [Account](api/caver.account.md) cụ thể với nhiều khóa riêng tư mà bạn muốn sử dụng (Bạn có thể tạo một đối tượng [Account](api/caver.account.md) cụ thể với nhiều khóa công khai qua [caver.tài khoản.create](api/caver.account.md#caver-account-create)). Tương tự như trên, sau khi nạp đối tượng tài khoản cụ thể vừa tạo ra vào trường `tài khoản` bên trong đối tượng giao dịch, phần còn lại của quá trình cập nhật cũng giống như ví dụ ở trên.
+Sau đây là hướng dẫn về cách cập nhật AccountKey của tài khoản Klayt có nhiều [AccountKeys]? Ví dụ dưới đây giải thích về cách để tạo một đối tượng [Account](api/caver.account.md) cụ thể với nhiều khóa riêng tư mà bạn muốn sử dụng (Bạn có thể tạo một đối tượng [Account](api/caver.account.md) cụ thể với nhiều khóa công khai qua [caver.tài khoản.create](api/caver.account.md#caver-account-create)). Tương tự như trên, sau khi nạp đối tượng tài khoản cụ thể vừa tạo ra vào trường `tài khoản` bên trong đối tượng giao dịch, phần còn lại của quá trình cập nhật cũng giống như ví dụ ở trên.
 
 Trước tiên, hãy dùng tạo một đối tượng Tài khoản cụ thể để cập nhật bằng [AccountKeyWeightedMultiSig](../../../learn/accounts.md#accountkeyweightedmultisig). Đối với [AccountKeyWeightedMultiSig](../../../learn/accounts.md#accountkeyweightedmultisig), phải xác định ngưỡng và trọng số của từng khóa. Để thực hiện điều này, hãy dùng [caver.tài khoản.weightedMultiSigOptions](api/caver.account.md#weightedmultisigoptions). Tham số đầu tiên là ngưỡng, và tham số thứ hai là mảng có chứa trọng số cho từng khóa.
 
 ```javascript
-// Create an tài khoản instance with three private keys using AccountKeyWeightedMultiSig
+// Create an account instance with three private keys using AccountKeyWeightedMultiSig
 const newPrivateKeys = caver.wallet.keyring.generateMultipleKeys(3)
 const newKeyring = caver.wallet.keyring.createWithMultipleKey(sender.address, newPrivateKeys)
 
 // threshold = 3, the weights of the three keys = [1, 2, 1]
-const options = new caver.tài khoản.weightedMultiSigOptions(3, [1, 2, 1])
+const options = new caver.account.weightedMultiSigOptions(3, [1, 2, 1])
 
-const tài khoản = newKeyring.toAccount(options)
+const account = newKeyring.toAccount(options)
 ```
 
 Bây giờ, hãy cập nhật AccountKey bằng [AccountKeyRoleBased](../../../learn/accounts.md#accountkeyrolebased). [AccountKeyRoleBased](../../../learn/accounts.md#accountkeyrolebased) là một loại `AccountKey` xác định khóa để dùng cho từng [role](../../../learn/accounts.md#roles).
 
 ```javascript
-// Create an tài khoản instance with roles using AccountKeyRoleBased. Trong đối tượng tài khoản cụ thể được tạo ra, mỗi vai trò có một khóa công khai tương ứng với một khóa riêng tư.
+// Create an account instance with roles using AccountKeyRoleBased. In the account instance created, each role has a public key that corresponds to one private key.
 const newPrivateKeys = caver.wallet.keyring.generateRoleBasedKeys([1, 1, 1])
 const newKeyring = caver.wallet.keyring.createWithRoleBasedKey(sender.address, newPrivateKeys)
 
-const tài khoản = newKeyring.toAccount()
+const account = newKeyring.toAccount()
 ```
 
 AccountKeyRoleBased ở trên là một ví dụ về việc sử dụng một khóa công khai cho từng vai trò. Như có thể thấy từ mã trên, từng vai trò tương ứng với một khóa riêng tư. Nếu bạn muốn dùng nhiều khóa riêng tư cho từng vai trò, [caver.tài khoản.weightedMultiSigOptions](api/caver.account.md#weightedmultisigoptions) phải được xác định cho từng vai trò như minh họa dưới đây.
 
 ```javascript
-// Create an tài khoản instance with [3, 2, 3] keys for each role using AccountKeyRoleBased
+// Create an account instance with [3, 2, 3] keys for each role using AccountKeyRoleBased
 const newPrivateKeys = caver.wallet.keyring.generateRoleBasedKeys([3, 2, 3])
 const newKeyring = caver.wallet.keyring.createWithRoleBasedKey(sender.address, newPrivateKeys)
 
 const options = [
-    // thresold = 4, weights of keys = [2, 2, 4] for roleTransactionKey
-    new caver.tài khoản.weightedMultiSigOptions(4, [2, 2, 4]),
-    // threshold = 2, weights of keys = [1, 1]
-    new caver.tài khoản.weightedMultiSigOptions(2, [1, 1]),
-    // threshold = 3, weights of keys = [1, 1, 1]
-    new caver.tài khoản.weightedMultiSigOptions(3, [1, 1, 1]),
+	// thresold = 4, weights of keys = [2, 2, 4] for roleTransactionKey
+	new caver.account.weightedMultiSigOptions(4, [2, 2, 4]),
+	// threshold = 2, weights of keys = [1, 1]
+	new caver.account.weightedMultiSigOptions(2, [1, 1]),
+	// threshold = 3, weights of keys = [1, 1, 1]
+	new caver.account.weightedMultiSigOptions(3, [1, 1, 1]),
 ]
 
-const tài khoản = newKeyring.toAccount(options)
+const account = newKeyring.toAccount(options)
 ```
 
 Nếu bạn muốn cập nhật AccountKey thành [AccountKeyLegacy](../../../learn/accounts.md#accountkeylegacy) hoặc [tài khoảnKeyFail](../../../learn/accounts.md#accountkeyfail), hãy tạo một đối tượng Tài khoản cụ thể như minh họa dưới đây, và gán nó vào trường `tài khoản` của giao dịch.
 
 ```javascript
-// Create an tài khoản with AccountKeyLegacy
-const tài khoảnWithLegacyKey = caver.tài khoản.createWithAccountKeyLegacy(keyringToUpdate.address)
+// Create an account with AccountKeyLegacy
+const accountWithLegacyKey = caver.account.createWithAccountKeyLegacy(keyringToUpdate.address)
 
-// Create an tài khoản with AccountKeyFail
-const tài khoảnWithFailKey = caver.tài khoản.createWithAccountKeyFail(keyringToUpdate.address)
+// Create an account with AccountKeyFail
+const accountWithFailKey = caver.account.createWithAccountKeyFail(keyringToUpdate.address)
 ```
 
 ### Hợp đồng thông minh <a href="#smart-contract" id="smart-contract"></a>
@@ -913,7 +913,7 @@ const Caver = require('caver-js')
 const caver = new Caver('https://public-en-baobab.klaytn.net/')
 
 async function testFunction() {
-    const abi = [
+	const abi = [
         {
             constant: true,
             inputs: [{ name: 'key', type: 'string' }],
@@ -934,9 +934,9 @@ async function testFunction() {
         },
     ]
 
-    const contractInstance = caver.contract.create(abi)
-    console.log(contractInstance)
-    console.log(contractInstance.options.address)
+	const contractInstance = caver.contract.create(abi)
+	console.log(contractInstance)
+	console.log(contractInstance.options.address)
 }
 
 testFunction()
@@ -947,15 +947,15 @@ Khi chạy mã trên, bạn sẽ nhận được kết quả sau.
 ```bash
 $ node ./test.js
 Contract {
-    ...
+	...
   methods: {
-        get: [Function: bound _createTxObject],
-        '0x693ec85e': [Function: bound _createTxObject],
-        'get(string)': [Function: bound _createTxObject],
-        set: [Function: bound _createTxObject],
-        '0xe942b516': [Function: bound _createTxObject],
-        'set(string,string)': [Function: bound _createTxObject]
-    },
+		get: [Function: bound _createTxObject],
+		'0x693ec85e': [Function: bound _createTxObject],
+		'get(string)': [Function: bound _createTxObject],
+		set: [Function: bound _createTxObject],
+		'0xe942b516': [Function: bound _createTxObject],
+		'set(string,string)': [Function: bound _createTxObject]
+	},
   events: { allEvents: [Function: bound ] },
   _address: null,
   _jsonInterface: [ ... ],
@@ -974,7 +974,7 @@ const Caver = require('caver-js')
 const caver = new Caver('https://public-en-baobab.klaytn.net/')
 
 async function testFunction() {
-    const abi = [
+	const abi = [
         {
             constant: true,
             inputs: [{ name: 'key', type: 'string' }],
@@ -994,11 +994,11 @@ async function testFunction() {
             type: 'function',
         },
     ]
+	
+	const contractInstance = caver.contract.create(abi, '0x3466D49256b0982E1f240b64e097FF04f99Ed4b9')
 
-    const contractInstance = caver.contract.create(abi, '0x3466D49256b0982E1f240b64e097FF04f99Ed4b9')
-
-    console.log(contractInstance)
-    console.log(contractInstance.options.address)
+	console.log(contractInstance)
+	console.log(contractInstance.options.address)
 }
 
 testFunction()
@@ -1009,15 +1009,15 @@ Khi chạy mã trên, bạn sẽ nhận được kết quả sau.
 ```bash
 $ node ./test.js
 Contract {
-    ...
+	...
   methods: {
-        get: [Function: bound _createTxObject],
-        '0x693ec85e': [Function: bound _createTxObject],
-        'get(string)': [Function: bound _createTxObject],
-        set: [Function: bound _createTxObject],
-        '0xe942b516': [Function: bound _createTxObject],
-        'set(string,string)': [Function: bound _createTxObject]
-    },
+		get: [Function: bound _createTxObject],
+		'0x693ec85e': [Function: bound _createTxObject],
+		'get(string)': [Function: bound _createTxObject],
+		set: [Function: bound _createTxObject],
+		'0xe942b516': [Function: bound _createTxObject],
+		'set(string,string)': [Function: bound _createTxObject]
+	},
   events: { allEvents: [Function: bound ] },
   _address: '0x3466D49256b0982E1f240b64e097FF04f99Ed4b9',
   _jsonInterface: [ ... ],
@@ -1038,10 +1038,10 @@ const Caver = require('caver-js')
 const caver = new Caver('https://public-en-baobab.klaytn.net/')
 
 async function testFunction() {
-    const deployer = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
-    caver.wallet.add(deployer)
-
-    const abi = [
+	const deployer = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
+	caver.wallet.add(deployer)
+	
+	const abi = [
         {
             constant: true,
             inputs: [{ name: 'key', type: 'string' }],
@@ -1065,15 +1065,15 @@ async function testFunction() {
     const byteCode =
         '608060405234801561001057600080fd5b5061051f806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c8063693ec85e1461003b578063e942b5161461016f575b600080fd5b6100f46004803603602081101561005157600080fd5b810190808035906020019064010000000081111561006e57600080fd5b82018360208201111561008057600080fd5b803590602001918460018302840111640100000000831117156100a257600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506102c1565b6040518080602001828103825283818151815260200191508051906020019080838360005b83811015610134578082015181840152602081019050610119565b50505050905090810190601f1680156101615780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6102bf6004803603604081101561018557600080fd5b81019080803590602001906401000000008111156101a257600080fd5b8201836020820111156101b457600080fd5b803590602001918460018302840111640100000000831117156101d657600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192908035906020019064010000000081111561023957600080fd5b82018360208201111561024b57600080fd5b8035906020019184600183028401116401000000008311171561026d57600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506103cc565b005b60606000826040518082805190602001908083835b602083106102f957805182526020820191506020810190506020830392506102d6565b6001836020036101000a03801982511681845116808217855250505050505090500191505090815260200160405180910390208054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103c05780601f10610395576101008083540402835291602001916103c0565b820191906000526020600020905b8154815290600101906020018083116103a357829003601f168201915b50505050509050919050565b806000836040518082805190602001908083835b6020831061040357805182526020820191506020810190506020830392506103e0565b6001836020036101000a0380198251168184511680821785525050505050509050019150509081526020016040518091039020908051906020019061044992919061044e565b505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061048f57805160ff19168380011785556104bd565b828001600101855582156104bd579182015b828111156104bc5782518255916020019190600101906104a1565b5b5090506104ca91906104ce565b5090565b6104f091905b808211156104ec5760008160009055506001016104d4565b5090565b9056fea165627a7a723058203ffebc792829e0434ecc495da1b53d24399cd7fff506a4fd03589861843e14990029'
 
-    const contractInstance = caver.contract.create(abi)
+	const contractInstance = caver.contract.create(abi)
+	
+	const deployedInstance = await contractInstance.deploy({
+		from: deployer.address,
+		gas: 1500000,
+	}, byteCode)
 
-    const deployedInstance = await contractInstance.deploy({
-        from: deployer.address,
-        gas: 1500000,
-    }, byteCode)
-
-    console.log(deployedInstance)
-    console.log(deployedInstance.options.address)
+	console.log(deployedInstance)
+	console.log(deployedInstance.options.address)
 }
 
 testFunction()
@@ -1084,15 +1084,15 @@ Trong mã trên, `deployer` triển khai hợp đồng trên Klaytn và trả l�
 ```bash
 $ node ./test.js
 Contract {
-    ...
+	...
   methods: {
-        get: [Function: bound _createTxObject],
-        '0x693ec85e': [Function: bound _createTxObject],
-        'get(string)': [Function: bound _createTxObject],
-        set: [Function: bound _createTxObject],
-        '0xe942b516': [Function: bound _createTxObject],
-        'set(string,string)': [Function: bound _createTxObject]
-    },
+		get: [Function: bound _createTxObject],
+		'0x693ec85e': [Function: bound _createTxObject],
+		'get(string)': [Function: bound _createTxObject],
+		set: [Function: bound _createTxObject],
+		'0xe942b516': [Function: bound _createTxObject],
+		'set(string,string)': [Function: bound _createTxObject]
+	},
   events: { allEvents: [Function: bound ] },
   _address: '0x3466D49256b0982E1f240b64e097FF04f99Ed4b9',
   _jsonInterface: [ ... ],
@@ -1139,17 +1139,17 @@ async function deployWithFeeDelegation() {
     const byteCode =
         '608060405234801561001057600080fd5b5061051f806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c8063693ec85e1461003b578063e942b5161461016f575b600080fd5b6100f46004803603602081101561005157600080fd5b810190808035906020019064010000000081111561006e57600080fd5b82018360208201111561008057600080fd5b803590602001918460018302840111640100000000831117156100a257600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506102c1565b6040518080602001828103825283818151815260200191508051906020019080838360005b83811015610134578082015181840152602081019050610119565b50505050905090810190601f1680156101615780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6102bf6004803603604081101561018557600080fd5b81019080803590602001906401000000008111156101a257600080fd5b8201836020820111156101b457600080fd5b803590602001918460018302840111640100000000831117156101d657600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192908035906020019064010000000081111561023957600080fd5b82018360208201111561024b57600080fd5b8035906020019184600183028401116401000000008311171561026d57600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506103cc565b005b60606000826040518082805190602001908083835b602083106102f957805182526020820191506020810190506020830392506102d6565b6001836020036101000a03801982511681845116808217855250505050505090500191505090815260200160405180910390208054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103c05780601f10610395576101008083540402835291602001916103c0565b820191906000526020600020905b8154815290600101906020018083116103a357829003601f168201915b50505050509050919050565b806000836040518082805190602001908083835b6020831061040357805182526020820191506020810190506020830392506103e0565b6001836020036101000a0380198251168184511680821785525050505050509050019150509081526020016040518091039020908051906020019061044992919061044e565b505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061048f57805160ff19168380011785556104bd565b828001600101855582156104bd579182015b828111156104bc5782518255916020019190600101906104a1565b5b5090506104ca91906104ce565b5090565b6104f091905b808211156104ec5760008160009055506001016104d4565b5090565b9056fea165627a7a723058203ffebc792829e0434ecc495da1b53d24399cd7fff506a4fd03589861843e14990029'
 
-    const contractInstance = caver.contract.create(abi)
+	const contractInstance = caver.contract.create(abi)
 
-    const deployedInstance = await contractInstance.deploy({
-        from: deployer.address,
-        feeDelegation: true,
-        feePayer: feePayer.address,
-        gas: 1500000,
-    }, byteCode)
-
-    console.log(deployedInstance)
-    console.log(deployedInstance.options.address)
+	const deployedInstance = await contractInstance.deploy({
+		from: deployer.address,
+		feeDelegation: true,
+		feePayer: feePayer.address,
+		gas: 1500000,
+	}, byteCode)
+	
+	console.log(deployedInstance)
+	console.log(deployedInstance.options.address)
 }
 ```
 
@@ -1191,19 +1191,19 @@ async function deployWithFeeDelegation() {
     const byteCode =
         '608060405234801561001057600080fd5b5061051f806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c8063693ec85e1461003b578063e942b5161461016f575b600080fd5b6100f46004803603602081101561005157600080fd5b810190808035906020019064010000000081111561006e57600080fd5b82018360208201111561008057600080fd5b803590602001918460018302840111640100000000831117156100a257600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506102c1565b6040518080602001828103825283818151815260200191508051906020019080838360005b83811015610134578082015181840152602081019050610119565b50505050905090810190601f1680156101615780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6102bf6004803603604081101561018557600080fd5b81019080803590602001906401000000008111156101a257600080fd5b8201836020820111156101b457600080fd5b803590602001918460018302840111640100000000831117156101d657600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192908035906020019064010000000081111561023957600080fd5b82018360208201111561024b57600080fd5b8035906020019184600183028401116401000000008311171561026d57600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506103cc565b005b60606000826040518082805190602001908083835b602083106102f957805182526020820191506020810190506020830392506102d6565b6001836020036101000a03801982511681845116808217855250505050505090500191505090815260200160405180910390208054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103c05780601f10610395576101008083540402835291602001916103c0565b820191906000526020600020905b8154815290600101906020018083116103a357829003601f168201915b50505050509050919050565b806000836040518082805190602001908083835b6020831061040357805182526020820191506020810190506020830392506103e0565b6001836020036101000a0380198251168184511680821785525050505050509050019150509081526020016040518091039020908051906020019061044992919061044e565b505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061048f57805160ff19168380011785556104bd565b828001600101855582156104bd579182015b828111156104bc5782518255916020019190600101906104a1565b5b5090506104ca91906104ce565b5090565b6104f091905b808211156104ec5760008160009055506001016104d4565b5090565b9056fea165627a7a723058203ffebc792829e0434ecc495da1b53d24399cd7fff506a4fd03589861843e14990029'
 
-    const contractInstance = caver.contract.create(abi)
+	const contractInstance = caver.contract.create(abi)
 
-    const signed = await contractInstance.sign({
-        from: deployer.address,
-        feeDelegation: true,
-        gas: 1500000,
-    }, 'constructor', byteCode)
+	const signed = await contractInstance.sign({
+		from: deployer.address,
+		feeDelegation: true,
+		gas: 1500000,
+	}, 'constructor', byteCode)
+	
+	await caver.wallet.signAsFeePayer(feePayer.address, signed)
 
-    await caver.wallet.signAsFeePayer(feePayer.address, signed)
+	const receipt = await caver.rpc.klay.sendRawTransaction(signed)
 
-    const receipt = await caver.rpc.klay.sendRawTransaction(signed)
-
-    const deployed = caver.contract.create(abi, receipt.contractAddress)
+	const deployed = caver.contract.create(abi, receipt.contractAddress)
 }
 ```
 
@@ -1215,10 +1215,10 @@ const Caver = require('caver-js')
 const caver = new Caver('https://public-en-baobab.klaytn.net/')
 
 async function testFunction() {
-    const keyring = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
-    caver.wallet.add(keyring)
+	const keyring = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
+	caver.wallet.add(keyring)
 
-    const abi = [
+	const abi = [
         {
             constant: true,
             inputs: [{ name: 'key', type: 'string' }],
@@ -1238,10 +1238,10 @@ async function testFunction() {
             type: 'function',
         },
     ]
-
-    const contractInstance = caver.contract.create(abi, '0x{address in hex}')
-    const receipt = await contractInstance.send({ from: keyring.address, gas: '0x4bfd200' }, 'set', 'testKey', 'testValue')
-    console.log(receipt)
+	
+	const contractInstance = caver.contract.create(abi, '0x{address in hex}')
+	const receipt = await contractInstance.send({ from: keyring.address, gas: '0x4bfd200' }, 'set', 'testKey', 'testValue')
+	console.log(receipt)
 }
 
 testFunction()
@@ -1252,7 +1252,7 @@ Khi mã trên được triển khai, kết quả giao dịch từ việc triển
 ```bash
 $ node ./test.js
 { 
-    blockHash: '0x610336d43644abc5ab71156f7334ff67deabdd8de27778faa9dec99d225927e6',
+	blockHash: '0x610336d43644abc5ab71156f7334ff67deabdd8de27778faa9dec99d225927e6',
   blockNumber: 4724,
   contractAddress: null,
   from: '0xbbfa9e3f76ddafedc28197e0f893366dd3c5c74a',
@@ -1261,7 +1261,7 @@ $ node ./test.js
   gasUsed: 62351,
   input: '0xe942b...',
   ...
-  trạng thái: true,
+  status: true,
   to: '0x3466d49256b0982e1f240b64e097ff04f99ed4b9',
   transactionHash: '0x3a354703ab4a7b32492edab454b446dd3e92eec81ecbdaf2c3d84ffdd5cf9948',
   transactionIndex: 0,
@@ -1310,12 +1310,12 @@ async function executionWithFeeDelegation() {
     // Pass contract address as a second parameter
     const contractInstance = caver.contract.create(abi, '0x{address in hex}')
 
-    const receipt = await contractInstance.send({
+	const receipt = await contractInstance.send({
         from: executor.address,
-        gas: 1000000,
-        feeDelegation: true,
-        feePayer: feePayer.address,
-    }, 'set', 'testKey', 'testValue')
+		gas: 1000000,
+		feeDelegation: true,
+		feePayer: feePayer.address,
+	}, 'set', 'testKey', 'testValue')
     console.log(receipt)
 }
 ```
@@ -1355,17 +1355,17 @@ async function deployWithFeeDelegation() {
         },
     ]
 
-    const contractInstance = caver.contract.create(abi)
+	const contractInstance = caver.contract.create(abi)
 
-    const signed = await contractInstance.sign({
-        from: deployer.address,
-        feeDelegation: true,
-        gas: 1500000,
-    }, 'set', 'testKey', 'testValue')
+	const signed = await contractInstance.sign({
+		from: deployer.address,
+		feeDelegation: true,
+		gas: 1500000,
+	}, 'set', 'testKey', 'testValue')
+	
+	await caver.wallet.signAsFeePayer(feePayer.address, signed)
 
-    await caver.wallet.signAsFeePayer(feePayer.address, signed)
-
-    const receipt = await caver.rpc.klay.sendRawTransaction(signed)
+	const receipt = await caver.rpc.klay.sendRawTransaction(signed)
     console.log(receipt)
 }
 ```
@@ -1378,7 +1378,7 @@ const Caver = require('caver-js')
 const caver = new Caver('https://public-en-baobab.klaytn.net/')
 
 async function testFunction() {
-    const abi = [
+	const abi = [
         {
             constant: true,
             inputs: [{ name: 'key', type: 'string' }],
@@ -1398,10 +1398,10 @@ async function testFunction() {
             type: 'function',
         },
     ]
-    const contractInstance = caver.contract.create(abi, '0x{smart contract address}')
+	const contractInstance = caver.contract.create(abi, '0x{smart contract address}')
 
-    const value = await contractInstance.call('get', 'testKey')
-    console.log(value)
+	const value = await contractInstance.call('get', 'testKey')
+	console.log(value)
 }
 
 testFunction()
@@ -1438,21 +1438,21 @@ const Caver = require('caver-js')
 const caver = new Caver('https://public-en-baobab.klaytn.net/')
 
 async function testFunction() {
-    const user1 = caver.wallet.keyring.createWithSingleKey('0x{address in hex}', '0x{private key1}')
-    const user2 = caver.wallet.keyring.createWithSingleKey('0x{address in hex}', '0x{private key2}')
+	const user1 = caver.wallet.keyring.createWithSingleKey('0x{address in hex}', '0x{private key1}')
+	const user2 = caver.wallet.keyring.createWithSingleKey('0x{address in hex}', '0x{private key2}')
 
-    const transaction = caver.transaction.valueTransfer.create({
-        from: user1.address,
-        to: '0x45c2a1e3a1c3957a06dae73ad516461c2d2c7ccc',
-        value: 1,
-        gas: 70000,
-    })
+	const transaction = caver.transaction.valueTransfer.create({
+		from: user1.address,
+		to: '0x45c2a1e3a1c3957a06dae73ad516461c2d2c7ccc',
+		value: 1,
+		gas: 70000,
+	})
 
-    await transaction.sign(user1)
-    console.log(transaction.signatures)
+	await transaction.sign(user1)
+	console.log(transaction.signatures)
 
-    await transaction.sign(user2)
-    console.log(transaction.signatures)
+	await transaction.sign(user2)
+	console.log(transaction.signatures)
 }
 
 testFunction()
@@ -1463,11 +1463,11 @@ Khi chạy mã trên, bạn sẽ nhận được kết quả sau. Nhìn vào k�
 ```bash
 $ node ./test.js
 [ 
-    SignatureData { _v: '0x4e43', _r: '0x3f3d3...', _s: '0x24f94...' }
+	SignatureData { _v: '0x4e43', _r: '0x3f3d3...', _s: '0x24f94...' }
 ]
 [ 
-    SignatureData { _v: '0x4e43', _r: '0x3f3d3...', _s: '0x24f94...' },
-    SignatureData { _v: '0x4e44', _r: '0xd6a94...', _s: '0x72dc8...' }
+	SignatureData { _v: '0x4e43', _r: '0x3f3d3...', _s: '0x24f94...' },
+	SignatureData { _v: '0x4e44', _r: '0xd6a94...', _s: '0x72dc8...' }
 ]
 ```
 
@@ -1481,29 +1481,29 @@ const Caver = require('caver-js')
 const caver = new Caver('https://public-en-baobab.klaytn.net/')
 
 async function testFunction() {
-    // Create user1's keyring
-    const user1 = caver.wallet.keyring.createWithSingleKey('0x{address in hex}', '0x{private key1}')
+	// Create user1's keyring
+	const user1 = caver.wallet.keyring.createWithSingleKey('0x{address in hex}', '0x{private key1}')
+	
+	// Create a value transfer transaction
+	const transaction = caver.transaction.valueTransfer.create({
+		from: user1.address,
+		to: '0x45c2a1e3a1c3957a06dae73ad516461c2d2c7ccc',
+		value: 1,
+		gas: 70000,
+	})
+	
+	// Sign the transaction
+	await transaction.sign(user1)
 
-    // Create a value transfer transaction
-    const transaction = caver.transaction.valueTransfer.create({
-        from: user1.address,
-        to: '0x45c2a1e3a1c3957a06dae73ad516461c2d2c7ccc',
-        value: 1,
-        gas: 70000,
-    })
+	// Create user2's keyring
+	const user2 = caver.wallet.keyring.createWithSingleKey('0x{address in hex}', '0x{private key2}')
 
-    // Sign the transaction
-    await transaction.sign(user1)
+	// Create a value transfer transaction from the RLP-encoded string
+	const rlpEncoding = transaction.getRLPEncoding()
+	const transactionFromRLP = caver.transaction.valueTransfer.create(rlpEncoding)
 
-    // Create user2's keyring
-    const user2 = caver.wallet.keyring.createWithSingleKey('0x{address in hex}', '0x{private key2}')
-
-    // Create a value transfer transaction from the RLP-encoded string
-    const rlpEncoding = transaction.getRLPEncoding()
-    const transactionFromRLP = caver.transaction.valueTransfer.create(rlpEncoding)
-
-    await transactionFromRLP.sign(user2)
-    console.log(transactionFromRLP.signatures)
+	await transactionFromRLP.sign(user2)
+	console.log(transactionFromRLP.signatures)
 }
 
 testFunction()
@@ -1514,8 +1514,8 @@ Khi chạy mã trên, bạn sẽ nhận được kết quả sau.
 ```bash
 $ node ./test.js
 [ 
-    SignatureData { _v: '0x4e43', _r: '0x3f3d3...', _s: '0x24f94...' },
-    SignatureData { _v: '0x4e44', _r: '0xd6a94...', _s: '0x72dc8...' }
+	SignatureData { _v: '0x4e43', _r: '0x3f3d3...', _s: '0x24f94...' },
+	SignatureData { _v: '0x4e44', _r: '0xd6a94...', _s: '0x72dc8...' }
 ]
 ```
 
@@ -1537,19 +1537,19 @@ const Caver = require('caver-js')
 const caver = new Caver('https://public-en-baobab.klaytn.net/')
 
 async function testFunction() {
-    const vt = caver.transaction.valueTransfer.create({
-        from: '0x0fa355263f37f5a54d9179452baa8b63b8b2cdde',
-        to: '0x45c2a1e3a1c3957a06dae73ad516461c2d2c7ccc',
-        value: 1,
-        gas: 70000,
-    })
-    const rlpEncodedStrings = [
-        '0x08f87f018505d21dba00830111709445c2a1e3a1c3957a06dae73ad516461c2d2c7ccc01940fa355263f37f5a54d9179452baa8b63b8b2cddef847f845824e44a01aa72b883ca540c8a63de244cd061ec4f9efb139541e8db304c07ec27bc9d272a06a4ca54f6269f2ddfe3648eb9ed57b0c5739f0077e1a38449f3ae3cc0b20dc3e',
-        '0x08f8c6018505d21dba00830111709445c2a1e3a1c3957a06dae73ad516461c2d2c7ccc01940fa355263f37f5a54d9179452baa8b63b8b2cddef88ef845824e44a01aa72b883ca540c8a63de244cd061ec4f9efb139541e8db304c07ec27bc9d272a06a4ca54f6269f2ddfe3648eb9ed57b0c5739f0077e1a38449f3ae3cc0b20dc3ef845824e43a0fd76dfc53c812ec6aa860076f731e3913936088a1518cc34f2d176bcbe0ac772a071491c938458fffe106dde485fc8b26cbebe8a517c46bd185b126930f480d773',
-        '0x08f8c6018505d21dba00830111709445c2a1e3a1c3957a06dae73ad516461c2d2c7ccc01940fa355263f37f5a54d9179452baa8b63b8b2cddef88ef845824e44a01aa72b883ca540c8a63de244cd061ec4f9efb139541e8db304c07ec27bc9d272a06a4ca54f6269f2ddfe3648eb9ed57b0c5739f0077e1a38449f3ae3cc0b20dc3ef845824e43a021e84a4740b374cdcf0cc38f93225f6d2f77388a9d90302d47b4f3ed84e4db5fa072ff5e77d2506d5222081c4d2a341c6ee5d258500030564f985951472f247b7d',
-    ]
-    const combined = vt.combineSignedRawTransactions(rlpEncodedStrings)
-    console.log(combined)
+	const vt = caver.transaction.valueTransfer.create({
+		from: '0x0fa355263f37f5a54d9179452baa8b63b8b2cdde',
+		to: '0x45c2a1e3a1c3957a06dae73ad516461c2d2c7ccc',
+		value: 1,
+		gas: 70000,
+	})
+	const rlpEncodedStrings = [
+		'0x08f87f018505d21dba00830111709445c2a1e3a1c3957a06dae73ad516461c2d2c7ccc01940fa355263f37f5a54d9179452baa8b63b8b2cddef847f845824e44a01aa72b883ca540c8a63de244cd061ec4f9efb139541e8db304c07ec27bc9d272a06a4ca54f6269f2ddfe3648eb9ed57b0c5739f0077e1a38449f3ae3cc0b20dc3e',
+		'0x08f8c6018505d21dba00830111709445c2a1e3a1c3957a06dae73ad516461c2d2c7ccc01940fa355263f37f5a54d9179452baa8b63b8b2cddef88ef845824e44a01aa72b883ca540c8a63de244cd061ec4f9efb139541e8db304c07ec27bc9d272a06a4ca54f6269f2ddfe3648eb9ed57b0c5739f0077e1a38449f3ae3cc0b20dc3ef845824e43a0fd76dfc53c812ec6aa860076f731e3913936088a1518cc34f2d176bcbe0ac772a071491c938458fffe106dde485fc8b26cbebe8a517c46bd185b126930f480d773',
+		'0x08f8c6018505d21dba00830111709445c2a1e3a1c3957a06dae73ad516461c2d2c7ccc01940fa355263f37f5a54d9179452baa8b63b8b2cddef88ef845824e44a01aa72b883ca540c8a63de244cd061ec4f9efb139541e8db304c07ec27bc9d272a06a4ca54f6269f2ddfe3648eb9ed57b0c5739f0077e1a38449f3ae3cc0b20dc3ef845824e43a021e84a4740b374cdcf0cc38f93225f6d2f77388a9d90302d47b4f3ed84e4db5fa072ff5e77d2506d5222081c4d2a341c6ee5d258500030564f985951472f247b7d',
+	]
+	const combined = vt.combineSignedRawTransactions(rlpEncodedStrings)
+	console.log(combined)
 }
 
 testFunction()
@@ -1584,8 +1584,8 @@ const Caver = require('caver-js')
 const caver = new Caver('https://public-en-baobab.klaytn.net/')
 
 async function testFunction() {
-    const result = await caver.kct.kip7.detectInterface('0x{address in hex}')
-    console.log(result)
+	const result = await caver.kct.kip7.detectInterface('0x{address in hex}')
+	console.log(result)
 }
 
 testFunction()
@@ -1612,9 +1612,9 @@ const Caver = require('caver-js')
 const caver = new Caver('https://public-en-baobab.klaytn.net/')
 
 async function testFunction() {
-    const kip7 = new caver.kct.kip7('0x{address in hex}')
-    const result = await kip7.detectInterface()
-    console.log(result)
+	const kip7 = new caver.kct.kip7('0x{address in hex}')
+	const result = await kip7.detectInterface()
+	console.log(result)
 }
 
 testFunction()
@@ -1645,8 +1645,8 @@ const Caver = require('caver-js')
 const caver = new Caver('https://public-en-baobab.klaytn.net/')
 
 async function testFunction() {
-    const result = await caver.kct.kip17.detectInterface('0x{address in hex}')
-    console.log(result)
+	const result = await caver.kct.kip17.detectInterface('0x{address in hex}')
+	console.log(result)
 }
 
 testFunction()
@@ -1657,13 +1657,13 @@ Khi chạy mã trên, bạn sẽ nhận được kết quả sau.
 ```bash
 $ node ./test.js
 {
-    IKIP17: true,
-    IKIP17Metadata: true,
-    IKIP17Enumerable: true,
-    IKIP17Mintable: true,
-    IKIP17MetadataMintable: true,
-    IKIP17Burnable: true,
-    IKIP17Pausable: true,
+	IKIP17: true,
+	IKIP17Metadata: true,
+	IKIP17Enumerable: true,
+	IKIP17Mintable: true,
+	IKIP17MetadataMintable: true,
+	IKIP17Burnable: true,
+	IKIP17Pausable: true,
 }
 ```
 
@@ -1675,9 +1675,9 @@ const Caver = require('caver-js')
 const caver = new Caver('https://public-en-baobab.klaytn.net/')
 
 async function testFunction() {
-    const kip17 = new caver.kct.kip17('0x{address in hex}')
-    const result = await kip17.detectInterface()
-    console.log(result)
+	const kip17 = new caver.kct.kip17('0x{address in hex}')
+	const result = await kip17.detectInterface()
+	console.log(result)
 }
 
 testFunction()
@@ -1688,13 +1688,13 @@ Khi chạy mã trên, bạn sẽ nhận được kết quả sau.
 ```bash
 $ node ./test.js
 {
-    IKIP17: true,
-    IKIP17Metadata: true,
-    IKIP17Enumerable: true,
-    IKIP17Mintable: true,
-    IKIP17MetadataMintable: true,
-    IKIP17Burnable: true,
-    IKIP17Pausable: true,
+	IKIP17: true,
+	IKIP17Metadata: true,
+	IKIP17Enumerable: true,
+	IKIP17Mintable: true,
+	IKIP17MetadataMintable: true,
+	IKIP17Burnable: true,
+	IKIP17Pausable: true,
 }
 ```
 
@@ -1710,8 +1710,8 @@ const Caver = require('caver-js')
 const caver = new Caver('https://public-en-baobab.klaytn.net/')
 
 async function testFunction() {
-    const result = await caver.kct.kip37.detectInterface('0x{address in hex}')
-    console.log(result)
+	const result = await caver.kct.kip37.detectInterface('0x{address in hex}')
+	console.log(result)
 }
 
 testFunction()
@@ -1738,9 +1738,9 @@ const Caver = require('caver-js')
 const caver = new Caver('https://public-en-baobab.klaytn.net/')
 
 async function testFunction() {
-    const kip37 = new caver.kct.kip37('0x{address in hex}')
-    const result = await kip37.detectInterface()
-    console.log(result)
+	const kip37 = new caver.kct.kip37('0x{address in hex}')
+	const result = await kip37.detectInterface()
+	console.log(result)
 }
 
 testFunction()
@@ -1763,41 +1763,41 @@ $ node ./test.js
 
 Các dự án mẫu phát triển DApp (Ứng dụng chuỗi khối) sử dụng caver-js bao gồm:
 
-* [Count DApp](../../../build/tutorials/count-dapp/count-dapp.md)
-* [Klaystagram](../../../build/tutorials/klaystagram/klaystagram.md)
+- [Count DApp](../../../build/tutorials/count-dapp/count-dapp.md)
+- [Klaystagram](../../../build/tutorials/klaystagram/klaystagram.md)
 
 ## Khắc phục sự cố <a href="#troubleshooting" id="troubleshooting"></a>
 
-*   **Lỗi: không thể khắc phục 'fs'** phát sinh trong khi xây dựng với caver-js trong một trình duyệt web:
+- **Lỗi: không thể khắc phục 'fs'** phát sinh trong khi xây dựng với caver-js trong một trình duyệt web:
 
-    * Hãy thêm cấu hình webpack sau.
+  - Hãy thêm cấu hình webpack sau.
 
-    ```
-    module.exports = {
-        ...
-        node: {
-            fs: 'empty',
-        },
-        ...
-     }
-    ```
+  ```
+  module.exports = {
+   	...
+   	node: {
+   		fs: 'empty',
+   	},
+   	...
+   }
+  ```
 
-    Nếu sử dụng khuôn khổ web Next.js, bạn có thể thêm cấu hình webpack vào tập tin **next.config.json** như dưới đây:
+  Nếu sử dụng khuôn khổ web Next.js, bạn có thể thêm cấu hình webpack vào tập tin **next.config.json** như dưới đây:
 
-    ```
-    module.exports = {
-        webpack: (config, { isServer }) => {
-            if (!isServer) {
-                config.node = {
-                    fs: 'empty'
-                }
-            }
-            return config
-        }
-     }
-    ```
+  ```
+  module.exports = {
+   	webpack: (config, { isServer }) => {
+   		if (!isServer) {
+   			config.node = {
+   				fs: 'empty'
+   			}
+   		}
+   		return config
+   	}
+   }
+  ```
 
 ## Liên kết <a href="#links" id="links"></a>
 
-* caver-js [Kho GitHub](https://github.com/klaytn/caver-js)
-* caver-js trên [npm](https://www.npmjs.com/package/caver-js)
+- caver-js [Kho GitHub](https://github.com/klaytn/caver-js)
+- caver-js trên [npm](https://www.npmjs.com/package/caver-js)

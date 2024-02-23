@@ -19,10 +19,10 @@ Không có
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_hashrate","params":[],"id":1}' http://localhost:8551
 
-// Kết quả
+// Result
 {
   "jsonrpc": "2.0",
   "id":1,
@@ -49,40 +49,40 @@ Không có
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getHashrate","params":[],"id":1}' http://localhost:8551
 
-// Kết quả
+// Result
 {
   "jsonrpc": "2.0",
   "id":1,
   "result": 0
 }
-``
+```
 
 ## eth_getWork <a id="eth_getwork"></a>
 
-Trả về mã băm của khối hiện tại, seedHash, và điều kiện biên cần đáp ứng ("mục tiêu").
+Returns the hash of the current block, the seedHash, and the boundary condition to be met ("target").
 
-Xin lưu ý rằng do Klaytn không có cơ chế PoW (bằng chứng xử lý), giá trị trả về luôn là `errNoMiningWork`.
+Please note that it always return `errNoMiningWork` because there is no PoW mechanism in Klaytn.
 
-**Tham số**
+**Parameters**
 
-Không có
+None
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại                  | Mô tả                                                                                                                   |
-|-----------------------|-------------------------------------------------------------------------------------------------------------------------------|
-| Mảng DỮ LIỆU 32 byte | Danh sách hàm băm pow, hàm băm bổ sung của tiêu đề khối hiện tại được sử dụng cho DAG, điều kiện biên ("mục tiêu"), 2^256 / độ khó. |
+| Type                  | Description                                                                                                                                      |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Array of 32-byte DATA | List of current block header pow-hash, the seed hash used for the DAG, the boundary condition ("target"), 2^256 / difficulty. |
 
-**Ví dụ**
+**Example**
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getWork","params":[],"id":1}' http://localhost:8551
 
-// Kết quả
+// Result
 {
   "jsonrpc": "2.0",
   "id":1,
@@ -93,7 +93,6 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 }
 ```
 
-
 ## eth_submitWork <a id="eth_submitwork"></a>
 
 Được dùng để gửi giải pháp bằng chứng công việc.
@@ -102,8 +101,8 @@ Xin lưu ý rằng do Klaytn không có cơ chế PoW (bằng chứng xử lý),
 
 **Tham số**
 
-| type            | Mô tả                                     |
-| --------------- | ----------------------------------------- |
+| type            | Mô tả                                                        |
+| --------------- | ------------------------------------------------------------ |
 | DỮ LIỆU 8 byte  | Tìm thấy giá trị số dùng một lần (64 bit) |
 | DỮ LIỆU 32 byte | Hàm băm pow của tiêu đề (256 bit)         |
 | DỮ LIỆU 32 byte | Hàm băm hỗn hợp (256 bit)                 |
@@ -117,17 +116,16 @@ Xin lưu ý rằng do Klaytn không có cơ chế PoW (bằng chứng xử lý),
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_submitWork","params":["0x0000000000000001", "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef", "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"],"id":1}' http://localhost:8551
 
-// Kết quả
+// Result
 {
   "jsonrpc": "2.0",
   "id":1,
   "result": false
 }
 ```
-
 
 ## eth_submitHashrate <a id="eth_submithashrate"></a>
 
@@ -137,8 +135,8 @@ Xin lưu ý rằng do Klaytn không có cơ chế PoW (bằng chứng xử lý),
 
 **Tham số**
 
-| Tên      | Loại           | Mô tả                                                                          |
-| -------- | --------------- | ------------------------------------------------------------------------------ |
+| Tên      | Loại           | Mô tả                                                                                             |
+| -------- | --------------- | ------------------------------------------------------------------------------------------------- |
 | hashrate | DỮ LIỆU 32 byte | Chuỗi thập lục phân (32 byte) biểu thị tốc độ băm.                             |
 | id       | DỮ LIỆU 32 byte | ID ngẫu nhiên dưới dạng chuỗi thập lục phân (32 byte) để định danh khách hàng. |
 
@@ -151,10 +149,10 @@ Xin lưu ý rằng do Klaytn không có cơ chế PoW (bằng chứng xử lý),
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_submithashrate","params":["0x5", "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"],"id":1}' http://localhost:8551
 
-// Kết quả
+// Result
 {
   "jsonrpc": "2.0",
   "id":1,
@@ -172,16 +170,16 @@ Adding an `accessList` to your transaction does not necessary result in lower ga
 
 **Parameters**
 
-| Name             | Type                | Description                                                                                              |
-|------------------|---------------------|----------------------------------------------------------------------------------------------------------|
-| callObject       | Object              | The transaction call object. Refer to [`eth_call`](./transaction.md#eth_call) for the object's properties. |
+| Name             | Type            | Description                                                                                                                                                                                                                                                                                                      |
+| ---------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| callObject       | Object          | The transaction call object. Refer to [`eth_call`](./transaction.md#eth_call) for the object's properties.                                                                                                                                                                                                       |
 | blockNumberOrTag | QUANTITY \| TAG | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in [default block parameter](./block.md#the-default-block-parameter). The block number is mandatory and defines the context (state) against which the specified transaction should be executed. |
 
 **Return Value**
 
-| Type      | Description                                                              |
-|-----------|--------------------------------------------------------------------------|
-| Object    | Returns list of addresses and storage keys used by the transaction, plus the gas consumed when the access list is added. |
+| Type   | Description                                                                                                              |
+| ------ | ------------------------------------------------------------------------------------------------------------------------ |
+| Object | Returns list of addresses and storage keys used by the transaction, plus the gas consumed when the access list is added. |
 
 **Example**
 

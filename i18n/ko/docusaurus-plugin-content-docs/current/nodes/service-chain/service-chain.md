@@ -2,7 +2,7 @@
 
 ## 대상 독자 <a id="intended-audience"></a>
 
-- 높은 TPS, 최소한의 트랜잭션 수수료 또는 데이터 프라이버시가 필요한 dApp 개발자  
+- 높은 TPS, 최소한의 트랜잭션 수수료 또는 데이터 프라이버시가 필요한 dApp 개발자
 - 테스트를 위해 로컬 프라이빗 네트워크 또는 원장 데이터베이스를 구축하려는 모두
 
 ## 서비스 체인 개요 <a id="service-chain-overview"></a>
@@ -15,6 +15,5 @@
 - 기업 보안 요구 사항을 충족하는 다중 서명 브리지 콘트랙트.
 
 ![](/img/nodes/sc_connection.png)
-
 
 서비스 체인에 대한 자세한 내용은 [Klaytn 스케일링 솔루션](../../learn/scaling-solutions.md)을 참고하세요.

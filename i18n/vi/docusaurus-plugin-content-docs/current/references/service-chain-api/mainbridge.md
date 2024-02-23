@@ -1,15 +1,18 @@
 ---
-description: >-
-  API liên quan đến EN chuỗi chính được kết nối với chuỗi dịch vụ.
+description: |-
+  description: >-
+    API liên quan đến EN chuỗi chính được kết nối với chuỗi dịch vụ.
 ---
 
 # Không gian tên mainbridge
 
-Không gian tên `mainbridge` cung cấp các hàm liên quan đến Chuỗi Dịch vụ. Để sử dụng các hàm trong không gian tên này, tùy chọn `cầu nối chính` phải được kích hoạt trong EN được kết nối với chuỗi chính (Mạng chính hoặc mạng thử nghiệm Baobab).
+Không gian tên `mainbridge` cung cấp các hàm liên quan đến Chuỗi Dịch vụ.
+Để sử dụng các hàm trong không gian tên này, tùy chọn `cầu nối chính` phải được kích hoạt trong EN được kết nối với chuỗi chính (Mạng chính hoặc mạng thử nghiệm Baobab).
 
 ## mainbridge_nodeInfo <a id="mainbridge_nodeInfo"></a>
 
-Trả về thông tin nút cầu nối bao gồm KNI (Mã định danh mạng lưới Klaytn) ​​của nút. Một nút cầu nối chính có thể kết nối với một nút cầu nối con thông qua KNI.
+Trả về thông tin nút cầu nối bao gồm KNI (Mã định danh mạng lưới Klaytn) ​​của nút.
+Một nút cầu nối chính có thể kết nối với một nút cầu nối con thông qua KNI.
 
 **Tham số**
 
@@ -54,9 +57,13 @@ Không có
 ```
 
 ## mainbridge_addPeer  <a id="mainbridge_addPeer"></a>
+
 Trả về `true` nếu thêm thành công một máy ngang hàng cầu nối con.
 
-Nó sẽ thêm một nút từ xa mới vào danh sách máy ngang hàng. Nút đó sẽ cố gắng duy trì kết nối liên tục với các nút này, thỉnh thoảng kết nối lại nếu kết nối từ xa gặp sự cố. Phương thức này chấp nhận một đối số duy nhất, URL `kni` của máy ngang hàng từ xa để bắt đầu theo dõi và trả về `BOOL` cho biết máy ngang hàng đó có được chấp nhận hay không để theo dõi hoặc thông báo một số lỗi xảy ra.
+Nó sẽ thêm một nút từ xa mới vào danh sách máy ngang hàng.
+Nút đó sẽ cố gắng duy trì kết nối liên tục với các nút này, thỉnh thoảng kết nối lại nếu kết nối từ xa gặp sự cố.
+once in a while if the remote connection goes down.
+Phương thức này chấp nhận một đối số duy nhất, URL `kni` của máy ngang hàng từ xa để bắt đầu theo dõi và trả về `BOOL` cho biết máy ngang hàng đó có được chấp nhận hay không để theo dõi hoặc thông báo một số lỗi xảy ra.
 
 **Tham số**
 
@@ -78,6 +85,7 @@ Bảng điều khiển
 > mainbridge.addPeer("kni://a979fb...1163c@10.0.0.1:50505") // or 'subbridge.addPeer'
 true
 ```
+
 HTTP RPC
 
 ```shell
@@ -86,9 +94,12 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ma
 ```
 
 ## mainbridge_removePeer <a id="mainbridge_removePeer"></a>
+
 Trả về `true` khi máy ngang hàng được xóa thành công.
 
-Phương thức `removePeer` ngắt kết nối và xóa nút từ xa trong danh sách các nút tĩnh được theo dõi. Phương thức này chấp nhận một đối số duy nhất, URL `kni` của máy ngang hàng từ xa để bắt đầu theo dõi và trả về `BOOL` cho biết máy ngang hàng đó có được chấp nhận hay không để theo dõi hoặc thông báo một số lỗi xảy ra.
+Phương thức `removePeer` ngắt kết nối và xóa nút từ xa trong danh sách các nút tĩnh được theo dõi.
+Phương thức này chấp nhận một đối số duy nhất, URL `kni` của máy ngang hàng từ xa để bắt đầu theo dõi và trả về `BOOL` cho biết máy ngang hàng đó có được chấp nhận hay không để theo dõi hoặc thông báo một số lỗi xảy ra.
+for tracking or some error occurred.
 
 **Tham số**
 
@@ -170,4 +181,3 @@ HTTP RPC
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"mainbridge_convertChildChainBlockHashToParentChainTxHash","params":["0xeadc6a3a29a20c13824b5df1ba05cca1ed248d046382a4f2792aac8a6e0d1880"],"id":1}' https://public-en-baobab.klaytn.net
 {"jsonrpc":"2.0","id":1,"result":"0x9a68591c0faa138707a90a7506840c562328aeb7621ac0561467c371b0322d51"}
 ```
-

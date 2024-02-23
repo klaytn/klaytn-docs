@@ -9,12 +9,12 @@ Cấu trúc tập tin `genesis.json` được mô tả trong bảng dưới đâ
 | Tên trường      | Mô tả                                                                                                                                                                |
 | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | config          | Cấu hình blokchain. Xem phần [Config](#config).                                                                                                                      |
-| số dùng một lần | (không dùng) Trường này được lấy từ Ethereum nhưng không được sử dụng trong Klaytn.                                                                                  |
+| số dùng một lần | (không dùng) Trường này được lấy từ Ethereum nhưng không được sử dụng trong Klaytn.                                                               |
 | dấu thời gian   | Thời gian Unix khi tạo ra khối.                                                                                                                                      |
 | extraData       | Trường kết hợp dữ liệu cho vanity người ký và dữ liệu bổ sung istanbul được mã hóa RLP có chứa danh sách nút xác thực, con dấu của người đề xuất và con dấu cam kết. |
 | gasLimit        | Lượng gas tối đa dùng trong một khối.                                                                                                                                |
-| độ khó          | (không dùng) Trường này được lấy từ Ethereum nhưng không được sử dụng trong Klaytn.                                                                                  |
-| mixhash         | (không dùng) Trường này được lấy từ Ethereum nhưng không được sử dụng trong Klaytn.                                                                                  |
+| độ khó          | (không dùng) Trường này được lấy từ Ethereum nhưng không được sử dụng trong Klaytn.                                                               |
+| mixhash         | (không dùng) Trường này được lấy từ Ethereum nhưng không được sử dụng trong Klaytn.                                                               |
 | coinbase        | Địa chỉ để thợ đào nhận phần thưởng. Trường này chỉ sử dụng cho công cụ đồng thuận Clique.                                                                           |
 | alloc           | Các tài khoản được xác định trước.                                                                                                                                   |
 | số              | Trường số khối.                                                                                                                                                      |
@@ -34,33 +34,34 @@ Trường `config` lưu trữ thông tin liên quan đến chuỗi.
 | deriveShaImpl           | Xác định phương pháp mới để tạo hàm băm giao dịch và hàm băm biên lai.               |
 | governance              | Thông tin quản trị về mạng lưới. Xem phần [Governance](#governance)                  |
 
-
 ### extraData <a id="extradata"></a>
 
 Trường `extraData` là sự kết hợp giữa vanity người đề xuất và dữ liệu bổ sung istanbul mã hóa RLP:
 
-  - Vanity người đề xuất là dữ liệu 32 byte chứa dữ liệu vanity người đề xuất tùy ý.
-  - Phần còn lại của dữ liệu là dữ liệu bổ sung istanbul mã hóa RLP có chứa:
-     - Nút xác thực: danh sách các nút xác thực theo thứ tự tăng dần.
-     - Con dấu: chữ ký của người đề xuất tiêu đề. Về `genesis.json`, đó là một mảng byte được khởi tạo với 65 `0x0`.
-     - CommittedSeal: danh sách các con dấu chữ ký cam kết chứng tỏ sự đồng thuận. Đối với `genesis.json`, đó là một mảng trống.
+- Vanity người đề xuất là dữ liệu 32 byte chứa dữ liệu vanity người đề xuất tùy ý.
+- Phần còn lại của dữ liệu là dữ liệu bổ sung istanbul mã hóa RLP có chứa:
+  - Nút xác thực: danh sách các nút xác thực theo thứ tự tăng dần.
+  - Con dấu: chữ ký của người đề xuất tiêu đề. Về `genesis.json`, đó là một mảng byte được khởi tạo với 65 `0x0`.
+  - CommittedSeal: danh sách các con dấu chữ ký cam kết chứng tỏ sự đồng thuận. Đối với `genesis.json`, đó là một mảng trống.
 
 **Ví dụ**
-| Trường        | type                           | Giá trị                                                                                 |
-| ------------- | ------------------------------ | --------------------------------------------------------------------------------------- |
-| Vanity        | Chuỗi số thập lục phân 32-byte | 0x0000000000000000000000000000000000000000000000000000000000000000                      |
-| Nút xác thực  | []address                      | [0x48009b4e20ec72aadf306577cbe2eaf54b0ebb16,0x089fcc42fd83baeee4831319375413b8bae3aceb] |
-| Con dấu       | mảng byte gồm 65 phần tử       | [0x0,...,0x0]                                                                           |
-| CommittedSeal | [][]byte                       | []                                                                                      |
+
+| Trường        | type                                                                                                             | Giá trị                                                                                                                                     |
+| ------------- | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| Vanity        | Chuỗi số thập lục phân 32-byte                                                                                   | 0x0000000000000000000000000000000000000000000000000000000000000000                                                                          |
+| Nút xác thực  | []address                                                    | [0x48009b4e20ec72aadf306577cbe2eaf54b0ebb16,0x089fcc42fd83baeee4831319375413b8bae3aceb] |
+| Con dấu       | mảng byte gồm 65 phần tử                                                                                         | [0x0,...,0x0]                                                                           |
+| CommittedSeal | [][]byte | []                                                                                      |
 
 `extraData` với dữ liệu trên được tạo bởi
+
 ```
 concat('0x',Vanity,RLPEncode({Validators,Seal,CommittedSeal}))
 ```
+
 khi `concat` là hàm ghép chuỗi và `RLPEncode` là một hàm để chuyển đổi một cấu trúc đã cho thành chuỗi mã hóa RLP.
 
 Với hàm này, kết quả đầu ra `extraData` cho ví dụ này là 0x0000000000000000000000000000000000000000000000000000000000000000f86fea9448009b4e20ec72aadf306577cbe2eaf54b0ebb1694089fcc42fd83baeee4831319375413b8bae3acebb8410000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000c0.
-
 
 ## Công cụ đồng thuận <a id="consensus-engine"></a>
 
@@ -70,30 +71,30 @@ Các công cụ đồng thuận dành cho mạng lưới Klaytn là Clique và I
 
 Trường `clique` lưu trữ cấu hình cho niêm phong dựa trên Bằng chứng ủy quyền (POA).
 
-| Các trường | Mô tả                                                              |
-| ---------- | ------------------------------------------------------------------ |
+| Các trường | Mô tả                                                                                 |
+| ---------- | ------------------------------------------------------------------------------------- |
 | thời kỳ    | Khoảng thời gian tối thiểu giữa các khối liên tiếp (đơn vị: giây). |
-| epoch      | Số khối để đặt lại phiếu và được đánh dấu là điểm xác minh.        |
+| epoch      | Số khối để đặt lại phiếu và được đánh dấu là điểm xác minh.                           |
 
 ### Istanbul <a id="istanbul"></a>
 
 Trường `istanbul` lưu trữ cấu hình cho niêm phong dựa trên Istanbul.
 
-| Các trường | Mô tả                                                                                   |
-| ---------- | --------------------------------------------------------------------------------------- |
-| epoch      | Số khối để đặt lại phiếu là một điểm xác minh.                                          |
+| Các trường | Mô tả                                                                                                                                       |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| epoch      | Số khối để đặt lại phiếu là một điểm xác minh.                                                                                              |
 | chính sách | Chính sách lựa chọn người đề xuất khối. [0: Round Robin, 1: Sticky, 2: Weighted Random] |
-| sub        | Quy mô của Ủy ban.                                                                      |
+| sub        | Quy mô của Ủy ban.                                                                                                                          |
 
 ## Quản trị <a id="governance"></a>
 
 Trường `governance` lưu trữ thông tin quản trị cho một mạng lưới.
 
-| Các trường     | Mô tả                                                                                  |
-| -------------- | -------------------------------------------------------------------------------------- |
-| governanceMode | Một trong ba chế độ quản trị. [`none`, `single`, `ballot`]                             |
-| governingNode  | Địa chỉ của nút quản trị được chỉ định. Chỉ hoạt động nếu chế độ quản trị là `single`. |
-| phần thưởng    | Trường này lưu trữ cấu hình phần thưởng. Xem phần [Phần thưởng](#reward).              |
+| Các trường     | Mô tả                                                                                                          |
+| -------------- | -------------------------------------------------------------------------------------------------------------- |
+| governanceMode | Một trong ba chế độ quản trị. [`none`, `single`, `ballot`] |
+| governingNode  | Địa chỉ của nút quản trị được chỉ định. Chỉ hoạt động nếu chế độ quản trị là `single`.                         |
+| phần thưởng    | Trường này lưu trữ cấu hình phần thưởng. Xem phần [Phần thưởng](#reward).                                      |
 
 ### Phần thưởng <a id="reward"></a>
 

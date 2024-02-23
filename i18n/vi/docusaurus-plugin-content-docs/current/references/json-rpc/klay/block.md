@@ -3,6 +3,7 @@
 ## Tham số khối mặc định <a id="the-default-block-parameter"></a>
 
 Khi các yêu cầu được thực hiện hành động theo trạng thái của Klaytn, thì tham số khối mặc định cuối cùng sẽ xác định chiều cao của khối.
+parameter determines the height of the block.
 
 Tham số `defaultBlock` có thể có các tùy chọn như sau:
 
@@ -10,7 +11,6 @@ Tham số `defaultBlock` có thể có các tùy chọn như sau:
 - `String "earliest"` cho khối sớm nhất/khởi nguyên
 - `String "latest"` - cho khối đã đào mới nhất
 - `String "pending"` - cho trạng thái/giao dịch đang chờ xử lý
-
 
 ## klay_blockNumber <a id="klay_blocknumber"></a>
 
@@ -40,17 +40,17 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-
 ## klay_getHeaderByNumber <a id="klay_getheaderbynumber"></a>
 
 **LƯU Ý**: API này được hỗ trợ từ Klaytn v1.7.0.
 
-Trả về thông tin tiêu đề theo số. API này chỉ hoạt động trên lệnh gọi RPC, không hoạt động trên bảng điều khiển JavaScript.
+Trả về thông tin tiêu đề theo số.
+API này chỉ hoạt động trên lệnh gọi RPC, không hoạt động trên bảng điều khiển JavaScript.
 
 **Tham số**
 
-| Loại               | Mô tả                                                                                                                                                   |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Loại           | Mô tả                                                                                                                                                   |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | SỐ LƯỢNG \| THẺ | Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](#the-default-block-parameter). |
 
 **Giá trị trả về**
@@ -73,7 +73,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
     "gasUsed":"0x0",
     "governanceData":"0x",
     "hash":"0xe882d7a16f38126dc0c507f990b3fe18fa2d3a380002538581327abe96ca6edc",
-    "nhật kýBloom":"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "logsBloom":"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
     "number":"0x1e67",
     "parentHash":"0x28b1c054346c3bd083741c757a750dcabf94b6d50c7f87158753544e96e73550",
     "receiptsRoot":"0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470",
@@ -83,7 +83,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
     "timestampFoS":"0x0",
     "transactionsRoot":"0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"
   }
-
+     
 }
 ```
 
@@ -91,7 +91,8 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 **LƯU Ý**: API này được hỗ trợ từ Klaytn v1.7.0.
 
-Trả về thông tin tiêu đề theo hàm băm. API này chỉ hoạt động trên lệnh gọi RPC, không hoạt động trên bảng điều khiển JavaScript.
+Trả về thông tin tiêu đề theo hàm băm.
+API này chỉ hoạt động trên lệnh gọi RPC, không hoạt động trên bảng điều khiển JavaScript.
 
 **Tham số**
 
@@ -137,7 +138,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
     "gasUsed":"0x0",
     "governanceData":"0x",
     "hash":"0xe882d7a16f38126dc0c507f990b3fe18fa2d3a380002538581327abe96ca6edc",
-    "nhật kýBloom":"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "logsBloom":"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
     "number":"0x1e67",
     "parentHash":"0x28b1c054346c3bd083741c757a750dcabf94b6d50c7f87158753544e96e73550",
     "receiptsRoot":"0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470",
@@ -147,21 +148,21 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
     "timestampFoS":"0x0",
     "transactionsRoot":"0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"
   }
-
+     
 }
 ```
 
-
 ## klay_getBlockByNumber <a id="klay_getblockbynumber"></a>
 
-Trả về thông tin của một khối theo số khối. API này chỉ hoạt động trên lệnh gọi RPC, không hoạt động trên bảng điều khiển JavaScript.
+Trả về thông tin của một khối theo số khối.
+API này chỉ hoạt động trên lệnh gọi RPC, không hoạt động trên bảng điều khiển JavaScript.
 
 **Tham số**
 
-| Loại               | Mô tả                                                                                                                                                   |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Loại           | Mô tả                                                                                                                                                   |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | SỐ LƯỢNG \| THẺ | Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](#the-default-block-parameter). |
-| Boolean             | Nếu `true` thì sẽ trả về toàn bộ các đối tượng giao dịch, nếu `false` thì chỉ trả về hàm băm của các giao dịch.                                         |
+| Boolean         | Nếu `true` thì sẽ trả về toàn bộ các đối tượng giao dịch, nếu `false` thì chỉ trả về hàm băm của các giao dịch.                                         |
 
 :::note
 
@@ -190,7 +191,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
     "gasUsed":"0x0",
     "governanceData":"0x",
     "hash":"0xe882d7a16f38126dc0c507f990b3fe18fa2d3a380002538581327abe96ca6edc",
-    "nhật kýBloom":"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "logsBloom":"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
     "number":"0x1e67",
     "parentHash":"0x28b1c054346c3bd083741c757a750dcabf94b6d50c7f87158753544e96e73550",
     "receiptsRoot":"0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470",
@@ -207,10 +208,10 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-
 ## klay_getBlockByHash <a id="klay_getblockbyhash"></a>
 
-Trả về thông tin của một khối theo hàm băm. API này chỉ hoạt động trên lệnh gọi RPC, không hoạt động trên bảng điều khiển JavaScript.
+Trả về thông tin của một khối theo hàm băm.
+API này chỉ hoạt động trên lệnh gọi RPC, không hoạt động trên bảng điều khiển JavaScript.
 
 **Tham số**
 
@@ -262,7 +263,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
     "gasUsed":"0x0",
     "governanceData":"0x",
     "hash":"0xe882d7a16f38126dc0c507f990b3fe18fa2d3a380002538581327abe96ca6edc",
-    "nhật kýBloom":"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "logsBloom":"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
     "number":"0x1e67",
     "parentHash":"0x28b1c054346c3bd083741c757a750dcabf94b6d50c7f87158753544e96e73550",
     "receiptsRoot":"0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470",
@@ -279,19 +280,20 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-
 ## klay_getBlockReceipts <a id="klay_getblockreceipts"></a>
 
 Trả lại biên lai bao gồm trong một khối.
 
 **Tham số**
-| Loại           | Mô tả        |
-| --------------- | ------------ |
-| Number \| 32-byte DATA \| TAG  | The block number or hash. Or the string `"earliest"`, `"latest"` or `"pending"` as in [default block parameter](#the-default-block-parameter). |
+
+| Loại                         | Mô tả                                                                                                                                          |
+| ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| Number \| 32-byte DATA \| TAG | The block number or hash. Or the string `"earliest"`, `"latest"` or `"pending"` as in [default block parameter](#the-default-block-parameter). |
 
 **Giá trị trả về**
 
 Biên lai có trong một khối.  Nếu khối mục tiêu không chứa giao dịch, thì hệ thống sẽ trả về một khối trống `[]`.
+empty array `[]` is returned.
 
 **Ví dụ**
 
@@ -326,15 +328,14 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 }
 ```
 
-
 ## klay_getBlockTransactionCountByNumber <a id="klay_getblocktransactioncountbynumber"></a>
 
 Trả về số lượng giao dịch trong một khối khớp với số khối đã cho.
 
 **Tham số**
 
-| Loại               | Mô tả                                                                                                                                                           |
-| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Loại           | Mô tả                                                                                                                                                   |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | SỐ LƯỢNG \| THẺ | Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](#the-default-block-parameter). |
 
 :::note
@@ -362,7 +363,6 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
   "result": "0xa" // 10
 }
 ```
-
 
 ## klay_getBlockTransactionCountByHash <a id="klay_getblocktransactioncountbyhash"></a>
 
@@ -394,14 +394,14 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 }
 ```
 
-
 ## klay_getBlockWithConsensusInfoByNumber <a id="klay_getblockwithconsensusinfobynumber"></a>
+
 Trả về một khối có thông tin đồng thuận khớp với số khối đã cho.
 
 **Tham số**
 
-| Loại               | Mô tả                                                                                                                                              |
-| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Loại           | Mô tả                                                                                                                                      |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
 | SỐ LƯỢNG \| THẺ | Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"` hoặc `"latest"` như trong [tham số khối mặc định](#the-default-block-parameter). |
 
 :::note
@@ -432,7 +432,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
     "gasUsed": "0x1d065",
     "governanceData": "0x",
     "hash": "0x7d68d09a7a571cdf8a3b6a5ef6e037265b3e3093cf145b0954d22bde5c1d4f61",
-    "nhật kýBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
     "number": "0x6e0431",
     "parentHash": "0xa76ef625874a4d2126eb3fd1ebb5c1a8d0deb360a12b4f8edf30fb417d82b5a1",
     "proposer": "0xe783fc94fddaeebef7293d6c5864cff280f121e1",
@@ -461,8 +461,8 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
         "gasPrice": "0x5d21dba00",
         "gasUsed": "0x1d065",
         "input": "0x50716652000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000013416c50000000000000000000000000000000000000000000000000000000000001f3f000000000000000000000000000000000000000000000000000000003b9af23c",
-        "nhật ký": [],
-        "nhật kýBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "logs": [],
+        "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
         "nonce": "0x8",
         "senderTxHash": "0x5fe7485db56c0c2b0eb54dd46e584a413193ad66b40e69281f44dadfa7409b2e",
         "signatures": [
@@ -472,7 +472,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
             "S": "0x584ab136a483e755d9d458f9965ca0d514724c7b45f6123d19323f6fa7ccdb5f"
           }
         ],
-        "trạng thái": "0x1",
+        "status": "0x1",
         "to": "0x1db1b93447328dd904152f798ead97987844f7b7",
         "transactionHash": "0x020a2156bb4b29dc84f26887efae79e07a3d738b2856a66bbaab8aee18d507b5",
         "transactionIndex": "0x0",
@@ -486,7 +486,6 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
   }
 }
 ```
-
 
 ## klay_getBlockWithConsensusInfoByHash <a id="klay_getblockwithconsensusinfobyhash"></a>
 
@@ -539,7 +538,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
     "gasUsed": "0x1d065",
     "governanceData": "0x",
     "hash": "0x7d68d09a7a571cdf8a3b6a5ef6e037265b3e3093cf145b0954d22bde5c1d4f61",
-    "nhật kýBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
     "number": "0x6e0431",
     "parentHash": "0xa76ef625874a4d2126eb3fd1ebb5c1a8d0deb360a12b4f8edf30fb417d82b5a1",
     "proposer": "0xe783fc94fddaeebef7293d6c5864cff280f121e1",
@@ -568,8 +567,8 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
         "gasPrice": "0x5d21dba00",
         "gasUsed": "0x1d065",
         "input": "0x50716652000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000013416c50000000000000000000000000000000000000000000000000000000000001f3f000000000000000000000000000000000000000000000000000000003b9af23c",
-        "nhật ký": [],
-        "nhật kýBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "logs": [],
+        "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
         "nonce": "0x8",
         "senderTxHash": "0x5fe7485db56c0c2b0eb54dd46e584a413193ad66b40e69281f44dadfa7409b2e",
         "signatures": [
@@ -579,7 +578,7 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
             "S": "0x584ab136a483e755d9d458f9965ca0d514724c7b45f6123d19323f6fa7ccdb5f"
           }
         ],
-        "trạng thái": "0x1",
+        "status": "0x1",
         "to": "0x1db1b93447328dd904152f798ead97987844f7b7",
         "transactionHash": "0x020a2156bb4b29dc84f26887efae79e07a3d738b2856a66bbaab8aee18d507b5",
         "transactionIndex": "0x0",
@@ -594,14 +593,14 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 }
 ```
 
-
 ## klay_getCommittee <a id="klay_getcommittee"></a>
+
 Trả về danh sách tất cả các nút xác thực của ủy ban tại khối được chỉ định. Nếu tham số không được đặt, thì sẽ trả về danh sách tất cả các nút xác thực trong ủy ban ở khối mới nhất.
 
 **Tham số**
 
-| Tên                 | Loại   | Mô tả                                                                                                                                                         |
-| ------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Tên             | Loại   | Mô tả                                                                                                                                                                    |
+| --------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | SỐ LƯỢNG \| THẺ | số khối | (tùy chọn) Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"` hoặc `"latest"` như trong [tham số khối mặc định](#the-default-block-parameter). |
 
 :::note
@@ -637,12 +636,13 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 ```
 
 ## klay_getCommitteeSize <a id="klay_getcommitteesize"></a>
+
 Trả về quy mô của ủy ban tại khối được chỉ định. Nếu tham số không được đặt thì sẽ trả về quy mô của ủy ban tại khối mới nhất.
 
 **Tham số**
 
-| Tên                 | type    | Mô tả                                                                                                                                                         |
-| ------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Tên             | type    | Mô tả                                                                                                                                                                    |
+| --------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | SỐ LƯỢNG \| THẺ | số khối | (tùy chọn) Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"` hoặc `"latest"` như trong [tham số khối mặc định](#the-default-block-parameter). |
 
 :::note
@@ -672,16 +672,16 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 }
 ```
 
-
 ## klay_getCouncil <a id="klay_getcouncil"></a>
+
 Trả về danh sách tất cả những nút xác thực của hội đồng tại khối được chỉ định. Nếu tham số không được đặt, thì sẽ trả về danh sách tất cả những nút xác thực của hội đồng tại khối mới nhất.
 
 **LƯU Ý**: `klay_getValidators` được thay bằng phương pháp này và không được hỗ trợ nữa.
 
 **Tham số**
 
-| Tên                 | type    | Mô tả                                                                                                                                                         |
-| ------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Tên             | type    | Mô tả                                                                                                                                                                    |
+| --------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | SỐ LƯỢNG \| THẺ | số khối | (tùy chọn) Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"` hoặc `"latest"` như trong [tham số khối mặc định](#the-default-block-parameter). |
 
 :::note
@@ -717,12 +717,13 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 ```
 
 ## klay_getCouncilSize <a id="klay_getcouncilsize"></a>
+
 Trả về quy mô của hội đồng tại khối được chỉ định. Nếu tham số không được đặt thì sẽ trả về quy mô của hội đồng tại khối mới nhất.
 
 **Tham số**
 
-| Tên                 | Loại   | Mô tả                                                                                                                                                         |
-| ------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Tên             | Loại   | Mô tả                                                                                                                                                                    |
+| --------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | SỐ LƯỢNG \| THẺ | số khối | (tùy chọn) Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"` hoặc `"latest"` như trong [tham số khối mặc định](#the-default-block-parameter). |
 
 :::note
@@ -752,17 +753,16 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 }
 ```
 
-
 ## klay_getStorageAt <a id="klay_getstorageat"></a>
 
 Trả về giá trị từ vị trí lưu trữ tại một địa chỉ đã cho.
 
 **Tham số**
 
-| type                               | Mô tả                                                                                                                                                                              |
-| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| DỮ LIỆU 20 byte                    | Địa chỉ kho lưu trữ.                                                                                                                                                               |
-| SỐ LƯỢNG                           | Giá trị nguyên chỉ vị trí lưu trữ.                                                                                                                                                 |
+| type                       | Mô tả                                                                                                                                                                     |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| DỮ LIỆU 20 byte            | Địa chỉ kho lưu trữ.                                                                                                                                                      |
+| SỐ LƯỢNG                   | Giá trị nguyên chỉ vị trí lưu trữ.                                                                                                                                        |
 | SỐ LƯỢNG \| THẺ \| HÀM BĂM | Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](#the-default-block-parameter) hoặc hàm băm khối. |
 
 :::note
@@ -771,7 +771,7 @@ LƯU Ý: Trong các phiên bản trước phiên bản Klaytn v1.7.0, chỉ có 
 
 :::
 
- **Giá trị trả về**
+**Giá trị trả về**
 
 | Loại | Mô tả                           |
 | ----- | ------------------------------- |
@@ -802,32 +802,35 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "kl
 ```
 
 Việc truy xuất thành phần của bản đồ thì khó hơn. Vị trí của một thành phần trên bản đồ được tính bằng:
+
 ```javascript
-keccak(LeftPad32(key, 0), LeftPad32(map position, 0))
+Điều này có nghĩa là để truy xuất kho lưu trữ trên `pos1["0x391694e7e0b0cce554cb130d723a9d27458f9298"]`, chúng ta cần tính toán vị trí bằng:tính toán vị trí bằng:
 ```
 
-Điều này có nghĩa là để truy xuất kho lưu trữ trên `pos1["0x391694e7e0b0cce554cb130d723a9d27458f9298"]`, chúng ta cần tính toán vị trí bằng:tính toán vị trí bằng:
+Bạn có thể sử dụng bảng điều khiển Klaytn đi kèm với thư viện `klay` để tính toán
+
 ```javascript
 keccak(decodeHex("000000000000000000000000391694e7e0b0cce554cb130d723a9d27458f9298" + "0000000000000000000000000000000000000000000000000000000000000001"))
 ```
-Bạn có thể sử dụng bảng điều khiển Klaytn đi kèm với thư viện `klay` để tính toán
+
+Bây giờ sẽ lấy kho lưu trữ:
+
 ```javascript
 > var key = "000000000000000000000000391694e7e0b0cce554cb130d723a9d27458f9298" + "0000000000000000000000000000000000000000000000000000000000000001"
 undefined
 > klay.sha3(key, {"encoding": "hex"})
 "0x6661e9d6d8b923d5bbaab1b96e1dd51ff6ea2a93520fdc9eb75d059238b8c5e9"
 ```
-Bây giờ sẽ lấy kho lưu trữ:
+
+klay_syncing <a id="klay_syncing"></a>
+
 ```shell
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "klay_getStorageAt", "params": ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x6661e9d6d8b923d5bbaab1b96e1dd51ff6ea2a93520fdc9eb75d059238b8c5e9", "latest"], "id": 1}' https://public-en-baobab.klaytn.net
 
 {"jsonrpc":"2.0","id":1,"result":"0x000000000000000000000000000000000000000000000000000000000000162e"}
 ```
 
-
-## klay_syncing <a id="klay_syncing"></a>
-
-Trả về đối tượng với dữ liệu về trạng thái đồng bộ hóa hoặc `false`.
+## Trả về đối tượng với dữ liệu về trạng thái đồng bộ hóa hoặc `false`.
 
 **Tham số**
 
@@ -835,11 +838,13 @@ Không có
 
 **Giá trị trả về**
 
-`Object|Boolean`, đối tượng có dữ liệu trạng thái đồng bộ hóa hoặc `false` khi không đồng bộ hóa:
+\`Object
+
+Boolean`, đối tượng có dữ liệu trạng thái đồng bộ hóa hoặc `false\` khi không đồng bộ hóa:
 
 | Tên           | type     | Mô tả                                                                                                                                 |
 | ------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| startingBlock | SỐ LƯỢNG | Khối nơi bắt đầu quá trình nhập (sẽ chỉ được đặt lại sau khi quá trình đồng bộ hóa đạt đỉnh).                                         |
+| startingBlock | SỐ LƯỢNG | Khối nơi bắt đầu quá trình nhập (sẽ chỉ được đặt lại sau khi quá trình đồng bộ hóa đạt đỉnh).                      |
 | currentBlock  | SỐ LƯỢNG | Khối hiện tại, giống với `klay_blockNumber`.                                                                                          |
 | highestBlock  | SỐ LƯỢNG | Khối dự đoán cao nhất.                                                                                                                |
 | pulledStates  | SỐ LƯỢNG | Số lượng mục nhập trạng thái được xử lý cho đến hiện tại.  Nếu chế độ đồng bộ hóa không ở chế độ "nhanh", giá trị trả về sẽ bằng 0.   |
@@ -873,12 +878,13 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"klay
 
 ## klay_getRewards <a id="klay_getrewards"></a>
 
-Trả về kết quả phân phối phần thưởng về một khối theo số khối, bao gồm cả những người được thưởng và phần của họ. Nếu không được đặt, tham số sẽ trả về phân phối phần thưởng ở khối mới nhất.
+Trả về kết quả phân phối phần thưởng về một khối theo số khối, bao gồm cả những người được thưởng và phần của họ.
+Nếu không được đặt, tham số sẽ trả về phân phối phần thưởng ở khối mới nhất.
 
 **Tham số**
 
-| Loại               | Mô tả                                                                                                                                                                   |
-| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Loại           | Mô tả   |                                                                                                                                                                          |
+| --------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | SỐ LƯỢNG \| THẺ | số khối | (tùy chọn) Số khối nguyên hoặc thập lục phân hoặc chuỗi `"earliest"` hoặc `"latest"` như trong [tham số khối mặc định](#the-default-block-parameter). |
 
 **Giá trị trả về**

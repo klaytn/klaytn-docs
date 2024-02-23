@@ -6,12 +6,11 @@ Trả về phí cơ sở cho mỗi gas và phí ưu tiên hiệu quả của m�
 
 **Tham số**
 
-| Tên               | Loại                      | Mô tả                                                                                                                                                                                                                                                                        |
-| ----------------- | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Tên               | Loại                      | Mô tả                                                                                                                                                                                                                                                                                                              |
+| ----------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | blockCount        | SỐ LƯỢNG                   | Số lượng khối trong khoảng yêu cầu được trình bày dưới dạng số thập lục phân. Có thể yêu cầu trong khoảng từ 1 (0x1) đến 1024 (0x400) khối trong một truy vấn duy nhất. Nếu không có đủ các khối cần truy vấn, thì số lượng khối trả về có thể ít hơn số lượng khối yêu cầu. |
-| lastBlock         | SỐ LƯỢNG \| THẺ        | Khối cao nhất trong khoảng được yêu cầu dưới dạng số khối hoặc thẻ khối.                                                                                                                                                                                                     |
-| rewardPercentiles | Mảng SỐ THỰC DẤU PHẨY ĐỘNG | Mảng giá trị số thực dấu phẩy động nằm trong khoảng từ 0 đến 100.                                                                                                                                                                                                            |
-
+| lastBlock         | SỐ LƯỢNG \| THẺ            | Khối cao nhất trong khoảng được yêu cầu dưới dạng số khối hoặc thẻ khối.                                                                                                                                                                                                                                           |
+| rewardPercentiles | Mảng SỐ THỰC DẤU PHẨY ĐỘNG | Mảng giá trị số thực dấu phẩy động nằm trong khoảng từ 0 đến 100.                                                                                                                                                                                                                                                  |
 
 **Giá trị trả về**
 
@@ -22,14 +21,13 @@ Trả về phí cơ sở cho mỗi gas và phí ưu tiên hiệu quả của m�
 | gasUsedRatio  | Mảng SỐ THỰC DẤU PHẨY ĐỘNG | Mảng tỷ lệ sử dụng gas của khối. Các tỷ lệ này được tính bằng tỷ lệ giữa gasUsed và gasLimit.                                                                     |
 | phần thưởng   | Mảng SỐ LƯỢNG              | Mảng phí ưu tiên hiệu quả trên mỗi điểm dữ liệu gas từ một khối duy nhất. Nếu khối không chứa điểm dữ liệu nào, thì tất cả các giá trị được trả về sẽ là 0.       |
 
-
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_feeHistory","params":["0x10", "latest", [0.1, 0.2, 0.3]],"id":1}' http://localhost:8551
 
-// Kết quả
+// Result
 {
   "jsonrpc": "2.0",
   "id": 1,
@@ -158,7 +156,6 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 }
 ```
 
-
 ## eth_maxPriorityFeePerGas <a id="eth_maxpriorityfeepergas"></a>
 
 Trả về đề xuất giới hạn tối đa phí gas trả thêm cho giao dịch phí biến đổi theo đơn vị peb.
@@ -180,14 +177,13 @@ Không có
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_maxPriorityFeePerGas","params":[],"id":1}' http://localhost:8551
 
-// Kết quả
+// Result
 {
   "jsonrpc": "2.0",
   "id": 1,
   "result": "0xAE9F7BCC00" // 250,000,000,000 peb = 250 ston (Gwei)
 }
 ```
-

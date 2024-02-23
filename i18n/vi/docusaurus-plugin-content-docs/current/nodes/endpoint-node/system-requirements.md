@@ -11,8 +11,8 @@ Chạy Nút điểm cuối (EN) yêu cầu thông số kỹ thuật phần cứn
 #### Thông số kỹ thuật khuyến nghị <a id="recommended-specification-based-on-aws"></a>
 
 | vCPU | Bộ nhớ (GiB) | Lưu trữ (GiB) | Băng thông ổ đĩa (Mbps) | Băng thông mạng lưới (Gbps) |
-|:---- |:------------ |:------------- |:----------------------- |:--------------------------- |
-| 8    | 64           | > 3.000       | 3.500                   | Lên đến 10                  |
+| :--- | :------------------------------ | :------------------------------- | :----------------------------------------- | :--------------------------------------------- |
+| 8    | 64                              | > 3.000                          | 3.500                                      | Lên đến 10                                     |
 
 ### Máy Bare-metal <a id="bare-metal-machine"></a>
 
@@ -24,5 +24,6 @@ Giả sử trung bình 100 TPS, kích thước giao dịch trung bình 300 byte 
 
 ## Hệ điều hành <a id="operating-system"></a>
 
-Môi trường nên dùng là [Amazon Linux 2](https://aws.amazon.com/ko/about-aws/whats-new/2017/12/introducing-amazon-linux-2/). Nhị phân Klaytn đã được thử nghiệm đầy đủ trên Amazon Linux 2 nhưng chúng cũng có thể hoạt động trên các môi trường chạy trên linux khác. nhị phân macOS cũng được cung cấp cho mục đích phát triển. 
-
+Môi trường nên dùng là [Amazon Linux 2](https://aws.amazon.com/ko/about-aws/whats-new/2017/12/introducing-amazon-linux-2/).
+Nhị phân Klaytn đã được thử nghiệm đầy đủ trên Amazon Linux 2 nhưng chúng cũng có thể hoạt động trên các môi trường chạy trên linux khác.
+nhị phân macOS cũng được cung cấp cho mục đích phát triển.

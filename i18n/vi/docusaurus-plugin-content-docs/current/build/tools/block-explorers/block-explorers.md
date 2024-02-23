@@ -4,5 +4,5 @@ Công cụ chuỗi khối này cho phép người dùng và người đam mê t�
 
 Danh sách các trình duyệt được Klaytn hỗ trợ được cung cấp dưới đây:
 
-* [Klaytnscope](https://scope.klaytn.com/)
-* [Klaytnfinder](https://www.klaytnfinder.io/)
+- [Klaytnscope](https://scope.klaytn.com/)
+- [Klaytnfinder](https://www.klaytnfinder.io/)

@@ -14,11 +14,10 @@ const account = new caver.account(address, accountKey)
 
 **속성**
 
-| 이름 | 유형 | 설명 |
-| --- | --- | --- |
-| address | String | 업데이트할 계정의 주소입니다. |
+| 이름         | 유형     | 설명                                                                                                                                                                                                                                                                                                                |
+| ---------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address    | String | 업데이트할 계정의 주소입니다.                                                                                                                                                                                                                                                                                                  |
 | accountKey | Object | 계정에 사용할 새 계정 키입니다. 이것은 [AccountKeyLegacy](#accountkeylegacy), [AccountKeyPublic](#accountkeypublic), [AccountKeyFail](#accountkeyfail), [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig) 또는 [AccountKeyRoleBased](#accountkeyrolebased)의 인스턴스가 될 수 있습니다. 트랜잭션이 실행되면 클레이튼에 저장된 계정의 AccountKey가 이렇게 변경됩니다. |
-
 
 ### AccountKeyLegacy <a id="accountkeylegacy"></a>
 
@@ -27,7 +26,6 @@ const accountKeyLegacy = new caver.account.accountKey.accountKeyLegacy()
 ```
 
 `AccountKeyLegacy`는 클레이튼에서 계정의 AccountKey를 [AccountKeyLegacy]로 업데이트할 때 사용합니다. `AccountKeyLegacy`로 계정 인스턴스를 생성하려면 [caver.account.createWithAccountKeyLegacy](#caver-account-createwithaccountkeylegacy)를 참고하시기 바랍니다.
-
 
 ### AccountKeyPublic <a id="accountkeypublic"></a>
 
@@ -41,9 +39,9 @@ const accountKeyPublic = new caver.account.accountKey.accountKeyPublic(publicKey
 
 **속성**
 
-| 이름 | 유형 | 설명 |
-| --- | --- | --- |
-| weight | String | 공개 키 문자열입니다. |
+| 이름        | 유형     | 설명           |
+| --------- | ------ | ------------ |
+| publicKey | String | 공개 키 문자열입니다. |
 
 ### AccountKeyFail <a id="accountkeyfail"></a>
 
@@ -65,10 +63,10 @@ const accountKeyWeightedMultiSig = new caver.account.accountKey.accountKeyWeight
 
 **속성**
 
-| 이름 | 유형 | 설명 |
-| --- | --- | --- |
-| threshold | Number | 유효성 검사 임계값입니다. |
-| weightedPublicKeys | Array | [WeightedPublicKey]의 배열입니다. |
+| 이름                 | 유형     | 설명                          |
+| ------------------ | ------ | --------------------------- |
+| threshold          | Number | 유효성 검사 임계값입니다.              |
+| weightedPublicKeys | Array  | [WeightedPublicKey]의 배열입니다. |
 
 ### 계정키 역할 기반 <a id="accountkeyrolebased"></a>
 
@@ -82,8 +80,8 @@ const accountKeyRoleBased = new caver.account.accountKey.accountKeyRoleBased(acc
 
 **속성**
 
-| 이름 | 유형 | 설명 |
-| --- | --- | --- |
+| 이름              | 유형    | 설명                                                                                                                                                                                                                                  |
+| --------------- | ----- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | accountKeyArray | Array | 각 [role]에 사용할 계정키를 정의하는 배열입니다. 각 역할은 [AccountKeyLegacy](#accountkeylegacy), [AccountKeyPublic](#accountkeypublic), [AccountKeyFail](#accountkeyfail) 또는 [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig)를 사용하여 정의할 수 있습니다. |
 
 ### WeightedPublicKey <a id="weightedpublickey"></a>
@@ -96,10 +94,10 @@ const weightedPublicKey = new caver.account.accountKey.weightedPublicKey(weight,
 
 **속성**
 
-| 이름 | 유형 | 설명 |
-| --- | --- | --- |
-| weight | Number | 공개키의 가중치입니다. 가중치는 공개키의 가중치 합이 [AccountKeyWeightedMultiSig] 개체의 임계값보다 큰지 확인하는 데 사용됩니다. |
-| publicKey | String | 공개키 문자열입니다. |
+| 이름        | 유형     | 설명                                                                                    |
+| --------- | ------ | ------------------------------------------------------------------------------------- |
+| weight    | Number | 공개키의 가중치입니다. 가중치는 공개키의 가중치 합이 [AccountKeyWeightedMultiSig] 개체의 임계값보다 큰지 확인하는 데 사용됩니다. |
+| publicKey | String | 공개키 문자열입니다.                                                                           |
 
 ### 가중 다중 서명 옵션 <a id="weightedmultisigoptions"></a>
 
@@ -111,11 +109,10 @@ const weightedMultiSigOptions = new caver.account.weightedMultiSigOptions(thresh
 
 **속성**
 
-| 이름 | 유형 | 설명 |
-| --- | --- | --- |
+| 이름        | 유형     | 설명             |
+| --------- | ------ | -------------- |
 | threshold | Number | 유효성 검사 임계값입니다. |
-| weights | Array | 키의 가중치 배열입니다. |
-
+| weights   | Array  | 키의 가중치 배열입니다.  |
 
 ## caver.account.create <a id="caver-account-create"></a>
 
@@ -129,17 +126,16 @@ accountKey가 공개 키 문자열인 경우, [AccountKeyPublic](#accountkeypubl
 
 **매개변수**
 
-| 이름 | 유형 | 설명 |
-| --- | --- | --- |
-| address | String | 업데이트할 계정의 주소입니다. |
-| accountKey | String \| Array | 공개 키 문자열, 공개 키 배열 또는 각 요소에 각 역할에 사용할 키 배열이 포함된 2D 배열입니다. |
-| options | [WeightedMultiSigOptions] \| Array | (선택 사항) 계정 키 가중 다중 서명에 대한 옵션입니다. |
-
+| 이름         | 유형                                 | 설명                                                       |
+| ---------- | ---------------------------------- | -------------------------------------------------------- |
+| address    | String                             | 업데이트할 계정의 주소입니다.                                         |
+| accountKey | String \| Array                    | 공개 키 문자열, 공개 키 배열 또는 각 요소에 각 역할에 사용할 키 배열이 포함된 2D 배열입니다. |
+| options    | [WeightedMultiSigOptions] \| Array | (선택 사항) 계정 키 가중 다중 서명에 대한 옵션입니다.      |
 
 **리턴 값**
 
-| 유형 | 설명 |
-| --- | --- |
+| 유형        | 설명              |
+| --------- | --------------- |
 | [Account] | 계정 인스턴스가 반환됩니다. |
 
 **예시**
@@ -259,16 +255,15 @@ RLP 인코딩된 AccountKey에서 계정 인스턴스를 생성합니다.
 
 **매개변수**
 
-| 이름 | 유형 | 설명 |
-| --- | --- | --- |
-| address | String | 업데이트할 계정의 주소입니다. |
+| 이름            | 유형     | 설명                     |
+| ------------- | ------ | ---------------------- |
+| address       | String | 업데이트할 계정의 주소입니다.       |
 | rlpEncodedKey | String | 계정 키의 RLP 인코딩된 문자열입니다. |
-
 
 **리턴 값**
 
-| 유형 | 설명 |
-| --- | --- |
+| 유형        | 설명              |
+| --------- | --------------- |
 | [Account] | 계정 인스턴스가 반환됩니다. |
 
 **예시**
@@ -298,15 +293,14 @@ AccountKeyLegacy를 계정 키로 가진 계정 인스턴스를 생성합니다.
 
 **매개변수**
 
-| 이름 | 유형 | 설명 |
-| --- | --- | --- |
+| 이름      | 유형     | 설명               |
+| ------- | ------ | ---------------- |
 | address | String | 업데이트할 계정의 주소입니다. |
-
 
 **리턴 값**
 
-| 유형 | 설명 |
-| --- | --- |
+| 유형        | 설명              |
+| --------- | --------------- |
 | [Account] | 계정 인스턴스가 반환됩니다. |
 
 **예시**
@@ -329,16 +323,15 @@ AccountKeyPublic을 계정 키로 가진 계정 인스턴스를 만듭니다.
 
 **매개변수**
 
-| 이름 | 유형 | 설명 |
-| --- | --- | --- |
-| address | String | 업데이트할 계정의 주소입니다. |
-| publicKey | String | 공개 키 문자열입니다. |
-
+| 이름        | 유형     | 설명               |
+| --------- | ------ | ---------------- |
+| address   | String | 업데이트할 계정의 주소입니다. |
+| publicKey | String | 공개 키 문자열입니다.     |
 
 **리턴 값**
 
-| 유형 | 설명 |
-| --- | --- |
+| 유형        | 설명              |
+| --------- | --------------- |
 | [Account] | 계정 인스턴스가 반환됩니다. |
 
 **예시**
@@ -361,15 +354,14 @@ AccountKeyFail을 계정 키로 가진 계정 인스턴스를 생성합니다.
 
 **매개변수**
 
-| 이름 | 유형 | 설명 |
-| --- | --- | --- |
+| 이름      | 유형     | 설명               |
+| ------- | ------ | ---------------- |
 | address | String | 업데이트할 계정의 주소입니다. |
-
 
 **리턴 값**
 
-| 유형 | 설명 |
-| --- | --- |
+| 유형        | 설명              |
+| --------- | --------------- |
 | [Account] | 계정 인스턴스가 반환됩니다. |
 
 **예시**
@@ -392,17 +384,16 @@ AccountKeyWeightedMultiSig를 계정 키로 사용하는 계정 인스턴스를 
 
 **매개변수**
 
-| 이름 | 유형 | 설명 |
-| --- | --- | --- |
-| address | String | 업데이트할 계정의 주소입니다. |
-| publicKeyArray | Array | 여러 공개 키 문자열이 포함된 배열입니다. |
-| options | [WeightedMultiSigOptions] | (선택 사항) 임계값 및 가중치 배열을 정의하는 [WeightedMultiSigOptions] 인스턴스입니다. |
-
+| 이름             | 유형                        | 설명                                                            |
+| -------------- | ------------------------- | ------------------------------------------------------------- |
+| address        | String                    | 업데이트할 계정의 주소입니다.                                              |
+| publicKeyArray | Array                     | 여러 공개 키 문자열이 포함된 배열입니다.                                       |
+| options        | [WeightedMultiSigOptions] | (선택 사항) 임계값 및 가중치 배열을 정의하는 [WeightedMultiSigOptions] 인스턴스입니다. |
 
 **리턴 값**
 
-| 유형 | 설명 |
-| --- | --- |
+| 유형        | 설명              |
+| --------- | --------------- |
 | [Account] | 계정 인스턴스가 반환됩니다. |
 
 **예시**
@@ -448,17 +439,16 @@ AccountKeyRoleBased를 계정 키로 가진 계정 인스턴스를 만듭니다.
 
 **매개변수**
 
-| 이름 | 유형 | 설명 |
-| --- | --- | --- |
-| address | String | 업데이트할 계정의 주소입니다. |
-| roledBasedPublicKeyArray | Array | 각 역할에 대한 공개 키 문자열 배열이 포함된 2차원 배열입니다. |
-| options | Array | (선택 사항) 각 역할에 대한 [WeightedMultiSigOptions] 인스턴스를 포함하는 배열입니다. |
-
+| 이름                       | 유형     | 설명                                                           |
+| ------------------------ | ------ | ------------------------------------------------------------ |
+| address                  | String | 업데이트할 계정의 주소입니다.                                             |
+| roledBasedPublicKeyArray | Array  | 각 역할에 대한 공개 키 문자열 배열이 포함된 2차원 배열입니다.                         |
+| options                  | Array  | (선택 사항) 각 역할에 대한 [WeightedMultiSigOptions] 인스턴스를 포함하는 배열입니다. |
 
 **리턴 값**
 
-| 유형 | 설명 |
-| --- | --- |
+| 유형        | 설명              |
+| --------- | --------------- |
 | [Account] | 계정 인스턴스가 반환됩니다. |
 
 **예시**
@@ -542,15 +532,14 @@ caver.account.accountKey.decode(rlpEncodedAccountKey)
 
 **매개변수**
 
-| 이름 | 유형 | 설명 |
-| --- | --- | --- |
-| rlpEncodedAccountKey | String | 계정 키의 RLP 인코딩된 문자열입니다. |
-
+| 이름                   | 유형     | 설명                     |
+| -------------------- | ------ | ---------------------- |
+| rlpEncodedAccountKey | string | 계정 키의 RLP 인코딩된 문자열입니다. |
 
 **리턴 값**
 
-| 유형 | 설명 |
-| --- | --- |
+| 유형                                                                                                                                                                                                                              | 설명                |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
 | [AccountKeyLegacy](#accountkeylegacy) \| [AccountKeyPublic](#accountkeypublic) \| [AccountKeyFail](#accountkeyfail) \| [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig) \| [AccountKeyRoleBased](#accountkeyrolebased) | 계정 키 인스턴스가 반환됩니다. |
 
 **예시**
@@ -562,23 +551,45 @@ AccountKeyPublic { _publicKey: '0x02c10b598a1a3ba252acc21349d61c2fbd9bc8c15c50a5
 
 ## account.getRLPEncodingAccountKey <a id="account-getrlpencodingaccountkey"></a>
 
+```javascript
 ``JavaScript
 account.getRLPEncodingAccountKey()
-```javascript
+```
+
+계정 키의 RLP 인코딩된 문자열을 반환합니다.
+
+**리턴 값**
+
+| 유형     | 설명                      |
+| ------ | ----------------------- |
+| String | 계정 키의 RLP 인코딩된 문자열입니다 . |
+
+**예시**
+
+````javascript
 account.getRLPEncodingAccountKey()
 ```javascript
 > const account = caver.account.create('0x{주소 in hex}', '0x034f1...')
 > account.getRLPEncodingAccountKey()
 '0x02a102d851040f46d61a042a787cca34ad12bc43e51f01ad0b22270cfc25c15c4b4e22'
-```
+````
 
 [AccountKey]: ../../../../learn/accounts.md#account-key
+
 [AccountKeyLegacy]: ../../../../learn/accounts.md#accountkeylegacy
+
 [AccountKeyPublic]: ../../../../learn/accounts.md#accountkeypublic
+
 [AccountKeyFail]: ../../../../learn/accounts.md#accountkeyfail
+
 [AccountKeyWeightedMultiSig]: ../../../../learn/accounts.md#accountkeyweightedmultisig
+
 [AccountKeyRoleBased]: ../../../../learn/accounts.md#accountkeyrolebased
+
 [WeightedPublicKey]: #weightedpublickey
+
 [WeightedMultiSigOptions]: #weightedmultisigoptions
+
 [Account]: #account
+
 [role]: ../../../../learn/accounts.md#roles

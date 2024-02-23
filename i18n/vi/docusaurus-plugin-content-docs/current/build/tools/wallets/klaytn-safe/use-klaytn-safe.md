@@ -14,7 +14,6 @@ Tại đây, bạn sẽ thấy cách tạo Safe và đánh giá lợi ích của
 
 ![](/img/build/tools/2_safeName.gif)
 
-
 **Bước 4:** Thêm chủ sở hữu/người ký bằng cách nhập địa chỉ có quyền gửi và phê duyệt giao dịch. Bạn có thể thêm bao nhiêu người ký tùy thích và xóa hoặc thay thế bất kỳ người nào trong số họ bất kỳ lúc nào.
 
 **Bước 5:** Chọn số lượng người ký xác nhận giao dịch trong tài khoản Safe của bạn cần được phê duyệt. Điều quan trọng cần lưu ý là, theo mặc định, ứng dụng của chúng tôi cho phép một người ký xác nhận. Tuy nhiên, bạn nên sử dụng ngưỡng cao hơn 1 để đảm bảo tính an toàn cho tài khoản Safe. Tốt nhất nên sử dụng ngưỡng 51% tổng số chủ sở hữu, ví dụ như 2 trên 3, 3 trên 5, v.v. như minh họa bên dưới:
@@ -40,7 +39,6 @@ Dưới đây là các bước để thêm **‘KLAY’** vào tài khoản Safe
 ![](/img/build/tools/f1_copyAddr.png)
 
 **Bước 2:** Mở ví Metamask của bạn và nhấp vào **“send”** để gửi tài sản vào tài khoản Safe của bạn. Lưu ý rằng có nhiều cách khác nhau để gửi tài sản vào tài khoản Safe của bạn. Bạn có thể gửi từ [ví phần cứng](https://docs.ethhub.io/using-ethereum/wallets/hardware/), [ví web](https://docs.ethhub.io/using-ethereum/wallets/web/) hoặc thậm chí là hợp đồng thông minh. Trong trường hợp này, chúng tôi đang sử dụng ví web có tên là MetaMask.
-
 
 ![](/img/build/tools/f2_sendBtn.png)
 
@@ -76,18 +74,17 @@ Bước 5: Xem bảng điều khiển tài sản của bạn, bạn có thể th
 
 ![](/img/build/tools/ft3_tstDone.png)
 
-
-* Token KIP-17 (NFT)
+### Token KIP-17 (NFT)
 
 Bây giờ chúng ta sẽ xem cách nạp KIP17 (token Non Fungible) vào safe của mình bằng cách làm theo các bước dưới đây.
 
 Bạn có thể chuyển NFT vào tài khoản Safe theo nhiều cách khác nhau. Dưới đây là ví dụ về cách chuyển NFT sang tài khoản Safe bằng [OpenSea](https://opensea.io/about).
 
-* Điều hướng đến trang hồ sơ [Tài khoản OpenSea](https://testnets.opensea.io/account) của bạn
-* Điều hướng đến một NFT mà bạn muốn chuyển. Đảm bảo chọn một NFT trên Mạng Klaytn (Cypress hoặc Baobab)
-* Trên trang tiếp theo, nhấp vào nút Transfer.
-* Dán địa chỉ Safe vào hộp văn bản và chuyển đến safe
-* Trong phần Tài sản trong Klaytn Safe, bạn có thể tìm thấy NFT từ OpenSea.
+1. Điều hướng đến trang hồ sơ [Tài khoản OpenSea](https://testnets.opensea.io/account) của bạn
+2. Điều hướng đến một NFT mà bạn muốn chuyển. Đảm bảo chọn một NFT trên Mạng Klaytn (Cypress hoặc Baobab)
+3. Trên trang tiếp theo, nhấp vào nút Transfer.
+4. Dán địa chỉ Safe vào hộp văn bản và chuyển đến safe
+5. Trong phần Tài sản trong Klaytn Safe, bạn có thể tìm thấy NFT từ OpenSea.
 
 ![](/img/build/tools/sendNFTOpensea.gif)
 
@@ -105,14 +102,15 @@ Trong phần này, bạn sẽ tìm hiểu cách gửi token KLAY và KIP-7 từ 
 
 **Bước 2:** Chọn tài sản cần chuyển.
 
-* **KLAY** Lưu ý: Thêm **địa chỉ người nhận** và **số lượng** KLAY để gửi chuyển KLAY.
+- **KLAY** Lưu ý: Thêm **địa chỉ người nhận** và **số lượng** KLAY để gửi chuyển KLAY.
+  Note: Add the **recipient address** and the **amount** of KLAY to send the transfer KLAY.
 
 ![](/img/build/tools/6_safeSendKlay.gif)
 
-* **Token KIP-7** Lưu ý: Thêm địa chỉ người nhận và số lượng token để chuyển token KIP7.
+- **Token KIP-7** Lưu ý: Thêm địa chỉ người nhận và số lượng token để chuyển token KIP7.
+  Note: Add the recipient address and the number of tokens to transfer KIP7 tokens.
 
 ![](/img/build/tools/7_safeSendKIP7.gif)
-
 
 **Bước 3:** Xem lại và gửi giao dịch. Bạn sẽ cần ký giao dịch bằng ví người ký của mình và sẽ được thực hiện sau khi đạt đến ngưỡng xác nhận.
 
@@ -150,19 +148,17 @@ Vì lý do bảo mật, các giao dịch được thực hiện với Safe cần
 
 Tại bất kỳ thời điểm nào, chỉ các giao dịch có _giao dịch được thực hiện lần cuối +1_ mới có thể được thực hiện. Các giao dịch có số dùng một lần cao hơn được xếp vào hàng đợi để thực hiện. Vì vậy, bất cứ khi nào một giao dịch được hoàn thành, giao dịch tiếp theo trong hàng đợi sẽ sẵn sàng để thực hiện, miễn là nó đã thu thập đủ chữ ký.
 
-
 ### Địa chỉ dành riêng cho chuỗi <a id="Chain-specific addresses"></a>
 
 ![](/img/build/tools/22_chainSpec.png)
 
-
 Bạn có thể chọn có thêm tên chuỗi rút gọn vào trước các Safe hay không.
 
-* Thêm trước địa chỉ với tiền tố chuỗi: Bạn có thể thêm tên chuỗi “baobab” vào trước địa chỉ bằng cách nhấp vào hộp kiểm đầu tiên hoặc dùng cách khác.
+- Thêm trước địa chỉ với tiền tố chuỗi: Bạn có thể thêm tên chuỗi “baobab” vào trước địa chỉ bằng cách nhấp vào hộp kiểm đầu tiên hoặc dùng cách khác.
 
 ![](/img/build/tools/23_acctPrepend.png)
 
-* Sao chép địa chỉ với tiền tố chuỗi:
+- Sao chép địa chỉ với tiền tố chuỗi:
 
 ![](/img/build/tools/24_chainAddrError.png)
 

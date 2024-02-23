@@ -4,9 +4,9 @@
 
 **사전 요구 사항**
 
-* [MetaMask](https://metamask.io/download/) & [클레이튼 MetaMask 설정](../../../tutorials/connecting-metamask#send-klay)
-* [Remix](https://remix.ethereum.org/) & [Klaytn Remix 플러그인](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
-* [Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 테스트 KLAY를 받습니다.
+- [MetaMask](https://metamask.io/download/) & [클레이튼 MetaMask 설정](../../../tutorials/connecting-metamask#send-klay)
+- [Remix](https://remix.ethereum.org/) & [Klaytn Remix 플러그인](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
+- [Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 테스트 KLAY를 받습니다.
 
 **1단계**: [Remix](https://remix.ethereum.org/)로 이동합니다.
 

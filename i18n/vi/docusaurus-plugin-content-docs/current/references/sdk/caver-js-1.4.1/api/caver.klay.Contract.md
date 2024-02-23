@@ -1,6 +1,5 @@
 ---
 description: Một đối tượng caver-js được sử dụng để tương tác với một hợp đồng thông minh.
-
 ---
 
 # caver.klay.Contract
@@ -12,32 +11,32 @@ description: Một đối tượng caver-js được sử dụng để tương t
 ## hợp đồng mới <a id="new-contract"></a>
 
 ```javascript
-caver.klay.Contract mới(jsonInterface [, address] [, options])
+new caver.klay.Contract(jsonInterface [, address] [, options])
 ```
 
 Tạo một phiên bản hợp đồng mới với tất cả các phương pháp và sự kiện được xác định trong đối tượng giao diện JSON của hợp đồng đó.
 
 **Tham số**
 
-| Tên           | type      | Mô tả                                                                                                                                  |
-|:------------- |:--------- |:-------------------------------------------------------------------------------------------------------------------------------------- |
-| jsonInterface | Đối tượng | Giao diện JSON để khởi tạo hợp đồng                                                                                                    |
-| address       | Chuỗi     | \(tùy chọn\) Địa chỉ của hợp đồng thông minh cần gọi ra. Có thể thêm sau bằng cách sử dụng `myContract.options.address = '0x1234..'` |
-| tùy chọn      | Đối tượng | \(tùy chọn\) Các tùy chọn của hợp đồng.  Xem bảng dưới đây để biết thông tin chi tiết.                                               |
+| Tên           | type      | Mô tả                                                                                                                                                 |
+| :------------ | :-------- | :---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| jsonInterface | Đối tượng | Giao diện JSON để khởi tạo hợp đồng                                                                                                                   |
+| address       | Chuỗi     | (tùy chọn) Địa chỉ của hợp đồng thông minh cần gọi ra. Có thể thêm sau bằng cách sử dụng `myContract.options.address = '0x1234..'` |
+| tùy chọn      | Đối tượng | (tùy chọn) Các tùy chọn của hợp đồng.  Xem bảng dưới đây để biết thông tin chi tiết.                                               |
 
 Đối tượng tùy chọn chứa các mục sau:
 
-| Tên     | Loại | Mô tả                                                                              |
-|:------- |:----- |:---------------------------------------------------------------------------------- |
-| từ      | Chuỗi | \(tùy chọn\) Địa chỉ mà từ đó các giao dịch sẽ được thực hiện.                   |
-| giá gas | Chuỗi | \(tùy chọn\) Giá gas tính bằng peb để sử dụng cho giao dịch.                     |
-| gas     | Số    | \(tùy chọn\) Lượng gas tối đa được cung cấp cho một giao dịch \(hạn mức gas\). |
-| data    | Chuỗi | \(tùy chọn\) Mã byte của hợp đồng. Được sử dụng khi hợp đồng được triển khai.    |
+| Tên     | Loại | Mô tả                                                                                                            |
+| :------ | :---- | :--------------------------------------------------------------------------------------------------------------- |
+| từ      | Chuỗi | (tùy chọn) Địa chỉ mà từ đó các giao dịch sẽ được thực hiện.                                  |
+| giá gas | Chuỗi | (tùy chọn) Giá gas tính bằng peb để sử dụng cho giao dịch.                                    |
+| gas     | Số    | (tùy chọn) Lượng gas tối đa được cung cấp cho một giao dịch (hạn mức gas). |
+| data    | Chuỗi | (tùy chọn) Mã byte của hợp đồng. Được sử dụng khi hợp đồng được triển khai.                   |
 
 **Giá trị trả về**
 
 | Loại     | Mô tả                                                            |
-|:--------- |:---------------------------------------------------------------- |
+| :-------- | :--------------------------------------------------------------- |
 | Đối tượng | Đối tượng hợp đồng với tất cả các phương pháp và sự kiện của nó. |
 
 **Ví dụ**
@@ -65,13 +64,13 @@ myContract.options
 **Thuộc tính**
 
 | Tên           | Loại | Mô tả                                                                                   |
-|:------------- |:----- |:--------------------------------------------------------------------------------------- |
+| :------------ | :---- | :-------------------------------------------------------------------------------------- |
 | address       | Chuỗi | Địa chỉ triển khai hợp đồng.  Xem thêm [options.address](#options-address).             |
 | jsonInterface | Mảng  | Giao diện JSON của hợp đồng.  Xem thêm [options.jsonInterface](#options-jsoninterface). |
 | data          | Chuỗi | Mã byte của hợp đồng. Được sử dụng khi hợp đồng được triển khai.                        |
 | từ            | Chuỗi | Địa chỉ mà từ đó các giao dịch sẽ được thực hiện.                                       |
 | giá gas       | Chuỗi | Giá gas tính bằng peb để sử dụng cho giao dịch.                                         |
-| gas           | Số    | Lượng gas tối đa được cung cấp cho một giao dịch \(hạn mức gas\).                     |
+| gas           | Số    | Lượng gas tối đa được cung cấp cho một giao dịch (hạn mức gas).      |
 
 **Ví dụ**
 
@@ -100,18 +99,18 @@ myContract.options.address
 
 **Thuộc tính**
 
-| Tên     | Loại    | Mô tả                                                                    |
-|:------- |:-------- |:------------------------------------------------------------------------ |
-| address | Chuỗi \ | `null` | Địa chỉ cho hợp đồng này hoặc `null` nếu địa chỉ chưa được đặt. |
+| Tên     | Loại           | Mô tả                                                           |
+| :------ | :-------------- | :-------------------------------------------------------------- |
+| address | Chuỗi \| `null` | Địa chỉ cho hợp đồng này hoặc `null` nếu địa chỉ chưa được đặt. |
 
 **Ví dụ**
 
 ```javascript
-> myContract.options.address;
+>  myContract.options.address;
 '0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae'
 
-// đặt địa chỉ mới
-> myContract.options.address = '0x1234FFDD...';
+// set a new address
+>  myContract.options.address = '0x1234FFDD...';
 ```
 
 ## options.jsonInterface <a id="options-jsoninterface"></a>
@@ -125,7 +124,7 @@ myContract.options.jsonInterface
 **Thuộc tính**
 
 | Tên           | type | Mô tả                                                                                                           |
-|:------------- |:---- |:--------------------------------------------------------------------------------------------------------------- |
+| :------------ | :--- | :-------------------------------------------------------------------------------------------------------------- |
 | jsonInterface | Mảng | Giao diện JSON cho hợp đồng này. Đặt lại điều này sẽ tạo lại các phương pháp và sự kiện của đối tượng hợp đồng. |
 
 **Ví dụ**
@@ -143,7 +142,7 @@ myContract.options.jsonInterface
       "inputs": [{"name":"a","type":"uint256","indexed":true},{"name":"b","type":"bytes32","indexed":false}],
  }]
 
-// đặt giao diện mới
+// set a new interface
 > myContract.options.jsonInterface = [...];
 ```
 
@@ -162,7 +161,7 @@ Không có
 **Giá trị trả về**
 
 | type      | Mô tả                                 |
-|:--------- |:------------------------------------- |
+| :-------- | :------------------------------------ |
 | Đối tượng | Phiên bản hợp đồng được sao chép mới. |
 
 **Ví dụ**
@@ -187,17 +186,17 @@ Triển khai hợp đồng cho blockchain Klaytn. Sau khi triển khai thành c�
 
 `options`: đối tượng tùy chọn được sử dụng cho việc triển khai:
 
-| Tên    | Loại | Mô tả                                                             |
-|:------ |:----- |:----------------------------------------------------------------- |
-| data   | Chuỗi | Mã byte của hợp đồng.                                             |
-| đối số | Mảng  | \(tùy chọn\) Các đối số được chuyển đến hàm tạo khi triển khai. |
+| Tên    | Loại | Mô tả                                                                            |
+| :----- | :---- | :------------------------------------------------------------------------------- |
+| data   | Chuỗi | Mã byte của hợp đồng.                                                            |
+| đối số | Mảng  | (tùy chọn) Các đối số được chuyển đến hàm tạo khi triển khai. |
 
 **Giá trị trả về**
 
 `Đối tượng`: Đối tượng giao dịch:
 
 | Loại | Mô tả                                                                                                                            |
-|:----- |:-------------------------------------------------------------------------------------------------------------------------------- |
+| :---- | :------------------------------------------------------------------------------------------------------------------------------- |
 | Mảng  | đối số: Các đối số được chuyển cho phương pháp trước đó. Chúng có thể được thay đổi.                                             |
 | Hàm   | [send](#methods-mymethod-send): Sẽ triển khai hợp đồng. Promise sẽ được giải quyết với phiên bản hợp đồng mới, thay vì biên lai. |
 | Hàm   | [estimateGas](#methods-mymethod-estimategas): Sẽ ước tính lượng gas sử dụng cho việc triển khai.                                 |
@@ -224,7 +223,7 @@ Triển khai hợp đồng cho blockchain Klaytn. Sau khi triển khai thành c�
       console.log(newContractInstance.options.address) // instance with the new contract address
   });
 
-// Khi dữ liệu đã được đặt làm tùy chọn cho chính hợp đồng
+// When the data is already set as an option to the contract itself
 > myContract.options.data = '0x12345...';
 
 > myContract.deploy({
@@ -239,7 +238,7 @@ Triển khai hợp đồng cho blockchain Klaytn. Sau khi triển khai thành c�
       console.log(newContractInstance.options.address) // instance with the new contract address
   });
 
-// Mã hóa đơn giản
+// Simply encoding
 > myContract.deploy({
       data: '0x12345...',
       arguments: [123, 'My String']
@@ -247,7 +246,7 @@ Triển khai hợp đồng cho blockchain Klaytn. Sau khi triển khai thành c�
   .encodeABI();
 '0x12345...0000012345678765432'
 
-// Ước tính gas
+// Gas estimation
 > myContract.deploy({
       data: '0x12345...',
       arguments: [123, 'My String']
@@ -267,22 +266,23 @@ Tạo một đối tượng giao dịch cho phương pháp đó, sau đó có th
 
 Các phương pháp của hợp đồng thông minh này có sẵn thông qua:
 
-* Tên: `myContract.methods.myMethod(123)`
-* Tên có tham số: `myContract.methods['myMethod(uint256)'](123)`
-* Chữ ký\*: `myContract.methods['0x58cf5f10'](123)`
+- Tên: `myContract.methods.myMethod(123)`
+- Tên có tham số: `myContract.methods['myMethod(uint256)'](123)`
+- Chữ ký\*: `myContract.methods['0x58cf5f10'](123)`
 
 Điều này cho phép gọi ra các hàm có cùng tên nhưng khác tham số từ phiên bản hợp đồng JavaScript.
 
-## cf\) \*Chữ ký hàm \(Bộ chọn hàm\) <a id="cf-function-signature-function-selector"></a>
+## cf) \*Chữ ký hàm (Bộ chọn hàm) <a id="cf-function-signature-function-selector"></a>
 
-Bốn byte đầu tiên của dữ liệu lệnh gọi cho một lệnh gọi hàm chỉ định hàm sẽ được gọi ra.  
-Đây là bốn byte \(left, high-order in big-endian\) đầu tiên của hàm băm Keccak-256 \(SHA-3\) của chữ ký của hàm.
+Bốn byte đầu tiên của dữ liệu lệnh gọi cho một lệnh gọi hàm chỉ định hàm sẽ được gọi ra.\
+Đây là bốn byte (left, high-order in big-endian) đầu tiên của hàm băm Keccak-256 (SHA-3) của chữ ký của hàm.
 
-Chữ ký hàm có thể được tạo bằng 2 phương pháp khác nhau.  
-`1. caver.klay.abi.encodeFunctionSignature('funcName(paramType1,paramType2,...)')`  
-`2. caver.utils.sha3('funcName(paramType1,paramType2,...)').substr(0, 10)`
+Chữ ký hàm có thể được tạo bằng 2 phương pháp khác nhau.
 
-ex\)
+1. `caver.klay.abi.encodeFunctionSignature('funcName(paramType1,paramType2,...)')`
+2. `caver.utils.sha3('funcName(paramType1,paramType2,...)').substr(0, 10)`
+
+ex)
 
 ```javascript
 caver.klay.abi.encodeFunctionSignature('myMethod(uint256)')
@@ -300,29 +300,29 @@ Các tham số của bất kỳ phương pháp nào phụ thuộc vào các phư
 
 `Đối tượng`: Đối tượng giao dịch:
 
-| Loại | Mô tả                                                                                                                                                                                                                        |
-|:----- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Mảng  | đối số: Các đối số được chuyển cho phương pháp trước đó. Chúng có thể được thay đổi.                                                                                                                                         |
-| Hàm   | [gọi](#methods-mymethod-call): Sẽ gọi ra phương pháp "hằng số" và thực thi phương pháp hợp đồng thông minh của nó trong Máy ảo Klaytn mà không gửi giao dịch \(không thể thay đổi trạng thái hợp đồng thông minh\).        |
-| Hàm   | [send](#methods-mymethod-send): Sẽ gửi một giao dịch đến hợp đồng thông minh và thực hiện phương pháp \(có thể thay đổi trạng thái hợp đồng thông minh\).                                                                  |
-| Hàm   | [estimateGas](#methods-mymethod-estimategas): Sẽ ước tính lượng gas được sử dụng khi phương pháp sẽ được thực thi trên blockchain.                                                                                           |
-| Hàm   | [encodeABI](#methods-mymethod-encodeabi): Mã hóa ABI cho phương pháp này. Điều này có thể được gửi bằng cách sử dụng một giao dịch, gọi ra phương pháp hoặc chuyển sang một phương pháp hợp đồng thông minh khác làm đối số. |
+| Loại | Mô tả                                                                                                                                                                                                                                |
+| :---- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Mảng  | đối số: Các đối số được chuyển cho phương pháp trước đó. Chúng có thể được thay đổi.                                                                                                                                                 |
+| Hàm   | [gọi](#methods-mymethod-call): Sẽ gọi ra phương pháp "hằng số" và thực thi phương pháp hợp đồng thông minh của nó trong Máy ảo Klaytn mà không gửi giao dịch (không thể thay đổi trạng thái hợp đồng thông minh). |
+| Hàm   | [send](#methods-mymethod-send): Sẽ gửi một giao dịch đến hợp đồng thông minh và thực hiện phương pháp (có thể thay đổi trạng thái hợp đồng thông minh).                                                           |
+| Hàm   | [estimateGas](#methods-mymethod-estimategas): Sẽ ước tính lượng gas được sử dụng khi phương pháp sẽ được thực thi trên blockchain.                                                                                                   |
+| Hàm   | [encodeABI](#methods-mymethod-encodeabi): Mã hóa ABI cho phương pháp này. Điều này có thể được gửi bằng cách sử dụng một giao dịch, gọi ra phương pháp hoặc chuyển sang một phương pháp hợp đồng thông minh khác làm đối số.         |
 
 **Ví dụ**
 
 ```javascript
-// gọi ra một phương pháp
+// calling a method
 > myContract.methods.myMethod(123).call({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'}, function(error, result) {
       ...
   });
 
-// hoặc gửi và sử dụng promise
+// or sending and using a promise
 > myContract.methods.myMethod(123).send({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'})
   .then(function(receipt) {
-    // biên lai cũng có thể là một phiên bản hợp đồng mới, khi đến từ một "contract.deploy({...}).send()"
+    // receipt can also be a new contract instance, when coming from a "contract.deploy({...}).send()"
   });
 
-// hoặc gửi và sử dụng các sự kiện
+// or sending and using the events
 > myContract.methods.myMethod(123).send({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'})
   .on('transactionHash', function(hash) {
       ...
@@ -343,32 +343,32 @@ Sẽ gọi ra một phương pháp "hằng số" và thực thi phương pháp h
 
 **Tham số**
 
-| Tên      | Loại     | Mô tả                                                                                                                                                                    |
-|:-------- |:--------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| tùy chọn | Đối tượng | \(tùy chọn\) Các tùy chọn được sử dụng để gọi.  Xem bảng dưới đây để biết thông tin chi tiết.                                                                          |
-| callback | Hàm       | \(tùy chọn\) Lần gọi lại này sẽ được kích hoạt với kết quả thực thi phương pháp hợp đồng thông minh làm đối số thứ hai hoặc với một đối tượng lỗi làm đối số thứ nhất. |
+| Tên      | Loại     | Mô tả                                                                                                                                                                                   |
+| :------- | :-------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| tùy chọn | Đối tượng | (tùy chọn) Các tùy chọn được sử dụng để gọi.  Xem bảng dưới đây để biết thông tin chi tiết.                                                                          |
+| callback | Hàm       | (tùy chọn) Lần gọi lại này sẽ được kích hoạt với kết quả thực thi phương pháp hợp đồng thông minh làm đối số thứ hai hoặc với một đối tượng lỗi làm đối số thứ nhất. |
 
 Đối tượng tùy chọn có thể chứa các thông tin sau:
 
-| Tên     | type  | Mô tả                                                                                         |
-|:------- |:----- |:--------------------------------------------------------------------------------------------- |
-| từ      | Chuỗi | \(tùy chọn\) Địa chỉ nơi lệnh gọi “giao dịch” được thực hiện.                               |
-| giá gas | Chuỗi | \(tùy chọn\) Giá gas tính bằng peb để sử dụng cho lệnh gọi "giao dịch" này.                 |
-| gas     | Số    | \(tùy chọn\) Lượng gas tối đa được cung cấp cho lệnh gọi "giao dịch" này \(hạn mức gas\). |
+| Tên     | type  | Mô tả                                                                                                                       |
+| :------ | :---- | :-------------------------------------------------------------------------------------------------------------------------- |
+| từ      | Chuỗi | (tùy chọn) Địa chỉ nơi lệnh gọi “giao dịch” được thực hiện.                                              |
+| giá gas | Chuỗi | (tùy chọn) Giá gas tính bằng peb để sử dụng cho lệnh gọi "giao dịch" này.                                |
+| gas     | Số    | (tùy chọn) Lượng gas tối đa được cung cấp cho lệnh gọi "giao dịch" này (hạn mức gas). |
 
 **Giá trị trả về**
 
-`Promise` trả về `Mixed`: Giá trị trả về\(s\) của phương pháp hợp đồng thông minh. Nếu trả về một giá trị duy nhất, nó sẽ được trả về như cũ. Nếu có nhiều giá trị trả về, chúng sẽ được trả về dưới dạng một đối tượng có thuộc tính và chỉ số.
+`Promise` trả về `Mixed`: Giá trị trả về(s) của phương pháp hợp đồng thông minh. Nếu trả về một giá trị duy nhất, nó sẽ được trả về như cũ. Nếu có nhiều giá trị trả về, chúng sẽ được trả về dưới dạng một đối tượng có thuộc tính và chỉ số.
 
 **Ví dụ**
 
 ```javascript
-// sử dụng hàm callback
+// using the callback
 > myContract.methods.myMethod(123).call({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'}, function(error, result) {
       ...
   });
 
-// sử dụng promise
+// using the promise
 > myContract.methods.myMethod(123).call({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'})
   .then(function(result) {
       ...
@@ -376,7 +376,7 @@ Sẽ gọi ra một phương pháp "hằng số" và thực thi phương pháp h
 ```
 
 ```text
-// Tính vững chắc: TRẢ LẠI MULTI-ARGUMENT
+// Solidity: MULTI-ARGUMENT RETURN
 contract MyContract {
     function myFunction() returns(uint256 myNumber, string myString) {
         return (23456, "Hello!%");
@@ -396,7 +396,7 @@ Result {
 ```
 
 ```text
-// Tính vững chắc: TRẢ LẠI MỘT ĐỐI SỐ
+// Solidity: SINGLE-ARGUMENT RETURN
 contract MyContract {
     function myFunction() returns(string myString) {
         return "Hello!%";
@@ -420,19 +420,19 @@ Sẽ gửi một giao dịch đến hợp đồng thông minh và thực hiện 
 
 **Tham số**
 
-| Tên      | Loại     | Mô tả                                                                                                                         |
-|:-------- |:--------- |:----------------------------------------------------------------------------------------------------------------------------- |
-| tùy chọn | Đối tượng | Các tùy chọn được sử dụng để gửi.  Xem bảng dưới đây để biết thông tin chi tiết.                                              |
-| callback | Hàm       | \(tùy chọn\) Hàm callback này sẽ được kích hoạt trước với "transactionHash" hoặc với một đối tượng lỗi làm đối số thứ nhất. |
+| Tên      | Loại     | Mô tả                                                                                                                                        |
+| :------- | :-------- | :------------------------------------------------------------------------------------------------------------------------------------------- |
+| tùy chọn | Đối tượng | Các tùy chọn được sử dụng để gửi.  Xem bảng dưới đây để biết thông tin chi tiết.                                                             |
+| callback | Hàm       | (tùy chọn) Hàm callback này sẽ được kích hoạt trước với "transactionHash" hoặc với một đối tượng lỗi làm đối số thứ nhất. |
 
 Đối tượng tùy chọn có thể chứa các thông tin sau:
 
-| Tên     | Loại | Mô tả                                                                                        |
-|:------- |:----- |:-------------------------------------------------------------------------------------------- |
-| từ      | Chuỗi | Địa chỉ mà từ đó giao dịch sẽ được gửi.                                                      |
-| giá gas | Chuỗi | \(tùy chọn\) Giá gas tính bằng peb để sử dụng cho giao dịch này.                           |
-| gas     | Số    | Lượng gas tối đa được cung cấp cho giao dịch này \(hạn mức gas\).                          |
-| giá trị | Số \ | Chuỗi \| BN \| BigNumber | \(tùy chọn\) Giá trị được chuyển cho giao dịch tính bằng peb. |
+| Tên     | Loại                          | Mô tả                                                                              |
+| :------ | :----------------------------- | :--------------------------------------------------------------------------------- |
+| từ      | Chuỗi                          | Địa chỉ mà từ đó giao dịch sẽ được gửi.                                            |
+| giá gas | Chuỗi                          | (tùy chọn) Giá gas tính bằng peb để sử dụng cho giao dịch này.  |
+| gas     | Số                             | Lượng gas tối đa được cung cấp cho giao dịch này (hạn mức gas). |
+| giá trị | Số \| Chuỗi \| BN \| BigNumber | (tùy chọn) Giá trị được chuyển cho giao dịch tính bằng peb.     |
 
 **Giá trị trả về**
 
@@ -441,7 +441,7 @@ Sẽ gửi một giao dịch đến hợp đồng thông minh và thực hiện 
 `PromiEvent`: Bộ phát hiệu ứng sự kiện kết hợp promise. Sẽ được giải quyết khi có biên lai giao dịch hoặc nếu `send()` này được gọi ra từ `someContract.deploy()`, thì promise sẽ được giải quyết với phiên bản hợp đồng mới. Ngoài ra, các sự kiện sau đây có sẵn:
 
 | Tên             | Loại     | Mô tả                                                                                                                                                                                                                                                                                                            |
-|:--------------- |:--------- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| :-------------- | :-------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | transactionHash | Chuỗi     | Được kích hoạt ngay sau khi giao dịch được gửi và có sẵn hàm băm giao dịch.                                                                                                                                                                                                                                      |
 | biên lai        | Đối tượng | Được kích hoạt khi biên lai giao dịch có sẵn.  Biên lai từ hợp đồng sẽ không có thuộc tính `nhật ký` mà thay vào đó là thuộc tính `events` với tên sự kiện là khóa và sự kiện là thuộc tính. Xem [giá trị trả về của getPastEvents](#getpastevents) để biết thông tin chi tiết về đối tượng sự kiện được trả về. |
 | lỗi             | Lỗi       | Được kích hoạt nếu xảy ra lỗi trong quá trình gửi. Khi xảy ra lỗi hết gas, tham số thứ hai sẽ là biên lai.                                                                                                                                                                                                       |
@@ -449,19 +449,19 @@ Sẽ gửi một giao dịch đến hợp đồng thông minh và thực hiện 
 **Ví dụ**
 
 ```javascript
-// sử dụng hàm callback
+// using the callback
 > myContract.methods.myMethod(123).send({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'}, function(error, transactionHash) {
     ...
   });
 
-// sử dụng promise
+// using the promise
 > myContract.methods.myMethod(123).send({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'})
   .then(function(receipt) {
     // receipt can also be a new contract instance, when coming from a "contract.deploy({...}).send()"
   });
 
 
-// sử dụng bộ phát sự kiện
+// using the event emitter
 > myContract.methods.myMethod(123).send({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'})
   .on('transactionHash', function(hash) {
     ...
@@ -469,9 +469,9 @@ Sẽ gửi một giao dịch đến hợp đồng thông minh và thực hiện 
   .on('receipt', function(receipt) {
     console.log(receipt);
   })
-  .on('error', console.error); // Nếu bị lỗi hết gas thì thông số thứ 2 là hóa đơn.
+  .on('error', console.error); // If there is an out-of-gas error, the second parameter is the receipt.
 
-// mẫu hóa đơn
+// receipt example
 {
    "transactionHash": "0x9fc76417374aa880d4449a1f7f31ec597f00b1f6f3dd2d66f4c9c6c445836d8b",
    "transactionIndex": 0,
@@ -502,7 +502,7 @@ Sẽ gửi một giao dịch đến hợp đồng thông minh và thực hiện 
     "MyOtherEvent": {
       ...
     },
-    "MyMultipleEvent":[{...}, {...}] // Nếu có nhiều sự kiện giống nhau, chúng sẽ nằm trong một mảng.
+    "MyMultipleEvent":[{...}, {...}] // If there are a multiple of the same events, they will be in an array.
   }
 }
 ```
@@ -517,18 +517,18 @@ Sẽ ước tính mức gas mà việc thực thi phương pháp sẽ sử dụn
 
 **Tham số**
 
-| Tên      | Loại     | Mô tả                                                                                                                                         |
-|:-------- |:--------- |:--------------------------------------------------------------------------------------------------------------------------------------------- |
-| tùy chọn | Đối tượng | \(tùy chọn\) Các tùy chọn được sử dụng để gọi.  Xem bảng dưới đây để biết thông tin chi tiết.                                               |
-| callback | Hàm       | \(tùy chọn\) Hàm callback này sẽ được kích hoạt với kết quả ước tính gas làm đối số thứ hai hoặc với một đối tượng lỗi làm đối số thứ nhất. |
+| Tên      | Loại     | Mô tả                                                                                                                                                        |
+| :------- | :-------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| tùy chọn | Đối tượng | (tùy chọn) Các tùy chọn được sử dụng để gọi.  Xem bảng dưới đây để biết thông tin chi tiết.                                               |
+| callback | Hàm       | (tùy chọn) Hàm callback này sẽ được kích hoạt với kết quả ước tính gas làm đối số thứ hai hoặc với một đối tượng lỗi làm đối số thứ nhất. |
 
 Đối tượng tùy chọn có thể chứa các thông tin sau:
 
-| Tên     | type  | Mô tả                                                                                                                                                                              |
-|:------- |:----- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| từ      | Chuỗi | \(tùy chọn\) Địa chỉ nơi lệnh gọi "giao dịch" sẽ được thực hiện.                                                                                                                 |
-| gas     | Số    | \(tùy chọn\) Lượng gas tối đa được cung cấp cho lệnh gọi "giao dịch" này \(hạn mức gas\). Đặt một giá trị cụ thể giúp phát hiện lỗi hết gas. Nếu dùng hết gas sẽ về số như cũ. |
-| giá trị | Số \ | Chuỗi \| BN \| BigNumber | \(tùy chọn\) Giá trị được chuyển cho lệnh gọi "giao dịch" tính bằng peb.                                                                            |
+| Tên     | type                           | Mô tả                                                                                                                                                                                                            |
+| :------ | :----------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| từ      | Chuỗi                          | (tùy chọn) Địa chỉ nơi lệnh gọi "giao dịch" sẽ được thực hiện.                                                                                                                                |
+| gas     | Số                             | (tùy chọn) Lượng gas tối đa được cung cấp cho lệnh gọi "giao dịch" này (hạn mức gas). Đặt một giá trị cụ thể giúp phát hiện lỗi hết gas. Nếu dùng hết gas sẽ về số như cũ. |
+| giá trị | Số \| Chuỗi \| BN \| BigNumber | (tùy chọn) Giá trị được chuyển cho lệnh gọi "giao dịch" tính bằng peb.                                                                                                                        |
 
 **Giá trị trả về**
 
@@ -537,13 +537,13 @@ Sẽ ước tính mức gas mà việc thực thi phương pháp sẽ sử dụn
 **Ví dụ**
 
 ```javascript
-// sử dụng promise
+// using the callback
 > myContract.methods.myMethod(123).estimateGas({gas: 5000000}, function(error, gasAmount) {
     if(gasAmount == 5000000)
       console.log('Method ran out of gas');
   });
 
-// sử dụng promise
+// using the promise
 > myContract.methods.myMethod(123).estimateGas({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'})
   .then(function(gasAmount) {
     ...
@@ -568,7 +568,7 @@ Không có
 **Giá trị trả về**
 
 | Loại | Mô tả                                                       |
-|:----- |:----------------------------------------------------------- |
+| :---- | :---------------------------------------------------------- |
 | Chuỗi | Mã byte ABI được mã hóa để gửi qua giao dịch hoặc cuộc gọi. |
 
 **Ví dụ**
@@ -589,17 +589,17 @@ myContract.once(event [, options], callback)
 **Tham số**
 
 | Tên      | Loại     | Mô tả                                                                                                                                                                                                                       |
-|:-------- |:--------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| :------- | :-------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | sự kiện  | Chuỗi     | Tên của sự kiện trong hợp đồng hoặc `"allEvents"` để nhận tất cả các sự kiện.                                                                                                                                               |
-| tùy chọn | Đối tượng | \(tùy chọn\) Các tùy chọn được sử dụng cho việc triển khai.  Xem bảng dưới đây để biết thông tin chi tiết.                                                                                                                |
+| tùy chọn | Đối tượng | (tùy chọn) Các tùy chọn được sử dụng cho việc triển khai.  Xem bảng dưới đây để biết thông tin chi tiết.                                                                                                 |
 | callback | Hàm       | Lệnh gọi lại này sẽ được kích hoạt cho sự kiện đầu tiên làm đối số thứ hai hoặc lỗi làm đối số thứ nhất. Xem [giá trị trả về của getPastEvents](#getpastevents) để biết thông tin chi tiết về cấu trúc sự kiện được trả về. |
 
 Đối tượng tùy chọn có thể chứa các thông tin sau:
 
-| Tên    | Loại     | Mô tả                                                                                                                                                                                  |
-|:------ |:--------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| bộ lọc | Đối tượng | \(tùy chọn\) Cho phép bạn lọc các sự kiện theo thông số được lập chỉ mục, _ví dụ_, `{bộ lọc: {myNumber: [12,13]}}` có nghĩa là tất cả các sự kiện trong đó "myNumber" là 12 hoặc 13. |
-| chủ đề | Mảng      | \(tùy chọn\) Điều này cho phép bạn đặt chủ đề cho bộ lọc sự kiện theo cách thủ công. Nếu được cung cấp thuộc tính bộ lọc và chữ ký sự kiện, `topic[0]` sẽ không được đặt tự động.    |
+| Tên    | Loại     | Mô tả                                                                                                                                                                                                 |
+| :----- | :-------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| bộ lọc | Đối tượng | (tùy chọn) Cho phép bạn lọc các sự kiện theo thông số được lập chỉ mục, _ví dụ_, `{bộ lọc: {myNumber: [12,13]}}` có nghĩa là tất cả các sự kiện trong đó "myNumber" là 12 hoặc 13. |
+| chủ đề | Mảng      | (tùy chọn) Điều này cho phép bạn đặt chủ đề cho bộ lọc sự kiện theo cách thủ công. Nếu được cung cấp thuộc tính bộ lọc và chữ ký sự kiện, `topic[0]` sẽ không được đặt tự động.    |
 
 **Giá trị trả về**
 
@@ -609,10 +609,10 @@ myContract.once(event [, options], callback)
 
 ```javascript
 > myContract.once('MyEvent', {
-    bộ lọc: {myIndexedParam: [20,23], myOtherIndexedParam: '0x123456789...'}, // Using an array means OR: e.g. 20 or 23
+    filter: {myIndexedParam: [20,23], myOtherIndexedParam: '0x123456789...'}, // Using an array means OR: e.g. 20 or 23
   }, function(error, event) { console.log(event); });
 
-// ví dụ đầu ra sự kiện
+// event output example
 {
     returnValues: {
         myIndexedParam: 20,
@@ -644,50 +644,50 @@ myContract.events.MyEvent([options][, callback])
 
 **Tham số**
 
-| Tên      | Loại     | Mô tả                                                                                                                   |
-|:-------- |:--------- |:----------------------------------------------------------------------------------------------------------------------- |
-| tùy chọn | Đối tượng | \(tùy chọn\) Các tùy chọn được sử dụng cho việc triển khai.  Xem bảng dưới đây để biết thông tin chi tiết.            |
-| callback | Hàm       | \(tùy chọn\) Lệnh gọi lại này sẽ được kích hoạt cho sự kiện đầu tiên làm đối số thứ hai hoặc lỗi làm đối số thứ nhất. |
+| Tên      | Loại     | Mô tả                                                                                                                                  |
+| :------- | :-------- | :------------------------------------------------------------------------------------------------------------------------------------- |
+| tùy chọn | Đối tượng | (tùy chọn) Các tùy chọn được sử dụng cho việc triển khai.  Xem bảng dưới đây để biết thông tin chi tiết.            |
+| callback | Hàm       | (tùy chọn) Lệnh gọi lại này sẽ được kích hoạt cho sự kiện đầu tiên làm đối số thứ hai hoặc lỗi làm đối số thứ nhất. |
 
 Đối tượng tùy chọn có thể chứa các thông tin sau:
 
-| Tên       | Loại     | Mô tả                                                                                                                                                                                  |
-|:--------- |:--------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| bộ lọc    | Đối tượng | \(tùy chọn\) Cho phép bạn lọc các sự kiện theo thông số được lập chỉ mục, _ví dụ_, `{bộ lọc: {myNumber: [12,13]}}` có nghĩa là tất cả các sự kiện trong đó "myNumber" là 12 hoặc 13. |
-| fromBlock | Số        | \(tùy chọn\) Số khối để bắt đầu sự kiện.                                                                                                                                             |
-| chủ đề    | Mảng      | \(tùy chọn\) Điều này cho phép đặt chủ đề cho bộ lọc sự kiện theo cách thủ công. Nếu được cung cấp thuộc tính bộ lọc và chữ ký sự kiện, `topic[0]` sẽ không được đặt tự động.        |
+| Tên       | Loại     | Mô tả                                                                                                                                                                                                 |
+| :-------- | :-------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| bộ lọc    | Đối tượng | (tùy chọn) Cho phép bạn lọc các sự kiện theo thông số được lập chỉ mục, _ví dụ_, `{bộ lọc: {myNumber: [12,13]}}` có nghĩa là tất cả các sự kiện trong đó "myNumber" là 12 hoặc 13. |
+| fromBlock | Số        | (tùy chọn) Số khối để bắt đầu sự kiện.                                                                                                                                             |
+| chủ đề    | Mảng      | (tùy chọn) Điều này cho phép đặt chủ đề cho bộ lọc sự kiện theo cách thủ công. Nếu được cung cấp thuộc tính bộ lọc và chữ ký sự kiện, `topic[0]` sẽ không được đặt tự động.        |
 
 **Giá trị trả về**
 
 `EventEmitter`: Trình phát sự kiện có các sự kiện sau:
 
 | Tên  | Loại     | Mô tả                                                        |
-|:---- |:--------- |:------------------------------------------------------------ |
+| :--- | :-------- | :----------------------------------------------------------- |
 | data | Đối tượng | Kích hoạt từng sự kiện đến với đối tượng sự kiện làm đối số. |
 | lỗi  | Đối tượng | Kích hoạt khi xảy ra lỗi trong đăng ký.                      |
 
 Cấu trúc của sự kiện trả về `Đối tượng` sẽ có dạng như sau:
 
-| Tên              | type          | Mô tả                                                                                                                                                  |
-|:---------------- |:------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| sự kiện          | Chuỗi         | Tên sự kiện.                                                                                                                                           |
-| chữ ký           | Chuỗi \      | `null` | Chữ ký sự kiện, `null` nếu đó là sự kiện ẩn danh.                                                                                             |
-| address          | Chuỗi         | Địa chỉ bắt nguồn từ sự kiện này.                                                                                                                      |
-| returnValues     | Đối tượng     | Các giá trị trả về đến từ sự kiện, _ví dụ:_, `{myVar: 1, myVar2: '0x234...'}`.                                                                         |
-| logIndex         | Số            | Giá trị nguyên chỉ vị trí chỉ mục sự kiện trong khối.                                                                                                  |
-| transactionIndex | Số            | Số nguyên của vị trí chỉ mục giao dịch nơi sự kiện được tạo ra.                                                                                        |
-| transactionHash  | Chuỗi 32 byte | Hàm băm của khối mà sự kiện này đã được tạo. `null` khi nó vẫn đang chờ xử lý.                                                                         |
-| blockHash        | Chuỗi 32 byte | Hàm băm của khối mà sự kiện này đã được tạo. `null` khi nó vẫn đang chờ xử lý.                                                                         |
-| blockNumber      | Số            | Số khối mà bản ghi này đã được tạo. Giá trị là `null` khi bản ghi vẫn đang chờ xử lý.                                                                  |
-| raw.data         | Chuỗi         | Dữ liệu chứa tham số bản ghi không được lập chỉ mục.                                                                                                   |
-| raw.topics       | Mảng          | Một mảng có tối đa 4 chủ đề 32 byte, chủ đề 1-3 chứa các tham số được lập chỉ mục của sự kiện.                                                         |
-| id               | Chuỗi         | Mã số định danh bản ghi. Mã định danh được tạo thông qua việc nối chuỗi "log\_" với `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)` |
+| Tên              | type            | Mô tả                                                                                                                                                                    |
+| :--------------- | :-------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| sự kiện          | Chuỗi           | Tên sự kiện.                                                                                                                                                             |
+| chữ ký           | Chuỗi \| `null` | Chữ ký sự kiện, `null` nếu đó là sự kiện ẩn danh.                                                                                                                        |
+| address          | Chuỗi           | Địa chỉ bắt nguồn từ sự kiện này.                                                                                                                                        |
+| returnValues     | Đối tượng       | Các giá trị trả về đến từ sự kiện, _ví dụ:_, `{myVar: 1, myVar2: '0x234...'}`.                                                                                           |
+| logIndex         | Số              | Giá trị nguyên chỉ vị trí chỉ mục sự kiện trong khối.                                                                                                                    |
+| transactionIndex | Số              | Số nguyên của vị trí chỉ mục giao dịch nơi sự kiện được tạo ra.                                                                                                          |
+| transactionHash  | Chuỗi 32 byte   | Hàm băm của khối mà sự kiện này đã được tạo. `null` khi nó vẫn đang chờ xử lý.                                                                                           |
+| blockHash        | Chuỗi 32 byte   | Hàm băm của khối mà sự kiện này đã được tạo. `null` khi nó vẫn đang chờ xử lý.                                                                                           |
+| blockNumber      | Số              | Số khối mà bản ghi này đã được tạo. Giá trị là `null` khi bản ghi vẫn đang chờ xử lý.                                                                                    |
+| raw\.data        | Chuỗi           | Dữ liệu chứa tham số bản ghi không được lập chỉ mục.                                                                                                                     |
+| raw\.topics      | Mảng            | Một mảng có tối đa 4 chủ đề 32 byte, chủ đề 1-3 chứa các tham số được lập chỉ mục của sự kiện.                                                                           |
+| id               | Chuỗi           | Mã số định danh bản ghi. Mã định danh được tạo thông qua việc nối chuỗi "log_" với `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)` |
 
 **Ví dụ**
 
 ```javascript
 > myContract.events.MyEvent({
-    bộ lọc: {myIndexedParam: [20,23], myOtherIndexedParam: '0x123456789...'}, // Using an array means OR: e.g. 20 or 23
+    filter: {myIndexedParam: [20,23], myOtherIndexedParam: '0x123456789...'}, // Using an array means OR: e.g. 20 or 23
     fromBlock: 0
   }, function(error, event) { console.log(event); })
   .on('data', function(event){
@@ -695,7 +695,7 @@ Cấu trúc của sự kiện trả về `Đối tượng` sẽ có dạng như 
   })
   .on('error', console.error);
 
-// ví dụ đầu ra sự kiện
+// event output example
 {
     returnValues: {
         myIndexedParam: 20,
@@ -736,20 +736,20 @@ Nhận các sự kiện trong quá khứ cho hợp đồng này.
 
 **Tham số**
 
-| Tên      | type      | Mô tả                                                                                                                               |
-|:-------- |:--------- |:----------------------------------------------------------------------------------------------------------------------------------- |
-| sự kiện  | Chuỗi     | Tên của sự kiện trong hợp đồng hoặc `"allEvents"` để nhận tất cả các sự kiện.                                                       |
-| tùy chọn | Đối tượng | \(tùy chọn\) Các tùy chọn được sử dụng cho việc triển khai.  Xem bảng dưới đây để biết thông tin chi tiết.                        |
-| callback | Hàm       | \(tùy chọn\) Hàm callback này sẽ được kích hoạt với một mảng bản ghi sự kiện làm đối số thứ hai hoặc một lỗi làm đối số thứ nhất. |
+| Tên      | type      | Mô tả                                                                                                                                              |
+| :------- | :-------- | :------------------------------------------------------------------------------------------------------------------------------------------------- |
+| sự kiện  | Chuỗi     | Tên của sự kiện trong hợp đồng hoặc `"allEvents"` để nhận tất cả các sự kiện.                                                                      |
+| tùy chọn | Đối tượng | (tùy chọn) Các tùy chọn được sử dụng cho việc triển khai.  Xem bảng dưới đây để biết thông tin chi tiết.                        |
+| callback | Hàm       | (tùy chọn) Hàm callback này sẽ được kích hoạt với một mảng bản ghi sự kiện làm đối số thứ hai hoặc một lỗi làm đối số thứ nhất. |
 
 Đối tượng tùy chọn có thể chứa các thông tin sau:
 
-| Tên       | Loại     | Mô tả                                                                                                                                                                                  |
-|:--------- |:--------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| bộ lọc    | Đối tượng | \(tùy chọn\) Cho phép bạn lọc các sự kiện theo thông số được lập chỉ mục, _ví dụ_, `{bộ lọc: {myNumber: [12,13]}}` có nghĩa là tất cả các sự kiện trong đó "myNumber" là 12 hoặc 13. |
-| fromBlock | Số        | \(tùy chọn\) Số khối để bắt đầu sự kiện.                                                                                                                                             |
-| toBlock   | Số        | \(tùy chọn\) Số khối để nhận các sự kiện lên đến \(mặc định là `"latest"`\).                                                                                                       |
-| chủ đề    | Mảng      | \(tùy chọn\) Điều này cho phép đặt chủ đề cho bộ lọc sự kiện theo cách thủ công. Nếu được cung cấp thuộc tính bộ lọc và chữ ký sự kiện, `topic[0]` sẽ không được đặt tự động.        |
+| Tên       | Loại     | Mô tả                                                                                                                                                                                                 |
+| :-------- | :-------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| bộ lọc    | Đối tượng | (tùy chọn) Cho phép bạn lọc các sự kiện theo thông số được lập chỉ mục, _ví dụ_, `{bộ lọc: {myNumber: [12,13]}}` có nghĩa là tất cả các sự kiện trong đó "myNumber" là 12 hoặc 13. |
+| fromBlock | Số        | (tùy chọn) Số khối để bắt đầu sự kiện.                                                                                                                                             |
+| toBlock   | Số        | (tùy chọn) Số khối để nhận các sự kiện lên đến (mặc định là `"latest"`).                                                                                        |
+| chủ đề    | Mảng      | (tùy chọn) Điều này cho phép đặt chủ đề cho bộ lọc sự kiện theo cách thủ công. Nếu được cung cấp thuộc tính bộ lọc và chữ ký sự kiện, `topic[0]` sẽ không được đặt tự động.        |
 
 **Giá trị trả về**
 
@@ -759,7 +759,7 @@ Nhận các sự kiện trong quá khứ cho hợp đồng này.
 
 ```javascript
 > myContract.getPastEvents('MyEvent', {
-      bộ lọc: {myIndexedParam: [20,23], myOtherIndexedParam: '0x123456789...'}, // Using an array means OR: e.g. 20 or 23
+      filter: {myIndexedParam: [20,23], myOtherIndexedParam: '0x123456789...'}, // Using an array means OR: e.g. 20 or 23
       fromBlock: 0,
       toBlock: 'latest'
   }, function(error, events) { console.log(events); })
@@ -789,4 +789,3 @@ Nhận các sự kiện trong quá khứ cho hợp đồng này.
       ...
 }]
 ```
-

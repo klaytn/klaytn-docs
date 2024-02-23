@@ -12,8 +12,8 @@
 
 아래 링크 중 하나에서 최신 버전의 클레이튼과 서비스체인 바이너리를 받을 수 있습니다:
 
-* [클레이튼 문서](../downloads/downloads.md)
-* [클레이튼 GitHub 리포지토리](https://github.com/klaytn/klaytn/releases)
+- [클레이튼 문서](../downloads/downloads.md)
+- [클레이튼 GitHub 리포지토리](https://github.com/klaytn/klaytn/releases)
 
 서비스체인 바이너리를 업그레이드하려면 서비스체인 노드를 중지하고 바이너리를 교체합니다. 예를 들어, 아래 명령을 사용하여 SCN 노드를 중지하고 바이너리를 최신 버전으로 바꿀 수 있습니다.
 
@@ -39,7 +39,7 @@ $ kscnd start
 2. 서비스체인 바이너리를 하드포크를 지원하는 버전으로 업그레이드합니다.
 3. 서비스체인에서 하드포크 블록 번호를 설정합니다.
 
-### 1. 하드포크에 적합한 블록 번호 선택 <a href="#1-pick-an-appropriate-block-number-for-the-hard-fork" id="1-pick-an-appropriate-block-number-for-the-hard-fork"></a>
+### 1) 하드포크에 적합한 블록 번호 선택 <a href="#1-pick-an-appropriate-block-number-for-the-hard-fork" id="1-pick-an-appropriate-block-number-for-the-hard-fork"></a>
 
 서비스체인의 JavaScript 콘솔에서 아래와 같이 현재 블록 번호를 확인할 수 있습니다.
 
