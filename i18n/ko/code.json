@@ -1,9 +1,9 @@
 {
   "{title}": {
-    "message": "클레이튼 문서"
+    "message": "{title}"
   },
   "{tagline}": {
-    "message": "클레이튼 문서에 오신 걸 환영합니다"
+    "message": "{tagline}"
   },
   "Klaytn Overview": {
     "message": "클레이튼 개요"
