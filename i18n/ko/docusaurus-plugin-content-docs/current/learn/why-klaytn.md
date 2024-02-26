@@ -21,13 +21,13 @@
 
 - 메인체인은 최소 4,000 TPS를 처리해야 합니다.
 - 메인체인은 1초의 블록 생성 시간으로 즉각적인 트랜잭션 완결성을 보장해야 합니다.
-- See [Consensus Mechanism].
+- [합의 메커니즘](./consensus-mechanism.md)을 참조하세요.
   ​
 
 #### 확장성 <a id="scalability"></a>
 
 - 서비스체인은 사용자 정의가 가능하고 쉽게 배포할 수 있는 Klaytn 2.0의 기본 L2 솔루션입니다. 서비스체인은 자체 거버넌스를 가질 수 있으며, 클레이튼 메인체인에 연결하여 데이터를 앵커링하거나 자산을 전송할 수 있습니다.
-- See [Service Chain]. 기업이나 대규모 네트워크는 종종 자체 전용 실행 환경을 갖고 싶어합니다. 서비스체인을 사용하면 다른 블록체인 애플리케이션의 영향을 받지 않는 격리된 고성능 실행 환경을 유지할 수 있습니다.
+- [서비스 체인](./scaling-solutions.md#service-chain)을 참고하세요. 기업이나 대규모 네트워크는 종종 자체 전용 실행 환경을 갖고 싶어합니다. 서비스체인을 사용하면 다른 블록체인 애플리케이션의 영향을 받지 않는 격리된 고성능 실행 환경을 유지할 수 있습니다.
 - 샤딩이나 롤업과 같은 다른 확장성 솔루션도 가까운 시일 내에 제공될 예정입니다.
   ​
 
@@ -35,7 +35,7 @@
 
 - 최종 사용자는 기존 시스템에서 요구하는 것 이상으로 높은 트랜잭션 수수료를 부담해서는 안 됩니다.
 - 트랜잭션 수수료는 안정적이어야 하며, 주변 요인이 아닌 트랜잭션 복잡성 자체에 따라 결정되어야 합니다.
-- See [Affordable Smart Contract Execution Cost] and [Transaction Fees]. 가스 가격이 250 ston인 경우, KLAY 전송에는 0.00525 KLAY의 고정 비용이 발생합니다. (21,000 KLAY 전송 gas x (250 x 10^-9) == 0.00525 KLAY)
+- [합리적인 스마트 컨트랙트 실행 비용](computation/klaytn-smart-contract.md#affordable-smart-contract-execution-cost) 및 [트랜잭션 수수료](./transaction-fees.md)를 참조하세요. 가스 가격이 250 ston인 경우, KLAY 전송에는 0.00525 KLAY의 고정 비용이 발생합니다. (21,000 KLAY 전송 gas x (250 x 10^-9) == 0.00525 KLAY)
 
 ### 빠른 개발 <a id="rapid-development"></a>
 
@@ -57,7 +57,7 @@
 #### 트랜잭션 사용성 <a id="usability-in-transaction"></a>
 
 - 사용자의 트랜잭션 수수료를 애플리케이션으로 이체하는 기능
-- See [Fee Delegation]. 애플리케이션 운영자는 각 트랜잭션에 대한 보조금 금액을 조정하고 부분 유료화 또는 구독과 같은 보다 유연한 비즈니스 모델을 구현할 수 있습니다. 수수료 위임은 사용자 확보 장벽을 효과적으로 낮출 수 있습니다.
+- [수수료 위임](./transactions/transactions.md#fee-delegation)을 참조하십시오. 애플리케이션 운영자는 각 트랜잭션에 대한 보조금 금액을 조정하고 부분 유료화 또는 구독과 같은 보다 유연한 비즈니스 모델을 구현할 수 있습니다. 수수료 위임은 사용자 확보 장벽을 효과적으로 낮출 수 있습니다.
   ​
   ​
 
@@ -70,11 +70,9 @@
 
 ### 커뮤니티 공동 구축 <a id="community-co-building"></a>
 
-- In addition to the protocol design, Klaytn will expand its territory through community co-building; it includes kinds of communities such as game guilds, investment DAOs, community DAOs, alliance with global players, etc.
+- 클레이튼은 프로토콜 설계 외에도 커뮤니티 공동 구축을 통해 영역을 확장할 것이며, 여기에는 게임 길드, 투자 DAO, 커뮤니티 DAO, 글로벌 플레이어와의 제휴 등과 같은 다양한 종류의 커뮤니티가 포함됩니다.
   ​
-  Lastly, the ground rules:
-  ​
-  :::note
+  마지막으로 기본 규칙입니다::::note
 
 클레이튼은 위에서 언급한 개선점을 달성하기 위해 블록체인의 핵심 특성을 희생하지 않으며, 강력한 이해관계자들과 함께 프로토콜을 안정적으로 유지합니다.
 
