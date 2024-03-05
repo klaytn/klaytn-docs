@@ -42,7 +42,7 @@ jobs:
           RPC_SPEC_DIR: ../../web3rpc/yaml
         run: |
           cd web3klaytn/documentation && bash generate-docs.sh split && cd -
-          bash -x web3rpc/web3rpc.sh
+          cd web3rpc && bash -x web3rpc.sh && cd -
 
       - name: Build static files
         run: yarn build
