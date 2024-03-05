@@ -1,13 +1,13 @@
-const klaySidebar = require("../docs/klaytn-json-rpc/klay/sidebar.ts")
-const ethSidebar = require("../docs/klaytn-json-rpc/eth/sidebar.ts")
-const governanceSidebar = require("../docs/klaytn-json-rpc/governance/sidebar.ts")
-const adminSidebar = require("../docs/klaytn-json-rpc/admin/sidebar.ts")
-const netSidebar = require("../docs/klaytn-json-rpc/net/sidebar.ts")
-const txpoolSidebar = require("../docs/klaytn-json-rpc/txpool/sidebar.ts")
-const personalSidebar = require("../docs/klaytn-json-rpc/personal/sidebar.ts")
-const debugSidebar = require("../docs/klaytn-json-rpc/debug/sidebar.ts")
-const mainbridgeSidebar = require("../docs/klaytn-json-rpc/mainbridge/sidebar.ts")
-const subbridgeSidebar = require("../docs/klaytn-json-rpc/subbridge/sidebar.ts")
+const klaySidebar = require("../docs/references/json-rpc/klay/sidebar.ts")
+const ethSidebar = require("../docs/references/json-rpc/eth/sidebar.ts")
+const governanceSidebar = require("../docs/references/json-rpc/governance/sidebar.ts")
+const adminSidebar = require("../docs/references/json-rpc/admin/sidebar.ts")
+const netSidebar = require("../docs/references/json-rpc/net/sidebar.ts")
+const txpoolSidebar = require("../docs/references/json-rpc/txpool/sidebar.ts")
+const personalSidebar = require("../docs/references/json-rpc/personal/sidebar.ts")
+const debugSidebar = require("../docs/references/json-rpc/debug/sidebar.ts")
+const mainbridgeSidebar = require("../docs/references/json-rpc/mainbridge/sidebar.ts")
+const subbridgeSidebar = require("../docs/references/json-rpc/subbridge/sidebar.ts")
 
 // Function to find the common prefix of labels
 const findCommonLabelPrefix = (sidebar, categories) => {
