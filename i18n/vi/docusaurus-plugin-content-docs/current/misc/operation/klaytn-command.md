@@ -2,7 +2,8 @@
 
 ## Cách tìm Thư mục Klaytn (Thường gọi là “Klaytn DIR”)
 
----
+***
+
 Bạn có thể kiểm tra thư mục Klaytn tại cấu hình `kcn` hoặc `kpn`. Tập tin cấu hình nằm tại `/etc/kcnd/conf` hoặc `/etc/kpnd/conf`.
 
 ```bash
@@ -10,12 +11,13 @@ cat /etc/kcnd/conf/kcnd.conf (or /etc/kpnd/conf/kpnd.conf)
 
 # Find DATA_DIR and LOG_DIR path as below example
 DATA_DIR=/var/kcnd/data/
-LOG_DIR=/var/kcnd/nhật ký/
+LOG_DIR=/var/kcnd/logs/
 ```
 
 ## Cách kết nối đến Bảng điều khiển Klaytn
 
----
+***
+
 Kết nối đến API Klaytn để kiểm tra trạng thái nút và mạng.
 
 ```bash

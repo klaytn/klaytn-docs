@@ -7,17 +7,19 @@ caver-js를 처음 사용하더라도 걱정하지 마세요. 아래의 간단�
 ## 전제 조건
 
 먼저 다음 패키지를 설치합니다.
-* [Node.js](https://nodejs.org/en/download/) 버전 ([14.16.0](https://nodejs.org/dist/latest-v14.x/))
-* [npm](https://www.npmjs.com/get-npm)
-* [nvm](https://github.com/nvm-sh/nvm)
-* [Solidity 컴파일러](https://solidity.readthedocs.io/en/develop/installing-solidity.html)
 
-*참고:* nvm 설치 후 `nvm: command not found` 오류가 발생하면 이 [문제 해결 가이드](https://github.com/nvm-sh/nvm/issues/2060)를 참조하세요.
- 
+- [Node.js](https://nodejs.org/en/download/) 버전 ([14.16.0](https://nodejs.org/dist/latest-v14.x/))
+- [npm](https://www.npmjs.com/get-npm)
+- [nvm](https://github.com/nvm-sh/nvm)
+- [Solidity 컴파일러](https://solidity.readthedocs.io/en/develop/installing-solidity.html)
+
+_참고:_ nvm 설치 후 `nvm: command not found` 오류가 발생하면 이 [문제 해결 가이드](https://github.com/nvm-sh/nvm/issues/2060)를 참조하세요.
+
 ## 1. 계정 생성 및 키스토어 다운로드 <a id="1.-create-an-account-and-download-keystore"></a>
+
 가장 간단하게 계정을 생성하는 방법은 [Klaytn 온라인 툴킷](https://toolkit.klaytn.foundation/misc/generateKeystore)을 사용하는 것입니다.
 
-![클레이튼 온라인 툴킷](/img/references/keystore.png)
+![Klaytn Online Toolkit](/img/references/keystore.png)
 
 키스토어 파일을 다운로드하고 이름을 `keystore.json`과 같이 좀 더 간단한 이름으로 변경해 보겠습니다.
 
@@ -94,7 +96,6 @@ npm init -y
 
 이제 caver-js를 설치할 준비가 되었습니다.
 
-
 ```
 npm install caver-js
 ```
@@ -109,12 +110,11 @@ npm i read
 
 다음과 같이 'testcaver.js'라는 이름의 테스트 파일을 생성해 보겠습니다:
 
-``` 
+```
 touch testcaver.js
 ```
 
 이 파일에 코드를 작성하여 KLAY를 전송하기 위한 트랜잭션을 전송할 것입니다.
-
 
 ## 5. 클레이튼 노드에 연결하기 <a id="5.-connect-to-klaytn-node"></a>
 
@@ -208,8 +208,7 @@ sendKlay()
 node testcaver.js
 ```
 
-![비밀번호 입력](/img/references/prompt.png)
-
+![Type your password](/img/references/prompt.png)
 
 결과는 다음과 같이 표시됩니다:
 
@@ -308,4 +307,3 @@ sendKLAY()
 ```
 
 caver-js를 사용하여 트랜잭션을 제출한 것에 대해 자신감을 가지셨기를 바랍니다. 막히는 부분이 있거나 궁금한 점이 있으시다면, [클레이튼 포럼](https://forum.klaytn.foundation/)에서 도움을 받으시기 바랍니다.
-

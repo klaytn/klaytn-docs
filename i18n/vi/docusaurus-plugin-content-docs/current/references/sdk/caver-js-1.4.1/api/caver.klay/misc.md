@@ -8,12 +8,11 @@ caver.klay.sha3(data[, callback])
 
 Trả về hàm băm Keccak-256 (không phải là hàm băm SHA3-256 chuẩn hóa) của dữ liệu đã cho.
 
-
 **Tham số**
 
-| Tên      | type  | Mô tả                                                                                                           |
-| -------- | ----- | --------------------------------------------------------------------------------------------------------------- |
-| data     | Chuỗi | Dữ liệu cần chuyển đổi thành hàm băm SHA3.                                                                      |
+| Tên      | type  | Mô tả                                                                                                                              |
+| -------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| data     | Chuỗi | Dữ liệu cần chuyển đổi thành hàm băm SHA3.                                                                                         |
 | callback | Hàm   | (tùy chọn) Hàm callback tùy chọn, trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
 **Giá trị trả về**

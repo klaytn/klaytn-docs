@@ -1,15 +1,19 @@
 # Theo dõi VM
 
-**NOTE** The [JavaScript-based Tracing](#javascript-based-tracing) of VM Tracing APIs is considered unsafe to be opened to public. If you want to provide VM Tracing APIs to the public, we strongly recommend you to set the `rpc.unsafe-debug.disable` flag which will disable the [Javascript-based Tracing](#javascript-based-tracing) and only allow [pre-defined tracers](#tracing-options).
+**NOTE** The [JavaScript-based Tracing](#javascript-based-tracing) of VM Tracing APIs is considered unsafe to be opened to public.
+If you want to provide VM Tracing APIs to the public, we strongly recommend you to set the `rpc.unsafe-debug.disable` flag which will disable the [Javascript-based Tracing](#javascript-based-tracing) and only allow [pre-defined tracers](#tracing-options).
+`rpc.unsafe-debug.disable` flag which will disable the [Javascript-based Tracing](#javascript-based-tracing)
+and only allow [pre-defined tracers](#tracing-options).
 
 ## debug_traceBadBlock <a id="debug_tracebadblock"></a>
 
 The `traceBadBlock` method will return a full stack trace of all invoked opcodes of all transactions that were included in this block.
+opcodes of all transactions that were included in this block.
 
 **NOTE**: the parent of this block must be present or it will fail.
 
 |    Máy khách    | Gọi phương pháp                                           |
-|:---------------:| --------------------------------------------------------- |
+| :-------------: | --------------------------------------------------------- |
 | Bảng điều khiển | `debug.traceBadBlock(hash, [options])`                    |
 |       RPC       | `{"method": "debug_traceBadBlock", "params": [hash, {}]}` |
 
@@ -29,6 +33,7 @@ The `traceBadBlock` method will return a full stack trace of all invoked opcodes
 **Example**
 
 Console
+
 ```javascript
 > debug.traceBadBlock("0x1d5ba00e313a81ae6d409d459c153327072665d9ea2f47608369722baf0cfbb6")
 [{
@@ -49,6 +54,7 @@ Console
 ```
 
 HTTP RPC
+
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_traceBadBlock","params":["0x1d5ba00e313a81ae6d409d459c153327072665d9ea2f47608369722baf0cfbb6"],"id":1}' https://public-en-baobab.klaytn.net
 {"jsonrpc":"2.0","id":1,"result":[{"result":{"gas":67100,"failed":false,"returnValue":"","structLogs":[]}},{"result":{"gas":195179,"failed":false,"returnValue":"","structLogs":[{"pc":0,"op":"PUSH1","gas":9975680,"gasCost":3,"depth":1,"stack":[],"memory":[],"storage":{}},{"pc":2,"op":"PUSH1","gas":9975677,"gasCost":3,"depth":1,"stack":["0000000000000000000000000000000000000000000000000000000000000080"],"memory":[],"storage":{}},{"pc":4,"op":"MSTORE","gas":9975674,"gasCost":12,"depth":1,"stack":["0000000000000000000000000000000000000000000000000000000000000080","0000000000000000000000000000000000000000000000000000000000000040"],"memory":["0000000000000000000000000000000000000000000000000000000000000000","0000000000000000000000000000000000000000000000000000000000000000","0000000000000000000000000000000000000000000000000000000000000000"],"storage":{}},{"pc":5,"op":"PUSH1","gas":9975662,"gasCost":3,"depth":1,"stack":[],"memory":["0000000000000000000000000000000000000000000000000000000000000000","0000000000000000000000000000000000000000000000000000000000000000","0000000000000000000000000000000000000000000000000000000000000080"],"storage":{}},{"pc":7,"op":"CALLDATASIZE","gas":9975659,"gasCost":2,"depth":1,"stack":["0000000000000000000000000000000000000000000000000000000000000004"],"memory":["0000000000000000000000000000000000000000000000000000000000000000","0000000000000000000000000000000000000000000000000000000000000000","0000000000000000000000000000000000000000000000000000000000000080"],"storage":{}},
@@ -56,15 +62,15 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ,{"pc":853,"op":"STOP","gas":9804821,"gasCost":0,"depth":1,"stack":["000000000000000000000000000000000000000000000000000000007818097c"],"memory":["0000000000000000000000000000000000000000000000000000000000000002","0000000000000000000000000000000000000000000000000000000000000005","00000000000000000000000000000000000000000000000000000000000001c0","0000000000000000000000000000000000000000000000000000000000000000","0000000000000000000000000000000000000000000000000000000000000006","000000000000000000000000500a2e58ae232c5e91bcdcf82c5d6d2165572599","00000000000000000000000000000000000000000000021e19e0c9bab2400000","0000000000000000000000000000000000000000000000000000000000000000","00000000000000000000000081d390a4e469b45642341d6ad111062c24984b37","0000000000000000000000000000000000000000000000000000000000000160","0000000000000000000000000000000000000000000000000000000000000001","0000000000000000000000000000000000000000000000000000000000000000","0000000000000000000000000000000000000000000000000000000000000001","00000000000000000000000081d390a4e469b45642341d6ad111062c24984b37","0000000000000000000000000000000000000000000000000000000000000006","000000000000000000000000500a2e58ae232c5e91bcdcf82c5d6d2165572599","00000000000000000000000000000000000000000000021e19e0c9bab2400000","0000000000000000000000000000000000000000000000000000000000000000","00000000000000000000000000000000000000000000000000000000000000a0","0000000000000000000000000000000000000000000000000000000000000001","00000000000000000000000081d390a4e469b45642341d6ad111062c24984b37"],"storage":{"0000000000000000000000000000000000000000000000000000000000000004":"0000000000000000000000000000000000000000000000000000000000000003","5997abbe896cd022932fc8703dbed777f0bf0d6ed28b2444cb4b79da2805e9a5":"00000000000000000000000081d390a4e469b45642341d6ad111062c24984b37","89832631fb3c3307a103ba2c84ab569c64d6182a18893dcd163f0f1c2090733a":"0000000000000000000000000000000000000000000000000000000000000006","89832631fb3c3307a103ba2c84ab569c64d6182a18893dcd163f0f1c2090733b":"000000000000000000000000500a2e58ae232c5e91bcdcf82c5d6d2165572599","89832631fb3c3307a103ba2c84ab569c64d6182a18893dcd163f0f1c2090733c":"00000000000000000000000000000000000000000000021e19e0c9bab2400000","89832631fb3c3307a103ba2c84ab569c64d6182a18893dcd163f0f1c2090733d":"0000000000000000000000000000000000000000000000000000000000000000","89832631fb3c3307a103ba2c84ab569c64d6182a18893dcd163f0f1c2090733e":"00000000000000000000000081d390a4e469b45642341d6ad111062c24984b37","89832631fb3c3307a103ba2c84ab569c64d6182a18893dcd163f0f1c2090733f":"0000000000000000000000000000000000000000000000000000000000000001","89832631fb3c3307a103ba2c84ab569c64d6182a18893dcd163f0f1c20907340":"0000000000000000000000000000000000000000000000000000000000000001"}}]}}]}
 ```
 
-
 ## debug_traceBlock <a id="debug_traceblock"></a>
 
 The `traceBlock` method will return a full stack trace of all invoked opcodes of all transactions that were included in this block.
+of all transactions that were included in this block.
 
 **NOTE**: the parent of this block must be present or it will fail.
 
 |    Máy khách    | Gọi phương pháp                                            |
-|:---------------:| ---------------------------------------------------------- |
+| :-------------: | ---------------------------------------------------------- |
 | Bảng điều khiển | `debug.traceBlock(blockRlp, [options])`                    |
 |       RPC       | `{"method": "debug_traceBlock", "params": [blockRlp, {}]}` |
 
@@ -86,6 +92,7 @@ References: [RLP](https://github.com/ethereum/wiki/wiki/RLP)
 **Example**
 
 Console
+
 ```javascript
 > debug.traceBlock("0xblock_rlp")
 [{
@@ -97,7 +104,9 @@ Console
     }
 }]
 ```
+
 HTTP RPC
+
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_traceBlock","params":["0xblock_rlp"],"id":1}' https://public-en-baobab.klaytn.net
 {"jsonrpc":"2.0","id":1,"result":[{"result":{"gas":247922,"failed":false,"returnValue":"60806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806341c0e1b514610051578063cfae321714610068575b600080fd5b34801561005d57600080fd5b506100666100f8565b005b34801561007457600080fd5b5061007d610168565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100bd5780820151818401526020810190506100a2565b50505050905090810190601f1680156100ea5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415610166573373ffffffffffffffffffffffffffffffffffffffff16ff5b565b606060018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156102005780601f106101d557610100808354040283529160200191610200565b820191906000526020600020905b8154815290600101906020018083116101e357829003601f168201915b50505050509050905600a165627a7a72305820f4e74ca2266a24aabd6a8ee6c4e54ad49014e2faa152e49e7f9d927c932c72870029","structLogs":[{"pc":0,"op":"PUSH1","gas":891344,"gasCost":3,"depth":1,"stack":[],"memory":[],"storage":{}},{"pc":2,"op":"PUSH1","gas":891341,"gasCost":3,"depth":1,"stack":["0000000000000000000000000000000000000000000000000000000000000080"],"memory":[],"storage":{}},{"pc":4,"op":"MSTORE","gas":891338,"gasCost":12,"depth":1,"stack":["0000000000000000000000000000000000000000000000000000000000000080","0000000000000000000000000000000000000000000000000000000000000040"],"memory":["0000000000000000000000000000000000000000000000000000000000000000","0000000000000000000000000000000000000000000000000000000000000000","0000000000000000000000000000000000000000000000000000000000000000"],"storage":{}},{"pc":5,"op":"CALLVALUE","gas":891326,"gasCost":2,"depth":1,"stack":[],"memory":["0000000000000000000000000000000000000000000000000000000000000000","0000000000000000000000000000000000000000000000000000000000000000","0000000000000000000000000000000000000000000000000000000000000080"],"storage":{}},
@@ -105,12 +114,13 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ,{"pc":322,"op":"RETURN","gas":865278,"gasCost":0,"depth":1,"stack":["0000000000000000000000000000000000000000000000000000000000000236","0000000000000000000000000000000000000000000000000000000000000000"],"memory":["60806040526004361061004c576000357c010000000000000000000000000000","0000000000000000000000000000900463ffffffff16806341c0e1b514610051","578063cfae321714610068575b600080fd5b34801561005d57600080fd5b5061","00666100f8565b005b34801561007457600080fd5b5061007d610168565b6040","5180806020018281038252838181518152602001915080519060200190808383","60005b838110156100bd5780820151818401526020810190506100a2565b5050","5050905090810190601f1680156100ea5780820380516001836020036101000a","031916815260200191505b509250505060405180910390f35b60008090549061","01000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffff","ffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffff","ffffffffffffff161415610166573373ffffffffffffffffffffffffffffffff","ffffffff16ff5b565b6060600180546001816001161561010002031660029004","80601f0160208091040260200160405190810160405280929190818152602001","828054600181600116156101000203166002900480156102005780601f106101","d557610100808354040283529160200191610200565b82019190600052602060","0020905b8154815290600101906020018083116101e357829003601f16820191","5b50505050509050905600a165627a7a72305820f4e74ca2266a24aabd6a8ee6","c4e54ad49014e2faa152e49e7f9d927c932c7287002900000000000000000000"],"storage":{"0000000000000000000000000000000000000000000000000000000000000000":"000000000000000000000000b0945862f63b832849a5f20b19e9f8188eb2230a","0000000000000000000000000000000000000000000000000000000000000001":"0000000000000000000000000000000000000000000000000000000000000000"}}]}}]}
 ```
 
-
 ## debug_traceBlockByHash <a id="debug_traceblockbyhash"></a>
+
 Similar to [debug_traceBlock](#debug_traceblock), `traceBlockByHash` accepts a block hash and will replay the block that is already present in the database.
+block hash and will replay the block that is already present in the database.
 
 |    Máy khách    | Gọi phương pháp                                              |
-|:---------------:| ------------------------------------------------------------ |
+| :-------------: | ------------------------------------------------------------ |
 | Bảng điều khiển | `debug.traceBlockByHash(hash, [options])`                    |
 |       RPC       | `{"method": "debug_traceBlockByHash", "params": [hash, {}]}` |
 
@@ -130,6 +140,7 @@ Similar to [debug_traceBlock](#debug_traceblock), `traceBlockByHash` accepts a b
 **Example**
 
 Console
+
 ```javascript
 > debug.traceBlockByHash("0x244acf3f11f0999b93616cb156dc1b43ee87e27c9625a7170cf6de447189d890")
 [{
@@ -141,19 +152,23 @@ Console
     }
 }]
 ```
+
 HTTP RPC
+
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_traceBlockByHash","params":["0x244acf3f11f0999b93616cb156dc1b43ee87e27c9625a7170cf6de447189d890", {}],"id":1}' https://public-en-baobab.klaytn.net {"jsonrpc":"2.0","id":1,"result":[{"result":{"gas":247922,"failed":false,"returnValue":"60806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806341c0e1b514610051578063cfae321714610068575b600080fd5b34801561005d57600080fd5b506100666100f8565b005b34801561007457600080fd5b5061007d610168565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100bd5780820151818401526020810190506100a2565b50505050905090810190601f1680156100ea5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415610166573373ffffffffffffffffffffffffffffffffffffffff16ff5b565b606060018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156102005780601f106101d557610100808354040283529160200191610200565b820191906000526020600020905b8154815290600101906020018083116101e357829003601f168201915b50505050509050905600a165627a7a72305820f4e74ca2266a24aabd6a8ee6c4e54ad49014e2faa152e49e7f9d927c932c72870029","structLogs":[{"pc":0,"op":"PUSH1","gas":891344,"gasCost":3,"depth":1,"stack":[],"memory":[],"storage":{}},{"pc":2,"op":"PUSH1","gas":891341,"gasCost":3,"depth":1,"stack":["0000000000000000000000000000000000000000000000000000000000000080"],"memory":[],"storage":{}},{"pc":4,"op":"MSTORE","gas":891338,"gasCost":12,"depth":1,"stack":["0000000000000000000000000000000000000000000000000000000000000080","0000000000000000000000000000000000000000000000000000000000000040"],"memory":["0000000000000000000000000000000000000000000000000000000000000000","0000000000000000000000000000000000000000000000000000000000000000","0000000000000000000000000000000000000000000000000000000000000000"],"storage":{}},{"pc":5,"op":"CALLVALUE","gas":891326,"gasCost":2,"depth":1,"stack":[],"memory":["0000000000000000000000000000000000000000000000000000000000000000","0000000000000000000000000000000000000000000000000000000000000000","0000000000000000000000000000000000000000000000000000000000000080"],"storage":{}},
 ...
 ,{"pc":322,"op":"RETURN","gas":865278,"gasCost":0,"depth":1,"stack":["0000000000000000000000000000000000000000000000000000000000000236","0000000000000000000000000000000000000000000000000000000000000000"],"memory":["60806040526004361061004c576000357c010000000000000000000000000000","0000000000000000000000000000900463ffffffff16806341c0e1b514610051","578063cfae321714610068575b600080fd5b34801561005d57600080fd5b5061","00666100f8565b005b34801561007457600080fd5b5061007d610168565b6040","5180806020018281038252838181518152602001915080519060200190808383","60005b838110156100bd5780820151818401526020810190506100a2565b5050","5050905090810190601f1680156100ea5780820380516001836020036101000a","031916815260200191505b509250505060405180910390f35b60008090549061","01000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffff","ffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffff","ffffffffffffff161415610166573373ffffffffffffffffffffffffffffffff","ffffffff16ff5b565b6060600180546001816001161561010002031660029004","80601f0160208091040260200160405190810160405280929190818152602001","828054600181600116156101000203166002900480156102005780601f106101","d557610100808354040283529160200191610200565b82019190600052602060","0020905b8154815290600101906020018083116101e357829003601f16820191","5b50505050509050905600a165627a7a72305820f4e74ca2266a24aabd6a8ee6","c4e54ad49014e2faa152e49e7f9d927c932c7287002900000000000000000000"],"storage":{"0000000000000000000000000000000000000000000000000000000000000000":"000000000000000000000000b0945862f63b832849a5f20b19e9f8188eb2230a","0000000000000000000000000000000000000000000000000000000000000001":"0000000000000000000000000000000000000000000000000000000000000000"}}]}}]}
 ```
 
-
 ## debug_traceBlockByNumber <a id="debug_traceblockbynumber"></a>
+
 Similar to [debug_traceBlock](#debug_traceblock), `traceBlockByNumber` accepts a block number and will replay the block that is already present in the database.
+a block number and will replay the block that is already present in the
+database.
 
 |    Máy khách    | Gọi phương pháp                                                  |
-|:---------------:| ---------------------------------------------------------------- |
+| :-------------: | ---------------------------------------------------------------- |
 | Bảng điều khiển | `debug.traceBlockByNumber(number, [options])`                    |
 |       RPC       | `{"method": "debug_traceBlockByNumber", "params": [number, {}]}` |
 
@@ -173,6 +188,7 @@ Similar to [debug_traceBlock](#debug_traceblock), `traceBlockByNumber` accepts a
 **Example**
 
 Console
+
 ```javascript
 > debug.traceBlockByNumber(1449)
 [{
@@ -184,7 +200,9 @@ Console
     }
 }]
 ```
+
 HTTP RPC
+
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_traceBlockByNumber","params":["0x5a9", {}],"id":1}' https://public-en-baobab.klaytn.net
 {"jsonrpc":"2.0","id":1,"result":[{"result":{"gas":247922,"failed":false,"returnValue":"60806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806341c0e1b514610051578063cfae321714610068575b600080fd5b34801561005d57600080fd5b506100666100f8565b005b34801561007457600080fd5b5061007d610168565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100bd5780820151818401526020810190506100a2565b50505050905090810190601f1680156100ea5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415610166573373ffffffffffffffffffffffffffffffffffffffff16ff5b565b606060018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156102005780601f106101d557610100808354040283529160200191610200565b820191906000526020600020905b8154815290600101906020018083116101e357829003601f168201915b50505050509050905600a165627a7a72305820f4e74ca2266a24aabd6a8ee6c4e54ad49014e2faa152e49e7f9d927c932c72870029","structLogs":[{"pc":0,"op":"PUSH1","gas":891344,"gasCost":3,"depth":1,"stack":[],"memory":[],"storage":{}},{"pc":2,"op":"PUSH1","gas":891341,"gasCost":3,"depth":1,"stack":["0000000000000000000000000000000000000000000000000000000000000080"],"memory":[],"storage":{}},{"pc":4,"op":"MSTORE","gas":891338,"gasCost":12,"depth":1,"stack":["0000000000000000000000000000000000000000000000000000000000000080","0000000000000000000000000000000000000000000000000000000000000040"],"memory":["0000000000000000000000000000000000000000000000000000000000000000","0000000000000000000000000000000000000000000000000000000000000000","0000000000000000000000000000000000000000000000000000000000000000"],"storage":{}},{"pc":5,"op":"CALLVALUE","gas":891326,"gasCost":2,"depth":1,"stack":[],"memory":["0000000000000000000000000000000000000000000000000000000000000000","0000000000000000000000000000000000000000000000000000000000000000","0000000000000000000000000000000000000000000000000000000000000080"],"storage":{}},
@@ -194,10 +212,11 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 
 ## debug_traceBlockByNumberRange <a id="debug_traceblockbynumberrange"></a>
 
-Returns the structured logs created during the execution of EVM between two blocks (including start) as a JSON object. That is, the result of tracing for a total of end-start+1 blocks is returned.
+Returns the structured logs created during the execution of EVM between two blocks (including start) as a JSON object.
+That is, the result of tracing for a total of end-start+1 blocks is returned.
 
 |    Máy khách    | Gọi phương pháp                                                               |
-|:---------------:| ----------------------------------------------------------------------------- |
+| :-------------: | ----------------------------------------------------------------------------- |
 | Bảng điều khiển | `debug.traceBlockByNumberRange(number, number, [options])`                    |
 |       RPC       | `{"method": "debug_traceBlockByNumberRange", "params": [number, number, {}]}` |
 
@@ -213,13 +232,14 @@ Returns the structured logs created during the execution of EVM between two bloc
 
 **Return Value**
 
-| Loại                                  | Mô tả                                                                    |
-| -------------------------------------- | ------------------------------------------------------------------------ |
+| Loại                                                     | Mô tả                                                                    |
+| --------------------------------------------------------- | ------------------------------------------------------------------------ |
 | map(key: số khối. giá trị: chuỗi JSON) | Giá trị chứa bản ghi có cấu trúc được tạo trong quá trình thực thi KLVM. |
 
 **Example**
 
 Console
+
 ```javascript
 > debug.traceBlockByNumberRange(21, 30, {})
 {
@@ -240,7 +260,9 @@ Console
     ...
 }
 ```
+
 HTTP RPC
+
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_traceBlockByNumberRange","params":[21, 30, {}],"id":1}' http://localhost:8551
 {"jsonrpc":"2.0","id":1,"result":{"21":{"block":"0x15","hash":"0x24b0a90822e63295623e6d8f5a8e5d47cead5c8d5854e44db00dc42d28e0850e","traces":[{"txHash":"0x43ed7e441db8e90f377d74b5d61c6d7d8b85ffd277b965c9f275ce7e93fb1090","result":{"gas":21000,"failed":false,"returnValue":"","structLogs":[]}},{"txHash":"0x1a448049b21d39cd4320ab95f18b8e91d687bfc7136268f50e041e439181fa0d","result":{"gas":21000,"failed":false,"returnValue":"","structLogs":[]}}]},
@@ -251,11 +273,12 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ## debug_traceBlockFromFile <a id="debug_traceblockfromfile"></a>
 
 Similar to [debug_traceBlock](#debug_traceblock), `traceBlockFromFile` accepts a file containing the RLP of the block.
+a file containing the RLP of the block.
 
 **NOTE**: the file must include the associated hexadecimal string without `0x`.
 
 |    Máy khách    | Gọi phương pháp                                                    |
-|:---------------:| ------------------------------------------------------------------ |
+| :-------------: | ------------------------------------------------------------------ |
 | Bảng điều khiển | `debug.traceBlockFromFile(fileName, [options])`                    |
 |       RPC       | `{"method": "debug_traceBlockFromFile", "params": [fileName, {}]}` |
 
@@ -277,12 +300,14 @@ References: [RLP](https://github.com/ethereum/wiki/wiki/RLP)
 **Example**
 
 The contents of the `block.rlp` file was printed on the running node as follows.
+
 ```
 $ cat block.rlp
 f90399f90394a05a825207c8396b848fefc73e442db004adee6596309af27630871b6a3d424758a01dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347940000000000000000000000000000000000000000940000000000000000000000000000000000000000a0b2ff1e4173123faa241fb93d83860e09f9e1ca1cfaf24c40c9e963e65c0b0317a056e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421a056e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421b9010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000016485e8d4a50fff80845bb9e92eb90187d7820401846b6c617988676f312e31302e33856c696e75780000000000000000f90164f854943b215ed129645b949722d4efbd9c749838d85bf0947050164b7718c667c9661afd924f6c0c5e5d4a01947f303b360063efc575e99cf2f7602efa034e832e94f38624dba0e106aa6a79335f77d3fd6409f9e4d8b84126d1ae355905704d8ffcc50599a8a051ac7c50ed6fc6d7caf6510cf0329b56cf3e3babfe45cc95143074ca0385627ea3b6ac3f6ad7961b60f23e32965d3b0c2900f8c9b841c3423ecb41ee86b193dbb98bf74e0c1b8e0c475503a8f5ef37ef7566af34443c77b492a1f92e5a7411c36efeae08ebc698d02353c38f07a3d5c32168243ab7e901b841ec6558f4e5d123b9dc240e77db493f1e5e2f55f108d3c4f9b39e10dbca39ad7b3fc2dd5d27a7a3d92938ad4245bef5a914377fb2b92cbe342067a9963ab121b700b841f34ed94f29cd0aefd841cc8aba9dcc9d4c2fe14795f3a661e8ce92c2014c2099327e5f4285e1d1821e55f297cf5252bafed521ab49906b9b596a3187ce1e529c00a063746963616c2062797a616e74696e65206661756c7420746f6c6572616e6365880000000000000000c0c0
 ```
 
 Console
+
 ```javascript
 > debug.traceBlockFromFile("block.rlp")
 [{
@@ -294,7 +319,9 @@ Console
     }
 }]
 ```
+
 HTTP RPC
+
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_traceBlockFromFile","params":["block.rlp", {}],"id":1}' https://public-en-baobab.klaytn.net
 {"jsonrpc":"2.0","id":1,"result":[{"result":{"gas":247922,"failed":false,"returnValue":"60806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806341c0e1b514610051578063cfae321714610068575b600080fd5b34801561005d57600080fd5b506100666100f8565b005b34801561007457600080fd5b5061007d610168565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100bd5780820151818401526020810190506100a2565b50505050905090810190601f1680156100ea5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415610166573373ffffffffffffffffffffffffffffffffffffffff16ff5b565b606060018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156102005780601f106101d557610100808354040283529160200191610200565b820191906000526020600020905b8154815290600101906020018083116101e357829003601f168201915b50505050509050905600a165627a7a72305820f4e74ca2266a24aabd6a8ee6c4e54ad49014e2faa152e49e7f9d927c932c72870029","structLogs":[{"pc":0,"op":"PUSH1","gas":891344,"gasCost":3,"depth":1,"stack":[],"memory":[],"storage":{}},{"pc":2,"op":"PUSH1","gas":891341,"gasCost":3,"depth":1,"stack":["0000000000000000000000000000000000000000000000000000000000000080"],"memory":[],"storage":{}},{"pc":4,"op":"MSTORE","gas":891338,"gasCost":12,"depth":1,"stack":["0000000000000000000000000000000000000000000000000000000000000080","0000000000000000000000000000000000000000000000000000000000000040"],"memory":["0000000000000000000000000000000000000000000000000000000000000000","0000000000000000000000000000000000000000000000000000000000000000","0000000000000000000000000000000000000000000000000000000000000000"],"storage":{}},{"pc":5,"op":"CALLVALUE","gas":891326,"gasCost":2,"depth":1,"stack":[],"memory":["0000000000000000000000000000000000000000000000000000000000000000","0000000000000000000000000000000000000000000000000000000000000000","0000000000000000000000000000000000000000000000000000000000000080"],"storage":{}},
@@ -302,13 +329,15 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ,{"pc":322,"op":"RETURN","gas":865278,"gasCost":0,"depth":1,"stack":["0000000000000000000000000000000000000000000000000000000000000236","0000000000000000000000000000000000000000000000000000000000000000"],"memory":["60806040526004361061004c576000357c010000000000000000000000000000","0000000000000000000000000000900463ffffffff16806341c0e1b514610051","578063cfae321714610068575b600080fd5b34801561005d57600080fd5b5061","00666100f8565b005b34801561007457600080fd5b5061007d610168565b6040","5180806020018281038252838181518152602001915080519060200190808383","60005b838110156100bd5780820151818401526020810190506100a2565b5050","5050905090810190601f1680156100ea5780820380516001836020036101000a","031916815260200191505b509250505060405180910390f35b60008090549061","01000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffff","ffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffff","ffffffffffffff161415610166573373ffffffffffffffffffffffffffffffff","ffffffff16ff5b565b6060600180546001816001161561010002031660029004","80601f0160208091040260200160405190810160405280929190818152602001","828054600181600116156101000203166002900480156102005780601f106101","d557610100808354040283529160200191610200565b82019190600052602060","0020905b8154815290600101906020018083116101e357829003601f16820191","5b50505050509050905600a165627a7a72305820f4e74ca2266a24aabd6a8ee6","c4e54ad49014e2faa152e49e7f9d927c932c7287002900000000000000000000"],"storage":{"0000000000000000000000000000000000000000000000000000000000000000":"000000000000000000000000b0945862f63b832849a5f20b19e9f8188eb2230a","0000000000000000000000000000000000000000000000000000000000000001":"0000000000000000000000000000000000000000000000000000000000000000"}}]}}]}
 ```
 
-
 ## debug_traceTransaction <a id="debug_tracetransaction"></a>
 
-The `traceTransaction` debugging method will attempt to run the transaction in the exact same manner as it was executed on the network. It will replay any transaction that may have been executed prior to this one before it will finally attempt to execute the transaction that corresponds to the given hash.
+The `traceTransaction` debugging method will attempt to run the transaction in the exact same manner as it was executed on the network.
+the exact same manner as it was executed on the network. It will replay any transaction that may have been executed prior to this one before it will finally attempt to execute the transaction that corresponds to the given hash.
+transaction that may have been executed prior to this one before it will
+finally attempt to execute the transaction that corresponds to the given hash.
 
 |    Máy khách    | Gọi phương pháp                                                |
-|:---------------:| -------------------------------------------------------------- |
+| :-------------: | -------------------------------------------------------------- |
 | Bảng điều khiển | `debug.traceTransaction(txHash, [options])`                    |
 |       RPC       | `{"method": "debug_traceTransaction", "params": [txHash, {}]}` |
 
@@ -328,6 +357,7 @@ The `traceTransaction` debugging method will attempt to run the transaction in t
 **Example**
 
 Console
+
 ```javascript
 > debug.traceTransaction("0x07f6057bc93aca52e53cdbfac9b9830f6a9cae2b3f48f0b47e4cb54959143d09")
 {
@@ -399,7 +429,9 @@ Console
   }]
 }
 ```
+
 HTTP RPC
+
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_traceTransaction","params":["0x07f6057bc93aca52e53cdbfac9b9830f6a9cae2b3f48f0b47e4cb54959143d09"],"id":1}' https://public-en-baobab.klaytn.net
 {"jsonrpc":"2.0","id":1,"result":{"gas":247922,"failed":false,"returnValue":"60806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806341c0e1b514610051578063cfae321714610068575b600080fd5b34801561005d57600080fd5b506100666100f8565b005b34801561007457600080fd5b5061007d610168565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100bd5780820151818401526020810190506100a2565b50505050905090810190601f1680156100ea5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415610166573373ffffffffffffffffffffffffffffffffffffffff16ff5b565b606060018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156102005780601f106101d557610100808354040283529160200191610200565b820191906000526020600020905b8154815290600101906020018083116101e357829003601f168201915b50505050509050905600a165627a7a72305820f4e74ca2266a24aabd6a8ee6c4e54ad49014e2faa152e49e7f9d927c932c72870029","structLogs":[{"pc":0,"op":"PUSH1","gas":891344,"gasCost":3,"depth":1,"stack":[],"memory":[],"storage":{}},{"pc":2,"op":"PUSH1","gas":891341,"gasCost":3,"depth":1,"stack":["0000000000000000000000000000000000000000000000000000000000000080"],"memory":[],"storage":{}},{"pc":4,"op":"MSTORE","gas":891338,"gasCost":12,"depth":1,"stack":["0000000000000000000000000000000000000000000000000000000000000080","0000000000000000000000000000000000000000000000000000000000000040"],"memory":["0000000000000000000000000000000000000000000000000000000000000000","0000000000000000000000000000000000000000000000000000000000000000","0000000000000000000000000000000000000000000000000000000000000000"],"storage":{}},
@@ -408,15 +440,16 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"de
 ```
 
 ## debug_traceCall <a id="debug_tracecall"></a>
+
 The `traceCall` returns the tracing result by executing a klay call within the context of the given block execution.
 
 **Parameters**
 
-| Tên               | type                            | Mô tả                                                                                                                                                                                  |
-| ----------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| callObject        | Object                          | The transaction call object.  See the next table for the object's properties.                                                                                                          |
+| Tên               | type                    | Mô tả                                                                                                                                                                                       |
+| ----------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| callObject        | Object                  | The transaction call object.  See the next table for the object's properties.                                                                                                               |
 | blockNumberOrHash | QUANTITY \| TAG \| HASH | Integer or hexadecimal block number, or the string `"earliest"`, `"latest"` or `"pending"` as in the [default block parameter](../eth/block.md#the-default-block-parameter), or block hash. |
-| tùy chọn          | đối tượng                       | Xem [các tùy chọn theo dõi](#tracing-options).                                                                                                                                         |
+| tùy chọn          | đối tượng               | Xem [các tùy chọn theo dõi](#tracing-options).                                                                                                                                              |
 
 **Return Value**
 
@@ -425,12 +458,15 @@ The `traceCall` returns the tracing result by executing a klay call within the c
 | JSON string | The structured logs created during the execution of KLVM. |
 
 **Example** Console
+Console
+
 ```javascript
 > debug.traceCall({from: "0xB2da01761B494F5F257fD3bA626fBAbFaE104313", to: "0xB2da01761B494F5F257fD3bA626fBAbFaE104313", input: "0x6057361d0000000000000000000000000000000000000000000000000000000000000003"}, "latest", {tracer:"revertTracer"})
 "this is the revert reason for this tracecall" 
 ```
 
 HTTP RPC
+
 ```shell
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_traceCall","params":[{"from": "0xB2da01761B494F5F257fD3bA626fBAbFaE104313", "to": "0xB2da01761B494F5F257fD3bA626fBAbFaE104313", "input": "0x6057361d0000000000000000000000000000000000000000000000000000000000000003"}, "latest", {"tracer":"revertTracer"}],"id":1}' http://localhost:8551
 "this is the revert reason for this tracecall" 
@@ -451,6 +487,7 @@ Returns the structured logs created during the execution of EVM between two bloc
 | options | object | See [tracing options](#tracing-options). |
 
 **Example**
+
 ```
 wscat -c ws://localhost:8552
 > {"id": 1, "method": "debug_subscribe", "params": ["traceChain", 21, 30, {}]}
@@ -463,13 +500,15 @@ wscat -c ws://localhost:8552
 
 ## Tracing Options <a id="tracing-options"></a>
 
-You may give trace API function a secondary optional argument, which specifies the options for this specific call. The possible options are:
+You may give trace API function a secondary optional argument, which specifies the options for this specific call.
+the options for this specific call. The possible options are:
 
 - `disableStorage`: `BOOL`. Đặt thành true sẽ vô hiệu hóa tính năng thu thập lưu trữ (mặc định = false).
 - `disableMemory`: `BOOL`. Đặt thành true sẽ vô hiệu hóa tính năng thu thập bộ nhớ (mặc định = false).
 - `disableStack`: `BOOL`. Đặt thành true sẽ vô hiệu hóa tính năng thu thập ngăn xếp (mặc định = false).
 - `hết thời gian chờ`: `CHUỖI`. Ghi đè thời gian chờ mặc định là 5 giây cho các lệnh gọi theo dõi dựa trên JavaScript. Các giá trị hợp lệ được mô tả [tại đây](https://golang.org/pkg/time/#ParseDuration).
 - `trình theo dõi`: `CHUỖI`. Thiết lập cài đặt này sẽ kích hoạt theo dõi giao dịch dựa trên JavaScript, được mô tả trong [phần tiếp theo](#javascript-based-tracing). Nếu được thiết lập, bốn đối số trước đó sẽ bị bỏ qua. Các trình theo dõi được xác định trước cũng có thể được sử dụng như trong bảng sau.
+- `reexec`: `INT`. Overrides the default reexec value (default = 128). Reexec value is the maximum number of blocks to reprocess trying to obtain the desired state.
 
 | Tracer Name    | Mô tả                                                                                                                                                                                                                                                            |
 | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -485,10 +524,10 @@ You may give trace API function a secondary optional argument, which specifies t
 | bigramTracer   | bigramTracer returns the number of occurrences of two consecutive opcodes.                                                                                                                                                                                       |
 | trigramTracer  | trigramTracer returns the number of occurrences of three consecutive opcodes.                                                                                                                                                                                    |
 
-
 **Example**
 
 Console
+
 ```javascript
 > debug.traceTransaction("0x07f6057bc93aca52e53cdbfac9b9830f6a9cae2b3f48f0b47e4cb54959143d09", {tracer: "callTracer"})
 {
@@ -507,6 +546,7 @@ Console
 ```
 
 HTTP RPC
+
 ```shell
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debug_traceTransaction","params":["0x07f6057bc93aca52e53cdbfac9b9830f6a9cae2b3f48f0b47e4cb54959143d09", {"tracer": "callTracer"}],"id":1}' https://public-en-baobab.klaytn.net
 {"jsonrpc":"2.0","id":1,"result":{"type":"CREATE","from":"0xb0945862f63b832849a5f20b19e9f8188eb2230a","to":"0x98cf8b777dab0137b47a7fdaad1378ec93a7b80b","value":"0x0","gas":"0xd99d0","gasUsed":"0x22002","input":"0x608060405234801561001057600080fd5b5060405161037a38038061037a83398101806040528101908080518201929190505050336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055508060019080519060200190610089929190610090565b5050610135565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106100d157805160ff19168380011785556100ff565b828001600101855582156100ff579182015b828111156100fe5782518255916020019190600101906100e3565b5b50905061010c9190610110565b5090565b61013291905b8082111561012e576000816000905550600101610116565b5090565b90565b610236806101446000396000f30060806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806341c0e1b514610051578063cfae321714610068575b600080fd5b34801561005d57600080fd5b506100666100f8565b005b34801561007457600080fd5b5061007d610168565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100bd5780820151818401526020810190506100a2565b50505050905090810190601f1680156100ea5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415610166573373ffffffffffffffffffffffffffffffffffffffff16ff5b565b606060018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156102005780601f106101d557610100808354040283529160200191610200565b820191906000526020600020905b8154815290600101906020018083116101e357829003601f168201915b50505050509050905600a165627a7a72305820f4e74ca2266a24aabd6a8ee6c4e54ad49014e2faa152e49e7f9d927c932c72870029","output":"0x60806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806341c0e1b514610051578063cfae321714610068575b600080fd5b34801561005d57600080fd5b506100666100f8565b005b34801561007457600080fd5b5061007d610168565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100bd5780820151818401526020810190506100a2565b50505050905090810190601f1680156100ea5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415610166573373ffffffffffffffffffffffffffffffffffffffff16ff5b565b606060018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156102005780601f106101d557610100808354040283529160200191610200565b820191906000526020600020905b8154815290600101906020018083116101e357829003601f168201915b50505050509050905600a165627a7a72305820f4e74ca2266a24aabd6a8ee6c4e54ad49014e2faa152e49e7f9d927c932c72870029","time":"2.510754ms"}}
@@ -515,32 +555,38 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"debu
 {"jsonrpc":"2.0","id":1,"result":"reverted due to XXX"}
 ```
 
-
 ## JavaScript-based Tracing <a id="javascript-based-tracing"></a>
 
-**NOTE** The JavaScript-based Tracing allows the user to run arbitrary JS code, which is **unsafe**. If you want to provide debug namespace APIs to the public, we strongly recommend to set the `rpc.unsafe-debug.disable` flag when running the EN, so the JavaScript-based Tracing can be disabled.
+**NOTE** The JavaScript-based Tracing allows the user to run arbitrary JS code, which is **unsafe**.
+which is **unsafe**. If you want to provide debug namespace APIs to the public, we strongly recommend to set the `rpc.unsafe-debug.disable` flag when running the EN, so the JavaScript-based Tracing can be disabled.
+we strongly recommend to set the `rpc.unsafe-debug.disable` flag when running
+the EN, so the JavaScript-based Tracing can be disabled.
 
 Specifying the `tracer` option in the second argument enables JavaScript-based tracing. In this mode, `tracer` is interpreted as a JavaScript expression that is expected to evaluate to an object with (at least) two methods, named `step` and `result`.
 
 `step` is a function that takes two arguments, `log` and `db`, and is called for each step of the KLVM, or when an error occurs, as the specified transaction is traced.
+for each step of the KLVM, or when an error occurs, as the specified
+transaction is traced.
 
 `log` has the following fields:
 
-| Field Name | Type           | Description                                                 |
-| ---------- | -------------- | ----------------------------------------------------------- |
-| `pc`       | Number         | The current program counter.                                |
-| `op`       | Object         | An OpCode object representing the current opcode.           |
-| `gas`      | Number         | The amount of gas remaining.                                |
-| `gasPrice` | Number         | The cost in peb of each unit of gas.                        |
-| `memory`   | Object         | A structure representing the contract's memory space.       |
+| Field Name | Type                                                               | Description                                                 |
+| ---------- | ------------------------------------------------------------------ | ----------------------------------------------------------- |
+| `pc`       | Number                                                             | The current program counter.                                |
+| `op`       | Object                                                             | An OpCode object representing the current opcode.           |
+| `gas`      | Number                                                             | The amount of gas remaining.                                |
+| `gasPrice` | Number                                                             | The cost in peb of each unit of gas.                        |
+| `memory`   | Object                                                             | A structure representing the contract's memory space.       |
 | `stack`    | array[big.Int] | The KLVM execution stack.                                   |
-| `depth`    | Number         | The execution depth.                                        |
-| `account`  | String         | The address of the account executing the current operation. |
-| `err`      | String         | If an error occurred, information about the error.          |
+| `depth`    | Number                                                             | The execution depth.                                        |
+| `account`  | String                                                             | The address of the account executing the current operation. |
+| `err`      | String                                                             | If an error occurred, information about the error.          |
 
 If `err` is non-null, all other fields should be ignored.
 
-For efficiency, the same `log` object is reused on each execution step, updated with current values; make sure to copy values you want to preserve beyond the current call. For instance, this step function will not work:
+For efficiency, the same `log` object is reused on each execution step, updated with current values; make sure to copy values you want to preserve beyond the current call.
+with current values; make sure to copy values you want to preserve beyond the
+current call. For instance, this step function will not work:
 
 ```javascript
 function(log) {
@@ -573,10 +619,10 @@ function(log) {
 
 `log.stack` has the following methods:
 
-| Method Name | Description                                                                                     |
-| ----------- | ----------------------------------------------------------------------------------------------- |
+| Method Name | Description                                                                                                        |
+| ----------- | ------------------------------------------------------------------------------------------------------------------ |
 | `peek(idx)` | Returns the idx-th element from the top of the stack (0 is the topmost element) as a `big.Int`. |
-| `length()`  | Returns the number of elements in the stack.                                                    |
+| `length()`  | Returns the number of elements in the stack.                                                                       |
 
 `db` has the following methods:
 
@@ -589,12 +635,20 @@ function(log) {
 | `exists(address)`         | Returns true if the specified address exists.                             |
 
 The second function, `result`, takes no arguments, and is expected to return a JSON-serializable value to return to the RPC caller.
+JSON-serializable value to return to the RPC caller.
 
 If the `step` function throws an exception or executes an illegal operation at any point, it will not be called on any further VM steps, and the error will be returned to the caller.
+any point, it will not be called on any further VM steps, and the error will be
+returned to the caller.
 
-Note that several values are Golang `big.Int` objects, not JavaScript numbers or JS bigints. As such, they have the same interface as described in the godocs. Their default serialization to JSON is as a Javascript number; to serialize large numbers accurately call `.String()` on them. For convenience, `big.NewInt(x)` is provided, and will convert a uint to a Golang `big.Int`.
+Note that several values are Golang `big.Int` objects, not JavaScript numbers or JS bigints.
+or JS bigints. As such, they have the same interface as described in the godocs.
+godocs. Their default serialization to JSON is as a Javascript number; to serialize large numbers accurately call `.String()` on them.
+serialize large numbers accurately call `.String()` on them. For convenience, `big.NewInt(x)` is provided, and will convert a uint to a Golang `big.Int`.
+`big.NewInt(x)` is provided, and will convert a uint to a Golang `big.Int`.
 
 As an usage example below, it returns the top element of the stack at each CALL opcode only:
+opcode only:
 
 ```javascript
 debug.traceTransaction(txhash, {tracer: '{data: [], step: function(log) { if(log.op.toString() == "CALL") this.data.push(log.stack.peek(0)); }, result: function() { return this.data; }}'});

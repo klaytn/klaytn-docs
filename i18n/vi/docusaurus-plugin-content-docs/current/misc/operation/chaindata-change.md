@@ -1,18 +1,18 @@
 # Thay đổi dữ liệu chuỗi
 
-<aside>
-💡 HƯỚNG DẪN NÀY DỰA TRÊN Amazon Linux 2
+<aside>💡 HƯỚNG DẪN NÀY DỰA TRÊN Amazon Linux 2
+💡 THIS GUIDE IS BASED ON Amazon Linux 2
 
 </aside>
 
-##  **BƯỚC di chuyển** nút CN
+## **BƯỚC di chuyển** nút CN
 
 ### Tạo ổ đĩa mới
 
 1. Chuẩn bị ổ đĩa mới (dung lượng 3.500GB) hoặc tạo đường dẫn mới trên ổ đĩa hiện tại (Dung lượng khả dụng của ổ đĩa phải bằng 3.500GB.)
 
-<aside>
-💡 Giả sử đường dẫn mới là `/var/kcnd2`
+<aside>💡 Giả sử đường dẫn mới là `/var/kcnd2`
+💡 Assuming that the new path is `/var/kcnd2`
 
 </aside>
 
@@ -57,13 +57,13 @@ Tải xuống dữ liệu chuỗi vào dữ liệu của thư mục Klaytn Data 
 1. Tải xuống bằng lệnh dưới đây
 
 ```bash
-# (Phương án 1: khuyến nghị) curl 
+# (Option 1: recommended) curl 
 $ curl -o klaytn-cypress-chaindata-2021???????????.tar.gz "https://s3.ap-northeast-2.amazonaws.com/klaytn-chaindata/cypress/klaytn-cypress-chaindata-2021???????????.tar.gz"
 
-# (Phương án 2) lệnh aws s3
+# (Option 2) aws s3 command
 $ aws s3 cp s3://klaytn-chaindata/cypress/klaytn-cypress-chaindata-2021???????????.tar.gz klaytn-cypress-chaindata-20211113011111.tar.gz 
 
-# (Phương án 3) axel (cần cài đặt axel)
+# (Option 3) axel (need to install axel)
 sudo amazon-linux-extras install epel -y
 sudo yum install axel pigz
 $ axel -n8 https://s3.ap-northeast-2.amazonaws.com/klaytn-chaindata/cypress/klaytn-cypress-chaindata-2021???????????.tar.gz
@@ -72,63 +72,63 @@ $ axel -n8 https://s3.ap-northeast-2.amazonaws.com/klaytn-chaindata/cypress/klay
 2. Giải nén
 
 ```bash
-# (Phương án 1: khuyến nghị) tar
+# (Option 1: recommended) tar
 $ tar -xvf klaytn-cypress-chaindata-2021???????????.tar.gz
 
-# (Phương án 2) pigz (cần cài đặt pigz)
+# (Option 2) pigz (need to isntall pigz)
 $ tar -I pigz -xvf klaytn-cypress-chaindata-2021???????????.tar.gz
 ```
-
-
 
 ## Cấu hình DATA_DIR & LOG_DIR
 
 ### Phương án 1 - Hoán đổi đường dẫn cũ & mới
 
-<aside>
+<aside>🚨 TBD
 🚨 TBD
 
 </aside>
 
 1. Dừng quá trình daemon klaytn trước khi hoán đổi
-    1. ***LƯU Ý*** Nếu loại nút là CN, bạn có thể xóa nút CN khỏi Hội đồng Klaytn
 
-    💡 Bạn có thể nhận gói cho nút EN trong phần [Khởi động CN](../../nodes/core-cell/install/install-consensus-nodes.md#startup-the-cn).
+   1. _**LƯU Ý**_ Nếu loại nút là CN, bạn có thể xóa nút CN khỏi Hội đồng Klaytn
 
+   💡 Bạn có thể nhận gói cho nút EN trong phần [Khởi động CN](../../nodes/core-cell/install/install-consensus-nodes.md#startup-the-cn).
 
 2. Hoán đổi đường dẫn cũ và mới
-    1. Ổ đĩa mới
 
-        ```bash
-        umount /var/kcnd # old path
-        umount /var/kcnd2 # new path
-        mount /dev/nvme2n1 /var/kcnd
-        ```
+   1. Ổ đĩa mới
+
+      ```bash
+      umount /var/kcnd # old path
+      umount /var/kcnd2 # new path
+      mount /dev/nvme2n1 /var/kcnd
+      ```
+
    💡 Các lệnh này nên được thực thi với các đặc quyền thích hợp.
 
-    2. Ổ đĩa hiện tại
+   2. Ổ đĩa hiện tại
 
-        ```bash
-        sudo mv /var/kcnd /var/kcnd_old # old_path
-        sudo mv /var/kcnd2 /var/kcnd # new path
-        ```
+      ```bash
+      sudo mv /var/kcnd /var/kcnd_old # old_path
+      sudo mv /var/kcnd2 /var/kcnd # new path
+      ```
 
 3. (Tùy chọn) Xóa đường dẫn cũ nếu không còn cần thiết
 
 ### Phương án 2 - Cập nhật DATA_DIR & LOG_DIR trong tập tin cấu hình Klaytn
 
 1. Thay đổi đường dẫn Klaytn DIR
-    - Phương án 1 - Ổ đĩa mới
-        - Thay đổi giá trị `fstab` từ ổ đĩa cũ sang ổ đĩa mới
-    - Phương án 2 - Ổ đĩa hiện tại
-        - thay đổi đường dẫn DIR từ `kcnd.conf`
+   - Phương án 1 - Ổ đĩa mới
+     - Thay đổi giá trị `fstab` từ ổ đĩa cũ sang ổ đĩa mới
+   - Phương án 2 - Ổ đĩa hiện tại
+     - thay đổi đường dẫn DIR từ `kcnd.conf`
 
 ## Khởi động lại quy trình (hoặc khởi động lại đối tượng)
 
-<aside>
-💡 Nếu cần khởi động lại để thêm ổ đĩa khác, hãy khởi động lại đối tượng.
+<aside>💡 Nếu cần khởi động lại để thêm ổ đĩa khác, hãy khởi động lại đối tượng.
+💡 If reboot is required to add an additional disk, reboot the instance.
 
 </aside>
 
-1. ***LƯU Ý*** Nếu loại nút là CN, bạn có thể xóa nút CN khỏi Hội đồng Klaytn
+1. _**LƯU Ý**_ Nếu loại nút là CN, bạn có thể xóa nút CN khỏi Hội đồng Klaytn
 2. Khởi động lại quy trình hoặc khởi động lại đối tượng

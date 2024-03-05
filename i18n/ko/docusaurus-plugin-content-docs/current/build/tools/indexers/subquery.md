@@ -20,7 +20,7 @@ SubQuery의 또 다른 경쟁력은 하나의 프로젝트 내에서 체인 내�
 
 SubQuery는 오픈소스이므로 다음 세 가지 방법으로 자유롭게 실행할 수 있습니다:
 
-* 자신의 컴퓨터에서 로컬로 실행하거나 원하는 클라우드 서비스 제공자에서 실행할 수 있습니다. 로컬에서 실행하는 방법에 대한 지침은 [여기](https://academy.subquery.network/run_publish/run.html)에서 확인하세요.
+- 자신의 컴퓨터에서 로컬로 실행하거나 원하는 클라우드 서비스 제공자에서 실행할 수 있습니다. 로컬에서 실행하는 방법에 대한 지침은 [여기](https://academy.subquery.network/run_publish/run.html)에서 확인하세요.
 
 다운타임이 없는 블루/그린 배포를 통해 미션 크리티컬 데이터를 위한 프로덕션 준비 서비스에서 SubQuery 프로젝트를 호스팅하는 엔터프라이즈급 [관리형 서비스](https://managedservice.subquery.network/login)에 게시할 수 있습니다. 넉넉한 무료 티어도 있습니다. [방법 알아보기](https://academy.subquery.network/run_publish/publish.html).
 
@@ -30,9 +30,9 @@ dApp 개발자를 위한 가장 개방적이고, 성능이 뛰어나며, 안정�
 
 다음은 Covalent API를 시작하는 데 도움이 되는 몇 가지 추가 리소스입니다:
 
-* [SubQuery 웹사이트](https://subquery.network/?utm_source=klaytn&utm_medium=partner-docs)
-* [문서](https://academy.subquery.network/?utm_source=klaytn&utm_medium=partner-docs)
-* [SubQuery 클레이튼 지원 공지](https://subquery.medium.com/subquerys-data-indexing-supports-builders-on-klaytn-e5a3aec4bc14?utm_source=klaytn&utm_medium=partner-docs)
-* [클레이튼 퀵스타트](https://academy.subquery.network/quickstart/quickstart_chains/klaytn.html/?utm_source=klaytn&utm_medium=partner-docs)
-* [클레이튼 스타터 프로젝트](https://github.com/subquery/ethereum-subql-starter/tree/main/Klaytn/klaytn-starter)
-* [디스코드 지원](https://discord.com/invite/subquery/?utm_source=klaytn&utm_medium=partner-docs)
+- [SubQuery 웹사이트](https://subquery.network/?utm_source=klaytn\&utm_medium=partner-docs)
+- [문서](https://academy.subquery.network/?utm_source=klaytn\&utm_medium=partner-docs)
+- [SubQuery 클레이튼 지원 공지](https://subquery.medium.com/subquerys-data-indexing-supports-builders-on-klaytn-e5a3aec4bc14?utm_source=klaytn\&utm_medium=partner-docs)
+- [클레이튼 퀵스타트](https://academy.subquery.network/quickstart/quickstart_chains/klaytn.html/?utm_source=klaytn\&utm_medium=partner-docs)
+- [클레이튼 스타터 프로젝트](https://github.com/subquery/ethereum-subql-starter/tree/main/Klaytn/klaytn-starter)
+- [디스코드 지원](https://discord.com/invite/subquery/?utm_source=klaytn\&utm_medium=partner-docs)

@@ -21,7 +21,7 @@ Tập tin lưu trữ bao gồm tập tin nhị phân thực thi và cấu hình 
 ```
 
 | Tên tập tin    | Mô tả tập tin                    |
-|:-------------- |:-------------------------------- |
+| :------------- | :------------------------------- |
 | bin/kcn        | Tập tin thực thi CN              |
 | bin/kcnd       | Tập tin lệnh bắt đầu/kết thúc CN |
 | conf/kcnd.conf | Tập tin cấu hình CN              |
@@ -46,7 +46,7 @@ $ export PATH=$PATH:~/downloaded/path/kcn-linux-amd64/bin
 
 Các phần khác giả định rằng đường dẫn đã được thêm vào biến.
 
-### Phân bổ RPM \(RHEL/CentOS/Fedora\) <a id="rpm-rhel-centos-fedora"></a>
+### Phân bổ RPM (RHEL/CentOS/Fedora) <a id="rpm-rhel-centos-fedora"></a>
 
 Bạn có thể cài đặt RPM đã tải về với lệnh `yum` sau đây.
 
@@ -73,7 +73,7 @@ $ sudo curl -o /etc/yum.repos.d/klaytn.repo https://packages.klaytn.net/config/r
 Tập tin đã cài đặt nằm ở vị trí như sau.
 
 | Tên tập tin | Vị trí                   |
-|:----------- |:------------------------ |
+| :---------- | :----------------------- |
 | kcn         | /usr/bin/kcn             |
 | kcnd.conf   | /etc/kcnd/conf/kcnd.conf |
 
@@ -105,8 +105,8 @@ $ cp nodekey /var/kcnd/data
 
 Vị trí tập tin cấu hình:
 
-* Nếu phân bổ lưu trữ, vị trí thư mục cấu hình mặc định là `$INSTALL_PATH/kcn-linux-amd64/conf/`.
-* Nếu phân bổ gói, vị trí thư mục cấu hình mặc định là `/etc/kpnd/conf/`.
+- Nếu phân bổ lưu trữ, vị trí thư mục cấu hình mặc định là `$INSTALL_PATH/kcn-linux-amd64/conf/`.
+- Nếu phân bổ gói, vị trí thư mục cấu hình mặc định là `/etc/kpnd/conf/`.
 
 #### Thêm Thư mục dữ liệu  <a id="add-data-directory"></a>
 
@@ -125,20 +125,20 @@ Người vận hành CN sẽ nhận được KLAY như phần thưởng của vi
 Có nhiều cách để tạo tài khoản mới nhưng `kcn` cũng cung cấp các chức năng. Bạn có thể xem tin nhắn trợ giúp bằng lệnh sau.
 
 ```bash
-$ kcn tài khoản new --help
+$ kcn account new --help
 ```
 
 Một trong những ví dụ về việc thực quy trình này như sau. Trước hết, bạn cần tạo một tài khoản mới để gửi phần thưởng KLAY đến.
 
 ```bash
-$ kcn tài khoản new --datadir ~/kcnd_home
+$ kcn account new --datadir ~/kcnd_home
 INFO[03/15,09:04:43 +09] [17] Setting connection type                   nodetype=cn conntype=-0
 INFO[03/15,09:04:43 +09] [17] Maximum peer count                        KLAY=25 LES=0 total=25
 INFO[03/15,09:04:43 +09] [17] SBN is disabled.
-Tài khoản mới của bạn được khóa bằng mật khẩu. Vui lòng nhập mật khẩu. Đừng quên mật khẩu này.
-Cụm mật khẩu:
-Nhắc lại cụm mật khẩu:
-Địa chỉ: {d13f7da0032b1204f77029dc1ecbf4dae2f04241}
+Your new account is locked with a password. Please give a password. Do not forget this password.
+Passphrase:
+Repeat passphrase:
+Address: {d13f7da0032b1204f77029dc1ecbf4dae2f04241}
 ```
 
 Sau đó, lưu trữ khóa liên kết sẽ được tạo trên đường dẫn bạn đã xác định. Tiếp theo, bạn cần cho địa chỉ đã tạo vào tập tin `kcnd.conf` như sau.
@@ -151,13 +151,13 @@ REWARDBASE="d13f7da0032b1204f77029dc1ecbf4dae2f04241"
 
 Hãy nhớ rằng lưu trữ khóa và mật khẩu mà bạn đã tạo là vô cùng quan trọng. Do đó, bạn phải quản lý chúng thật cẩn thận. Xem thêm thông tin về `kcnd.conf` trên phần [Tập tin cấu hình](../../../misc/operation/configuration.md).
 
-### Đồng bộ nhanh \(Tùy chọn\) <a id="fast-sync-optional"></a>
+### Đồng bộ nhanh (Tùy chọn) <a id="fast-sync-optional"></a>
 
 Mỗi CN duy trì một bản sao dữ liệu chuỗi của mạng lưới. Nếu một nút không được đồng bộ, nút này có thể lấy dữ liệu này từ các nút khác trong mạng lưới -- một quá trình được gọi là đồng bộ hóa. Khi một CN mới được bắt đầu lần đầu tiên, nó phải tải xuống toàn bộ dữ liệu chuỗi từ mạng lưới.
 
 Để đẩy nhanh quá trình này, bạn cần thực hiện đồng bộ nhanh bằng cách tải về bản thu thập dữ liệu của dữ liệu chuỗi trước khi bắt đầu CN. Điều này giúp giảm đáng kể thời gian CN cần để đồng bộ khi bắt đầu lần đầu tiên.
 
-Tải xuống bản thu thập dữ liệu chuỗi mới nhất từ [Lưu trữ thu thập dữ liệu Cypress](http://packages.klaytn.net/cypress/chaindata/) hoặc[Lưu trữ thu thập dữ liệu Baobab](http://packages.klaytn.net/baobab/chaindata/). Trước khi bắt đầu `kcnd`, trích xuất bản thu thập dữ liệu trong DATA\_DIR mà bạn định cấu hình trong `kcnd.conf`.
+Tải xuống bản thu thập dữ liệu chuỗi mới nhất từ [Lưu trữ thu thập dữ liệu Cypress](http://packages.klaytn.net/cypress/chaindata/) hoặc[Lưu trữ thu thập dữ liệu Baobab](http://packages.klaytn.net/baobab/chaindata/). Trước khi bắt đầu `kcnd`, trích xuất bản thu thập dữ liệu trong DATA_DIR mà bạn định cấu hình trong `kcnd.conf`.
 
 Ví dụ:
 
@@ -200,7 +200,7 @@ $ systemctl stop kcnd.service
 **trạng thái**
 
 ```bash
-$ systemctl trạng thái kcnd.service
+$ systemctl status kcnd.service
 
 ```
 
@@ -209,7 +209,7 @@ $ systemctl trạng thái kcnd.service
 Nếu bạn gặp lỗi sau,
 
 ```bash
-Không thể bắt đầu kcnd.service: Không tìm thấy đơn vị.
+Failed to start kcnd.service: Unit not found.
 ```
 
 tải lại cấu hình trình quản lý hệ thống bằng lệnh sau.
@@ -230,25 +230,25 @@ $ kcn account bls-info --datadir /var/kcnd/data
 
 As a result, `bls-publicinfo-NODEID.json` file will be created.
 
-# Kiểm tra Core Cell <a id="testing-the-core-cell"></a>
+## Kiểm tra Core Cell <a id="testing-the-core-cell"></a>
 
 Đã đến lúc kiểm tra xem Core Cell đã được cài đặt thành công chưa và nó có hoạt động như mong đợi sau khi cài đặt không.
 
-## Tình trạng xử lý <a id="process-status"></a>
+### Tình trạng xử lý <a id="process-status"></a>
 
 Có thể kiểm tra trạng thái quy trình của CN bằng các lệnh trạng thái `systemctl` và `kcnd`.
 
-### systemctl <a id="systemctl"></a>
+#### systemctl <a id="systemctl"></a>
 
 `systemctl` được cài đặt cùng với RPM, có thể kiểm tra trạng thái của CN như sau.
 
 ```bash
-$ systemctl trạng thái kcnd.service
+$ systemctl status kcnd.service
 ● kcnd.service - (null)
    Loaded: loaded (/etc/rc.d/init.d/kcnd; bad; vendor preset: disabled)
    Active: active (running) since Wed 2019-01-09 11:42:39 UTC; 1 months 4 days ago
      Docs: man:systemd-sysv-generator(8)
-  Process: 29636 ExecStart=/etc/rc.d/init.d/kcnd start (code=exited, trạng thái=0/SUCCESS)
+  Process: 29636 ExecStart=/etc/rc.d/init.d/kcnd start (code=exited, status=0/SUCCESS)
  Main PID: 29641 (kcn)
    CGroup: /system.slice/kcnd.service
            └─29641 /usr/local/bin/kcn --networkid 1000 --datadir /kcnd_home --port 32323 --srvtype fasthttp --metrics --prometheus --verbosity 3 --txpool.global...
@@ -260,16 +260,16 @@ Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal systemd[1]: Start
 
 Bạn có thể kiểm tra trạng thái hiện tại như `Active: active (running)` trong ví dụ trên.
 
-### kcnd <a id="kcnd-kpnd"></a>
+#### kcnd <a id="kcnd-kpnd"></a>
 
 `kcnd` được cài đặt cùng với gói và trạng thái của CN có thể được kiểm tra như sau.
 
 ```bash
-$ kcnd trạng thái
+$ kcnd status
 kcnd is running
 ```
 
-## Nhật ký <a id="logs"></a>
+### Nhật ký <a id="logs"></a>
 
 Nhật ký được lưu ở `kcnd.out` tại đường dẫn xác định trong trường `LOG_DIR` của tập tin `kcnd.conf`. Khi nút hoạt động bình thường, bạn có thể thấy rằng mỗi giây sẽ có một khối được tạo như sau.
 
@@ -289,7 +289,7 @@ INFO[02/13,07:02:27 Z] [5] Imported new chain segment                blocks=1 tx
 INFO[02/13,07:02:27 Z] [35] Commit new mining work                    number=11572927 txs=0 elapsed=483.436µs
 ```
 
-## bảng điều khiển kcn <a id="kcn-console-kpn-console"></a>
+### bảng điều khiển kcn <a id="kcn-console-kpn-console"></a>
 
 Klaytn cung cấp một CLI khách: `bảng điều khiển kcn`. Tuy nhiên, CN có thể vô hiệu hóa giao diện RPC cho máy khách vì lý do bảo mật. Một cách khác để sử dụng máy khách là kết nối với quy trình thông qua IPC (giao tiếp giữa các quy trình).
 
@@ -299,7 +299,7 @@ Hãy thực hiện lệnh sau và kiểm tra kết quả.
 
 ```bash
 $ ken attach /var/kend/data/klay.ipc
-Chào mừng bạn đến với bảng điều khiển Klaytn JavaScript!
+Welcome to the Klaytn JavaScript console!
 
 instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
  datadir: /var/kend/data
@@ -311,10 +311,10 @@ Bạn có thể kiểm tra các lệnh có thể sử dụng trên [Tài liệu 
 
 API hữu dụng để kiểm tra trạng thái của CN:
 
-* `klay.blockNumber` (để lấy số khối mới nhất)
-* `net.peerCount` (để lấy số nút Klaytn được kết nối hiện tại)
+- `klay.blockNumber` (để lấy số khối mới nhất)
+- `net.peerCount` (để lấy số nút Klaytn được kết nối hiện tại)
 
-### klay.blockNumber  <a id="klay-blocknumber"></a>
+#### klay.blockNumber  <a id="klay-blocknumber"></a>
 
 Bạn có thể lấy số khối mới nhất để xem liệu các khối được tạo (đối với CN) hay được truyền (đối với CN và PN) đúng cách không dựa trên loại nút của bạn.
 
@@ -323,7 +323,7 @@ Bạn có thể lấy số khối mới nhất để xem liệu các khối đư
 11573819
 ```
 
-### net.peerCount  <a id="net-peercount"></a>
+#### net.peerCount  <a id="net-peercount"></a>
 
 ```javascript
 > net.peerCount
@@ -332,5 +332,5 @@ Bạn có thể lấy số khối mới nhất để xem liệu các khối đư
 
 Dòng lệnh trên trả về một giá trị khác dựa trên loại nút.
 
-* CN: số CN được kết nối + số PN được kết nối.
-* PN: số CN được kết nối + số PN được kết nối + số EN được kết nối.
+- CN: số CN được kết nối + số PN được kết nối.
+- PN: số CN được kết nối + số PN được kết nối + số EN được kết nối.

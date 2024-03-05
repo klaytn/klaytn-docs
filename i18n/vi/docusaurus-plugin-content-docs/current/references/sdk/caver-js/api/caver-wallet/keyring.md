@@ -8,9 +8,9 @@
 
 `Keyring` có thể được phân thành ba loại, tùy thuộc vào loại khóa được lưu trữ: [SingleKeyring](#singlekeyring) để lưu trữ một địa chỉ và một khóa riêng tư, [MultipleKeyring](#multiplekeyring) để lưu trữ một địa chỉ và nhiều khóa riêng tư và [RoleBasedKeyring](#rolebasedkeyring) để lưu trữ một địa chỉ và một hoặc nhiều khóa riêng tư cho mỗi vai trò.
 
-* [SingleKeyring](#singlekeyring): Người dùng ký bằng khóa riêng tư
-* [MultipleKeyring](#multiplekeyring): Người dùng ký bằng các khóa riêng tư
-* [RoleBasedKeyring](#rolebasedkeyring): Người dùng ký bằng (các) khóa riêng tư theo vai trò
+- [SingleKeyring](#singlekeyring): Người dùng ký bằng khóa riêng tư
+- [MultipleKeyring](#multiplekeyring): Người dùng ký bằng các khóa riêng tư
+- [RoleBasedKeyring](#rolebasedkeyring): Người dùng ký bằng (các) khóa riêng tư theo vai trò
 
 ### SingleKeyring <a href="#singlekeyring" id="singlekeyring"></a>
 
@@ -24,9 +24,9 @@ const keyring = new caver.wallet.keyring.singleKeyring(address, key)
 
 **thuộc tính**
 
-| Tên     | type                                | Mô tả                                                                               |
-| ------- | ----------------------------------- | ----------------------------------------------------------------------------------- |
-| address | chuỗi                               | Địa chỉ của tài khoản.                                                              |
+| Tên     | type                      | Mô tả                                                                     |
+| ------- | ------------------------- | ------------------------------------------------------------------------- |
+| address | chuỗi                     | Địa chỉ của tài khoản.                                                    |
 | khóa    | [PrivateKey](#privatekey) | Một đối tượng [PrivateKey](#privatekey) chứa một khóa riêng tư bên trong. |
 
 ### MultipleKeyring <a href="#multiplekeyring" id="multiplekeyring"></a>
@@ -41,9 +41,9 @@ const keyring = new caver.wallet.keyring.multipleKeyring(address, keys)
 
 **thuộc tính**
 
-| Tên     | Loại | Mô tả                                                                                        |
-| ------- | ----- | -------------------------------------------------------------------------------------------- |
-| address | chuỗi | Địa chỉ của tài khoản.                                                                       |
+| Tên     | Loại | Mô tả                                                                              |
+| ------- | ----- | ---------------------------------------------------------------------------------- |
+| address | chuỗi | Địa chỉ của tài khoản.                                                             |
 | keys    | Mảng  | Một mảng các đối tượng [PrivateKey](#privatekey) chứa một khóa riêng tư bên trong. |
 
 ### RoleBasedKeyring <a href="#rolebasedkeyring" id="rolebasedkeyring"></a>
@@ -58,18 +58,18 @@ const keyring = new caver.wallet.keyring.roleBasedKeyring(address, keys)
 
 **thuộc tính**
 
-| Tên     | type  | Mô tả                                                                                                                                                                                                                                                                                                                                                                                       |
-| ------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address | chuỗi | Địa chỉ của tài khoản.                                                                                                                                                                                                                                                                                                                                                                      |
+| Tên     | type  | Mô tả                                                                                                                                                                                                                                                                                                                                                                            |
+| ------- | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address | chuỗi | Địa chỉ của tài khoản.                                                                                                                                                                                                                                                                                                                                                           |
 | keys    | Mảng  | Mảng hai chiều xác định các khóa được sử dụng cho mỗi [vai trò](../../../../../learn/accounts.md#roles). Mỗi [vai trò](../../../../../learn/accounts.md#roles) bao gồm (các) đối tượng [PrivateKey](#privatekey). Phần tử đầu tiên trong phần này là `roleTransactionKey`. Phần tử thứ hai là `roleAccountUpdateKey`. Phần tử cuối cùng là `roleFeePayerKey`. |
 
 Dưới đây là một getter được xác định trong keyring để sử dụng trực quan khóa được xác định cho từng vai trò. Khóa được sử dụng cho từng vai trò có thể được truy cập dễ dàng hơn thông qua getter bên dưới.
 
-| Tên                  | Loại | Mô tả                                                                                                                                                                       |
-| -------------------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Tên                  | Loại | Mô tả                                                                                                                                                                                          |
+| -------------------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | roleTransactionKey   | Mảng  | roleTransactionKey dùng để ký các giao dịch (ngoại trừ các giao dịch để cập nhật tài khoản). `keyring.roleTransactionkey` sẽ trả về phần tử đầu tiên của thuộc tính `keys`. |
-| roleAccountUpdateKey | Mảng  | roleAccountUpdateKey dùng để ký các giao dịch cập nhật tài khoản. `keyring.roleAccountUpdateKey` sẽ trả về phần tử thứ hai của thuộc tính `keys`.                           |
-| roleFeePayerKey      | Mảng  | roleFeePayerKey dùng để ký các giao dịch với tư cách là người trả phí. `keyring.roleFeePayerKey` sẽ trả về phần tử thứ ba của thuộc tính `keys`.                            |
+| roleAccountUpdateKey | Mảng  | roleAccountUpdateKey dùng để ký các giao dịch cập nhật tài khoản. `keyring.roleAccountUpdateKey` sẽ trả về phần tử thứ hai của thuộc tính `keys`.                                              |
+| roleFeePayerKey      | Mảng  | roleFeePayerKey dùng để ký các giao dịch với tư cách là người trả phí. `keyring.roleFeePayerKey` sẽ trả về phần tử thứ ba của thuộc tính `keys`.                                               |
 
 ### PrivateKey <a href="#privatekey" id="privatekey"></a>
 
@@ -111,14 +111,14 @@ Tạo một đối tượng SingleKeyring với khóa riêng tư được tạo 
 
 **Tham số**
 
-| Tên     | Loại | Mô tả                                                  |
-| ------- | ----- | ------------------------------------------------------ |
+| Tên     | Loại | Mô tả                                                                     |
+| ------- | ----- | ------------------------------------------------------------------------- |
 | entropy | chuỗi | (tùy chọn) Một chuỗi ngẫu nhiên để tăng độ nhiễu loạn. |
 
 **Giá trị trả về**
 
-| Loại                                     | Mô tả                                                      |
-| ----------------------------------------- | ---------------------------------------------------------- |
+| Loại                           | Mô tả                                                      |
+| ------------------------------- | ---------------------------------------------------------- |
 | [SingleKeyring](#singlekeyring) | Một đối tượng keyring đơn được tạo ngẫu nhiên được trả về. |
 
 **Ví dụ**
@@ -141,8 +141,8 @@ Tạo một chuỗi khóa riêng tư.
 
 **Tham số**
 
-| Tên     | Loại | Mô tả                                                  |
-| ------- | ----- | ------------------------------------------------------ |
+| Tên     | Loại | Mô tả                                                                     |
+| ------- | ----- | ------------------------------------------------------------------------- |
 | entropy | chuỗi | (tùy chọn) Một chuỗi ngẫu nhiên để tăng độ nhiễu loạn. |
 
 **Giá trị trả về**
@@ -168,9 +168,9 @@ Tạo chuỗi khóa riêng tư.
 
 **Tham số**
 
-| Tên     | Loại | Mô tả                                                  |
-| ------- | ----- | ------------------------------------------------------ |
-| num     | số    | Số chuỗi khóa riêng tư.                                |
+| Tên     | Loại | Mô tả                                                                     |
+| ------- | ----- | ------------------------------------------------------------------------- |
+| num     | số    | Số chuỗi khóa riêng tư.                                                   |
 | entropy | chuỗi | (tùy chọn) Một chuỗi ngẫu nhiên để tăng độ nhiễu loạn. |
 
 **Giá trị trả về**
@@ -200,15 +200,15 @@ Tạo một mảng 2D trong đó mỗi phần tử mảng chứa các khóa đư
 
 **Tham số**
 
-| Tên      | Loại | Mô tả                                                                                            |
-| -------- | ----- | ------------------------------------------------------------------------------------------------ |
+| Tên      | Loại | Mô tả                                                                                  |
+| -------- | ----- | -------------------------------------------------------------------------------------- |
 | numArray | Mảng  | Một mảng chứa số lượng khóa cho mỗi [vai trò](../../../../../learn/accounts.md#roles). |
-| entropy  | chuỗi | (tùy chọn) Một chuỗi ngẫu nhiên để tăng độ nhiễu loạn.                                           |
+| entropy  | chuỗi | (tùy chọn) Một chuỗi ngẫu nhiên để tăng độ nhiễu loạn.              |
 
 **Giá trị trả về**
 
-| Loại | Mô tả                                                                                                                                         |
-| ----- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| Loại | Mô tả                                                                                                                               |
+| ----- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | Mảng  | Trả về một mảng 2D trong đó mỗi phần tử mảng chứa các khóa được xác định cho mỗi [vai trò](../../../../../learn/accounts.md#roles). |
 
 **Ví dụ**
@@ -243,28 +243,28 @@ Nếu `key` là một chuỗi khóa riêng tư thì đối tượng [SingleKeyri
 
 **Tham số**
 
-| Tên     | Loại    | Mô tả                                                                                                                                                                                  |
-| ------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address | chuỗi    | Một địa chỉ của keyring.                                                                                                                                                               |
-| khóa    | chuỗi \ | Mảng | Chuỗi khóa riêng tư, một mảng khóa riêng tư hoặc mảng 2D trong đó mỗi phần tử chứa (các) khóa được sử dụng cho mỗi [vai trò](../../../../../learn/accounts.md#roles). |
+| Tên     | Loại         | Mô tả                                                                                                                                                                                    |
+| ------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address | chuỗi         | Một địa chỉ của keyring.                                                                                                                                                                 |
+| khóa    | chuỗi \| Mảng | Chuỗi khóa riêng tư, một mảng khóa riêng tư hoặc mảng 2D trong đó mỗi phần tử chứa (các) khóa được sử dụng cho mỗi [vai trò](../../../../../learn/accounts.md#roles). |
 
 **Giá trị trả về**
 
-| Loại     | Mô tả                                                                                                                                                                                                                   |
-| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Loại     | Mô tả                                                                                                                                                                                     |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `Keyring` | Đối tượng keyring được trả về. Tùy thuộc vào tham số `key`, nó có thể là [SingleKeyring](#singlekeyring), [MultipleKeyring](#multiplekeyring) hoặc [RoleBasedKeyring](#rolebasedkeyring). |
 
 **Ví dụ**
 
 ```javascript
-// Tạo singleKeyring sử dụng một khóa riêng tư
+// Create singleKeyring which uses one private key
 > caver.wallet.keyring.create('0x{address in hex}', '0x{private key}')
 SingleKeyring {
     _address: '0x30fcfa9679c7141a234c1324c7e0a8b715bdfc90',
     _key: PrivateKey { _privateKey: '0x{private key}' }
 }
 
-// Tạo multipleKeyring sử dụng nhiều khóa riêng tư
+// Create multipleKeyring which uses multiple private keys
 > caver.wallet.keyring.create('0x{address in hex}', ['0x{private key1}', '0x{private key2}'])
 MultipleKeyring {
     _address: '0x30fcfa9679c7141a234c1324c7e0a8b715bdfc90',
@@ -274,7 +274,7 @@ MultipleKeyring {
     ]
 }
 
-// Tạo roleBasedKeyring sử dụng (các) khóa riêng tư khác nhau theo vai trò
+// Create roleBasedKeyring which uses different private key(s) by roles
 > const roleBasedKeys = [
     ['0x{private key1}', '0x{private key2}'],
     ['0x{private key3}', '0x{private key4}'],
@@ -310,27 +310,27 @@ Tạo đối tượng `SingleKeyring` từ chuỗi khóa riêng tư hoặc [Klay
 
 **Tham số**
 
-| Tên  | type  | Mô tả                                                                                                                            |
-| ---- | ----- | -------------------------------------------------------------------------------------------------------------------------------- |
+| Tên  | type  | Mô tả                                                                                                                  |
+| ---- | ----- | ---------------------------------------------------------------------------------------------------------------------- |
 | khóa | chuỗi | Tham số này có thể là khóa riêng tư hoặc [KlaytnWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format). |
 
 **Giá trị trả về**
 
-| Loại                                     | Mô tả                                |
-| ----------------------------------------- | ------------------------------------ |
+| Loại                           | Mô tả                                |
+| ------------------------------- | ------------------------------------ |
 | [SingleKeyring](#singlekeyring) | Đối tượng SingleKeyring được trả về. |
 
 **Ví dụ**
 
 ```javascript
-// Tạo singleKeyring từ chuỗi khóa riêng tư
+// Create singleKeyring from private key string
 > caver.wallet.keyring.createFromPrivateKey('0x{private key}')
 SingleKeyring {
     _address: '0xaa7b43f2eab01cfd787b07ce2f2fb5d6d20a8aa0',
     _key: PrivateKey { _privateKey: '0x{private key}' }
 }
 
-// Tạo singleKeyring từ KlaytnWalletKey
+// Create singleKeyring from KlaytnWalletKey
 > caver.wallet.keyring.createFromPrivateKey('0x{private key}0x{type}0x{address in hex}')
 SingleKeyring {
     _address: '0xaa7b43f2eab01cfd787b07ce2f2fb5d6d20a8aa0',
@@ -348,14 +348,14 @@ Tạo đối tượng `SingleKeyring` từ chuỗi [KlaytnWalletKey](../../../..
 
 **Tham số**
 
-| Tên             | Loại | Mô tả                                                                                         |
-| --------------- | ----- | --------------------------------------------------------------------------------------------- |
+| Tên             | Loại | Mô tả                                                                               |
+| --------------- | ----- | ----------------------------------------------------------------------------------- |
 | klaytnWalletKey | chuỗi | Chuỗi [KlaytnWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format). |
 
 **Giá trị trả về**
 
-| Loại                                     | Mô tả                                |
-| ----------------------------------------- | ------------------------------------ |
+| Loại                           | Mô tả                                |
+| ------------------------------- | ------------------------------------ |
 | [SingleKeyring](#singlekeyring) | Đối tượng SingleKeyring được trả về. |
 
 **Ví dụ**
@@ -385,8 +385,8 @@ Tạo đối tượng `SingleKeyring` từ địa chỉ và chuỗi khóa riêng
 
 **Giá trị trả về**
 
-| type                                      | Mô tả                                |
-| ----------------------------------------- | ------------------------------------ |
+| type                            | Mô tả                                |
+| ------------------------------- | ------------------------------------ |
 | [SingleKeyring](#singlekeyring) | Đối tượng SingleKeyring được trả về. |
 
 **Ví dụ**
@@ -416,8 +416,8 @@ Tạo đối tượng `MultipleKeyring` từ một địa chỉ và chuỗi khó
 
 **Giá trị trả về**
 
-| Loại                                         | Mô tả                                  |
-| --------------------------------------------- | -------------------------------------- |
+| Loại                               | Mô tả                                  |
+| ----------------------------------- | -------------------------------------- |
 | [MultipleKeyring](#multiplekeyring) | Đối tượng MultipleKeyring được trả về. |
 
 **Ví dụ**
@@ -450,8 +450,8 @@ Tạo một đối tượng `RoleBasedKeyring` từ một địa chỉ và một
 
 **Giá trị trả về**
 
-| Loại                                           | Mô tả                                   |
-| ----------------------------------------------- | --------------------------------------- |
+| Loại                                 | Mô tả                                   |
+| ------------------------------------- | --------------------------------------- |
 | [RoleBasedKeyring](#rolebasedkeyring) | Đối tượng RoleBasedKeyring được trả về. |
 
 **Ví dụ**
@@ -499,14 +499,14 @@ Giải mã JSON lưu trữ khóa v3 hoặc v4 và trả về đối tượng Key
 
 **Giá trị trả về**
 
-| Loại     | Mô tả                                                                                                                                                                        |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Loại     | Mô tả                                                                                                                                                             |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `Keyring` | Đối tượng khóa được giải mã ([SingleKeyring](#singlekeyring), [MultipleKeyring](#multiplekeyring) hoặc [RoleBasedKeyring](#rolebasedkeyring)). |
 
 **Ví dụ**
 
 ```javascript
-// Giải mã lưu trữ khóa v4 (khóa đơn được mã hóa)
+// Decrypt keystroe v4 (encrypted single keyring)
 > caver.wallet.keyring.decrypt({ 
     version: 4,
     id: '9c12de05-0153-41c7-a8b7-849472eb5de7',
@@ -533,7 +533,7 @@ SingleKeyring {
     _key: PrivateKey { _privateKey: '0x{private key}' }
 }
 
-// Giải mã lưu trữ khóa v4 (mã hóa nhiều khóa)
+// Decrypt keystroe v4 (encrypted multiple keyring)
 > caver.wallet.keyring.decrypt({
     version: 4,
     id: '55da3f9c-6444-4fc1-abfa-f2eabfc57501',
@@ -577,7 +577,7 @@ MultipleKeyring {
     ]
 }
 
-// Giải mã lưu trữ khóa v4 (khóa dựa trên vai trò được mã hóa)
+// Decrypt keystroe v4 (encrypted role-based keyring)
 > caver.wallet.keyring.decrypt({
     version: 4,
     id: '55da3f9c-6444-4fc1-abfa-f2eabfc57501',
@@ -678,7 +678,7 @@ RoleBasedKeyring {
     ]
 }
 
-// Giải mã lưu trữ khóa v3 JSON
+// Decrypt keystroe v3 JSON
 > caver.wallet.keyring.decrypt({ 
     version: 3,
     id: '43f99d36-3905-40e6-bff8-ff0dfc380037',
@@ -714,28 +714,28 @@ Trả về (các) chuỗi khóa công khai. Nếu `keyring` là đối tượng 
 
 **Tham số**
 
-| Tên        | Loại   | Mô tả                                                        |
-| ---------- | ------- | ------------------------------------------------------------ |
+| Tên        | Loại   | Mô tả                                                                                              |
+| ---------- | ------- | -------------------------------------------------------------------------------------------------- |
 | compressed | boolean | (tùy chọn) Có ở định dạng nén hay không (mặc định: `false`). |
 
 **Giá trị trả về**
 
-| Loại    | Mô tả                              |
-| -------- | ---------------------------------- |
-| chuỗi \ | Mảng | Khóa công khai của keyring. |
+| Loại         | Mô tả                       |
+| ------------- | --------------------------- |
+| chuỗi \| Mảng | Khóa công khai của keyring. |
 
 **Ví dụ**
 
 ```javascript
-// Nhận khóa công khai với singleKeyring
+// Get public key with singleKeyring
 > keyring.getPublicKey()
 '0x49b2a...'
 
-// Nhận khóa công khai bằng multipleKeyring
+// Get public key with multipleKeyring
 > keyring.getPublicKey()
 [ '0x65b51...', '0x8d85c...' ]
 
-// Nhận khóa công khai với roleBasedKeyring
+// Get public key with roleBasedKeyring
 > keyring.getPublicKey()
 [
     [ '0x2d939...', '0x6beb4...', '0xd8f2f...' ],
@@ -754,21 +754,21 @@ Trả về một đối tượng keyring đã sao chép.
 
 **Giá trị trả về**
 
-| Loại     | Mô tả                                                                                                                                                                         |
-| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Loại     | Mô tả                                                                                                                                                              |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `Keyring` | Đối tượng khóa được sao chép ([SingleKeyring](#singlekeyring), [MultipleKeyring](#multiplekeyring) hoặc [RoleBasedKeyring](#rolebasedkeyring)). |
 
 **Ví dụ**
 
 ```javascript
-// Khi keyring là một đối tượng SingleKeyring
+// When keyring is an instance of SingleKeyring
 > keyring.copy()
 SingleKeyring {
     _address: '0x30fcfa9679c7141a234c1324c7e0a8b715bdfc90',
     _key: PrivateKey { _privateKey: '0x{private key}' }
 }
 
-// Khi keyring là một đối tượng MultipleKeyring
+// When keyring is an instance of MultipleKeyring
 > keyring.copy()
 MultipleKeyring {
     _address: '0x30fcfa9679c7141a234c1324c7e0a8b715bdfc90',
@@ -778,7 +778,7 @@ MultipleKeyring {
     ]
 }
 
-// Khi keyring là một đối tượng RoleBasedKeyring
+// When keyring is an instance of RoleBasedKeyring
 > keyring.copy()
 RoleBasedKeyring {
     _address: '0x30fcfa9679c7141a234c1324c7e0a8b715bdfc90',
@@ -811,56 +811,56 @@ Khi ký giao dịch, bạn nên sử dụng [caver.wallet.sign](./caver-wallet.m
 
 **Tham số**
 
-| Tên             | Loại    | Mô tả                                                                                                                                                                                                                   |
-| --------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| transactionHash | chuỗi    | Chuỗi hàm băm của một giao dịch để ký.                                                                                                                                                                                  |
-| chainId         | chuỗi \ | số | Id chuỗi của nền tảng chuỗi khối Klaytn.                                                                                                                                                                           |
-| vai trò         | số       | Một con số biểu thị vai trò của khóa. Bạn có thể sử dụng `caver.wallet.keyring.role`.                                                                                                                                   |
-| chỉ số          | số       | (tùy chọn) Chỉ mục khóa riêng tư bạn muốn sử dụng. Chỉ mục phải nhỏ hơn độ dài của mảng các khóa riêng tư được định rõ cho mỗi vai trò. Nếu không định rõ chỉ mục, phương pháp này sẽ sử dụng tất cả các khóa riêng tư. |
+| Tên             | Loại       | Mô tả                                                                                                                                                                                                                                      |
+| --------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| transactionHash | chuỗi       | Chuỗi hàm băm của một giao dịch để ký.                                                                                                                                                                                                     |
+| chainId         | chuỗi \| số | Id chuỗi của nền tảng chuỗi khối Klaytn.                                                                                                                                                                                                   |
+| vai trò         | số          | Một con số biểu thị vai trò của khóa. Bạn có thể sử dụng `caver.wallet.keyring.role`.                                                                                                                                                      |
+| chỉ số          | số          | (tùy chọn) Chỉ mục khóa riêng tư bạn muốn sử dụng. Chỉ mục phải nhỏ hơn độ dài của mảng các khóa riêng tư được định rõ cho mỗi vai trò. Nếu không định rõ chỉ mục, phương pháp này sẽ sử dụng tất cả các khóa riêng tư. |
 
 **Giá trị trả về**
 
-| Loại | Mô tả                                               |
-| ----- | --------------------------------------------------- |
+| Loại | Mô tả                                     |
+| ----- | ----------------------------------------- |
 | Mảng  | Một mảng [SignatureData](#signaturedata). |
 
 **Ví dụ**
 
 ```javascript
-// Sử dụng roleBasedKeyring có hai khóa riêng tư trong roleTransactionKey
+// Using roleBasedKeyring which has two private key in roleTransactionKey
 > keyring.sign('0xe9a11d9ef95fb437f75d07ce768d43e74f158dd54b106e7d3746ce29d545b550', '0x2810', caver.wallet.keyring.role.roleTransactionKey)
 [
     SignatureData { _v: '0x5044', _r: '0x7a8b6...', _s: '0x17139...' },
     SignatureData { _v: '0x5043', _r: '0x7f978...', _s: '0x1a532...' }
 ]
 
-// Sử dụng roleBasedKeyring có hai khóa riêng tư trong roleTransactionKey với chỉ mục
+// Using roleBasedKeyring which has two private key in roleTransactionKey with index
 > keyring.sign('0xe9a11d9ef95fb437f75d07ce768d43e74f158dd54b106e7d3746ce29d545b550', '0x2810', caver.wallet.keyring.role.roleTransactionKey, 1)
 [
     SignatureData { _v: '0x5043', _r: '0x7f978...', _s: '0x1a532...' }
 ]
 
-// Sử dụng roleBasedKeyring có hai khóa riêng tư trong roleAccountUpdateKey
+// Using roleBasedKeyring which has two private key in roleAccountUpdateKey
 > keyring.sign('0xe9a11d9ef95fb437f75d07ce768d43e74f158dd54b106e7d3746ce29d545b550', '0x2810', caver.wallet.keyring.role.roleAccountUpdateKey)
 [
     SignatureData { _v: '0x5044', _r: '0xdbce8...', _s: '0x039a6...' },
     SignatureData { _v: '0x5044', _r: '0xf69b7...', _s: '0x71dc9...' }
 ]
 
-// Sử dụng roleBasedKeyring có hai khóa riêng tư trong roleAccountUpdateKey có chỉ mục
+// Using roleBasedKeyring which has two private key in roleAccountUpdateKey with index
 > keyring.sign('0xe9a11d9ef95fb437f75d07ce768d43e74f158dd54b106e7d3746ce29d545b550', '0x2810', caver.wallet.keyring.role.roleAccountUpdateKey, 1)
 [
     SignatureData { _v: '0x5044', _r: '0xf69b7...', _s: '0x71dc9...' }
 ]
 
-// Sử dụng roleBasedKeyring có hai khóa riêng tư trong roleFeePayerKey
+// Using roleBasedKeyring which has two private key in roleFeePayerKey
 > keyring.sign('0xe9a11d9ef95fb437f75d07ce768d43e74f158dd54b106e7d3746ce29d545b550', '0x2810', caver.wallet.keyring.role.roleFeePayerKey)
 [
     SignatureData { _v: '0x5043', _r: '0xe48bf...', _s: '0x1cf36...' },
     SignatureData { _v: '0x5043', _r: '0x82976...', _s: '0x3c5e0...' }
 ]
 
-// Sử dụng roleBasedKeyring có hai khóa riêng tư trong roleFeePayerKey có chỉ mục
+// Using roleBasedKeyring which has two private key in roleFeePayerKey with index
 > keyring.sign('0xe9a11d9ef95fb437f75d07ce768d43e74f158dd54b106e7d3746ce29d545b550', '0x2810', caver.wallet.keyring.role.roleFeePayerKey, 1)
 [
     SignatureData { _v: '0x5043', _r: '0x82976...', _s: '0x3c5e0...' }
@@ -879,16 +879,16 @@ Hàm này chỉ được sử dụng cho một số loại giao dịch nhất đ
 
 **Tham số**
 
-| Tên     | Loại | Mô tả                                                                                                                                                                                                                   |
-| ------- | ----- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| hash    | chuỗi | Chuỗi hàm băm để ký.                                                                                                                                                                                                    |
-| vai trò | số    | Một con số biểu thị vai trò của khóa. Bạn có thể sử dụng `caver.wallet.keyring.role`.                                                                                                                                   |
+| Tên     | Loại | Mô tả                                                                                                                                                                                                                                      |
+| ------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| hash    | chuỗi | Chuỗi hàm băm để ký.                                                                                                                                                                                                                       |
+| vai trò | số    | Một con số biểu thị vai trò của khóa. Bạn có thể sử dụng `caver.wallet.keyring.role`.                                                                                                                                                      |
 | chỉ số  | số    | (tùy chọn) Chỉ mục khóa riêng tư bạn muốn sử dụng. Chỉ mục phải nhỏ hơn độ dài của mảng các khóa riêng tư được định rõ cho mỗi vai trò. Nếu không định rõ chỉ mục, phương pháp này sẽ sử dụng tất cả các khóa riêng tư. |
 
 **Giá trị trả về**
 
-| type | Mô tả                                               |
-| ---- | --------------------------------------------------- |
+| type | Mô tả                                     |
+| ---- | ----------------------------------------- |
 | Mảng | Một mảng [SignatureData](#signaturedata). |
 
 **Ví dụ**
@@ -916,10 +916,10 @@ Nếu người dùng chưa định rõ tham số chỉ mục, `keyring.signMessa
 
 **Tham số**
 
-| Tên       | Loại | Mô tả                                                                                                                                                                                                                   |
-| --------- | ----- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| thông báo | chuỗi | Tin nhắn cần ký.                                                                                                                                                                                                        |
-| vai trò   | số    | Một con số biểu thị vai trò của khóa. Bạn có thể sử dụng `caver.wallet.keyring.role`.                                                                                                                                   |
+| Tên       | Loại | Mô tả                                                                                                                                                                                                                                      |
+| --------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| thông báo | chuỗi | Tin nhắn cần ký.                                                                                                                                                                                                                           |
+| vai trò   | số    | Một con số biểu thị vai trò của khóa. Bạn có thể sử dụng `caver.wallet.keyring.role`.                                                                                                                                                      |
 | chỉ số    | số    | (tùy chọn) Chỉ mục khóa riêng tư bạn muốn sử dụng. Chỉ mục phải nhỏ hơn độ dài của mảng các khóa riêng tư được định rõ cho mỗi vai trò. Nếu không định rõ chỉ mục, phương pháp này sẽ sử dụng tất cả các khóa riêng tư. |
 
 **Giá trị trả về**
@@ -933,13 +933,13 @@ Nếu người dùng chưa định rõ tham số chỉ mục, `keyring.signMessa
 | Tên         | Loại | Mô tả                                                  |
 | ----------- | ----- | ------------------------------------------------------ |
 | messageHash | chuỗi | Hàm băm của tin nhắn có tiền tố dành riêng cho Klaytn. |
-| chữ ký      | Mảng  | Một mảng [SignatureData](#signaturedata).    |
+| chữ ký      | Mảng  | Một mảng [SignatureData](#signaturedata).              |
 | thông báo   | chuỗi | Tin nhắn cần ký.                                       |
 
 **Ví dụ**
 
 ```javascript
-// Ký với roleTransactionKey
+// Sign with roleTransactionKey
 > keyring.signMessage('message to sign', caver.wallet.keyring.role.roleTransactionKey)
 {
     messageHash: '0x9c4c1ae0aa1faf7e59eaf6fcf36a34542698197b379a9949b58c92925e74c069',
@@ -949,7 +949,7 @@ Nếu người dùng chưa định rõ tham số chỉ mục, `keyring.signMessa
     message: 'message to sign'
 }
 
-// Ký với roleFeePayerKey và chỉ mục
+// Sign with roleFeePayerKey and index
 > keyring.signMessage('message to sign', caver.wallet.keyring.role.roleFeePayerKey, 1)
 {
     messageHash: '0x9c4c1ae0aa1faf7e59eaf6fcf36a34542698197b379a9949b58c92925e74c069',
@@ -976,15 +976,15 @@ Trả về (các) khóa riêng tư được sử dụng bởi vai trò đã nh�
 
 **Giá trị trả về**
 
-| Loại                                  | Mô tả                                                                                                                                                 |
-| -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [PrivateKey](#privatekey) \ | Mảng | Một đối tượng [PrivateKey](#privatekey) hoặc một mảng chứa các đối tượng [PrivateKey](#privatekey) mà vai trò này sử dụng. |
+| Loại                             | Mô tả                                                                                                                      |
+| --------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| [PrivateKey](#privatekey) \| Mảng | Một đối tượng [PrivateKey](#privatekey) hoặc một mảng chứa các đối tượng [PrivateKey](#privatekey) mà vai trò này sử dụng. |
 
 **Ví dụ**
 
 ```javascript
-// getKeyByRole với singleKeyring. 
-// SingleKeyring sẽ trả về cùng một đối tượng PrivateKey duy nhất bất kể vai trò.
+// getKeyByRole with singleKeyring. 
+// The singleKeyring will return the single same PrivateKey intance regardless of role.
 > keyring.getKeyByRole(caver.wallet.keyring.role.roleTransactionKey)
 PrivateKey { _privateKey: '0x{private key}' }
 
@@ -994,8 +994,8 @@ PrivateKey { _privateKey: '0x{private key}' }
 > keyring.getKeyByRole(caver.wallet.keyring.role.roleFeePayerKey)
 PrivateKey { _privateKey: '0x{private key}' }
 
-// getKeyByRole với multipleKeyring. 
-// MultipleKeyring cũng sẽ trả về cùng một mảng các đối tượng PrivateKey bất kể vai trò
+// getKeyByRole with multipleKeyring. 
+// The multipleKeyring will also return the single same array of PrivateKey intances regardless of role
 > keyring.getKeyByRole(caver.wallet.keyring.role.roleTransactionKey)
 [
     PrivateKey { _privateKey: '0x{private key1}' },
@@ -1014,8 +1014,8 @@ PrivateKey { _privateKey: '0x{private key}' }
     PrivateKey { _privateKey: '0x{private key2}' }
 ]
 
-// getKeyByRole với roleBasedKeyring. 
-// roleBasedKeyring sẽ trả về các mảng đối tượng PrivateKey khác nhau tùy thuộc vào vai trò
+// getKeyByRole with roleBasedKeyring. 
+// The roleBasedKeyring will return different array of PrivateKey intances depends on role
 > keyring.getKeyByRole(caver.wallet.keyring.role.roleTransactionKey)
 [
     PrivateKey { _privateKey: '0x{private key1}' }
@@ -1045,8 +1045,8 @@ Trả về chuỗi [KlaytnWalletKey](../../../../../learn/accounts.md#klaytn-wal
 
 **Giá trị trả về**
 
-| Loại | Mô tả                                                                                               |
-| ----- | --------------------------------------------------------------------------------------------------- |
+| Loại | Mô tả                                                                                     |
+| ----- | ----------------------------------------------------------------------------------------- |
 | chuỗi | [KlaytnWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format) của keyring. |
 
 **Ví dụ**
@@ -1068,37 +1068,37 @@ Lưu ý rằng nếu bạn cập nhật [AccountKey](../../../../../learn/accoun
 
 Tùy thuộc vào loại (các) khóa riêng tư trong keyring, các đối tượng [Tài khoản](../caver.account.md#account) được trả về có thể được phân loại như sau.
 
-* Khi keyring chứa chuỗi khóa riêng tư: Trả về đối tượng [Tài khoản](../caver.account.md#account) bao gồm địa chỉ trong khóa và đối tượng [AccountKeyPublic](../caver.account.md#accountkeypublic)
-* Khi keyring chứa chuỗi khóa riêng tư: Trả về đối tượng [Tài khoản](../caver.account.md#account) bao gồm địa chỉ trong khóa và đối tượng [AccountKeyWeigthedMultiSig](../caver.account.md#accountkeyweightedmultisig)
-* Khi keyring chứa các chuỗi khóa riêng tư khác nhau theo vai trò: Trả về đối tượng [Tài khoản](../caver.account.md#account) bao gồm địa chỉ trong khóa và đối tượng [AccountKeyRoleBased](../caver.account.md#accountkeyrolebased)
+- Khi keyring chứa chuỗi khóa riêng tư: Trả về đối tượng [Tài khoản](../caver.account.md#account) bao gồm địa chỉ trong khóa và đối tượng [AccountKeyPublic](../caver.account.md#accountkeypublic)
+- Khi keyring chứa chuỗi khóa riêng tư: Trả về đối tượng [Tài khoản](../caver.account.md#account) bao gồm địa chỉ trong khóa và đối tượng [AccountKeyWeigthedMultiSig](../caver.account.md#accountkeyweightedmultisig)
+- Khi keyring chứa các chuỗi khóa riêng tư khác nhau theo vai trò: Trả về đối tượng [Tài khoản](../caver.account.md#account) bao gồm địa chỉ trong khóa và đối tượng [AccountKeyRoleBased](../caver.account.md#accountkeyrolebased)
 
 **Tham số**
 
-| Tên      | Loại                                                                       | Mô tả                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| -------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| tùy chọn | [WeightedMultiSigOptions](../caver.account.md#weightedmultisigoptions) \ | Mảng | (tùy chọn) Đối tượng [WeightedMultiSigOptions](../caver.account.md#weightedmultisigoptions) chứa thông tin sẽ được xác định khi cập nhật tài khoản hiện tại của bạn thành tài khoản có nhiều khóa riêng tư. Nếu quá trình tạo keyring sử dụng các khóa riêng tư khác nhau cho mỗi vai trò thì đối tượng [WeightedMultiSigOptions](../caver.account.md#weightedmultisigoptions) phải được xác định cho mỗi vai trò trong một mảng. Nếu keyring sử dụng nhiều khóa riêng tư và tham số tùy chọn không được xác định thì [WeightedMultiSigOptions](../caver.account.md#weightedmultisigoptions) mặc định với ngưỡng 1 và trọng số 1 cho mỗi khóa sẽ được sử dụng. |
+| Tên      | Loại                                                                          | Mô tả                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| -------- | ------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| tùy chọn | [WeightedMultiSigOptions](../caver.account.md#weightedmultisigoptions) \| Mảng | (tùy chọn) Đối tượng [WeightedMultiSigOptions](../caver.account.md#weightedmultisigoptions) chứa thông tin sẽ được xác định khi cập nhật tài khoản hiện tại của bạn thành tài khoản có nhiều khóa riêng tư. Nếu quá trình tạo keyring sử dụng các khóa riêng tư khác nhau cho mỗi vai trò thì đối tượng [WeightedMultiSigOptions](../caver.account.md#weightedmultisigoptions) phải được xác định cho mỗi vai trò trong một mảng. Nếu keyring sử dụng nhiều khóa riêng tư và tham số tùy chọn không được xác định thì [WeightedMultiSigOptions](../caver.account.md#weightedmultisigoptions) mặc định với ngưỡng 1 và trọng số 1 cho mỗi khóa sẽ được sử dụng. |
 
 **Giá trị trả về**
 
-| Loại                                    | Mô tả                                                                                                                                                                                                                                                                                                                                                                               |
-| ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Loại                                    | Mô tả                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Tài khoản](../caver.account.md#account) | Đối tượng Tài khoản sẽ được sử dụng khi người dùng cập nhật AccountKey cho tài khoản của họ trong Klaytn. Lưu ý rằng nếu bạn muốn thay thế chuỗi khóa hiện tại (hoặc (các) khóa riêng tư hiện có) bằng một keyring mới (hoặc (các) khóa riêng tư mới) cho tài khoản của mình thì bạn phải cập nhật AccountKey của mình bằng cách gửi giao dịch Cập nhật tài khoản đến Klaytn trước. |
 
 **Ví dụ**
 
 ```javascript
-// Nhận tài khoản với singleKeyring
+// Get account with singleKeyring
 > keyring.toAccount()
 Account {
     _address: '0x6a3edfad6d1126020d5369e9097db39281876c5d',
-    _tài khoảnKey: AccountKeyPublic { _publicKey: '0xc396b...' }
+    _accountKey: AccountKeyPublic { _publicKey: '0xc396b...' }
 }
 
-// Nhận tài khoản với multipleKeyring
+// Get account with multipleKeyring
 > keyring.toAccount()
 Account {
     _address: '0x53027503242c2f99969eeb8cb3a31f48f3668712',
-    _tài khoảnKey: AccountKeyWeightedMultiSig {
+    _accountKey: AccountKeyWeightedMultiSig {
         _threshold: 1,
         _weightedPublicKeys: [
             WeightedPublicKey { _weight: 1, _publicKey: '0x969c8...' },
@@ -1108,11 +1108,11 @@ Account {
     }
 }
 
-// Nhận tài khoản với multipleKeyring và tùy chọn
-> keyring.toAccount(new caver.tài khoản.weightedMultiSigOptions(3, [2, 2, 3]))
+// Get account with multipleKeyring and options
+> keyring.toAccount(new caver.account.weightedMultiSigOptions(3, [2, 2, 3]))
 Account {
     _address: '0x53027503242c2f99969eeb8cb3a31f48f3668712',
-    _tài khoảnKey: AccountKeyWeightedMultiSig {
+    _accountKey: AccountKeyWeightedMultiSig {
         _threshold: 3,
         _weightedPublicKeys: [
             WeightedPublicKey { _weight: 2, _publicKey: '0x969c8...' },
@@ -1122,12 +1122,12 @@ Account {
     }
 }
 
-// Nhận tài khoản với roleBasedKeyring
+// Get account with roleBasedKeyring
 > keyring.toAccount()
 Account {
     _address: '0xe7e9184c125020af5d34eab7848bab799a1dcba9',
-    _tài khoảnKey: AccountKeyRoleBased {
-        _tài khoảnKeys: [
+    _accountKey: AccountKeyRoleBased {
+        _accountKeys: [
             AccountKeyWeightedMultiSig {
                 _threshold: 1,
                 _weightedPublicKeys: [
@@ -1153,17 +1153,17 @@ Account {
     }
 }
 
-// Nhận tài khoản với roleBasedKeyring và tùy chọn
+// Get account with roleBasedKeyring and options
 > const options = [
-    new caver.tài khoản.weightedMultiSigOptions(3, [2, 3]),
-    new caver.tài khoản.weightedMultiSigOptions(2, [1, 1]),
-    new caver.tài khoản.weightedMultiSigOptions(5, [3, 5])
+    new caver.account.weightedMultiSigOptions(3, [2, 3]),
+    new caver.account.weightedMultiSigOptions(2, [1, 1]),
+    new caver.account.weightedMultiSigOptions(5, [3, 5])
 ]
 > keyring.toAccount(options)
 Account {
     _address: '0xe7e9184c125020af5d34eab7848bab799a1dcba9',
-    _tài khoảnKey: AccountKeyRoleBased {
-        _tài khoảnKeys: [
+    _accountKey: AccountKeyRoleBased {
+        _accountKeys: [
             AccountKeyWeightedMultiSig {
                 _threshold: 3,
                 _weightedPublicKeys: [
@@ -1200,9 +1200,9 @@ Mã hóa keyring và trả về tiêu chuẩn lưu trữ khóa v4. Để biết 
 
 **Tham số**
 
-| Tên      | Loại | Mô tả                                                                                      |
-| -------- | ----- | ------------------------------------------------------------------------------------------ |
-| password | chuỗi | Mật khẩu dùng để mã hóa. Lưu trữ khóa được mã hóa có thể được giải mã bằng mật khẩu này.   |
+| Tên      | Loại | Mô tả                                                                                                         |
+| -------- | ----- | ------------------------------------------------------------------------------------------------------------- |
+| password | chuỗi | Mật khẩu dùng để mã hóa. Lưu trữ khóa được mã hóa có thể được giải mã bằng mật khẩu này.                      |
 | tùy chọn | chuỗi | (tùy chọn) Tham số `options` cho phép bạn chỉ định các giá trị sẽ sử dụng khi dùng mã hóa. |
 
 **Giá trị trả về**
@@ -1213,19 +1213,19 @@ Mã hóa keyring và trả về tiêu chuẩn lưu trữ khóa v4. Để biết 
 
 Đối tượng được trả về chứa các mục sau:
 
-| Tên     | Loại | Mô tả                                                  |
-| ------- | ----- | ------------------------------------------------------ |
-| version | số    | Đối tượng của lưu trữ khóa.                            |
-| id      | chuỗi | Id của lưu trữ khóa.                                   |
-| address | chuỗi | Địa chỉ trong [Keyring](#class) được mã hóa. |
-| keyring | Mảng  | (Các) khóa riêng tư được mã hóa.                       |
+| Tên     | Loại | Mô tả                                               |
+| ------- | ----- | --------------------------------------------------- |
+| version | số    | Đối tượng của lưu trữ khóa.                         |
+| id      | chuỗi | Id của lưu trữ khóa.                                |
+| address | chuỗi | Địa chỉ trong [Keyring](#class) được mã hóa.        |
+| keyring | Mảng  | (Các) khóa riêng tư được mã hóa. |
 
 Để biết thêm thông tin, vui lòng tham khảo [KIP-3](https://kips.klaytn.foundation/KIPs/kip-3).
 
 **Ví dụ**
 
 ```javascript
-// Mã hóa singleKeyring
+// Encrypt singleKeyring
 > keyring.encrypt('password')
 { 
     version: 4,
@@ -1249,7 +1249,7 @@ Mã hóa keyring và trả về tiêu chuẩn lưu trữ khóa v4. Để biết 
     ]
 }
 
-// Mã hóa multipleKeyring
+// Encrypt multipleKeyring
 > keyring.encrypt('password')
 {
     version: 4,
@@ -1287,7 +1287,7 @@ Mã hóa keyring và trả về tiêu chuẩn lưu trữ khóa v4. Để biết 
     ]
 }
 
-// Mã hóa roleBasedKeyring
+// Encrypt roleBasedKeyring
 > keyring.encrypt('password')
 {
     version: 4,
@@ -1350,9 +1350,9 @@ Lưu ý rằng [MultipleKeyring](#multiplekeyring) và [RoleBasedKeyring](#roleb
 
 **Tham số**
 
-| Tên      | Loại | Mô tả                                                                                               |
-| -------- | ----- | --------------------------------------------------------------------------------------------------- |
-| password | chuỗi | Mật khẩu dùng để mã hóa. Lưu trữ khóa được mã hóa có thể được giải mã bằng mật khẩu này.            |
+| Tên      | Loại | Mô tả                                                                                                                  |
+| -------- | ----- | ---------------------------------------------------------------------------------------------------------------------- |
+| password | chuỗi | Mật khẩu dùng để mã hóa. Lưu trữ khóa được mã hóa có thể được giải mã bằng mật khẩu này.                               |
 | tùy chọn | chuỗi | (tùy chọn) Mật khẩu dùng để mã hóa. Lưu trữ khóa được mã hóa có thể được giải mã bằng mật khẩu này. |
 
 **Giá trị trả về**
@@ -1363,12 +1363,12 @@ Lưu ý rằng [MultipleKeyring](#multiplekeyring) và [RoleBasedKeyring](#roleb
 
 Đối tượng được trả về chứa các mục sau:
 
-| Tên     | Loại     | Mô tả                                                |
-| ------- | --------- | ---------------------------------------------------- |
-| version | số        | Đối tượng của lưu trữ khóa.                          |
-| id      | chuỗi     | Id của lưu trữ khóa.                                 |
+| Tên     | Loại     | Mô tả                                      |
+| ------- | --------- | ------------------------------------------ |
+| version | số        | Đối tượng của lưu trữ khóa.                |
+| id      | chuỗi     | Id của lưu trữ khóa.                       |
 | address | chuỗi     | Địa chỉ của [Keyring](#class) được mã hóa. |
-| crypto  | đối tượng | Khóa riêng tư được mã hóa.                           |
+| crypto  | đối tượng | Khóa riêng tư được mã hóa.                 |
 
 **Ví dụ**
 

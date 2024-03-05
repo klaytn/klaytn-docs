@@ -10,23 +10,23 @@ caver.klay.sendTransaction(transactionObject [, callback])
 
 **Parameters**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| transactionObject | Object | 전송할 트랜잭션 객체입니다. |
-| transactionObject.type | String | "ACCOUNT_CREATION" 트랜잭션의 유형입니다. |
-| transactionObject.from | String | 트랜잭션의 발신자 주소입니다. |
-| transactionObject.to | String | 새로 생성될 주소입니다. |
-| transactionObject.value | Number \| String \| BN \| BigNumber | 새로 생성된 계정에 대해 이체된 값입니다(단위: peb). |
-| transactionObject.gas | Number | 거래에 사용할 가스 양(사용하지 않은 가스는 환불됩니다). |
-| transactionObject.gasPrice | Number | (선택 사항) 발신자가 peb으로 제공한 가스 가격. 가스 가격은 Klaytn 노드에 설정된 단위가격과 동일해야 합니다. |
-| transactionObject.nonce | Number | (선택 사항) nonce의 정수입니다. 생략할 경우, `caver.klay.getTransactionCount` 호출을 통해 caver-js가 설정합니다. |
-| transactionObject.publicKey | String | (선택 사항) 공개 키로 계정을 만드는 경우 64바이트의 공개 키를 적어 둡니다. |
-| transactionObject.multisig | String | (선택 사항) 다중 서명 키로 계정을 만드는 경우, 여러 개의 공개 키로 다중 서명을 기록합니다. 다중 서명을 구성하는 공개 키에는 고유한 가중치가 있습니다. 다중 서명으로 서명된 트랜잭션의 경우, 서명의 가중치 합이 임계값보다 크거나 같아야 합니다. |
-| transactionObject.roleTransactionKey | String | (선택 사항) 역할 기반 키로 계정을 만드는 경우, 공개 키 또는 다중 서명 키와 함께 roleTransactionKey를 기록합니다. 이 roleTransactionKey는 트랜잭션에 서명할 때 사용됩니다. |
-| transactionObject.roleAccountUpdateKey | String | (선택 사항) 역할 기반 키로 계정을 만드는 경우 공개 키 또는 다중 서명 키와 함께 roleAccountUpdateKey를 기록합니다. 이 roleAccountUpdateKey는 AccountUpdate 트랜잭션에 서명할 때 사용됩니다. |
-| transactionObject.roleFeePayerKey | String | (선택 사항) 역할 기반 키로 계정을 만드는 경우, 공개 키 또는 다중서명 키와 함께 roleFeePayerKey를 기록합니다. 이 roleFeePayerKey는 feePayer로 트랜잭션에 서명할 때 사용됩니다. |
-| transactionObject.failKey | Bool | (선택 사항) 실패 키로 계정을 생성하는 경우 true로 설정합니다. |
-| callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 매개변수로 오류 객체를 반환하고 두 번째 매개변수로 결과를 반환합니다. |
+| Name                                   | Type                                | Description                                                                                                                                                     |
+| -------------------------------------- | ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| transactionObject                      | Object                              | 전송할 트랜잭션 객체입니다.                                                                                                                                                 |
+| transactionObject.type                 | String                              | "ACCOUNT_CREATION" 트랜잭션의 유형입니다.                                                                                                            |
+| transactionObject.from                 | String                              | 트랜잭션의 발신자 주소입니다.                                                                                                                                                |
+| transactionObject.to                   | String                              | 새로 생성될 주소입니다.                                                                                                                                                   |
+| transactionObject.value                | Number \| String \| BN \| BigNumber | 새로 생성된 계정에 대해 이체된 값입니다(단위: peb).                                                                                                             |
+| transactionObject.gas                  | Number                              | 거래에 사용할 가스 양(사용하지 않은 가스는 환불됩니다).                                                                                                             |
+| transactionObject.gasPrice             | Number                              | (선택 사항) 발신자가 peb으로 제공한 가스 가격. 가스 가격은 Klaytn 노드에 설정된 단위가격과 동일해야 합니다.                                                                          |
+| transactionObject.nonce                | Number                              | (선택 사항) nonce의 정수입니다. 생략할 경우, `caver.klay.getTransactionCount` 호출을 통해 caver-js가 설정합니다.                                                       |
+| transactionObject.publicKey            | String                              | (선택 사항) 공개 키로 계정을 만드는 경우 64바이트의 공개 키를 적어 둡니다.                                                                                                |
+| transactionObject.multisig             | String                              | (선택 사항) 다중 서명 키로 계정을 만드는 경우, 여러 개의 공개 키로 다중 서명을 기록합니다. 다중 서명을 구성하는 공개 키에는 고유한 가중치가 있습니다. 다중 서명으로 서명된 트랜잭션의 경우, 서명의 가중치 합이 임계값보다 크거나 같아야 합니다. |
+| transactionObject.roleTransactionKey   | String                              | (선택 사항) 역할 기반 키로 계정을 만드는 경우, 공개 키 또는 다중 서명 키와 함께 roleTransactionKey를 기록합니다. 이 roleTransactionKey는 트랜잭션에 서명할 때 사용됩니다.                         |
+| transactionObject.roleAccountUpdateKey | String                              | (선택 사항) 역할 기반 키로 계정을 만드는 경우 공개 키 또는 다중 서명 키와 함께 roleAccountUpdateKey를 기록합니다. 이 roleAccountUpdateKey는 AccountUpdate 트랜잭션에 서명할 때 사용됩니다.        |
+| transactionObject.roleFeePayerKey      | String                              | (선택 사항) 역할 기반 키로 계정을 만드는 경우, 공개 키 또는 다중서명 키와 함께 roleFeePayerKey를 기록합니다. 이 roleFeePayerKey는 feePayer로 트랜잭션에 서명할 때 사용됩니다.                      |
+| transactionObject.failKey              | Bool                                | (선택 사항) 실패 키로 계정을 생성하는 경우 true로 설정합니다.                                                                                                       |
+| callback                               | Function                            | (선택 사항) 선택적 콜백으로, 첫 번째 매개변수로 오류 객체를 반환하고 두 번째 매개변수로 결과를 반환합니다.                                                                               |
 
 **리턴 값**
 
@@ -34,9 +34,9 @@ caver.klay.sendTransaction(transactionObject [, callback])
 
 `PromiEvent`: 프라미스 결합 이벤트 이미터입니다. 트랜잭션 영수증을 사용할 수 있을 때 해결됩니다. 추가로 다음과 같은 이벤트를 사용할 수 있습니다:
 
-- ``"transactionHash"``는 `String`을 반환합니다: 트랜잭션이 전송되고 트랜잭션 해시를 사용할 수 있는 직후에 발생합니다.
-- ``"receipt"``는 ``Object``를 반환합니다: 트랜잭션 영수증을 사용할 수 있을 때 발생합니다.
-- ``"error"``는 ``Error``를 반환합니다: 전송 중 에러가 발생하면 발생합니다. 가스 부족 에러의 경우 두 번째 파라미터는 영수증입니다.
+- `"transactionHash"`는 `String`을 반환합니다: 트랜잭션이 전송되고 트랜잭션 해시를 사용할 수 있는 직후에 발생합니다.
+- `"receipt"`는 `Object`를 반환합니다: 트랜잭션 영수증을 사용할 수 있을 때 발생합니다.
+- `"error"`는 `Error`를 반환합니다: 전송 중 에러가 발생하면 발생합니다. 가스 부족 에러의 경우 두 번째 파라미터는 영수증입니다.
 
 **예제**
 

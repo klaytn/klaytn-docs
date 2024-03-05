@@ -12,8 +12,8 @@ Mã hóa chữ ký hàm thành chữ ký ABI - là 4 byte đầu tiên của hà
 
 **Tham số**
 
-| Tên               | type                   | Mô tả                                                                                                                                                                                    |
-| ----------------- | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Tên               | type               | Mô tả                                                                                                                                                                                    |
+| ----------------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | functionSignature | chuỗi \| đối tượng | Chữ ký hàm hoặc đối tượng giao diện JSON của hàm cần mã hóa. Nếu đây là một chuỗi thì chuỗi này phải ở dạng `function(type, type,...)`, vd: `myFunction(uint256,uint32[],bytes10,bytes)` |
 
 **Giá trị trả về**
@@ -25,7 +25,7 @@ Mã hóa chữ ký hàm thành chữ ký ABI - là 4 byte đầu tiên của hà
 **Ví dụ**
 
 ```javascript
-// Từ một đối tượng giao diện JSON
+// From a JSON interface object
 > caver.abi.encodeFunctionSignature({
     name: 'myMethod',
     type: 'function',
@@ -39,7 +39,7 @@ Mã hóa chữ ký hàm thành chữ ký ABI - là 4 byte đầu tiên của hà
 })
 '0x24ee0097'
 
-// Từ một chữ ký hàm
+// From a function signature
 > caver.abi.encodeFunctionSignature('myMethod(uint256,string)')
 '0x24ee0097'
 ```
@@ -54,8 +54,8 @@ Mã hóa chữ ký sự kiện thành chữ ký ABI - là hàm băm sha3 của t
 
 **Tham số**
 
-| Tên            | type                   | Mô tả                                                                                                                                                                                     |
-| -------------- | ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Tên            | type               | Mô tả                                                                                                                                                                                     |
+| -------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | eventSignature | chuỗi \| đối tượng | Chữ ký sự kiện hoặc đối tượng giao diện JSON của sự kiện cần mã hóa. Nếu đây là một chuỗi thì chuỗi này phải ở dạng `event(type,type,...)`, vd: `myEvent(uint256,uint32[],bytes10,bytes)` |
 
 **Giá trị trả về**
@@ -67,7 +67,7 @@ Mã hóa chữ ký sự kiện thành chữ ký ABI - là hàm băm sha3 của t
 **Ví dụ**
 
 ```javascript
-// Từ một đối tượng giao diện JSON
+// From a JSON interface object
 > caver.abi.encodeEventSignature({
     name: 'myEvent',
     type: 'event',
@@ -81,7 +81,7 @@ Mã hóa chữ ký sự kiện thành chữ ký ABI - là hàm băm sha3 của t
 })
 '0xf2eeb729e636a8cb783be044acf6b7b1e2c5863735b60d6daae84c366ee87d97'
 
-// Từ một chữ ký sự kiện
+// From an event signature
 > caver.abi.encodeEventSignature('myEvent(uint256,bytes32)')
 '0xf2eeb729e636a8cb783be044acf6b7b1e2c5863735b60d6daae84c366ee87d97'
 ```
@@ -96,10 +96,10 @@ Mã hóa một tham số dưới dạng ABI dựa trên loại của tham số �
 
 **Tham số**
 
-| Tên       | Loại                  | Mô tả                                                                                                             |
-| --------- | ---------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| Tên       | Loại              | Mô tả                                                                                                             |
+| --------- | ------------------ | ----------------------------------------------------------------------------------------------------------------- |
 | type      | chuỗi \| đối tượng | Xem danh sách các loại tham số tại  [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html). |
-| parameter | Hỗn hợp                | Tham số thực tế để mã hóa.                                                                                        |
+| parameter | Hỗn hợp            | Tham số thực tế để mã hóa.                                                                                        |
 
 **LƯU Ý** Loại `tuple` được hỗ trợ kể từ caver-js phiên bản [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0). Để biết thêm thông tin chi tiết về loại `tuple`, vui lòng tham khảo [Tài liệu về solidity](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types).
 
@@ -148,10 +148,10 @@ Mã hóa các tham số hàm dựa trên đối tượng giao diện JSON của 
 
 **Tham số**
 
-| Tên        | Loại                 | Mô tả                                                                                                                                                        |
-| ---------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Tên        | Loại             | Mô tả                                                                                                                                                        |
+| ---------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | typesArray | Mảng \| đối tượng | Một mảng có các loại hoặc giao diện JSON của hàm. Xem danh sách các loại trong [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html). |
-| Tham số    | Mảng                  | Các tham số để mã hóa.                                                                                                                                       |
+| Tham số    | Mảng              | Các tham số để mã hóa.                                                                                                                                       |
 
 **LƯU Ý** Loại `tuple` được hỗ trợ kể từ caver-js phiên bản [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0). Để biết thêm thông tin chi tiết về loại `tuple`, vui lòng tham khảo [Tài liệu về solidity](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types).
 
@@ -294,10 +294,10 @@ Giải mã tham số được mã hóa dưới dạng ABI thành loại JavaScri
 
 **Tham số**
 
-| Tên       | Loại                | Mô tả                                                                                                            |
-| --------- | -------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| type      | chuỗi\|đối tượng | Xem danh sách các loại tham số tại [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html). |
-| hexstring | Mảng                 | Mã byte ABI để giải mã.                                                                                          |
+| Tên       | Loại              | Mô tả                                                                                                            |
+| --------- | ------------------ | ---------------------------------------------------------------------------------------------------------------- |
+| type      | chuỗi \| đối tượng | Xem danh sách các loại tham số tại [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html). |
+| hexstring | Mảng               | Mã byte ABI để giải mã.                                                                                          |
 
 **LƯU Ý** Loại `tuple` được hỗ trợ kể từ caver-js phiên bản [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0). Để biết thêm thông tin chi tiết về loại `tuple`, vui lòng tham khảo [Tài liệu về solidity](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types).
 
@@ -344,10 +344,11 @@ caver.abi.decodeParameters(typesArray, hexstring)
 Giải mã các tham số được mã hóa dưới dạng ABI thành loại JavaScript của các tham số đó.
 
 **Tham số**
-| Tên        | Loại                 | Mô tả                                                                                                                                                                                  |
-| ---------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+
+| Tên        | Loại             | Mô tả                                                                                                                                                                                  |
+| ---------- | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | typesArray | Mảng \| đối tượng | Một mảng có nhiều loại hoặc một mảng các kết quả đầu ra của giao diện JSON. Xem danh sách các loại trong [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html). |
-| hexstring  | chuỗi                 | Mã byte ABI để giải mã.                                                                                                                                                                |
+| hexstring  | chuỗi             | Mã byte ABI để giải mã.                                                                                                                                                                |
 
 **LƯU Ý** Loại `tuple` được hỗ trợ kể từ caver-js phiên bản [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0). Để biết thêm thông tin chi tiết về loại `tuple`, vui lòng tham khảo [Tài liệu về solidity](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types).
 
@@ -438,11 +439,12 @@ caver.abi.decodeLog(inputs, hexstring, topics)
 Giải mã dữ liệu bản ghi được mã hóa dưới dạng ABI và dữ liệu chủ đề được lập chỉ mục.
 
 **Tham số**
-| Tên       | Loại | Mô tả                                                                                                                                       |
-| --------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| inputs    | Mảng  | Một mảng đầu vào giao diện JSON. Xem danh sách các loại trong [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html). |
-| hexstring | chuỗi | Mã byte ABI trong trường `data` của bản ghi.                                                                                                |
-| chủ đề    | Mảng  | Một mảng các chủ đề tham số chỉ mục của bản ghi. Mảng không có chủ đề[0] nếu là sự kiện không ẩn danh, nếu không, mảng sẽ có chủ đề[0].     |
+
+| Tên       | Loại | Mô tả                                                                                                                                                                                                                                           |
+| --------- | ----- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| inputs    | Mảng  | Một mảng đầu vào giao diện JSON. Xem danh sách các loại trong [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html).                                                                                                     |
+| hexstring | chuỗi | Mã byte ABI trong trường `data` của bản ghi.                                                                                                                                                                                                    |
+| chủ đề    | Mảng  | Một mảng các chủ đề tham số chỉ mục của bản ghi. Mảng không có chủ đề[0] nếu là sự kiện không ẩn danh, nếu không, mảng sẽ có chủ đề[0]. |
 
 **Giá trị trả về**
 
@@ -486,11 +488,12 @@ caver.abi.encodeContractDeploy(jsonInterface, hexstring [, params])
 Mã hóa bytecode hợp đồng thông minh với các đối số của hàm tạo.
 
 **Tham số**
-| Tên           | Loại   | Mô tả                                                    |
-| ------------- | ------- | -------------------------------------------------------- |
-| jsonInterface | Mảng    | Giao diện JSON của hợp đồng.                             |
-| hexstring     | chuỗi   | Một bytecode của hợp đồng thông minh sẽ được triển khai. |
-| params        | Hỗn hợp | (tùy chọn) Các đối số để chuyển đến hàm tạo.             |
+
+| Tên           | Loại   | Mô tả                                                           |
+| ------------- | ------- | --------------------------------------------------------------- |
+| jsonInterface | Mảng    | Giao diện JSON của hợp đồng.                                    |
+| hexstring     | chuỗi   | Một bytecode của hợp đồng thông minh sẽ được triển khai.        |
+| params        | Hỗn hợp | (tùy chọn) Các đối số để chuyển đến hàm tạo. |
 
 **Giá trị trả về**
 
@@ -501,7 +504,7 @@ Mã hóa bytecode hợp đồng thông minh với các đối số của hàm t�
 **Ví dụ**
 
 ```javascript
-// Không có đối số cho hàm tạo
+// There is no argument for constructor
 > caver.abi.encodeContractDeploy([
         {"constant": true, "inputs": [], "name": "count", "outputs": [ { "name": "", "type": "uint256" } ], "payable": false, "stateMutability": "view", "type": "function" }, 
         { "constant": true, "inputs": [], "name": "getBlockNumber", "outputs": [ { "name": "", "type": "uint256" } ], "payable": false, "stateMutability": "view", "type": "function" }, 
@@ -509,7 +512,7 @@ Mã hóa bytecode hợp đồng thông minh với các đối số của hàm t�
     ],'0x60806040526000805534801561001457600080fd5b50610116806100246000396000f3006080604052600436106053576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806306661abd14605857806342cbb15c146080578063d14e62b81460a8575b600080fd5b348015606357600080fd5b50606a60d2565b6040518082815260200191505060405180910390f35b348015608b57600080fd5b50609260d8565b6040518082815260200191505060405180910390f35b34801560b357600080fd5b5060d06004803603810190808035906020019092919050505060e0565b005b60005481565b600043905090565b80600081905550505600a165627a7a7230582064856de85a2706463526593b08dd790054536042ef66d3204018e6790a2208d10029')
 '0x60806040526000805534801561001457600080fd5b50610116806100246000396000f3006080604052600436106053576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806306661abd14605857806342cbb15c146080578063d14e62b81460a8575b600080fd5b348015606357600080fd5b50606a60d2565b6040518082815260200191505060405180910390f35b348015608b57600080fd5b50609260d8565b6040518082815260200191505060405180910390f35b34801560b357600080fd5b5060d06004803603810190808035906020019092919050505060e0565b005b60005481565b600043905090565b80600081905550505600a165627a7a7230582064856de85a2706463526593b08dd790054536042ef66d3204018e6790a2208d10029'
 
-// Có một đối số cho hàm tạo(uint256)
+// There is one argument for constructor(uint256)
 > caver.abi.encodeContractDeploy([ 
         { "constant": true, "inputs": [], "name": "count", "outputs": [ { "name": "", "type": "uint256" } ], "payable": false, "stateMutability": "view", "type": "function" }, 
         { "constant": true, "inputs": [], "name": "getBlockNumber", "outputs": [ { "name": "", "type": "uint256" } ], "payable": false, "stateMutability": "view", "type": "function" }, 
@@ -518,7 +521,7 @@ Mã hóa bytecode hợp đồng thông minh với các đối số của hàm t�
     ],'0x60806040526000805534801561001457600080fd5b5060405160208061015d8339810180604052810190808051906020019092919050505050610116806100476000396000f3006080604052600436106053576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806306661abd14605857806342cbb15c146080578063d14e62b81460a8575b600080fd5b348015606357600080fd5b50606a60d2565b6040518082815260200191505060405180910390f35b348015608b57600080fd5b50609260d8565b6040518082815260200191505060405180910390f35b34801560b357600080fd5b5060d06004803603810190808035906020019092919050505060e0565b005b60005481565b600043905090565b80600081905550505600a165627a7a72305820ec774499bcdb89d9e570156a76249b33e99c766dfc6944e55aeeca316b41debf0029', 1)
 '0x60806040526000805534801561001457600080fd5b5060405160208061015d8339810180604052810190808051906020019092919050505050610116806100476000396000f3006080604052600436106053576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806306661abd14605857806342cbb15c146080578063d14e62b81460a8575b600080fd5b348015606357600080fd5b50606a60d2565b6040518082815260200191505060405180910390f35b348015608b57600080fd5b50609260d8565b6040518082815260200191505060405180910390f35b34801560b357600080fd5b5060d06004803603810190808035906020019092919050505060e0565b005b60005481565b600043905090565b80600081905550505600a165627a7a72305820ec774499bcdb89d9e570156a76249b33e99c766dfc6944e55aeeca316b41debf00290000000000000000000000000000000000000000000000000000000000000001'
 
-// Có hai đối số cho hàm tạo(uint256, uint256)
+// There are two arguments for constructor(uint256, uint256)
 > caver.abi.encodeContractDeploy([ 
         { "constant": true, "inputs": [], "name": "count", "outputs": [ { "name": "", "type": "uint256" } ], "payable": false, "stateMutability": "view", "type": "function" }, 
         { "constant": true, "inputs": [], "name": "getBlockNumber", "outputs": [ { "name": "", "type": "uint256" } ], "payable": false, "stateMutability": "view", "type": "function" }, 
@@ -527,7 +530,7 @@ Mã hóa bytecode hợp đồng thông minh với các đối số của hàm t�
     ],'0x60806040526000805534801561001457600080fd5b5060405160408061016883398101806040528101908080519060200190929190805190602001909291905050505050610116806100526000396000f3006080604052600436106053576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806306661abd14605857806342cbb15c146080578063d14e62b81460a8575b600080fd5b348015606357600080fd5b50606a60d2565b6040518082815260200191505060405180910390f35b348015608b57600080fd5b50609260d8565b6040518082815260200191505060405180910390f35b34801560b357600080fd5b5060d06004803603810190808035906020019092919050505060e0565b005b60005481565b600043905090565b80600081905550505600a165627a7a72305820f85b40d5ad70d0b3599200515915dca3074bcf609f27660845ecbfe882d3eeee0029', 1, 2)
 '0x60806040526000805534801561001457600080fd5b5060405160408061016883398101806040528101908080519060200190929190805190602001909291905050505050610116806100526000396000f3006080604052600436106053576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806306661abd14605857806342cbb15c146080578063d14e62b81460a8575b600080fd5b348015606357600080fd5b50606a60d2565b6040518082815260200191505060405180910390f35b348015608b57600080fd5b50609260d8565b6040518082815260200191505060405180910390f35b34801560b357600080fd5b5060d06004803603810190808035906020019092919050505060e0565b005b60005481565b600043905090565b80600081905550505600a165627a7a72305820f85b40d5ad70d0b3599200515915dca3074bcf609f27660845ecbfe882d3eeee002900000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000002'
 
-// Có một đối số cho hàm tạo(chuỗi)
+// There is one argument for constructor(string)
 > caver.abi.encodeContractDeploy([ 
         { "constant": true, "inputs": [], "name": "count", "outputs": [ { "name": "", "type": "uint256" } ], "payable": false, "stateMutability": "view", "type": "function" }, 
         { "constant": true, "inputs": [], "name": "getBlockNumber", "outputs": [ { "name": "", "type": "uint256" } ], "payable": false, "stateMutability": "view", "type": "function" }, 

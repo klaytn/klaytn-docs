@@ -17,10 +17,10 @@ Không có
 **Ví dụ**
 
 ```shell
-// Yêu cầu
-curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_tài khoảns","params":[],"id":1}' http://localhost:8551
+// Request
+curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_accounts","params":[],"id":1}' http://localhost:8551
 
-// Kết quả
+// Result
 {
   "jsonrpc": "2.0",
   "id":1,
@@ -28,16 +28,15 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 }
 ```
 
-
 ## eth_getBalance <a id="eth_getbalance"></a>
 
 Trả về số dư tài khoản của địa chỉ đã cho.
 
 **Tham số**
 
-| Tên                  | type                               | Mô tả                                                                                                                                                                                   |
-| -------------------- | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address              | DỮ LIỆU 20 byte                    | Địa chỉ để kiểm tra số dư.                                                                                                                                                              |
+| Tên                  | type                       | Mô tả                                                                                                                                                                                       |
+| -------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address              | DỮ LIỆU 20 byte            | Địa chỉ để kiểm tra số dư.                                                                                                                                                                  |
 | số khối hoặc hàm băm | SỐ LƯỢNG \| THẺ \| HÀM BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](../eth/block.md#the-default-block-parameter) hoặc hàm băm khối. |
 
 **Giá trị trả về**
@@ -49,16 +48,15 @@ Trả về số dư tài khoản của địa chỉ đã cho.
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getBalance","params":["0xc94770007dda54cF92009BFF0dE90c06F603a09f", "latest"],"id":1}' http://localhost:8551
 
-// Kết quả
+// Result
 {
   "jsonrpc": "2.0","id":1,
   "result": "0x0234c8a3397aab58" // 158972490234375000
 }
 ```
-
 
 ## eth_getCode <a id="eth_getcode"></a>
 
@@ -66,9 +64,9 @@ Trả về mã ở địa chỉ đã cho.
 
 **Tham số**
 
-| type                               | Mô tả                                                                                                                                                                                   |
-| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| DỮ LIỆU 20 byte                    | Địa chỉ                                                                                                                                                                                 |
+| type                       | Mô tả                                                                                                                                                                                       |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| DỮ LIỆU 20 byte            | Địa chỉ                                                                                                                                                                                     |
 | SỐ LƯỢNG \| THẺ \| HÀM BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](../eth/block.md#the-default-block-parameter) hoặc hàm băm khối. |
 
 **Giá trị trả về**
@@ -80,10 +78,10 @@ Trả về mã ở địa chỉ đã cho.
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getCode","params":["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", "0x2"],"id":1}' http://localhost:8551
 
-// Kết quả
+// Result
 {
   "jsonrpc": "2.0",
   "id":1,
@@ -91,16 +89,15 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 }
 ```
 
-
 ## eth_getTransactionCount <a id="eth_gettransactioncount"></a>
 
-Trả về số lượng giao dịch *được gửi* từ một địa chỉ.
+Trả về số lượng giao dịch _được gửi_ từ một địa chỉ.
 
 **Tham số**
 
-| Loại                              | Mô tả                                                                                                                                                                                   |
-| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| DỮ LIỆU 20 byte                    | Địa chỉ                                                                                                                                                                                 |
+| Loại                      | Mô tả                                                                                                                                                                                       |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| DỮ LIỆU 20 byte            | Địa chỉ                                                                                                                                                                                     |
 | SỐ LƯỢNG \| THẺ \| HÀM BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](../eth/block.md#the-default-block-parameter) hoặc hàm băm khối. |
 
 **Giá trị trả về**
@@ -111,22 +108,22 @@ Trả về số lượng giao dịch *được gửi* từ một địa chỉ.
 
 **Ví dụ**
 
- ```shell
-// Yêu cầu
+```shell
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getTransactionCount","params":["0xc94770007dda54cF92009BFF0dE90c06F603a09f","latest"],"id":1}' http://localhost:8551
 
-// Kết quả
+// Result
 {
-  "jsonrpc": "2.0",
-  "id":1,
-  "result": "0x1" // 1
+ "jsonrpc": "2.0",
+ "id":1,
+ "result": "0x1" // 1
 }
- ```
-
+```
 
 ## eth_sign <a id="eth_sign"></a>
 
 Phương thức ký tính chữ ký dành riêng cho Klaytn bằng hàm:
+
 ```
 sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))
 ```
@@ -151,10 +148,10 @@ Việc thêm tiền tố vào thông báo giúp chữ ký đã tính toán có t
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_sign","params":["0x9b2055d370f73ec7d8a03e965129118dc8f5bf83", "0xdeadbeaf"],"id":1}' http://localhost:8551
 
-// Kết quả
+// Result
 {
   "jsonrpc": "2.0",
   "id":1,

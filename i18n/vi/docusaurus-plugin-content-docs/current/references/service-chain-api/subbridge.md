@@ -1,15 +1,18 @@
 ---
-description: >-
-  API liên quan đến chuỗi dịch vụ EN.
+description: |-
+  description: >-
+    API liên quan đến chuỗi dịch vụ EN.
 ---
 
 # Không gian tên subbridge
 
-Không gian tên `subbridge` cung cấp các hàm liên quan đến Chuỗi dịch vụ. Để sử dụng các hàm trong không gian tên này, tùy chọn `subbridge` phải được kích hoạt trong SEN được kết nối với chuỗi dịch vụ.
+Không gian tên `subbridge` cung cấp các hàm liên quan đến Chuỗi dịch vụ.
+Để sử dụng các hàm trong không gian tên này, tùy chọn `subbridge` phải được kích hoạt trong SEN được kết nối với chuỗi dịch vụ.
 
 ## subbridge_nodeInfo <a id="subbridge_nodeInfo"></a>
 
-Trả về thông tin nút cầu nối bao gồm KNI (Mã định danh mạng lưới Klaytn) ​​của nút. Một nút cầu nối con có thể kết nối với một nút cầu nối chính thông qua KNI.
+Trả về thông tin nút cầu nối bao gồm KNI (Mã định danh mạng lưới Klaytn) ​​của nút.
+Một nút cầu nối con có thể kết nối với một nút cầu nối chính thông qua KNI.
 
 **Tham số**
 
@@ -54,11 +57,15 @@ Không có
 ```
 
 ## subbridge_addPeer <a id="subbridge_addPeer"></a>
+
 Trả về `true` nếu thêm thành công một máy ngang hàng cầu nối chính.
 
-Phương thức `addPeer` thêm một nút từ xa mới vào danh sách máy ngang hàng. Nút đó sẽ cố gắng duy trì kết nối liên tục với các nút này, thỉnh thoảng kết nối lại nếu kết nối từ xa gặp sự cố.
+Phương thức `addPeer` thêm một nút từ xa mới vào danh sách máy ngang hàng.
+Nút đó sẽ cố gắng duy trì kết nối liên tục với các nút này, thỉnh thoảng kết nối lại nếu kết nối từ xa gặp sự cố.
+once in a while if the remote connection goes down.
 
 Phương thức này chấp nhận một đối số duy nhất, URL `kni` của máy ngang hàng từ xa để bắt đầu theo dõi và trả về `BOOL` cho biết máy ngang hàng đó có được chấp nhận hay không để theo dõi hoặc thông báo một số lỗi xảy ra.
+for tracking or some error occurred.
 
 **Tham số**
 
@@ -80,6 +87,7 @@ Bảng điều khiển
 > mainbridge.addPeer("kni://a979fb...1163c@10.0.0.1:50505") // or 'subbridge.addPeer'
 true
 ```
+
 HTTP RPC
 
 ```shell
@@ -88,9 +96,12 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ma
 ```
 
 ## subbridge_removePeer <a id="subbridge_removePeer"></a>
+
 Trả về `true` khi máy ngang hàng được xóa thành công.
 
-Phương thức `removePeer` ngắt kết nối và xóa nút từ xa trong danh sách các nút tĩnh được theo dõi. Phương thức này chấp nhận một đối số duy nhất, URL `kni` của máy ngang hàng từ xa để bắt đầu theo dõi và trả về `BOOL` cho biết máy ngang hàng đó có được chấp nhận hay không để theo dõi hoặc thông báo một số lỗi xảy ra.
+Phương thức `removePeer` ngắt kết nối và xóa nút từ xa trong danh sách các nút tĩnh được theo dõi.
+Phương thức này chấp nhận một đối số duy nhất, URL `kni` của máy ngang hàng từ xa để bắt đầu theo dõi và trả về `BOOL` cho biết máy ngang hàng đó có được chấp nhận hay không để theo dõi hoặc thông báo một số lỗi xảy ra.
+for tracking or some error occurred.
 
 **Tham số**
 
@@ -121,6 +132,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"ma
 ```
 
 ## subbridge_parentOperator <a id="subbridge_parentOperator"></a>
+
 `subbridge_parentOperator` trả về địa chỉ tài khoản của toán tử mẹ.
 
 **Tham số**
@@ -141,6 +153,7 @@ không có
 ```
 
 ## subbridge_childOperator <a id="subbridge_childOperator"></a>
+
 `subbridge_childOperator` trả về địa chỉ tài khoản toán tử con.
 
 **Tham số**
@@ -161,6 +174,7 @@ không có
 ```
 
 ## subbridge_parentOperatorNonce <a id="subbridge_parentOperatorNonce"></a>
+
 `subbridge_parentOperatorNonce` trả về số dùng một lần của địa chỉ tài khoản toán tử mẹ.
 
 **Tham số**
@@ -181,6 +195,7 @@ không có
 ```
 
 ## subbridge_childOperatorNonce <a id="subbridge_childOperatorNonce"></a>
+
 `subbridge_childOperator` trả về địa chỉ tài khoản toán tử con.
 
 **Tham số**
@@ -201,6 +216,7 @@ không có
 ```
 
 ## subbridge_parentOperatorBalance <a id="subbridge_parentOperatorBalance"></a>
+
 `subbridge_parentOperatorBalance` trả về số dư của tài khoản toán tử mẹ.
 
 **Tham số**
@@ -221,6 +237,7 @@ không có
 ```
 
 ## subbridge_childOperatorBalance <a id="subbridge_childOperatorBalance"></a>
+
 `subbridge_childOperatorBalance` trả về số dư của tài khoản toán tử con.
 
 **Tham số**
@@ -239,8 +256,6 @@ không có
 > subbridge.childOperatorBalance
 1e+50
 ```
-
-
 
 ## subbridge_sendChainTxslimit <a id="subbridge_sendChainTxslimit"></a>
 
@@ -264,6 +279,7 @@ Không có
 ```
 
 ## subbridge_anchoring <a id="subbridge_anchoring"></a>
+
 `subbridge_anchoring` có thể bật/tắt tính năng neo của chuỗi dịch vụ.
 
 **Tham số**
@@ -299,6 +315,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"su
 ```
 
 ## subbridge_latestAnchoredBlockNumber <a id="subbridge_latestAnchoredBlockNumber"></a>
+
 `subbridge_latestAnchoredBlockNumber` trả về số khối được neo latest của chuỗi dịch vụ.
 
 **Tham số**
@@ -319,6 +336,7 @@ Không có
 ```
 
 ## subbridge_getReceiptFromParentChain <a id="subbridge_getReceiptFromParentChain"></a>
+
 `subbridge_getReceiptFromParentChain` trả về biên lai của giao dịch neo.
 
 **Tham số**
@@ -327,19 +345,18 @@ Không có
 | --------------- | --------------------------------------------------- |
 | DỮ LIỆU 32 byte | Hàm băm khối chuỗi con được bao gồm hàm băm tx neo. |
 
-
 **Giá trị trả về**
 
 `Đối tượng` - Đối tượng biên lai giao dịch, hoặc `null` khi không tìm thấy biên lai.
 
-| Tên             | type             | Mô tả                                                                                                                      |
-| --------------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| Tên             | type             | Mô tả                                                                                                                                         |
+| --------------- | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | contractAddress | DATA             | Địa chỉ hợp đồng được tạo nếu giao dịch là giao dịch tạo hợp đồng, nếu không, giá trị sẽ là `null`. (sẽ sớm ngừng sử dụng) |
-| gasUsed         | SỐ LƯỢNG         | Lượng gas được sử dụng bởi riêng giao dịch cụ thể này.                                                                     |
-| bản ghi         | Mảng             | Mảng đối tượng bản ghi mà giao dịch này tạo ra.                                                                            |
-| nhật kýBloom    | DỮ LIỆU 256 byte | Bộ lọc Bloom dành cho các ứng dụng khách nhẹ giúp truy xuất nhanh các nhật ký liên quan.                                   |
-| trạng thái      | SỐ LƯỢNG         | `1` (thành công) hoặc `0` (thất bại).                                                                                      |
-| transactionHash | DỮ LIỆU 32 byte  | Hàm băm của giao dịch.                                                                                                     |
+| gasUsed         | SỐ LƯỢNG         | Lượng gas được sử dụng bởi riêng giao dịch cụ thể này.                                                                                        |
+| bản ghi         | Mảng             | Mảng đối tượng bản ghi mà giao dịch này tạo ra.                                                                                               |
+| nhật kýBloom    | DỮ LIỆU 256 byte | Bộ lọc Bloom dành cho các ứng dụng khách nhẹ giúp truy xuất nhanh các nhật ký liên quan.                                                      |
+| trạng thái      | SỐ LƯỢNG         | `1` (thành công) hoặc `0` (thất bại).                                                                   |
+| transactionHash | DỮ LIỆU 32 byte  | Hàm băm của giao dịch.                                                                                                                        |
 
 **Ví dụ**
 
@@ -348,14 +365,15 @@ Không có
 {
   contractAddress: "0x0000000000000000000000000000000000000000",
   gasUsed: "0x9470",
-  nhật ký: [],
-  nhật kýBloom: "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
-  trạng thái: "0x1",
+  logs: [],
+  logsBloom: "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  status: "0x1",
   transactionHash: "0x3641f52359f44ef2a9941ea840aed4befbace5cac28d5cc8cacd94eae211fd1e"
 }
 ```
 
 ## subbridge_deployBridge <a id="subbridge_deployBridge"></a>
+
 `subbridge_deployBridge` triển khai hợp đồng cầu nối cho chuỗi mẹ và chuỗi con đồng thời trả về địa chỉ của các hợp đồng cầu nối đã triển khai. Phương thức này cũng đăng ký hợp đồng cầu nối với cầu nối con.
 
 **Tham số**
@@ -377,6 +395,7 @@ không có
 ```
 
 ## subbridge_registerBridge <a id="subbridge_registerBridge"></a>
+
 `subbridge_registerBridge` đăng ký đã triển khai các hợp đồng cầu nối trong chuỗi mẹ và chuỗi con.
 
 **Tham số**
@@ -399,10 +418,11 @@ không có
 null
 
 > subbridge.registerBridge("0x87d6b9c567e5b84cd00e03bfbe6d20d88209c33a", "0x23dab942822021bbd6d551ef51003208924877e4")
-Lỗi: cầu nối đã tồn tại
+Error: bridge already exists
 ```
 
 ## subbridge_deregisterBridge <a id="subbridge_deregisterBridge"></a>
+
 `subbridge.deregisterBridge` hủy đăng ký các hợp đồng cầu nối đã đăng ký trong chuỗi mẹ/chuỗi con.
 
 **Tham số**
@@ -425,11 +445,13 @@ Lỗi: cầu nối đã tồn tại
 null
 
 > subbridge.deregisterBridge("0x87d6b9c567e5b84cd00e03bfbe6d20d88209c33a", "0x23dab942822021bbd6d551ef51003208924877e4")
-Lỗi: cặp cầu nối không hợp lệ
+Error: invalid bridge pair
 ```
 
 ## subbridge_subscribeBridge <a id="subbridge_subscribeBridge"></a>
-`subbridge_subscribeBridge` đăng ký hợp đồng cầu nối đã đăng ký trong chuỗi mẹ và chuỗi con. Nếu nút cầu nối con được đăng ký với cặp hợp đồng cầu nối, thì các yêu cầu chuyển giá trị chuỗi chéo sẽ được cầu nối con xử lý tự động.
+
+`subbridge_subscribeBridge` đăng ký hợp đồng cầu nối đã đăng ký trong chuỗi mẹ và chuỗi con.
+Nếu nút cầu nối con được đăng ký với cặp hợp đồng cầu nối, thì các yêu cầu chuyển giá trị chuỗi chéo sẽ được cầu nối con xử lý tự động.
 
 **Tham số**
 
@@ -450,11 +472,13 @@ Lỗi: cặp cầu nối không hợp lệ
 > subbridge.subscribeBridge("0x87d6b9c567e5b84cd00e03bfbe6d20d88209c33a", "0x23dab942822021bbd6d551ef51003208924877e4")
 null
 > subbridge.subscribeBridge("0x87d6b9c567e5b84cd00e03bfbe6d20d88209c33a", "0x23dab942822021bbd6d551ef51003208924877e4")
-Lỗi: đã đăng ký
+Error: already subscribed
 ```
 
 ## subbridge_unsubscribeBridge <a id="subbridge_unsubscribeBridge"></a>
-`subbridge_unsubscribeBridge` hủy đăng ký cầu nối con khỏi hợp đồng cầu nối trong chuỗi mẹ và chuỗi con. Nếu cầu nối con bị hủy đăng ký khỏi các hợp đồng cầu nối thì cầu nối con này không thể xử lý các yêu cầu chuyển giá trị chuỗi chéo.
+
+`subbridge_unsubscribeBridge` hủy đăng ký cầu nối con khỏi hợp đồng cầu nối trong chuỗi mẹ và chuỗi con.
+Nếu cầu nối con bị hủy đăng ký khỏi các hợp đồng cầu nối thì cầu nối con này không thể xử lý các yêu cầu chuyển giá trị chuỗi chéo.
 
 **Tham số**
 
@@ -477,6 +501,7 @@ null
 ```
 
 ## subbridge_registerToken <a id="subbridge_registerToken"></a>
+
 `subbridge_registerToken` đăng ký một cặp token ERC-20 hoặc 721 với hợp đồng cầu nối.
 
 **Tham số**
@@ -500,10 +525,11 @@ null
 > subbridge.registerToken("0x87d6b9c567e5b84cd00e03bfbe6d20d88209c33a", "0x23dab942822021bbd6d551ef51003208924877e4","0xA4b0c6e12346426a09FaD70dAE0651E6Dbdd5198","0x865Cca53828C91663BFf0Ca9808827Bac552BAec")
 null
 > subbridge.registerToken("0x87d6b9c567e5b84cd00e03bfbe6d20d88209c33a", "0x23dab942822021bbd6d551ef51003208924877e4","0xA4b0c6e12346426a09FaD70dAE0651E6Dbdd5198","0x865Cca53828C91663BFf0Ca9808827Bac552BAec")
-Lỗi: token đã tồn tại
+Error: token already exists
 ```
 
 ## subbridge_deregisterToken <a id="subbridge_deregisterToken"></a>
+
 `subbridge_deregisterBridge` hủy đăng ký cặp token đã đăng ký khỏi hợp đồng cầu nối.
 
 **Tham số**
@@ -527,11 +553,14 @@ Lỗi: token đã tồn tại
 > subbridge.deregisterToken("0x87d6b9c567e5b84cd00e03bfbe6d20d88209c33a", "0x23dab942822021bbd6d551ef51003208924877e4","0xA4b0c6e12346426a09FaD70dAE0651E6Dbdd5198","0x865Cca53828C91663BFf0Ca9808827Bac552BAec")
 null
 > subbridge.deregisterToken("0x87d6b9c567e5b84cd00e03bfbe6d20d88209c33a", "0x23dab942822021bbd6d551ef51003208924877e4","0xA4b0c6e12346426a09FaD70dAE0651E6Dbdd5198","0x865Cca53828C91663BFf0Ca9808827Bac552BAec")
-Lỗi: cặp token không hợp lệ
+Error: invalid token pair
 ```
 
 ## subbridge_convertRequestTxHashToHandleTxHash <a id="subbridge_convertRequestTxHashToHandleTxHash"></a>
-`subbridge_convertRequestTxHashToHandleTxHash` trả về hàm băm "xử lý giao dịch chuyển giá trị" tương ứng trong chuỗi đối nghịch cho hàm băm "giao dịch chuyển giá trị yêu cầu" cụ thể. "Yêu cầu giao dịch chuyển giá trị" là giao dịch do người dùng bắt đầu, yêu cầu chuyển giá trị chuỗi chéo. "Xử lý giao dịch chuyển giá trị" là giao dịch được tạo bởi cầu nối con để xử lý yêu cầu chuyển giá trị từ người dùng.
+
+`subbridge_convertRequestTxHashToHandleTxHash` trả về hàm băm "xử lý giao dịch chuyển giá trị" tương ứng trong chuỗi đối nghịch cho hàm băm "giao dịch chuyển giá trị yêu cầu" cụ thể.
+"Yêu cầu giao dịch chuyển giá trị" là giao dịch do người dùng bắt đầu, yêu cầu chuyển giá trị chuỗi chéo.
+"Xử lý giao dịch chuyển giá trị" là giao dịch được tạo bởi cầu nối con để xử lý yêu cầu chuyển giá trị từ người dùng.
 
 **Tham số**
 
@@ -539,13 +568,11 @@ Lỗi: cặp token không hợp lệ
 | ---- | --------------- | ----------------------------------------------- |
 | Hash | DỮ LIỆU 32 byte | Hàm băm của giao dịch "yêu cầu chuyển giá trị". |
 
-
 **Giá trị trả về**
 
 | Tên  | Loại           | Mô tả                                                                                                                             |
 | ---- | --------------- | --------------------------------------------------------------------------------------------------------------------------------- |
 | Hash | DỮ LIỆU 32 byte | Hàm băm của giao dịch "xử lý chuyển giá trị". hàm băm bằng không có nghĩa là không có giao dịch "xử lý chuyển giá trị" tương ứng. |
-
 
 **Ví dụ**
 
@@ -557,6 +584,7 @@ Lỗi: cặp token không hợp lệ
 ```
 
 ## subbridge_listBridge <a id="subbridge_listBridge"></a>
+
 `subbridge_listBridge` trả về danh sách tất cả các cặp hợp đồng cầu được đăng ký (lưu trữ) trong cầu nối con.
 
 **Tham số**
@@ -565,11 +593,11 @@ số dùng một lần
 
 **Giá trị trả về**
 
-| Tên          | Loại     | Mô tả                                                                     |
-| ------------ | --------- | ------------------------------------------------------------------------- |
-| localAddress | tài khoản | DỮ LIỆU 20 byte | Địa chỉ của hợp đồng cầu nối trên chuỗi (dịch vụ) con.  |
-| localAddress | tài khoản | DỮ LIỆU 20 byte | Địa chỉ của hợp đồng cầu nối trên chuỗi (chính) mẹ.     |
-| đã đăng ký   | bool      | `true` nếu cặp hợp đồng cầu nối đã được đăng ký, ngược lại sẽ là `false`. |
+| Tên          | Loại     | Mô tả                                                                     |                                                                           |
+| ------------ | --------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| localAddress | tài khoản | DỮ LIỆU 20 byte                                                           | Địa chỉ của hợp đồng cầu nối trên chuỗi (dịch vụ) con. |
+| localAddress | tài khoản | DỮ LIỆU 20 byte                                                           | Địa chỉ của hợp đồng cầu nối trên chuỗi (chính) mẹ.    |
+| đã đăng ký   | bool      | `true` nếu cặp hợp đồng cầu nối đã được đăng ký, ngược lại sẽ là `false`. |                                                                           |
 
 **Ví dụ**
 
@@ -591,6 +619,7 @@ số dùng một lần
 ```
 
 ## subbridge_getBridgeInformation <a id="subbridge_getBridgeInformation"></a>
+
 `subbridge_getBridgeInformation` trả về thông tin của hợp đồng cầu nối đã cho.
 
 **Tham số**
@@ -599,20 +628,18 @@ số dùng một lần
 | --------- | --------------- | ------------------------ |
 | tài khoản | DỮ LIỆU 20 byte | Địa chỉ hợp đồng cầu nối |
 
-
 **Giá trị trả về**
 
 | Tên              | Loại           | Mô tả                                                                                                                  |
 | ---------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| counterPart      | DỮ LIỆU 20 byte | Địa chỉ hợp đồng cầu nối đối ứng. (Chưa được hỗ trợ)                                                                   |
+| counterPart      | DỮ LIỆU 20 byte | Địa chỉ hợp đồng cầu nối đối ứng. (Chưa được hỗ trợ)                                                |
 | isRunning        | bool            | `true` nếu hợp đồng cầu nối đang chạy, ngược lại sẽ là `false`.                                                        |
 | isSubscribed     | bool            | `true` nếu hợp đồng cầu nối đã được đăng ký, ngược lại sẽ là `false`.                                                  |
-| onServiceChain   | bool            | `true` nếu hợp đồng cầu nối nằm trên chuỗi (dịch vụ) con, ngược lại sẽ là `false`.                                     |
+| onServiceChain   | bool            | `true` nếu hợp đồng cầu nối nằm trên chuỗi (dịch vụ) con, ngược lại sẽ là `false`.                  |
 | pendingEventSize | SỐ LƯỢNG        | Số sự kiện "yêu cầu chuyển giá trị" đang chờ xử lý được tạo bởi các hợp đồng cầu nối, chưa được xử lý bởi cầu nối con. |
 | requestNonce     | SỐ LƯỢNG        | Yêu cầu số dùng một lần của hợp đồng cầu nối.                                                                          |
 | handleNonce      | SỐ LƯỢNG        | Số dùng một lần trên của hợp đồng cầu nối.                                                                             |
 | lowerHandleNonce | SỐ LƯỢNG        | Số dùng một lần dưới của hợp đồng cầu nối.                                                                             |
-
 
 **Ví dụ**
 
@@ -631,6 +658,7 @@ số dùng một lần
 ```
 
 ## subbridge_txPendingCount <a id="subbridge_txPendingCount"></a>
+
 `subbridge_txPendingCount` trả về số lượng giao dịch đang chờ xử lý trong bể giao dịch cầu nối.
 
 **Tham số**
@@ -651,6 +679,7 @@ Không có
 ```
 
 ## subbridge_txPending <a id="subbridge_txPending"></a>
+
 `subbridge_txPending` trả về danh sách các giao dịch đang chờ xử lý trong bể giao dịch cầu nối.
 
 **Tham số**
@@ -691,4 +720,3 @@ Không có
   }]
 }
 ```
-

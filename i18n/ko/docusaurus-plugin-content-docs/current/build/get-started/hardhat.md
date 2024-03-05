@@ -7,27 +7,29 @@
 이 섹션에서는 [Hardhat](https://hardhat.org/)을 사용하여 클레이튼 Baobab 네트워크에 Soul-bound token을 배포하는 방법을 안내합니다.
 
 Hardhat은 여러분을 도와줄 스마트 컨트랙트 개발 환경입니다:
-* 스마트 컨트랙트 개발 및 컴파일.
-* 스마트 컨트랙트 및 dApp 디버깅, 테스트, 배포.
+
+- 스마트 컨트랙트 개발 및 컴파일.
+- 스마트 컨트랙트 및 dApp 디버깅, 테스트, 배포.
 
 Soul-bound token(SBT)은 양도할 수 없는 대체 불가능한 토큰입니다. 즉, 한 번 획득하면 다른 사용자에게 판매하거나 양도할 수 없습니다. SBT의 작동 방식과 사용 사례에 대해 자세히 알아보시려면 비탈릭 부테린이 작성한 [참고 문서](https://vitalik.ca/general/2022/01/26/soulbound.html)를 확인하시기 바랍니다.
 
 이 가이드가 끝나면 여러분은 다음을 할 수 있을 것입니다:
-* 클레이튼에서 Hardhat 프로젝트를 설정합니다.
-* 간단한 Soul-bound token 생성하기.
-* Hardhat을 사용하여 스마트 컨트랙트 컴파일하기.
-* Hardhat을 사용하여 스마트 컨트랙트 테스트, 배포 및 상호작용하기.
-* Hardhat 포크 기능 살펴보기.
+
+- 클레이튼에서 Hardhat 프로젝트를 설정합니다.
+- 간단한 Soul-bound token 생성하기.
+- Hardhat을 사용하여 스마트 컨트랙트 컴파일하기.
+- Hardhat을 사용하여 스마트 컨트랙트 테스트, 배포 및 상호작용하기.
+- Hardhat 포크 기능 살펴보기.
 
 ## 사전 요구 사항
 
 이 튜토리얼을 따르기 위한 전제 조건은 다음과 같습니다:
 
-* 코드 편집기: [VS-Code](https://code.visualstudio.com/download)와 같은 소스 코드 편집기.
-* [MetaMask](../tutorials/connecting-metamask#install-metamask): 컨트랙트를 배포하고, 트랜잭션에 서명하고, 컨트랙트와 상호 작용하는 데 사용됩니다.
-* RPC 엔드포인트: 지원되는 [엔드포인트 공급자](../../references/service-providers/public-en.md) 중 하나에서 얻을 수 있습니다.
-* [Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 KLAY 테스트: 충분한 KLAY로 계정에 자금을 충전합니다.
-* [NodeJS 및 NPM](https://nodejs.org/en/)
+- 코드 편집기: [VS-Code](https://code.visualstudio.com/download)와 같은 소스 코드 편집기.
+- [MetaMask](../tutorials/connecting-metamask#install-metamask): 컨트랙트를 배포하고, 트랜잭션에 서명하고, 컨트랙트와 상호 작용하는 데 사용됩니다.
+- RPC 엔드포인트: 지원되는 [엔드포인트 공급자](../../references/service-providers/public-en.md) 중 하나에서 얻을 수 있습니다.
+- [Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 KLAY 테스트: 충분한 KLAY로 계정에 자금을 충전합니다.
+- [NodeJS 및 NPM](https://nodejs.org/en/)
 
 ## 개발 환경 설정하기
 
@@ -50,20 +52,19 @@ npm init -y
 
 **3단계**: Hardhat 및 기타 종속성을 설치합니다:
 
-* 터미널에 아래 코드를 붙여넣어 Hardhat을 설치하세요.
+- 터미널에 아래 코드를 붙여넣어 Hardhat을 설치하세요.
 
 ```bash
 npm install --save-dev hardhat
 ```
 
-* 다른 종속성을 설치하려면 아래 코드를 붙여넣으세요.
+- 다른 종속성을 설치하려면 아래 코드를 붙여넣으세요.
 
 ```bash
 npm install dotenv @klaytn/contracts
 ```
 
 > 참고: 이 프로젝트에 필요한 `hardhat`, `klaytn/contract`, `dotenv` 등의 기타 종속성을 설치합니다.
-
 
 **4단계**: Hardhat 프로젝트를 초기화합니다:
 
@@ -72,6 +73,7 @@ npm install dotenv @klaytn/contracts
 ```bash
 npx hardhat
 ```
+
 이 가이드에서는 아래와 같이 TypeScript 프로젝트를 선택하겠습니다:
 
 ![](/img/build/get-started/hardhat-init.png)
@@ -94,13 +96,13 @@ Hardhat 프로젝트를 초기화한 후에는 현재 디렉터리에 다음이 
 
 이제 프로젝트 폴더에 .env 파일을 생성합니다. 이 파일은 .env 파일에서 프로세스.env로 환경 변수를 로드하는 데 도움이 됩니다.
 
-* 터미널에 다음 명령을 붙여넣어 .env 파일을 생성합니다.
+- 터미널에 다음 명령을 붙여넣어 .env 파일을 생성합니다.
 
 ```bash
 touch .env
 ```
 
-* 파일을 생성한 후 다음과 같이 .env 파일을 구성해 보겠습니다:
+- 파일을 생성한 후 다음과 같이 .env 파일을 구성해 보겠습니다:
 
 ```js
  KLAYTN_BAOBAB_URL= "Your Baobab RPC link"
@@ -178,7 +180,7 @@ contract SoulBoundToken is KIP17, Ownable {
 
 **코드 연습**
 
-이것이 스마트 컨트랙트입니다. **1줄**은 Hardhat이 Solidity 버전 0.8.7 이상을 사용한다는 것을 보여줍니다. 그 외에는 KIP17.sol 및 기타 지원 컨트랙트를 가져옵니다. **6~12줄**에서는 KIP17을 계승하는 스마트 컨트랙트가 생성되었습니다. 또한 생성자에서 토큰 이름과 심볼이 전달되었습니다.
+이것이 여러분의 첫 스마트 컨트랙트입니다. **1줄**은 Hardhat이 Solidity 버전 0.8.7 이상을 사용한다는 것을 보여줍니다. 그 외에는 KIP17.sol 및 기타 지원 컨트랙트를 가져옵니다. **6\~12줄**에서는 KIP17을 계승하는 스마트 컨트랙트가 생성되었습니다. 또한 생성자에서 토큰 이름과 심볼이 전달되었습니다.
 
 위 코드에서 볼 수 있듯이 토큰 이름과 심볼은 각각 **SoulBoundToken**과 **SBT**로 설정되어 있습니다. 토큰 이름과 심볼은 원하는 대로 변경할 수 있습니다.
 
@@ -285,8 +287,8 @@ describe("Token contract", function () {
 
 위의 테스트는 다음을 확인합니다:
 
-* 특정 토큰 ID의 소유자가 토큰이 발행된 사람과 동일한가요?
-* 계정 간 토큰 전송을 금지하나요?
+- 특정 토큰 ID의 소유자가 토큰이 발행된 사람과 동일한가요?
+- 계정 간 토큰 전송을 금지하나요?
 
 **3단계**: 테스트를 실행하려면 아래 명령을 실행합니다:
 
@@ -351,8 +353,8 @@ npx hardhat run scripts/sbtDeploy.js --network baobab
 
 ## Hardhat 포크
 
-Hardhat은 개발자에게 메인넷(특정 블록)을 로컬 개발 네트워크에서 시뮬레이션할 수 있는 기능을 제공합니다. 이 기능의 주요 이점 중 하나는 개발자가 배포된 컨트랙트와 상호 작용하고 복잡한 케이스에 대한 테스트를 작성할 수 있다는 것입니다.  
- 
+Hardhat은 개발자에게 메인넷(특정 블록)을 로컬 개발 네트워크에서 시뮬레이션할 수 있는 기능을 제공합니다. 이 기능의 주요 이점 중 하나는 개발자가 배포된 컨트랙트와 상호 작용하고 복잡한 케이스에 대한 테스트를 작성할 수 있다는 것입니다.
+
 이 기능이 효과적으로 작동하려면 아카이브 노드에 연결해야 합니다. 이 기능에 대한 자세한 내용은 [여기](https://hardhat.org/hardhat-network/docs/guides/forking-other-networks#forking-other-networks)에서 확인할 수 있습니다.
 
 ### 메인넷 포크

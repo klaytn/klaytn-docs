@@ -10,6 +10,7 @@ ServiceChain에서 제공하는 주요 기능인 데이터 앵커링과 밸류 �
 ![](/img/nodes/sc-vt-between-sibling-arch.png)
 
 ## 전제 조건 <a id="prerequisites"></a>
+
 - 두 개의 서비스체인을 설치했다고 가정하고, 각 서비스체인은 Baobab EN에 연결되어 있다고 가정합니다. [Baobab에 연결하기](en-scn-connection.md)를 참조하세요.
 - 또한 [크로스체인 밸류 전송](value-transfer.md)을 통해 밸류 전송을 경험했다고 가정합니다.
 
@@ -20,6 +21,7 @@ ServiceChain에서 제공하는 주요 기능인 데이터 앵커링과 밸류 �
 ![](/img/nodes/sc-vt-between-sibling-bridge.png)
 
 ## 1단계: SCN-L2-03 노드의 KNI 확인 <a id="step-1-check-kni-of-scn-node"></a>
+
 SCN 노드에서 연결할 때 사용되는 정보인 SCN-L2-03의 KNI를 기록해 두세요. 이 값은 다음 단계에서 `main-bridges.json`을 생성할 때 사용됩니다.
 
 ```
@@ -29,12 +31,15 @@ SCN-L2-03$ kscn attach --datadir ~/data
 ```
 
 ## 2단계: 메인 브리지 생성 <a id="step-2-create-main-bridges-json"></a>
+
 SCN-L2-07(참고: chianID 1004)에 로그온하고 `~/data`에 `main-bridges.json`을 생성합니다. `@` 문자 뒤에 있는 `[::]`를 EN 노드의 IP 주소로 바꿉니다.
+
 ```
 $ echo '["kni://...39047242eb86278689...@192.168.0.3:50505?discport=0"]' > ~/data/main-bridges.json
 ```
 
 ## 3단계: SCN 구성 후 재시작 <a id="step-3-configure-scn-then-restart"></a>
+
 SCN-L2-07 노드의 셸에서 `kscn-XXXXX-amd64/conf/kscnd.conf`를 편집합니다. 각 서비스체인은 이미 Baobab EN에 앵커링되어 있으므로 형제간 데이터 앵커링은 필요하지 않습니다. 따라서 `SC_ANCHORING`을 0으로 설정합니다.
 
 ```
@@ -48,6 +53,7 @@ SC_ANCHORING=0
 ```
 
 SCN-L2-07 노드에서 kscnd 재시작
+
 ```
 SCN-L2-07$ kscnd stop
 Shutting down kscnd: Killed
@@ -56,6 +62,7 @@ Starting kscnd: OK
 ```
 
 `subbridge.peers.length`를 확인하여 SCN-L2-07이 SCN-L2-03에 연결되어 있는지 확인합니다.
+
 ```
 SCN-L2-07$ kscn attach --datadir ~/data
 > subbridge.peers.length

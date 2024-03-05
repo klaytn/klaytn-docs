@@ -12,8 +12,8 @@ Phần này cho biết cách nâng cấp nhị phân ServiceChain.
 
 Bạn có thể tải phiên bản mới nhất của nhị phân Klaytn và ServiceChain bằng một trong các liên kết bên dưới:
 
-* [Tài liệu của Klaytn](../downloads/downloads.md)
-* [Kho lưu trữ Github Klaytn](https://github.com/klaytn/klaytn/releases)
+- [Tài liệu của Klaytn](../downloads/downloads.md)
+- [Kho lưu trữ Github Klaytn](https://github.com/klaytn/klaytn/releases)
 
 Để nâng cấp nhị phân ServiceChain, hãy dừng nút ServiceChain và thay thế nhị phân. Ví dụ: bạn có thể sử dụng các lệnh bên dưới để dừng nút SCN và thay thế bằng nhị phân mới hơn.
 
@@ -39,13 +39,13 @@ Phần này mô tả các bước áp dụng [hard fork](../../misc/klaytn-histo
 2. Nâng cấp nhị phân ServiceChain lên phiên bản hỗ trợ hard fork
 3. Đặt số khối Hard Fork trong ServiceChain
 
-### 1. Chọn một số khối thích hợp cho hard fork <a href="#1-pick-an-appropriate-block-number-for-the-hard-fork" id="1-pick-an-appropriate-block-number-for-the-hard-fork"></a>
+### 1) Chọn một số khối thích hợp cho hard fork <a href="#1-pick-an-appropriate-block-number-for-the-hard-fork" id="1-pick-an-appropriate-block-number-for-the-hard-fork"></a>
 
 Trong bảng điều khiển Javascript của ServiceChain, bạn có thể kiểm tra số khối hiện tại như ở bên dưới.
 
 ```bash
 $ kscn attach ~/kscnd_home/klay.ipc
-Chào mừng bạn đến với bảng điều khiển Klaytn JavaScript!
+Welcome to the Klaytn JavaScript console!
 
 instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
  datadir: ~/kscnd_home
@@ -148,7 +148,7 @@ Sau đó, trong bảng điều khiển Javascript của SCN, bạn có thể ki�
 
 ```bash
 $ kscn attach ~/kscnd_home/klay.ipc
-Chào mừng bạn đến với bảng điều khiển Klaytn JavaScript!
+Welcome to the Klaytn JavaScript console!
 
 instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
  datadir: ~/kscnd_home
@@ -172,16 +172,16 @@ Theo mặc định, giới hạn trên được đặt là `750000000000` và gi
 
 ```bash
 $ kscn attach ~/kscnd_home/klay.ipc
-Chào mừng bạn đến với bảng điều khiển Klaytn JavaScript!
+Welcome to the Klaytn JavaScript console!
 
 instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
  datadir: ~/kscnd_home
  modules: admin:1.0 debug:1.0 eth:1.0 governance:1.0 istanbul:1.0 klay:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0 web3:1.0
 
 > governance.vote("kip71.lowerboundbasefee", 0)
-"Phiếu bầu của bạn đã được chuẩn bị. Thông số này sẽ được đưa vào tiêu đề khối hoặc được áp dụng khi nút của bạn tạo một khối với tư cách là người đề xuất. Lưu ý rằng phiếu bầu của bạn có thể trùng lặp."
+"Your vote is prepared. It will be put into the block header or applied when your node generates a block as a proposer. Note that your vote may be duplicate."
 > governance.vote("kip71.upperboundbasefee", 0)
-"Phiếu bầu của bạn đã được chuẩn bị. Thông số này sẽ được đưa vào tiêu đề khối hoặc được áp dụng khi nút của bạn tạo một khối với tư cách là người đề xuất. Lưu ý rằng phiếu bầu của bạn có thể trùng lặp."
+"Your vote is prepared. It will be put into the block header or applied when your node generates a block as a proposer. Note that your vote may be duplicate."
 ```
 
 **LƯU Ý** Biểu quyết quản trị và bản cập nhật của nó sẽ có sẵn bất kể có kích hoạt hard fork Magma hay không. Nghĩa là việc biểu quyết quản trị cũng có thể được thực hiện trước khi kích hoạt hard fork Magma.
@@ -220,5 +220,5 @@ Bạn cũng có thể thay đổi giai đoạn bằng cách sử dụng API `gov
 
 ```javascript
 > governance.vote("istanbul.epoch", 60)
-"Phiếu bầu của bạn đã được chuẩn bị. Thông số này sẽ được đưa vào tiêu đề khối hoặc được áp dụng khi nút của bạn tạo một khối với tư cách là người đề xuất. Lưu ý rằng phiếu bầu của bạn có thể trùng lặp."
+"Your vote is prepared. It will be put into the block header or applied when your node generates a block as a proposer. Note that your vote may be duplicate."
 ```

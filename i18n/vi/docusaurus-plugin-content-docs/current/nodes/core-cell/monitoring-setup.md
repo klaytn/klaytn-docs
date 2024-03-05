@@ -12,7 +12,7 @@ Quá trình cài đặt như sau:
 
 ## Cài đặt Telegraf <a id="telegraf-installation"></a>
 
-Hướng dẫn cài đặt Telegraf \(Người dùng Amazon Linux 2, xem bên dưới\): [https://docs.influxdata.com/telegraf/latest/introduction/installation/](https://docs.influxdata.com/telegraf/latest/introduction/installation/)
+Hướng dẫn cài đặt Telegraf (Người dùng Amazon Linux 2, xem bên dưới): [https://docs.influxdata.com/telegraf/latest/introduction/installation/](https://docs.influxdata.com/telegraf/latest/introduction/installation/)
 
 **Lưu ý cho Amazon Linux 2**
 
@@ -21,11 +21,11 @@ Hướng dẫn cài đặt Telegraf \(Người dùng Amazon Linux 2, xem bên d�
 ```text
 cat <<EOF | sudo tee /etc/yum.repos.d/influxdb.repo
 [influxdb]
-name = InfluxDB Repository - RHEL 7
-baseurl = https://repos.influxdata.com/rhel/7/\$basearch/stable
+name = InfluxData Repository - Stable
+baseurl = https://repos.influxdata.com/stable/\$basearch/main
 enabled = 1
 gpgcheck = 1
-gpgkey = https://repos.influxdata.com/influxdb.key
+gpgkey = https://repos.influxdata.com/influxdata-archive_compat.key
 EOF
 ```
 
@@ -53,7 +53,7 @@ tcp        0      0 :::61001        :::*       LISTEN      8989/kcn
 
 **Định cấu hình dịch vụ Telegraf**
 
-Sao chép tập tin sau vào thư mục cấu hình `telegraf` \(`/etc/telegraf/telegraf.d/`\) và chỉnh sửa `nodetype`, `instance` và `hostname` cho phù hợp với từng nút:
+Sao chép tập tin sau vào thư mục cấu hình `telegraf` (`/etc/telegraf/telegraf.d/`) và chỉnh sửa `nodetype`, `instance` và `hostname` cho phù hợp với từng nút:
 
 ```text
 [global_tags]
@@ -77,7 +77,7 @@ Sao chép tập tin sau vào thư mục cấu hình `telegraf` \(`/etc/telegraf/
 
 Thay đổi như sau trong `/etc/telegraf/telegraf.conf`:
 
-* Loại bỏ phần `[[outputs.influxdb]]` bằng ghi chú
+- Loại bỏ phần `[[outputs.influxdb]]` bằng ghi chú
 
 **Bắt đầu Telegraf**
 
@@ -92,4 +92,3 @@ Nếu mỗi CN/PN có cấu hình và tác nhân ở trên, bạn có thể ki�
 [http://cypress.klaytn.net:3000](http://cypress.klaytn.net:3000)
 
 Là người vận hành CC, bạn có thể yêu cầu một tài khoản bằng cách cung cấp tên công ty và địa chỉ email của bạn trong kênh Slack. Xin lưu ý rằng chỉ các người vận hành CC mới được phép yêu cầu tài khoản Grafana.
-

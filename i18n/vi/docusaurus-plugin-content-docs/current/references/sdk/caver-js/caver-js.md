@@ -6,31 +6,31 @@
 
 ## Tính năng <a href="#features" id="features"></a>
 
-* Hoàn tất việc triển khai API máy khách JSON-RPC của Klaytn qua HTTP và Websocket
-* Hỗ trợ giao dịch, tài khoản và các loại khóa tài khoản của Klaytn
-* Gói hợp đồng thông minh JavaScript để triển khai và thực thi hợp đồng thông minh trên mạng lưới Klaytn
-* Ví trong bộ nhớ để quản lý các tài khoản Klaytn
-* Hỗ trợ ủy thác phí
-* Hỗ trợ định dạng khóa ví Klaytn
-* Mã hóa/giải mã một đối tượng giao dịch trong RLP
-* Ký một đối tượng giao dịch
-* Dễ dàng chuyển ứng dụng web3-js sang caver-js
+- Hoàn tất việc triển khai API máy khách JSON-RPC của Klaytn qua HTTP và Websocket
+- Hỗ trợ giao dịch, tài khoản và các loại khóa tài khoản của Klaytn
+- Gói hợp đồng thông minh JavaScript để triển khai và thực thi hợp đồng thông minh trên mạng lưới Klaytn
+- Ví trong bộ nhớ để quản lý các tài khoản Klaytn
+- Hỗ trợ ủy thác phí
+- Hỗ trợ định dạng khóa ví Klaytn
+- Mã hóa/giải mã một đối tượng giao dịch trong RLP
+- Ký một đối tượng giao dịch
+- Dễ dàng chuyển ứng dụng web3-js sang caver-js
 
 ## Các gói trong caver-js <a href="#packages-in-caver-js" id="packages-in-caver-js"></a>
 
 Dưới đây là các gói được cung cấp trong `caver-js`.
 
-* [caver.tài khoản](./api/caver.account.md)
-* [caver.wallet.keyring](./api/caver-wallet/keyring.md)
-* [caver.wallet](./api/caver-wallet/caver-wallet.md)
-* [caver.transaction](./api/caver-transaction/caver-transaction.md)
-* [caver.rpc](./api/caver-rpc/caver-rpc.md)
-* [caver.contract](./api/caver.contract.md)
-* [caver.abi](./api/caver.abi.md)
-* [caver.kct](./api/caver-kct/caver-kct.md)
-* [caver.validator](./api/caver.validator.md)
-* [caver.utils](./api/caver.utils.md)
-* [caver.ipfs](./api/caver.ipfs.md)
+- [caver.tài khoản](./api/caver.account.md)
+- [caver.wallet.keyring](./api/caver-wallet/keyring.md)
+- [caver.wallet](./api/caver-wallet/caver-wallet.md)
+- [caver.transaction](./api/caver-transaction/caver-transaction.md)
+- [caver.rpc](./api/caver-rpc/caver-rpc.md)
+- [caver.contract](./api/caver.contract.md)
+- [caver.abi](./api/caver.abi.md)
+- [caver.kct](./api/caver-kct/caver-kct.md)
+- [caver.validator](./api/caver.validator.md)
+- [caver.utils](./api/caver.utils.md)
+- [caver.ipfs](./api/caver.ipfs.md)
 
 ## Cải thiện mã lỗi <a href="#error-code-improvement" id="error-code-improvement"></a>
 
@@ -46,8 +46,8 @@ Error: runtime error occurred in interpreter
   "contractAddress": null,
   "from": "0xa8a2d37727197cc0eb827f8c5a3a3aceb26cf59e",
   "gasUsed": 9900000000,
-  "nhật kýBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
-  "trạng thái": false,
+  "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "status": false,
   "to": "0xf8425b0f65147969621f9390ca06139c7b439497",
   "transactionHash": "0x85ce2b307899c90144442d9b3236827ac57375c522be2435093aebfd920b8c58",
   "transactionIndex": 0,
@@ -101,5 +101,5 @@ tx.gasPrice = await tx.suggestGasPrice()
 
 ## Liên kết <a href="#links" id="links"></a>
 
-* caver-js [Kho GitHub](https://github.com/klaytn/caver-js)
-* caver-js trên [npm](https://www.npmjs.com/package/caver-js)
+- caver-js [Kho GitHub](https://github.com/klaytn/caver-js)
+- caver-js trên [npm](https://www.npmjs.com/package/caver-js)

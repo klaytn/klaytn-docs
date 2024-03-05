@@ -7,21 +7,23 @@
 ## Điều kiện tiên quyết
 
 Trước tiên, hãy cài đặt các gói sau.
-* [Node.js](https://nodejs.org/en/download/) phiên bản ([14.16.0](https://nodejs.org/dist/latest-v14.x/))
-* [npm](https://www.npmjs.com/get-npm)
-* [nvm](https://github.com/nvm-sh/nvm)
-* [Trình biên dịch Solidity](https://solidity.readthedocs.io/en/develop/installing-solidity.html)
 
-*Lưu ý:* Nếu bạn nhận được lỗi `nvm: command not found` sau khi cài đặt nvm, hãy tham khảo [troubleshooting guide](https://github.com/nvm-sh/nvm/issues/2060).
+- [Node.js](https://nodejs.org/en/download/) phiên bản ([14.16.0](https://nodejs.org/dist/latest-v14.x/))
+- [npm](https://www.npmjs.com/get-npm)
+- [nvm](https://github.com/nvm-sh/nvm)
+- [Trình biên dịch Solidity](https://solidity.readthedocs.io/en/develop/installing-solidity.html)
+
+_Lưu ý:_ Nếu bạn nhận được lỗi `nvm: command not found` sau khi cài đặt nvm, hãy tham khảo [troubleshooting guide](https://github.com/nvm-sh/nvm/issues/2060).
 
 ## 1. Tạo một Tài khoản và Tải xuống Lưu trữ khóa <a id="1.-create-an-account-and-download-keystore"></a>
+
 Cách đơn giản nhất để tạo một tài khoản và dùng [Bộ công cụ trực tuyến của Klaytn](https://toolkit.klaytn.foundation/misc/generateKeystore).
 
-![Bộ công cụ trực tuyến của Klaytn](/img/references/keystore.png)
+![Klaytn Online Toolkit](/img/references/keystore.png)
 
 Hãy tải về tập tin lưu trữ khóa, và đổi thành một cái tên đơn giản hơn, ví dụ như `keystore.json`.
 
-**Bạn cần KLAY để gửi một giao dịch.** Bạn có thể nhận KLAY thử nghiệm cho mạng thử nghiệm Baobab từ [Vòi](https://baobab.wallet.klaytn.foundation/faucet). Hãy tham khảo [Ví Klaytn](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay) để xem hướng dẫn chi tiết.
+\*\*Bạn cần KLAY để gửi một giao dịch. \*\* Bạn có thể nhận KLAY thử nghiệm cho mạng thử nghiệm Baobab từ [Vòi](https://baobab.wallet.klaytn.foundation/faucet). Hãy tham khảo [Ví Klaytn](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay) để xem hướng dẫn chi tiết.
 
 ## 2. Khởi động dự án <a id="2.-initialize-project"></a>
 
@@ -94,7 +96,6 @@ npm init -y
 
 Và bây giờ, chúng ta đã sẵn sàng để cài đặt caver-js.
 
-
 ```
 npm install caver-js
 ```
@@ -109,12 +110,11 @@ npm i read
 
 Hãy cùng tạo một tập tin thử nghiệm tên là `testcaver.js` như sau:
 
-``` 
+```
 touch testcaver.js
 ```
 
 Chúng ta sẽ viết mã vào tập tin này để gửi một giao dịch nhằm chuyển KLAY.
-
 
 ## 5. Kết nối với Nút Klaytn <a id="5.-connect-to-klaytn-node"></a>
 
@@ -156,17 +156,17 @@ Sau đó, `keyring` sẽ được lưu trữ trong ví. Hãy thêm vào các dò
 async function sendKlay() {
 // Read keystore json file
   const fs = require('fs')
-    const keystore = fs.readFileSync('./keystore.json', 'utf8')
-    const password = await loadPassword()
+	const keystore = fs.readFileSync('./keystore.json', 'utf8')
+	const password = await loadPassword()
 
-    // Decrypt keystore and create
-    const keyring = caver.wallet.keyring.decrypt(keystore, password)
-    console.log(keyring)
+	// Decrypt keystore and create
+	const keyring = caver.wallet.keyring.decrypt(keystore, password)
+	console.log(keyring)
 
     // Add to caver.wallet
-    caver.wallet.add(keyring)
+	caver.wallet.add(keyring)
 
-    }
+	}
 ```
 
 ## 7. Gửi giao dịch <a id="7.-send-transaction"></a>
@@ -176,21 +176,21 @@ Giờ chũng ta sẽ tạo một giao dịch để chuyển một ít KLAY. Lo�
 Địa chỉ `from` sẽ được lấy từ lưu trữ khóa mà chúng ta đã tải lên. Địa chỉ `to` là bên nhận KLAY, và bạn có thể dùng địa chỉ bất kỳ. Đối với `value`, bạn có teher sử dụng luôn `caver.utils.toPeb()` để quy đổi KLAY thành peb. Ở đây, chúng ta sẽ gửi 10 KLAY. Đối với `gas`,
 
 ```
+	
+	// Create value transfer transaction
+	const vt = caver.transaction.valueTransfer.create({
+		from: keyring.address,
+		to: '0x8084fed6b1847448c24692470fc3b2ed87f9eb47',
+		value: caver.utils.toPeb(10, 'KLAY'),
+		gas: 25000,
+	})
 
-    // Create value transfer transaction
-    const vt = caver.transaction.valueTransfer.create({
-        from: keyring.address,
-        to: '0x8084fed6b1847448c24692470fc3b2ed87f9eb47',
-        value: caver.utils.toPeb(10, 'KLAY'),
-        gas: 25000,
-    })
+	// Sign to the transaction
+	const signed = await caver.wallet.sign(keyring.address, vt)
 
-    // Sign to the transaction
-    const signed = await caver.wallet.sign(keyring.address, vt)
-
-    // Send transaction to the Klaytn blockchain platform (Klaytn)
-    const receipt = await caver.rpc.klay.sendRawTransaction(signed)
-    console.log(receipt)
+	// Send transaction to the Klaytn blockchain platform (Klaytn)
+	const receipt = await caver.rpc.klay.sendRawTransaction(signed)
+	console.log(receipt)
 }
 ```
 
@@ -208,8 +208,7 @@ Hãy chạy mã mà chúng ta vừa viết:
 node testcaver.js
 ```
 
-![Nhập mật khẩu của bạn](/img/references/prompt.png)
-
+![Type your password](/img/references/prompt.png)
 
 Kết quả sẽ giống như sau:
 
@@ -229,8 +228,8 @@ SingleKeyring {
   gas: '0x61a8',
   gasPrice: '0xba43b7400',
   gasUsed: '0x5208',
-  nhật ký: [],
-  nhật kýBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  logs: [],
+  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
   nonce: '0x0',
   senderTxHash: '0xdef371f3b194de1d6b6b678a3181e0e961549f2bc8f6391f97f48c8ea995225e',
   signatures: [
@@ -240,7 +239,7 @@ SingleKeyring {
       S: '0x37718277df2a7a940212c9adb411f52d79d8cced784177c41224dca1a1ef122c'
     }
   ],
-  trạng thái: '0x1',
+  status: '0x1',
   to: '0x7f1d6235b79688169fd6e15c4e8f540d6799dc75',
   transactionHash: '0xdef371f3b194de1d6b6b678a3181e0e961549f2bc8f6391f97f48c8ea995225e',
   transactionIndex: '0x2',
@@ -261,31 +260,31 @@ const caver = new Caver('https://public-en-baobab.klaytn.net/')
 
 async function sendKLAY() {
     // Read keystore json file
-        const fs = require('fs')
-    const keystore = fs.readFileSync('./keystore.json', 'utf8')
-    const password = await loadPassword()
+    	const fs = require('fs')
+	const keystore = fs.readFileSync('./keystore.json', 'utf8')
+	const password = await loadPassword()
 
-    // Decrypt keystore and create
-    const keyring = caver.wallet.keyring.decrypt(keystore, password)
-    console.log(keyring)
+	// Decrypt keystore and create
+	const keyring = caver.wallet.keyring.decrypt(keystore, password)
+	console.log(keyring)
 
     // Add to caver.wallet
-    caver.wallet.add(keyring)
+	caver.wallet.add(keyring)
 
     // Create value transfer transaction
-    const vt = caver.transaction.valueTransfer.create({
-        from: keyring.address,
-        to: '0x7f1D6235B79688169fd6e15C4E8f540d6799dC75',
-        value: caver.utils.toPeb(10, 'KLAY'),
-        gas: 25000,
-    })
+	const vt = caver.transaction.valueTransfer.create({
+		from: keyring.address,
+		to: '0x7f1D6235B79688169fd6e15C4E8f540d6799dC75',
+		value: caver.utils.toPeb(10, 'KLAY'),
+		gas: 25000,
+	})
 
-    // Sign to the transaction
-    const signed = await caver.wallet.sign(keyring.address, vt)
+	// Sign to the transaction
+	const signed = await caver.wallet.sign(keyring.address, vt)
 
-    // Send transaction to the Klaytn blockchain platform (Klaytn)
-    const receipt = await caver.rpc.klay.sendRawTransaction(signed)
-    console.log(receipt)
+	// Send transaction to the Klaytn blockchain platform (Klaytn)
+	const receipt = await caver.rpc.klay.sendRawTransaction(signed)
+	console.log(receipt)
 }
 
 async function loadPassword() {

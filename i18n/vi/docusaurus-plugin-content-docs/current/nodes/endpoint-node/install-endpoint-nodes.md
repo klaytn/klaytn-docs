@@ -6,8 +6,6 @@ Bạn có thể tải về các gói cho EN tại [trang tải về](../download
 
 ## Hướng dẫn cài đặt <a id="installation-guide"></a>
 
-Bạn có thể tải về phiên bản mới nhất của `ken` trên trang [Tải xuống](../../misc/operation/chaindata-change.md).
-
 ### Phân bổ lưu trữ Linux <a id="linux-archive-distribution"></a>
 
 Tập tin lưu trữ bao gồm tập tin nhị phân thực thi và cấu hình có cấu trúc như sau.
@@ -23,7 +21,7 @@ Tập tin lưu trữ bao gồm tập tin nhị phân thực thi và cấu hình 
 ```
 
 | Tên tập tin    | Mô tả tập tin                    |
-|:-------------- |:-------------------------------- |
+| :------------- | :------------------------------- |
 | bin/ken        | Tập tin thực thi EN              |
 | bin/kend       | Tập tin lệnh bắt đầu/kết thúc EN |
 | conf/kend.conf | Tập tin cấu hình EN              |
@@ -48,7 +46,7 @@ $ export PATH=$PATH:~/downloaded/path/ken-linux-amd64/bin
 
 Các phần khác giả định rằng đường dẫn đã được thêm vào biến.
 
-### Phân bổ RPM \(RHEL/CentOS/Fedora\) <a id="rpm-rhel-centos-fedora"></a>
+### Phân bổ RPM (RHEL/CentOS/Fedora) <a id="rpm-rhel-centos-fedora"></a>
 
 Bạn có thể cài đặt RPM đã tải về với lệnh `yum` sau đây.
 
@@ -75,7 +73,7 @@ $ sudo curl -o /etc/yum.repos.d/klaytn.repo https://packages.klaytn.net/config/r
 Tập tin đã cài đặt nằm ở vị trí như sau.
 
 | Tên tập tin | Vị trí                   |
-|:----------- |:------------------------ |
+| :---------- | :----------------------- |
 | ken         | /usr/bin/ken             |
 | kend.conf   | /etc/kend/conf/kend.conf |
 
@@ -98,8 +96,8 @@ $ sudo mkdir -p /var/kend/data
 
 Vị trí tập tin cấu hình:
 
-* Nếu phân bổ lưu trữ, vị trí thư mục cấu hình mặc định là `$INSTALL_PATH/ken-linux-amd64/conf/`.
-* Nếu phân bổ gói, vị trí thư mục cấu hình mặc định là `/etc/kpnd/conf/`.
+- Nếu phân bổ lưu trữ, vị trí thư mục cấu hình mặc định là `$INSTALL_PATH/ken-linux-amd64/conf/`.
+- Nếu phân bổ gói, vị trí thư mục cấu hình mặc định là `/etc/kpnd/conf/`.
 
 #### Thêm Thư mục dữ liệu  <a id="add-data-directory"></a>
 
@@ -109,13 +107,13 @@ Bạn nên cập nhật biến môi trường thư mục dữ liệu `$DATA_DIR`
 DATA_DIR=/var/kend/data
 ```
 
-### Đồng bộ nhanh \(Tùy chọn\) <a id="fast-sync-optional"></a>
+### Đồng bộ nhanh (Tùy chọn) <a id="fast-sync-optional"></a>
 
 Mỗi EN duy trì một bản sao dữ liệu chuỗi của mạng lưới. Nếu một nút không được đồng bộ, nút này có thể lấy dữ liệu này từ các nút khác trong mạng lưới -- một quá trình được gọi là đồng bộ hóa. Khi một EN mới được bắt đầu lần đầu tiên, nó phải tải xuống toàn bộ dữ liệu chuỗi từ mạng lưới.
 
 Để đẩy nhanh quá trình này, bạn cần thực hiện đồng bộ nhanh bằng cách tải về bản thu thập dữ liệu của dữ liệu chuỗi trước khi bắt đầu EN. Điều này giúp giảm đáng kể thời gian EN cần để đồng bộ khi bắt đầu lần đầu tiên.
 
-Tải xuống bản thu thập dữ liệu chuỗi mới nhất từ [Lưu trữ thu thập dữ liệu Cypress](http://packages.klaytn.net/cypress/chaindata/) hoặc[Lưu trữ thu thập dữ liệu Baobab](http://packages.klaytn.net/baobab/chaindata/). Trước khi bắt đầu `kend`, trích xuất bản thu thập dữ liệu trong DATA\_DIR mà bạn định cấu hình trong `kend.conf`.
+Tải xuống bản thu thập dữ liệu chuỗi mới nhất từ [Lưu trữ thu thập dữ liệu Cypress](http://packages.klaytn.net/cypress/chaindata/) hoặc[Lưu trữ thu thập dữ liệu Baobab](http://packages.klaytn.net/baobab/chaindata/). Trước khi bắt đầu `kend`, trích xuất bản thu thập dữ liệu trong DATA_DIR mà bạn định cấu hình trong `kend.conf`.
 
 Ví dụ:
 
@@ -131,7 +129,7 @@ $ tar -C ~/kend_home -xvf klaytn-baobab-chaindata-latest.tar.gz
 
 Sau khi dữ liệu được trích xuất, bạn có thể bắt đầu EN như bình thường.
 
-Bạn có thể tham khảo thông tin chi tiết tại [Thay đổi dữ liệu chuỗi](../../references/json-rpc/json-rpc.md)
+Bạn có thể tham khảo thông tin chi tiết tại [Thay đổi dữ liệu chuỗi](../../misc/operation/chaindata-change.md)
 
 ## Khởi động EN <a id="startup-the-en"></a>
 
@@ -154,7 +152,7 @@ Shutting down kend: Killed
 **trạng thái**
 
 ```bash
-$ kend trạng thái
+$ kend status
 kend is running
 ```
 
@@ -171,12 +169,12 @@ Có thể kiểm tra trạng thái quy trình của EN bằng các lệnh trạn
 `systemctl` được cài đặt cùng với RPM; có thể kiểm tra trạng thái của EN như sau.
 
 ```bash
-$ systemctl trạng thái kend.service
+$ systemctl status kend.service
 ● kend.service - (null)
    Loaded: loaded (/etc/rc.d/init.d/kend; bad; vendor preset: disabled)
    Active: active (running) since Wed 2019-01-09 11:42:39 UTC; 1 months 4 days ago
      Docs: man:systemd-sysv-generator(8)
-  Process: 29636 ExecStart=/etc/rc.d/init.d/kend start (code=exited, trạng thái=0/SUCCESS)
+  Process: 29636 ExecStart=/etc/rc.d/init.d/kend start (code=exited, status=0/SUCCESS)
  Main PID: 29641 (ken)
    CGroup: /system.slice/kend.service
            └─29641 /usr/local/bin/ken --networkid 1000 --datadir /kend_home --port 32323 --srvtype fasthttp --metrics --prometheus --verbosity 3 --txpool.global...
@@ -193,7 +191,7 @@ Bạn có thể kiểm tra trạng thái hiện tại như `Active: active (runn
 `kend` được cài đặt cùng với gói; trạng thái của EN có thể được kiểm tra như sau.
 
 ```bash
-$ kend trạng thái
+$ kend status
 kend is running
 ```
 
@@ -227,7 +225,7 @@ Hãy thực hiện lệnh sau và kiểm tra kết quả.
 
 ```text
 $ ken attach /var/kend/data/klay.ipc
-Chào mừng bạn đến với bảng điều khiển Klaytn JavaScript!
+Welcome to the Klaytn JavaScript console!
 
 instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
  datadir: /var/kend/data
@@ -239,8 +237,8 @@ Bạn có thể kiểm tra các lệnh có thể sử dụng trên [Tài liệu 
 
 Các API hữu ích để kiểm tra trạng thái của EN:
 
-* `klay.blockNumber` (để lấy số khối mới nhất)
-* `net.peerCount` (để lấy số nút Klaytn được kết nối hiện tại)
+- `klay.blockNumber` (để lấy số khối mới nhất)
+- `net.peerCount` (để lấy số nút Klaytn được kết nối hiện tại)
 
 #### klay.blockNumber <a id="klay-blocknumber"></a>
 

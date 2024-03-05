@@ -1,15 +1,17 @@
 ---
-description: >-
-  API liên quan đến tài khoản, khối, giao dịch và nút.
-
+description: |-
+  description: >-
+    API liên quan đến tài khoản, khối, giao dịch và nút.
 ---
 
 # Không gian tên klay
 
-Không gian tên `klay` cung cấp các hàm liên quan đến tài khoản, khối, giao dịch, cấu hình của mạng hoặc nút, bộ lọc, v.v. Danh sách dưới đây liệt kê các hàm API hiện được hỗ trợ trong Klaytn.
-
+Không gian tên `klay` cung cấp các hàm liên quan đến tài khoản, khối, giao dịch, cấu hình của mạng hoặc nút, bộ lọc, v.v.
+configurations of networks or nodes, filters, and so on.
+Danh sách dưới đây liệt kê các hàm API hiện được hỗ trợ trong Klaytn.
 
 ### [Tài khoản](./account.md) <a id="account"></a>
+
 - [klay_tài khoảnCreated](./account.md#klay_accountcreated)
 - [klay_tài khoảns](./account.md#klay_accounts)
 - [klay_encodeAccountKey](./account.md#klay_encodeaccountkey)
@@ -22,8 +24,8 @@ Không gian tên `klay` cung cấp các hàm liên quan đến tài khoản, kh�
 - [klay_isContractAccount](./account.md#klay_iscontractaccount)
 - [klay_sign](./account.md#klay_sign)
 
-
 ### [Khối](./block.md) <a id="block"></a>
+
 - [klay_blockNumber](./block.md#klay_blocknumber)
 - [klay_getHeaderByNumber](./block.md#klay_getheaderbynumber)
 - [klay_getHeaderByHash](./block.md#klay_getheaderbyhash)
@@ -42,8 +44,8 @@ Không gian tên `klay` cung cấp các hàm liên quan đến tài khoản, kh�
 - [klay_syncing](./block.md#klay_syncing)
 - [klay_getRewards](./block.md#klay_getrewards)
 
-
 ### [Giao dịch](./transaction.md) <a id="transaction"></a>
+
 - [klay_call](./transaction.md#klay_call)
 - [klay_estimateGas](./transaction.md#klay_estimategas)
 - [klay_estimateComputationCost](./transaction.md#klay_estimatecomputationcost)
@@ -62,6 +64,7 @@ Không gian tên `klay` cung cấp các hàm liên quan đến tài khoản, kh�
 - [klay_resend](../eth/transaction.md#klay_resend)
 
 ### [Cấu hình](./config.md) <a id="configuration"></a>
+
 - [klay_chainID](./config.md#klay_chainid)
 - [klay_clientVersion](./config.md#klay_clientversion)
 - [klay_gasPrice](./config.md#klay_gasprice)
@@ -72,10 +75,12 @@ Không gian tên `klay` cung cấp các hàm liên quan đến tài khoản, kh�
 - [klay_rewardbase](./config.md#klay_rewardbase)
 
 ### [Gas](./gas.md) <a id="gas"></a>
+
 - [klay_feeHistory](./gas.md#klay_feehistory)
 - [klay_maxPriorityFeePerGas](./gas.md#klay_maxpriorityfeepergas)
 
 ### [Bộ lọc](./filter.md) <a id="filter"></a>
+
 - [klay_getFilterChanges](./filter.md#klay_getfilterchanges)
 - [klay_getFilterLogs](./filter.md#klay_getfilterlogs)
 - [klay_getLogs](./filter.md#klay_getlogs)
@@ -86,8 +91,8 @@ Không gian tên `klay` cung cấp các hàm liên quan đến tài khoản, kh�
 - [klay_uninstallFilter](./filter.md#klay_uninstallfilter)
 - [klay_unsubscribe](./filter.md#klay_unsubscribe)
 
-
 ### [Khác](./misc.md) <a id="miscellaneous"></a>
+
 - [klay_sha3](./misc.md#klay_sha3)
 - [klay_recoverFromTransaction](./misc.md#klay_recoverFromTransaction)
 - [klay_recoverFromMessage](./misc.md#klay_recoverFromMessage)

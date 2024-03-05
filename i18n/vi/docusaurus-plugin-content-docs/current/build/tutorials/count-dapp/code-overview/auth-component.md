@@ -10,7 +10,7 @@
 4\) Tính năng thành phần `Auth`: Người dùng có thể nhập tập tin lưu trữ khóa và nhập mật khẩu để đăng nhập.\
 5\) Tính năng thành phần `Auth`: Người dùng có thể đăng xuất và xóa thông tin phiên bản ví khỏi trình duyệt.
 
-### 1) Hình nền <a href="#1-background" id="1-background"></a>
+### 1. Hình nền <a href="#1-background" id="1-background"></a>
 
 Trong ứng dụng trên nền tảng blockchain, chúng tôi thường tương tác với hợp đồng thông minh.\
 Có 2 loại tương tác với hợp đồng.\ `1) Đọc dữ liệu từ hợp đồng.` `2) Ghi dữ liệu vào hợp đồng.`
@@ -25,24 +25,24 @@ Tương tự với cách gọi phương pháp hợp đồng. Bạn có thể coi
 Để ghi dữ liệu vào hợp đồng, bạn nên có một tài khoản Klaytn có số dư KLAY để thanh toán phí giao dịch.\
 Thành phần `Xác thực` sẽ giúp bạn đăng nhập vào ứng dụng.
 
-### 2) Tổng quan thành phần`Auth` <a href="#2-auth-component-overview" id="2-auth-component-overview"></a>
+### 2. Tổng quan thành phần`Auth` <a href="#2-auth-component-overview" id="2-auth-component-overview"></a>
 
 Thành phần `'Auth.js'` là mã lệnh dài nhất trong ứng dụng hướng dẫn của chúng tôi, vì thế chúng tôi sẽ chia nhỏ đoạn mã lệnh ra và thực hiện từng bước một.
 
 Thành phần này cung cấp giao diện người dùng sau đây. ![auth-component](/img/build/tutorials/tutorial-auth-component.png)
 
 Tính năng chính là:\
-1\) Người dùng có thể nhập khóa riêng tư để đăng nhập.\ 2\) Người dùng có thể nhập tập tin lưu trữ khóa và nhập mật khẩu để đăng nhập.\
+1\) Người dùng có thể nhập khóa riêng tư để đăng nhập.\ 2) Người dùng có thể nhập tập tin lưu trữ khóa và nhập mật khẩu để đăng nhập.\
 3\) Người dùng có thể đăng xuất và xóa thông tin phiên bản của ví từ trình duyệt.
 
-### 3) Tính năng thành phần `Auth`: Người dùng có thể nhập khóa riêng tư để đăng nhập. <a href="#3-auth-component-feature-user-can-input-private-key-to-login" id="3-auth-component-feature-user-can-input-private-key-to-login"></a>
+### 3. Tính năng thành phần `Auth`: Người dùng có thể nhập khóa riêng tư để đăng nhập. <a href="#3-auth-component-feature-user-can-input-private-key-to-login" id="3-auth-component-feature-user-can-input-private-key-to-login"></a>
 
 Cần có phương pháp `integrateWallet` để đăng nhập bằng khóa riêng tư.
 
 ```javascript
 integrateWallet = (privateKey) => {
-  const walletInstance = cav.klay.tài khoảns.privateKeyToAccount(privateKey)
-  cav.klay.tài khoảns.wallet.add(walletInstance)
+  const walletInstance = cav.klay.accounts.privateKeyToAccount(privateKey)
+  cav.klay.accounts.wallet.add(walletInstance)
   sessionStorage.setItem('walletInstance', JSON.stringify(walletInstance))
   this.reset()
 }
@@ -67,40 +67,40 @@ Nó đặt lại trạng thái của thành phần hiện tại về trạng th�
 
 Để biết thêm thông tin về API `privateKeyToAccount` của caver-js, hãy xem [caver.klay.tài khoảns.privateKeyToAccount](../../../../references/sdk/caver-js-1.4.1/api/caver.klay.accounts.md#privatekeytoaccount)
 
-### 4) Tính năng thành phần `Auth`: Người dùng có thể nhập tập tin lưu trữ khóa và nhập mật khẩu để đăng nhập. <a href="#4-auth-component-feature-user-can-import-keystore-file-and-input-password-to-log" id="4-auth-component-feature-user-can-import-keystore-file-and-input-password-to-log"></a>
+### 4. Tính năng thành phần `Auth`: Người dùng có thể nhập tập tin lưu trữ khóa và nhập mật khẩu để đăng nhập. <a href="#4-auth-component-feature-user-can-import-keystore-file-and-input-password-to-log" id="4-auth-component-feature-user-can-import-keystore-file-and-input-password-to-log"></a>
 
 Cần phương pháp `handleImport` và `handleLogin` để đăng nhập bằng lưu trữ khóa và mật khẩu.
 
 ```javascript
 /**
- * phương pháp handleImport mở tập tin, đọc
+ * handleImport method takes a file, read
  */
 handleImport = (e) => {
   const keystore = e.target.files[0]
-  // 'FileReader' được dùng để đọc nội dung tập tin.
-  // Chúng tôi sử dụng handler 'onload' và phương pháp 'readAsText'.
+  // 'FileReader' is used for reading contents of file.
+  // We would use 'onload' handler and 'readAsText' method.
   // * FileReader.onload
-  // - Sự kiện này được kích hoạt mỗi khi hoàn tất hoạt động đọc.
+  // - This event is triggered each time the reading operation is completed.
   // * FileReader.readAsText()
-  // - Bắt đầu đọc nội dung.
+  // - Starts reading the contents.
   const fileReader = new FileReader()
   fileReader.onload = (e) => {
     try {
       if (!this.checkValidKeystore(e.target.result)) {
-        // Nếu tập tin lưu trữ khóa không hợp lệ, hiển thị thông báo "Tập tin lưu trữ khóa không hợp lệ."
-        this.setState({ keystoreMsg: 'Tập tin lưu trữ khóa không hợp lệ.' })
+        // If key store file is invalid, show message "Invalid keystore file."
+        this.setState({ keystoreMsg: 'Invalid keystore file.' })
         return
       }
 
-      // Nếu file lưu trữ khóa hợp lệ,
-      // 1) đặt biến lưu trữ khóa e.target.result
-      // 2) hiển thị thông báo "Lưu trữ khóa hợp lệ. nhập mật khẩu."
+      // If key store file is valid,
+      // 1) set e.target.result keystore
+      // 2) show message "It is valid keystore. input your password."
       this.setState({
         keystore: e.target.result,
-        keystoreMsg: 'Lưu trữ khóa hợp lệ. nhập mật khẩu.',
+        keystoreMsg: 'It is valid keystore. input your password.',
       }, () => document.querySelector('#input-password').focus())
     } catch (e) {
-      this.setState({ keystoreMsg: 'Tập tin lưu trữ khóa không hợp lệ.' })
+      this.setState({ keystoreMsg: 'Invalid keystore file.' })
       return
     }
   }
@@ -135,25 +135,25 @@ API này trả về một phiên bản ví chứa khóa riêng tư. Sau khi nh�
 handleLogin = () => {
   const { accessType, keystore, password, privateKey } = this.state
 
-  // Truy cập type2: truy cập qua khóa riêng tư
+  // Access type2: access through private key
   if (accessType == 'privateKey') {
     this.integrateWallet(privateKey)
     return
   }
 
-  // Truy cập type1: truy cập qua lưu trữ khóa + mật khẩu
+  // Access type1: access through keystore + password
   try {
-    const { privateKey: privateKeyFromKeystore } = cav.klay.tài khoảns.decrypt(keystore, password)
+    const { privateKey: privateKeyFromKeystore } = cav.klay.accounts.decrypt(keystore, password)
     this.integrateWallet(privateKeyFromKeystore)
   } catch (e) {
-    this.setState({ keystoreMsg: `Mật khẩu không khớp.` })
+    this.setState({ keystoreMsg: `Password doesn't match.` })
   }
 }
 ```
 
 Để biết thêm thông tin về mã hóa tập tin lưu trữ khóa bằng mật khẩu, hãy xem [caver.klay.tài khoảns.decrypt](../../../../references/sdk/caver-js-1.4.1/api/caver.klay.accounts.md#decrypt)
 
-### 5) Tính năng thành phần `Auth`: Người dùng có thể đăng xuất, xóa thông tin phiên bản ví từ trình duyệt. <a href="#5-auth-component-feature-user-can-logout-remove-wallet-instance-information-from" id="5-auth-component-feature-user-can-logout-remove-wallet-instance-information-from"></a>
+### 5. Tính năng thành phần `Auth`: Người dùng có thể đăng xuất, xóa thông tin phiên bản ví từ trình duyệt. <a href="#5-auth-component-feature-user-can-logout-remove-wallet-instance-information-from" id="5-auth-component-feature-user-can-logout-remove-wallet-instance-information-from"></a>
 
 'logout' nghĩa là gỡ bỏ phiên bản ví từ trình duyệt và caver.\
 `cav.klay.tài khoảns.wallet.clear()` gỡ bỏ tất cả các phiên bản ví từ caver.\
@@ -161,12 +161,12 @@ handleLogin = () => {
 
 ```javascript
 /**
- * phương pháp removeWallet gỡ bỏ
- * 1) phiên bản ví từ caver.klay.tài khoảns
- * 2) giá trị 'walletInstance' từ phần lưu trữ phiên.
+ * removeWallet method removes
+ * 1) wallet instance from caver.klay.accounts
+ * 2) 'walletInstance' value from session storage.
  */
 removeWallet = () => {
-  cav.klay.tài khoảns.wallet.clear()
+  cav.klay.accounts.wallet.clear()
   sessionStorage.removeItem('walletInstance')
   this.reset()
 }

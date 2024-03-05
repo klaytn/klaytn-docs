@@ -9,8 +9,8 @@ Lệnh này sẽ trả lại danh sách tất cả các tài khoản được t�
 Từ dòng lệnh này, gọi ra CLI bằng:
 
 ```bash
-$ ken tài khoản list --datadir <DATADIR>
-$ ken tài khoản list --datadir ~/kend_home
+$ ken account list --datadir <DATADIR>
+$ ken account list --datadir ~/kend_home
 Account #0: {bfc22a57999459b0c2ce6337deb9287e7a970e02} keystore:///Users/username/kend_home/keystore/UTC--2019-03-26T07-02-58.524962000Z--bfc22a57999459b0c2ce6337deb9287e7a970e02
 Account #1: {47bd2e9565cbe1789454718d6cf1778d7ea557aa} keystore:///Users/username/kend_home/keystore/UTC--2019-03-26T07-04-44.840061000Z--47bd2e9565cbe1789454718d6cf1778d7ea557aa
 ```
@@ -22,7 +22,7 @@ Account #1: {47bd2e9565cbe1789454718d6cf1778d7ea557aa} keystore:///Users/usernam
 Khi sử dụng bảng điều khiển:
 
 ```javascript
-> klay.tài khoảns
+> klay.accounts
 ["bfc22a57999459b0c2ce6337deb9287e7a970e02", "47bd2e9565cbe1789454718d6cf1778d7ea557aa"]
 ```
 
@@ -32,16 +32,16 @@ Nếu muốn sử dụng một tài khoản theo cách không tương tác, bạ
 
 ### ken <a id="ken"></a>
 
-Bạn có thể mở khóa các tài khoản và bắt đầu EN trên dòng lệnh bằng tùy chọn `--unlock "{address},{address}"`, dòng lệnh này sẽ nhận danh sách tài khoản được phân tách bằng dấu phẩy \(ở dạng hex hoặc chỉ mục\) làm đối số để có thể mở khóa tài khoản theo chương trình cho một phiên. Việc này rất hữu ích nếu bạn muốn dùng tài khoản của mình từ dApp thông qua RPC. `--unlock` sẽ mở khóa tài khoản đầu tiên trong danh sách. Việc này rất hữu ích khi bạn đã tạo tài khoản theo chương trình, bạn không cần biết tài khoản thực để có thể mở khóa.
+Bạn có thể mở khóa các tài khoản và bắt đầu EN trên dòng lệnh bằng tùy chọn `--unlock "{address},{address}"`, dòng lệnh này sẽ nhận danh sách tài khoản được phân tách bằng dấu phẩy (ở dạng hex hoặc chỉ mục) làm đối số để có thể mở khóa tài khoản theo chương trình cho một phiên. Việc này rất hữu ích nếu bạn muốn dùng tài khoản của mình từ dApp thông qua RPC. `--unlock` sẽ mở khóa tài khoản đầu tiên trong danh sách. Việc này rất hữu ích khi bạn đã tạo tài khoản theo chương trình, bạn không cần biết tài khoản thực để có thể mở khóa.
 
 Tạo một tài khoản và bắt đầu một nút với tài khoản đã mở khóa:
 
 ```bash
-$ ken tài khoản new --password <(echo this is not secret) --datadir <DATADIR>
+$ ken account new --password <(echo this is not secret) --datadir <DATADIR>
 $ ken --password <(echo "this is not secret") --unlock primary --datadir <DATADIR> --rpccorsdomain localhost --verbosity 6 2>> log.log
 ```
 
-Nếu bạn muốn bắt đầu một nút với một tài khoản cụ thể đã mở khóa, bạn có thể dùng một địa chỉ hoặc chỉ mục đề cập đến vị trí địa chỉ trong danh sách tài khoản \(và tương ứng với thứ tự được tạo\).
+Nếu bạn muốn bắt đầu một nút với một tài khoản cụ thể đã mở khóa, bạn có thể dùng một địa chỉ hoặc chỉ mục đề cập đến vị trí địa chỉ trong danh sách tài khoản (và tương ứng với thứ tự được tạo).
 
 ```bash
 $ ken --unlock "0" --datadir <DATADIR>
@@ -59,7 +59,7 @@ Nếu cấu trúc này được sử dụng theo cách không có tương tác, 
 
 ### Bảng điều khiển JavaScript <a id="javascript-console"></a>
 
-Trên bảng điều khiển, bạn cũng có thể mở khóa các tài khoản \(từng tài khoản một\) trong một khoảng thời gian \(bằng giây\).
+Trên bảng điều khiển, bạn cũng có thể mở khóa các tài khoản (từng tài khoản một) trong một khoảng thời gian (bằng giây).
 
 ```javascript
 > personal.unlockAccount(address, "password", 300)
@@ -71,14 +71,14 @@ Xin lưu ý là chúng tôi KHÔNG khuyến khích sử dụng đối số mật
 
 ### ken <a id="ken"></a>
 
-không có
+n/a
 
 ### Bảng điều khiển JavaScript <a id="javascript-console"></a>
 
-Để kiểm tra số dư tài khoản:
+In tất cả số dư bằng hàm JavaScript:
 
 ```javascript
-> klay.fromPeb(klay.getBalance("{tài khoản}"), "KLAY")
+> klay.fromPeb(klay.getBalance("{account}"), "KLAY")
 6.5
 ```
 
@@ -87,13 +87,13 @@ In tất cả số dư bằng hàm JavaScript:
 ```javascript
 function checkAllBalances() {
     var totalBal = 0;
-    for (var acctNum in klay.tài khoảns) {
-        var acct = klay.tài khoảns[acctNum];
+    for (var acctNum in klay.accounts) {
+        var acct = klay.accounts[acctNum];
 
         var acctBal = klay.fromPeb(klay.getBalance(acct), "KLAY");
         totalBal += parseFloat(acctBal);
 
-        console.log("klay.tài khoảns[" + acctNum + "]: \t" + acct + " \tbalance: " + acctBal + "KLAY");
+        console.log("klay.accounts[" + acctNum + "]: \t" + acct + " \tbalance: " + acctBal + "KLAY");
 
     }
 
@@ -105,10 +105,10 @@ Sau đó lệnh này có thể được thực thi bằng:
 
 ```javascript
 > checkAllBalances();
-klay.tài khoảns[0]: 0xd1ade25ccd3d550a7eb532ac759cac7be09c2719  balance: 63.11848 KLAY
-klay.tài khoảns[1]: 0xda65665fc30803cb1fb7e6d86691e20b1826dee0  balance: 0 KLAY
-klay.tài khoảns[2]: 0xe470b1a7d2c9c5c6f03bbaa8fa20db6d404a0c32  balance: 1 KLAY
-klay.tài khoảns[3]: 0xf4dd5c3794f1fd0cdc0327a83aa472609c806e99  balance: 6 KLAY
+klay.accounts[0]: 0xd1ade25ccd3d550a7eb532ac759cac7be09c2719  balance: 63.11848 KLAY
+klay.accounts[1]: 0xda65665fc30803cb1fb7e6d86691e20b1826dee0  balance: 0 KLAY
+klay.accounts[2]: 0xe470b1a7d2c9c5c6f03bbaa8fa20db6d404a0c32  balance: 1 KLAY
+klay.accounts[3]: 0xf4dd5c3794f1fd0cdc0327a83aa472609c806e99  balance: 6 KLAY
 ```
 
 Vì hàm này sẽ biến mất sau khi khởi động lại `ken`, nên có thể sẽ hữu ích nếu bạn lưu trữ các hàm thường dùng để sử dụng sau này.
@@ -121,4 +121,3 @@ true
 ```
 
 Tập tin sẽ thay đổi môi trường JavaScript của bạn như thể bạn đã nhập lệnh theo cách thủ công. Bạn hãy cứ thoải mái thử nghiệm!
-

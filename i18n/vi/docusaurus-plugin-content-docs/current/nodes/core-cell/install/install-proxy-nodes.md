@@ -21,7 +21,7 @@ Tập tin lưu trữ bao gồm tập tin nhị phân thực thi và cấu hình 
 ```
 
 | Tên tập tin    | Mô tả tập tin                    |
-|:-------------- |:-------------------------------- |
+| :------------- | :------------------------------- |
 | bin/kpn        | Tập tin thực thi PN              |
 | bin/kpnd       | Tập tin lệnh bắt đầu/kết thúc PN |
 | conf/kpnd.conf | Tập tin cấu hình PN              |
@@ -46,7 +46,7 @@ $ export PATH=$PATH:~/downloaded/path/kpn-linux-amd64/bin
 
 Các phần khác giả định rằng đường dẫn đã được thêm vào biến.
 
-### Phân bổ RPM \(RHEL/CentOS/Fedora\) <a id="rpm-rhel-centos-fedora"></a>
+### Phân bổ RPM (RHEL/CentOS/Fedora) <a id="rpm-rhel-centos-fedora"></a>
 
 Bạn có thể cài đặt RPM đã tải về với lệnh `yum` sau đây.
 
@@ -73,7 +73,7 @@ $ sudo curl -o /etc/yum.repos.d/klaytn.repo https://packages.klaytn.net/config/r
 Tập tin đã cài đặt nằm ở vị trí như sau.
 
 | Tên tập tin | Vị trí                   |
-|:----------- |:------------------------ |
+| :---------- | :----------------------- |
 | kpn         | /usr/bin/kpn             |
 | kpnd.conf   | /etc/kpnd/conf/kpnd.conf |
 
@@ -104,7 +104,7 @@ $ cp nodekey /var/kpnd/data
 
 ### Cài đặt `static-nodes.json` <a id="install-static-nodes-json"></a>
 
-`static-nodes.json` nên được tạo bởi người vận hành PN. Nó chứa các địa chỉ kết nối với PN của bạn. Bạn nên thêm địa chỉ bao gồm CN và PN từ Core Cell khác. Vui lòng liên hệ qua email chính thức của Klaytn để biết thêm chi tiết \(`bootstrap@klaytn.com` cho Cypress hoặc `baobab@klaytn.com` cho Baobab\).
+`static-nodes.json` nên được tạo bởi người vận hành PN. Nó chứa các địa chỉ kết nối với PN của bạn. Bạn nên thêm địa chỉ bao gồm CN và PN từ Core Cell khác. Vui lòng liên hệ qua email chính thức của Klaytn để biết thêm chi tiết (`bootstrap@klaytn.com` cho Cypress hoặc `baobab@klaytn.com` cho Baobab).
 
 **static-nodes.json**
 
@@ -115,7 +115,7 @@ $ cp nodekey /var/kpnd/data
 ]
 ```
 
-URI nút của PN có trong phần '[Trước khi bạn cài đặt](./before-you-install.md)'. \(Lưu ý: Địa chỉ IP này khác với IP công khai của CN.\) Dòng lệnh sau sao chép tập tin `static-nodes.json` vào thư mục dữ liệu PN.
+URI nút của PN có trong phần '[Trước khi bạn cài đặt](./before-you-install.md)'. (Lưu ý: Địa chỉ IP này khác với IP công khai của CN.) Dòng lệnh sau sao chép tập tin `static-nodes.json` vào thư mục dữ liệu PN.
 
 ```bash
 $ cp static-nodes.json /var/kpnd/data
@@ -125,8 +125,8 @@ $ cp static-nodes.json /var/kpnd/data
 
 Vị trí tập tin cấu hình:
 
-* Nếu phân bổ lưu trữ, vị trí thư mục cấu hình mặc định là `$INSTALL_PATH/kpn-linux-amd64/conf/`.
-* Nếu phân bổ gói, vị trí thư mục cấu hình mặc định là `/etc/kpnd/conf/`.
+- Nếu phân bổ lưu trữ, vị trí thư mục cấu hình mặc định là `$INSTALL_PATH/kpn-linux-amd64/conf/`.
+- Nếu phân bổ gói, vị trí thư mục cấu hình mặc định là `/etc/kpnd/conf/`.
 
 #### Thêm Thư mục dữ liệu  <a id="add-data-directory"></a>
 
@@ -138,13 +138,13 @@ DATA_DIR=/var/kpnd/data
 ...
 ```
 
-### Đồng bộ nhanh \(Tùy chọn\) <a id="fast-sync-optional"></a>
+### Đồng bộ nhanh (Tùy chọn) <a id="fast-sync-optional"></a>
 
 Mỗi PN duy trì một bản sao dữ liệu chuỗi của mạng lưới. Nếu một nút không được đồng bộ, nút này có thể lấy dữ liệu này từ các nút khác trong mạng lưới -- một quá trình được gọi là đồng bộ hóa. Khi một PN mới được bắt đầu lần đầu tiên, nó phải tải xuống toàn bộ dữ liệu chuỗi từ mạng lưới.
 
 Để đẩy nhanh quá trình này, bạn cần thực hiện đồng bộ nhanh bằng cách tải về bản thu thập dữ liệu của dữ liệu chuỗi trước khi bắt đầu PN. Điều này giúp giảm đáng kể thời gian PN cần để đồng bộ khi bắt đầu lần đầu tiên.
 
-Tải xuống bản thu thập dữ liệu chuỗi mới nhất từ [Lưu trữ thu thập dữ liệu Cypress](http://packages.klaytn.net/cypress/chaindata/) hoặc[Lưu trữ thu thập dữ liệu Baobab](http://packages.klaytn.net/baobab/chaindata/). Trước khi bắt đầu `kpnd`, trích xuất bản thu thập dữ liệu trong DATA\_DIR mà bạn định cấu hình trong `kpnd.conf`.
+Tải xuống bản thu thập dữ liệu chuỗi mới nhất từ [Lưu trữ thu thập dữ liệu Cypress](http://packages.klaytn.net/cypress/chaindata/) hoặc[Lưu trữ thu thập dữ liệu Baobab](http://packages.klaytn.net/baobab/chaindata/). Trước khi bắt đầu `kpnd`, trích xuất bản thu thập dữ liệu trong DATA_DIR mà bạn định cấu hình trong `kpnd.conf`.
 
 Ví dụ:
 
@@ -187,7 +187,7 @@ $ systemctl stop kpnd.service
 **trạng thái**
 
 ```bash
-$ systemctl trạng thái kpnd.service
+$ systemctl status kpnd.service
 
 ```
 
@@ -196,7 +196,7 @@ $ systemctl trạng thái kpnd.service
 Nếu bạn gặp lỗi sau,
 
 ```bash
-Không thể bắt đầu kpnd.service: Không tìm thấy đơn vị.
+Failed to start kpnd.service: Unit not found.
 ```
 
 tải lại cấu hình trình quản lý hệ thống bằng lệnh sau.
@@ -205,25 +205,25 @@ tải lại cấu hình trình quản lý hệ thống bằng lệnh sau.
 $ systemctl daemon-reload
 ```
 
-# Kiểm tra Core Cell <a id="testing-the-core-cell"></a>
+## Kiểm tra Core Cell <a id="testing-the-core-cell"></a>
 
 Đã đến lúc kiểm tra xem Core Cell đã được cài đặt thành công chưa và nó có hoạt động như mong đợi sau khi cài đặt không.
 
-## Tình trạng xử lý <a id="process-status"></a>
+### Tình trạng xử lý <a id="process-status"></a>
 
 Có thể kiểm tra trạng thái quy trình của PN bằng các lệnh trạng thái `systemctl` và `kpnd`.
 
-### systemctl <a id="systemctl"></a>
+#### systemctl <a id="systemctl"></a>
 
 `systemctl` được cài đặt cùng với RPM, có thể kiểm tra trạng thái của PN như sau.
 
 ```bash
-$ systemctl trạng thái kpnd.service
+$ systemctl status kpnd.service
 ● kpnd.service - (null)
    Loaded: loaded (/etc/rc.d/init.d/kpnd; bad; vendor preset: disabled)
    Active: active (running) since Wed 2019-01-09 11:42:39 UTC; 1 months 4 days ago
      Docs: man:systemd-sysv-generator(8)
-  Process: 29636 ExecStart=/etc/rc.d/init.d/kpnd start (code=exited, trạng thái=0/SUCCESS)
+  Process: 29636 ExecStart=/etc/rc.d/init.d/kpnd start (code=exited, status=0/SUCCESS)
  Main PID: 29641 (kpn)
    CGroup: /system.slice/kpnd.service
            └─29641 /usr/local/bin/kpn --networkid 1000 --datadir /kpnd_home --port 32323 --srvtype fasthttp --metrics --prometheus --verbosity 3 --txpool.global...
@@ -235,16 +235,16 @@ Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal systemd[1]: Start
 
 Bạn có thể kiểm tra trạng thái hiện tại như `Active: active (running)` trong ví dụ trên.
 
-### kpnd <a id="kcnd-kpnd"></a>
+#### kpnd <a id="kcnd-kpnd"></a>
 
 `kpnd` được cài đặt cùng với gói và trạng thái của PN có thể được kiểm tra như sau.
 
 ```bash
-$ kpnd trạng thái
+$ kpnd status
 kpnd is running
 ```
 
-## Nhật ký <a id="logs"></a>
+### Nhật ký <a id="logs"></a>
 
 Nhật ký được lưu ở `kpnd.out` tại đường dẫn xác định trong trường `LOG_DIR` của tập tin `kpnd.conf` (hoặc `kpnd.conf`). Khi nút hoạt động bình thường, bạn có thể thấy rằng mỗi giây sẽ có một khối được tạo như sau.
 
@@ -264,7 +264,7 @@ INFO[02/13,07:02:27 Z] [5] Imported new chain segment                blocks=1 tx
 INFO[02/13,07:02:27 Z] [35] Commit new mining work                    number=11572927 txs=0 elapsed=483.436µs
 ```
 
-## bảng điều khiển kpn <a id="kcn-console-kpn-console"></a>
+### bảng điều khiển kpn <a id="kcn-console-kpn-console"></a>
 
 Klaytn cung cấp một CLI khách: `bảng điều khiển kpn` (hoặc `bảng điều khiển kpn`). Tuy nhiên, PN có thể vô hiệu hóa giao diện RPC cho máy khách vì lý do bảo mật. Một cách khác để sử dụng máy khách là kết nối với quy trình thông qua IPC (giao tiếp giữa các quy trình).
 
@@ -274,7 +274,7 @@ Hãy thực hiện lệnh sau và kiểm tra kết quả.
 
 ```bash
  $ kpn attach /var/kpnd/data/klay.ipc
- Chào mừng bạn đến với bảng điều khiển Klaytn JavaScript!
+ Welcome to the Klaytn JavaScript console!
 
  instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
  coinbase: 0x67f68fdd9740fd7a1ac366294f05a3fd8df0ed40
@@ -288,10 +288,10 @@ Bạn có thể kiểm tra các lệnh có thể sử dụng trên [Tài liệu 
 
 API hữu dụng để kiểm tra trạng thái của PN:
 
-* `klay.blockNumber` (để lấy số khối mới nhất)
-* `net.peerCount` (để lấy số nút Klaytn được kết nối hiện tại)
+- `klay.blockNumber` (để lấy số khối mới nhất)
+- `net.peerCount` (để lấy số nút Klaytn được kết nối hiện tại)
 
-### klay.blockNumber  <a id="klay-blocknumber"></a>
+#### klay.blockNumber  <a id="klay-blocknumber"></a>
 
 Bạn có thể lấy số khối mới nhất để xem liệu các khối được tạo (đối với CN) hay được truyền (đối với CN và PN) đúng cách không dựa trên loại nút của bạn.
 
@@ -300,7 +300,7 @@ Bạn có thể lấy số khối mới nhất để xem liệu các khối đư
 11573819
 ```
 
-### net.peerCount  <a id="net-peercount"></a>
+#### net.peerCount  <a id="net-peercount"></a>
 
 ```javascript
 > net.peerCount
@@ -309,5 +309,5 @@ Bạn có thể lấy số khối mới nhất để xem liệu các khối đư
 
 Dòng lệnh trên trả về một giá trị khác dựa trên loại nút.
 
-* CN: số CN được kết nối + số PN được kết nối.
-* PN: số CN được kết nối + số PN được kết nối + số EN được kết nối.
+- CN: số CN được kết nối + số PN được kết nối.
+- PN: số CN được kết nối + số PN được kết nối + số EN được kết nối.

@@ -4,15 +4,16 @@
 
 ![](/img/build/tools/klaytnXsupraOracles.png)
 
-[SupraOracles](https://supraoracles.com/) là một oracle&amp thông lượng cao &; IntraLayer: Một bộ công cụ tích hợp theo chiều dọc của các giải pháp chuỗi chéo (dữ liệu oracle, cầu nối tài sản, mạng tự động hóa, v.v.) liên kết với tất cả các chuỗi khối, công khai (L1S và L2S) hoặc tư nhân (doanh nghiệp). Nó cung cấp các hợp đồng thông minh với một chuỗi chéo Oracle thế hệ tiếp theo có độ chính xác dữ liệu, tốc độ, khả năng mở rộng và bảo mật vượt trội.
+[SupraOracles](https://supraoracles.com/) là một oracle\&amp thông lượng cao &; IntraLayer: Một bộ công cụ tích hợp theo chiều dọc của các giải pháp chuỗi chéo (dữ liệu oracle, cầu nối tài sản, mạng tự động hóa, v.v.) liên kết với tất cả các chuỗi khối, công khai (L1S và L2S) hoặc tư nhân (doanh nghiệp). Nó cung cấp các hợp đồng thông minh với một chuỗi chéo Oracle thế hệ tiếp theo có độ chính xác dữ liệu, tốc độ, khả năng mở rộng và bảo mật vượt trội.
 
 Với SupraOracles, hợp đồng thông minh của bạn có thể có quyền truy cập vào các nguồn cấp dữ liệu giá để xây dựng các trường hợp sử dụng tài chính phi tập trung (DeFi) khác nhau của bạn. Trong chỉ dẫn này, bạn sẽ sử dụng SupraOracles để nhận nguồn cấp dữ liệu giá dễ dàng trên chuỗi khối Klaytn bằng cách sử dụng Remix IDE.
 
 ## Điều kiện tiên quyết
-* [Kaikas](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi?hl=en)
-* [Remix IDE](https://remix.ethereum.org/)
-* [Plugin Klaytn trên Remix](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
-* Kiểm tra KLAY từ [Faucet](https://baobab.wallet.klaytn.foundation/faucet)
+
+- [Kaikas](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi?hl=en)
+- [Remix IDE](https://remix.ethereum.org/)
+- [Plugin Klaytn trên Remix](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
+- Kiểm tra KLAY từ [Faucet](https://baobab.wallet.klaytn.foundation/faucet)
 
 ## Bắt đầu
 
@@ -27,6 +28,7 @@ interface ISupraSValueFeed {
 function checkPrice(string memory marketPair) external view returns (int256 price, uint256 timestamp);
 }
 ```
+
 ### Bước 2: Định Cấu Hình Địa Chỉ Nguồn Cấp Dữ Liệu S-Value
 
 Để tìm kiếm S-Value từ hợp đồng thông minh SupraOracles, trước tiên hãy tìm địa chỉ nguồn cấp S-Value cho chuỗi bạn chọn. Khi bạn có đúng địa chỉ, hãy tạo một phiên bản của nguồn cấp giá trị S bằng giao diện mà chúng tôi đã xác định trước đây như sau:
@@ -39,6 +41,7 @@ contract ISupraSValueFeedExample {
     }
 }
 ```
+
 Trong ví dụ này, chúng tôi đang triển khai nguồn cấp giá trị S trên Mạng thử nghiệm Baobab Klaytn. Bạn có thể xác minh địa chỉ nguồn cấp dữ liệu Baobab Klaytn S-Value [tại đây](https://supraoracles.com/docs/get-started/networks/).
 
 ### Bước 3: Nhận Giá Tiền Mã Hóa S-Value
@@ -63,14 +66,14 @@ Trong ví dụ dưới đây, chúng tôi sẽ triển khai hợp đồng nguồ
 
 **Remix IDE**
 
-* Điều hướng đến [Remix IDE](https://remix.ethereum.org/)
-* Nhấp vào tab File Explorer, tạo một tệp mới có tên `demosuprapricefeed.sol` trong thư mục hợp đồng
-* Dán mã sau vào tệp vừa tạo
-* Trong Remix, nhấp vào **Hợp Đồng Biên Dịch**.
-* Nhấp vào tab Klaytn bên trái sau khi đã cài đặt plugin
-* Chọn **Môi Trường** > **Được Tiêm Caver** - **Kaikas**.
-* Trong **Hợp đồng**, chọn hợp đồng của bạn. Ví dụ, ISupraSValueFeedExample.
-* Nhấp vào **Triển Khai**.
+- Điều hướng đến [Remix IDE](https://remix.ethereum.org/)
+- Nhấp vào tab File Explorer, tạo một tệp mới có tên `demosuprapricefeed.sol` trong thư mục hợp đồng
+- Dán mã sau vào tệp vừa tạo
+- Trong Remix, nhấp vào **Hợp Đồng Biên Dịch**.
+- Nhấp vào tab Klaytn bên trái sau khi đã cài đặt plugin
+- Chọn **Môi Trường** > **Được Tiêm Caver** - **Kaikas**.
+- Trong **Hợp đồng**, chọn hợp đồng của bạn. Ví dụ, ISupraSValueFeedExample.
+- Nhấp vào **Triển Khai**.
 
 **Mã Mẫu**
 
@@ -121,7 +124,6 @@ console.log(`The price is: ${price}`)
 }
 getEthUsdtPrice()
 ```
-
 
 ### Nguồn Cấp Dữ Liệu S-Value Với ether.js
 

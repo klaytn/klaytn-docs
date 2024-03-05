@@ -20,11 +20,11 @@
   |- kpnd.conf
 ```
 
-| fileName | 파일 설명 |
-| :--- | :--- |
-| bin/kpn | PN 실행 파일 |
-| bin/kpnd | PN 시작/종료 스크립트 파일 |
-| conf/kpnd.conf | PN 구성 파일 |
+| fileName       | 파일 설명            |
+| :------------- | :--------------- |
+| bin/kpn        | PN 실행 파일         |
+| bin/kpnd       | PN 시작/종료 스크립트 파일 |
+| conf/kpnd.conf | PN 구성 파일         |
 
 설치는 다운로드한 패키지의 압축을 풀고 패키지를 설치하려는 위치에 설치하는 것입니다.
 
@@ -46,7 +46,7 @@ $ export PATH=$PATH:~/downloaded/path/kpn-linux-amd64/bin
 
 다른 섹션에서는 경로가 변수에 추가되었다고 가정합니다.
 
-### RPM 배포 \(RHEL/CentOS/Fedora\) <a id="rpm-rhel-centos-fedora"></a>
+### RPM 배포 (RHEL/CentOS/Fedora) <a id="rpm-rhel-centos-fedora"></a>
 
 다운로드한 RPM 파일을 다음 `yum` 명령으로 설치할 수 있습니다.
 
@@ -72,9 +72,9 @@ $ sudo curl -o /etc/yum.repos.d/klaytn.repo https://packages.klaytn.net/config/r
 
 설치된 파일은 다음과 같은 위치에 있습니다.
 
-| fileName | location |
-| :--- | :--- |
-| kpn | /usr/bin/kpn |
+| fileName  | location                 |
+| :-------- | :----------------------- |
+| kpn       | /usr/bin/kpn             |
 | kpnd.conf | /etc/kpnd/conf/kpnd.conf |
 
 ## 구성 <a id="configuration"></a>
@@ -115,7 +115,7 @@ $ cp nodekey /var/kpnd/data
 ]
 ```
 
-PN의 노드 URI는 '[설치에 앞서](./before-you-install.md)' 섹션에 있습니다. \(참고: 이 IP 주소는 CN 공용 IP와 다릅니다.\) 다음 명령줄은 `static-nodes.json` 파일을 PN 데이터 디렉터리에 복사합니다.
+PN의 노드 URI는 '[설치에 앞서](./before-you-install.md)' 섹션에 있습니다. (참고: 이 IP 주소는 CN 공용 IP와 다릅니다.) 다음 명령줄은 `static-nodes.json` 파일을 PN 데이터 디렉터리에 복사합니다.
 
 ```bash
 $ cp static-nodes.json /var/kpnd/data
@@ -125,8 +125,8 @@ $ cp static-nodes.json /var/kpnd/data
 
 구성 파일 위치:
 
-* 아카이브 배포의 경우, 설정 디렉터리 위치는 기본적으로 `$INSTALL_PATH/kpn-linux-amd64/conf/`입니다.
-* 패키지 배포의 경우, 설정 디렉터리의 기본 위치는 `/etc/kpnd/conf/`입니다.
+- 아카이브 배포의 경우, 설정 디렉터리 위치는 기본적으로 `$INSTALL_PATH/kpn-linux-amd64/conf/`입니다.
+- 패키지 배포의 경우, 설정 디렉터리의 기본 위치는 `/etc/kpnd/conf/`입니다.
 
 #### 데이터 디렉터리 추가 <a id="add-data-directory"></a>
 
@@ -138,7 +138,7 @@ DATA_DIR=/var/kpnd/data
 ...
 ```
 
-### 빠른 동기화 \(선택 사항\) <a id="fast-sync-optional"></a>
+### 빠른 동기화 (선택 사항) <a id="fast-sync-optional"></a>
 
 각 PN은 네트워크 체인 데이터의 사본을 유지합니다. 노드가 동기화되지 않은 경우 네트워크의 다른 노드로부터 이 데이터를 가져올 수 있는데, 이 과정을 동기화라고 합니다. 새 PN이 처음 시작되면 네트워크에서 전체 체인 데이터를 다운로드해야 합니다.
 
@@ -288,8 +288,8 @@ IPC 파일 `klay.ipc`는 PN의 `data` 디렉터리에 있습니다.
 
 PN의 상태를 확인하는 데 유용한 API입니다:
 
-* `klay.blockNumber` (최신 블록 번호 가져오기)
-* `net.peerCount` (현재 연결된 클레이튼 노드 수 확인)
+- `klay.blockNumber` (최신 블록 번호 가져오기)
+- `net.peerCount` (현재 연결된 클레이튼 노드 수 확인)
 
 #### klay.blockNumber <a id="klay-blocknumber"></a>
 
@@ -309,6 +309,5 @@ PN의 상태를 확인하는 데 유용한 API입니다:
 
 위의 명령줄은 노드 유형에 따라 다른 값을 반환합니다.
 
-* CN: 연결된 CN의 수 + 연결된 PN의 수입니다.
-* PN: 연결된 CN의 수 + 연결된 PN의 수 + 연결된 EN의 수.
-
+- CN: 연결된 CN의 수 + 연결된 PN의 수입니다.
+- PN: 연결된 CN의 수 + 연결된 PN의 수 + 연결된 EN의 수.

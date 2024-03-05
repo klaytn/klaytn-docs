@@ -1,6 +1,6 @@
 # JSON-RPC API
 
-엔드포인트 노드는 JSON-RPC API를 노출합니다. API는 다음과 같이 활성화/비활성화할 수 있습니다. 자세한 API 명세는 [JSON-RPC APIs](../../references/json-rpc/json-rpc.md)를 참고하세요. 
+엔드포인트 노드는 JSON-RPC API를 노출합니다. API는 다음과 같이 활성화/비활성화할 수 있습니다. 자세한 API 명세는 [JSON-RPC APIs](../../references/json-rpc/json-rpc.md)를 참고하세요.
 
 **참고**: HTTP(`rpc`) 또는 웹소켓(`ws`) 인터페이스를 통해 API를 제공하면 모든 사용자가 이 인터페이스에 액세스할 수 있는 API(디앱, 브라우저 탭 등)에 액세스할 수 있습니다. 어떤 API를 활성화할지 활성화할 때 주의하세요. 기본적으로 클레이튼은 `ipc` 인터페이스를 통해 모든 API를 활성화하지만, `rpc`와 `ws`의 경우 필수 모듈을 명시적으로 활성화해야 합니다.
 
@@ -9,7 +9,7 @@
 ### 명령줄에서 <a id="from-commandline"></a>
 
 클레이튼 RPC 엔드포인트를 통해 API를 제공하려면 `--${interface}api`
-명령줄 인자로 지정하세요. 여기서 `${interface}`는 HTTP 엔드포인트의 경우 `rpc`, 웹소켓 엔드포인트의 경우 `ws`가 될 수 있습니다.
+명령줄 인자로 지정하세요.
 
 `ipc`는 플래그 없이 유닉스 소켓(Unix) 또는 네임드 파이프(Windows) 엔드포인트를 통해 모든 API를 제공합니다.
 

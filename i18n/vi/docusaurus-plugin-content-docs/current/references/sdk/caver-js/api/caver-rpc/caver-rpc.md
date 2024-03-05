@@ -10,21 +10,22 @@
 caver.rpc
 ```
 
-`RPC` là lớp chứa [Klay][], [Net][] và [Quản trị][] bên trong.
+`RPC` là lớp chứa [Klay][], [Net][] và \[Quản trị]\[] bên trong.
 
 **Thuộc tính**
 
-| Tên      | type         | Mô tả                                                                    |
-| -------- | ------------ | ------------------------------------------------------------------------ |
-| klay     | [Klay][]     | [Klay][] cung cấp lệnh gọi JSON-RPC với không gian tên `klay`.           |
-| net      | [Net][]      | [Net][] cung cấp lệnh gọi JSON-RPC với không gian tên `net`.             |
-| quản trị | [Quản trị][] | [Quản trị][] cung cấp lệnh gọi JSON-RPC với không gian tên `governance`. |
+| Tên      | type           | Mô tả                                                                      |
+| -------- | -------------- | -------------------------------------------------------------------------- |
+| klay     | [Klay][]       | [Klay][] cung cấp lệnh gọi JSON-RPC với không gian tên `klay`.             |
+| net      | [Net][]        | [Net][] cung cấp lệnh gọi JSON-RPC với không gian tên `net`.               |
+| quản trị | \[Quản trị]\[] | \[Quản trị]\[] cung cấp lệnh gọi JSON-RPC với không gian tên `governance`. |
 
 ## JSON-RPC calls <a id="json-rpc-calls"></a>
 
 `caver.rpc.klay` cho phép bạn tương tác với các nút Klaytn. Danh sách dưới đây liệt kê các hàm API hiện được hỗ trợ trong `caver-js`.
 
 ### [Tài khoản](./klay.md#caver-rpc-klay-accountcreated) <a id="account"></a>
+
 - [tài khoảnCreated](./klay.md#caver-rpc-klay-accountcreated)
 - [getAccount](./klay.md#caver-rpc-klay-getaccount)
 - [getAccountKey](./klay.md#caver-rpc-klay-getaccountkey)
@@ -38,6 +39,7 @@ caver.rpc
 - [getAccounts](./klay.md#caver-rpc-klay-getaccounts)
 
 ### [Khối](./klay.md#caver-rpc-klay-getblocknumber) <a id="block"></a>
+
 - [getBlockNumber](./klay.md#caver-rpc-klay-getblocknumber)
 - [getBlockByNumber](./klay.md#caver-rpc-klay-getblockbynumber)
 - [getBlockByHash](./klay.md#caver-rpc-klay-getblockbyhash)
@@ -54,6 +56,7 @@ caver.rpc
 - [isSyncing](./klay.md#caver-rpc-klay-issyncing)
 
 ### [Giao dịch](./klay.md#caver-rpc-klay-call) <a id="transaction"></a>
+
 - [lệnh gọi](./klay.md#caver-rpc-klay-call)
 - [estimateGas](./klay.md#caver-rpc-klay-estimategas)
 - [estimateComputationCost](./klay.md#caver-rpc-klay-estimatecomputationcost)
@@ -71,6 +74,7 @@ caver.rpc
 - [getDecodedAnchoringTransactionByHash](./klay.md#caver-rpc-klay-getdecodedanchoringtransactionbyhash)
 
 ### [Cấu hình](./klay.md#caver-rpc-klay-getclientversion) <a id="configuration"></a>
+
 - [getChainId](./klay.md#caver-rpc-klay-getchainid)
 - [getClientVersion](./klay.md#caver-rpc-klay-getclientversion)
 - [getGasPrice](./klay.md#caver-rpc-klay-getgasprice)
@@ -81,6 +85,7 @@ caver.rpc
 - [getRewardbase](./klay.md#caver-rpc-klay-getrewardbase)
 
 ### [Bộ lọc](./klay.md#caver-rpc-klay-getfilterchanges) <a id="filter"></a>
+
 - [getFilterChanges](./klay.md#caver-rpc-klay-getfilterchanges)
 - [getFilterLogs](./klay.md#caver-rpc-klay-getfilterlogs)
 - [getLogs](./klay.md#caver-rpc-klay-getlogs)
@@ -90,14 +95,18 @@ caver.rpc
 - [uninstallFilter](./klay.md#caver-rpc-klay-uninstallfilter)
 
 ### [Mạng](./net.md) <a id="network"></a>
+
 - [getNetworkId](./net.md#caver-rpc-net-getnetworkid)
 - [isListening](./net.md#caver-rpc-net-islistening)
 - [getPeerCount](./net.md#caver-rpc-net-getpeercount)
 - [getPeerCountByType](./net.md#caver-rpc-net-getpeercountbytype)
 
 ### [Khác](./klay.md#caver-rpc-klay-sha3) <a id="miscellaneous"></a>
+
 - [sha3](./klay.md#caver-rpc-klay-sha3)
 
-[Klay]: ./klay.md
-[Net]: ./net.md
-[Quản trị]: ./governance.md
+[Klay]: klay.md
+
+[Net]: net.md
+
+[Governance]: governance.md

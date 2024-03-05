@@ -11,7 +11,6 @@ Tham số `defaultBlock` có thể có các tùy chọn như sau:
 - `String "latest"` - cho khối đã đào mới nhất
 - `String "pending"` - cho trạng thái/giao dịch đang chờ xử lý
 
-
 ## eth_blockNumber <a id="eth_blocknumber"></a>
 
 Trả về số của khối gần đây nhất.
@@ -29,17 +28,16 @@ Không có
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":83}' http://localhost:8551
 
-// Kết quả
+// Result
 {
   "jsonrpc": "2.0",
   "id":83,
   "result": "0xc94"
 }
 ```
-
 
 ## eth_getHeaderByNumber <a id="eth_getheaderbynumber"></a>
 
@@ -49,8 +47,8 @@ Vui lòng xem phần [Caution-Header](./caution.md#block_header) trước khi s�
 
 **Tham số**
 
-| Loại               | Mô tả                                                                                                                                                                         |
-| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Loại           | Mô tả                                                                                                                                                                        |
+| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | SỐ LƯỢNG \| THẺ | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](#the-default-block-parameter) hoặc hàm băm khối. |
 
 **Giá trị trả về**
@@ -60,9 +58,9 @@ Tham khảo [eth_getHeaderByHash](#eth_getheaderbyhash)
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getHeaderByNumber","params":["0x1b4"],"id":1}' http://localhost:8551
-// Kết quả
+// Result
 {
     "jsonrpc": "2.0",
     "id": 1,
@@ -73,7 +71,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
         "gasLimit": "0xe8d4a50fff",
         "gasUsed": "0x28b484",
         "hash": "0x5de0dc71dec2e724be002dcad135b602810769ce26e16b3b06862405e08ca71b",
-        "nhật kýBloom": "0x02200022800002050000084080014015001001004b0002440401060a0830000200014041044010180010430018800119120098000800200241c2090a4020011040004400002201081800440a340020a4000820100848081020003000892050105a05000002100000200012c0800408982000085100000c4040a03814000800200812210100200010004018410d80004214800123210400082002214620100021028800120309200802008291c8e000904210080008110900010100081000101000501002010a0080311886000008000000240900400000100200a402005830200010300804020200000002310000008004004080a58000550000508000000000",
+        "logsBloom": "0x02200022800002050000084080014015001001004b0002440401060a0830000200014041044010180010430018800119120098000800200241c2090a4020011040004400002201081800440a340020a4000820100848081020003000892050105a05000002100000200012c0800408982000085100000c4040a03814000800200812210100200010004018410d80004214800123210400082002214620100021028800120309200802008291c8e000904210080008110900010100081000101000501002010a0080311886000008000000240900400000100200a402005830200010300804020200000002310000008004004080a58000550000508000000000",
         "miner": "0xea674fdde714fd979de3edf0f56aa9716b898ec8",
         "mixHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
         "nonce": "0x0000000000000000",
@@ -88,7 +86,6 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
         "transactionsRoot": "0x6ec8daca98c1005d9bbd7716b5e94180e2bf0e6b77770174563a166337369344" }
 }   
 ```
-
 
 ## eth_getHeaderByHash <a id="eth_getheaderbyhash"></a>
 
@@ -117,7 +114,7 @@ Vui lòng xem phần [Caution-Header](./caution.md#block_header) trước khi s�
 | nhật kýBloom     | DỮ LIỆU 256 byte | Bộ lọc Bloom cho các bản ghi của khối.                                                                            |
 | miner            | DỮ LIỆU 20 byte  | Địa chỉ của người nhận đã được trao phần thưởng khai thác.                                                        |
 | mixHash          | DỮ LIỆU 32 byte  | Hàm băm, khi kết hợp với số dùng một lần, chứng minh rằng một lượng tính toán đủ đã được thực hiện trên khối này. |
-| số dùng một lần  | DỮ LIỆU 8 byte   | Hàm băm của thuật toán bằng chứng xử lý (PoW) được tạo ra.                                                        |
+| số dùng một lần  | DỮ LIỆU 8 byte   | Hàm băm của thuật toán bằng chứng xử lý (PoW) được tạo ra.                                     |
 | number           | SỐ LƯỢNG         | Số khối. `null` khi đó là khối đang chờ xử lý.                                                                    |
 | parentHash       | DỮ LIỆU 32 byte  | Hàm băm của khối cha mẹ.                                                                                          |
 | receiptsRoot     | DỮ LIỆU 32 byte  | Gốc của trie biên lai giao dịch của khối.                                                                         |
@@ -131,9 +128,9 @@ Vui lòng xem phần [Caution-Header](./caution.md#block_header) trước khi s�
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getHeaderByHash","params":["0xb8deae63002d2b6aa33247c8ef545383ee0fd2282ac9b49dbbb74114389ddb5c"],"id":1}' http://localhost:8551
-// Kết quả
+// Result
 {
     "jsonrpc": "2.0",
     "id": 1,
@@ -144,7 +141,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
         "gasLimit": "0xe8d4a50fff",
         "gasUsed": "0x28b484",
         "hash": "0xb8deae63002d2b6aa33247c8ef545383ee0fd2282ac9b49dbbb74114389ddb5c",
-        "nhật kýBloom": "0x02200022800002050000084080014015001001004b0002440401060a0830000200014041044010180010430018800119120098000800200241c2090a4020011040004400002201081800440a340020a4000820100848081020003000892050105a05000002100000200012c0800408982000085100000c4040a03814000800200812210100200010004018410d80004214800123210400082002214620100021028800120309200802008291c8e000904210080008110900010100081000101000501002010a0080311886000008000000240900400000100200a402005830200010300804020200000002310000008004004080a58000550000508000000000",
+        "logsBloom": "0x02200022800002050000084080014015001001004b0002440401060a0830000200014041044010180010430018800119120098000800200241c2090a4020011040004400002201081800440a340020a4000820100848081020003000892050105a05000002100000200012c0800408982000085100000c4040a03814000800200812210100200010004018410d80004214800123210400082002214620100021028800120309200802008291c8e000904210080008110900010100081000101000501002010a0080311886000008000000240900400000100200a402005830200010300804020200000002310000008004004080a58000550000508000000000",
         "miner": "0xea674fdde714fd979de3edf0f56aa9716b898ec8",
         "mixHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
         "nonce": "0x0000000000000000",
@@ -161,7 +158,6 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 }   
 ```
 
-
 ## eth_getBlockByNumber <a id="eth_getblockbynumber"></a>
 
 Trả về thông tin của một khối theo số khối.
@@ -170,11 +166,10 @@ Vui lòng xem phần [Caution-Block](./caution.md#block) trước khi sử dụn
 
 **Tham số**
 
-| type                | Mô tả                                                                                                                                                                         |
-| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type            | Mô tả                                                                                                                                                                        |
+| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | SỐ LƯỢNG \| THẺ | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](#the-default-block-parameter) hoặc hàm băm khối. |
-| Boolean             | Nếu `true` thì sẽ trả về toàn bộ các đối tượng giao dịch, nếu `false` thì chỉ trả về hàm băm của các giao dịch.ịch.                                                           |
-
+| Boolean         | Nếu `true` thì sẽ trả về toàn bộ các đối tượng giao dịch, nếu `false` thì chỉ trả về hàm băm của các giao dịch.ịch.                                                          |
 
 **Giá trị trả về**
 
@@ -183,10 +178,10 @@ Tham khảo [eth_getBlockByHash](#eth_getblockbyhash)
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getBlockByNumber","params":["0xd0054e", false],"id":1}' http://localhost:8551
 
-// Kết quả
+// Result
 {
   "jsonrpc": "2.0",
   "id": 1,
@@ -197,7 +192,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
     "gasLimit": "0xe8d4a50fff",
     "gasUsed": "0x44437",
     "hash": "0x456a7cbb6fada11a0ca8cec24510d89da1c52898f1087528752ae6e13973fbc5",
-    "nhật kýBloom": "0x0000100000000094000000400000080000000040000000000000000000000002000000000000000000000000004001000000200000000000000008000220000000080400000800000000000a000000000000000000000000000010000000000000002000000408000000000000000010000080101002000000000010000000100000010000200800000400000080000000000000000000000002000000102000024000080200000000000082000000000000000000000000010000000000000000100012000000000000011000000000002000201000000008000000002000000010002800000000001400000000000000000000000100000000200000000000",
+    "logsBloom": "0x0000100000000094000000400000080000000040000000000000000000000002000000000000000000000000004001000000200000000000000008000220000000080400000800000000000a000000000000000000000000000010000000000000002000000408000000000000000010000080101002000000000010000000100000010000200800000400000080000000000000000000000002000000102000024000080200000000000082000000000000000000000000010000000000000000100012000000000000011000000000002000201000000008000000002000000010002800000000001400000000000000000000000100000000200000000000",
     "miner": "0x1ad91ee08f21be3de0ba2ba6918e714da6b45836",
     "mixHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "nonce": "0x0000000000000000",
@@ -219,7 +214,6 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
   }
 }
 ```
-
 
 ## eth_getBlockByHash <a id="eth_getblockbyhash"></a>
 
@@ -249,7 +243,7 @@ Vui lòng xem phần [Caution-Block](./caution.md#block) trước khi sử dụn
 | nhật kýBloom     | DỮ LIỆU 256 byte | Bộ lọc Bloom cho các bản ghi của khối. `null` khi đó là khối đang chờ xử lý.                                      |
 | miner            | DỮ LIỆU 20 byte  | Địa chỉ của người nhận đã được trao phần thưởng khai thác.                                                        |
 | mixHash          | DỮ LIỆU 32 byte  | Hàm băm, khi kết hợp với số dùng một lần, chứng minh rằng một lượng tính toán đủ đã được thực hiện trên khối này. |
-| nonce            | DỮ LIỆU 8 byte   | Hàm băm của thuật toán bằng chứng xử lý (PoW) được tạo ra.                                                        |
+| nonce            | DỮ LIỆU 8 byte   | Hàm băm của thuật toán bằng chứng xử lý (PoW) được tạo ra.                                     |
 | number           | SỐ LƯỢNG         | Số khối. `null` nếu đó là khối đang chờ xử lý.                                                                    |
 | parentHash       | DỮ LIỆU 32 byte  | Hàm băm của khối cha mẹ.                                                                                          |
 | receiptsRoot     | DỮ LIỆU 32 byte  | Gốc của trie biên lai giao dịch của khối.                                                                         |
@@ -265,10 +259,10 @@ Vui lòng xem phần [Caution-Block](./caution.md#block) trước khi sử dụn
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getBlockByHash","params":["0xb8deae63002d2b6aa33247c8ef545383ee0fd2282ac9b49dbbb74114389ddb5c", true],"id":1}' http://localhost:8551
 
-// Kết quả
+// Result
 {
    "jsonrpc":"2.0",
    "id":1,
@@ -280,7 +274,7 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
       gasUsed: "0x0",
       governanceData: "0x",
       hash: "0xb8deae63002d2b6aa33247c8ef545383ee0fd2282ac9b49dbbb74114389ddb5c",
-      nhật kýBloom: "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      logsBloom: "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
       miner: "0x0000000000000000000000000000000000000000",
       mixHash: "0x63746963616c2062797a616e74696e65206661756c7420746f6c6572616e6365",
       nonce: "0x0000000000000000",
@@ -304,9 +298,10 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 Returns receipts included in a block.
 
 **Parameters**
-| Type | Description |
-| --- | --- |
-| Number \| 32-byte DATA \| TAG  | The block number or hash. Or the string `"earliest"`, `"latest"` or `"pending"` as in [default block parameter](#the-default-block-parameter). |
+
+| Type                          | Description                                                                                                                                    |
+| ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| Number \| 32-byte DATA \| TAG | The block number or hash. Or the string `"earliest"`, `"latest"` or `"pending"` as in [default block parameter](#the-default-block-parameter). |
 
 **Return Value**
 
@@ -346,7 +341,8 @@ curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "meth
 
 ## eth_getUncleByBlockHashAndIndex <a id="eth_getunclebyblockhashandindex"></a>
 
-Trả về thông tin của một mảng chú của khối theo hàm băm và vị trí chỉ mục của mảng chú. Do Klaytn không có mảng chú, nên giá trị trả về luôn là `null`.
+Trả về thông tin của một mảng chú của khối theo hàm băm và vị trí chỉ mục của mảng chú.
+Do Klaytn không có mảng chú, nên giá trị trả về luôn là `null`.
 
 **Tham số**
 
@@ -356,47 +352,50 @@ Trả về thông tin của một mảng chú của khối theo hàm băm và v�
 | SỐ LƯỢNG        | Vị trí chỉ mục của mảng chú. |
 
 **Giá trị trả về** `null`
+`null`
 
 **Ví dụ**
+
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getUncleByBlockHashAndIndex","params":["0xb8deae63002d2b6aa33247c8ef545383ee0fd2282ac9b49dbbb74114389ddb5c", "0x1"],"id":1}' http://localhost:8551
 
-// Kết quả
+// Result
 {
   "jsonrpc": "2.0",
   "id":1,
   "result": null
 }
 ```
-
 
 ## eth_getUncleByBlockNumberAndIndex <a id="eth_getunclebyblocknumberandindex"></a>
 
-Trả về thông tin về một khối chú theo số và vị trí chỉ mục của khối chú. Vì Klaytn không có mảng chú, nên giá trị trả về luôn là `null`.
+Trả về thông tin về một khối chú theo số và vị trí chỉ mục của khối chú.
+Vì Klaytn không có mảng chú, nên giá trị trả về luôn là `null`.
 
 **Tham số**
 
-| Loại               | Mô tả                                                                                                                                                                                 |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Loại           | Mô tả                                                                                                                                                                        |
+| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | SỐ LƯỢNG \| THẺ | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](#the-default-block-parameter) hoặc hàm băm khối. |
-| SỐ LƯỢNG            | Vị trí chỉ mục của mảng chú.                                                                                                                                                          |
+| SỐ LƯỢNG        | Vị trí chỉ mục của mảng chú.                                                                                                                                                 |
 
 **Giá trị trả về** `null`
+`null`
 
 **Ví dụ**
+
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getUncleByBlockNumberAndIndex","params":["0xe8", "0x1"],"id":1}' http://localhost:8551
 
-// Kết quả
+// Result
 {
   "jsonrpc": "2.0",
   "id":1,
   "result": null
 }
 ```
-
 
 ## eth_getBlockTransactionCountByNumber <a id="eth_getblocktransactioncountbynumber"></a>
 
@@ -404,8 +403,8 @@ Trả về số lượng giao dịch trong một khối khớp với số khối
 
 **Tham số**
 
-| Loại               | Mô tả                                                                                                                                                                                 |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Loại           | Mô tả                                                                                                                                                                        |
+| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | SỐ LƯỢNG \| THẺ | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](#the-default-block-parameter) hoặc hàm băm khối. |
 
 **Giá trị trả về**
@@ -417,17 +416,16 @@ Trả về số lượng giao dịch trong một khối khớp với số khối
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getBlockTransactionCountByNumber","params":["0xe8"],"id":1}' http://localhost:8551
 
-// Kết quả
+// Result
 {
   "jsonrpc": "2.0",
   "id":1,
   "result": "0xa" // 10
 }
 ```
-
 
 ## eth_getBlockTransactionCountByHash <a id="eth_getblocktransactioncountbyhash"></a>
 
@@ -448,10 +446,10 @@ Trả về số lượng giao dịch trong một khối từ một khối khớp
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getBlockTransactionCountByHash","params":["0x0c11803ab36110db993e7520908b9ba9336cca2f2dcc9b6130c481a3ccdc2621"],"id":1}' http://localhost:8551
 
-// Kết quả
+// Result
 {
   "jsonrpc": "2.0",
   "id":1,
@@ -459,15 +457,15 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 }
 ```
 
-
 ## eth_getUncleCountByBlockNumber <a id="eth_getunclecountbyblocknumber"></a>
 
-Trả về số lượng mảng chú trong một khối từ một khối khớp với số khối đã cho. Do Klaytn không có mảng chú, nên giá trị trả về là `0x0`. Giá trị trả về là `null` nếu không có khối khớp.
+Trả về số lượng mảng chú trong một khối từ một khối khớp với số khối đã cho.
+Do Klaytn không có mảng chú, nên giá trị trả về là `0x0`. Giá trị trả về là `null` nếu không có khối khớp.
 
 **Tham số**
 
-| Loại               | Mô tả                                                                                                                                                                                 |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Loại           | Mô tả                                                                                                                                                                        |
+| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | SỐ LƯỢNG \| THẺ | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](#the-default-block-parameter) hoặc hàm băm khối. |
 
 **Giá trị trả về**
@@ -479,10 +477,10 @@ Trả về số lượng mảng chú trong một khối từ một khối khớp
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getBlockTransactionCountByNumber","params":["0xe8"],"id":1}' http://localhost:8551
 
-// Kết quả
+// Result
 {
   "jsonrpc": "2.0",
   "id":1,
@@ -490,10 +488,10 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 }
 ```
 
-
 ## eth_getUncleCountByBlockHash <a id="eth_getunclecountbyblockhash"></a>
 
-Trả về số lượng mảng chú trong một khối từ một khối khớp với hàm băm của khối đã cho. Do Klaytn không có mảng chú, nên giá trị trả về là `0x0`. Giá trị trả về là `null` nếu không có khối khớp.
+Trả về số lượng mảng chú trong một khối từ một khối khớp với hàm băm của khối đã cho.
+Do Klaytn không có mảng chú, nên giá trị trả về là `0x0`. Giá trị trả về là `null` nếu không có khối khớp.
 
 **Tham số**
 
@@ -510,10 +508,10 @@ Trả về số lượng mảng chú trong một khối từ một khối khớp
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_getBlockTransactionCountByHash","params":["0x0c11803ab36110db993e7520908b9ba9336cca2f2dcc9b6130c481a3ccdc2621"],"id":1}' http://localhost:8551
 
-// Kết quả
+// Result
 {
   "jsonrpc": "2.0",
   "id":1,
@@ -521,19 +519,16 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
 }
 ```
 
-
-
-
 ## eth_getStorageAt <a id="eth_getstorageat"></a>
 
 Trả về giá trị từ vị trí lưu trữ tại một địa chỉ đã cho.
 
 **Tham số**
 
-| Loại                              | Mô tả                                                                                                                                                                                 |
-| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| DỮ LIỆU 20 byte                    | Địa chỉ kho lưu trữ.                                                                                                                                                                  |
-| SỐ LƯỢNG                           | Giá trị nguyên chỉ vị trí lưu trữ.                                                                                                                                                    |
+| Loại                      | Mô tả                                                                                                                                                                        |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| DỮ LIỆU 20 byte            | Địa chỉ kho lưu trữ.                                                                                                                                                         |
+| SỐ LƯỢNG                   | Giá trị nguyên chỉ vị trí lưu trữ.                                                                                                                                           |
 | SỐ LƯỢNG \| THẺ \| HÀM BĂM | Số khối số nguyên hoặc thập lục phân hoặc chuỗi `"earliest"`, `"latest"` hoặc `"pending"` như trong [tham số khối mặc định](#the-default-block-parameter) hoặc hàm băm khối. |
 
 **Giá trị trả về**
@@ -567,28 +562,33 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "et
 ```
 
 Việc truy xuất thành phần của bản đồ thì khó hơn. Vị trí của một thành phần trên bản đồ được tính bằng:
+
 ```javascript
 keccak(LeftPad32(key, 0), LeftPad32(map position, 0))
 ```
 
 Điều này có nghĩa là để truy xuất kho lưu trữ trên `pos1["0x391694e7e0b0cce554cb130d723a9d27458f9298"]`, chúng ta cần tính toán vị trí bằng:
+
 ```javascript
 keccak(decodeHex("000000000000000000000000391694e7e0b0cce554cb130d723a9d27458f9298" + "0000000000000000000000000000000000000000000000000000000000000001"))
 ```
+
 Bạn có thể sử dụng bảng điều khiển Klaytn đi kèm với thư viện `klay` để tính toán
+
 ```javascript
 > var key = "000000000000000000000000391694e7e0b0cce554cb130d723a9d27458f9298" + "0000000000000000000000000000000000000000000000000000000000000001"
 undefined
 > klay.sha3(key, {"encoding": "hex"})
 "0x6661e9d6d8b923d5bbaab1b96e1dd51ff6ea2a93520fdc9eb75d059238b8c5e9"
 ```
+
 Bây giờ sẽ lấy kho lưu trữ:
+
 ```shell
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method": "eth_getStorageAt", "params": ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x6661e9d6d8b923d5bbaab1b96e1dd51ff6ea2a93520fdc9eb75d059238b8c5e9", "latest"], "id": 1}' http://localhost:8551
 
 {"jsonrpc":"2.0","id":1,"result":"0x000000000000000000000000000000000000000000000000000000000000162e"}
 ```
-
 
 ## eth_mining <a id="eth_mining"></a>
 
@@ -609,17 +609,16 @@ Không có
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_mining","params":[],"id":1}' http://localhost:8551
 
-// Kết quả
+// Result
 {
   "jsonrpc":"2.0",
   "id":1,
   "result":true
 }
 ```
-
 
 ## eth_syncing <a id="eth_syncing"></a>
 
@@ -635,7 +634,7 @@ Không có
 
 | Tên           | Loại    | Mô tả                                                                                                                                 |
 | ------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| startingBlock | SỐ LƯỢNG | Khối nơi bắt đầu quá trình nhập (sẽ chỉ được đặt lại sau khi quá trình đồng bộ hóa đạt đỉnh).                                         |
+| startingBlock | SỐ LƯỢNG | Khối nơi bắt đầu quá trình nhập (sẽ chỉ được đặt lại sau khi quá trình đồng bộ hóa đạt đỉnh).                      |
 | currentBlock  | SỐ LƯỢNG | Khối hiện tại, giống với `eth_blockNumber`.                                                                                           |
 | highestBlock  | SỐ LƯỢNG | Khối dự đoán cao nhất.                                                                                                                |
 | pulledStates  | SỐ LƯỢNG | Số lượng mục nhập trạng thái được xử lý cho đến hiện tại.  Nếu chế độ đồng bộ hóa không ở chế độ "nhanh", giá trị trả về sẽ bằng 0.   |
@@ -644,10 +643,10 @@ Không có
 **Ví dụ**
 
 ```shell
-// Yêu cầu
+// Request
 curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_syncing","params":[],"id":1}' http://localhost:8551
 
-// Kết quả
+// Result
 {
   "jsonrpc": "2.0",
   "id":1,
@@ -666,6 +665,3 @@ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_
   "result": false
 }
 ```
-
-
-

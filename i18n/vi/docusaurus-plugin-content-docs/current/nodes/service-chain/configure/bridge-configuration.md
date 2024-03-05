@@ -10,17 +10,17 @@ Bạn nên kích hoạt cầu nối chính bằng cách định cấu hình `ken
 
 `kend.conf` có các thuộc tính cầu nối chính sau đây.
 
-| Tên                    | Mô tả                                                                                                             |
-|:---------------------- |:----------------------------------------------------------------------------------------------------------------- |
-| MAIN_BRIDGE            | Kích hoạt dịch vụ cầu nối làm cầu nối chính cho chuỗi dịch vụ. 1 để kích hoạt.                                    |
+| Tên                                                            | Mô tả                                                                                                             |
+| :------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------- |
+| MAIN_BRIDGE                               | Kích hoạt dịch vụ cầu nối làm cầu nối chính cho chuỗi dịch vụ. 1 để kích hoạt.                                    |
 | MAIN_BRIDGE_PORT     | Cổng nghe cầu nối. Mặc định: 50505                                                                                |
 | MAIN_BRIDGE_INDEXING | Cho phép lập chỉ mục hàm băm giao dịch chuỗi dịch vụ để truy cập nhanh vào dữ liệu chuỗi dịch vụ. 1 để kích hoạt. |
 
 Để kích hoạt cầu nối chính trên EN, bạn hãy thực hiện như bên dưới.
 
-* xác định `MAIN_BRIDGE`
-* bật RPC/WS.
-* thêm API `mainbridge` cho RPC như ví dụ bên dưới.
+- xác định `MAIN_BRIDGE`
+- bật RPC/WS.
+- thêm API `mainbridge` cho RPC như ví dụ bên dưới.
 
 ```text
 # Configuration file for the kend
@@ -66,7 +66,7 @@ Hãy thực hiện lệnh sau và kiểm tra kết quả. (Nếu bạn đã thê
 
 ```bash
 $ ken attach ~/kend_home/klay.ipc
-Chào mừng bạn đến với bảng điều khiển Klaytn JavaScript!
+Welcome to the Klaytn JavaScript console!
 
 instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
 at block: 11573551 (Wed, 13 Feb 2019 07:12:52 UTC)
@@ -119,7 +119,7 @@ Gắn với quy trình SCN như bên dưới. Bạn nên bật sẵn API `subbri
 
 ```bash
 $ kscn attach ~/kscnd_home/klay.ipc
-Chào mừng bạn đến với bảng điều khiển Klaytn JavaScript!
+Welcome to the Klaytn JavaScript console!
 
 instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
 

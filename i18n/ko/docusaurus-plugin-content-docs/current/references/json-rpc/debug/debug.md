@@ -1,7 +1,5 @@
 ---
-설명: >-
-  런타임에 노드 상태와 블록체인 데이터를 검사하고 디버깅하는 데 사용되는 API입니다.
-
+description: 런타임에 노드 상태와 블록체인 데이터를 검사하고 디버깅하는 데 사용되는 API입니다.
 ---
 
 # debug
@@ -13,10 +11,10 @@
 그러나 공개 EN을 유지하면서 디버그 네임스페이스 API를 일반에 제공하려는 경우
 안전하지 않거나 부적절한 API를 비활성화하도록 `rpc.unsafe-debug.disable` 플래그를 설정하고 디버그 네임스페이스 API의 하위 집합만 활성화하도록 설정하는 것이 좋습니다.
 활성화된 API는 다음과 같습니다:
+
 - [VM 추적](./tracing.md) API(기능이 제한됨)(단, [사전 정의된 tracer](./tracing.md#tracing-options)만 허용됨)
 - debug_dumpBlock, debug_dumpStateTrie, debug_getBlockRlp, debug_getModifiedAccountsByHash, debug_getModifiedAccountsByNumber, debug_getBadBlocks, debug_getModifiedStorageNodesByNumber
 - debug_metrics
-
 
 ## [로깅](./logging.md) <a id="logging"></a>
 
@@ -26,7 +24,6 @@
 - [debug_verbosityByName](./logging.md#debug_verbositybyname)
 - [debug_verbosityByID](./logging.md#debug_verbositybyid)
 - [debug_vmodule](./logging.md#debug_vmodule)
-
 
 ## [프로파일링](./profile.md) <a id="profiling"></a>
 
@@ -43,13 +40,11 @@
 - [debug_writeMemProfile](./profile.md#debug_writememprofile)
 - [debug_writeMutexProfile](./profile.md#debug_writemutexprofile)
 
-
 ## [런타임 추적](./go_trace.md) <a id="runtime-tracing"></a>
 
 - [debug_goTrace](./go_trace.md#debug_gotrace)
 - [debug_startGoTrace](./go_trace.md#debug_startgotrace)
 - [debug_stopGoTrace](./go_trace.md#debug_stopgotrace)
-
 
 ## [런타임 디버깅](./runtime.md) <a id="runtime-debugging"></a>
 
@@ -59,7 +54,6 @@
 - [debug_metrics](./runtime.md#debug_metrics)
 - [debug_setGCPercent](./runtime.md#debug_setgcpercent)
 - [debug_stacks](./runtime.md#debug_stacks)
-
 
 ## [VM 추적](./tracing.md) <a id="vm-tracing"></a>
 
@@ -75,13 +69,11 @@
 - [추적 옵션](./tracing.md#tracing-options)
 - [JavaScript 기반 추적](./tracing.md#javascript-based-tracing)
 
-
 ## [VM 표준 추적](./standard_tracing.md) <a id="vm-standard-tracing"></a>
 
 - [debug_standardTraceBadBlockToFile](./standard_tracing.md#debug_standardtracebadblocktofile)
 - [debug_standardTraceBlockToFile](./standard_tracing.md#debug_standardtraceblocktofile)
 - [표준 추적 옵션](./standard_tracing.md#standard-tracing-options)
-
 
 ## [블록체인 검사](./blockchain.md) <a id="blockchain-inspection"></a>
 
@@ -99,4 +91,3 @@
 - [debug_startContractWarmUp](./blockchain.md#debug_startcontractwarmup)
 - [debug_stopWarmUp](./blockchain.md#debug_stopwarmup)
 - [debug_startCollectingTrieStats](./blockchain.md#debug_startCollectingTrieStats)
-

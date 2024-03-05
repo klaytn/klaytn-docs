@@ -1,54 +1,64 @@
 # Sử dụng neo dữ liệu với KAS
 
-Như đã giải thích trong phần thiết kế, bạn có thể neo dữ liệu chuỗi dịch vụ của mình vào chuỗi chính Klaytn. Trang này giới thiệu cách kích hoạt neo dữ liệu qua [KAS (Klaytn API Service)](https://www.klaytnapi.com).
+Như đã giải thích trong phần thiết kế, bạn có thể neo dữ liệu chuỗi dịch vụ của mình vào chuỗi chính Klaytn.
+Trang này giới thiệu cách kích hoạt neo dữ liệu qua [KAS (Klaytn API Service)](https://www.klaytnapi.com).
 
-Khi neo dữ liệu được kích hoạt, một nút trong chuỗi dịch vụ của bạn có thể neo dữ liệu chuỗi (dữ liệu khối) của nó theo định kỳ vào Cypress hoặc Baobab làm bằng chứng cho sự tồn tại và tính bất biến của chuỗi dịch vụ. Điều này đảm bảo tính bảo mật và uy tín của chuỗi dịch vụ.
+Khi neo dữ liệu được kích hoạt, một nút trong chuỗi dịch vụ của bạn có thể neo dữ liệu chuỗi (dữ liệu khối) của nó theo định kỳ vào Cypress hoặc Baobab làm bằng chứng cho sự tồn tại và tính bất biến của chuỗi dịch vụ.
+Điều này đảm bảo tính bảo mật và uy tín của chuỗi dịch vụ.
 
 ## Chuẩn bị sử dụng KAS <a id="preparation-with-kas"></a>
+
 Phần này giới thiệu các điều kiện tiên quyết khi sử dụng KAS để neo dữ liệu.
 
 ### Đăng ký KAS (Dịch vụ API Klaytn) <a id="sign-up-kas"></a>
-Đầu tiên bạn cần đăng nhập KAS trên [KAS console website](https://www.klaytnapi.com) để có tài khoản KAS. Vui lòng truy cập trang web ở trên và đăng ký KAS.
 
-[![trang chính](/img/nodes/kas-main-en.png)](https://www.klaytnapi.com)
+Đầu tiên bạn cần đăng nhập KAS trên [KAS console website](https://www.klaytnapi.com) để có tài khoản KAS.
+Vui lòng truy cập trang web ở trên và đăng ký KAS.
 
-[![đăng ký](/img/nodes/kas-signup-en.png)](https://www.klaytnapi.com)
+[![main page](/img/nodes/kas-main-en.png)](https://www.klaytnapi.com)
+
+[![sign up](/img/nodes/kas-signup-en.png)](https://www.klaytnapi.com)
 
 ### Tạo thông tin đăng nhập <a id="check-credential"></a>
-Sau khi đăng nhập, bạn có thể tạo thông tin đăng nhập của mình như bên dưới. `AccessKey ID` và `Secret AccessKey` hoặc `Authorization` sẽ được dùng để gọi API KAS.
 
-![thông tin đăng nhập](/img/nodes/kas-credential-en.png)
+Sau khi đăng nhập, bạn có thể tạo thông tin đăng nhập của mình như bên dưới.
+`AccessKey ID` và `Secret AccessKey` hoặc `Authorization` sẽ được dùng để gọi API KAS.
 
-### Anchor API <a id="anchor-api"></a>
+![credential](/img/nodes/kas-credential-en.png)
+
+## Anchor API <a id="anchor-api"></a>
+
 KAS cung cấp Anchor API được thiết kế để neo dữ liệu; đây chắc chắn là ứng dụng bạn sẽ sử dụng cho tác vụ neo.
 
 ![anchor api](/img/nodes/kas-anchor-api-en.png)
 
-### Tạo địa chỉ người vận hành <a id="create-kas-credential"></a>
+## Tạo địa chỉ người vận hành <a id="create-kas-credential"></a>
+
 Để neo dữ liệu chuỗi dịch vụ qua KAS, cần có một địa chỉ Klaytn đăng ký tham gia KAS và thực sự gửi giao dịch neo cho Klaytn. Vì vậy, trước khi thiết lập nút dịch vụ của mình, bạn cần tạo một tài khoản Klaytn mang tên "Người vận hành " qua Kas. Vui lòng sử dụng bảng điều khiển KAS để tạo tài khoản này.
 
 Điều quan trọng bạn cần nhớ: **đầu tiên là chọn chuỗi** trong Klaytn mà bạn muốn neo dữ liệu vào trên **góc trên cùng bên phải của trang bảng điều khiển KAS**. Bạn nên tạo một người vận hành cho mỗi chuỗi (Cypress/Baobab).
 
-
-
-![chọn chuỗi](/img/nodes/kas-select-chain-en.png)
+![select chain](/img/nodes/kas-select-chain-en.png)
 
 Tạo một người vận hành như dưới đây.
 
-![tạo người vận hành](/img/nodes/kas-create-operator-en.png)
+![create operator](/img/nodes/kas-create-operator-en.png)
 
-Sau đó bạn có thể kiểm tra danh sách người vận hành như bên dưới. Xin lưu ý rằng bắt buộc phải có địa chỉ người vận hành để thiết lập nút chuỗi dịch vụ của bạn.
+Sau đó bạn có thể kiểm tra danh sách người vận hành như bên dưới.
+Xin lưu ý rằng bắt buộc phải có địa chỉ người vận hành để thiết lập nút chuỗi dịch vụ của bạn.
 
-![tạo người vận hành](/img/nodes/kas-operator-list-en.png)
+![create operator](/img/nodes/kas-operator-list-en.png)
 
-### Định cấu hình nút chuỗi dịch vụ <a id="configure-service-chain-node"></a>
-Sau khi có được thông tin đăng nhập API, thông tin Anchor API (tham số và điểm cuối API) và tài khoản người vận hành trong KAS, bạn có thể thiết lập nút chuỗi dịch vụ của mình. Bạn cần chỉnh sửa tập tin cấu hình (`kscnd.conf`, `kspnd.conf`, `ksend.conf`) của nút chuỗi dịch vụ của bạn như bên dưới.
+## Định cấu hình nút chuỗi dịch vụ <a id="configure-service-chain-node"></a>
+
+Sau khi có được thông tin đăng nhập API, thông tin Anchor API (tham số và điểm cuối API) và tài khoản người vận hành trong KAS, bạn có thể thiết lập nút chuỗi dịch vụ của mình.
+Bạn cần chỉnh sửa tập tin cấu hình (`kscnd.conf`, `kspnd.conf`, `ksend.conf`) của nút chuỗi dịch vụ của bạn như bên dưới.
 
 Bạn nên đặt `SC_SUB_BRIDGE=1` và toàn bộ các mục có tiền tố `SC_KAS_`.
 
 ```bash
 ...
-# cài đặt tùy chọn chuỗi dịch vụ
+# service chain options setting
 ...
 SC_SUB_BRIDGE=1
 ...
@@ -63,8 +73,10 @@ SC_KAS_ANCHOR_X_CHAIN_ID=1001                                           # Cypres
 ...
 ```
 
-### Chạy nút chuỗi dịch vụ <a id="run-service-chain-node"></a>
-Bây giờ bạn đã sẵn sàng. Bạn có thể chạy nút chuỗi dịch vụ. Bạn sẽ thấy tin nhắn bản ghi liên quan đến Anchor API của KAS như bên dưới.
+## Chạy nút chuỗi dịch vụ <a id="run-service-chain-node"></a>
+
+Bây giờ bạn đã sẵn sàng. Bạn có thể chạy nút chuỗi dịch vụ.
+Bạn sẽ thấy tin nhắn bản ghi liên quan đến Anchor API của KAS như bên dưới.
 
 ```bash
 ...
@@ -81,7 +93,8 @@ INFO[09/10,18:09:32 +09] [53] Anchored a block via KAS                  blkNum=8
 ...
 ```
 
-### Danh sách giao dịch <a id="list-of-transaction"></a>
+## Danh sách giao dịch <a id="list-of-transaction"></a>
+
 Trong trang web bảng điều khiển KAS, bạn có thể xem danh sách các giao dịch neo mà người vận hành chuỗi dịch vụ đã gửi tại menu "Bảng điều khiển KAS - Dịch vụ - Neo - Người vận hành" như bên dưới.
 
-![danh sách giao dịch neo](/img/nodes/kas-tx-list-en.png)
+![anchoring transaction list](/img/nodes/kas-tx-list-en.png)

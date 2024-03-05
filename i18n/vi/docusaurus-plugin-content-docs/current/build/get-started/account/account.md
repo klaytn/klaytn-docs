@@ -1,6 +1,6 @@
 # Quản lý tài khoản
 
-**`CẢNH BÁO`**: Hãy ghi nhớ mật khẩu của bạn. Nếu quên mật khẩu của tài khoản, bạn sẽ không thể truy cập tài khoản đó nữa. **Ở đây không có tùy chọn** _**quên mật khẩu**_**. Hãy đừng bao giờ quên mật khẩu. **
+**`CẢNH BÁO`**: Hãy ghi nhớ mật khẩu của bạn. Nếu quên mật khẩu của tài khoản, bạn sẽ không thể truy cập tài khoản đó nữa. **Ở đây không có tùy chọn** _**quên mật khẩu**_\*\*. Hãy đừng bao giờ quên mật khẩu. \*\*
 
 Klaytn cung cấp hai công cụ tạo dòng lệnh hữu ích, `ken` và `bảng điều khiển JavaScript`, giúp các nhà phát triển quản lý tài khoản. Xin lưu ý rằng chúng tôi KHÔNG hỗ trợ việc xuất mã khóa riêng tư theo định dạng không được mã hóa.
 
@@ -11,28 +11,29 @@ Mã nhị phân nút điểm cuối Klaytn `ken` cho phép quản lý tài kho�
 ### Cách sử dụng <a id="usage"></a>
 
 ```bash
-$ ken tài khoản <command> [options...] [arguments...]
+$ ken account <command> [options...] [arguments...]
 ```
 
 **Lệnh**
 
 ```bash
-$ ken tài khoản -help...
+$ ken account -help
+...
 COMMANDS:
-     list    Print summary of existing tài khoảns
-     new     Create a new tài khoản
-     update  Update an existing tài khoản
-     import  Import a private key into a new tài khoản
+     list    Print summary of existing accounts
+     new     Create a new account
+     update  Update an existing account
+     import  Import a private key into a new account
 ...
 ```
 
-Bạn có thể nhận thông tin về các lệnh con bằng `ken tài khoản <command> --help`.
+Bạn có thể nhận thông tin về các lệnh con bằng `ken account <command> --help`.
 
 ```text
-$ ken tài khoản list --help
+$ ken account list --help
 list [command options] [arguments...]
 
-Print a short summary of all tài khoảns
+Print a short summary of all accounts
 
 KLAY OPTIONS:
   --dbtype value                        Blockchain storage database type ("leveldb", "badger") (default: "leveldb")
@@ -45,17 +46,17 @@ DATABASE OPTIONS:
 
 ### Thư mục dữ liệu <a id="data-directory"></a>
 
-Các tập tin lưu trữ khóa được lưu trữ trong `<DATADIR>/keystore`. Bạn có thể chỉ định thư mục dữ liệu như sau. Chúng tôi đề nghị bạn nên thực thi lệnh `ken tài khoản` với tùy chọn `--datadir`. Chỉ thư mục dữ liệu đến `DATA_DIR` đặt trong `kend.conf` để chia sẻ các tài khoản của bạn một cách suôn sẻ với Nút điểm cuối.
+Các tập tin lưu trữ khóa được lưu trữ trong `<DATADIR>/keystore`. Bạn có thể chỉ định thư mục dữ liệu như sau. Chúng tôi đề nghị bạn nên thực thi lệnh `ken account` với tùy chọn `--datadir`. Chỉ thư mục dữ liệu đến `DATA_DIR` đặt trong `kend.conf` để chia sẻ các tài khoản của bạn một cách suôn sẻ với Nút điểm cuối.
 
 ```bash
-$ ken tài khoản new --datadir <DATADIR>
-$ ken tài khoản new --datadir "~/kend_home"
+$ ken account new --datadir <DATADIR>
+$ ken account new --datadir "~/kend_home"
 ```
 
 Nếu bạn không chỉ định thư mục dữ liệu, vị trí mặc định sẽ như sau.
 
-* Mac: `~/Library/KEN`
-* Linux: `~/.ken`
+- Mac: `~/Library/KEN`
+- Linux: `~/.ken`
 
 ## Bảng điều khiển JavaScript <a id="javascript-console"></a>
 
@@ -68,7 +69,7 @@ $ kend start
 Starting kend: OK
 
 $ ken attach ~/kend_home/klay.ipc
-Chào mừng bạn đến với bảng điều khiển Klaytn JavaScript!
+Welcome to the Klaytn JavaScript console!
 
 instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
  datadir: ~/kend_home
@@ -85,11 +86,10 @@ Gõ `personal` hoặc `klay` để xem danh sách các hàm có sẵn. Trong bà
 > personal.newAccount()
 > personal.importRawKey()
 > personal.unlockAccount()
-> klay.tài khoảns
+> klay.accounts
 > klay.getBalance()
 ```
 
 ### Thư mục dữ liệu <a id="data-directory"></a>
 
-Khi bạn tạo một tài khoản, tập tin lưu trữ khóa sẽ được lưu trữ trong `<DATADIR>keystore`. `<DATADIR>` là `DATA_DIR` được đặt trong `kend.conf`. Nếu bạn làm theo hướng dẫn bắt đầu nhanh với ví dụ đã cho, thư mục đó sẽ phải là `~/kend_home`.
-
+Khi bạn tạo một tài khoản, tập tin lưu trữ khóa sẽ được lưu trữ trong `<DATADIR>/keystore`. `<DATADIR>` là `DATA_DIR` được đặt trong `kend.conf`. Nếu bạn làm theo hướng dẫn bắt đầu nhanh với ví dụ đã cho, thư mục đó sẽ phải là `~/kend_home`.

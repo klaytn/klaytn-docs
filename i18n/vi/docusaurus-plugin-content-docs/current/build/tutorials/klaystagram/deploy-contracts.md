@@ -2,17 +2,17 @@
 
 ## 1. Sao chép Klaystagram DApp <a id="2-clone-klaystagram-dapp"></a>
 
-### 1\) Sao chép kho Klaystagram <a id="1-clone-klaystagram-repository"></a>
+### 1) Sao chép kho Klaystagram <a id="1-clone-klaystagram-repository"></a>
 
 ```text
 $ git clone https://github.com/klaytn/klaystagram
 ```
 
-### 2\) Cài đặt & Chạy Klaystagram DApp <a id="2-install-run-klaystagram-dapp"></a>
+### 2) Cài đặt & Chạy Klaystagram DApp <a id="2-install-run-klaystagram-dapp"></a>
 
 Gói bạn vừa sao chép đã sẵn sàng khởi chạy mà không cần sửa đổi gì.
 
-Hợp đồng mẫu đã được triển khai cho testnet Baobab và ABI hợp đồng đã bao gồm trong gói của chúng tôi.  
+Hợp đồng mẫu đã được triển khai cho testnet Baobab và ABI hợp đồng đã bao gồm trong gói của chúng tôi.\
 Mã frontend Klaystagram ban đầu được định cấu hình để kết nối với hợp đồng thông minh trên testnet Baobab.
 
 Nếu bạn muốn chạy ứng dụng ngay lập tức và xem ứng dụng hoạt động, hãy nhập bên dưới.
@@ -20,13 +20,14 @@ Nếu bạn muốn chạy ứng dụng ngay lập tức và xem ứng dụng ho�
 > Bạn NÊN tuân thủ môi trường thử nghiệm được đề cập ở trang đầu tiên.
 
 ```text
-$ npm cài đặt
-$ npm chạy cục bộ
+$ npm install
+$ npm run local
 ```
 
-&#9888; Vui lòng kiểm tra quyền truy cập vào tập tin và thư mục nếu không thành công.
+⚠ Vui lòng kiểm tra quyền truy cập vào tập tin và thư mục nếu không thành công.
 
-Ứng dụng sẽ bật lên ngay lập tức! (Ban đầu, việc tải nhiều nguồn cấp dữ liệu có thể mất thời gian.)
+Ứng dụng sẽ bật lên ngay lập tức!
+(Ban đầu, việc tải nhiều nguồn cấp dữ liệu có thể mất thời gian.)
 
 ## 2. Soạn hợp đồng thông minh Klaystagram <a id="4-write-klaystagram-smart-contract"></a>
 
@@ -34,34 +35,34 @@ $ npm chạy cục bộ
 2. Contract setup
 3. Set events and data structure
 4. Write functions \
-4.1. `uploadPhoto`\
-4.2. `transferOwnership`\
-4.3. `getPhoto`
+   4.1. `uploadPhoto`\
+   4.2. `transferOwnership`\
+   4.3. `getPhoto`
 
-### 1\) Hình nền <a id="1-background"></a>
+### 1) Hình nền <a id="1-background"></a>
 
 We will make a simple contract called "Klaystagram".
 
-* `PhotoData` struct is defined to store various photo data.
-* User can upload photo and transfer the ownership photo via `uploadPhoto` and `transferOwnership` functions.
+- `PhotoData` struct is defined to store various photo data.
+- User can upload photo and transfer the ownership photo via `uploadPhoto` and `transferOwnership` functions.
 
-### 2\) Thiết lập hợp đồng <a id="2-contract-setup"></a>
+### 2) Thiết lập hợp đồng <a id="2-contract-setup"></a>
 
-* Specify solidity version. We recommend using 0.5.6 stable version.
-* We will make use of ERC721 standard to build non-fungible tokens.
-  * Import `ERC721.sol` and `ERC721Enumerable.sol`
-  * Check out detailed information about ERC721 at [erc721.org](http://erc721.org)
+- Specify solidity version. We recommend using 0.5.6 stable version.
+- We will make use of ERC721 standard to build non-fungible tokens.
+  - Import `ERC721.sol` and `ERC721Enumerable.sol`
+  - Check out detailed information about ERC721 at [erc721.org](http://erc721.org)
 
 ```text
 pragma solidity 0.5.6;
 
-nhập "./ERC721/ERC721.sol";
-nhập "./ERC721/ERC721Enumerable.sol";
+import "./ERC721/ERC721.sol";
+import "./ERC721/ERC721Enumerable.sol";
 
-hợp đồng Klaystagram là ERC721, ERC721Enumerable {
+contract Klaystagram is ERC721, ERC721Enumerable {
 ```
 
-### 3\) Đặt sự kiện và cấu trúc dữ liệu <a id="3-set-events-and-data-structure"></a>
+### 3) Đặt sự kiện và cấu trúc dữ liệu <a id="3-set-events-and-data-structure"></a>
 
 We need to set up an event to keep track of activities on blockchain.
 
@@ -70,24 +71,24 @@ As for data structure, mapping `_photoList` takes a uint256 `tokenId` to map a s
 ```text
 event PhotoUploaded (uint indexed tokenId, bytes photo, string title, string location, string description, uint256 timestamp);
 
-ánh xạ (uint256 => PhotoData) private _photoList;
+mapping (uint256 => PhotoData) private _photoList;
 
 struct PhotoData {
-    uint256 tokenId;                       // id token không trùng lặp, bắt đầu từ 1 và tăng thêm 1
-    address[] ownerHistory;                // Lịch sử tất cả những chủ sở hữu trước đây
-    bytes photo;                           // Nguồn ảnh
-    string title;                          // Tiêu đề ảnh
-    string location;                       // Nơi chụp ảnh
-    string description;                    // Mô tả ngắn về ảnh
-    uint256 timestamp;                     // Thời gian tải lên
+    uint256 tokenId;                       // Unique token id, starts from 1 and increases by 1
+    address[] ownerHistory;                // History of all previous owners
+    bytes photo;                           // Image source
+    string title;                          // Title of photo
+    string location;                       // Location where photo is taken
+    string description;                    // Short description about the photo
+    uint256 timestamp;                     // Uploaded time
 }
 ```
 
-### 4\) Viết hàm <a id="4-write-functions"></a>
+### 4) Viết hàm <a id="4-write-functions"></a>
 
 Let's write some functions that interact with the contract. In this tutorial let us only consider two functions: `uploadPhoto` and `transferOwnership`. Check out Klaystagram.sol to see the whole set of functions.
 
-#### 4-1\) `uploadPhoto` <a id="4-1-uploadphoto"></a>
+#### 4-1) `uploadPhoto` <a id="4-1-uploadphoto"></a>
 
 `uploadPhoto` function takes 4 arguments including photo's image source. To keep things simple, `tokenId` will start from 1 and will increase by 1.
 
@@ -120,7 +121,7 @@ function uploadPhoto(bytes memory photo, string memory title, string memory loca
 }
 ```
 
-#### 4-2\) `transferOwnership` <a id="4-2-transferownership"></a>
+#### 4-2) `transferOwnership` <a id="4-2-transferownership"></a>
 
 Let's take a look at `transferOwnership` function. When transferring photo ownership, we need to do two things. First, we have to reassign the owner, and then we have to push new owner address into `ownerHistory` array.
 
@@ -128,25 +129,26 @@ To do this, `transferOwnership` first calls `safeTransferFrom` function from ERC
 
 ```text
 /**
-  * @ghi chú hàm safeTransferFrom kiểm tra xem người nhận có thể xử lý token ERC721 không,
-  * nhờ đó, ít có khả năng bị mất token. Sau khi kiểm tra xong, hàm transferFrom với định nghĩa bên dưới sẽ được gọi
+  * @notice safeTransferFrom function checks whether receiver is able to handle ERC721 tokens,
+  *  thus less possibility of tokens being lost. After checking is done, it will call transferFrom function defined below
   */
 function transferOwnership(uint256 tokenId, address to) public returns(uint, address, address, address) {
     safeTransferFrom(msg.sender, to, tokenId);
     uint ownerHistoryLength = _photoList[tokenId].ownerHistory.length;
     return (
         _photoList[tokenId].tokenId,
-        //chủ sở hữu ban đầu        _photoList[tokenId].ownerHistory[0],
-        //người sở hữu trước đây, độ dài không thể nhỏ hơn 2
+        //original owner
+        _photoList[tokenId].ownerHistory[0],
+        //previous owner, length cannot be less than 2
         _photoList[tokenId].ownerHistory[ownerHistoryLength-2],
-        //chủ sở hữu hiện tại
+        //current owner
         _photoList[tokenId].ownerHistory[ownerHistoryLength-1]);
 }
 
 /**
-  * @notice Khuyên dùng transferOwnership có sử dụng hàm safeTransferFrom
-  * @dev Viết đề lên hàm transferFrom để đảm bảo rằng mỗi lần chuyển quyền sở hữu
-  *  địa chỉ của chủ sở hữu mới được đẩy vào mảng ownerHistory
+  * @notice Recommend using transferOwnership, which uses safeTransferFrom function
+  * @dev Override transferFrom function to make sure that every time ownership transfers
+  *  new owner address gets pushed into ownerHistory array
   */
 function transferFrom(address from, address to, uint256 tokenId) public {
     super.transferFrom(from, to, tokenId);
@@ -154,14 +156,14 @@ function transferFrom(address from, address to, uint256 tokenId) public {
 }
 ```
 
-#### 4-3\) `getPhoto` <a id="4-3-getphoto"></a>
+#### 4-3) `getPhoto` <a id="4-3-getphoto"></a>
 
-Finally, let's make a getter function that fetches data stored in the smart contract. By calling a single function, we want to fetch every information regarding a specific photo. So `getPhoto` function takes an index\(token id\) as an argument and returns every element in PhotoData struct.
+Finally, let's make a getter function that fetches data stored in the smart contract. By calling a single function, we want to fetch every information regarding a specific photo. So `getPhoto` function takes an index(token id) as an argument and returns every element in PhotoData struct.
 
 ```text
 function getPhoto(uint tokenId) public view
 returns(uint256, address[] memory, bytes memory, string memory, string memory, string memory, uint256) {
-    require(_photoList[tokenId].tokenId != 0, "Ảnh không tồn tại");
+    require(_photoList[tokenId].tokenId != 0, "Photo does not exist");
     return (
         _photoList[tokenId].tokenId,
         _photoList[tokenId].ownerHistory,
@@ -184,11 +186,15 @@ This is it, now we can deploy this contract!
 
 ### 1) Nhận KLAY <a href="#1-get-some-klay" id="1-get-some-klay"></a>
 
-Để triển khai hợp đồng, ta cần có KLAY trong tài khoản của bạn để trả phí gas. Bạn có thể nhận 150 KLAY qua Ví Klaytn trong testnet. 1. Tạo tài khoản Klaytn của bạn tại [Ví Baobab Klaytnkhóa riêng tư](https://baobab.wallet.klaytn.foundation/create) -> `PRIVATE KEY` sẽ được dùng trong cấu hình Truffle. Sao chép khóa riêng tư vào đâu đó 2. Sau khi tạo tài khoản Klaytn, chạy Faucet để nhận 5 KLAY từ testnet Baobab trong [Vòi Baobab Klaytn](https://baobab.wallet.klaytn.foundation/faucet)
+Để triển khai hợp đồng, ta cần có KLAY trong tài khoản của bạn để trả phí gas. Bạn có thể nhận 150 KLAY qua Ví Klaytn trong testnet.
 
-![create-tài khoản & run-klay-faucet](/img/build/tutorials/klaystagram-run-faucet.png)
+1. Tạo tài khoản Klaytn của bạn tại [Ví Baobab Klaytnkhóa riêng tư](https://baobab.wallet.klaytn.foundation/create) -> `PRIVATE KEY` sẽ được dùng trong cấu hình Truffle. Sao chép khóa riêng tư vào đâu đó 2.
 
-### 2) Cấu hình Truffle <a href="#2-truffle-configuration" id="2-truffle-configuration"></a>
+2. Sau khi tạo tài khoản Klaytn, chạy Faucet để nhận 5 KLAY từ testnet Baobab trong [Vòi Baobab Klaytn](https://baobab.wallet.klaytn.foundation/faucet)
+
+![create-account & run-klay-faucet](/img/build/tutorials/klaystagram-run-faucet.png)
+
+### 2. Cấu hình Truffle <a href="#2-truffle-configuration" id="2-truffle-configuration"></a>
 
 `truffle-config.js` là tập tin cấu hình có chứa cấu hình triển khai. Ta sẽ triển khai hợp đồng bằng cách dùng `Private key` vừa tạo ở bước trước. Dán `Private key` có đủ KLAY của bạn vào truffle-config.js
 
@@ -200,18 +206,18 @@ _CẢNH BÁO: Bạn không nên để lộ khóa riêng tư của mình. Nếu k
 const HDWalletProvider = require("truffle-hdwallet-provider-klaytn");
 
 /**
- * các biến mạng lưới Truffle
- * để triển khai hợp đồng vào mạng lưới Klaytn.
+ * truffle network variables
+ * for deploying contract to klaytn network.
  */
 const NETWORK_ID = '1001'
 
 /**
- * URL: URL cho nút từ xa bạn sẽ dùng
- * PRIVATE_KEY: Khóa riêng tư của tài khoản thanh toán giao dịch (Đổi thành khóa riêng tư của riêng bạn)
+ * URL: URL for the remote node you will be using
+ * PRIVATE_KEY: Private key of the account that pays for the transaction (Change it to your own private key)
  */
 const URL = 'https://public-en-baobab.klaytn.net'
 
-// Dán `Private key` có đủ KLAY vào truffle.js
+// Paste your `Private key` that has enough KLAY to truffle.js
 const PRIVATE_KEY = 'your_private_key'
 
 module.exports = {
@@ -224,7 +230,7 @@ module.exports = {
     },
   },
 
-  // Chỉ định phiên bản của trình biên dịch, chúng tôi dùng phiên bản 0.5.6
+  // Specify the version of compiler, we use 0.5.6
   compilers: {
     solc: {
       version: '0.5.6',
@@ -238,16 +244,16 @@ module.exports = {
 Xem thuộc tính `networks` ở trên. Mạng lưới `klaytn` có 4 thuộc tính,\
 `provider`, `network_id`, `gas`, `gasPrice`.
 
-* `provider: () => new HDWalletProvider(PRIVATE_KEY, URL)` Như tên gọi, thuộc tính này tích hợp khóa riêng tư và url được định nghĩa ở trên.
-* `network_id: NETWORK_ID` Chỉ ra ID của mạng lưới trong Klaytn, bạn nên đặt thành `1001` để sử dụng mạng lưới Baobab Klaytn (testnet).
-* `gas: GASLIMIT` Phí gas tối đa bạn sẵn sàng chi trả.
-* `gasPrice: null` Đây là mức giá trên mỗi đơn vị gas. Hiện giá gas trong Klaytn được cố định ở mức `'25000000000'`. Bằng cách đặt thành `null`, truffle sẽ tự động đặt giá gas.
+- `provider: () => new HDWalletProvider(PRIVATE_KEY, URL)` Như tên gọi, thuộc tính này tích hợp khóa riêng tư và url được định nghĩa ở trên.
+- `network_id: NETWORK_ID` Chỉ ra ID của mạng lưới trong Klaytn, bạn nên đặt thành `1001` để sử dụng mạng lưới Baobab Klaytn (testnet).
+- `gas: GASLIMIT` Phí gas tối đa bạn sẵn sàng chi trả.
+- `gasPrice: null` Đây là mức giá trên mỗi đơn vị gas. Hiện giá gas trong Klaytn được cố định ở mức `'25000000000'`. Bằng cách đặt thành `null`, truffle sẽ tự động đặt giá gas.
 
 #### Thuộc tính `compiler` <a href="#compiler-property" id="compiler-property"></a>
 
 Hãy nhớ rằng ta đã dùng phiên bản 0.5.6 cho hợp đồng Solidity, đồng thời chỉ ra phiên bản trình biên dịch ở đây.
 
-### 3) Thiết lập triển khai <a href="#3-deployment-setup" id="3-deployment-setup"></a>
+### 3. Thiết lập triển khai <a href="#3-deployment-setup" id="3-deployment-setup"></a>
 
 `migrations/2_deploy_contracts.js`:
 
@@ -259,23 +265,23 @@ module.exports = function (deployer) {
   deployer.deploy(Klaystagram)
     .then(() => {
     if (Klaystagram._json) {
-      // 1. Ghi lại tập tin abi của hợp đồng đã triển khai gần đây vào 'deployedABI'
+      // 1. Record recently deployed contract's abi file to 'deployedABI'
       fs.writeFile(
         'deployedABI',
         JSON.stringify(Klaystagram._json.abi, 2),
         (err) => {
           if (err) throw err
-          console.log(`ABI của ${Klaystagram._json.contractName} được ghi vào tập tin deployedABI`)
+          console.log(`The abi of ${Klaystagram._json.contractName} is recorded on deployedABI file`)
         })
     }
 
-    // 2. Ghi lại địa chỉ của hợp đồng đã triển khai gần đây vào 'deployedAddress'
+    // 2. Record recently deployed contract's address to 'deployedAddress'
     fs.writeFile(
       'deployedAddress',
       Klaystagram.address,
       (err) => {
         if (err) throw err
-        console.log(`Địa chỉ của hợp đồng đã triển khai * ${Klaystagram.address} * được ghi vào tập tin deployedAddress`)
+        console.log(`The deployed contract address * ${Klaystagram.address} * is recorded on deployedAddress file`)
     })
   })
 }
@@ -283,20 +289,20 @@ module.exports = function (deployer) {
 
 Bạn có thể chỉ ra mã hợp đồng bạn sẽ triển khai trong thư mục `contracts/`.
 
-1.  Nhập tập tin hợp đồng của bạn (`Klaystagram.sol`) qua
+1. Nhập tập tin hợp đồng của bạn (`Klaystagram.sol`) qua
 
-    `const Klaystagram = artifacts.require('./Klaystagram.sol')`
+   `const Klaystagram = artifacts.require('./Klaystagram.sol')`
 2. Dùng `deployer` để triển khai hợp đồng của bạn, `deployer.deploy(Klaystagram)`.
 3. Nếu bạn muốn thêm logic sau khi triển khai hợp đồng, hãy dùng `.then()` (không bắt buộc)
-4.  Để lưu `deployedABI` và `deployedAddress` của hợp đồng, hãy dùng `fs` mô-đun node.js
+4. Để lưu `deployedABI` và `deployedAddress` của hợp đồng, hãy dùng `fs` mô-đun node.js
 
-    `fs.writeFile(filename, content, callback)` (không bắt buộc)
+   `fs.writeFile(filename, content, callback)` (không bắt buộc)
 
 cf. Để biết thêm thông tin về `artifacts.require()`, hãy tham chiếu tài liệu chính thức của truffle tại [truffle docs](https://trufflesuite.com/docs/truffle/getting-started/running-migrations#artifacts-require-)
 
-### 4) Triển khai <a href="#4-deploy" id="4-deploy"></a>
+### 4. Triển khai <a href="#4-deploy" id="4-deploy"></a>
 
-![triển khai hợp đồng](/img/build/tutorials/klaystagram-deploy-contract.png)
+![deploy contract](/img/build/tutorials/klaystagram-deploy-contract.png)
 
 Trong cửa sổ lệnh của bạn, hãy gõ `$ truffle deploy --network baobab`.\
 Hệ thống sẽ triển khai hợp đồng của bạn theo cấu hình `truffle-config.js` và `migrations/2_deploy_contracts.js`.
@@ -308,7 +314,7 @@ Nếu bạn đưa ra tùy chọn này, Truffle sẽ biên dịch và triển kha
 
 ## 4. Chạy ứng dụng
 
-[![Video giới thiệu về Klaystagram](/img/build/tutorials/klaystagram-video-poster.png)](https://vimeo.com/327033594)
+[![Klaystagram Introduction Video](/img/build/tutorials/klaystagram-video-poster.png)](https://vimeo.com/327033594)
 
 Chạy ứng dụng của chúng tôi trong trình duyệt.\
 Lệnh `$ npm run local` sẽ mở một trình duyệt và chạy ứng dụng.

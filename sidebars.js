@@ -371,6 +371,7 @@ const sidebars = {
       label: 'Node Package Downloads',
       link: {type: 'doc', id: 'nodes/downloads/downloads'},
       items: [
+        'nodes/downloads/v1.12.1',
         'nodes/downloads/v1.12.0',
         'nodes/downloads/v1.11.1',
         'nodes/downloads/v1.11.0',
@@ -506,7 +507,7 @@ const sidebars = {
                     'references/sdk/caver-js/api/caver.abi',
                     {
                       type: 'category',
-                      label: 'caver.rpc',
+                      label: 'caver.kct',
                       link: {type: 'doc', id: 'references/sdk/caver-js/api/caver-kct/caver-kct'},
                       items: [
                         'references/sdk/caver-js/api/caver-kct/kip7',

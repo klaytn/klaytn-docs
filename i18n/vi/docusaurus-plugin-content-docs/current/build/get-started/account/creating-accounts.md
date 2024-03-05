@@ -8,16 +8,16 @@ Quy trình này sẽ tạo một tài khoản mới và in địa chỉ lên mà
 
 Khi bạn tạo một tài khoản, một tập tin lưu trữ khóa sẽ được tạo ra. Tập tin lưu trữ khóa là phiên bản được mã hóa của mã khóa riêng tư Klaytn mà bạn sẽ dùng để ký các giao dịch của mình. Tên của tập tin lưu trữ khóa có định dạng sau:
 
-* `UTC--<created_at UTC ISO8601>-<address hex>`
+- `UTC--<created_at UTC ISO8601>-<address hex>`
 
 Việc chuyển toàn bộ thư mục hoặc tập tin lưu trữ khóa riêng lẻ trong đó giữa các nút Klaytn là an toàn. Xin lưu ý rằng trong trường hợp bạn đang thêm mã khóa vào nút của mình từ một nút khác, thì thứ tự của các tài khoản có thể thay đổi. Vì thế, hãy đảm bảo là bạn không dựa vào chỉ mục trong đoạn mã hoặc tập lệnh của mình.
 
 ### ken <a id="ken"></a>
 
 ```bash
-$ ken tài khoản new --datadir <DATADIR>
-$ ken tài khoản new --password <passwordfile> --datadir <DATADIR>
-$ ken tài khoản new --password <(echo $mypassword) --datadir <DATADIR>
+$ ken account new --datadir <DATADIR>
+$ ken account new --password <passwordfile> --datadir <DATADIR>
+$ ken account new --password <(echo $mypassword) --datadir <DATADIR>
 ```
 
 **`CẢNH BẢO`**: Lưu ý rằng việc dùng một tập tin mật khẩu chỉ dành cho quá trình thử nghiệm; bạn không nên lưu mật khẩu vào một tập tin hoặc để lộ mật khẩu dưới bất kỳ hình thức nào khác. Nếu bạn sử dụng tính năng gắn cờ mật khẩu trong một tập tin mật khẩu, hãy đảm bảo rằng không ai có thể thấy hoặc đọc được tập tin này ngoài bạn. Để thực hiện việc này:
@@ -65,6 +65,3 @@ $ ken account import --password <passwordfile> --datadir <datadir> <keyfile>
 > personal.importRawKey('{private key}0x000x{address}', 'mypassword')
 "0xfa415bb3e6231f488ff39eb2897db0ef3636dd32"
 ```
-
-
-

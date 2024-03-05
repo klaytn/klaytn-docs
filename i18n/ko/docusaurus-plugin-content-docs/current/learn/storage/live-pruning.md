@@ -13,7 +13,7 @@ Hash: Keccak256 - 32바이트 해시 키
 ExtHash: Keccak256 - 32바이트 해시 키 + 7바이트 시리얼 인덱스
 ```
 
-또한 확장 해시에서 원래 해시값을 계산하기 때문에 블록에서 StateRoot는 변경되지 않습니다. 스테이트 루트 값을 얻기 위해 ExtHash에 추가된 7바이트 시리얼 인덱스가 제거되고, 이전과 동일한 스테이트 루트 값을 얻기 위해 해시가 다시 계산되므로 이전 버전과 호환됩니다. 
+또한 확장 해시에서 원래 해시값을 계산하기 때문에 블록에서 StateRoot는 변경되지 않습니다. 스테이트 루트 값을 얻기 위해 ExtHash에 추가된 7바이트 시리얼 인덱스가 제거되고, 이전과 동일한 스테이트 루트 값을 얻기 위해 해시가 다시 계산되므로 이전 버전과 호환됩니다.
 
 자세한 내용은 이 [미디엄 블로그](https://medium.com/klaytn/strong-efficient-management-of-blockchain-data-capacity-with-statedb-live-pruning-strong-6aaa09b05f91)를 참조하세요.
 

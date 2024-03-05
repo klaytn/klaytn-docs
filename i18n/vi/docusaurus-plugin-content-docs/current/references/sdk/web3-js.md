@@ -8,15 +8,13 @@ Do đó, các nhà phát triển có thể tận dụng tính tương thích nà
 
 Trong hướng dẫn này, bạn sẽ tìm hiểu cách để dùng thư viện web3.js để gửi một giao dịch, đọc dữ liệu từ chuỗi khối và tương tác với một hợp đồng cõ sẵn trên Mạng Klaytn.
 
-
 ## Điều kiện tiên quyết
 
-* Trình biên tập mã: một trình biên tập mã nguồn như [VS-Code](https://code.visualstudio.com/download).
-* [Metamask](../../build/tutorials/connecting-metamask#install-metamask): được dùng để triển khai hợp đồng, ký giao dịch và tương tác với hợp đồng.
-* Điểm cuối RPC: bạn có thể nhận từ một trong những [Nhà cung cấp điểm cuối](../service-providers/public-en.md) được hỗ trợ.
-* KLAY thử nghiệm từ [Vòi](https://baobab.wallet.klaytn.foundation/faucet): nạp tiền vào tài khoản với một lượng KLAY vừa đủ.
-* [NodeJS và NPM](https://nodejs.org/en/)
-
+- Trình biên tập mã: một trình biên tập mã nguồn như [VS-Code](https://code.visualstudio.com/download).
+- [Metamask](../../build/tutorials/connecting-metamask#install-metamask): được dùng để triển khai hợp đồng, ký giao dịch và tương tác với hợp đồng.
+- Điểm cuối RPC: bạn có thể nhận từ một trong những [Nhà cung cấp điểm cuối](../service-providers/public-en.md) được hỗ trợ.
+- KLAY thử nghiệm từ [Vòi](https://baobab.wallet.klaytn.foundation/faucet): nạp tiền vào tài khoản với một lượng KLAY vừa đủ.
+- [NodeJS và NPM](https://nodejs.org/en/)
 
 ## Thiết lập dự án
 
@@ -39,7 +37,6 @@ npm install web3
 
 Trong phần hướng dẫn này, chúng ta sẽ tạo một số tập tin mã lập trình để gửi giao dịch, đọc dữ liệu từ chuỗi khối và tương tác với một hợp đồng thông minh có sẵn. Để bắt đầu, bạn cần biết cách để khởi động web3.js cho từng tập tin mã lập trình.
 
-
 Nhập `web3` vào tập tin mã lập trình.
 
 ```js
@@ -52,13 +49,14 @@ Sau khi nhập web3 thành công, bạn cần kết nối với Klaytn bằng c�
 const url = "RPC URL"  
 const web3 = new Web3(url);
 ```
-Ngoài ra, bạn cần thêm vào khóa riêng tư của mình để ký các giao dịch. Thêm mã dưới đây vào mã đã có sẵn:
+
+Ngoài ra, bạn cần thêm vào khóa riêng tư của mình để ký các giao dịch. Add the code below to the existing code:
 
 ```js
 const privateKey = "Paste private key";
 ```
 
-## Đọc dữ liệu từ chuỗi khối
+## Thêm mã dưới đây vào mã đã có sẵn:
 
 Để đọc dữ liệu từ chuỗi khối, hãy tạo một tập tin `read.js` trong thư mục dự án bằng cách chạy lệnh sau:
 
@@ -111,7 +109,6 @@ Nếu giao dịch thành công, bạn sẽ thấy số khối và số dư KLAY 
 touch send.js
 ```
 
-
 Sau khi tạo tập tin này, hãy khởi động `web3` như đã thực hiện trong phần `khởi động`. Trong phần này, bạn sẽ tìm hiểu cách để gửi một giao dịch đến chuỗi khối, ví dụ như gửi KLAY đến một địa chỉ.
 
 Để xem hành động này, hãy dán mã sau vào `send.js`.
@@ -143,6 +140,7 @@ async function sendTx() {
 // call function
 sendTx();
 ```
+
 **Kết quả đầu ra**
 
 Để chạy mã lập trình và gửi dữ liệu đến chuỗi khối, bạn có thể chạy lệnh sau trong giao diện dòng lệnh:
@@ -166,7 +164,6 @@ touch interact.js
 Sau khi tạo tập tin này, hãy khởi động `web3` như đã thực hiện trong phần `khởi động`. Trong phần này, bạn sẽ dùng web3.js để tương tác với một hợp đồng thông minh trên Klaytn bằng cách khởi tạo một đối tượng `Contract` bằng ABI và địa chỉ của một hợp đồng đã triển khai.
 
 Vì mục đích của hướng dẫn này, một hợp đồng lưu trữ đơn giản đã được lập và triển khai trên [Remix IDE](../../build/tutorials/connecting-remix.md). Chúng ta sẽ gửi một giao dịch đến hợp đồng bằng cách gọi hàm `store` và đọc dữ liệu từ đó bằng cách gọi hàm `retrieve`.
-
 
 Để xem hành động này, hãy dán mã sau vào `interact.js`.
 
@@ -207,19 +204,19 @@ const abi = [
         "type": "function"
     }
 ]
-
+    
     // replace with your contract address
     const contractAddress = "0x472a1226796b6a0918DC78d40b87d750881fdbDC"
-
+    
     const contract = new web3.eth.Contract(abi, contractAddress);
-
+    
     // Can replace `10` with any value you want to store
     const storeTx = contract.methods.store(10);
-
+    
     // send transaction to smart contract
     // modify contract
     async function setValue() {
-
+        
      // Sign Tx with private key
     const createTransaction = await web3.eth.accounts.signTransaction(
         {
@@ -231,7 +228,7 @@ const abi = [
         },
         privateKey
       );
-
+    
       // Send Tx and Wait for Receipt
       const createReceipt = await web3.eth.sendSignedTransaction(createTransaction.rawTransaction);
       console.log(`Tx hash: ${createReceipt.transactionHash}`);
@@ -244,7 +241,7 @@ const abi = [
         const tx = await contract.methods.retrieve().call();
         console.log(tx);
       }
-
+      
       // call functions
       setValue();
       retrieveValue();
@@ -260,6 +257,5 @@ node interact.js
 ```
 
 Nếu giao dịch thành công, trong giao diện dòng lệnh của mình, bạn sẽ thấy hàm băm của giao dịch và giá trị được lưu trữ.
-
 
 Để được hướng dẫn sâu hơn về web3.js, vui lòng tham khảo [tài liệu về web3.js](https://web3js.readthedocs.io/). Ngoài ra, bạn có thể tìm thấy cách triển khai mã đầy đủ cho hướng dẫn này trên [GitHub](https://github.com/klaytn/examples/tree/main/sdk-and-libraries-for-interacting-with-klaytn-node/web3-js)

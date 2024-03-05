@@ -4,15 +4,15 @@ Nếu chỉ có một cầu nối được sử dụng trong ServiceChain thì c
 
 ![](/img/nodes/sc-ha-arch.png)
 
-
 ## Điều kiện tiên quyết <a id="prerequisites"></a>
- - Cầu nối chính của EN và cầu nối con của SCN phải được kết nối. Nếu chúng không được kết nối, vui lòng tham khảo [Kết nối Baobab](en-scn-connection.md) để thiết lập kết nối.
- - Phần này mô tả cách thêm một cầu nối bổ sung giữa Baobab và ServiceChain. Tương tự, bạn cũng có thể thiết lập HA bằng cách thêm một cầu nối khác.
+
+- Cầu nối chính của EN và cầu nối con của SCN phải được kết nối. Nếu chúng không được kết nối, vui lòng tham khảo [Kết nối Baobab](en-scn-connection.md) để thiết lập kết nối.
+- Phần này mô tả cách thêm một cầu nối bổ sung giữa Baobab và ServiceChain. Tương tự, bạn cũng có thể thiết lập HA bằng cách thêm một cầu nối khác.
 
 ## Bước 1: Thêm một cầu nối khác giữa EN-SCN <a id="step-1-adding-another-bridge-between-en-scn"></a>
 
-Trong [Kết nối với Baobab](en-scn-connection.md), chúng ta giả sử rằng EN và SCN được kết nối bằng cầu nối tương ứng là EN-01 và SCN-L2-01. Trong phần này, chúng ta sẽ thêm một cầu nối khác giữa EN-02 và SCN-L2-02. Vì quy trình giống nhau nên ta sẽ chỉ giải thích ngắn gọn.
-
+Trong [Kết nối với Baobab](en-scn-connection.md), chúng ta giả sử rằng EN và SCN được kết nối bằng cầu nối tương ứng là EN-01 và SCN-L2-01. Trong phần này, chúng ta sẽ thêm một cầu nối khác giữa EN-02 và SCN-L2-02.
+Vì quy trình giống nhau nên ta sẽ chỉ giải thích ngắn gọn.
 
 ![](/img/nodes/sc-ha-add-bridge.png)
 
@@ -24,7 +24,6 @@ SC_MAIN_BRIDGE=1
 
 Kiểm tra thông tin KNI của EN-02 bằng lệnh sau:
 
-
 ```console
 EN-02$ ken attach --datadir ~/data
 > mainbridge.nodeInfo.kni
@@ -33,12 +32,15 @@ EN-02$ ken attach --datadir ~/data
 
 Đăng nhập vào SCN-L2-02 và tạo `main-bridges.json` bằng KNI của EN-02. Vui lòng đảm bảo rằng nó phải ở định dạng mảng JSON với dấu ngoặc vuông.
 
-
 ```console
 SCN-L2-02$ echo '["kni://eb8f21df10c6562...25bae@192.168.0.5:50505?discport=0"]' > ~/data/main-bridges.json
 ```
 
-Trên tập lệnh shell của SCN-L2-02, chỉnh sửa `kscn-XXXXX-amd64/conf/kscnd.conf` như bên dưới. Để kết nối cầu nối, hãy đặt `SC_SUB_BRIDGE` thành 1. `SC_PARENT_CHAIN_ID` được đặt thành `chainID` 1001 của Baobob. `SC_ANCHORING_PERIOD` là tham số quyết định khoảng thời gian gửi giao dịch neo đến chuỗi mẹ. Trong ví dụ này, một giao dịch neo được gửi đến chuỗi mẹ (Baobab) sau mỗi 10 khối con.
+Trên tập lệnh shell của SCN-L2-02, chỉnh sửa `kscn-XXXXX-amd64/conf/kscnd.conf` như bên dưới.
+Để kết nối cầu nối, hãy đặt `SC_SUB_BRIDGE` thành 1.
+`SC_PARENT_CHAIN_ID` được đặt thành `chainID` 1001 của Baobob.
+`SC_ANCHORING_PERIOD` là tham số quyết định khoảng thời gian gửi giao dịch neo đến chuỗi mẹ. Trong ví dụ này, một giao dịch neo được gửi đến chuỗi mẹ (Baobab) sau mỗi 10 khối con.
+
 ```
 ...
 SC_SUB_BRIDGE=1
@@ -48,7 +50,6 @@ SC_PARENT_CHAIN_ID=1001
 SC_ANCHORING_PERIOD=10
 ...
 ```
-
 
 Nếu bạn khởi động lại ken trên EN-02, một cầu nối sẽ được kết nối tự động giữa EN-02 và SCN-L2-02 và quá trình neo dữ liệu sẽ bắt đầu từ điểm kết nối được tạo như minh họa trong hình bên dưới.
 
@@ -90,10 +91,8 @@ Khi có nhiều cầu nối, việc chuyển giá trị có thể được thự
 // await conf.parent.newInstanceBridge.methods.setOperatorThreshold(0, "your threshold number").send({ from: conf.parent.sender, gas: 100000000, value: 0 });
 ```
 
-
 Khi quá trình đăng ký hoàn tất, hợp đồng cầu nối được đăng ký trong cả EN-02 và SCN-L2-02 như minh họa trong hình bên dưới để định cấu hình HA.
 
 ![](/img/nodes/sc-ha-after-register.png)
-
 
 Khi hai hoặc nhiều cặp cầu nối được kết nối cho HA, các giao dịch neo dữ liệu cho cùng một khối có thể xảy ra nhiều lần và các giao dịch chuyển giá trị cũng có thể xảy ra nhiều lần. Bởi vậy cần trả phí bổ sung.

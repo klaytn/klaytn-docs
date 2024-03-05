@@ -31,17 +31,17 @@ contract KlaytnGreeter is Mortal {
 
 ## Triển khai hợp đồng KlaytnGreeter bằng Remix Online IDE <a href="#deploying-klaytngreeter-using-klaytn-ide" id="deploying-klaytngreeter-using-klaytn-ide"></a>
 
-* Vui lòng truy cập [Klaytn Plugin for Remix](https://ide.klaytn.foundation) và tạo hợp đồng `KlaytnGreeter`. Mã nguồn hoàn chỉnh được cung cấp trên đây.
-* Chuẩn bị tài khoản của bạn để triển khai hợp đồng.
-  * Nếu bạn chưa có tài khoản, hãy tạo một tài khoản tại [https://baobab.wallet.klaytn.foundation/create](https://baobab.wallet.klaytn.foundation/create) hoặc [https://toolkit.klaytn.foundation/tài khoản/tài khoảnKeyLegacy](https://toolkit.klaytn.foundation/account/accountKeyLegacy).
-  * Nhận một số KLAY thử nghiệm từ faucet - [https://baobab.wallet.klaytn.foundation/faucet](https://baobab.wallet.klaytn.foundation/faucet)
-* Triển khai hợp đồng bằng tham số ban đầu, một thông báo chào mừng.
-* Sau khi triển khai, bạn có thể gọi `greet` từ IDE.
+- Vui lòng truy cập [Klaytn Plugin for Remix](https://ide.klaytn.foundation) và tạo hợp đồng `KlaytnGreeter`. Mã nguồn hoàn chỉnh được cung cấp trên đây.
+- Chuẩn bị tài khoản của bạn để triển khai hợp đồng.
+  - Nếu bạn chưa có tài khoản, hãy tạo một tài khoản tại [https://baobab.wallet.klaytn.foundation/create](https://baobab.wallet.klaytn.foundation/create) hoặc [https://toolkit.klaytn.foundation/tài khoản/tài khoảnKeyLegacy](https://toolkit.klaytn.foundation/account/accountKeyLegacy).
+  - Nhận một số KLAY thử nghiệm từ faucet - [https://baobab.wallet.klaytn.foundation/faucet](https://baobab.wallet.klaytn.foundation/faucet)
+- Triển khai hợp đồng bằng tham số ban đầu, một thông báo chào mừng.
+- Sau khi triển khai, bạn có thể gọi `greet` từ IDE.
 
 ## Tài liệu tham khảo <a href="#references" id="references"></a>
 
 Để biết thông tin chi tiết về việc triển khai hợp đồng và hướng dẫn sử dụng Remix Online IDE, vui lòng tham khảo các tài liệu sau đây.
 
-* [Remix Online IDE](../../smart-contracts/ide-and-tools/ide-and-tools.md#klaytn-ide)
-* [Truffle](../../smart-contracts/ide-and-tools/ide-and-tools.md##truffle)
-* [Hướng dẫn triển khai](../deploy/deploy.md)
+- [Remix Online IDE](../../smart-contracts/ide-and-tools/ide-and-tools.md#klaytn-ide)
+- [Truffle](../../smart-contracts/ide-and-tools/ide-and-tools.md##truffle)
+- [Hướng dẫn triển khai](../deploy/deploy.md)

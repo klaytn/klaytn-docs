@@ -2,7 +2,7 @@
 
 ## 이미지 다운로드
 
-https://hub.docker.com/r/klaytn/klaytn/tags 에서 이미지 태그를 선택합니다. 'klaytn/klaytn:latest'가 최신 릴리스 버전입니다. 하지만 특정 버전을 선택할 수도 있습니다. 현재는 리눅스/amd64 플랫폼만 지원됩니다. 윈도우나 맥 호스트에서는 컨테이너가 제대로 작동하지 않을 수 있습니다.
+https\://hub.docker.com/r/klaytn/klaytn/tags 에서 이미지 태그를 선택합니다. 'klaytn/klaytn:latest'가 최신 릴리스 버전입니다. 하지만 특정 버전을 선택할 수도 있습니다. 현재는 리눅스/amd64 플랫폼만 지원됩니다. 윈도우나 맥 호스트에서는 컨테이너가 제대로 작동하지 않을 수 있습니다.
 
 ```
 docker pull klaytn/klaytn:latest

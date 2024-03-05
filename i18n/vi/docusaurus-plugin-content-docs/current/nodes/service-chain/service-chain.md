@@ -16,5 +16,4 @@ Chuỗi dịch vụ Klaytn cung cấp các tính năng sau.
 
 ![](/img/nodes/sc_connection.png)
 
-
 Đọc [Giải pháp mở rộng Klaytn](../../learn/scaling-solutions.md) để biết thêm chi tiết về Chuỗi dịch vụ.

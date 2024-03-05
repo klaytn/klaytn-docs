@@ -14,10 +14,10 @@ Trong hướng dẫn này, bạn sẽ sử dụng thư viện Web3-Onboard để
 
 ## Điều kiện tiên quyết
 
-* Một dự án react đang hoạt động (bằng cách thực hiện `npx create-react-app project-name`)
-* Cài đặt các ví cần thiết ([Ví Coinbase Wallet](https://www.coinbase.com/wallet/downloads), [Metamask](https://metamask.io/download/)).
-* Điểm cuối RPC: bạn có thể nhận từ một trong những [Nhà cung cấp điểm cuối](../../../../references/service-providers/public-en.md) được hỗ trợ.à cung cấp endpoint được hỗ trợ.
-* KLAY thử nghiệm từ [Vòi](https://baobab.wallet.klaytn.foundation/faucet): nạp tiền vào tài khoản với một lượng KLAY vừa đủ.
+- Một dự án react đang hoạt động (bằng cách thực hiện `npx create-react-app project-name`)
+- Cài đặt các ví cần thiết ([Ví Coinbase Wallet](https://www.coinbase.com/wallet/downloads), [Metamask](https://metamask.io/download/)).
+- Điểm cuối RPC: bạn có thể nhận từ một trong những [Nhà cung cấp điểm cuối](../../../../references/service-providers/public-en.md) được hỗ trợ.à cung cấp endpoint được hỗ trợ.
+- KLAY thử nghiệm từ [Vòi](https://baobab.wallet.klaytn.foundation/faucet): nạp tiền vào tài khoản với một lượng KLAY vừa đủ.
 
 ## Bắt đầu
 
@@ -30,6 +30,7 @@ Web3-Onboard như một thư viện ví không phân biệt chuỗi, hỗ trợ 
 ```bash
 npm i @web3-onboard/core 
 ```
+
 **Bước 2**: Nhập và khởi tạo các Mô-đun Ví
 
 Trong bước này, bạn có thể thêm càng nhiều ví để được hỗ trợ trong dApp của bạn bằng các mô-đun ví. Nhưng đối với hướng dẫn này, bạn sẽ thêm Ví Coinbase, WalletConnect, Ví Injected được tiêm ví vào quá trình triển khai web3-Onboard của bạn. Tham khảo [tài liệu](https://onboard.blocknative.com/docs/overview/introduction#wallet-modules) này về danh sách các mô-đun ví bạn có thể thêm vào dApp của bạn bằng Web3-Onboard.
@@ -53,6 +54,7 @@ const injected = injectedModule();
 
 const modules = [coinbaseWalletSdk, walletConnect, injected];
 ```
+
 **Bước 3**: Cài đặt và nhập ether
 
 Nhà cung cấp Web3-Onboard có thể được sử dụng với các thư viện như [ethers.js](https://docs.ethers.org/v6/) và [web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html). Trong hướng dẫn này, chúng tôi sẽ sử dụng ethers.js để thực hiện các cuộc gọi chuỗi khối Klaytn như nhận tài khoản của người dùng, lấy số dư, ký giao dịch, gửi giao dịch, đọc và ghi vào hợp đồng thông minh.
@@ -60,6 +62,7 @@ Nhà cung cấp Web3-Onboard có thể được sử dụng với các thư vi�
 ```bash
 npm install --save ethers
 ```
+
 Trong tệp `App.js` của bạn, hãy nhập gói ether như sau:
 
 ```js
@@ -125,82 +128,86 @@ Dán mã sau trong tệp Utils.js mới được tạo.
 
 ```js
 export const truncateAddress = (address) => {
-if (!address) return "No Account";
-const match = address.match(
-/^(0x[a-zA-Z0-9]{2})[a-zA-Z0-9]+([a-zA-Z0-9]{4})$/
-);
-if (!match) return address;
-return `${match[1]}…${match[2]}`;
-};
+    if (!address) return "No Account";
+    const match = address.match(
+      /^(0x[a-zA-Z0-9]{2})[a-zA-Z0-9]+([a-zA-Z0-9]{4})$/
+    );
+    if (!match) return address;
+    return `${match[1]}…${match[2]}`;
+  };
 
-export const toHex = (num) => {
-const val = Number(num);
-return "0x" + val.toString(16);
-};
+  export const toHex = (num) => {
+    const val = Number(num);
+    return "0x" + val.toString(16);
+  };
 ```
+
 **Bước 2**: Nhập các chức năng trong tệp `app.js` của bạn.
 
 ```js
 import { truncateAddress, toHex } from "./utils";
 ```
+
 ## Kết nối ví
 
 Bên trong chức năng Ứng dụng của bạn trong tệp `App.js` của bạn, hãy gọi phương pháp `connectWallet()` trên phiên bản onboard để bắt đầu hộp thoại bật lên onboard.
 
 ```js
 function App() {
-const connectWallet = async () => {
-try {
-const wallets = await onboard.connectWallet();
-} catch (error) {
-console.error(error);
-}
-};
-
-return (
-<div className="App">
-<button onClick={connectWallet}>Connect Wallet</button> 
-</div>
-);
+    const connectWallet = async () => {
+    try {
+      const wallets = await onboard.connectWallet();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  
+  return (
+    <div className="App">
+      <button onClick={connectWallet}>Connect Wallet</button>  
+    </div>
+  );
 }
 ```
+
 Khi bạn nhấp vào nút Kết nối Ví của mình, bạn sẽ thấy một hộp thoại cho phép bạn kết nối liền mạch với Ví Coinbase và các ví khởi tạo khác từ dApp của bạn.
 
 ![](/img/build/tools/web3-Onboard.png)
 
 ## Ngắt kết nối ví
+
 Ngắt kết nối một ví được kết nối có thể đạt được bằng cách gọi phương pháp `disconnectWallet()` trên phiên bản onboard cùng với nhãn của ví chính của người dùng. Ngoài ra, một thực tế tốt là làm mới trạng thái để xóa bất kỳ dữ liệu kết nối được lưu trữ trước đó.
 
 ```js
 function App() {
-const connectWallet = async () => {
-try {
-const wallets = await onboard.connectWallet();
-} catch (error) {
-console.error(error);
-}
-};
-
-const disconnect = async () => {
-const [primaryWallet] = await onboard.state.get().wallets;
-if (primaryWallet) await onboard.disconnectWallet({ label: primaryWallet.label });
-refreshState();
-};
-
-// refresh state
-const refreshState = () => {
-setAccount("");
-setChainId("");
-setProvider();
-// make sure to add every other state declared here.
+    const connectWallet = async () => {
+    try {
+      const wallets = await onboard.connectWallet();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+    
+  const disconnect = async () => {
+    const [primaryWallet] = await onboard.state.get().wallets;
+    if (primaryWallet) await onboard.disconnectWallet({ label: primaryWallet.label });
+    refreshState();
   };
 
-return (
-<div className="App">
-<button onClick={connectWallet}>Connect Wallet</button> 
-<button onClick={disconnect}>Disconnect</button>
-</div>
-);
+  // refresh state
+  const refreshState = () => {
+    setAccount("");
+    setChainId("");
+    setProvider();
+    // make sure to add every other state declared here.
+  };
+  
+  return (
+    <div className="App">
+           <button onClick={connectWallet}>Connect Wallet</button>  
+          <button onClick={disconnect}>Disconnect</button>
+    </div>
+  );
 }
 ```
 
@@ -213,40 +220,41 @@ Sau khi kết nối thành công ví của bạn, bạn có thể sử dụng ph
 ```js
 import { useState } from 'react';
 ```
+
 **Bước 2**: Sửa đổi mã trong chức năng Ứng dụng của bạn
 
 ```js
 function App() {
-const [provider, setProvider] = useState();
-const [tài khoản, setAccount] = useState();
-const [chainId, setChainId] = useState();
-const connectWallet = async () => {
-try {
-const wallets = await onboard.connectWallet();
-const { tài khoảns, chains, provider } = wallets[0];
-
-setProvider(provider);
-setAccount(tài khoảns[0].address);
-setChainId(chains[0].id);
-
-} catch (error) {
-console.error(error);
-}
-};
-
-...
-
+  const [provider, setProvider] = useState();
+  const [account, setAccount] = useState();
+  const [chainId, setChainId] = useState();
+  const connectWallet = async () => {
+    try {
+      const wallets = await onboard.connectWallet();
+      const { accounts, chains, provider } = wallets[0];
+      
+      setProvider(provider);
+      setAccount(accounts[0].address);
+      setChainId(chains[0].id);
+     
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  
+  ...
+  
   return (
     <div className="App">
         <div>
-            { !tài khoản ? ( <button  onClick={connectWallet}> Connect Wallet</button> ) : (
+            { !account ? ( <button  onClick={connectWallet}> Connect Wallet</button> ) : (
                 <button onClick={disconnect}>Disconnect</button>
             )}
         </div>
-
-        <div>Wallet Address: ${truncateAddress(tài khoản)}</div>
+     		
+        <div>Wallet Address: ${truncateAddress(account)}</div>
         <div>Network Chain ID: ${chainId}</div>
-    </3>
+    </div>
   );
 }
 ```
@@ -276,12 +284,12 @@ Sau khi kết nối thành công với ví, bạn có thể lưu trữ đối t�
   const [txHash, setTxHash] = useState();
 
   const sendKlay = async () => {
-
+    
     if (!provider) {
       console.log("provider not initialized yet");
       return;
     }
-
+	
     // this guide uses ethers version 6.3.0.
     const ethersProvider = new ethers.BrowserProvider(provider);
     // for ethers version below 6.3.0.
@@ -296,8 +304,8 @@ Sau khi kết nối thành công với ví, bạn có thể lưu trữ đối t�
           maxPriorityFeePerGas: "5000000000", // Max priority fee per gas
           maxFeePerGas: "6000000000000", // Max fee per gas
         })
-
-
+    
+        
     const receipt = await tx.wait();
     setTxHash(receipt.hash)
   }
@@ -306,8 +314,8 @@ Sau khi kết nối thành công với ví, bạn có thể lưu trữ đối t�
 return (
     <div className="App">
         <button onClick={sendKlay}>Send Klay</button>
-        <div>Send-Klay Tx Hash :  {txHash ? <a href={`https://baobab.scope.klaytn.com/tx/${txHash}`} target="_blank">Klaytnscope</a> : ' ' } </div>
-</div>
+        <div>Send-Klay Tx Hash :  {txHash ? <a href={`https://baobab.scope.klaytn.com/tx/${txHash}`} target="_blank">Klaytnscope</a> :  ' ' } </div>
+    </div>
 );
 
 ```
@@ -318,22 +326,22 @@ Với nhà cung cấp Web3-Onboard và đối tượng người ký, bạn có t
 
 ```js
 // add to existing useState hook
-const [contractTx, setContractTx] = useState();
-const [contractMessage, setContractMessage] = useState();
+  const [contractTx, setContractTx] = useState();
+  const [contractMessage, setContractMessage] = useState();
 
-const writeToContract = async (e) => {
-e.preventDefault();
-if (!provider) {
-console.log("provider not initialized yet");
-return;
-}
-
-// this guide uses ethers version 6.3.0.
+  const writeToContract = async (e) => {
+    e.preventDefault();
+    if (!provider) {
+      console.log("provider not initialized yet");
+      return;
+    }
+  
+     // this guide uses ethers version 6.3.0.
     const ethersProvider = new ethers.BrowserProvider(provider);
     // for ethers version below 6.3.0.
    // const provider = new ethers.providers.Web3Provider(provider);
     const signer = await ethersProvider.getSigner();
-
+  
     // Paste your contractABI
     const contractABI = [
       {
@@ -374,22 +382,22 @@ return;
         "type": "function"
       }
     ]
-
+  
      // Paste your contract address
     const contractAddress = "0x3b01E4025B428fFad9481a500BAc36396719092C";
-
+  
     // const contract = new Contract(contractAddress, contractABI, provider);
     const contract = new ethers.Contract(contractAddress, contractABI, signer);
-
+  
     const value = e.target.store_value.value;
-
+  
     // Send transaction to smart contract to update message
     const tx = await contract.store(value);
-
+  
     // Wait for transaction to finish
     const receipt = await tx.wait();
     const result = receipt.hash;
-
+  
     setContractTx(result)
   }
 
@@ -398,13 +406,13 @@ return;
       console.log("provider not initialized yet");
       return;
     }
-
-
+  	
+	
     // this guide uses ethers version 6.3.0.
     const ethersProvider = new ethers.BrowserProvider(provider);
     // for ethers version below 6.3.0.
     // const provider = new ethers.providers.Web3Provider(provider);
-
+  
     // paste your contract ABI
     const contractABI = [
       {
@@ -445,13 +453,13 @@ return;
         "type": "function"
       }
     ]
-
+  
      // paste your contract address
     const contractAddress = "0x3b01E4025B428fFad9481a500BAc36396719092C"; 
-
+  
     // const contract = new Contract(contractAddress, contractABI, provider);
     const contract = new ethers.Contract(contractAddress, contractABI, ethersProvider)
-
+  
     // Read message from smart contract
     const contractMessage = await contract.retrieve();
     setContractMessage(contractMessage.toString())
@@ -478,16 +486,11 @@ return;
 **Lỗi mô-đun lõi nút polyfill**
 
 ```js
-THAY ĐỔI ĐỘT PHÁ: webpack<5 được sử dụng để bao gồm polyfills cho node.js lõi node.js theo mặc định.
+BREAKING CHANGES: webpack<5 used to include polyfills for node.js core modules by default.
 ```
+
 Lỗi này xảy ra khi bạn sử dụng webpack phiên bản 5. Trong phiên bản này, NodeJS polyfills không còn được hỗ trợ theo mặc định. Để giải quyết vấn đề này, hãy tham khảo [hướng dẫn](https://web3auth.io/docs/troubleshooting/webpack-issues).
 
 ## Bước tiếp theo
 
 Để biết thêm các hướng dẫn chuyên sâu trên Web3-Onboard, vui lòng tham khảo [Tài liệu Blocknative](https://docs.blocknative.com/onboard) và [Kho lưu trữ GitHub Blocknative](https://github.com/blocknative/onboard). Ngoài ra, bạn có thể tìm thấy việc triển khai đầy đủ mã cho hướng dẫn này trên [GitHub](https://github.com/klaytn/examples/tree/main/wallet-libraries/web3Onboard-sample).
-
-
-
-
-
-

@@ -3,36 +3,41 @@
 ![](/img/build/get-started/klaytn-foundry.png)
 
 ## Giới thiệu
+
 Foundry là một bộ khung phát triển hợp đồng thông minh, viết bằng ngôn ngữ Rust, cho phép các nhà phát triển quản lý và lập hợp đồng, chạy thử nghiệm, triển khai hợp đồng và tương tác với mạng từ dòng lệnh thông qua các tập lệnh solidity.
 
 Foundry bao gồm bốn công cụ CLI chính, cho phép phát triển hợp đồng thông minh một cách nhanh chóng và theo mô-đun, cụ thể là:
 
-* [Forge](https://github.com/foundry-rs/foundry/tree/master/forge): Bạn có thể triển khai, thử nghiệm và lập hợp đồng thông minh bằng Forge.
-* [Cast](https://github.com/foundry-rs/foundry/tree/master/cast): Cast giúp việc tương tác với các hợp đồng thông minh EVM trở nên đơn giản. Trong đó bao gồm các hoạt động lấy dữ liệu chuỗi, gửi giao dịch và những hoạt động khác.
-* [Anvil](https://github.com/foundry-rs/foundry/tree/master/anvil): Bạn có cần khởi động một nút cục bộ không? Anvil là một môi trường nút cục bộ do Foundry cung cấp.
-* [Chisel](https://github.com/foundry-rs/foundry/blob/master/chisel): REPL solidity nhanh chóng, hữu dụng và chi tiết.
+- [Forge](https://github.com/foundry-rs/foundry/tree/master/forge): Bạn có thể triển khai, thử nghiệm và lập hợp đồng thông minh bằng Forge.
+- [Cast](https://github.com/foundry-rs/foundry/tree/master/cast): Cast giúp việc tương tác với các hợp đồng thông minh EVM trở nên đơn giản. Trong đó bao gồm các hoạt động lấy dữ liệu chuỗi, gửi giao dịch và những hoạt động khác.
+- [Anvil](https://github.com/foundry-rs/foundry/tree/master/anvil): Bạn có cần khởi động một nút cục bộ không? Anvil là một môi trường nút cục bộ do Foundry cung cấp.
+- [Chisel](https://github.com/foundry-rs/foundry/blob/master/chisel): REPL solidity nhanh chóng, hữu dụng và chi tiết.
 
 Trong hướng dẫn này, bạn sẽ:
-* Tạo một dự án foundry đơn giản.
-* Lập và thử nghiệm một hợp đồng thông minh mẫu bằng Foundry.
-* Triển khai các hợp đồng thông minh bằng Foundry vào mạng Baobab của Klaytn.
-* Khám phá việc phân nhánh mạng chính thức bằng cast và anvil.
+
+- Tạo một dự án foundry đơn giản.
+- Lập và thử nghiệm một hợp đồng thông minh mẫu bằng Foundry.
+- Triển khai các hợp đồng thông minh bằng Foundry vào mạng Baobab của Klaytn.
+- Khám phá việc phân nhánh mạng chính thức bằng cast và anvil.
 
 ## Điều kiện tiên quyết
+
 Để làm theo hướng dẫn này, bạn cần đáp ứng các điều kiện tiên quyết sau:
 
-* Trình biên tập mã: một trình biên tập mã nguồn như [VS-Code](https://code.visualstudio.com/download).
-* [Metamask](../../tutorials/connecting-metamask#install-metamask): được dùng để triển khai hợp đồng, ký giao dịch và tương tác với hợp đồng.
-* Điểm cuối RPC: bạn có thể nhận từ một trong những [Nhà cung cấp điểm cuối](../../../references/service-providers/public-en.md) được hỗ trợ.
-* KLAY thử nghiệm từ [Vòi](https://baobab.wallet.klaytn.foundation/faucet): nạp tiền vào tài khoản với một lượng KLAY vừa đủ.
-* Cài đặt [Rust](https://www.rust-lang.org/tools/install) và [Foundry](https://github.com/foundry-rs/foundry#installation).
+- Trình biên tập mã: một trình biên tập mã nguồn như [VS-Code](https://code.visualstudio.com/download).
+- [Metamask](../../tutorials/connecting-metamask#install-metamask): được dùng để triển khai hợp đồng, ký giao dịch và tương tác với hợp đồng.
+- Điểm cuối RPC: bạn có thể nhận từ một trong những [Nhà cung cấp điểm cuối](../../../references/service-providers/public-en.md) được hỗ trợ.
+- KLAY thử nghiệm từ [Vòi](https://baobab.wallet.klaytn.foundation/faucet): nạp tiền vào tài khoản với một lượng KLAY vừa đủ.
+- Cài đặt [Rust](https://www.rust-lang.org/tools/install) và [Foundry](https://github.com/foundry-rs/foundry#installation).
 
 ## Thiết lập môi trường phát triển
+
 Để kiểm tra xem việc cài đặt foundry có thành công không, hãy chạy lệnh dưới đây:
 
 ```bash
 forge -V
 ```
+
 **Kết quả đầu ra**
 
 ![](/img/build/get-started/forge-version.png)
@@ -44,20 +49,24 @@ Sau khi cài đặt foundry thành công, bạn sẽ có quyền truy cập vào
 ```bash
 forge init foundry_example 
 ```
+
 **Bước 2**: Điều hướng đến thư mục dự án của bạn.
 
-```bash 
+```bash
 cd foundry_example
-ls   
+ls	 
 ```
+
 Sau khi khởi tạo một dự án foundry, thư mục hiện tại của bạn sẽ bao gồm:
-* **src**: thư mục mặc định cho các hợp đồng thông minh của bạn.
-* **tests**: thư mục mặc định cho các thử nghiệm.
-* **foundry.toml**: tập tin cấu hình dự án mặc định.
-* **lib**:  thư mục mặc định cho các phần phụ thuộc của dự án.
-* **script**: thư mục mặc định cho các tập tin tập lệnh solidity.
+
+- **src**: thư mục mặc định cho các hợp đồng thông minh của bạn.
+- **tests**: thư mục mặc định cho các thử nghiệm.
+- **foundry.toml**: tập tin cấu hình dự án mặc định.
+- **lib**:  thư mục mặc định cho các phần phụ thuộc của dự án.
+- **script**: thư mục mặc định cho các tập tin tập lệnh solidity.
 
 ## Hợp đồng thông minh mẫu
+
 Trong phần này, chúng ta sẽ dùng hợp đồng đối ứng mẫu trong dự án foundry được khởi tạo. Tập tin `counter.sol` trong thư mục `src/` cần phải có dạng:
 
 ```solidity
@@ -73,11 +82,13 @@ contract Counter {
     }
 }
 ```
+
 **Hướng dẫn về mã**
 
 Đây là hợp đồng thông minh của bạn. **Dòng 1** cho thấy Foundry sử dụng phiên bản Solidity 0.8.13 hoặc cao hơn. Từ **dòng 4-12**, một hợp đồng thông minh `Counter` đã được tạo. Hợp đồng này chỉ chứa một số mới bằng cách sử dụng hàm **setNumber** và tăng số đó bằng cách gọi ra hàm **increment**.
 
 ## Thử nghiệm hợp đồng thông minh
+
 Foundry cho phép chúng ta viết thử nghiệm bằng solidity thay vì javascript như trong các bộ khung phát triển hợp đồng thông mình khác. Trong dự án foundry đã khởi tạo, `test/Counter.t.sol` là ví dụ về một thử nghiệm viết bằng solidity. Mã sẽ có dạng:
 
 ```solidity
@@ -101,17 +112,20 @@ contract CounterTest is Test {
     }
 }
 ```
+
 Mã trên cho thấy bạn đã nhập thư viện tiêu chuẩn của forge và Counter.sol.
 
 Các bài kiểm tra ở trên kiểm tra các điểm sau:
-* Số đó có tăng lên không?
-* Số đó có bằng với số đã đặt không?
+
+- Số đó có tăng lên không?
+- Số đó có bằng với số đã đặt không?
 
 Để kiểm tra xem thử nghiệm của bạn có chạy ổn hay không, hãy chạy lệnh sau:
 
 ```bash
 forge test
 ```
+
 **Kết quả đầu ra**
 
 ![](/img/build/get-started/forge-test.png)
@@ -119,6 +133,7 @@ forge test
 Để tìm hiểu thêm về việc viết thử nghiệm, thử nghiệm nâng cao và các tính năng khác, hãy tham khảo [Tài liệu của Foundry](https://book.getfoundry.sh/forge/tests).
 
 ## Lập hợp đồng
+
 Lập hợp đồng bằng lệnh sau:
 
 ```bash
@@ -162,6 +177,7 @@ Sau triển khai thành công hợp đồng thông minh của bạn, bạn cần
 ```bash
 cast call YOUR_CONTRACT_ADDRESS "number()" --rpc-url RPC-API-ENDPOINT-HERE
 ```
+
 **Ví dụ**
 
 ```bash
@@ -177,11 +193,13 @@ Bạn sẽ nhận được dữ liệu này dưới định dạng thập lục 
 ```bash
 0x0000000000000000000000000000000000000000000000000000000000000000
 ```
+
 Tuy nhiên, để nhận được kết quả mong muốn, hãy dùng cast để chuyển đổi kết quả trên. Trong trường hợp này, dữ liệu là một số, vì thế bạn có thể đổi nó thành cơ số 10 để nhận được kết quả 0:
 
 ```bash
 cast --to-base 0x0000000000000000000000000000000000000000000000000000000000000000 10
 ```
+
 **Kết quả đầu ra**
 
 ![](/img/build/get-started/cast-call-0.png)
@@ -191,11 +209,13 @@ cast --to-base 0x000000000000000000000000000000000000000000000000000000000000000
 ```bash
 cast send --rpc-url=<RPC-URL> <CONTRACT-ADDRESS> “setNumber(uint256)” arg --private-key=<PRIVATE-KEY>
 ```
+
 **Ví dụ**
 
 ```bash
 cast send --rpc-url=https://klaytn-baobab-rpc.allthatnode.com:8551/qtKkeUE8ZEPI2cs0OHloJ6seI4Wfy36N  0xe4d576c447733da7ca9197e88d34a74c3c865cff "setNumber(uint256)"  10 --private-key=<private key>
 ```
+
 **Kết quả đầu ra**
 
 ![](/img/build/get-started/cast-send-setNum.png)
@@ -215,16 +235,19 @@ Bạn sẽ nhận được dữ liệu này dưới định dạng thập lục 
 ```bash
 0x000000000000000000000000000000000000000000000000000000000000000a
 ```
+
 Tuy nhiên, để nhận được kết quả mong muốn, hãy dùng cast để chuyển đổi kết quả trên. Trong trường hợp này, dữ liệu là một số, vì thế bạn có thể đổi nó thành cơ số 10 để nhận được kết quả 10:
 
 ```bash
 cast --to-base 0x000000000000000000000000000000000000000000000000000000000000000a 10
 ```
+
 **Kết quả đầu ra**
 
 ![](/img/build/get-started/cast-call-result-10.png)
 
 ## Phân nhánh mạng chính thức bằng Cast và Anvil
+
 Foundry cho phép chúng ta mô phỏng mạng lưới chính thức thành mạng phát triển cục bộ ([Anvil](https://book.getfoundry.sh/reference/anvil/)). Ngoài ra, bạn cũng có thể tương tác và thử nghiệm hợp đồng trên mạng thật bằng [Cast](https://book.getfoundry.sh/reference/cast/).
 
 ### Bắt đầu
@@ -234,10 +257,13 @@ Khi đã thiết lập và khởi động dự án Foundry xong, bạn có thể
 ```bash
 anvil --fork-url rpc-url
 ```
+
 **Ví dụ**
+
 ```bash
 anvil --fork-url https://archive-en.cypress.klaytn.net
 ```
+
 **Kết quả đầu ra**
 
 ![](/img/build/get-started/anvil-localnode.png)
@@ -249,9 +275,11 @@ Sau khi chạy thành công lệnh này, giao diện dòng lệnh của bạn s�
 ```bash
 curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:8545 
 ```
+
 Bạn có thể chuyển đổi kết quả từ nhiệm vụ trên từ [hex sang decimal](https://www.rapidtables.com/convert/number/hex-to-decimal.html). Bạn sẽ nhận được số khối mới nhất từ lần bạn phân nhánh mạng lưới. Để xác minh điều này, hãy kiểm tra chéo số khối trên [Klaytnscope](https://klaytnscope.com/block/118704896?tabId=txList).
 
 ### Hình minh họa
+
 Trong phần này, bạn sẽ tìm hiểu cách để chuyển token oUSDC từ một người có oUSDC sang một tài khoản được tạo bởi Anvil (0x70997970C51812dc3A010C7d01b50e0d17dc79C8 - Bob)
 
 **Chuyển oUSDC**
@@ -265,6 +293,7 @@ export BOB=0x70997970C51812dc3A010C7d01b50e0d17dc79C8
 export oUSDC=0x754288077d0ff82af7a5317c7cb8c444d421d103
 export oUSDCHolder=0x8e61241e0525bd45cfc43dd7ba0229b422545bca
 ```
+
 Chúng ta có thể kiểm tra số dư của Bob bằng cast call:
 
 ```bash
@@ -272,6 +301,7 @@ cast call $oUSDC \
   "balanceOf(address)(uint256)" \
   $BOB
 ```
+
 **Kết quả đầu ra**
 
 ![](/img/build/get-started/oUsdcBob4.png)
@@ -283,13 +313,14 @@ cast call $oUSDC \
   "balanceOf(address)(uint256)" \
   $oUSDCHolder
 ```
+
 **Kết quả đầu ra**
 
 ![](/img/build/get-started/oUsdcHolder4.png)
 
 Hãy cùng chuyển một ít token từ người dùng may mắn này sang cho Alice bằng cast send:
 
-```bash
+````bash
 cast rpc anvil_impersonateAccount $oUSDCHolder    
 cast send $oUSDC \
 --unlocked \
@@ -297,7 +328,8 @@ cast send $oUSDC \
  "transfer(address,uint256)(bool)" \
  $BOB \
  1000000
-```
+```0000
+````
 
 **Kết quả đầu ra**
 
@@ -310,6 +342,7 @@ cast call $oUSDC \
   "balanceOf(address)(uint256)" \
   $BOB
 ```
+
 **Kết quả đầu ra**
 
 ![](/img/build/get-started/oUsdcBobAfter.png)
@@ -319,9 +352,9 @@ cast call $oUSDC \
   "balanceOf(address)(uint256)" \
   $oUSDCHolder
 ```
+
 **Kết quả đầu ra**
 
 ![](/img/build/get-started/oUsdcHolderAfter.png)
 
 Để được hướng dẫn sâu hơn về foundry, vui lòng tham khảo [Tài liệu Foundry](https://book.getfoundry.sh/). Ngoài ra, bạn có thể tìm thấy cách triển khai mã đầy đủ cho hướng dẫn này trên [GitHub](https://github.com/klaytn/examples/tree/main/foundry).
-

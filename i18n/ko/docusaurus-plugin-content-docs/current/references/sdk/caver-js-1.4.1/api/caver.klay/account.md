@@ -7,7 +7,6 @@ caver.klay.defaultAccount
 ```
 
 이 기본 주소는 `from` 속성이 지정되지 않은 경우 기본 `from` 속성으로 사용됩니다.
-속성이 지정되지 않은 경우 기본 주소로 사용됩니다:
 
 - [caver.klay.sendTransaction()](./transaction/sendtx-legacy.md#sendtransaction-legacy)
 - [caver.klay.call()](./transaction/transaction.md#call)
@@ -41,11 +40,11 @@ caver.klay.accountCreated(address [, defaultBlock] [, callback])
 
 **매개변수**
 
-| 이름 | 유형 | 설명
-| --- | --- | --- |
-| address | String | 네트워크에서 생성되었는지 확인하기 위해 쿼리하려는 계정의 주소입니다. |
+| 이름           | 유형               | 설명                                                                                                                 |
+| ------------ | ---------------- | ------------------------------------------------------------------------------------------------------------------ |
+| address      | String           | 네트워크에서 생성되었는지 확인하기 위해 쿼리하려는 계정의 주소입니다.                                                                             |
 | defaultBlock | Number \| String | (선택 사항) 이 매개변수를 전달하면 [caver.klay.defaultBlock](./block.md#defaultblock)으로 설정된 기본 블록이 사용되지 않습니다. |
-| callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 파라미터로 오류 객체를 반환하고 두 번째 파라미터로 결과를 반환합니다.
+| callback     | Function         | (선택 사항) 선택적 콜백으로, 첫 번째 매개변수로 오류 객체를 반환하고 두 번째 매개변수로 결과를 반환합니다.                                  |
 
 **리턴 값**
 
@@ -73,11 +72,11 @@ caver.klay.getAccount(address[, defaultBlock] [, callback])
 
 **매개변수**
 
-| 이름 | 유형 | 설명
-| --- | --- | --- |
-| address | String | 계정 정보를 가져올 계정의 주소입니다. |
+| 이름           | 유형               | 설명                                                                                                                 |
+| ------------ | ---------------- | ------------------------------------------------------------------------------------------------------------------ |
+| address      | String           | 계정 정보를 가져올 계정의 주소입니다.                                                                                              |
 | defaultBlock | Number \| String | (선택 사항) 이 매개변수를 전달하면 [caver.klay.defaultBlock](./block.md#defaultblock)으로 설정된 기본 블록이 사용되지 않습니다. |
-| callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 파라미터로 오류 객체를 반환하고 두 번째 파라미터로 결과를 반환합니다.
+| callback     | Function         | (선택 사항) 선택적 콜백으로, 첫 번째 파라미터로 오류 객체를 반환하고 두 번째 파라미터로 결과를 반환합니다.                                  |
 
 **리턴 값**
 
@@ -111,7 +110,6 @@ caver.klay.getAccount(address[, defaultBlock] [, callback])
 }
 ```
 
-
 ## getAccounts <a id="getaccounts"></a>
 
 ```javascript
@@ -122,9 +120,9 @@ caver.klay.getAccounts([callback])
 
 **매개변수**
 
-| 이름 | 유형 | 설명
-| --- | --- | --- |
-| callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 매개변수로 오류 객체를 반환하고 두 번째 매개변수로 결과를 반환합니다.
+| 이름       | 유형       | 설명                                                                                |
+| -------- | -------- | --------------------------------------------------------------------------------- |
+| callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 매개변수로 오류 개체를 반환하고 두 번째 매개변수로 결과를 반환합니다. |
 
 **리턴 값**
 
@@ -136,7 +134,6 @@ caver.klay.getAccounts([callback])
 > caver.klay.getAccounts().then(console.log);
 ["0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe", "0xDCc6960376d6C6dEa93647383FfB245CfCed97Cf"]
 ```
-
 
 ## getAccountKey <a id="getaccountkey"></a>
 
@@ -150,15 +147,15 @@ caver.klay.getAccountKey(address [, defaultBlock] [, callback])
 
 **매개변수**
 
-| 이름 | 유형 | 설명
-| --- | --- | --- |
-| address | String | 계정키를 가져올 계정의 주소입니다. |
+| 이름           | 유형               | 설명                                                                                                                 |
+| ------------ | ---------------- | ------------------------------------------------------------------------------------------------------------------ |
+| address      | String           | 계정키를 가져올 계정의 주소입니다.                                                                                                |
 | defaultBlock | Number \| String | (선택 사항) 이 매개변수를 전달하면 [caver.klay.defaultBlock](./block.md#defaultblock)으로 설정된 기본 블록이 사용되지 않습니다. |
-| callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 파라미터로 오류 객체를 반환하고 두 번째 파라미터로 결과를 반환합니다.
+| callback     | Function         | (선택 사항) 선택적 콜백으로, 첫 번째 파라미터로 오류 객체를 반환하고 두 번째 파라미터로 결과를 반환합니다.                                  |
 
 **리턴 값**
 
-`promise`는 `object`를 반환합니다. - 계정 키는 공개 키와 키 유형으로 구성됩니다.
+- 계정 키는 공개 키와 키 유형으로 구성됩니다.
 
 **예시**
 
@@ -251,15 +248,16 @@ caver.klay.getAccountKey(address [, defaultBlock] [, callback])
 ```javascript
 caver.klay.getBalance(address [, defaultBlock] [, callback])
 ```
+
 주어진 블록에 있는 주소의 잔액을 가져옵니다.
 
 **매개변수**
 
-| 이름 | 유형 | 설명
-| --- | --- | --- |
-| address | String | 잔액을 가져올 주소입니다.
+| 이름           | 유형               | 설명                                                                                                                 |
+| ------------ | ---------------- | ------------------------------------------------------------------------------------------------------------------ |
+| address      | String           | 잔액을 가져올 주소입니다.                                                                                                     |
 | defaultBlock | Number \| String | (선택 사항) 이 매개변수를 전달하면 [caver.klay.defaultBlock](./block.md#defaultblock)으로 설정된 기본 블록이 사용되지 않습니다. |
-| callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 파라미터로 오류 객체를 반환하고 두 번째 파라미터로 결과를 반환합니다.
+| callback     | Function         | (선택 사항) 선택적 콜백으로, 첫 번째 매개 변수로 오류 객체를 반환하고 두 번째 매개 변수로 결과를 반환합니다.                                |
 
 **리턴 값**
 
@@ -272,22 +270,21 @@ caver.klay.getBalance(address [, defaultBlock] [, callback])
 "1000000000000"
 ```
 
-
-
 ## getCode <a id="getcode"></a>
 
 ```javascript
 caver.klay.getCode(address [, defaultBlock] [, callback])
 ```
+
 특정 주소의 코드를 가져옵니다.
 
 **매개변수**
 
-| 이름 | 유형 | 설명
-| --- | --- | --- |
-| address | String | 코드를 가져올 주소입니다.
+| 이름           | 유형               | 설명                                                                                                                 |
+| ------------ | ---------------- | ------------------------------------------------------------------------------------------------------------------ |
+| address      | String           | 코드를 가져올 주소입니다.                                                                                                     |
 | defaultBlock | Number \| String | (선택 사항) 이 매개변수를 전달하면 [caver.klay.defaultBlock](./block.md#defaultblock)으로 설정된 기본 블록이 사용되지 않습니다. |
-| callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 파라미터로 오류 객체를 반환하고 두 번째 파라미터로 결과를 반환합니다.
+| callback     | Function         | (선택 사항) 선택적 콜백으로, 첫 번째 파라미터로 오류 객체를 반환하고 두 번째 파라미터로 결과를 반환합니다.                                  |
 
 **리턴 값**
 
@@ -301,27 +298,26 @@ caver.klay.getCode(address [, defaultBlock] [, callback])
 
 ```
 
-
-
 ## getTransactionCount <a id="gettransactioncount"></a>
 
 ```javascript
 caver.klay.getTransactionCount(address [, blockNumber] [, callback])
 ```
+
 이 주소에서 전송된 트랜잭션의 수를 가져옵니다.
 
 **매개변수**
 
-| 이름 | 유형 | 설명
-| --- | --- | --- |
-| address | String | 트랜잭션 수를 가져올 주소입니다.
-| blockNumber | Number \| String | (선택 사항) 블록 번호, 보류 중인 nonce에 대한 문자열 `pending` 또는 [기본 블록 매개변수](./block.md#defaultblock)에서와 같이 `earliest` 또는 `latest` 문자열입니다. 생략하면 `latest`이 사용됩니다. |
-| callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 매개 변수로 오류 객체를 반환하고 두 번째 매개 변수로 결과를 반환합니다.
+| 이름          | 유형                          | 설명                                                                                                                                                                  |
+| ----------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address     | String                      | 트랜잭션 수를 가져올 주소입니다.                                                                                                                                                  |
+| blockNumber | `promise`는 `object`를 반환합니다. | (선택 사항) 블록 번호, 보류 중인 nonce에 대한 문자열 `pending` 또는 [기본 블록 매개변수](./block.md#defaultblock)에서와 같이 `earliest` 또는 `latest` 문자열입니다. 생략하면 `latest`이 사용됩니다. |
+| callback    | Function                    | (선택 사항) 선택적 콜백으로, 첫 번째 파라미터로 오류 객체를 반환하고 두 번째 파라미터로 결과를 반환합니다.                                                                                   |
 
 **리턴 값**
 
-| 유형 | 설명
-| --- | --- |
+| 유형     | 설명                  |
+| ------ | ------------------- |
 | number | 주어진 주소에서 전송된 트랜잭션 수 |
 
 **예시**
@@ -342,11 +338,11 @@ caver.klay.isContractAccount(address [, defaultBlock] [, callback])
 
 **매개변수**
 
-| 이름 | 유형 | 설명
-| --- | --- | --- |
-| address | String | 확인하려는 계정의 주소는 isContractAccount입니다. |
+| 이름           | 유형               | 설명                                                                                                                 |
+| ------------ | ---------------- | ------------------------------------------------------------------------------------------------------------------ |
+| address      | String           | 확인하려는 계정의 주소는 isContractAccount입니다.                                                                                |
 | defaultBlock | Number \| String | (선택 사항) 이 매개변수를 전달하면 [caver.klay.defaultBlock](./block.md#defaultblock)으로 설정된 기본 블록이 사용되지 않습니다. |
-| callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 파라미터로 오류 객체를 반환하고 두 번째 파라미터로 결과를 반환합니다.
+| callback     | Function         | (선택 사항) 선택적 콜백으로, 첫 번째 파라미터로 오류 객체를 반환하고 두 번째 파라미터로 결과를 반환합니다.                                  |
 
 **리턴 값**
 
@@ -374,11 +370,11 @@ caver.klay.sign(message, address [, callback])
 
 **매개변수**
 
-| 이름 | 유형 | 설명
-| --- | --- | --- |
-| message | String | 서명할 메시지입니다.
-| address | String | 메시지에 서명할 계정의 주소입니다.
-| callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 매개변수로 오류 개체를 반환하고 두 번째 매개변수로 결과를 반환합니다.
+| 이름       | 유형       | 설명                                                                                |
+| -------- | -------- | --------------------------------------------------------------------------------- |
+| message  | String   | 서명할 메시지입니다.                                                                       |
+| address  | String   | 메시지에 서명할 계정의 주소입니다.                                                               |
+| callback | Function | (선택 사항) 선택적 콜백으로, 첫 번째 파라미터로 오류 객체를 반환하고 두 번째 파라미터로 결과를 반환합니다. |
 
 **리턴 값**
 
@@ -390,4 +386,3 @@ caver.klay.sign(message, address [, callback])
 > caver.klay.sign('Message to sign', '0x1427ac5d0f1c3174ee6ea05d29a9b05fd31d7579').then(console.log)
 0xde8bd2f5a45de6b1baea57ed0219735ab60f0ef55c5e31a4b774824abea31bfc34c8bdbca43ed4155e8e6a8e0d11d7aba191ba025e0487ada2bcc422252b81591b
 ```
-

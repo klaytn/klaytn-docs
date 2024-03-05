@@ -10,14 +10,14 @@ sidebar_label: Web3-Onboard
 
 프로젝트와 개발자는 [Web3-Onboard](https://onboard.blocknative.com/docs/overview/introduction)와 같은 도구를 활용하여 여러 지갑을 탈중앙화 애플리케이션(dApp)에 빠르게 통합할 수 있습니다. Web3-Onboard의 도움으로 사용자 온보딩이 간소화되었습니다. Web3-Onboard는 여러 지갑 지원부터 사용자가 자신의 계정을 다른 체인이나 네트워크에 연결하고 실시간 거래 알림을 받을 수 있는 기능 등 다양한 기능을 갖추고 있습니다.
 
-이 가이드에서는 Web3-Onboard 라이브러리를 사용해 여러 지갑(예: Coinbase Wallet, MetaMask, WalletConnect 등)을 클레이튼 네트워크에 구축한 dApp에 통합하는 방법을 설명합니다.
+이 가이드에서는 Web3-Onboard 라이브러리를 사용해 여러 지갑(예: Coinbase Wallet, MetaMask, WalletConnect 등) 을 통합하는 방법, 즉, 클레이튼 네트워크에 구축한 dApp에 통합하는 방법을 설명합니다.
 
 ## 전제 조건
 
-* 작동하는 리액트 프로젝트(`npx create-react-app project-name` 실행)
-* 필요한 지갑 설치([Coinbase Wallet](https://www.coinbase.com/wallet/downloads), [MetaMask](https://metamask.io/download/)).
-* RPC 엔드포인트: 지원되는 [엔드포인트 공급자](../../../../references/service-providers/public-en.md) 중 하나에서 얻을 수 있습니다.
-* [Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 KLAY 테스트: 충분한 KLAY로 계정에 자금을 충전합니다.
+- 작동하는 리액트 프로젝트(`npx create-react-app project-name` 실행)
+- 필요한 지갑 설치([Coinbase Wallet](https://www.coinbase.com/wallet/downloads), [MetaMask](https://metamask.io/download/)).
+- RPC 엔드포인트: 지원되는 [엔드포인트 공급자](../../../../references/service-providers/public-en.md) 중 하나에서 얻을 수 있습니다.
+- [Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 KLAY 테스트: 충분한 KLAY로 계정에 자금을 충전합니다.
 
 ## 시작하기
 
@@ -141,7 +141,8 @@ export const truncateAddress = (address) => {
     return "0x" + val.toString(16);
   };
 ```
-**2단계**: App.js` 파일에서 함수를 가져옵니다.
+
+**2단계**: App.js\` 파일에서 함수를 가져옵니다.
 
 ```js
 import { truncateAddress, toHex } from "./utils";
@@ -174,6 +175,7 @@ Connect Wallet 버튼을 클릭하면 dApp에서 Coinbase Wallet 및 기타 인�
 ![](/img/build/tools/web3-Onboard.png)
 
 ## 지갑 연결 해제하기
+
 연결된 지갑의 연결을 끊으려면 온보드 인스턴스에서 사용자의 기본 지갑 레이블과 함께 `disconnectWallet()` 메서드를 호출하면 됩니다. 또한, 상태를 새로고침하여 이전에 저장된 연결 데이터를 지우는 것도 좋은 방법 중 하나입니다.
 
 ```js
