@@ -1,7 +1,7 @@
 # Di chuyển dữ liệu chuỗi
 
-<aside>💡 Chỉ chạy lệnh di chuyển cho các nút PN và EN (không áp dụng với nút CN)
-💡 Run migration only for PN and EN nodes (not CN)
+<aside>
+💡 Chỉ chạy lệnh di chuyển cho các nút PN và EN (không áp dụng với nút CN)
 
 </aside>
 

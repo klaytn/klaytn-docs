@@ -1,7 +1,7 @@
 # Thay đổi dữ liệu chuỗi
 
-<aside>💡 HƯỚNG DẪN NÀY DỰA TRÊN Amazon Linux 2
-💡 THIS GUIDE IS BASED ON Amazon Linux 2
+<aside>
+💡 HƯỚNG DẪN NÀY DỰA TRÊN Amazon Linux 2
 
 </aside>
 
@@ -11,8 +11,8 @@
 
 1. Chuẩn bị ổ đĩa mới (dung lượng 3.500GB) hoặc tạo đường dẫn mới trên ổ đĩa hiện tại (Dung lượng khả dụng của ổ đĩa phải bằng 3.500GB.)
 
-<aside>💡 Giả sử đường dẫn mới là `/var/kcnd2`
-💡 Assuming that the new path is `/var/kcnd2`
+<aside>
+💡 Giả sử đường dẫn mới là `/var/kcnd2`
 
 </aside>
 
@@ -83,7 +83,7 @@ $ tar -I pigz -xvf klaytn-cypress-chaindata-2021???????????.tar.gz
 
 ### Phương án 1 - Hoán đổi đường dẫn cũ & mới
 
-<aside>🚨 TBD
+<aside>
 🚨 TBD
 
 </aside>
@@ -125,8 +125,8 @@ $ tar -I pigz -xvf klaytn-cypress-chaindata-2021???????????.tar.gz
 
 ## Khởi động lại quy trình (hoặc khởi động lại đối tượng)
 
-<aside>💡 Nếu cần khởi động lại để thêm ổ đĩa khác, hãy khởi động lại đối tượng.
-💡 If reboot is required to add an additional disk, reboot the instance.
+<aside>
+💡 Nếu cần khởi động lại để thêm ổ đĩa khác, hãy khởi động lại đối tượng.
 
 </aside>
 
