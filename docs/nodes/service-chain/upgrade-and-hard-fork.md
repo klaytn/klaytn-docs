@@ -166,7 +166,7 @@ This section describes some details for a specific hard fork.
 
 The Magma hard fork introduces the KIP-71, dynamic gas fee. It includes the upper and lower bound of the gas price.
 
-By default, the upper bound is set to `750000000000` and the lower bound is set to `25000000000`. You can change those bounds in the Javascript console of SCN nodes using the [governance APIs](../../references/json-rpc/governance.md). Obviously, lower bound cannot exceed the upper bound.
+By default, the upper bound is set to `750000000000` and the lower bound is set to `25000000000`. You can change those bounds in the Javascript console of SCN nodes using the [governance APIs](../../../references/json-rpc/governance/chain-config). Obviously, lower bound cannot exceed the upper bound.
 
 To set the gas price to a static value, you have to set the upper and lower bound of the gas price to the same value. For example, you can set gas price to `0`, using `governance.vote` API in the Javascript console of the SCN nodes.
 
