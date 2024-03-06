@@ -3,6 +3,7 @@
 
 const lightCodeTheme = require('prism-react-renderer').themes.github
 const darkCodeTheme = require('prism-react-renderer').themes.dracula
+const { navbarItemStrings, legacyDocsLinks } = require('./localeStrings'); // import locale-dependant navbar items 
 
 const {
   remarkCodeHike,
@@ -256,8 +257,8 @@ const config = {
             dropdownActiveClassDisabled: true,
             dropdownItemsAfter: [
               {
-                href: 'https://archive-docs.klaytn.foundation/',
-                label: 'Legacy',
+                href: legacyDocsLinks[process.env.DOCUSAURUS_CURRENT_LOCALE],
+                label: navbarItemStrings[process.env.DOCUSAURUS_CURRENT_LOCALE],
               },
             ],
           },
