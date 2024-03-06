@@ -137,7 +137,7 @@ TxTypeValueTransfer는 사용자가 KLAY를 전송하고자 할 때 사용됩니
 | to           | common.Address (Go)                                                                          | 이체할 계정 주소입니다.                                                                                                                                                        |
 | value        | \*big.Int (Go)                                                                               | 전송할 `peb`의 KLAY 금액입니다.                                                                                                                                               |
 | from         | common.Address (Go)                                                                          | 발신자의 주소입니다. 자세한 내용은 [트랜잭션 서명 유효성 검사](./transactions.md#signature-validation-of-transactions)를 참조하세요.                                                                 |
-| txSignatures | []{\*big.Int, \*big.Int, \*big.Int} (Go) | 발신자의 서명. 자세한 내용은 [트랜잭션 서명 유효성 검사](./transactions.md#signature-validation-of-transactions)를 참조하세요.                                                                    |
+| txSignatures | []\{\*big.Int, \*big.Int, \*big.Int} (Go) | 발신자의 서명. 자세한 내용은 [트랜잭션 서명 유효성 검사](./transactions.md#signature-validation-of-transactions)를 참조하세요.                                                                    |
 
 ### 서명을 위한 RLP 인코딩 <a id="rlp-encoding-for-signature"></a>
 
@@ -254,7 +254,7 @@ SenderTxHash 762f130342569e9669a4d8547f1248bd2554fbbf3062d63a97ce28bfa97aa9d7
 | value        | \*big.Int (Go)                                                                               | 전송할 `peb`의 KLAY 금액입니다.                                                                                                                                               |
 | from         | common.Address (Go)                                                                          | 발신자의 주소입니다. 자세한 내용은 [트랜잭션 서명 유효성 검사](./transactions.md#signature-validation-of-transactions)를 참조하세요.                                                                 |
 | input        | []byte (Go)                              | 트랜잭션에 첨부된 데이터입니다. 메시지는 이 속성으로 전달되어야 합니다.                                                                                                                             |
-| txSignatures | []{\*big.Int, \*big.Int, \*big.Int} (Go) | 발신자의 서명. 자세한 내용은 [트랜잭션의 서명 유효성 검사](./transactions.md#signature-validation-of-transactions)를 참조하세요.                                                                   |
+| txSignatures | []\{\*big.Int, \*big.Int, \*big.Int} (Go) | 발신자의 서명. 자세한 내용은 [트랜잭션의 서명 유효성 검사](./transactions.md#signature-validation-of-transactions)를 참조하세요.                                                                   |
 
 ### 서명을 위한 RLP 인코딩 <a id="rlp-encoding-for-signature"></a>
 
@@ -376,7 +376,7 @@ TxTypeSmartContract지정된 주소에 스마트 컨트랙트를 배포합니다
 | input         | []byte (Go)                              | 트랜잭션 실행에 사용되는 트랜잭션에 첨부된 데이터입니다.                                                                                                                                      |
 | humanReadable | bool (Go)                                                                                    | 사람이 읽을 수 있는 주소는 아직 지원되지 않으므로 이 값은 false이어야 합니다. true이면 트랜잭션이 거부됩니다.                                                                                                  |
 | codeFormat    | uint8 (Go)                                                                                   | 스마트 컨트랙트 코드의 코드 형식입니다. 현재 지원되는 값은 EVM(0x00)만입니다.                                                                                                  |
-| txSignatures  | []{\*big.Int, \*big.Int, \*big.Int} (Go) | 발신자의 서명입니다. 자세한 내용은 [트랜잭션 서명 유효성 검사](./transactions.md#signature-validation-of-transactions)를 참조하세요.                                                                 |
+| txSignatures  | []\{\*big.Int, \*big.Int, \*big.Int} (Go) | 발신자의 서명입니다. 자세한 내용은 [트랜잭션 서명 유효성 검사](./transactions.md#signature-validation-of-transactions)를 참조하세요.                                                                 |
 
 ### 서명을 위한 RLP 인코딩 <a id="rlp-encoding-for-signature"></a>
 
@@ -500,7 +500,7 @@ TxTypeSmartContractExecution은 `input`에 주어진 데이터로 스마트 컨�
 | value        | \*big.Int (Go)                                                                               | 이체할 `peb`의 KLAY 금액입니다.                                                                                                                                               |
 | from         | common.Address (Go)                                                                          | 발신자의 주소입니다. 자세한 내용은 [트랜잭션의 서명 유효성 검사](./transactions.md#signature-validation-of-transactions)을 참조하세요.                                                                |
 | input        | []byte (Go)                              | 트랜잭션 실행에 사용되는 트랜잭션에 첨부된 데이터입니다.                                                                                                                                      |
-| txSignatures | []{\*big.Int, \*big.Int, \*big.Int} (Go) | 발신자의 서명. 자세한 내용은 [트랜잭션 서명 유효성 검사](./transactions.md#signature-validation-of-transactions)를 참조하세요.                                                                    |
+| txSignatures | []\{\*big.Int, \*big.Int, \*big.Int} (Go) | 발신자의 서명. 자세한 내용은 [트랜잭션 서명 유효성 검사](./transactions.md#signature-validation-of-transactions)를 참조하세요.                                                                    |
 
 ### 서명을 위한 RLP 인코딩 <a id="rlp-encoding-for-signature"></a>
 
@@ -618,7 +618,7 @@ TxTypeAccountUpdate는 지정된 계정의 키를 업데이트합니다. 이 트
 | gas          | uint64 (Go)                                                                                  | 트랜잭션이 사용할 수 있는 트랜잭션 수수료의 최대 금액입니다.                                                                                                                                                                             |
 | from         | common.Address (Go)                                                                          | 발신자의 주소입니다. 자세한 내용은 [트랜잭션 서명 유효성 검사](./transactions.md#signature-validation-of-transactions)을 참조하세요.                                                                                                           |
 | key          | AccountKey (Go)                                                                              | 계정에 업데이트할 [계정 키](../accounts.md#account-key)입니다.                                                                                                                                                               |
-| txSignatures | []{\*big.Int, \*big.Int, \*big.Int} (Go) | 발신자의 서명입니다. 자세한 내용은 [트랜잭션 서명 유효성 검사](./transactions.md#signature-validation-of-transactions)을 참조하세요.                                                                                                           |
+| txSignatures | []\{\*big.Int, \*big.Int, \*big.Int} (Go) | 발신자의 서명입니다. 자세한 내용은 [트랜잭션 서명 유효성 검사](./transactions.md#signature-validation-of-transactions)을 참조하세요.                                                                                                           |
 
 ### 서명을 위한 RLP 인코딩 <a id="rlp-encoding-for-signature"></a>
 
@@ -738,7 +738,7 @@ TxTypeCancel은 트랜잭션 풀에서 동일한 nonce를 가진 트랜잭션의
 | gasPrice     | \*big.Int (Go)                                                                               | 발신자가 트랜잭션 수수료로 지불할 `peb` 단위의 가스 단가입니다. 트랜잭션 수수료 금액은 `gas` \* `gasPrice`로 계산됩니다. 예를 들어, 트랜잭션이 가스 10단위를 소비하고 가스 가격이 10^18이면 트랜잭션 수수료는 10 KLAY가 됩니다. \[KLAY 단위]를 참고하세요. |
 | gas          | uint64 (Go)                                                                                  | 트랜잭션이 사용할 수 있는 최대 트랜잭션 수수료 금액입니다.                                                                                                                                    |
 | from         | common.Address (Go)                                                                          | 발신자의 주소입니다. 자세한 내용은 [트랜잭션의 서명 유효성 검사](./transactions.md#signature-validation-of-transactions)을 참조하세요.                                                                |
-| txSignatures | []{\*big.Int, \*big.Int, \*big.Int} (Go) | 발신자의 서명입니다. 자세한 내용은 [트랜잭션 서명 유효성 검사](./transactions.md#signature-validation-of-transactions)를 참조하세요.                                                                 |
+| txSignatures | []\{\*big.Int, \*big.Int, \*big.Int} (Go) | 발신자의 서명입니다. 자세한 내용은 [트랜잭션 서명 유효성 검사](./transactions.md#signature-validation-of-transactions)를 참조하세요.                                                                 |
 
 결과:
 
@@ -851,7 +851,7 @@ TxTypeChainDataAnchoringTransaction은 서비스 체인 데이터를 클레이�
 | gas          | uint64 (Go)                                                                                  | 트랜잭션이 사용할 수 있는 트랜잭션 수수료의 최대 금액입니다.                                                                                                                                   |
 | from         | common.Address (Go)                                                                          | 발신자의 주소입니다. 자세한 내용은 [트랜잭션 서명 유효성 검사](./transactions.md#signature-validation-of-transactions)를 참조하세요.                                                                 |
 | input        | []byte (Go)                              | 서비스 체인의 데이터입니다.                                                                                                                                                      |
-| txSignatures | []{\*big.Int, \*big.Int, \*big.Int} (Go) | 발신자의 서명. 자세한 내용은 [트랜잭션 서명 유효성 검사](./transactions.md#signature-validation-of-transactions)를 참조하세요.                                                                    |
+| txSignatures | []\{\*big.Int, \*big.Int, \*big.Int} (Go) | 발신자의 서명. 자세한 내용은 [트랜잭션 서명 유효성 검사](./transactions.md#signature-validation-of-transactions)를 참조하세요.                                                                    |
 
 ### 서명을 위한 RLP 인코딩 <a id="rlp-encoding-for-signature"></a>
 
