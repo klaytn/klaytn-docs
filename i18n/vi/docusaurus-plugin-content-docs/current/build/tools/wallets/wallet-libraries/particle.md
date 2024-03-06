@@ -37,7 +37,7 @@ After successfully installing the aforementioned libraries, you'll need to head 
 
 ```js
 import { ModalProvider } from '@particle-network/connectkit';
-import { Klaytn } from '@particle-network/chains';
+import { Klaytn, KlaytnTestnet } from '@particle-network/chains';
 import { evmWallets } from '@particle-network/connectors';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
@@ -49,12 +49,12 @@ root.render(
                 clientKey: 'replace with your clientKey',
                 appId: 'replace with your appId',
                 chains: [
-                    Klaytn
+                    KlaytnTestnet, Klaytn
                 ],
                 wallet: {    // optional: Wallet modal configuration
                     visible: true, // Display wallet modal
                     supportChains:[
-                        Klaytn
+                        KlaytnTestnet, Klaytn
                     ],
                     customStyle: {}, // optional: Custom wallet style
                 },
@@ -104,12 +104,11 @@ const provider = useParticleProvider();
 const [address, setAddress] = useState("");
 const [balance, setBalance] = useState("");
 
-const connectWallet = async() => {
+const getWalletAndBalance = async() => {
 	// this guide uses ethers version 6.3.0.
     const ethersProvider = new ethers.BrowserProvider(provider);
     // for ethers version below 6.3.0.
     // const provider = new ethers.providers.Web3Provider(web3authProvider);
-    const ethersProvider = new ethers.BrowserProvider(provider);
 
     const signer = await ethersProvider.getSigner();
 
@@ -126,7 +125,7 @@ const connectWallet = async() => {
 
 return (
     <div className="App">
-        <button onClick={connectWallet}>Connect Wallet</button>  
+        <button onClick={getWalletAndBalance}>Get Wallet Account and Balance</button>  
         <div>Wallet Address: ${address} Balance: ${balance}</div>
     </div>
   );
@@ -181,7 +180,7 @@ const getUserInfo = async () => {
 return (
     <div className="App">
         <button onClick={getUserInfo}>Get User Info</button>  
-        <div> { userData ? `User Email: ${userData.email}, User Name: ${userData.name}` :  ""} </div>
+        <p> User Email: { userData ? ` ${userData.google_email}` :  "Nil"} </p>
     </div>
   );
 ```
