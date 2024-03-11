@@ -154,6 +154,14 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Verify Smart Contracts',
+          items: [
+            'build/smart-contracts/verify/block-explorers',
+            'build/smart-contracts/verify/hardhat',
+          ],
+        },
+        {
+          type: 'category',
           label: 'Sample Contracts',
           link: {type: 'doc', id: 'build/smart-contracts/samples/samples'},
           items: [
@@ -208,7 +216,7 @@ const sidebars = {
         'build/tutorials/connecting-metamask',
         'build/tutorials/connecting-remix',
         'build/tutorials/migrating-ethereum-app-to-klaytn',
-        {type: 'doc', label: 'Verify Contracts', id: 'build/tutorials/verifying-contracts'},
+        // {type: 'doc', label: 'Verify Contracts', id: 'build/tutorials/verifying-contracts'},
       ],
     },
     {

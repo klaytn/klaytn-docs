@@ -258,6 +258,7 @@ const config = {
             dropdownItemsAfter: [
               {
                 href: legacyDocsLinks[process.env.DOCUSAURUS_CURRENT_LOCALE],
+                to: "docs/learn",
                 label: navbarItemStrings[process.env.DOCUSAURUS_CURRENT_LOCALE],
               },
             ],
