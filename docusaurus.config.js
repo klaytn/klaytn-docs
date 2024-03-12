@@ -260,8 +260,11 @@ const config = {
             dropdownActiveClassDisabled: true,
             dropdownItemsAfter: [
               {
-                href: legacyDocsLinks[process.env.DOCUSAURUS_CURRENT_LOCALE],
-                label: navbarItemStrings[process.env.DOCUSAURUS_CURRENT_LOCALE],
+                // TODO-Klaytn : it will be activated after navBar bugfix
+                // href: legacyDocsLinks[process.env.DOCUSAURUS_CURRENT_LOCALE],
+                // label: navbarItemStrings[process.env.DOCUSAURUS_CURRENT_LOCALE],
+                href: 'https://archive-docs.klaytn.foundation/',
+                label: 'Archived',
               },
             ],
           },
