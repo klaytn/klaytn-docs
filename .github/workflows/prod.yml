@@ -43,9 +43,9 @@ jobs:
         run: |
           cd web3klaytn/documentation && bash generate-docs.sh split & yarn start && cd -
           cd web3rpc && bash -x web3rpc.sh && cd - && yarn build && exit 0
-
-      - name: Build static files
-        run: ls -la
+#
+#      - name: Build static files
+#        run: ls -la
 
 #      - name: Sync to S3 bucket and validation cloudfront
 #        env:
