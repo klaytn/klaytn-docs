@@ -41,8 +41,8 @@ jobs:
         env:
           RPC_SPEC_DIR: ../../web3rpc/yaml
         run: |
-          cd web3klaytn/documentation && bash generate-docs.sh split && cd -
-          cd web3rpc && bash -x web3rpc.sh & yarn start && cd -
+          cd web3klaytn/documentation && bash generate-docs.sh split & yarn start && cd -
+          cd web3rpc && bash -x web3rpc.sh && cd -
 
       - name: Build static files
         run: yarn build
