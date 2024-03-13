@@ -9,6 +9,9 @@ const {
   remarkCodeHike,
 } = require("@code-hike/mdx")
 
+process.env.DOCUSAURUS_CURRENT_VERSION = process.env.DOCUSAURUS_CURRENT_VERSION === undefined ? 'current' : process.env.DOCUSAURUS_CURRENT_VERSION
+process.env.DOCUSAURUS_CURRENT_LOCALE = process.env.DOCUSAURUS_CURRENT_LOCALE === 'undefined' || undefined ? 'en' : process.env.DOCUSAURUS_CURRENT_LOCALE
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Klaytn Docs',
@@ -257,8 +260,11 @@ const config = {
             dropdownActiveClassDisabled: true,
             dropdownItemsAfter: [
               {
-                href: legacyDocsLinks[process.env.DOCUSAURUS_CURRENT_LOCALE],
-                label: navbarItemStrings[process.env.DOCUSAURUS_CURRENT_LOCALE],
+                // TODO-Klaytn : it will be activated after navBar bugfix
+                // href: legacyDocsLinks[process.env.DOCUSAURUS_CURRENT_LOCALE],
+                // label: navbarItemStrings[process.env.DOCUSAURUS_CURRENT_LOCALE],
+                href: 'https://archive-docs.klaytn.foundation/',
+                label: 'Archived',
               },
             ],
           },
