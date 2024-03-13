@@ -9,7 +9,7 @@ This page shows all the hard forks to the Klaytn blockchain.
 | Block number  | `#141,367,000`                | `#147,534,000`                |
 
 ### Summary
-Randao hardfork was introduced with the [v1.12.0 release](https://github.com/klaytn/klaytn/releases/tag/v1.12.0). It implements an optional hardfork implementing the Randao on-chain randomness according to [KIP-114](https://github.com/klaytn/kips/issues/114), [KIP-146](https://github.com/klaytn/kips/issues/146).
+Randao hardfork was introduced with the [v1.12.0 release](https://github.com/klaytn/klaytn/releases/tag/v1.12.0). It implements an optional hardfork implementing the Randao on-chain randomness according to [KIP-113](https://kips.klaytn.foundation/KIPs/kip-113), [KIP-114](https://kips.klaytn.foundation/KIPs/kip-114), [KIP-146](https://kips.klaytn.foundation/KIPs/kip-146).
 
 ## Cancun
 | ` ` | Baobab                        | Cypress                       |
