@@ -31,7 +31,17 @@ jobs:
       - name: Installing dependencies
         run: |
           yarn install
+      - name: Clone web3klaytn
+        run: |
+          git clone -b dev https://github.com/klaytn/web3klaytn.git
+          cd web3klaytn/documentation && yarn install && cd -
 
+      - name: Generate .mdx files
+        env:
+          RPC_SPEC_DIR: ../../web3rpc/yaml
+        run: |
+          cd web3klaytn/documentation && bash generate-docs.sh split && cd -
+          cd web3rpc && bash -x web3rpc.sh && cd - && yarn build && exit 0
       - name: Build static files
         run: yarn build
 
