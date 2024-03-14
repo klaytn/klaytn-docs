@@ -284,7 +284,7 @@ IPC 파일 `klay.ipc`는 PN의 `data` 디렉터리에 있습니다.
   >
 ```
 
-사용 가능한 명령어는 [API 문서](../../../references/json-rpc/json-rpc.md)에서 확인할 수 있습니다.
+You can check the usable commands on [API Document](../../../references/json-rpc/klay/account-created)
 
 PN의 상태를 확인하는 데 유용한 API입니다:
 
