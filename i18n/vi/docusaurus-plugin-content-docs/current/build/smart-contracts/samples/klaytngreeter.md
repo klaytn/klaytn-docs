@@ -43,5 +43,4 @@ contract KlaytnGreeter is Mortal {
 Để biết thông tin chi tiết về việc triển khai hợp đồng và hướng dẫn sử dụng Remix Online IDE, vui lòng tham khảo các tài liệu sau đây.
 
 - [Remix Online IDE](../../smart-contracts/ide-and-tools/ide-and-tools.md#klaytn-ide)
-- [Truffle](../../smart-contracts/ide-and-tools/ide-and-tools.md##truffle)
 - [Hướng dẫn triển khai](../deploy/deploy.md)
