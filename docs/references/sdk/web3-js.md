@@ -262,4 +262,4 @@ node interact.js
 If the transaction was succesful, you'll see the transaction hash and the value stored in your terminal.
 
 
-For more in-depth guide on web3.js, please refer to [web3.js docs](https://web3js.readthedocs.io/). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/klaytn/examples/tree/main/sdk-and-libraries-for-interacting-with-klaytn-node/web3-js)
+For more in-depth guide on web3.js, please refer to [web3.js docs](https://web3js.readthedocs.io/). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/klaytn/examples/tree/main/tools/sdk-and-libraries-for-interacting-with-klaytn-node/web3-js)
