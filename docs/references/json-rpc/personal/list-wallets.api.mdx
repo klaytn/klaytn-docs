@@ -1,0 +1,335 @@
+---
+id: list-wallets
+title: "personal_listWallets"
+description: "Returns a list of wallets this node manages."
+sidebar_label: "personal_listWallets"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: docs/references/json-rpc/personal/web-3-rpc
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  personal_listWallets
+</h1>
+
+
+
+
+
+Returns a list of wallets this node manages.
+
+**JSONRPC:** `personal_listWallets`
+
+
+## Request
+
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"method"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"Method name","default":"personal_listWallets"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"id"}
+          required={true}
+          schemaName={"int64"}
+          qualifierMessage={undefined}
+          schema={{"type":"integer","default":1,"format":"int64","description":"Request ID, Random or Auto incrementation"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"jsonrpc"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","default":"2.0","description":"JSON-RPC Version (2.0)"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"params"}
+          required={false}
+          schemaName={"array"}
+          qualifierMessage={undefined}
+          schema={{"type":"array"}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Returns a list of wallets this node manages.
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"jsonrpc"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","default":"2.0"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={true}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                error
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={false}
+                              name={"code"}
+                              required={true}
+                              schemaName={"int64"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int64","example":-32700,"description":"A Number that indicates the error type that occurred.\nThis MUST be an integer.\n\n| code | message | description |\n|-----|-----|-------|\n| -32700   | Parse error   | invalid JSON was received by the server. An error occurred on the server while parsing the JSON text. |\n|-32602 | Invalid params | Invalid method parameter(s). |\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"message"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","example":"Parse error","description":"A String providing a short description of the error.\nThe message SHOULD be limited to a concise single sentence.\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"data"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"A Primitive or Structured value that contains additional information about the error.\nThis may be omitted.\nThe value of this member is defined by the Server (e.g. detailed error information, nested errors etc.).\n"}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                result
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object[]
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                              >
+                                Array [
+                              </div>
+                            </li><SchemaItem
+                              collapsible={false}
+                              name={"url"}
+                              required={true}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"Wallet url"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"status"}
+                              required={true}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"Locking status"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"failure"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"Error condition"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"accounts"}
+                              required={true}
+                              schemaName={"object[]"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"array","description":"The list of account addresses.","items":{"type":"object"}}}
+                            >
+                              
+                            </SchemaItem><li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                              >
+                                ]
+                              </div>
+                            </li>
+                          </div>
+                        </details>
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"jsonrpc\": \"2.0\",\n  \"id\": 0,\n  \"error\": {\n    \"code\": -32700,\n    \"message\": \"Parse error\",\n    \"data\": \"string\"\n  },\n  \"result\": [\n    {\n      \"url\": \"keystore:///\",\n      \"status\": \"Locked\",\n      \"accounts\": [\n        {\n          \"address\": \"0x336010a2f91728ffe01414a87ae5d8af55f310c6\",\n          \"url\": \"keystore://\"\n        }\n      ]\n    }\n  ]\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

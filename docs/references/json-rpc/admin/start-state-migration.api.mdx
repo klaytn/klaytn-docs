@@ -1,0 +1,266 @@
+---
+id: start-state-migration
+title: "admin_startStateMigration"
+description: "The startStateMigration is an administrative method that starts a state migration and removes old state/storage trie nodes. This can save the storage space of a Klaytn node. The method returns an error if it fails to start a state migration, or null if it succeeds to start. NOTE: After the state migration, the node cannot serve APIs with previous states."
+sidebar_label: "admin_startStateMigration"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: docs/references/json-rpc/admin/web-3-rpc
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  admin_startStateMigration
+</h1>
+
+
+
+
+
+The startStateMigration is an administrative method that starts a state migration and removes old state/storage trie nodes. This can save the storage space of a Klaytn node. The method returns an error if it fails to start a state migration, or null if it succeeds to start. NOTE: After the state migration, the node cannot serve APIs with previous states.
+
+**JSONRPC:** `admin_startStateMigration`
+
+
+## Request
+
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"method"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"Method name","default":"admin_startStateMigration"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"id"}
+          required={true}
+          schemaName={"int64"}
+          qualifierMessage={undefined}
+          schema={{"type":"integer","default":1,"format":"int64","description":"Request ID, Random or Auto incrementation"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"jsonrpc"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","default":"2.0","description":"JSON-RPC Version (2.0)"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"params"}
+          required={false}
+          schemaName={"array"}
+          qualifierMessage={undefined}
+          schema={{"type":"array"}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          null if the state migration has started, or an error message if not.
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"jsonrpc"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","default":"2.0"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={true}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                error
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={false}
+                              name={"code"}
+                              required={true}
+                              schemaName={"int64"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int64","example":-32700,"description":"A Number that indicates the error type that occurred.\nThis MUST be an integer.\n\n| code | message | description |\n|-----|-----|-------|\n| -32700   | Parse error   | invalid JSON was received by the server. An error occurred on the server while parsing the JSON text. |\n|-32602 | Invalid params | Invalid method parameter(s). |\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"message"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","example":"Parse error","description":"A String providing a short description of the error.\nThe message SHOULD be limited to a concise single sentence.\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"data"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"A Primitive or Structured value that contains additional information about the error.\nThis may be omitted.\nThe value of this member is defined by the Server (e.g. detailed error information, nested errors etc.).\n"}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"result"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"null if the state migration has started, or an error message if not.","example":null}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"jsonrpc\": \"2.0\",\n  \"id\": 0,\n  \"error\": {\n    \"code\": -32700,\n    \"message\": \"Parse error\",\n    \"data\": \"string\"\n  },\n  \"result\": null\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

@@ -1,0 +1,545 @@
+---
+id: call
+title: "[Transaction] eth_call"
+description: "Executes a new message call immediately, without creating a transaction on the block chain. The eth_call method can be used to query internal contract state, to execute validations coded into a contract or even to test what the effect of a transaction would be without running it live."
+sidebar_label: " eth_call"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: docs/references/json-rpc/eth/web-3-rpc
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  [Transaction] eth_call
+</h1>
+
+
+
+
+
+Executes a new message call immediately, without creating a transaction on the block chain. The eth_call method can be used to query internal contract state, to execute validations coded into a contract or even to test what the effect of a transaction would be without running it live.
+
+**JSONRPC:** `eth_call`
+
+
+## Request
+
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"method"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"Method name","default":"eth_call"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"id"}
+          required={true}
+          schemaName={"int64"}
+          qualifierMessage={undefined}
+          schema={{"type":"integer","default":1,"format":"int64","description":"Request ID, Random or Auto incrementation"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"jsonrpc"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","default":"2.0","description":"JSON-RPC Version (2.0)"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={true}
+          className={"schemaItem"}
+        >
+          <details
+            style={{}}
+            className={"openapi-markdown__details"}
+          >
+            <summary
+              style={{}}
+            >
+              <span
+                className={"openapi-schema__container"}
+              >
+                <strong
+                  className={"openapi-schema__property"}
+                >
+                  params
+                </strong><span
+                  className={"openapi-schema__name"}
+                >
+                   undefined[]
+                </span>
+              </span>
+            </summary><div
+              style={{"marginLeft":"1rem"}}
+            >
+              <li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                >
+                  Array [
+                </div>
+              </li><SchemaItem
+                collapsible={true}
+                className={"schemaItem"}
+              >
+                <details
+                  style={{}}
+                  className={"openapi-markdown__details"}
+                >
+                  <summary
+                    style={{}}
+                  >
+                    <span
+                      className={"openapi-schema__container"}
+                    >
+                      <strong
+                        className={"openapi-schema__property"}
+                      >
+                        EthCallObject
+                      </strong><span
+                        className={"openapi-schema__name"}
+                      >
+                         object
+                      </span>
+                    </span>
+                  </summary><div
+                    style={{"marginLeft":"1rem"}}
+                  >
+                    <div
+                      style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                    >
+                      
+                      
+                      The transaction call object. See the next table for the object's properties.
+                      
+                      
+                    </div><SchemaItem
+                      collapsible={false}
+                      name={"from"}
+                      required={false}
+                      schemaName={"20-byte DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"20-byte DATA","description":"(optional) Address the transaction is simulated to have been sent from. The 0x00..0 address is used if no address is specified."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"to"}
+                      required={false}
+                      schemaName={"20-byte DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"20-byte DATA","description":"(optional) Address the transaction is sent to."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"gas"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional) Maximum gas allowance for the code execution to avoid infinite loops. Defaults to 2^63 or whatever value the node operator specified via --rpc.gascap."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"gasPrice"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional) Number of peb to simulate paying for each unit of gas during execution. Defaults to 0 peb."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"value"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional) Amount of peb to simulate sending along with the transaction. Defaults to 0."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"input"}
+                      required={false}
+                      schemaName={"DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"DATA","description":"(optional) Hash of the method signature and encoded parameter. It replaces data field, but 'data` field is still supported for backward compatibility."}}
+                    >
+                      
+                    </SchemaItem>
+                  </div>
+                </details>
+              </SchemaItem><SchemaItem
+                collapsible={true}
+                className={"schemaItem"}
+              >
+                <details
+                  style={{}}
+                  className={"openapi-markdown__details"}
+                >
+                  <summary
+                    style={{}}
+                  >
+                    <strong>
+                      BlockNumberOrTag
+                    </strong><span
+                      style={{"opacity":"0.6"}}
+                    >
+                       object
+                    </span>
+                  </summary><div
+                    style={{"marginLeft":"1rem"}}
+                  >
+                    
+                  </div><div>
+                    <span
+                      className={"badge badge--info"}
+                    >
+                      oneOf
+                    </span><SchemaTabs>
+                      <TabItem
+                        label={"IntegerBlockNumber"}
+                        value={"0-item-properties"}
+                      >
+                        <div
+                          style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}
+                        >
+                          
+                          
+                          number
+                          
+                          
+                        </div>
+                      </TabItem><TabItem
+                        label={"HexadecimalBlockNumber"}
+                        value={"1-item-properties"}
+                      >
+                        <div
+                          style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}
+                        >
+                          
+                          
+                          string
+                          
+                          
+                        </div>
+                      </TabItem><TabItem
+                        label={"BlockTag"}
+                        value={"2-item-properties"}
+                      >
+                        <div
+                          style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}
+                        >
+                          
+                          
+                          string
+                          
+                          
+                        </div>
+                      </TabItem>
+                    </SchemaTabs>
+                  </div>
+                </details>
+              </SchemaItem><SchemaItem
+                collapsible={true}
+                className={"schemaItem"}
+              >
+                <details
+                  style={{}}
+                  className={"openapi-markdown__details"}
+                >
+                  <summary
+                    style={{}}
+                  >
+                    <span
+                      className={"openapi-schema__container"}
+                    >
+                      <strong
+                        className={"openapi-schema__property"}
+                      >
+                        StateOverrideSet
+                      </strong><span
+                        className={"openapi-schema__name"}
+                      >
+                         object
+                      </span>
+                    </span>
+                  </summary><div
+                    style={{"marginLeft":"1rem"}}
+                  >
+                    <div
+                      style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                    >
+                      
+                      
+                      The state override set is an optional address-to-state mapping, where each entry specifies some state to be ephemerally overridden prior to executing the call.
+                      
+                      
+                    </div><SchemaItem
+                      collapsible={false}
+                      name={"balance"}
+                      required={false}
+                      schemaName={"int64"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"integer","format":"int64","description":"(optional) Fake balance to set for the account before executing the call."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"nonce"}
+                      required={false}
+                      schemaName={"int64"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"integer","format":"int64","description":"(optional) Fake nonce to set for the account before executing the call."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"code"}
+                      required={false}
+                      schemaName={"DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"DATA","description":"(optional) Fake EVM bytecode to inject into the account before executing the call."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"state"}
+                      required={false}
+                      schemaName={"object"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"object","description":"(optional) Fake key-value mapping to override all slots in the account storage before executing the call."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"stateDiff"}
+                      required={false}
+                      schemaName={"object"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"object","description":"(optional) Fake key-value mapping to override individual slots in the account storage before executing the call."}}
+                    >
+                      
+                    </SchemaItem>
+                  </div>
+                </details>
+              </SchemaItem><li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                >
+                  ]
+                </div>
+              </li>
+            </div>
+          </details>
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          The returned data of the call
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"jsonrpc"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","default":"2.0"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={true}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                error
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={false}
+                              name={"code"}
+                              required={true}
+                              schemaName={"int64"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int64","example":-32700,"description":"A Number that indicates the error type that occurred.\nThis MUST be an integer.\n\n| code | message | description |\n|-----|-----|-------|\n| -32700   | Parse error   | invalid JSON was received by the server. An error occurred on the server while parsing the JSON text. |\n|-32602 | Invalid params | Invalid method parameter(s). |\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"message"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","example":"Parse error","description":"A String providing a short description of the error.\nThe message SHOULD be limited to a concise single sentence.\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"data"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"A Primitive or Structured value that contains additional information about the error.\nThis may be omitted.\nThe value of this member is defined by the Server (e.g. detailed error information, nested errors etc.).\n"}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"result"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","example":"0x0000000000000000000000000000000000000000000000000000000000000000"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"jsonrpc\": \"2.0\",\n  \"id\": 0,\n  \"error\": {\n    \"code\": -32700,\n    \"message\": \"Parse error\",\n    \"data\": \"string\"\n  },\n  \"result\": \"0x0000000000000000000000000000000000000000000000000000000000000000\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

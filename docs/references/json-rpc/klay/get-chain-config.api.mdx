@@ -1,0 +1,738 @@
+---
+id: get-chain-config
+title: "[Configuration] klay_getChainConfig"
+description: "Returns the configuration of the chain."
+sidebar_label: " klay_getChainConfig"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1GWtv4kjyr7T8JTACA+ZNNKfLZnObzO1MopC5O2mIZtt2A57Ybm+7HYIY/vtVddvGBkNY6Y5IxHRX17uqq8obg0dMUOnx8M41Joa5YPJ6Sb3wmodzb2E0DJfFjvAihID9RyYTEcZELhlxFEiiTxM+14t42JyFs/DDh0/T+y+PD9eTDx/IHy8+XX8vI/9jFgJ+SRexMflmIIDx3DAE+zNhsfyFu2tjsjGAiGShxEcaRb7nKGqtHzGyszFiZ8kCqnZ9/34OiDaGXEcMWOX2D+ZIQ2P0BHORSsDkkruw6OEXYhGRg2QjgYqQHosRWQo2yZHFUnjhoTo+KzgS0oAZW4V0d8QDxhdMqDNzmvggQ6dhzLkIqNTbg16FfpX05O7XBnmkocsDwgW5SiQnXugIFoAulAaQXMZ+JZspScMy2wdU0DBNsAz5FxMxGq8GUHVEGVFBg7iAkQoBdgHRJFPr2y1ASU/6uPkJGHiMnJRpOH+m8lMqf0ntmTwVjnQW4wYPWeYgKft32kK/+Nx5+ZIEdmqsoqbQpW3cJ6ECICtPLgmSIDv7phQ1hNZCSuGWvVGXOV5A/TKVfflyt1juTvwVZorHigwoqk90UUHyGG4ISPLNpxIs2iARC10AbxBGhQ9Wks/G9rlRRq+FuhdIBiwBnAQR7n7rtNvPRXf5J5jut5LlwHMA31Y5lWBxxMNYe4LVbuO/Mo9PWX45lXpAsv9xzsjCTMX3gc+eHYTH88NeTkAdCsFFATbnK1PlDQJ8Zqk3Fbl1uMsOuVSrZ9AumK/ZtYbt9r6fXBFtbtA4lRADLmqX6QtBca39Ue1yx0kEsAXXwdPSi8nnr9MnYjNCwyx41EXxkyB35CcJWBzTBT4VaJKfANHET/Eb/uNBzSMhcOSBijhjAX974Sv1PZdgriMrGhPBHOa9MpfYa8VtzMQrcECuwvRUxi4BojsAslp6PiOQX2KwqtpQKCV7k6ZmrmsN2haQvEtJ6lxUWNB5Ta8zyUQtrqujaOpU6Cr/yU1hFIQ7iNwrMlUHCFj81cNoJZTESy5kSY1pkCgcyiAs1/f09v7r77+iZXwvgHzpErhuKAaZ4wFZlNtHdWBUOczUfLtU0vcvyCvyIBAnKB4vMuA0caCCABKgmST1E4xXCN2YUNf18CD1wXzaM5F1avNE7nEP7hTQNfLMAb1MnYylaJWwCKIihMATxKIX7ow/1batMXNhwh6Q92FT+0GBdIOEkPOynZgw6Zh1pYA0Y6nw3lTeiTqbVV6K5djM0bwDp/LbXVUKQXMwATqeLukduMyhXTCnyOXT2xOsXvMgAulsn6n0XY1vwUE/IQV7v88YwD6ga0NOl4I6spL8DuHnci7aB4EfX45BvHjRsPM+QzaN2Zwxl4XgHCGVpVxaFJLGkgooJgrb+S1u+HzFBLhe6Kb4KqEC+qbuTcCVxMwF1zkFnUTRuzi1a62ocN+XFNyaYc56evtHCZfNuc9omOpsZKmbslKloCAvSIKppC9VN4SGkAB8FQDb1ZpCnjiky68RZAWGZZWAOKzGdpwTsMULPJ6DBDT9G/B9zdl8XiW1rig8wBjaif++GlnEnWU1qYhDAbGu3osTu2qjSPusYHvh4ryo9Dm0BOFZoAFdBPQsyCT0JGRpp9IXC7dQIQNBZdc5IeOw3x12ux3rKMOjtjXuW+POqaw0GvQ73dG4f0yU8ajbG3aHgyPq63Q6w+5ghBUMRECn3a2AGHd6/UERQuevK9eFnAyOYbTf3D51B+6g47qjIXOpzawuXvdDp2uN5n3HGQ8oc+xx3yi7W+pQg3ZPcZA5kZX6jGWV9W7129nnIJVb+8l4L00Ck+Px3O4M3a7Vm9M2aw/nVtfujd32uG2NqNMed8a9Ts+1B8ZhGjb07a539rI4YG6f+TGKKWsvYYwHB+B5GjC6vVa/1+pYRjlRQQPQGiHWcqRD+cAa+0lPLx7JHqNBTxngSIbqKvOXc2Bqi+J1U3EVlExWkdaH/aK4hZummy+euDoGOVDVXWa10wx3qrOKo7S1Ari3JpbYUxXIsWp4fApJd2JAxYt9pg+ODdowrvXPmCcCfU1tk+Z/yMXD/fTpgsxms5CQi6WUUTxptWjkmTblNrVN7MplaIZMqrht4e9WuUvPjjdvyQV1HBbJCdlvz4ow17qLa2JyOAHpkosNPszS6cHMmMBzxZRgZjQ0nKdgOumvtH/Tx6BPy8F0FY/rqpGdhdsLVfnmuvtBX2lBd5/0z1x3M/CpCKtwLhbmitndHyZ4oeQO9zN1OZC4TM22mbW/ZrUtcevyFEo0inkLX1jaQlI5CZzS/zeuXmIPloKiSKbHzbv7mze0EGhbbUeJDdonjk/jmBwyeKOvCKIMQaAR8V4hyohCT1Zd8lE/mnbi+W4tZCtSYLQ2MzKH0mSaLGweuNXMqNcvEfkrh4bq5RgLtTqU94KvYlIQIeMLP+nMB2cdi8LgAlgEI1/u4I5bgWSWgjOrrnnISm0Pd92E1smt1QvYc2ODiz6q8j/f3oKjHfqZ7qn2vC1f3MUrIJVkQ9Im5EF1hCDtFnhNhwSg7r9rtbbA8ZiIm9DIgnaBfA209/FvWlsaU5Qh+EjQantoz7bc5Q6jvTcxKig+I6bOamXsjaNrm8Pz2wZ0cUI0CDakjVyzWpJtPcUDkoJ4CLITET/IFNSMJlhM72ZWwIdtXVmlaItoDcEaFuzwkC3kNpgLHhCMN5IGFfr+LMyXo/V30Hi2CY/gHBhjSw7q+Uh2Oj2eXmcGHrDT2Z5WIa7koVbDL/P26ekhtxWir4M6VGY8dGHU9HdV333Xw7VaXQU+FOeyVjpTR408N/JhLRQ3saqoqYSKx9CpvzSgax28VNCjFX0T4ZUzUUKDzCAS9ZHVyajf7yjN7/ZPK6UCeOeVzjrCkq5wRsmAyf9x98LhZlfq5tJVzZv1JK9TmMCnY/ZsCq1HnwAWznWvk97TaH89SnzVk3csssyxOqumILp5Vu8TJsbVwx2JobQAP8FKqCQaFAtJkIkzx8pDq1p1CZBVcfRQwBRRZ8mIZrKMaLVamVRtm3BRtNKzcev3u+ubL9ObJpyBuyXwVS+Apg5oWMD87bpo6WdSra7SUKjwUuf/8T5JNzA4nmtFPmyqFkeoqly7aPquSWl8RxAr4DLb4B/oiXhgs8Ey7Kvwt1tcBocRUM1/g8dXKjxqq3E3GnzJKASb8usXtsaKqlDFoNlxPIVvJ/bn0ui8+sSVqo1OwhajDyszALbT92WBruoFXWFJDt9QiMAf/OBK/XrihOs6pyVq9mhovPj5LwbOkEQ=
+sidebar_class_name: "post api-method"
+info_path: docs/references/json-rpc/klay/web-3-rpc
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  [Configuration] klay_getChainConfig
+</h1>
+
+
+
+
+
+Returns the configuration of the chain.
+
+**JSONRPC:** `klay_getChainConfig`
+
+
+## Request
+
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"method"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"Method name","default":"klay_getChainConfig"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"id"}
+          required={true}
+          schemaName={"int64"}
+          qualifierMessage={undefined}
+          schema={{"type":"integer","default":1,"format":"int64","description":"Request ID, Random or Auto incrementation"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"jsonrpc"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","default":"2.0","description":"JSON-RPC Version (2.0)"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={true}
+          className={"schemaItem"}
+        >
+          <details
+            style={{}}
+            className={"openapi-markdown__details"}
+          >
+            <summary
+              style={{}}
+            >
+              <span
+                className={"openapi-schema__container"}
+              >
+                <strong
+                  className={"openapi-schema__property"}
+                >
+                  params
+                </strong><span
+                  className={"openapi-schema__name"}
+                >
+                   object[]
+                </span><span
+                  className={"openapi-schema__divider"}
+                >
+                  
+                </span><span
+                  className={"openapi-schema__required"}
+                >
+                  required
+                </span>
+              </span>
+            </summary><div
+              style={{"marginLeft":"1rem"}}
+            >
+              <li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                >
+                  Array [
+                </div>
+              </li><div>
+                <span
+                  className={"badge badge--info"}
+                >
+                  oneOf
+                </span><SchemaTabs>
+                  <TabItem
+                    label={"IntegerBlockNumber"}
+                    value={"0-item-properties"}
+                  >
+                    <div
+                      style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}
+                    >
+                      
+                      
+                      number
+                      
+                      
+                    </div>
+                  </TabItem><TabItem
+                    label={"HexadecimalBlockNumber"}
+                    value={"1-item-properties"}
+                  >
+                    <div
+                      style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}
+                    >
+                      
+                      
+                      string
+                      
+                      
+                    </div>
+                  </TabItem><TabItem
+                    label={"BlockTag"}
+                    value={"2-item-properties"}
+                  >
+                    <div
+                      style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}
+                    >
+                      
+                      
+                      string
+                      
+                      
+                    </div>
+                  </TabItem>
+                </SchemaTabs>
+              </div><li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                >
+                  ]
+                </div>
+              </li>
+            </div>
+          </details>
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          The chain configuration of the chain.
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"jsonrpc"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","default":"2.0"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={true}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                error
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={false}
+                              name={"code"}
+                              required={true}
+                              schemaName={"int64"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int64","example":-32700,"description":"A Number that indicates the error type that occurred.\nThis MUST be an integer.\n\n| code | message | description |\n|-----|-----|-------|\n| -32700   | Parse error   | invalid JSON was received by the server. An error occurred on the server while parsing the JSON text. |\n|-32602 | Invalid params | Invalid method parameter(s). |\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"message"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","example":"Parse error","description":"A String providing a short description of the error.\nThe message SHOULD be limited to a concise single sentence.\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"data"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"A Primitive or Structured value that contains additional information about the error.\nThis may be omitted.\nThe value of this member is defined by the Server (e.g. detailed error information, nested errors etc.).\n"}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                result
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={false}
+                              name={"chainId"}
+                              required={false}
+                              schemaName={"integer"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"deriveShaImpl"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"ethTxTypeCompatibleBlock"}
+                              required={false}
+                              schemaName={"integer"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={true}
+                              className={"schemaItem"}
+                            >
+                              <details
+                                style={{}}
+                                className={"openapi-markdown__details"}
+                              >
+                                <summary
+                                  style={{}}
+                                >
+                                  <span
+                                    className={"openapi-schema__container"}
+                                  >
+                                    <strong
+                                      className={"openapi-schema__property"}
+                                    >
+                                      governance
+                                    </strong><span
+                                      className={"openapi-schema__name"}
+                                    >
+                                       object
+                                    </span>
+                                  </span>
+                                </summary><div
+                                  style={{"marginLeft":"1rem"}}
+                                >
+                                  <SchemaItem
+                                    collapsible={false}
+                                    name={"govParamContract"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string"}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"governanceMode"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string"}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"governingNode"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string"}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={true}
+                                    className={"schemaItem"}
+                                  >
+                                    <details
+                                      style={{}}
+                                      className={"openapi-markdown__details"}
+                                    >
+                                      <summary
+                                        style={{}}
+                                      >
+                                        <span
+                                          className={"openapi-schema__container"}
+                                        >
+                                          <strong
+                                            className={"openapi-schema__property"}
+                                          >
+                                            kip71
+                                          </strong><span
+                                            className={"openapi-schema__name"}
+                                          >
+                                             object
+                                          </span>
+                                        </span>
+                                      </summary><div
+                                        style={{"marginLeft":"1rem"}}
+                                      >
+                                        <SchemaItem
+                                          collapsible={false}
+                                          name={"basefeedenominator"}
+                                          required={false}
+                                          schemaName={"integer"}
+                                          qualifierMessage={undefined}
+                                          schema={{"type":"integer"}}
+                                        >
+                                          
+                                        </SchemaItem><SchemaItem
+                                          collapsible={false}
+                                          name={"gastarget"}
+                                          required={false}
+                                          schemaName={"number"}
+                                          qualifierMessage={undefined}
+                                          schema={{"type":"number"}}
+                                        >
+                                          
+                                        </SchemaItem><SchemaItem
+                                          collapsible={false}
+                                          name={"lowerboundbasefee"}
+                                          required={false}
+                                          schemaName={"number"}
+                                          qualifierMessage={undefined}
+                                          schema={{"type":"number"}}
+                                        >
+                                          
+                                        </SchemaItem><SchemaItem
+                                          collapsible={false}
+                                          name={"maxblockgasusedforbasefee"}
+                                          required={false}
+                                          schemaName={"number"}
+                                          qualifierMessage={undefined}
+                                          schema={{"type":"number"}}
+                                        >
+                                          
+                                        </SchemaItem><SchemaItem
+                                          collapsible={false}
+                                          name={"upperboundbasefee"}
+                                          required={false}
+                                          schemaName={"number"}
+                                          qualifierMessage={undefined}
+                                          schema={{"type":"number"}}
+                                        >
+                                          
+                                        </SchemaItem>
+                                      </div>
+                                    </details>
+                                  </SchemaItem><SchemaItem
+                                    collapsible={true}
+                                    className={"schemaItem"}
+                                  >
+                                    <details
+                                      style={{}}
+                                      className={"openapi-markdown__details"}
+                                    >
+                                      <summary
+                                        style={{}}
+                                      >
+                                        <span
+                                          className={"openapi-schema__container"}
+                                        >
+                                          <strong
+                                            className={"openapi-schema__property"}
+                                          >
+                                            reward
+                                          </strong><span
+                                            className={"openapi-schema__name"}
+                                          >
+                                             object
+                                          </span>
+                                        </span>
+                                      </summary><div
+                                        style={{"marginLeft":"1rem"}}
+                                      >
+                                        <SchemaItem
+                                          collapsible={false}
+                                          name={"deferredTxFee"}
+                                          required={false}
+                                          schemaName={"boolean"}
+                                          qualifierMessage={undefined}
+                                          schema={{"type":"boolean"}}
+                                        >
+                                          
+                                        </SchemaItem><SchemaItem
+                                          collapsible={false}
+                                          name={"kip82ratio"}
+                                          required={false}
+                                          schemaName={"string"}
+                                          qualifierMessage={undefined}
+                                          schema={{"type":"string"}}
+                                        >
+                                          
+                                        </SchemaItem><SchemaItem
+                                          collapsible={false}
+                                          name={"minimumStake"}
+                                          required={false}
+                                          schemaName={"integer"}
+                                          qualifierMessage={undefined}
+                                          schema={{"type":"integer"}}
+                                        >
+                                          
+                                        </SchemaItem><SchemaItem
+                                          collapsible={false}
+                                          name={"mintingAmount"}
+                                          required={false}
+                                          schemaName={"number"}
+                                          qualifierMessage={undefined}
+                                          schema={{"type":"number"}}
+                                        >
+                                          
+                                        </SchemaItem><SchemaItem
+                                          collapsible={false}
+                                          name={"proposerUpdateInterval"}
+                                          required={false}
+                                          schemaName={"integer"}
+                                          qualifierMessage={undefined}
+                                          schema={{"type":"integer"}}
+                                        >
+                                          
+                                        </SchemaItem><SchemaItem
+                                          collapsible={false}
+                                          name={"ratio"}
+                                          required={false}
+                                          schemaName={"string"}
+                                          qualifierMessage={undefined}
+                                          schema={{"type":"string"}}
+                                        >
+                                          
+                                        </SchemaItem><SchemaItem
+                                          collapsible={false}
+                                          name={"stakingUpdateInterval"}
+                                          required={false}
+                                          schemaName={"integer"}
+                                          qualifierMessage={undefined}
+                                          schema={{"type":"integer"}}
+                                        >
+                                          
+                                        </SchemaItem><SchemaItem
+                                          collapsible={false}
+                                          name={"useGiniCoeff"}
+                                          required={false}
+                                          schemaName={"boolean"}
+                                          qualifierMessage={undefined}
+                                          schema={{"type":"boolean"}}
+                                        >
+                                          
+                                        </SchemaItem>
+                                      </div>
+                                    </details>
+                                  </SchemaItem>
+                                </div>
+                              </details>
+                            </SchemaItem><SchemaItem
+                              collapsible={true}
+                              className={"schemaItem"}
+                            >
+                              <details
+                                style={{}}
+                                className={"openapi-markdown__details"}
+                              >
+                                <summary
+                                  style={{}}
+                                >
+                                  <span
+                                    className={"openapi-schema__container"}
+                                  >
+                                    <strong
+                                      className={"openapi-schema__property"}
+                                    >
+                                      istanbul
+                                    </strong><span
+                                      className={"openapi-schema__name"}
+                                    >
+                                       object
+                                    </span>
+                                  </span>
+                                </summary><div
+                                  style={{"marginLeft":"1rem"}}
+                                >
+                                  <SchemaItem
+                                    collapsible={false}
+                                    name={"epoch"}
+                                    required={false}
+                                    schemaName={"integer"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"integer"}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"policy"}
+                                    required={false}
+                                    schemaName={"integer"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"integer"}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"sub"}
+                                    required={false}
+                                    schemaName={"integer"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"integer"}}
+                                  >
+                                    
+                                  </SchemaItem>
+                                </div>
+                              </details>
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"istanbulCompatibleBlock"}
+                              required={false}
+                              schemaName={"integer"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"koreCompatibleBlock"}
+                              required={false}
+                              schemaName={"integer"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"londonCompatibleBlock"}
+                              required={false}
+                              schemaName={"integer"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"magmaCompatibleBlock"}
+                              required={false}
+                              schemaName={"integer"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"unitPrice"}
+                              required={false}
+                              schemaName={"number"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"number"}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"jsonrpc\": \"2.0\",\n  \"id\": 0,\n  \"error\": {\n    \"code\": -32700,\n    \"message\": \"Parse error\",\n    \"data\": \"string\"\n  },\n  \"result\": {\n    \"chainId\": 1001,\n    \"istanbulCompatibleBlock\": 75373312,\n    \"londonCompatibleBlock\": 80295291,\n    \"ethTxTypeCompatibleBlock\": 86513895,\n    \"magmaCompatibleBlock\": 98347376,\n    \"koreCompatibleBlock\": 111736800,\n    \"kip103CompatibleBlock\": 119145600,\n    \"kip103ContractAddress\": \"0xd5ad6d61dd87edabe2332607c328f5cc96aecb95\",\n    \"istanbul\": {\n      \"epoch\": 604800,\n      \"policy\": 2,\n      \"sub\": 22\n    },\n    \"unitPrice\": 25000000000,\n    \"deriveShaImpl\": 2,\n    \"governance\": {\n      \"governingNode\": \"0x99fb17d324fa0e07f23b49d09028ac0919414db6\",\n      \"governanceMode\": \"single\",\n      \"govParamContract\": \"0x0000000000000000000000000000000000000000\",\n      \"reward\": {\n        \"mintingAmount\": 9600000000000000000,\n        \"ratio\": \"34/54/12\",\n        \"kip82ratio\": \"20/80\",\n        \"useGiniCoeff\": true,\n        \"deferredTxFee\": true,\n        \"stakingUpdateInterval\": 86400,\n        \"proposerUpdateInterval\": 3600,\n        \"minimumStake\": 5000000\n      },\n      \"kip71\": {\n        \"lowerboundbasefee\": 25000000000,\n        \"upperboundbasefee\": 750000000000,\n        \"gastarget\": 30000000,\n        \"maxblockgasusedforbasefee\": 60000000,\n        \"basefeedenominator\": 20\n      }\n    }\n  }\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

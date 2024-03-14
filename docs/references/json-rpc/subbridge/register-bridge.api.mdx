@@ -1,0 +1,325 @@
+---
+id: register-bridge
+title: "subbridge_registerBridge"
+description: "The subbridge_registerBridge registers already deployed bridge contracts in the parent and child chains."
+sidebar_label: "subbridge_registerBridge"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: docs/references/json-rpc/subbridge/web-3-rpc
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  subbridge_registerBridge
+</h1>
+
+
+
+
+
+The subbridge_registerBridge registers already deployed bridge contracts in the parent and child chains.
+
+**JSONRPC:** `subbridge_registerBridge`
+
+
+## Request
+
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"method"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"Method name","default":"subbridge_registerBridge"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"id"}
+          required={true}
+          schemaName={"int64"}
+          qualifierMessage={undefined}
+          schema={{"type":"integer","default":1,"format":"int64","description":"Request ID, Random or Auto incrementation"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"jsonrpc"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","default":"2.0","description":"JSON-RPC Version (2.0)"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={true}
+          className={"schemaItem"}
+        >
+          <details
+            style={{}}
+            className={"openapi-markdown__details"}
+          >
+            <summary
+              style={{}}
+            >
+              <span
+                className={"openapi-schema__container"}
+              >
+                <strong
+                  className={"openapi-schema__property"}
+                >
+                  params
+                </strong><span
+                  className={"openapi-schema__name"}
+                >
+                   undefined[]
+                </span><span
+                  className={"openapi-schema__divider"}
+                >
+                  
+                </span><span
+                  className={"openapi-schema__required"}
+                >
+                  required
+                </span>
+              </span>
+            </summary><div
+              style={{"marginLeft":"1rem"}}
+            >
+              <li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                >
+                  Array [
+                </div>
+              </li><SchemaItem
+                collapsible={false}
+                name={"ChildAccount"}
+                required={false}
+                schemaName={"20-byte DATA"}
+                qualifierMessage={undefined}
+                schema={{"title":"ChildAccount","type":"string","format":"20-byte DATA","description":"Address of bridge contract on child chain."}}
+              >
+                
+              </SchemaItem><SchemaItem
+                collapsible={false}
+                name={"ParentAccount"}
+                required={false}
+                schemaName={"20-byte DATA"}
+                qualifierMessage={undefined}
+                schema={{"title":"ParentAccount","type":"string","format":"20-byte DATA","description":"Address of bridge contract on parent chain."}}
+              >
+                
+              </SchemaItem><li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                >
+                  ]
+                </div>
+              </li>
+            </div>
+          </details>
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          The subbridge_registerBridge registers already deployed bridge contracts in the parent and child chains.
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"jsonrpc"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","default":"2.0"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={true}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                error
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={false}
+                              name={"code"}
+                              required={true}
+                              schemaName={"int64"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int64","example":-32700,"description":"A Number that indicates the error type that occurred.\nThis MUST be an integer.\n\n| code | message | description |\n|-----|-----|-------|\n| -32700   | Parse error   | invalid JSON was received by the server. An error occurred on the server while parsing the JSON text. |\n|-32602 | Invalid params | Invalid method parameter(s). |\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"message"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","example":"Parse error","description":"A String providing a short description of the error.\nThe message SHOULD be limited to a concise single sentence.\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"data"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"A Primitive or Structured value that contains additional information about the error.\nThis may be omitted.\nThe value of this member is defined by the Server (e.g. detailed error information, nested errors etc.).\n"}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"result"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","example":null,"description":"null if the registration succeeds, Error object otherwise."}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"jsonrpc\": \"2.0\",\n  \"id\": 0,\n  \"error\": {\n    \"code\": -32700,\n    \"message\": \"Parse error\",\n    \"data\": \"string\"\n  },\n  \"result\": null\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

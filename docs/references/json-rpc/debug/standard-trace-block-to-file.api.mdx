@@ -1,0 +1,382 @@
+---
+id: standard-trace-block-to-file
+title: "[StandardTrace] debug_standardTraceBlockToFile"
+description: "Similar to debug_traceBlock, standardTraceBlockToFile accepts a block hash and will replay the block that is already present in the database. It returns a list of file names containing tracing result. Note that the files will be stored in the machine that serves this API."
+sidebar_label: " debug_standardTraceBlockToFile"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: docs/references/json-rpc/debug/web-3-rpc
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  [StandardTrace] debug_standardTraceBlockToFile
+</h1>
+
+
+
+
+
+Similar to debug_traceBlock, standardTraceBlockToFile accepts a block hash and will replay the block that is already present in the database. It returns a list of file names containing tracing result. Note that the files will be stored in the machine that serves this API.
+
+**JSONRPC:** `debug_standardTraceBlockToFile`
+
+
+## Request
+
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"method"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"Method name","default":"debug_standardTraceBlockToFile"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"id"}
+          required={true}
+          schemaName={"int64"}
+          qualifierMessage={undefined}
+          schema={{"type":"integer","default":1,"format":"int64","description":"Request ID, Random or Auto incrementation"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"jsonrpc"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","default":"2.0","description":"JSON-RPC Version (2.0)"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={true}
+          className={"schemaItem"}
+        >
+          <details
+            style={{}}
+            className={"openapi-markdown__details"}
+          >
+            <summary
+              style={{}}
+            >
+              <span
+                className={"openapi-schema__container"}
+              >
+                <strong
+                  className={"openapi-schema__property"}
+                >
+                  params
+                </strong><span
+                  className={"openapi-schema__name"}
+                >
+                   undefined[]
+                </span>
+              </span>
+            </summary><div
+              style={{"marginLeft":"1rem"}}
+            >
+              <li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                >
+                  Array [
+                </div>
+              </li><SchemaItem
+                collapsible={false}
+                name={"Hash"}
+                required={false}
+                schemaName={"32-byte DATA"}
+                qualifierMessage={undefined}
+                schema={{"title":"Hash","type":"string","description":"Hash of a block.","format":"32-byte DATA"}}
+              >
+                
+              </SchemaItem><SchemaItem
+                collapsible={true}
+                className={"schemaItem"}
+              >
+                <details
+                  style={{}}
+                  className={"openapi-markdown__details"}
+                >
+                  <summary
+                    style={{}}
+                  >
+                    <span
+                      className={"openapi-schema__container"}
+                    >
+                      <strong
+                        className={"openapi-schema__property"}
+                      >
+                        StandardTracingOptions
+                      </strong><span
+                        className={"openapi-schema__name"}
+                      >
+                         object
+                      </span>
+                    </span>
+                  </summary><div
+                    style={{"marginLeft":"1rem"}}
+                  >
+                    <div
+                      style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                    >
+                      
+                      
+                      You may give trace API function a secondary optional argument, which specifies the options for this specific call.
+                      
+                      
+                    </div><SchemaItem
+                      collapsible={false}
+                      name={"disableStorage"}
+                      required={false}
+                      schemaName={"boolean"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"boolean","default":false,"description":"Setting this to true will disable storage capture."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"disableMemory"}
+                      required={false}
+                      schemaName={"boolean"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"boolean","default":false,"description":"Setting this to true will disable memory capture."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"disableStack"}
+                      required={false}
+                      schemaName={"boolean"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"boolean","default":false,"description":"Setting this to true will disable stack capture."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"txHash"}
+                      required={false}
+                      schemaName={"string"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","description":"Setting this value will trace only the specified transaction."}}
+                    >
+                      
+                    </SchemaItem>
+                  </div>
+                </details>
+              </SchemaItem><li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                >
+                  ]
+                </div>
+              </li>
+            </div>
+          </details>
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          A list of file names.
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"jsonrpc"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","default":"2.0"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={true}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                error
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={false}
+                              name={"code"}
+                              required={true}
+                              schemaName={"int64"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int64","example":-32700,"description":"A Number that indicates the error type that occurred.\nThis MUST be an integer.\n\n| code | message | description |\n|-----|-----|-------|\n| -32700   | Parse error   | invalid JSON was received by the server. An error occurred on the server while parsing the JSON text. |\n|-32602 | Invalid params | Invalid method parameter(s). |\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"message"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","example":"Parse error","description":"A String providing a short description of the error.\nThe message SHOULD be limited to a concise single sentence.\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"data"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"A Primitive or Structured value that contains additional information about the error.\nThis may be omitted.\nThe value of this member is defined by the Server (e.g. detailed error information, nested errors etc.).\n"}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"result"}
+                        required={false}
+                        schemaName={"string[]"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"array","description":"A list of file names. Each represents a tracing result of a transaction. The format of a file name is block_{first 4 bytes of the block hash}-{transaction index}-{first 4 bytes of the transaction hash}-{random string}.","example":["/var/folders/v9/z3vq7j4d42b2jq_vxsv0km6h0000gn/T/block_0x485fff44-0-0xfe8210fc-141224302"],"items":{"type":"string"}}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"jsonrpc\": \"2.0\",\n  \"id\": 0,\n  \"error\": {\n    \"code\": -32700,\n    \"message\": \"Parse error\",\n    \"data\": \"string\"\n  },\n  \"result\": [\n    \"/var/folders/v9/z3vq7j4d42b2jq_vxsv0km6h0000gn/T/block_0x485fff44-0-0xfe8210fc-141224302\"\n  ]\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

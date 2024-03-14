@@ -1,0 +1,367 @@
+---
+id: get-bridge-information
+title: "subbridge_getBridgeInformation"
+description: "The subbridge_getBridgeInformation returns the information of the given bridge contract."
+sidebar_label: "subbridge_getBridgeInformation"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: docs/references/json-rpc/subbridge/web-3-rpc
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  subbridge_getBridgeInformation
+</h1>
+
+
+
+
+
+The subbridge_getBridgeInformation returns the information of the given bridge contract.
+
+**JSONRPC:** `subbridge_getBridgeInformation`
+
+
+## Request
+
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"method"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"Method name","default":"subbridge_getBridgeInformation"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"id"}
+          required={true}
+          schemaName={"int64"}
+          qualifierMessage={undefined}
+          schema={{"type":"integer","default":1,"format":"int64","description":"Request ID, Random or Auto incrementation"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"jsonrpc"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","default":"2.0","description":"JSON-RPC Version (2.0)"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"params"}
+          required={true}
+          schemaName={"20-byte DATA[]"}
+          qualifierMessage={undefined}
+          schema={{"type":"array","description":"Address of a bridge contract","example":["0x27caeba831d98b5fbb1d81ce0ed20801702f443a"],"items":{"type":"string","title":"account","format":"20-byte DATA"}}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          returns the information of the given bridge contract.
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"jsonrpc"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","default":"2.0"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={true}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                error
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={false}
+                              name={"code"}
+                              required={true}
+                              schemaName={"int64"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int64","example":-32700,"description":"A Number that indicates the error type that occurred.\nThis MUST be an integer.\n\n| code | message | description |\n|-----|-----|-------|\n| -32700   | Parse error   | invalid JSON was received by the server. An error occurred on the server while parsing the JSON text. |\n|-32602 | Invalid params | Invalid method parameter(s). |\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"message"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","example":"Parse error","description":"A String providing a short description of the error.\nThe message SHOULD be limited to a concise single sentence.\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"data"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"A Primitive or Structured value that contains additional information about the error.\nThis may be omitted.\nThe value of this member is defined by the Server (e.g. detailed error information, nested errors etc.).\n"}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                result
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <div
+                              style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                            >
+                              
+                              
+                              the information of the given bridge contract.
+                              
+                              
+                            </div><SchemaItem
+                              collapsible={false}
+                              name={"counterPart"}
+                              required={true}
+                              schemaName={"20-byte DATA"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"20-byte DATA","description":"Address of the counterpart bridge contract. (Not supported yet)"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"isRunning"}
+                              required={true}
+                              schemaName={"boolean"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"boolean","description":"true if the bridge contract is running, false otherwise."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"isSubscribed"}
+                              required={true}
+                              schemaName={"boolean"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"boolean","description":"true if the bridge contract is subscribed, false otherwise."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"onServiceChain"}
+                              required={true}
+                              schemaName={"boolean"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"boolean","description":"true if the bridge contact is on child (service) chain, false otherwise."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"pendingEventSize"}
+                              required={true}
+                              schemaName={"hex"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"hex","description":"Number of pending \"request value transfer\" events generated by the bridge contracts, not handled yet by the sub-bridge."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"requestNonce"}
+                              required={true}
+                              schemaName={"hex"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"hex","description":"Request nonce of the bridge contract."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"handleNonce"}
+                              required={true}
+                              schemaName={"hex"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"hex","description":"Upper handle nonce of the bridge contract."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"lowerHandleNonce"}
+                              required={true}
+                              schemaName={"hex"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"hex","description":"Lower handle nonce of the bridge contract."}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"jsonrpc\": \"2.0\",\n  \"id\": 0,\n  \"error\": {\n    \"code\": -32700,\n    \"message\": \"Parse error\",\n    \"data\": \"string\"\n  },\n  \"result\": {\n    \"counterPart\": \"0x0000000000000000000000000000000000000000\",\n    \"handleNonce\": 0,\n    \"lowerHandleNonce\": 0,\n    \"isRunning\": true,\n    \"isSubscribed\": true,\n    \"onServiceChain\": true,\n    \"pendingEventSize\": 0,\n    \"requestNonce\": 0\n  }\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

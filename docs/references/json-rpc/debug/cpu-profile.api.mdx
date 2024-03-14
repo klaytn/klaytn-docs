@@ -1,0 +1,317 @@
+---
+id: cpu-profile
+title: "[Profiling] debug_cpuProfile"
+description: "Turns on CPU profiling for the given duration and writes profile data to disk."
+sidebar_label: " debug_cpuProfile"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: docs/references/json-rpc/debug/web-3-rpc
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  [Profiling] debug_cpuProfile
+</h1>
+
+
+
+
+
+Turns on CPU profiling for the given duration and writes profile data to disk.
+
+**JSONRPC:** `debug_cpuProfile`
+
+
+## Request
+
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"method"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"Method name","default":"debug_cpuProfile"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"id"}
+          required={true}
+          schemaName={"int64"}
+          qualifierMessage={undefined}
+          schema={{"type":"integer","default":1,"format":"int64","description":"Request ID, Random or Auto incrementation"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"jsonrpc"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","default":"2.0","description":"JSON-RPC Version (2.0)"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={true}
+          className={"schemaItem"}
+        >
+          <details
+            style={{}}
+            className={"openapi-markdown__details"}
+          >
+            <summary
+              style={{}}
+            >
+              <span
+                className={"openapi-schema__container"}
+              >
+                <strong
+                  className={"openapi-schema__property"}
+                >
+                  params
+                </strong><span
+                  className={"openapi-schema__name"}
+                >
+                   undefined[]
+                </span>
+              </span>
+            </summary><div
+              style={{"marginLeft":"1rem"}}
+            >
+              <li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                >
+                  Array [
+                </div>
+              </li><SchemaItem
+                collapsible={false}
+                name={"File"}
+                required={false}
+                schemaName={"File"}
+                qualifierMessage={undefined}
+                schema={{"title":"File","type":"string","description":"The filename for the profiling result."}}
+              >
+                
+              </SchemaItem><SchemaItem
+                collapsible={false}
+                name={"Seconds"}
+                required={false}
+                schemaName={"Seconds"}
+                qualifierMessage={undefined}
+                schema={{"title":"Seconds","type":"integer","description":"The profiling duration in seconds."}}
+              >
+                
+              </SchemaItem><li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                >
+                  ]
+                </div>
+              </li>
+            </div>
+          </details>
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Turns on CPU profiling for the given duration and writes profile data to disk.
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"jsonrpc"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","default":"2.0"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={true}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                error
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={false}
+                              name={"code"}
+                              required={true}
+                              schemaName={"int64"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int64","example":-32700,"description":"A Number that indicates the error type that occurred.\nThis MUST be an integer.\n\n| code | message | description |\n|-----|-----|-------|\n| -32700   | Parse error   | invalid JSON was received by the server. An error occurred on the server while parsing the JSON text. |\n|-32602 | Invalid params | Invalid method parameter(s). |\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"message"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","example":"Parse error","description":"A String providing a short description of the error.\nThe message SHOULD be limited to a concise single sentence.\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"data"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"A Primitive or Structured value that contains additional information about the error.\nThis may be omitted.\nThe value of this member is defined by the Server (e.g. detailed error information, nested errors etc.).\n"}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"result"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","nullable":true,"default":null}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"jsonrpc\": \"2.0\",\n  \"id\": 0,\n  \"error\": {\n    \"code\": -32700,\n    \"message\": \"Parse error\",\n    \"data\": \"string\"\n  },\n  \"result\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

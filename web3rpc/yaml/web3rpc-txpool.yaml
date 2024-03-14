@@ -1,0 +1,451 @@
+openapi: 3.0.2
+info:
+  title: web3rpc
+  version: 0.9.0
+  contact:
+    name: API support
+    url: https://forum.klaytn.foundation/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+x-tagGroups:
+  - name: namespaces
+    tags:
+      - txpool
+servers:
+  - url: http://localhost:8551
+  - url: https://api.baobab.klaytn.net:8651
+  - url: https://public-en-cypress.klaytn.net
+paths:
+  /txpool/content:
+    post:
+      operationId: content
+      summary: txpool_content
+      description: |
+        The content inspection property can be queried to list the exact details of all the transactions currently pending for inclusion in the next block(s), as well as the ones that are being scheduled for future execution only.
+
+        The result is an object with two fields pending and queued. Each of these fields is associative arrays, in which each entry maps an origin-address to a batch of scheduled transactions. These batches themselves are maps associating nonces with actual transactions.
+
+        **JSONRPC:** `txpool_content`
+      tags:
+        - txpool
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/JsonRpcRequest'
+                - type: object
+                  properties:
+                    method:
+                      type: string
+                      default: txpool_content
+      responses:
+        '200':
+          description: Returns the content of the transaction pool.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/JsonRpcResponse'
+                  - type: object
+                    properties:
+                      result:
+                        type: object
+                        required:
+                          - pending
+                          - queued
+                        properties:
+                          pending:
+                            type: object
+                            example:
+                              '0x952c9a710Ce70D58FD5C55d45c4479b82dEA6DAC':
+                                '756':
+                                  blockHash: '0x0000000000000000000000000000000000000000000000000000000000000000'
+                                  blockNumber: '0x0'
+                                  from: '0x952c9a710ce70d58fd5c55d45c4479b82dea6dac'
+                                  gas: '0x5208'
+                                  gasPrice: '0x0'
+                                  input: 0x
+                                  nonce: '0x2f4'
+                                  signatures:
+                                    - ...
+                                  to: '0x6afe934786fe008c79577d85d8e1af1f6f14c73a'
+                                  transactionIndex: '0x0'
+                                  txHash: '0x0fad399b31b520e4af5bc9f2ea40de71854a7f3c41d5918d5ed120d1b4fc5154'
+                                  type: TxTypeLegacyTransaction
+                                  value: '0x1'
+                                '757':
+                                  blockHash: '0x0000000000000000000000000000000000000000000000000000000000000000'
+                                  blockNumber: '0x0'
+                                  from: '0x952c9a710ce70d58fd5c55d45c4479b82dea6dac'
+                                  gas: '0x5208'
+                                  gasPrice: '0x0'
+                                  input: 0x
+                                  nonce: '0x2f5'
+                                  signatures:
+                                    - ...
+                                  to: '0x18352126c43e4ec314e41b632a0c1af6b233260b'
+                                  transactionIndex: '0x0'
+                                  txHash: '0xdfc3053ce6c27fd4610bb2e103837c4435f27bb6bb9dfd56110cbd2bbe5ea7fa'
+                                  type: TxTypeLegacyTransaction
+                                  value: '0x1'
+                          queued:
+                            type: object
+                            example:
+                              '0xd5B94dd456040612d721A8Eae1e4E97a70b92812':
+                                '742':
+                                  blockHash: '0x0000000000000000000000000000000000000000000000000000000000000000'
+                                  blockNumber: '0x0'
+                                  from: '0xd5b94dd456040612d721a8eae1e4e97a70b92812'
+                                  gas: '0x5208'
+                                  gasPrice: '0x0'
+                                  input: 0x
+                                  nonce: '0x2e6'
+                                  signatures:
+                                    - ...
+                                  to: '0xd5b94dd456040612d721a8eae1e4e97a70b92812'
+                                  transactionIndex: '0x0'
+                                  txHash: '0x6266969f1221b258bb2ce6fd2bcce88ad76be1e2b3eb5c770311a2bc0c2cc74a'
+                                  type: TxTypeLegacyTransaction
+                                  value: '0x2'
+      x-codeSamples:
+        - lang: curl
+          label: Curl
+          source: |
+            curl -X 'POST' \
+              'https://api.baobab.klaytn.net:8651/txpool/content' \
+              -H 'accept: application/json' \
+              -H 'Content-Type: application/json' \
+              -d '{
+              "method": "txpool_content",
+              "id": 1,
+              "jsonrpc": "2.0",
+              "params": []
+            }'
+        - lang: java
+          label: Java
+          source: |
+
+            import org.web3j.protocol.klaytn.core.method.response.TxpoolContentResponse;
+            import org.web3j.protocol.http.HttpService;
+            import org.web3j.protocol.klaytn.Web3j;
+
+            import java.io.IOException;
+
+            public class TxpoolContentExample {
+                private Web3j w3 = Web3j.build(new HttpService("https://public-en-baobab.klaytn.net"));
+                void txpoolContentExample() throws IOException {
+                    TxpoolContentResponse response = w3.txpoolContent().send();
+                    response.getResult();
+                }
+            }
+        - lang: javascript
+          label: Javascript
+          source: |
+            const { JsonRpcProvider } = require("@klaytn/ethers-ext");
+            (() => {
+              const provider = new JsonRpcProvider("https://public-en-baobab.klaytn.net");
+              provider.txpool
+                .content({}, (err, data, response) => {})
+                .then((data) => {
+                  console.log(data);
+                });
+            })();
+        - lang: python
+          label: Python
+          source: |
+            from web3 import Web3
+            from web3py_ext import extend
+
+            host = "https://api.baobab.klaytn.net:8651"
+
+            w3 = Web3(Web3.HTTPProvider(host))
+            txpool_response = w3.txpool.content()
+
+            print(txpool_response)
+  /txpool/inspect:
+    post:
+      operationId: inspect
+      summary: txpool_inspect
+      description: |
+        The inspect inspection property can be queried to list a textual summary of all the transactions currently pending for inclusion in the next block(s), as well as the ones that are being scheduled for future execution only. This is a method specifically tailored to developers to quickly see the transactions in the pool and find any potential issues.
+
+        The result is an object with two fields pending and queued. Each of these fields is associative arrays, in which each entry maps an origin-address to a batch of scheduled transactions. These batches themselves are maps associating nonces with transactions summary strings.
+
+        **JSONRPC:** `txpool_inspect`
+      tags:
+        - txpool
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/JsonRpcRequest'
+                - type: object
+                  properties:
+                    method:
+                      type: string
+                      default: txpool_inspect
+      responses:
+        '200':
+          description: Returns a list of pending and queued transactions.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/JsonRpcResponse'
+                  - type: object
+                    properties:
+                      result:
+                        type: object
+                        description: A list of pending and queued transactions.
+                        required:
+                          - pending
+                          - queued
+                        properties:
+                          pending:
+                            type: object
+                            example:
+                              '0x1A789E38cD567a00b7Fb8e1D39100ac395fa463B':
+                                '0': '0x87AC99835e67168d4f9a40580f8F5C33550bA88b: 0 peb + 99000000 gas × 25000000000 peb'
+                              '0xAb552FC3d76de919c74435A4C6B04576a9763934':
+                                '0': '0x87AC99835e67168d4f9a40580f8F5C33550bA88b: 0 peb + 99000000 gas × 25000000000 peb'
+                          queued:
+                            type: object
+                            example: {}
+      x-codeSamples:
+        - lang: curl
+          label: Curl
+          source: |
+            curl -X 'POST' \
+              'https://api.baobab.klaytn.net:8651/txpool/inspect' \
+              -H 'accept: application/json' \
+              -H 'Content-Type: application/json' \
+              -d '{
+              "method": "txpool_inspect",
+              "id": 1,
+              "jsonrpc": "2.0",
+              "params": []
+            }'
+        - lang: java
+          label: Java
+          source: |
+
+            import org.web3j.protocol.klaytn.core.method.response.TxpoolInspectResponse;
+            import org.web3j.protocol.http.HttpService;
+            import org.web3j.protocol.klaytn.Web3j;
+
+            import java.io.IOException;
+
+            public class TxpoolInspectExample {
+                private Web3j w3 = Web3j.build(new HttpService("https://public-en-baobab.klaytn.net"));
+                void txpoolInspectExample() throws IOException {
+                    TxpoolInspectResponse response = w3.txpoolInspect().send();
+                    response.getResult();
+                }
+            }
+        - lang: javascript
+          label: Javascript
+          source: |
+            const { JsonRpcProvider } = require("@klaytn/ethers-ext");
+            (() => {
+              const provider = new JsonRpcProvider("https://public-en-baobab.klaytn.net");
+              provider.txpool
+                .inspect({}, (err, data, response) => {})
+                .then((data) => {
+                  console.log(data);
+                });
+            })();
+        - lang: python
+          label: Python
+          source: |
+            from web3 import Web3
+            from web3py_ext import extend
+
+            host = "https://api.baobab.klaytn.net:8651"
+
+            w3 = Web3(Web3.HTTPProvider(host))
+            txpool_response = w3.txpool.inspect()
+
+            print(txpool_response)
+  /txpool/status:
+    post:
+      operationId: status
+      summary: txpool_status
+      description: |
+        The status inspection property can be queried for the number of transactions currently pending for inclusion in the next block(s), as well as the ones that are being scheduled for future execution only.
+
+        The result is an object with two fields pending and queued, each of which is a counter representing the number of transactions in that particular state.
+
+        **JSONRPC:** `txpool_status`
+      tags:
+        - txpool
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/JsonRpcRequest'
+                - type: object
+                  properties:
+                    method:
+                      type: string
+                      default: txpool_status
+      responses:
+        '200':
+          description: Returns the number of pending transactions and the number of queued transactions
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/JsonRpcResponse'
+                  - type: object
+                    properties:
+                      result:
+                        type: object
+                        required:
+                          - pending
+                          - queued
+                        properties:
+                          pending:
+                            title: pending
+                            description: The number of pending transactions.
+                            oneOf:
+                              - type: string
+                                format: hex
+                              - type: integer
+                          queued:
+                            title: queued
+                            description: The number of queued transactions.
+                            oneOf:
+                              - type: string
+                                format: hex
+                              - type: integer
+                        example:
+                          pending: '0x0'
+                          queued: '0x0'
+      x-codeSamples:
+        - lang: curl
+          label: Curl
+          source: |
+            curl -X 'POST' \
+              'https://api.baobab.klaytn.net:8651/txpool/status' \
+              -H 'accept: application/json' \
+              -H 'Content-Type: application/json' \
+              -d '{
+              "method": "txpool_status",
+              "id": 1,
+              "jsonrpc": "2.0",
+              "params": []
+            }'
+        - lang: java
+          label: Java
+          source: |
+
+            import org.web3j.protocol.klaytn.core.method.response.TxpoolStatusResponse;
+            import org.web3j.protocol.http.HttpService;
+            import org.web3j.protocol.klaytn.Web3j;
+
+            import java.io.IOException;
+
+            public class TxpoolStatusExample {
+                private Web3j w3 = Web3j.build(new HttpService("https://public-en-baobab.klaytn.net"));
+                void txpoolStatusExample() throws IOException {
+                    TxpoolStatusResponse response = w3.txpoolStatus().send();
+                    response.getResult();
+                }
+            }
+        - lang: javascript
+          label: Javascript
+          source: |
+            const { JsonRpcProvider } = require("@klaytn/ethers-ext");
+            (() => {
+              const provider = new JsonRpcProvider("https://public-en-baobab.klaytn.net");
+              provider.txpool
+                .status({}, (err, data, response) => {})
+                .then((data) => {
+                  console.log(data);
+                });
+            })();
+        - lang: python
+          label: Python
+          source: |
+            from web3 import Web3
+            from web3py_ext import extend
+
+            host = "https://api.baobab.klaytn.net:8651"
+
+            w3 = Web3(Web3.HTTPProvider(host))
+            txpool_response = w3.txpool.status()
+
+            print(txpool_response)
+components:
+  schemas:
+    JsonRpcRequest:
+      type: object
+      required:
+        - method
+        - id
+        - jsonrpc
+      properties:
+        method:
+          type: string
+          description: Method name
+        id:
+          type: integer
+          default: 1
+          format: int64
+          description: Request ID, Random or Auto incrementation
+        jsonrpc:
+          type: string
+          default: '2.0'
+          description: JSON-RPC Version (2.0)
+        params:
+          type: array
+          items: {}
+    ErrorMember:
+      type: object
+      title: ErrorMember
+      required:
+        - code
+      properties:
+        code:
+          type: integer
+          format: int64
+          example: -32700
+          description: |
+            A Number that indicates the error type that occurred.
+            This MUST be an integer.
+
+            | code | message | description |
+            |-----|-----|-------|
+            | -32700   | Parse error   | invalid JSON was received by the server. An error occurred on the server while parsing the JSON text. |
+            |-32602 | Invalid params | Invalid method parameter(s). |
+        message:
+          type: string
+          example: Parse error
+          description: |
+            A String providing a short description of the error.
+            The message SHOULD be limited to a concise single sentence.
+        data:
+          type: string
+          description: |
+            A Primitive or Structured value that contains additional information about the error.
+            This may be omitted.
+            The value of this member is defined by the Server (e.g. detailed error information, nested errors etc.).
+    JsonRpcResponse:
+      type: object
+      required:
+        - jsonrpc
+        - id
+      properties:
+        jsonrpc:
+          type: string
+          default: '2.0'
+        id:
+          type: integer
+          format: int64
+        error:
+          $ref: '#/components/schemas/ErrorMember'
+        result: {}

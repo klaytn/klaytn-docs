@@ -1,0 +1,268 @@
+---
+id: subscribe
+title: "[Filter] klay_subscribe"
+description: "Creates a new subscription to specific events by using either RPC Pub/Sub over WebSockets or filters over HTTP. It allows clients to wait for events instead of polling for them."
+sidebar_label: " klay_subscribe"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: docs/references/json-rpc/klay/web-3-rpc
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  [Filter] klay_subscribe
+</h1>
+
+
+
+
+
+Creates a new subscription to specific events by using either RPC Pub/Sub over WebSockets or filters over HTTP. It allows clients to wait for events instead of polling for them.
+
+The node will return a subscription id for each subscription created. For each event that matches the subscription, a notification with relevant data is sent together with the subscription id. If a connection is closed, all subscriptions created over the connection are removed.
+
+**JSONRPC:** `klay_subscribe`
+
+
+## Request
+
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"method"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"Method name","default":"klay_subscribe"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"id"}
+          required={true}
+          schemaName={"int64"}
+          qualifierMessage={undefined}
+          schema={{"type":"integer","default":1,"format":"int64","description":"Request ID, Random or Auto incrementation"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"jsonrpc"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","default":"2.0","description":"JSON-RPC Version (2.0)"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"params"}
+          required={false}
+          schemaName={"NotificationType[]"}
+          qualifierMessage={"**Possible values:** [`newHeads`, `logs`]"}
+          schema={{"type":"array","description":"A notification type: \"newHeads\" or \"logs\"","example":["newHeads"],"items":{"title":"NotificationType","type":"string","enum":["newHeads","logs"]}}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Return a subscription id when a subscription is created
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"jsonrpc"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","default":"2.0"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={true}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                error
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={false}
+                              name={"code"}
+                              required={true}
+                              schemaName={"int64"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int64","example":-32700,"description":"A Number that indicates the error type that occurred.\nThis MUST be an integer.\n\n| code | message | description |\n|-----|-----|-------|\n| -32700   | Parse error   | invalid JSON was received by the server. An error occurred on the server while parsing the JSON text. |\n|-32602 | Invalid params | Invalid method parameter(s). |\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"message"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","example":"Parse error","description":"A String providing a short description of the error.\nThe message SHOULD be limited to a concise single sentence.\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"data"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"A Primitive or Structured value that contains additional information about the error.\nThis may be omitted.\nThe value of this member is defined by the Server (e.g. detailed error information, nested errors etc.).\n"}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"result"}
+                        required={false}
+                        schemaName={"hex"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","format":"hex","example":"0xbdab16c8e4ae1b9e6930c78359de3e0e","description":"A subscription id when a subscription is created. For each event that matches the subscription, a notification with relevant data will be delivered as well."}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"jsonrpc\": \"2.0\",\n  \"id\": 0,\n  \"error\": {\n    \"code\": -32700,\n    \"message\": \"Parse error\",\n    \"data\": \"string\"\n  },\n  \"result\": \"0xbdab16c8e4ae1b9e6930c78359de3e0e\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

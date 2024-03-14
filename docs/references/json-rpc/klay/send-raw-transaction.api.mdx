@@ -1,0 +1,268 @@
+---
+id: send-raw-transaction
+title: "[Transaction] klay_sendRawTransaction"
+description: "Creates a new message call transaction or a contract creation for signed transactions."
+sidebar_label: " klay_sendRawTransaction"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: docs/references/json-rpc/klay/web-3-rpc
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  [Transaction] klay_sendRawTransaction
+</h1>
+
+
+
+
+
+Creates a new message call transaction or a contract creation for signed transactions.
+
+**NOTE:** If you deployed a contract, use klay_getTransactionReceipt to get the contract address.
+
+**JSONRPC:** `klay_sendRawTransaction`
+
+
+## Request
+
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"method"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"Method name","default":"klay_sendRawTransaction"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"id"}
+          required={true}
+          schemaName={"int64"}
+          qualifierMessage={undefined}
+          schema={{"type":"integer","default":1,"format":"int64","description":"Request ID, Random or Auto incrementation"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"jsonrpc"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","default":"2.0","description":"JSON-RPC Version (2.0)"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"params"}
+          required={true}
+          schemaName={"DATA[]"}
+          qualifierMessage={undefined}
+          schema={{"type":"array","description":"The signed transaction data.","example":["0xaca5d9a1ed8b86b1ef61431b2bedfc99a66eaefc3a7e1cffdf9ff53653956a67"],"items":{"type":"string","format":"DATA","title":"SingedTransactionData","description":"The signed transaction data."}}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Returns the transaction hash or the zero hash if the transaction is not yet available.
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"jsonrpc"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","default":"2.0"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={true}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                error
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={false}
+                              name={"code"}
+                              required={true}
+                              schemaName={"int64"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int64","example":-32700,"description":"A Number that indicates the error type that occurred.\nThis MUST be an integer.\n\n| code | message | description |\n|-----|-----|-------|\n| -32700   | Parse error   | invalid JSON was received by the server. An error occurred on the server while parsing the JSON text. |\n|-32602 | Invalid params | Invalid method parameter(s). |\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"message"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","example":"Parse error","description":"A String providing a short description of the error.\nThe message SHOULD be limited to a concise single sentence.\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"data"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"A Primitive or Structured value that contains additional information about the error.\nThis may be omitted.\nThe value of this member is defined by the Server (e.g. detailed error information, nested errors etc.).\n"}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"result"}
+                        required={false}
+                        schemaName={"32-byte DATA"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","format":"32-byte DATA","description":"The transaction hash or the zero hash if the transaction is not yet available.","example":"0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"jsonrpc\": \"2.0\",\n  \"id\": 0,\n  \"error\": {\n    \"code\": -32700,\n    \"message\": \"Parse error\",\n    \"data\": \"string\"\n  },\n  \"result\": \"0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

@@ -1,0 +1,359 @@
+---
+id: get-decoded-anchoring-transaction-by-hash
+title: "[Transaction] klay_getDecodedAnchoringTransactionByHash"
+description: "Returns the decoded anchored data in the transaction for the given transaction hash."
+sidebar_label: " klay_getDecodedAnchoringTransactionByHash"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: docs/references/json-rpc/klay/web-3-rpc
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  [Transaction] klay_getDecodedAnchoringTransactionByHash
+</h1>
+
+
+
+
+
+Returns the decoded anchored data in the transaction for the given transaction hash.
+
+**JSONRPC:** `klay_getDecodedAnchoringTransactionByHash`
+
+
+## Request
+
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"method"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"Method name","default":"klay_getDecodedAnchoringTransactionByHash"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"id"}
+          required={true}
+          schemaName={"int64"}
+          qualifierMessage={undefined}
+          schema={{"type":"integer","default":1,"format":"int64","description":"Request ID, Random or Auto incrementation"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"jsonrpc"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","default":"2.0","description":"JSON-RPC Version (2.0)"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"params"}
+          required={true}
+          schemaName={"32-byte DATA[]"}
+          qualifierMessage={undefined}
+          schema={{"type":"array","description":"Hash of a transaction.","example":["0x499350bc5e2f6fee1ba78b4d40a7a1db0a64f3c091112e6798a02ed9a4140084"],"items":{"type":"string","format":"32-byte DATA","title":"HashOfTransaction","description":"Hash of a transaction."}}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Returns the decoded anchored data in the transaction for the given transaction hash.
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"jsonrpc"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","default":"2.0"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={true}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                error
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={false}
+                              name={"code"}
+                              required={true}
+                              schemaName={"int64"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int64","example":-32700,"description":"A Number that indicates the error type that occurred.\nThis MUST be an integer.\n\n| code | message | description |\n|-----|-----|-------|\n| -32700   | Parse error   | invalid JSON was received by the server. An error occurred on the server while parsing the JSON text. |\n|-32602 | Invalid params | Invalid method parameter(s). |\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"message"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","example":"Parse error","description":"A String providing a short description of the error.\nThe message SHOULD be limited to a concise single sentence.\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"data"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"A Primitive or Structured value that contains additional information about the error.\nThis may be omitted.\nThe value of this member is defined by the Server (e.g. detailed error information, nested errors etc.).\n"}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                result
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={false}
+                              name={"BlockHash"}
+                              required={true}
+                              schemaName={"32-byte DATA"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"32-byte DATA","description":"Hash of the child chain block that this anchoring transaction was performed."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"BlockNumber"}
+                              required={true}
+                              schemaName={"number"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"number","description":"The child chain block number that this anchoring transaction was performed."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"ParentHash"}
+                              required={true}
+                              schemaName={"32-byte DATA"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"32-byte DATA","description":"Hash of the parent block."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"TxHash"}
+                              required={true}
+                              schemaName={"32-byte DATA"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"32-byte DATA","description":"The root of the transaction trie of the block."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"StateRootHash"}
+                              required={true}
+                              schemaName={"32-byte DATA"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"32-byte DATA","description":"The root of the final state trie of the block."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"ReceiptHash"}
+                              required={true}
+                              schemaName={"32-byte DATA"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"32-byte DATA","description":"The root of the receipts trie of the block."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"BlockCount"}
+                              required={true}
+                              schemaName={"number"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"number","description":"The number of blocks generated during this anchoring period. In most cases, this number is equal to the child chain's SC_TX_PERIOD, with the exception of the case that this transaction was the first anchoring tx after turning on the anchoring."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"TxCount"}
+                              required={true}
+                              schemaName={"number"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"number","description":"The number of transactions generated in the child chain during this anchoring period."}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"jsonrpc\": \"2.0\",\n  \"id\": 0,\n  \"error\": {\n    \"code\": -32700,\n    \"message\": \"Parse error\",\n    \"data\": \"string\"\n  },\n  \"result\": {\n    \"BlockCount\": 1,\n    \"BlockHash\": \"0xcf5f591836d70a1da8e6bb8e5b2c5739329ca0e535b91e239b332af2e1b7f1f4\",\n    \"BlockNumber\": 1055,\n    \"ParentHash\": \"0x70f6115a5b597f29791d3b5e3f129df54778f69ae669842cc81ec8c432fee37c\",\n    \"ReceiptHash\": \"0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421\",\n    \"StateRootHash\": \"0x654773348f77a6788c76c93946340323c9b39399d0aa173f6b23fe082848d056\",\n    \"TxCount\": 0,\n    \"TxHash\": \"0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421\"\n  }\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

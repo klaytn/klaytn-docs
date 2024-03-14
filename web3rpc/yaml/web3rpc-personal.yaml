@@ -1,0 +1,2939 @@
+openapi: 3.0.2
+info:
+  title: web3rpc
+  version: 0.9.0
+  contact:
+    name: API support
+    url: https://forum.klaytn.foundation/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+x-tagGroups:
+  - name: namespaces
+    tags:
+      - personal
+servers:
+  - url: http://localhost:8551
+  - url: https://api.baobab.klaytn.net:8651
+  - url: https://public-en-cypress.klaytn.net
+paths:
+  /personal/deriveAccount:
+    post:
+      operationId: deriveAccount
+      summary: personal_deriveAccount
+      description: |
+        Requests a HD wallet to derive a new account, optionally pinning it for later reuse.
+
+        **JSONRPC:** `personal_deriveAccount`
+      tags:
+        - personal
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/JsonRpcRequest'
+                - $ref: '#/components/schemas/PersonalDeriveAccountReq'
+      responses:
+        '200':
+          description: Return the address of the new account.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/JsonRpcResponse'
+                  - type: object
+                    properties:
+                      result:
+                        type: string
+                        description: The address of the new account.
+                        example: '0xed1b12248aee85a32aead06c7789d3fcdcd4dae6'
+      x-codeSamples:
+        - lang: curl
+          label: Curl
+          source: |
+            curl -X 'POST' \
+              'https://api.baobab.klaytn.net:8651/personal/deriveAccount' \
+              -H 'accept: application/json' \
+              -H 'Content-Type: application/json' \
+              -d '{
+              "method": "personal_deriveAccount",
+              "id": 1,
+              "jsonrpc": "2.0",
+              "params": [
+                "url",
+                "path",
+                true
+              ]
+            }'
+        - lang: java
+          label: Java
+          source: |
+            import java.io.IOException;
+
+            import org.web3j.protocol.klaytn.core.method.response.PersonalDeriveAccountResponse;
+            import org.web3j.protocol.http.HttpService;
+            import org.web3j.protocol.klaytn.Web3j;
+
+            public class PersonalDeriveAccountExample {
+                private Web3j w3 = Web3j.build(new HttpService("https://public-en-baobab.klaytn.net"));  void personalDeriveAccountExample() throws IOException {
+                String url = "url";
+                String path = "path";
+                boolean pin =true;
+                PersonalDeriveAccountResponse response = w3.personalDeriveAccount(url, path, pin).send();
+                response.getResult();
+              }
+            }
+        - lang: javascript
+          label: Javascript
+          source: |
+            const { JsonRpcProvider } = require("@klaytn/ethers-ext");
+            (() => {
+              const provider = new JsonRpcProvider("https://public-en-baobab.klaytn.net");
+              const url = "url";
+              const path = "path";
+              const pin = true;
+
+              provider.personal
+                .deriveAccount(url, path, { pin }, (err, data, response) => {})
+                .then((data) => {
+                  console.log(data);
+                });
+            })();
+        - lang: python
+          label: Python
+          source: |
+            from web3 import Web3
+            from web3py_ext import extend
+
+            host = "https://api.baobab.klaytn.net:8651"
+
+            url = "url"
+            path = "path"
+            pin = True
+
+            w3 = Web3(Web3.HTTPProvider(host))
+            personal_response = w3.personal.derive_account(url, path, pin)
+
+            print(personal_response)
+  /personal/ecRecover:
+    post:
+      operationId: ecRecover
+      summary: personal_ecRecover
+      description: |
+        ecRecover returns the address associated with the private key that was used to calculate the signature in personal_sign.
+
+        **JSONRPC:** `personal_ecRecover`
+      tags:
+        - personal
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/JsonRpcRequest'
+                - $ref: '#/components/schemas/PersonalEcRecoverReq'
+      responses:
+        '200':
+          description: Return the account address.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/JsonRpcResponse'
+                  - type: object
+                    properties:
+                      result:
+                        type: string
+                        description: The account address.
+                        example: '0xda04fb00e2cb5745cef7d8c4464378202a1673ef'
+      x-codeSamples:
+        - lang: curl
+          label: Curl
+          source: |
+            curl -X 'POST' \
+              'https://api.baobab.klaytn.net:8651/personal/ecRecover' \
+              -H 'accept: application/json' \
+              -H 'Content-Type: application/json' \
+              -d '{
+              "method": "personal_ecRecover",
+              "id": 1,
+              "jsonrpc": "2.0",
+              "params": [
+                "0xdead",
+                "0xccb8cce176b01fdc8f7ac3c101b8eb3b9005e938a60800e517624419dd8b7fba0e4598bdf1c4fa1743e1288e89b8b7090cc11f4b3640aafcbc71896ec73eec241b"
+              ]
+            }'
+        - lang: java
+          label: Java
+          source: |
+
+            import org.web3j.protocol.klaytn.core.method.response.PersonalEcRecoverResponse;
+            import org.web3j.protocol.http.HttpService;
+            import org.web3j.protocol.klaytn.Web3j;
+
+            import java.io.IOException;
+
+            public class PersonalEcRecoverExample {
+
+                private Web3j w3 = Web3j.build(new HttpService("https://public-en-baobab.klaytn.net"));
+                void personalEcRecoverExample() throws IOException {
+                    PersonalEcRecoverResponse response = w3.personalEcRecover(
+                            "0xdead",
+                                    "0xccb8cce176b01fdc8f7ac3c101b8eb3b9005e938a60800e517624419dd8b7fba0e4598bdf1c4fa1743e1288e89b8b7090cc11f4b3640aafcbc71896ec73eec241b")
+                            .send();
+                    response.getResult();
+                }
+            }
+        - lang: javascript
+          label: Javascript
+          source: |
+            const { JsonRpcProvider } = require("@klaytn/ethers-ext");
+            (() => {
+              const provider = new JsonRpcProvider("https://public-en-baobab.klaytn.net");
+              const message = "0xdead";
+              const signature =
+                "0xccb8cce176b01fdc8f7ac3c101b8eb3b9005e938a60800e517624419dd8b7fba0e4598bdf1c4fa1743e1288e89b8b7090cc11f4b3640aafcbc71896ec73eec241b";
+
+              provider.personal
+                .ecRecover(message, signature, {}, (err, data, response) => {})
+                .then((data) => {
+                  console.log(data);
+                });
+            })();
+        - lang: python
+          label: Python
+          source: |
+            from web3 import Web3
+            from web3py_ext import extend
+
+            host = "https://api.baobab.klaytn.net:8651"
+
+            message = "0xdead"
+            signature = "0xccb8cce176b01fdc8f7ac3c101b8eb3b9005e938a60800e517624419dd8b7fba0e4598bdf1c4fa1743e1288e89b8b7090cc11f4b3640aafcbc71896ec73eec241b"
+
+            w3 = Web3(Web3.HTTPProvider(host))
+            personal_response = w3.personal.ec_recover(message, signature)
+
+            print(personal_response)
+  /personal/importRawKey:
+    post:
+      operationId: importRawKey
+      summary: personal_importRawKey
+      description: |
+        Imports the given unencrypted private key (hex string without leading '0x') or a Klaytn wallet key into the key store, encrypting it with the passphrase.
+
+        Returns the address of the imported account.
+
+        **JSONRPC:** `personal_importRawKey`
+      tags:
+        - personal
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/JsonRpcRequest'
+                - $ref: '#/components/schemas/PersonalImportRawKeyReq'
+      responses:
+        '200':
+          description: Returns the address of the imported account.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/JsonRpcResponse'
+                  - type: object
+                    properties:
+                      result:
+                        type: string
+                        description: The address of the imported account.
+                        example: '0xfa415bb3e6231f488ff39eb2897db0ef3636dd32'
+      x-codeSamples:
+        - lang: curl
+          label: Curl
+          source: |
+            curl -X 'POST' \
+              'https://api.baobab.klaytn.net:8651/personal/importRawKey' \
+              -H 'accept: application/json' \
+              -H 'Content-Type: application/json' \
+              -d '{
+              "method": "personal_importRawKey",
+              "id": 1,
+              "jsonrpc": "2.0",
+              "params": [
+                "cd87934ee007b7a458fa00dc0314fff8b2bd43b3071f46c820c379e483b4fd8e",
+                "gr8=B!0@uc$b"
+              ]
+            }'
+        - lang: java
+          label: Java
+          source: |
+
+            import org.web3j.protocol.klaytn.core.method.response.PersonalImportRawKeyResponse;
+            import org.web3j.protocol.http.HttpService;
+            import org.web3j.protocol.klaytn.Web3j;
+
+            import java.io.IOException;
+
+            public class PersonalImportRawKeyExample {
+
+                private Web3j w3 = Web3j.build(new HttpService("https://public-en-baobab.klaytn.net"));
+                void personalImportRawKeyExample() throws IOException {
+                    PersonalImportRawKeyResponse response = w3.
+                        personalImportRawKey(
+                            "45a915e4d060149eb4365960e6a7a45f334393093061116b197e3240065ff2d80x000xa94f5374fce5edbc8e2a8697c15331677e6ebf0b",
+                            "mypassword")
+                        .send();
+                    response.getResult();
+                }
+            }
+        - lang: javascript
+          label: Javascript
+          source: |
+            const { JsonRpcProvider } = require("@klaytn/ethers-ext");
+            (() => {
+              const provider = new JsonRpcProvider("https://public-en-baobab.klaytn.net");
+              const privateKey =
+                "cd87934ee007b7a458fa00dc0314fff8b2bd43b3071f46c820c379e483b4fd8e";
+              const passphrase = "gr8=B!0@uc$b";
+
+              provider.personal
+                .importRawKey(privateKey, passphrase, {}, (err, data, response) => {})
+                .then((data) => {
+                  console.log(data);
+                });
+            })();
+        - lang: python
+          label: Python
+          source: |
+            from web3 import Web3
+            from web3py_ext import extend
+
+            host = "https://api.baobab.klaytn.net:8651"
+
+            privateKey = "cd87934ee007b7a458fa00dc0314fff8b2bd43b3079f46c820c379e483b4fd8e"
+            passphrase = "mypassword"
+
+            w3 = Web3(Web3.HTTPProvider(host))
+            personal_response = w3.personal.import_raw_key(privateKey, passphrase)
+
+            print(personal_response)
+  /personal/listAccounts:
+    post:
+      operationId: listAccounts
+      summary: personal_listAccounts
+      description: |
+        Returns all the Klaytn account addresses of all keys in the key store.
+
+        **JSONRPC:** `personal_listAccounts`
+      tags:
+        - personal
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/JsonRpcRequest'
+                - type: object
+                  required:
+                    - method
+                  properties:
+                    method:
+                      type: string
+                      default: personal_listAccounts
+      responses:
+        '200':
+          description: Returns all the Klaytn account addresses of all keys in the key store.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/JsonRpcResponse'
+                  - type: object
+                    properties:
+                      result:
+                        type: string
+                        description: The list of all the Klaytn account addresses
+                        example:
+                          - '0x5e97870f263700f46aa00d967821199b9bc5a120'
+                          - '0x3d80b31a78c30fc628f20b2c89d7ddbf6e53cedc'
+      x-codeSamples:
+        - lang: curl
+          label: Curl
+          source: |
+            curl -X 'POST' \
+              'https://api.baobab.klaytn.net:8651/personal/listAccounts' \
+              -H 'accept: application/json' \
+              -H 'Content-Type: application/json' \
+              -d '{
+              "method": "personal_listAccounts",
+              "id": 1,
+              "jsonrpc": "2.0",
+              "params": []
+            }'
+        - lang: java
+          label: Java
+          source: |
+
+            import org.web3j.protocol.klaytn.core.method.response.PersonalListAccountsResponse;
+            import org.web3j.protocol.http.HttpService;
+            import org.web3j.protocol.klaytn.Web3j;
+
+            import java.io.IOException;
+
+            public class PersonalListAccountsExample {
+
+                private Web3j w3 = Web3j.build(new HttpService("https://public-en-baobab.klaytn.net"));
+                void personalListAccountsExample() throws IOException {
+                    PersonalListAccountsResponse response = w3.personalListAccounts()
+                            .send();
+                    response.getResult();
+                }
+            }
+        - lang: javascript
+          label: Javascript
+          source: |
+            const { JsonRpcProvider } = require("@klaytn/ethers-ext");
+            (() => {
+              const provider = new JsonRpcProvider("https://public-en-baobab.klaytn.net");
+              provider.personal
+                .listAccounts({}, (err, data, response) => {})
+                .then((data) => {
+                  console.log(data);
+                });
+            })();
+        - lang: python
+          label: Python
+          source: |
+            from web3 import Web3
+            from web3py_ext import extend
+
+            host = "https://api.baobab.klaytn.net:8651"
+
+            w3 = Web3(Web3.HTTPProvider(host))
+            personal_response = w3.personal.list_accounts()
+
+            print(personal_response)
+  /personal/listWallets:
+    post:
+      operationId: listWallets
+      summary: personal_listWallets
+      description: |
+        Returns a list of wallets this node manages.
+
+        **JSONRPC:** `personal_listWallets`
+      tags:
+        - personal
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/JsonRpcRequest'
+                - type: object
+                  required:
+                    - method
+                  properties:
+                    method:
+                      type: string
+                      default: personal_listWallets
+      responses:
+        '200':
+          description: Returns a list of wallets this node manages.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/JsonRpcResponse'
+                  - $ref: '#/components/schemas/PersonalListWalletsResp'
+      x-codeSamples:
+        - lang: curl
+          label: Curl
+          source: |
+            curl -X 'POST' \
+              'https://api.baobab.klaytn.net:8651/personal/listWallets' \
+              -H 'accept: application/json' \
+              -H 'Content-Type: application/json' \
+              -d '{
+              "method": "personal_listWallets",
+              "id": 1,
+              "jsonrpc": "2.0",
+              "params": []
+            }'
+        - lang: java
+          label: Java
+          source: |
+
+            import org.web3j.protocol.klaytn.core.method.response.PersonalListWalletsResponse;
+            import org.web3j.protocol.http.HttpService;
+            import org.web3j.protocol.klaytn.Web3j;
+
+            import java.io.IOException;
+
+            public class PersonalListWalletsExample {
+                private Web3j w3 = Web3j.build(new HttpService("https://public-en-baobab.klaytn.net"));
+                void personalListWalletsExample() throws IOException {
+                    PersonalListWalletsResponse response = w3.personalListWallets()
+                            .send();
+                    response.getResult();
+                }
+            }
+        - lang: javascript
+          label: Javascript
+          source: |
+            const { JsonRpcProvider } = require("@klaytn/ethers-ext");
+            (() => {
+              const provider = new JsonRpcProvider("https://public-en-baobab.klaytn.net");
+              provider.personal
+                .listWalconsts({}, (err, data, response) => {})
+                .then((data) => {
+                  console.log(data);
+                });
+            })();
+        - lang: python
+          label: Python
+          source: |
+            from web3 import Web3
+            from web3py_ext import extend
+
+            host = "https://api.baobab.klaytn.net:8651"
+
+            w3 = Web3(Web3.HTTPProvider(host))
+            personal_response = w3.personal.list_wallets()
+
+            print(personal_response)
+  /personal/lockAccount:
+    post:
+      operationId: lockAccount
+      summary: personal_lockAccount
+      description: |
+        Removes the private key with a given address from memory. The account can no longer be used to send transactions.
+
+        **JSONRPC:** `personal_lockAccount`
+      tags:
+        - personal
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/JsonRpcRequest'
+                - type: object
+                  properties:
+                    method:
+                      type: string
+                      default: personal_lockAccount
+                    params:
+                      type: array
+                      items:
+                        title: address
+                        type: string
+                      description: The account address to lock.
+                      example:
+                        - '0xfa415bb3e6231f488ff39eb2897db0ef3636dd32'
+      responses:
+        '200':
+          description: Return the locked status of the account.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/JsonRpcResponse'
+                  - type: object
+                    properties:
+                      result:
+                        type: boolean
+                        description: true if the account was successfully locked, false otherwise.
+                        example: true
+      x-codeSamples:
+        - lang: curl
+          label: Curl
+          source: |
+            curl -X 'POST' \
+              'https://api.baobab.klaytn.net:8651/personal/lockAccount' \
+              -H 'accept: application/json' \
+              -H 'Content-Type: application/json' \
+              -d '{
+              "method": "personal_lockAccount",
+              "id": 1,
+              "jsonrpc": "2.0",
+              "params": [
+                "0xfa415bb3e6231f488ff39eb2897db0ef3636dd32"
+              ]
+            }'
+        - lang: java
+          label: Java
+          source: |
+
+            import org.web3j.protocol.klaytn.core.method.response.PersonalLockAccountResponse;
+            import org.web3j.protocol.http.HttpService;
+            import org.web3j.protocol.klaytn.Web3j;
+
+            import java.io.IOException;
+
+            public class PersonalLockAccountExample {
+
+                private Web3j w3 = Web3j.build(new HttpService("https://public-en-baobab.klaytn.net"));
+                void personalLockAccountExample() throws IOException {
+                    PersonalLockAccountResponse response = w3.personalLockAccount("0xda04fb00e2cb5745cef7d8c4464378202a1673ef")
+                            .send();
+                    response.getResult();
+                }
+            }
+        - lang: javascript
+          label: Javascript
+          source: |
+            const { JsonRpcProvider } = require("@klaytn/ethers-ext");
+            (() => {
+              const provider = new JsonRpcProvider("https://public-en-baobab.klaytn.net");
+              const address = "0xfa415bb3e6231f488ff39eb2897db0ef3636dd32";
+
+              provider.personal
+                .lockAccount(address, {}, (err, data, response) => {})
+                .then((data) => {
+                  console.log(data);
+                });
+            })();
+        - lang: python
+          label: Python
+          source: |
+            from web3 import Web3
+            from web3py_ext import extend
+
+            host = "https://api.baobab.klaytn.net:8651"
+
+            address = "0xfa415bb3e6231f488ff39eb2897db0ef3636dd32"
+
+            w3 = Web3(Web3.HTTPProvider(host))
+            personal_response = w3.personal.lock_account(address)
+
+            print(personal_response)
+  /personal/newAccount:
+    post:
+      operationId: newAccount
+      summary: personal_newAccount
+      description: |
+        Generates a new private key and stores it in the key store directory. The key file is encrypted with the given passphrase. Returns the address of the new account.
+
+        At the Klaytn console, newAccount will prompt for a passphrase when it is not supplied as the argument.
+
+        **JSONRPC:** `personal_newAccount`
+      tags:
+        - personal
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/JsonRpcRequest'
+                - type: object
+                  properties:
+                    method:
+                      type: string
+                      default: personal_newAccount
+                    params:
+                      type: array
+                      items:
+                        title: passphrase
+                        type: string
+                      description: (optional) the pass phrase used for encryption.
+                      example:
+                        - helloWorld
+      responses:
+        '200':
+          description: Returns The address of the new account.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/JsonRpcResponse'
+                  - type: object
+                    properties:
+                      result:
+                        type: string
+                        description: The address of the new account
+                        example: '0xed1b12248aee85a32aead06c7789d3fcdcd4dae6'
+      x-codeSamples:
+        - lang: curl
+          label: Curl
+          source: |
+            curl -X 'POST' \
+              'https://api.baobab.klaytn.net:8651/personal/newAccount' \
+              -H 'accept: application/json' \
+              -H 'Content-Type: application/json' \
+              -d '{
+              "method": "personal_newAccount",
+              "id": 1,
+              "jsonrpc": "2.0",
+              "params": [
+                "helloWorld"
+              ]
+            }'
+        - lang: java
+          label: Java
+          source: |
+
+            import org.web3j.protocol.klaytn.core.method.response.PersonalNewAccountResponse;
+            import org.web3j.protocol.http.HttpService;
+            import org.web3j.protocol.klaytn.Web3j;
+
+            import java.io.IOException;
+
+            public class PersonalNewAccountExample {
+                private Web3j w3 = Web3j.build(new HttpService("https://public-en-baobab.klaytn.net"));
+                void personalNewAccountExample() throws IOException {
+                    PersonalNewAccountResponse response = w3.personalNewAccount("helloWorld").send();
+                    response.getResult();
+                }
+            }
+        - lang: javascript
+          label: Javascript
+          source: |
+            const { JsonRpcProvider } = require("@klaytn/ethers-ext");
+            (() => {
+              const provider = new JsonRpcProvider("https://public-en-baobab.klaytn.net");
+              const passphrase = "helloWorld";
+
+              provider.personal
+                .newAccount({ passphrase }, (err, data, response) => {})
+                .then((data) => {
+                  console.log(data);
+                });
+            })();
+        - lang: python
+          label: Python
+          source: |
+            from web3 import Web3
+            from web3py_ext import extend
+
+            host = "https://api.baobab.klaytn.net:8651"
+
+            passphrase = "helloWorld"
+
+            w3 = Web3(Web3.HTTPProvider(host))
+            personal_response = w3.personal.new_account(passphrase)
+
+            print(personal_response)
+  /personal/openWallet:
+    post:
+      operationId: openWallet
+      summary: personal_openWallet
+      description: |
+        Initiates a hardware wallet opening procedure, establishing a USB connection and attempting to authenticate via the provided passphrase.
+
+        **NOTE:** The method may return an extra challenge requiring a second open (e.g., the Trezor PIN matrix challenge).
+
+        **JSONRPC:** `personal_openWallet`
+      tags:
+        - personal
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/JsonRpcRequest'
+                - $ref: '#/components/schemas/PersonalOpenWalletReq'
+      responses:
+        '200':
+          description: Return initiates a hardware wallet opening procedure
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/JsonRpcResponse'
+                  - type: object
+                    properties:
+                      result:
+                        title: Error
+                        type: string
+                        description: Error condition
+                        example: null
+      x-codeSamples:
+        - lang: curl
+          label: Curl
+          source: |
+            curl -X 'POST' \
+              'https://api.baobab.klaytn.net:8651/personal/openWallet' \
+              -H 'accept: application/json' \
+              -H 'Content-Type: application/json' \
+              -d '{
+              "method": "personal_openWallet",
+              "id": 1,
+              "jsonrpc": "2.0",
+              "params": [
+                "keystore://",
+                "hello@1234"
+              ]
+            }'
+        - lang: java
+          label: Java
+          source: |
+
+            import org.web3j.protocol.klaytn.core.method.response.PersonalOpenWalletResponse;
+            import org.web3j.protocol.http.HttpService;
+            import org.web3j.protocol.klaytn.Web3j;
+
+            import java.io.IOException;
+
+            public class PersonalOpenWalletExample {
+
+                private Web3j w3 = Web3j.build(new HttpService("https://public-en-baobab.klaytn.net"));
+                void personalOpenWalletExample() throws IOException {
+                    String url = "keystore:///home/sotatek/klay-node/kcn-v1.10.2-0-linux-amd64/kcn-linux-amd64/data/keystore/UTC--2" +
+                            "023-04-13T03-23-36.992476555Z--8cd4b6b24f2cd0b83d49876f932254823e875547";
+                    String passphrase = "passphrase";
+                    PersonalOpenWalletResponse response = w3.personalOpenWallet(url, passphrase).send();
+                    response.getResult();
+                }
+            }
+        - lang: javascript
+          label: Javascript
+          source: |
+            const { JsonRpcProvider } = require("@klaytn/ethers-ext");
+            (() => {
+              const provider = new JsonRpcProvider("https://public-en-baobab.klaytn.net");
+              const url = "keystore://";
+              const passphrase = "gr8=B!0@uc$b";
+
+              provider.personal
+                .openWalconst(url, passphrase, {}, (err, data, response) => {})
+                .then((data) => {
+                  console.log(data);
+                });
+            })();
+        - lang: python
+          label: Python
+          source: |
+            from web3 import Web3
+            from web3py_ext import extend
+
+            host = "https://api.baobab.klaytn.net:8651"
+
+            url = "keystore://"
+            passphrase = "helloWorld"
+
+            w3 = Web3(Web3.HTTPProvider(host))
+            personal_response = w3.personal.open_wallet(url, passphrase)
+
+            print(personal_response)
+  /personal/replaceRawKey:
+    post:
+      operationId: replaceRawKey
+      summary: personal_replaceRawKey
+      description: |
+        Replaces the encrypted key file in the key store with the given unencrypted private key (hex string without leading '0x') or a Klaytn wallet key, encrypting it with the new passphrase. It also receives the old passphrase to decrypt the old private key before replacement. If it is failed to decrypt, or can not find the matching account, it throws an error.
+
+        Returns the address of the replaced account if successful.
+
+        **JSONRPC:** `personal_replaceRawKey`
+      tags:
+        - personal
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/JsonRpcRequest'
+                - $ref: '#/components/schemas/PersonalReplaceRawKeyReq'
+      responses:
+        '200':
+          description: Return the address of the replaced account.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/JsonRpcResponse'
+                  - type: object
+                    properties:
+                      result:
+                        type: string
+                        description: The address of the replaced account.
+                        example: '0xfa415bb3e6231f488ff39eb2897db0ef3636dd32'
+      x-codeSamples:
+        - lang: curl
+          label: Curl
+          source: |
+            curl -X 'POST' \
+              'https://api.baobab.klaytn.net:8651/personal/replaceRawKey' \
+              -H 'accept: application/json' \
+              -H 'Content-Type: application/json' \
+              -d '{
+              "method": "personal_replaceRawKey",
+              "id": 1,
+              "jsonrpc": "2.0",
+              "params": [
+                "ba4a5bbc0dc57d6348047be71773686d1739bf0a5ac6ca4c390f0e4d596a09a6",
+                "hello@1234",
+                "hello@1234"
+              ]
+            }'
+        - lang: java
+          label: Java
+          source: |
+
+            import org.web3j.protocol.klaytn.core.method.response.PersonalReplaceRawKeyResponse;
+            import org.web3j.protocol.http.HttpService;
+            import org.web3j.protocol.klaytn.Web3j;
+
+            import java.io.IOException;
+
+            public class PersonalReplaceRawKeyExample {
+                private Web3j w3 = Web3j.build(new HttpService("https://public-en-baobab.klaytn.net"));
+                void personalReplaceRawKeyExample() throws IOException {
+                    String key = "5b49a622d8360b719ed45b75f3db77c04d32224800c8ea113bd03bb1d35562cd";
+                    String oldPassphrase = "mypassword";
+                    String newPassphrase = "mynewpassword";
+
+                    PersonalReplaceRawKeyResponse response = w3.personalReplaceRawKey(key, oldPassphrase, newPassphrase)
+                            .send();
+                    response.getResult();
+                }
+            }
+        - lang: javascript
+          label: Javascript
+          source: |
+            const { JsonRpcProvider } = require("@klaytn/ethers-ext");
+            (() => {
+              const provider = new JsonRpcProvider("https://public-en-baobab.klaytn.net");
+              const keyData =
+                "24c34f686a5848edb19180fb723b5db21c626f253e8b63bf8a0054ea67852c0a";
+              const oldPassphrase = "hello@123";
+              const newPassphrase = "hello@123";
+
+              provider.personal
+                .replaceRawKey(
+                  keyData,
+                  oldPassphrase,
+                  newPassphrase,
+                  {},
+                  (err, data, response) => {},
+                )
+                .then((data) => {
+                  console.log(data);
+                });
+            })();
+        - lang: python
+          label: Python
+          source: |
+            from web3 import Web3
+            from web3py_ext import extend
+
+            host = "https://api.baobab.klaytn.net:8651"
+
+            keyData = "24c34f686a5848edb19180fb723b5db21c626f253e8b63bf8a0054ea67852c0a"
+            oldPassphrase = "helloWorld"
+            newPassphrase = "helloWorld"
+
+            w3 = Web3(Web3.HTTPProvider(host))
+            personal_response = w3.personal.replace_raw_key(keyData, oldPassphrase, newPassphrase)
+
+            print(personal_response)
+  /personal/sendAccountUpdate:
+    post:
+      operationId: sendAccountUpdate
+      summary: personal_sendAccountUpdate
+      description: |
+        Validates the given passphrase and submits a TxTypeAccountUpdate transaction. The transaction object must have fields from and key. Other fields such as gas, gasPrice, and nonce are se internally if unspecified. If the passphrase is able to decrypt the private key belonging to tx.from and the transaction is verified, the transaction is signed and submitted onto the network. The account is not unlocked globally in the node and cannot be used in other RPC calls.
+
+        **JSONRPC:** `personal_sendAccountUpdate`
+      tags:
+        - personal
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/JsonRpcRequest'
+                - $ref: '#/components/schemas/PersonalSendAccountUpdateReq'
+      responses:
+        '200':
+          description: Return a transaction hash if succeeded. Otherwise, an error is raised.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/JsonRpcResponse'
+                  - type: object
+                    properties:
+                      result:
+                        type: string
+                        format: 32-byte DATA
+                        description: a transaction hash if succeeded. Otherwise, an error is raised.
+                        example: '0x8474441674cdd47b35b875fd1a530b800b51a5264b9975fb21129eeb8c18582f'
+      x-codeSamples:
+        - lang: curl
+          label: Curl
+          source: |
+            curl -X 'POST' \
+              'https://api.baobab.klaytn.net:8651/personal/sendAccountUpdate' \
+              -H 'accept: application/json' \
+              -H 'Content-Type: application/json' \
+              -d '{
+              "method": "personal_sendAccountUpdate",
+              "id": 1,
+              "jsonrpc": "2.0",
+              "params": [
+                {
+                    "from":"0x1d4e05bb72677cb8fa576149c945b57d13f855e4",
+                    "key":"0x02a102dbac81e8486d68eac4e6ef9db617f7fbd79a04a3b323c982a09cdfc61f0ae0e8"
+                },
+                "gr8=B!0@uc$b"
+              ]
+            }'
+        - lang: java
+          label: Java
+          source: |
+
+            import org.web3j.protocol.klaytn.core.method.response.PersonalSendAccountUpdateResponse;
+            import org.web3j.protocol.klaytn.core.method.response.TransactionObject;
+            import org.web3j.protocol.http.HttpService;
+            import org.web3j.protocol.klaytn.Web3j;
+
+            import java.io.IOException;
+
+            public class PersonalSendAccountUpdateExample {
+                private Web3j w3 = Web3j.build(new HttpService("https://public-en-baobab.klaytn.net"));
+                void personalSendAccountUpdateExample() throws IOException {
+                    TransactionObject transactionObject = new TransactionObject();
+                    transactionObject.setFrom("0x1d4e05bb72677cb8fa576149c945b57d13f855e4");
+                    transactionObject.setKey("0x02a102dbac81e8486d68eac4e6ef9db617f7fbd79a04a3b323c982a09cdfc61f0ae0e8");
+
+                    String passphrase = "gr8=B!0@uc$b";
+
+                    PersonalSendAccountUpdateResponse response = w3.personalSendAccountUpdate(transactionObject, passphrase).send();
+                    response.getResult();
+                }
+            }
+        - lang: javascript
+          label: Javascript
+          source: |
+            const { JsonRpcProvider } = require("@klaytn/ethers-ext");
+            (() => {
+              const provider = new JsonRpcProvider("https://public-en-baobab.klaytn.net");
+              const tx = {
+                from: "0x1d4e05bb72677cb8fa576149c945b57d13f855e4",
+                key: "0x02a102dbac81e8486d68eac4e6ef9db617f7fbd79a04a3b323c982a09cdfc61f0ae0e8",
+              };
+              const passphrase = "gr8=B!0@uc$b";
+
+              provider.personal
+                .sendAccountUpdate(tx, passphrase, {}, (err, data, response) => {})
+                .then((data) => {
+                  console.log(data);
+                });
+            })();
+        - lang: python
+          label: Python
+          source: |
+            from web3 import Web3
+            from web3py_ext import extend
+
+            host = "https://api.baobab.klaytn.net:8651"
+
+            tx = {
+                "from": "0x1d4e05bb72677cb8fa576149c945b57d13f855e4",
+                "key": "0x02a102dbac81e8486d68eac4e6ef9db617f7fbd79a04a3b323c982a09cdfc61f0ae0e8"
+            }
+            passphrase = "gr8=B!0@uc$b"
+
+            w3 = Web3(Web3.HTTPProvider(host))
+            personal_response = w3.personal.send_account_update(tx, passphrase)
+
+            print(personal_response)
+  /personal/sendTransaction:
+    post:
+      operationId: sendTransaction
+      summary: personal_sendTransaction
+      description: |
+        Validates the given passphrase and submits a TxTypeLegacy transaction. The transaction object must have from and to except the case of contract deployment. to should be omitted if the transaction deploys a smart contract. If value is not specified, it will be set to zero internally. Other fields such as gas, gasPrice, and nonce are set to appropriate values internally if unspecified. If the passphrase is able to decrypt the private key belonging to tx.from and the transaction is verified, the transaction is signed and submitted onto the network. The account is not unlocked globally in the node and cannot be used in other RPC calls.
+
+        **JSONRPC:** `personal_sendTransaction`
+      tags:
+        - personal
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/JsonRpcRequest'
+                - $ref: '#/components/schemas/PersonalSendTransactionReq'
+      responses:
+        '200':
+          description: Return a transaction hash if succeeded. Otherwise, an error is raised.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/JsonRpcResponse'
+                  - type: object
+                    properties:
+                      result:
+                        title: SendTransactionResponse
+                        type: string
+                        format: 32-byte DATA
+                        description: a transaction hash if succeeded. Otherwise, an error is raised.
+                        example: '0x8474441674cdd47b35b875fd1a530b800b51a5264b9975fb21129eeb8c18582f'
+      x-codeSamples:
+        - lang: curl
+          label: Curl
+          source: |
+            curl -X 'POST' \
+              'https://api.baobab.klaytn.net:8651/personal/sendTransaction' \
+              -H 'accept: application/json' \
+              -H 'Content-Type: application/json' \
+              -d '{
+              "method": "personal_sendTransaction",
+              "id": 1,
+              "jsonrpc": "2.0",
+              "params": [
+                {
+                  "from": "0x413ba0e5f6f00664598b5c80042b1308f4ff1408",
+                  "to": "0x8c9f4468ae04fb3d79c80f6eacf0e4e1dd21deee",
+                  "value": "0x1",
+                  "gas": "0x9999"
+                },
+                "helloWorld"
+              ]
+            }'
+        - lang: java
+          label: Java
+          source: |
+
+            //import org.web3j.protocol.klaytn.core.method.response.PersonalSendTransactionResponse;
+            import org.web3j.protocol.klaytn.core.method.response.TransactionObject;
+            import org.web3j.protocol.http.HttpService;
+            import org.web3j.protocol.klaytn.Web3j;
+
+            import java.io.IOException;
+            import java.util.concurrent.ExecutionException;
+
+            public class PersonalSendTransactionExample {
+                private Web3j w3 = Web3j.build(new HttpService("https://public-en-baobab.klaytn.net"));
+                void personalSendTransactionExample() throws IOException, ExecutionException, InterruptedException {
+                    TransactionObject transactionObject = new TransactionObject();
+                    transactionObject.setFrom("0x413ba0e5f6f00664598b5c80042b1308f4ff1408");
+                    transactionObject.setTo("0x8cd4b6b24f2cd0b83d49876f932254823e875547");
+                    transactionObject.setValue("0x1");
+
+                    String password = "helloWorld";
+
+            //        PersonalSendTransactionResponse response = w3.personalSendTransaction(transactionObject, password).send();
+            //        response.getResult();
+                }
+
+            }
+        - lang: javascript
+          label: Javascript
+          source: |
+            const { JsonRpcProvider } = require("@klaytn/ethers-ext");
+            (() => {
+              const provider = new JsonRpcProvider("https://public-en-baobab.klaytn.net");
+
+              const tx = {
+                from: "0x413ba0e5f6f00664598b5c80042b1308f4ff1408",
+                to: "0x8c9f4468ae04fb3d79c80f6eacf0e4e1dd21deee",
+                value: "0x1",
+              };
+              const passphrase = "helloWorld";
+
+              provider.personal
+                .sendTransaction(tx, passphrase, {}, (err, data, response) => {})
+                .then((data) => {
+                  console.log(data);
+                });
+            })();
+        - lang: python
+          label: Python
+          source: |
+            from web3 import Web3
+            from web3py_ext import extend
+
+            host = "https://api.baobab.klaytn.net:8651"
+
+            tx = {
+                "from": "0x413ba0e5f6f00664598b5c80042b1308f4ff1408",
+                "to": "0x8c9f4468ae04fb3d79c80f6eacf0e4e1dd21deee",
+                "value": "0x1"
+            }
+            passphrase = "helloWorld"
+
+            w3 = Web3(Web3.HTTPProvider(host))
+            personal_response = w3.personal.send_transaction(tx, passphrase)
+
+            print(personal_response)
+  /personal/sendValueTransfer:
+    post:
+      operationId: sendValueTransfer
+      summary: personal_sendValueTransfer
+      description: |
+        Validates the given passphrase and submits a TxTypeValueTransfer transaction. The transaction object must have fields from, to, and value. Other fields such as gas, gasPrice, and nonce are set internally if unspecified. If the passphrase is able to decrypt the private key belonging to tx.from and the transaction is verified, the transaction is signed and submitted onto the network. The account is not unlocked globally in the node and cannot be used in other RPC calls.
+
+        **JSONRPC:** `personal_sendValueTransfer`
+      tags:
+        - personal
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/JsonRpcRequest'
+                - $ref: '#/components/schemas/PersonalSendValueTransferReq'
+      responses:
+        '200':
+          description: Return a transaction hash if succeeded. Otherwise, an error is raised.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/JsonRpcResponse'
+                  - type: object
+                    properties:
+                      result:
+                        title: SendValueTransferResponse
+                        type: string
+                        format: 32-byte DATA
+                        description: a transaction hash if succeeded. Otherwise, an error is raised.
+                        example: '0x8474441674cdd47b35b875fd1a530b800b51a5264b9975fb21129eeb8c18582f'
+      x-codeSamples:
+        - lang: curl
+          label: Curl
+          source: |
+            curl -X 'POST' \
+              'https://api.baobab.klaytn.net:8651/personal/sendValueTransfer' \
+              -H 'accept: application/json' \
+              -H 'Content-Type: application/json' \
+              -d '{
+              "method": "personal_sendValueTransfer",
+              "id": 1,
+              "jsonrpc": "2.0",
+              "params": [
+                {
+                  "from": "0x413ba0e5f6f00664598b5c80042b1308f4ff1408",
+                  "to": "0x8c9f4468ae04fb3d79c80f6eacf0e4e1dd21deee",
+                  "value": "0x1"
+                },
+                "helloWorld"
+              ]
+            }'
+        - lang: java
+          label: Java
+          source: |
+
+            import org.web3j.protocol.klaytn.core.method.response.PersonalSendValueTransferResponse;
+            import org.web3j.protocol.klaytn.core.method.response.TransactionObject;
+            import org.web3j.protocol.http.HttpService;
+            import org.web3j.protocol.klaytn.Web3j;
+
+            import java.io.IOException;
+            import java.util.concurrent.ExecutionException;
+
+            public class PersonalSendValueTransferExample {
+                private Web3j w3 = Web3j.build(new HttpService("https://public-en-baobab.klaytn.net"));
+                void personalSendValueTransferExample() throws IOException, ExecutionException, InterruptedException {
+                    TransactionObject transactionObject = new TransactionObject();
+                    transactionObject.setFrom("0x1d4e05bb72677cb8fa576149c945b57d13f855e4");
+                    transactionObject.setTo("0xafa3f8684e54059998bc3a7b0d2b0da075154d66");
+                    transactionObject.setValue("0x1230000000");
+
+                    String passphrase = "helloWorld";
+
+                    PersonalSendValueTransferResponse response = w3.personalSendValueTransfer(transactionObject, passphrase).send();
+                    response.getResult();
+                }
+
+            }
+        - lang: javascript
+          label: Javascript
+          source: |
+            const { JsonRpcProvider } = require("@klaytn/ethers-ext");
+            (() => {
+              const provider = new JsonRpcProvider("https://public-en-baobab.klaytn.net");
+
+              const tx = {
+                from: "0x1d4e05bb72677cb8fa576149c945b57d13f855e4",
+                to: "0xafa3f8684e54059998bc3a7b0d2b0da075154d66",
+                value: "0x1230000000",
+              };
+              const passphrase = "helloWorld";
+
+              provider.personal
+                .sendValueTransfer(tx, passphrase, {}, (err, data, response) => {})
+                .then((data) => {
+                  console.log(data);
+                });
+            })();
+        - lang: python
+          label: Python
+          source: |
+            from web3 import Web3
+            from web3py_ext import extend
+
+            host = "https://api.baobab.klaytn.net:8651"
+
+            tx = {
+                "from": "0x1d4e05bb72677cb8fa576149c945b57d13f855e4",
+                "to": "0xafa3f8684e54059998bc3a7b0d2b0da075154d66",
+                "value": "0x1230000000"
+            }
+            passphrase = "helloWorld"
+
+            w3 = Web3(Web3.HTTPProvider(host))
+            personal_response = w3.personal.send_value_transfer(tx, passphrase)
+
+            print(personal_response)
+  /personal/sign:
+    post:
+      operationId: sign
+      summary: personal_sign
+      description: |
+        The sign method calculates a Klaytn-specific signature with: sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))
+
+        Adding a prefix to the message makes the calculated signature recognizable as a Klaytn-specific signature. This prevents misuse where a malicious DApp can sign arbitrary data (e.g., transaction) and use the signature to impersonate the victim.
+
+        See personal_ecRecover to verify the signature.
+
+        **JSONRPC:** `personal_sign`
+      tags:
+        - personal
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/JsonRpcRequest'
+                - $ref: '#/components/schemas/PersonalSignReq'
+      responses:
+        '200':
+          description: Return the a signature.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/JsonRpcResponse'
+                  - type: object
+                    properties:
+                      result:
+                        type: string
+                        description: A signature.
+                        example: '0xa3f20717a250c2b0b729b7e5becbff67fdaef7e0699da4de7ca5895b02a170a12d887fd3b17bfdce3481f10bea41f45ba9f709d39ce8325427b57afcfc994cee1b'
+      x-codeSamples:
+        - lang: curl
+          label: Curl
+          source: |
+            curl -X 'POST' \
+              'https://api.baobab.klaytn.net:8651/personal/sign' \
+              -H 'accept: application/json' \
+              -H 'Content-Type: application/json' \
+              -d '{
+              "method": "personal_sign",
+              "id": 1,
+              "jsonrpc": "2.0",
+              "params": [
+                "0xdeadbeaf",
+                "0x413ba0e5f6f00664598b5c80042b1308f4ff1408",
+                "helloWorld"
+              ]
+            }'
+        - lang: java
+          label: Java
+          source: |
+
+            //import org.web3j.protocol.klaytn.core.method.response.PersonalSignResponse;
+            import org.web3j.protocol.http.HttpService;
+            import org.web3j.protocol.klaytn.Web3j;
+
+            import java.io.IOException;
+
+            public class PersonalSignExample {
+                private Web3j w3 = Web3j.build(new HttpService("https://public-en-baobab.klaytn.net"));
+                void personalSignExample() throws IOException {
+                    String message = "0xdead";
+                    String address = "0xb44b66f0d6ea803175f921018cba7e914fed25b9";
+                    String passphrase = "helloWorld";
+
+            //        PersonalSignResponse response = w3.personalSign(message, address, passphrase)
+            //                .send();
+            //        response.getResult();
+                }
+            }
+        - lang: javascript
+          label: Javascript
+          source: |
+            const { JsonRpcProvider } = require("@klaytn/ethers-ext");
+            (() => {
+              const provider = new JsonRpcProvider("https://public-en-baobab.klaytn.net");
+
+              const address = "0x6b1ac7bda0073095df1d434c39d66fb31a592bdd";
+              const message = "0xdeadbeaf";
+              const password = "helloWorld";
+
+              provider.personal
+                .sign(message, address, password, {}, (err, data, response) => {})
+                .then((data) => {
+                  console.log(data);
+                });
+            })();
+        - lang: python
+          label: Python
+          source: |
+            from web3 import Web3
+            from web3py_ext import extend
+
+            host = "https://api.baobab.klaytn.net:8651"
+
+            address = "0xfa415bb3e6231f488ff39eb2897db0ef3636dd32"
+            message = "0xdeadbeaf"
+            password = "helloWorld"
+
+            w3 = Web3(Web3.HTTPProvider(host))
+            personal_response = w3.personal.sign(message, address, password)
+
+            print(personal_response)
+  /personal/signTransaction:
+    post:
+      operationId: signTransaction
+      summary: personal_signTransaction
+      description: |
+        Sets default configuration and signs the given transaction.
+
+        **NOTE:** Sending your account password over an unsecured HTTP RPC connection is highly unsecure. Use klay_signTransaction.
+
+        **JSONRPC:** `personal_signTransaction`
+      tags:
+        - personal
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/JsonRpcRequest'
+                - $ref: '#/components/schemas/PersonalSignTransactionReq'
+      responses:
+        '200':
+          description: Returns signed raw transaction and transaction object and sender's password
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/JsonRpcResponse'
+                  - $ref: '#/components/schemas/PersonalSignTransactionResp'
+      x-codeSamples:
+        - lang: curl
+          label: Curl
+          source: |
+            curl -X 'POST' \
+              'https://api.baobab.klaytn.net:8651/personal/signTransaction' \
+              -H 'accept: application/json' \
+              -H 'Content-Type: application/json' \
+              -d '{
+              "method": "personal_signTransaction",
+              "id": 1,
+              "jsonrpc": "2.0",
+              "params": [
+                {
+                  "from": "0x413ba0e5f6f00664598b5c80042b1308f4ff1408",
+                  "to": "0x8c9f4468ae04fb3d79c80f6eacf0e4e1dd21deee",
+                  "value": "0x1",
+                  "gas": "0x9999",
+                  "nonce": "0x1"
+                }, "helloWorld"
+              ]
+            }'
+        - lang: java
+          label: Java
+          source: |
+
+            //import org.web3j.protocol.klaytn.core.method.response.PersonalSignTransactionResponse;
+            import org.web3j.protocol.klaytn.core.method.response.TransactionObject;
+            import org.web3j.protocol.http.HttpService;
+            import org.web3j.protocol.klaytn.Web3j;
+
+            import java.io.IOException;
+
+            public class PersonalSignTransactionExample {
+                private Web3j w3 = Web3j.build(new HttpService("https://public-en-baobab.klaytn.net"));
+                void personalSignTransactionExample() throws IOException {
+                    TransactionObject transactionObject = new TransactionObject();
+                    transactionObject.setFrom("0x413ba0e5f6f00664598b5c80042b1308f4ff1408");
+                    transactionObject.setTo("0x8c9f4468ae04fb3d79c80f6eacf0e4e1dd21deee");
+                    transactionObject.setValue("0x1");
+                    transactionObject.setGas("0x9999");
+                    transactionObject.setNonce("0x1");
+                    transactionObject.setGasPrice("0x25000000000");
+
+                    String password = "helloWorld";
+
+            //        PersonalSignTransactionResponse response = w3.personalSignTransaction(transactionObject, password).send();
+            //        response.getResult();
+                }
+            }
+        - lang: javascript
+          label: Javascript
+          source: |
+            const { JsonRpcProvider } = require("@klaytn/ethers-ext");
+            (() => {
+              const provider = new JsonRpcProvider("https://public-en-baobab.klaytn.net");
+
+              const transactionData = {
+                from: "0x413ba0e5f6f00664598b5c80042b1308f4ff1408",
+                to: "0x8c9f4468ae04fb3d79c80f6eacf0e4e1dd21deee",
+                value: "0x1",
+                gas: "0x9999",
+                nonce: "0x1",
+              };
+              const password = "helloWorld";
+
+              provider.personal
+                .signTransaction(transactionData, password, {}, (err, data, response) => {})
+                .then((data) => {
+                  console.log(data);
+                });
+            })();
+        - lang: python
+          label: Python
+          source: |
+            from web3 import Web3
+            from web3py_ext import extend
+
+            host = "https://api.baobab.klaytn.net:8651"
+
+            transactionObject = {
+                "from": "0x413ba0e5f6f00664598b5c80042b1308f4ff1408",
+                "to": "0x8c9f4468ae04fb3d79c80f6eacf0e4e1dd21deee",
+                "value": "0x1",
+                "gas": "0x9999",
+                "nonce": "0x1",
+                "gasPrice": "0x25000000000"
+            }
+            password = "helloWorld"
+
+            w3 = Web3(Web3.HTTPProvider(host))
+            personal_response = w3.personal.sign_transaction(transactionObject, password)
+
+            print(personal_response)
+  /personal/unlockAccount:
+    post:
+      operationId: unlockAccount
+      summary: personal_unlockAccount
+      description: |
+        Decrypts the key with the given address from the key store.
+
+        Both passphrase and unlock duration are optional when using the JavaScript console. If the passphrase is not supplied as an argument, the console will prompt for the passphrase interactively.
+
+        The unencrypted key will be held in memory until the unlock duration expires. If the unlock duration defaults to 300 seconds. An explicit duration of zero seconds unlocks the key until the Klaytn local node exits.
+
+        The account can be used with klay_sign and klay_sendTransaction while it is unlocked.
+
+        **JSONRPC:** `personal_unlockAccount`
+      tags:
+        - personal
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/JsonRpcRequest'
+                - $ref: '#/components/schemas/PersonalUnlockAccountReq'
+      responses:
+        '200':
+          description: Return true if unlocked, false otherwise
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/JsonRpcResponse'
+                  - type: object
+                    properties:
+                      result:
+                        type: boolean
+                        description: true if unlocked, false otherwise
+                        example: true
+      x-codeSamples:
+        - lang: curl
+          label: Curl
+          source: |
+            curl -X 'POST' \
+              'https://api.baobab.klaytn.net:8651/personal/unlockAccount' \
+              -H 'accept: application/json' \
+              -H 'Content-Type: application/json' \
+              -d '{
+              "method": "personal_unlockAccount",
+              "id": 1,
+              "jsonrpc": "2.0",
+              "params": [
+                "0x6b1ac7bda0073095df1d434c39d66fb31a592bdd",
+                "helloWorld",
+                30
+              ]
+            }'
+        - lang: java
+          label: Java
+          source: |
+
+            import org.web3j.protocol.klaytn.core.method.response.PersonalUnlockAccountResponse;
+            import org.web3j.protocol.http.HttpService;
+            import org.web3j.protocol.klaytn.Web3j;
+
+            import java.io.IOException;
+
+            public class PersonalUnlockAccountExample {
+                private Web3j w3 = Web3j.build(new HttpService("https://public-en-baobab.klaytn.net"));
+                void personalUnlockAccountExample() throws IOException {
+                    String address = "0xb1ab1f758e0d6398c568936400ea94825c4ebdc2";
+                    String passphrase = "helloWorld";
+                    int duration = 30;
+
+                    PersonalUnlockAccountResponse response = w3.personalUnlockAccount(address, passphrase, duration)
+                            .send();
+                    response.getResult();
+                }
+            }
+        - lang: javascript
+          label: Javascript
+          source: |
+            const { JsonRpcProvider } = require("@klaytn/ethers-ext");
+            (() => {
+              const provider = new JsonRpcProvider("https://public-en-baobab.klaytn.net");
+              const address = "0x6b1ac7bda0073095df1d434c39d66fb31a592bdd";
+              const passphrase = "helloWorld";
+              const duration = 10;
+
+              provider.personal
+                .unlockAccount(
+                  address,
+                  passphrase,
+                  { duration },
+                  (err, data, response) => {},
+                )
+                .then((data) => {
+                  console.log(data);
+                });
+            })();
+        - lang: python
+          label: Python
+          source: |
+            from web3 import Web3
+            from web3py_ext import extend
+
+            host = "https://api.baobab.klaytn.net:8651"
+
+            address = "0xfa415bb3e6231f488ff39eb2897db0ef3636dd32"
+            passphrase = "helloWorld"
+            duration = 30
+
+            w3 = Web3(Web3.HTTPProvider(host))
+            personal_response = w3.personal.unlock_account(address, passphrase, duration)
+
+            print(personal_response)
+components:
+  schemas:
+    JsonRpcRequest:
+      type: object
+      required:
+        - method
+        - id
+        - jsonrpc
+      properties:
+        method:
+          type: string
+          description: Method name
+        id:
+          type: integer
+          default: 1
+          format: int64
+          description: Request ID, Random or Auto incrementation
+        jsonrpc:
+          type: string
+          default: '2.0'
+          description: JSON-RPC Version (2.0)
+        params:
+          type: array
+          items: {}
+    PersonalDeriveAccountReq:
+      type: object
+      required:
+        - method
+        - params
+      properties:
+        method:
+          type: string
+          default: personal_deriveAccount
+        params:
+          type: array
+          items:
+            properties:
+              URL:
+                type: string
+                title: Url
+                description: Wallet url
+              Path:
+                type: string
+                title: Path
+                description: derivation path
+              Pin:
+                type: boolean
+                title: Pin
+                description: optionally pinning
+          example:
+            - url
+            - path
+            - true
+    ErrorMember:
+      type: object
+      title: ErrorMember
+      required:
+        - code
+      properties:
+        code:
+          type: integer
+          format: int64
+          example: -32700
+          description: |
+            A Number that indicates the error type that occurred.
+            This MUST be an integer.
+
+            | code | message | description |
+            |-----|-----|-------|
+            | -32700   | Parse error   | invalid JSON was received by the server. An error occurred on the server while parsing the JSON text. |
+            |-32602 | Invalid params | Invalid method parameter(s). |
+        message:
+          type: string
+          example: Parse error
+          description: |
+            A String providing a short description of the error.
+            The message SHOULD be limited to a concise single sentence.
+        data:
+          type: string
+          description: |
+            A Primitive or Structured value that contains additional information about the error.
+            This may be omitted.
+            The value of this member is defined by the Server (e.g. detailed error information, nested errors etc.).
+    JsonRpcResponse:
+      type: object
+      required:
+        - jsonrpc
+        - id
+      properties:
+        jsonrpc:
+          type: string
+          default: '2.0'
+        id:
+          type: integer
+          format: int64
+        error:
+          $ref: '#/components/schemas/ErrorMember'
+        result: {}
+    PersonalEcRecoverReq:
+      type: object
+      required:
+        - method
+        - params
+      properties:
+        method:
+          type: string
+          default: personal_ecRecover
+        params:
+          type: array
+          items:
+            properties:
+              Message:
+                type: string
+                title: Message
+                description: A message.
+              Signature:
+                type: string
+                title: Signature
+                description: The signature.
+          example:
+            - '0xdead'
+            - '0xccb8cce176b01fdc8f7ac3c101b8eb3b9005e938a60800e517624419dd8b7fba0e4598bdf1c4fa1743e1288e89b8b7090cc11f4b3640aafcbc71896ec73eec241b'
+    PersonalImportRawKeyReq:
+      type: object
+      required:
+        - method
+        - params
+      properties:
+        method:
+          type: string
+          default: personal_importRawKey
+        params:
+          type: array
+          items:
+            properties:
+              Keydata:
+                type: string
+                title: Keydata
+                description: The unencrypted private key (hex string without leading '0x') or a Klaytn wallet key.
+              Passphrase:
+                type: string
+                title: Passphrase
+                description: The pass phrase for encryption.
+          example:
+            - cd87934ee007b7a458fa00dc0314fff8b2bd43b3071f46c820c379e483b4fd8e
+            - gr8=B!0@uc$b
+    ListWallets:
+      type: object
+      required:
+        - url
+        - status
+        - accounts
+      properties:
+        url:
+          type: string
+          description: Wallet url
+        status:
+          type: string
+          description: Locking status
+        failure:
+          type: string
+          description: Error condition
+        accounts:
+          type: array
+          items:
+            type: object
+          description: The list of account addresses.
+    PersonalListWalletsResp:
+      type: object
+      properties:
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/ListWallets'
+          example:
+            - url: keystore:///
+              status: Locked
+              accounts:
+                - address: '0x336010a2f91728ffe01414a87ae5d8af55f310c6'
+                  url: keystore://
+    PersonalOpenWalletReq:
+      type: object
+      required:
+        - method
+        - params
+      properties:
+        method:
+          type: string
+          default: personal_openWallet
+        params:
+          type: array
+          items:
+            properties:
+              URL:
+                type: string
+                title: Url
+                description: Wallet url
+              Passphrase:
+                type: string
+                title: Passphrase
+                description: passphrase for wallet
+          example:
+            - keystore://
+            - gr8=B!0@uc$b
+    PersonalReplaceRawKeyReq:
+      type: object
+      required:
+        - method
+        - params
+      properties:
+        method:
+          type: string
+          default: personal_replaceRawKey
+        params:
+          type: array
+          items:
+            properties:
+              Keydata:
+                type: string
+                title: Keydata
+                description: The unencrypted private key (hex string without leading '0x') or a Klaytn wallet key.
+              OldPassphrase:
+                type: string
+                title: OldPassphrase
+                description: The passphrase to decrypt the old private key.
+              NewPassphrase:
+                type: string
+                title: NewPassphrase
+                description: The passphrase to encrypt the new private key.
+          example:
+            - '0xcd87934ee007b7a458fa00dc0314fff8b2bd43b3071f46c820c379e483b4fd8e'
+            - df4=B@0@xe$d
+            - gr8=B!0@uc$b
+    PersonalSendAccountUpdateReq:
+      type: object
+      required:
+        - method
+        - params
+      properties:
+        method:
+          type: string
+          default: personal_sendAccountUpdate
+        params:
+          type: array
+          items:
+            properties:
+              Tx:
+                type: object
+                title: Tx
+                description: A transaction object. from and key must be specified.
+              Passphrase:
+                type: string
+                title: Passphrase
+                description: The passphrase to decrypt the private key of tx.from.
+          example:
+            - from: '0x1d4e05bb72677cb8fa576149c945b57d13f855e4'
+              key: '0x02a102dbac81e8486d68eac4e6ef9db617f7fbd79a04a3b323c982a09cdfc61f0ae0e8'
+            - gr8=B!0@uc$b
+    PersonalSendTransactionReq:
+      type: object
+      required:
+        - method
+        - params
+      properties:
+        method:
+          type: string
+          default: personal_sendTransaction
+        params:
+          type: array
+          items:
+            properties:
+              Tx:
+                type: object
+                title: Tx
+                description: A transaction object. from is a required field. to, value, gas, gasPrice and nonce are optional fields.
+              Passphrase:
+                type: string
+                title: Passphrase
+                description: The passphrase to decrypt the private key of tx.from.
+          example:
+            - from: '0x1d4e05bb72677cb8fa576149c945b57d13f855e4'
+              to: '0xafa3f8684e54059998bc3a7b0d2b0da075154d66'
+              value: '0x1230000000'
+            - gr8=B!0@uc$b
+    PersonalSendValueTransferReq:
+      type: object
+      required:
+        - method
+        - params
+      properties:
+        method:
+          type: string
+          default: personal_sendValueTransfer
+        params:
+          type: array
+          items:
+            properties:
+              Tx:
+                type: object
+                title: Tx
+                description: A transaction object. from, to, and value must be specified.
+              Passphrase:
+                type: string
+                title: Passphrase
+                description: The passphrase to decrypt the private key of tx.from.
+          example:
+            - from: '0x1d4e05bb72677cb8fa576149c945b57d13f855e4'
+              to: '0xafa3f8684e54059998bc3a7b0d2b0da075154d66'
+              value: '0x1230000000'
+            - gr8=B!0@uc$b
+    PersonalSignReq:
+      type: object
+      required:
+        - method
+        - params
+      properties:
+        method:
+          type: string
+          default: personal_sign
+        params:
+          type: array
+          items:
+            properties:
+              Message:
+                type: string
+                title: Message
+                description: A message to sign.
+              Account:
+                type: string
+                title: Account
+                description: The account address.
+              Password:
+                type: string
+                title: Password
+                description: The pass phrase used for signing.
+          example:
+            - '0xdead'
+            - '0x9b2055d370f73ec7d8a03e965129118dc8f5bf83'
+            - gr8=B!0@uc$b
+    TxTypeLegacyTransaction:
+      title: TxTypeLegacyTransaction
+      type: object
+      required:
+        - from
+        - data
+      description: TxTypeLegacyTransaction represents a type of transaction existed previously in Klaytn. This transaction type exists to support compatibility. For more information, see TxTypeLegacyTransaction.
+      properties:
+        from:
+          type: string
+          format: 20-byte DATA
+          description: The address from which the transaction is sent.
+        to:
+          type: string
+          format: 20-byte DATA
+          description: (optional when creating a new contract) The address to which the transaction is directed.
+        gas:
+          type: string
+          format: hex
+          description: (optional, default 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted.
+        gasPrice:
+          type: string
+          format: hex
+          description: (optional, default 25000000000 Peb) Integer of the gasPrice. The transaction fee is calculated by the multiplication of gas and gasPrice.
+        value:
+          type: string
+          format: hex
+          description: (optional) Integer of the value sent with this transaction.
+        data:
+          type: string
+          format: DATA
+          description: The compiled byte code of a contract to deploy or data (function indicator and parameter values) required to call a contract.
+        nonce:
+          type: string
+          format: hex
+          description: (optional) Integer of a nonce.
+    TxTypeValueTransfer:
+      title: TxTypeValueTransfer
+      type: object
+      required:
+        - typeInt
+        - from
+        - to
+        - value
+      description: TxTypeValueTransfer is used when a user wants to send KLAY. For more information, see TxTypeValueTransfer.
+      properties:
+        typeInt:
+          type: number
+          format: integer
+          description: The integer indicating TxTypeValueTransfer 8
+        from:
+          type: string
+          format: 20-byte DATA
+          description: The address from which the transaction is sent.
+        to:
+          type: string
+          format: 20-byte DATA
+          description: The address to which the transaction is directed.
+        gas:
+          type: string
+          format: hex
+          description: (optional, default 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted.
+        gasPrice:
+          type: string
+          format: hex
+          description: (optional, default 25000000000 Peb) Integer of the gasPrice. The transaction fee is calculated by the multiplication of gas and gasPrice.
+        nonce:
+          type: string
+          format: hex
+          description: (optional) Integer of a nonce.
+        value:
+          type: string
+          format: hex
+          description: Integer of the value sent with this transaction.
+    Signature:
+      title: Signature
+      type: object
+      required:
+        - V
+        - R
+        - S
+      properties:
+        V:
+          type: string
+        R:
+          type: string
+        S:
+          type: string
+    SignatureArray:
+      title: SignatureArray
+      type: array
+      items:
+        $ref: '#/components/schemas/Signature'
+      description: (optional - only for klay_sendTransactionAsFeePayer API) An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.
+    TxTypeFeeDelegatedValueTransfer:
+      title: TxTypeFeeDelegatedValueTransfer
+      type: object
+      required:
+        - typeInt
+        - from
+        - to
+        - value
+        - feePayer
+      description: Fee delegating version of TxTypeValueTransfer. For more information, see TxTypeFeeDelegatedValueTransfer.
+      properties:
+        typeInt:
+          type: number
+          format: integer
+          description: The integer indicating TxTypeFeeDelegatedValueTransfer 9
+        from:
+          type: string
+          format: 20-byte DATA
+          description: The address from which the transaction is sent.
+        to:
+          type: string
+          format: 20-byte DATA
+          description: The address to which the transaction is directed.
+        gas:
+          type: string
+          format: hex
+          description: (optional, default 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted.
+        gasPrice:
+          type: string
+          format: hex
+          description: (optional, default 25000000000 Peb) Integer of the gasPrice. The transaction fee is calculated by the multiplication of gas and gasPrice.
+        nonce:
+          type: string
+          format: hex
+          description: (optional) Integer of a nonce.
+        value:
+          type: string
+          format: hex
+          description: Integer of the value sent with this transaction.
+        feePayer:
+          type: string
+          format: 20-byte DATA
+          description: The address which pays the transaction fee.
+        signatures:
+          $ref: '#/components/schemas/SignatureArray'
+    TxTypeFeeDelegatedValueTransferWithRatio:
+      title: TxTypeFeeDelegatedValueTransferWithRatio
+      type: object
+      required:
+        - typeInt
+        - from
+        - to
+        - value
+        - feePayer
+        - feeRatio
+      description: Partial fee delegating version of TxTypeValueTransfer. For more information, see TxTypeFeeDelegatedValueTransferWithRatio.
+      properties:
+        typeInt:
+          type: number
+          format: integer
+          description: The integer indicating TxTypeFeeDelegatedValueTransferWithRatio 10
+        from:
+          type: string
+          format: 20-byte DATA
+          description: The address from which the transaction is sent.
+        to:
+          type: string
+          format: 20-byte DATA
+          description: The address to which the transaction is directed.
+        gas:
+          type: string
+          format: hex
+          description: (optional, default 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted.
+        gasPrice:
+          type: string
+          format: hex
+          description: (optional, default 25000000000 Peb) Integer of the gasPrice used for each paid gas.
+        nonce:
+          type: string
+          format: hex
+          description: (optional) Integer of a nonce.
+        value:
+          type: string
+          format: hex
+          description: Integer of the value sent with this transaction.
+        feePayer:
+          type: string
+          format: 20-byte DATA
+          description: The fee payer address of the transaction.
+        feeRatio:
+          type: number
+          format: integer
+          description: Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender. The range of fee ratio is 1 ~ 99, if it is out of range, the transaction will not be accepted.
+        signatures:
+          $ref: '#/components/schemas/SignatureArray'
+    TxTypeValueTransferMemo:
+      title: TxTypeValueTransferMemo
+      type: object
+      required:
+        - typeInt
+        - from
+        - to
+        - value
+        - input
+      description: TxTypeValueTransferMemo is used when a user wants to send KLAY with a specific message. For more information, see TxTypeValueTransferMemo.
+      properties:
+        typeInt:
+          type: number
+          format: integer
+          description: The integer indicating TxTypeValueTransferMemo 16
+        from:
+          type: string
+          format: 20-byte DATA
+          description: The address from which the transaction is sent.
+        to:
+          type: string
+          format: 20-byte DATA
+          description: The address to which the transaction is directed.
+        gas:
+          type: string
+          format: hex
+          description: (optional, default 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted.
+        gasPrice:
+          type: string
+          format: hex
+          description: (optional, default 25000000000 Peb) Integer of the gasPrice. The transaction fee is calculated by the multiplication of gas and gasPrice.
+        nonce:
+          type: string
+          format: hex
+          description: (optional) Integer of a nonce.
+        value:
+          type: string
+          format: hex
+          description: Integer of the value sent with this transaction.
+        input:
+          type: string
+          format: DATA
+          description: The data sent along with the transaction.
+    TxTypeFeeDelegatedValueTransferMemo:
+      title: TxTypeFeeDelegatedValueTransferMemo
+      type: object
+      required:
+        - typeInt
+        - from
+        - to
+        - value
+        - input
+        - feePayer
+      description: Fee delegating version of TxTypeValueTransferMemo. For more information, see TxTypeFeeDelegatedValueTransferMemo.
+      properties:
+        typeInt:
+          type: number
+          format: integer
+          description: The integer indicating TxTypeFeeDelegatedValueTransferMemo 17
+        from:
+          type: string
+          format: 20-byte DATA
+          description: The address from which the transaction is sent.
+        to:
+          type: string
+          format: 20-byte DATA
+          description: The address to which the transaction is directed.
+        gas:
+          type: string
+          format: hex
+          description: (optional, default 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted.
+        gasPrice:
+          type: string
+          format: hex
+          description: (optional, default 25000000000 Peb) Integer of the gasPrice used for each paid gas.
+        nonce:
+          type: string
+          format: hex
+          description: (optional) Integer of a nonce.
+        value:
+          type: string
+          format: hex
+          description: Integer of the value sent with this transaction.
+        input:
+          type: string
+          format: DATA
+          description: The data sent along with the transaction.
+        feePayer:
+          type: string
+          format: 20-byte DATA
+          description: The fee payer address of the transaction.
+        signatures:
+          $ref: '#/components/schemas/SignatureArray'
+    TxTypeFeeDelegatedValueTransferMemoWithRatio:
+      title: TxTypeFeeDelegatedValueTransferMemoWithRatio
+      type: object
+      required:
+        - typeInt
+        - from
+        - to
+        - value
+        - input
+        - feePayer
+        - feeRatio
+      description: Partial fee delegating version of TxTypeValueTransferMemo. For more information, see TxTypeFeeDelegatedValueTransferMemoWithRatio.
+      properties:
+        typeInt:
+          type: number
+          format: integer
+          description: The integer indicating TxTypeFeeDelegatedValueTransferMemoWithRatio 18
+        from:
+          type: string
+          format: 20-byte DATA
+          description: The address from which the transaction is sent.
+        to:
+          type: string
+          format: 20-byte DATA
+          description: The address to which the transaction is directed.
+        gas:
+          type: string
+          format: hex
+          description: (optional, default 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted.
+        gasPrice:
+          type: string
+          format: hex
+          description: (optional, default 25000000000 Peb) Integer of the gasPrice used for each paid gas.
+        nonce:
+          type: string
+          format: hex
+          description: (optional) Integer of a nonce.
+        value:
+          type: string
+          format: hex
+          description: Integer of the value sent with this transaction.
+        input:
+          type: string
+          format: DATA
+          description: The data sent along with the transaction.
+        feePayer:
+          type: string
+          format: 20-byte DATA
+          description: The fee payer address of the transaction.
+        feeRatio:
+          type: string
+          format: hex
+          description: Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender. The range of fee ratio is 1 ~ 99, if it is out of range, the transaction will not be accepted.
+        signatures:
+          $ref: '#/components/schemas/SignatureArray'
+    TxTypeAccountUpdate:
+      title: TxTypeAccountUpdate
+      type: object
+      required:
+        - typeInt
+        - from
+        - key
+      description: TxTypeAccountUpdate updates the key of the given account. For more information, see TxTypeAccountUpdate.
+      properties:
+        typeInt:
+          type: number
+          format: integer
+          description: The integer indicating TxTypeAccountUpdate 32
+        from:
+          type: string
+          format: 20-byte DATA
+          description: The address from which the transaction is sent.
+        gas:
+          type: string
+          format: hex
+          description: (optional, default 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted.
+        gasPrice:
+          type: string
+          format: hex
+          description: (optional, default 25000000000 Peb) Integer of the gasPrice used for each paid gas.
+        nonce:
+          type: string
+          format: hex
+          description: (optional) Integer of a nonce.
+        key:
+          type: string
+          format: DATA
+          description: The new account key of the from account in RLP encoded format. For more information about the account key, see Account Key.
+    TxTypeFeeDelegatedAccountUpdate:
+      title: TxTypeFeeDelegatedAccountUpdate
+      type: object
+      required:
+        - typeInt
+        - from
+        - key
+        - feePayer
+      description: Fee delegating version of TxTypeAccountUpdate. For more information, see TxTypeFeeDelegatedAccountUpdate.
+      properties:
+        typeInt:
+          type: number
+          format: integer
+          description: The integer indicating TxTypeFeeDelegatedAccountUpdate 33
+        from:
+          type: string
+          format: 20-byte DATA
+          description: The address from which the transaction is sent.
+        gas:
+          type: string
+          format: hex
+          description: (optional, default 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted.
+        gasPrice:
+          type: string
+          format: hex
+          description: (optional, default 25000000000 Peb) Integer of the gasPrice used for each paid gas.
+        nonce:
+          type: string
+          format: hex
+          description: (optional) Integer of a nonce.
+        key:
+          type: string
+          format: DATA
+          description: The new account key of the from account in RLP encoded format. For more information about the account key, see Account Key.
+        feePayer:
+          type: string
+          format: 20-byte DATA
+          description: The fee payer address of the transaction.
+        signatures:
+          $ref: '#/components/schemas/SignatureArray'
+    TxTypeFeeDelegatedAccountUpdateWithRatio:
+      title: TxTypeFeeDelegatedAccountUpdateWithRatio
+      type: object
+      required:
+        - typeInt
+        - from
+        - key
+        - feePayer
+        - feeRatio
+      properties:
+        typeInt:
+          type: number
+          description: 'The integer indicating TxTypeFeeDelegatedAccountUpdateWithRatio: 34'
+        from:
+          type: string
+          format: 20-byte DATA
+          description: The address from which the transaction is sent.
+        gas:
+          type: string
+          format: hex
+          description: '(optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted.'
+        gasPrice:
+          type: string
+          format: hex
+          description: '(optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.'
+        nonce:
+          type: string
+          format: hex
+          description: (optional) Integer of a nonce.
+        key:
+          type: string
+          format: DATA
+          description: The new account key of the from account in RLP encoded format. For more information about the account key, see Account Key.
+        feePayer:
+          type: string
+          format: 20-byte DATA
+          description: The fee payer address of the transaction.
+        feeRatio:
+          type: string
+          format: hex
+          description: Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender. The range of fee ratio is 1 ~ 99, if it is out of range, the transaction will not be accepted.
+        signatures:
+          $ref: '#/components/schemas/SignatureArray'
+    TxTypeSmartContractDeploy:
+      title: TxTypeSmartContractDeploy
+      type: object
+      required:
+        - typeInt
+        - from
+        - to
+        - value
+        - input
+        - humanReadable
+        - codeFormat
+      properties:
+        typeInt:
+          type: number
+          description: 'The integer indicating TxTypeSmartContractDeploy: 40'
+        from:
+          type: string
+          format: 20-byte DATA
+          description: The address from which the transaction is sent.
+        to:
+          type: string
+          format: 20-byte DATA
+          description: The address to which the transaction is directed.
+        gas:
+          type: string
+          format: hex
+          description: '(optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted.'
+        gasPrice:
+          type: string
+          format: hex
+          description: '(optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.'
+        nonce:
+          type: string
+          format: hex
+          description: (optional) Integer of a nonce.
+        value:
+          type: string
+          format: hex
+          description: Integer of the value sent with this transaction.
+        input:
+          type: string
+          format: DATA
+          description: The data sent along with the transaction.
+        humanReadable:
+          type: boolean
+          description: true if the address is humanReadable, false if the address is not humanReadable. Currently, the value should be false. Human-readable addresses will be supported later.
+        codeFormat:
+          type: string
+          format: hex
+          description: The code format of smart contract code. The value 0 indicates EVM.
+    TxTypeFeeDelegatedSmartContractDeploy:
+      title: TxTypeFeeDelegatedSmartContractDeploy
+      type: object
+      required:
+        - typeInt
+        - from
+        - to
+        - value
+        - input
+        - humanReadable
+        - codeFormat
+        - feePayer
+      properties:
+        typeInt:
+          type: number
+          description: 'The integer indicating TxTypeFeeDelegatedSmartContractDeploy: 41'
+        from:
+          type: string
+          format: 20-byte DATA
+          description: The address from which the transaction is sent.
+        to:
+          type: string
+          format: 20-byte DATA
+          description: The address to which the transaction is directed.
+        gas:
+          type: string
+          format: hex
+          description: '(optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted.'
+        gasPrice:
+          type: string
+          format: hex
+          description: '(optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.'
+        nonce:
+          type: string
+          format: hex
+          description: (optional) Integer of a nonce.
+        value:
+          type: string
+          format: hex
+          description: Integer of the value sent with this transaction.
+        input:
+          type: string
+          format: DATA
+          description: The data sent along with the transaction.
+        humanReadable:
+          type: boolean
+          description: true if the address is humanReadable, false if the address is not humanReadable. Currently, the value should be false. Human-readable addresses will be supported later.
+        codeFormat:
+          type: string
+          format: hex
+          description: The code format of smart contract code. The value 0 indicates EVM.
+        feePayer:
+          type: string
+          format: 20-byte DATA
+          description: The fee payer address of the transaction.
+        signatures:
+          $ref: '#/components/schemas/SignatureArray'
+    TxTypeFeeDelegatedSmartContractDeployWithRatio:
+      title: TxTypeFeeDelegatedSmartContractDeployWithRatio
+      type: object
+      required:
+        - typeInt
+        - from
+        - to
+        - value
+        - input
+        - humanReadable
+        - codeFormat
+        - feePayer
+        - feeRatio
+      properties:
+        typeInt:
+          type: number
+          description: 'The integer indicating TxTypeFeeDelegatedSmartContractDeployWithRatio: 42'
+        from:
+          type: string
+          format: 20-byte DATA
+          description: The address from which the transaction is sent.
+        to:
+          type: string
+          format: 20-byte DATA
+          description: The address to which the transaction is directed.
+        gas:
+          type: string
+          format: hex
+          description: '(optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted.'
+        gasPrice:
+          type: string
+          format: hex
+          description: '(optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.'
+        nonce:
+          type: string
+          format: hex
+          description: (optional) Integer of a nonce.
+        value:
+          type: string
+          format: hex
+          description: Integer of the value sent with this transaction.
+        input:
+          type: string
+          format: DATA
+          description: The data sent along with the transaction.
+        humanReadable:
+          type: boolean
+          description: true if the address is humanReadable, false if the address is not humanReadable. Currently, the value should be false. Human-readable addresses will be supported later.
+        codeFormat:
+          type: string
+          format: hex
+          description: The code format of smart contract code. The value 0 indicates EVM.
+        feePayer:
+          type: string
+          format: 20-byte DATA
+          description: The fee payer address of the transaction.
+        signatures:
+          $ref: '#/components/schemas/SignatureArray'
+        feeRatio:
+          type: string
+          format: hex
+          description: Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender. The range of fee ratio is 1 ~ 99, if it is out of range, the transaction will not be accepted.
+    TxTypeSmartContractExecution:
+      title: TxTypeSmartContractExecution
+      type: object
+      required:
+        - typeInt
+        - from
+        - to
+        - value
+        - input
+      properties:
+        typeInt:
+          type: number
+          description: 'The integer indicating TxTypeSmartContractExecution: 48'
+        from:
+          type: string
+          format: 20-byte DATA
+          description: The address from which the transaction is sent.
+        to:
+          type: string
+          format: 20-byte DATA
+          description: The address to which the transaction is directed.
+        gas:
+          type: string
+          format: hex
+          description: '(optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted.'
+        gasPrice:
+          type: string
+          format: hex
+          description: '(optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.'
+        nonce:
+          type: string
+          format: hex
+          description: (optional) Integer of a nonce.
+        value:
+          type: string
+          format: hex
+          description: Integer of the value sent with this transaction.
+        input:
+          type: string
+          format: DATA
+          description: The data sent along with the transaction.
+    TxTypeFeeDelegatedSmartContractExecution:
+      title: TxTypeFeeDelegatedSmartContractExecution
+      type: object
+      required:
+        - typeInt
+        - from
+        - to
+        - value
+        - input
+        - feePayer
+      properties:
+        typeInt:
+          type: number
+          description: 'The integer indicating TxTypeFeeDelegatedSmartContractExecution: 49'
+        from:
+          type: string
+          format: 20-byte DATA
+          description: The address from which the transaction is sent.
+        to:
+          type: string
+          format: 20-byte DATA
+          description: The address to which the transaction is directed.
+        gas:
+          type: string
+          format: hex
+          description: '(optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted.'
+        gasPrice:
+          type: string
+          format: hex
+          description: '(optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.'
+        nonce:
+          type: string
+          format: hex
+          description: (optional) Integer of a nonce.
+        value:
+          type: string
+          format: hex
+          description: Integer of the value sent with this transaction.
+        input:
+          type: string
+          format: DATA
+          description: The data sent along with the transaction.
+        feePayer:
+          type: string
+          format: 20-byte DATA
+          description: The fee payer address of the transaction.
+        signatures:
+          $ref: '#/components/schemas/SignatureArray'
+    TxTypeFeeDelegatedSmartContractExecutionWithRatio:
+      title: TxTypeFeeDelegatedSmartContractExecutionWithRatio
+      type: object
+      required:
+        - typeInt
+        - from
+        - to
+        - value
+        - input
+        - feePayer
+        - feeRatio
+      properties:
+        typeInt:
+          type: number
+          description: 'The integer indicating TxTypeFeeDelegatedSmartContractExecutionWithRatio: 50'
+        from:
+          type: string
+          format: 20-byte DATA
+          description: The address from which the transaction is sent.
+        to:
+          type: string
+          format: 20-byte DATA
+          description: The address to which the transaction is directed.
+        gas:
+          type: string
+          format: hex
+          description: '(optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted.'
+        gasPrice:
+          type: string
+          format: hex
+          description: '(optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.'
+        nonce:
+          type: string
+          format: hex
+          description: (optional) Integer of a nonce.
+        value:
+          type: string
+          format: hex
+          description: Integer of the value sent with this transaction.
+        input:
+          type: string
+          format: DATA
+          description: The data sent along with the transaction.
+        feePayer:
+          type: string
+          format: 20-byte DATA
+          description: The fee payer address of the transaction.
+        feeRatio:
+          type: string
+          format: hex
+          description: Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender. The range of fee ratio is 1 ~ 99, if it is out of range, the transaction will not be accepted.
+        signatures:
+          $ref: '#/components/schemas/SignatureArray'
+    TxTypeCancel:
+      title: TxTypeCancel
+      type: object
+      required:
+        - typeInt
+        - from
+      properties:
+        typeInt:
+          type: number
+          description: 'The integer indicating TxTypeCancel: 56'
+        from:
+          type: string
+          format: 20-byte DATA
+          description: The address from which the transaction is sent.
+        gas:
+          type: string
+          format: hex
+          description: '(optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted.'
+        gasPrice:
+          type: string
+          format: hex
+          description: '(optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.'
+        nonce:
+          type: string
+          format: hex
+          description: (optional) Integer of a nonce.
+    TxTypeFeeDelegatedCancel:
+      title: TxTypeFeeDelegatedCancel
+      type: object
+      required:
+        - typeInt
+        - from
+        - feePayer
+      properties:
+        typeInt:
+          type: number
+          description: 'The integer indicating TxTypeFeeDelegatedCancel: 57'
+        from:
+          type: string
+          format: 20-byte DATA
+          description: The address from which the transaction is sent.
+        gas:
+          type: string
+          format: hex
+          description: '(optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted.'
+        gasPrice:
+          type: string
+          format: hex
+          description: '(optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.'
+        nonce:
+          type: string
+          format: hex
+          description: (optional) Integer of a nonce.
+        feePayer:
+          type: string
+          format: 20-byte DATA
+          description: The fee payer address of the transaction.
+        signatures:
+          $ref: '#/components/schemas/SignatureArray'
+    TxTypeFeeDelegatedCancelWithRatio:
+      title: TxTypeFeeDelegatedCancelWithRatio
+      type: object
+      required:
+        - typeInt
+        - from
+        - feePayer
+        - feeRatio
+      properties:
+        typeInt:
+          type: number
+          description: 'The integer indicating TxTypeFeeDelegatedCancelWithRatio: 58'
+        from:
+          type: string
+          format: 20-byte DATA
+          description: The address from which the transaction is sent.
+        gas:
+          type: string
+          format: hex
+          description: '(optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted.'
+        gasPrice:
+          type: string
+          format: hex
+          description: '(optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas.'
+        nonce:
+          type: string
+          format: hex
+          description: (optional) Integer of a nonce.
+        feePayer:
+          type: string
+          format: 20-byte DATA
+          description: The fee payer address of the transaction.
+        feeRatio:
+          type: string
+          format: hex
+          description: Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender. The range of fee ratio is 1 ~ 99, if it is out of range, the transaction will not be accepted.
+        signatures:
+          $ref: '#/components/schemas/SignatureArray'
+    KlaytnTransactionTypes:
+      type: object
+      oneOf:
+        - $ref: '#/components/schemas/TxTypeLegacyTransaction'
+        - $ref: '#/components/schemas/TxTypeValueTransfer'
+        - $ref: '#/components/schemas/TxTypeFeeDelegatedValueTransfer'
+        - $ref: '#/components/schemas/TxTypeFeeDelegatedValueTransferWithRatio'
+        - $ref: '#/components/schemas/TxTypeValueTransferMemo'
+        - $ref: '#/components/schemas/TxTypeFeeDelegatedValueTransferMemo'
+        - $ref: '#/components/schemas/TxTypeFeeDelegatedValueTransferMemoWithRatio'
+        - $ref: '#/components/schemas/TxTypeAccountUpdate'
+        - $ref: '#/components/schemas/TxTypeFeeDelegatedAccountUpdate'
+        - $ref: '#/components/schemas/TxTypeFeeDelegatedAccountUpdateWithRatio'
+        - $ref: '#/components/schemas/TxTypeSmartContractDeploy'
+        - $ref: '#/components/schemas/TxTypeFeeDelegatedSmartContractDeploy'
+        - $ref: '#/components/schemas/TxTypeFeeDelegatedSmartContractDeployWithRatio'
+        - $ref: '#/components/schemas/TxTypeSmartContractExecution'
+        - $ref: '#/components/schemas/TxTypeFeeDelegatedSmartContractExecution'
+        - $ref: '#/components/schemas/TxTypeFeeDelegatedSmartContractExecutionWithRatio'
+        - $ref: '#/components/schemas/TxTypeCancel'
+        - $ref: '#/components/schemas/TxTypeFeeDelegatedCancel'
+        - $ref: '#/components/schemas/TxTypeFeeDelegatedCancelWithRatio'
+    PersonalSignTransactionReq:
+      type: object
+      required:
+        - method
+        - params
+      properties:
+        method:
+          type: string
+          default: personal_signTransaction
+        params:
+          type: array
+          items:
+            properties:
+              KlaytnTransactionType:
+                $ref: '#/components/schemas/KlaytnTransactionTypes'
+              Password:
+                type: string
+                title: Password
+                description: password
+          example:
+            - from: '0x77982323172e5b6182539d3522d5a33a944206d4'
+              to: '0xcd6bfdb523a4d030890d28bf1eb6ef36307c9aaa'
+              value: '0x10000'
+              gas: '0x1000000'
+              nonce: '0x2'
+              gasPrice: '0x25000000000'
+    PersonalSignTransactionResp:
+      type: object
+      properties:
+        result:
+          type: object
+          required:
+            - raw
+            - tx
+            - password
+          properties:
+            raw:
+              type: string
+              description: Signed raw transaction
+            tx:
+              type: object
+              description: Transaction object including the sender's signature
+            password:
+              type: string
+              description: Sender's password
+          example:
+            raw: '0xf86c0286025000000000840100000094cd6bfdb523a4d030890d28bf1eb6ef36307c9aaa8301000080820fe8a056d2ddd231c3c111687ab351d339240db18cd721e5aa33c601dd4fc3927fb4d1a03443443392517aa7da082aa0a00b9ee5e3e1ee007d22e57cd9ff55b5ddbf4a64'
+            tx:
+              nonce: '0x2'
+              gasPrice: '0x5d21dba00'
+              gas: '0x1000000'
+              to: '0xcd6bfdb523a4d030890d28bf1eb6ef36307c9aaa'
+              value: '0x10000'
+              input: 0x
+              v: '0xfe8'
+              r: '0x56d2ddd231c3c111687ab351d339240db18cd721e5aa33c601dd4fc3927fb4d1'
+              s: '0x3443443392517aa7da082aa0a00b9ee5e3e1ee007d22e57cd9ff55b5ddbf4a64'
+              hash: '0xb53cc9128a19c3916c0de1914725b7337bba84666c2556d8682c72ca34c6874c'
+            password: gr8=B!0@uc$b
+    PersonalUnlockAccountReq:
+      type: object
+      required:
+        - method
+        - params
+      properties:
+        method:
+          type: string
+          default: personal_unlockAccount
+        params:
+          type: array
+          items:
+            properties:
+              Address:
+                type: string
+                title: Address
+                description: The account address to unlock.
+              Passphrase:
+                type: string
+                title: Passphrase
+                description: the passphrase used for the encryption.
+              Duration:
+                type: integer
+                title: Duration
+                default: 300
+                description: (optional) the unlock duration (default to 300 seconds).
+          example:
+            - '0x5e97870f263700f46aa00d967821199b9bc5a120'
+            - foo
+            - 30

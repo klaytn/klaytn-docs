@@ -1,0 +1,495 @@
+---
+id: trace-call
+title: "[Trace] debug_traceCall"
+description: "The debug_traceCall allows tracing on a specific block if callArgs is provided."
+sidebar_label: " debug_traceCall"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: docs/references/json-rpc/debug/web-3-rpc
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  [Trace] debug_traceCall
+</h1>
+
+
+
+
+
+The debug_traceCall allows tracing on a specific block if callArgs is provided.
+
+**JSONRPC:** `debug_traceCall`
+
+
+## Request
+
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"method"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"Method name","default":"debug_traceCall"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"id"}
+          required={true}
+          schemaName={"int64"}
+          qualifierMessage={undefined}
+          schema={{"type":"integer","default":1,"format":"int64","description":"Request ID, Random or Auto incrementation"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"jsonrpc"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","default":"2.0","description":"JSON-RPC Version (2.0)"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={true}
+          className={"schemaItem"}
+        >
+          <details
+            style={{}}
+            className={"openapi-markdown__details"}
+          >
+            <summary
+              style={{}}
+            >
+              <span
+                className={"openapi-schema__container"}
+              >
+                <strong
+                  className={"openapi-schema__property"}
+                >
+                  params
+                </strong><span
+                  className={"openapi-schema__name"}
+                >
+                   undefined[]
+                </span>
+              </span>
+            </summary><div
+              style={{"marginLeft":"1rem"}}
+            >
+              <li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                >
+                  Array [
+                </div>
+              </li><SchemaItem
+                collapsible={true}
+                className={"schemaItem"}
+              >
+                <details
+                  style={{}}
+                  className={"openapi-markdown__details"}
+                >
+                  <summary
+                    style={{}}
+                  >
+                    <span
+                      className={"openapi-schema__container"}
+                    >
+                      <strong
+                        className={"openapi-schema__property"}
+                      >
+                        TracerCallObject
+                      </strong><span
+                        className={"openapi-schema__name"}
+                      >
+                         object
+                      </span>
+                    </span>
+                  </summary><div
+                    style={{"marginLeft":"1rem"}}
+                  >
+                    <div
+                      style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                    >
+                      
+                      
+                      The tracer call object. See the next table for the object's properties.
+                      
+                      
+                    </div><SchemaItem
+                      collapsible={false}
+                      name={"from"}
+                      required={false}
+                      schemaName={"20-byte DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"20-byte DATA","description":"(optional) Address the transaction is simulated to have been sent from. The 0x00..0 address is used if no address is specified."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"to"}
+                      required={false}
+                      schemaName={"20-byte DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"20-byte DATA","description":"(optional) Address the transaction is sent to."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"input"}
+                      required={false}
+                      schemaName={"DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"DATA","description":"(optional) Hash of the method signature and encoded parameter. It replaces data field, but 'data` field is still supported for backward compatibility."}}
+                    >
+                      
+                    </SchemaItem>
+                  </div>
+                </details>
+              </SchemaItem><SchemaItem
+                collapsible={true}
+                className={"schemaItem"}
+              >
+                <details
+                  style={{}}
+                  className={"openapi-markdown__details"}
+                >
+                  <summary
+                    style={{}}
+                  >
+                    <strong>
+                      BlockNumberOrHashOrTag
+                    </strong><span
+                      style={{"opacity":"0.6"}}
+                    >
+                       object
+                    </span>
+                  </summary><div
+                    style={{"marginLeft":"1rem"}}
+                  >
+                    
+                  </div><div>
+                    <span
+                      className={"badge badge--info"}
+                    >
+                      oneOf
+                    </span><SchemaTabs>
+                      <TabItem
+                        label={"IntegerBlockNumber"}
+                        value={"0-item-properties"}
+                      >
+                        <div
+                          style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}
+                        >
+                          
+                          
+                          number
+                          
+                          
+                        </div>
+                      </TabItem><TabItem
+                        label={"HexadecimalBlockNumber"}
+                        value={"1-item-properties"}
+                      >
+                        <div
+                          style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}
+                        >
+                          
+                          
+                          string
+                          
+                          
+                        </div>
+                      </TabItem><TabItem
+                        label={"BlockTag"}
+                        value={"2-item-properties"}
+                      >
+                        <div
+                          style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}
+                        >
+                          
+                          
+                          string
+                          
+                          
+                        </div>
+                      </TabItem><TabItem
+                        label={"BlockHash"}
+                        value={"3-item-properties"}
+                      >
+                        <div
+                          style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}
+                        >
+                          
+                          
+                          string
+                          
+                          
+                        </div>
+                      </TabItem>
+                    </SchemaTabs>
+                  </div>
+                </details>
+              </SchemaItem><SchemaItem
+                collapsible={true}
+                className={"schemaItem"}
+              >
+                <details
+                  style={{}}
+                  className={"openapi-markdown__details"}
+                >
+                  <summary
+                    style={{}}
+                  >
+                    <span
+                      className={"openapi-schema__container"}
+                    >
+                      <strong
+                        className={"openapi-schema__property"}
+                      >
+                        TracerObject
+                      </strong><span
+                        className={"openapi-schema__name"}
+                      >
+                         object
+                      </span>
+                    </span>
+                  </summary><div
+                    style={{"marginLeft":"1rem"}}
+                  >
+                    <div
+                      style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                    >
+                      
+                      
+                      Tracer type.
+                      
+                      
+                    </div><SchemaItem
+                      collapsible={false}
+                      name={"tracer"}
+                      required={false}
+                      schemaName={"string"}
+                      qualifierMessage={"**Possible values:** [`4byteTracer`, `callTracer`, `fastCallTracer`, `evmdisTracer`, `noopTracer`, `opcountTracer`, `prestateTracer`, `revertTracer`, `unigramTracer`, `bigramTracer`, `trigramTracer`]"}
+                      schema={{"type":"string","enum":["4byteTracer","callTracer","fastCallTracer","evmdisTracer","noopTracer","opcountTracer","prestateTracer","revertTracer","unigramTracer","bigramTracer","trigramTracer"],"description":"Setting this will enable JavaScript-based transaction tracing, described in the next section. If set, the previous four arguments will be ignored. The predefined tracers can also be used as the following table.\n| Tracer Name | Description |\n|-----|-----|\n| 4byteTracer | 4byteTracer searches for 4byte-identifiers, and collects them for post-processing. It collects the methods identifiers along with the size of the supplied data, so a reversed signature can be matched against the size of the data. |\n| callTracer | callTracer is a full-blown transaction tracer that extracts and reports all the internal calls made by a transaction, along with any useful information. |\n| fastCallTracer | fastCallTracer is a Go-native version of callTracer. Since it is not executed on JavaScript VM, it shows more than 10x speedup compared to callTracer. Please use fastCallTracer instead of callTracer if the performance is the matter of the first importance. |\n| evmdisTracer | evmdisTracer returns sufficient information from a trace to perform evmdis-style disassembly. |\n| noopTracer | noopTracer is just the barebone boilerplate code required from a JavaScript object to be usable as a transaction tracer. |\n| opcountTracer | opcountTracer is a sample tracer that just counts the number of instructions executed by the KLVM before the transaction terminated. |\n| prestateTracer | prestateTracer outputs sufficient information to create a local execution of the transaction from a custom assembled genesis block. |\n| revertTracer | revertTracer outputs the error string of REVERT. If the execution is not reverted, it outputs an empty string. |\n| unigramTracer | unigramTracer returns the number of occurrences of each opcode. |\n| bigramTracer | bigramTracer returns the number of occurrences of two consecutive opcodes. |\n| trigramTracer | trigramTracer returns the number of occurrences of three consecutive opcodes. |\n"}}
+                    >
+                      
+                    </SchemaItem>
+                  </div>
+                </details>
+              </SchemaItem><li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                >
+                  ]
+                </div>
+              </li>
+            </div>
+          </details>
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          The detail tracing infomation
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"jsonrpc"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","default":"2.0"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={true}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                error
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={false}
+                              name={"code"}
+                              required={true}
+                              schemaName={"int64"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int64","example":-32700,"description":"A Number that indicates the error type that occurred.\nThis MUST be an integer.\n\n| code | message | description |\n|-----|-----|-------|\n| -32700   | Parse error   | invalid JSON was received by the server. An error occurred on the server while parsing the JSON text. |\n|-32602 | Invalid params | Invalid method parameter(s). |\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"message"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","example":"Parse error","description":"A String providing a short description of the error.\nThe message SHOULD be limited to a concise single sentence.\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"data"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"A Primitive or Structured value that contains additional information about the error.\nThis may be omitted.\nThe value of this member is defined by the Server (e.g. detailed error information, nested errors etc.).\n"}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"result"}
+                        required={false}
+                        schemaName={""}
+                        qualifierMessage={undefined}
+                        schema={{}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"jsonrpc\": \"2.0\",\n  \"id\": 0,\n  \"error\": {\n    \"code\": -32700,\n    \"message\": \"Parse error\",\n    \"data\": \"string\"\n  },\n  \"result\": {}\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

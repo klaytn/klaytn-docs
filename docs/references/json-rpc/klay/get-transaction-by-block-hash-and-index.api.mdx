@@ -1,0 +1,687 @@
+---
+id: get-transaction-by-block-hash-and-index
+title: "[Transaction] klay_getTransactionByBlockHashAndIndex"
+description: "Returns information about a transaction by block hash and transaction index position. This API works only on RPC call, not on JavaScript console."
+sidebar_label: " klay_getTransactionByBlockHashAndIndex"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: docs/references/json-rpc/klay/web-3-rpc
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  [Transaction] klay_getTransactionByBlockHashAndIndex
+</h1>
+
+
+
+
+
+Returns information about a transaction by block hash and transaction index position. This API works only on RPC call, not on JavaScript console.
+
+**JSONRPC:** `klay_getTransactionByBlockHashAndIndex`
+
+
+## Request
+
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"method"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"Method name","default":"klay_getTransactionByBlockHashAndIndex"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"id"}
+          required={true}
+          schemaName={"int64"}
+          qualifierMessage={undefined}
+          schema={{"type":"integer","default":1,"format":"int64","description":"Request ID, Random or Auto incrementation"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"jsonrpc"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","default":"2.0","description":"JSON-RPC Version (2.0)"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={true}
+          className={"schemaItem"}
+        >
+          <details
+            style={{}}
+            className={"openapi-markdown__details"}
+          >
+            <summary
+              style={{}}
+            >
+              <span
+                className={"openapi-schema__container"}
+              >
+                <strong
+                  className={"openapi-schema__property"}
+                >
+                  params
+                </strong><span
+                  className={"openapi-schema__name"}
+                >
+                   undefined[]
+                </span><span
+                  className={"openapi-schema__divider"}
+                >
+                  
+                </span><span
+                  className={"openapi-schema__required"}
+                >
+                  required
+                </span>
+              </span>
+            </summary><div
+              style={{"marginLeft":"1rem"}}
+            >
+              <li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                >
+                  Array [
+                </div>
+              </li><SchemaItem
+                collapsible={false}
+                name={"BlockHash"}
+                required={false}
+                schemaName={"32-byte DATA"}
+                qualifierMessage={undefined}
+                schema={{"type":"string","format":"32-byte DATA","title":"BlockHash","description":"Hash of a block."}}
+              >
+                
+              </SchemaItem><SchemaItem
+                collapsible={false}
+                name={"TransactionIndex"}
+                required={false}
+                schemaName={"hex"}
+                qualifierMessage={undefined}
+                schema={{"type":"string","format":"hex","title":"TransactionIndexPosition","description":"Integer of the transaction index position."}}
+              >
+                
+              </SchemaItem><li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                >
+                  ]
+                </div>
+              </li>
+            </div>
+          </details>
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Returns information about a transaction by block hash and transaction index position.
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"jsonrpc"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","default":"2.0"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={true}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                error
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={false}
+                              name={"code"}
+                              required={true}
+                              schemaName={"int64"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int64","example":-32700,"description":"A Number that indicates the error type that occurred.\nThis MUST be an integer.\n\n| code | message | description |\n|-----|-----|-------|\n| -32700   | Parse error   | invalid JSON was received by the server. An error occurred on the server while parsing the JSON text. |\n|-32602 | Invalid params | Invalid method parameter(s). |\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"message"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","example":"Parse error","description":"A String providing a short description of the error.\nThe message SHOULD be limited to a concise single sentence.\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"data"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"A Primitive or Structured value that contains additional information about the error.\nThis may be omitted.\nThe value of this member is defined by the Server (e.g. detailed error information, nested errors etc.).\n"}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                result
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <div
+                              style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                            >
+                              
+                              
+                              Transaction object
+                              
+                              
+                            </div><SchemaItem
+                              collapsible={false}
+                              name={"blockHash"}
+                              required={true}
+                              schemaName={"32-byte DATA"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"32-byte DATA","description":"Hash of the block where this transaction was in. null when it is pending."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"blockNumber"}
+                              required={true}
+                              schemaName={"hex"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"hex","description":"Block number where this transaction was in. null when it is pending."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"codeFormat"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"(optional) The code format of smart contract code."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"feePayer"}
+                              required={false}
+                              schemaName={"20-byte DATA"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"20-byte DATA","description":"(optional) Address of the fee payer."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={true}
+                              className={"schemaItem"}
+                            >
+                              <details
+                                style={{}}
+                                className={"openapi-markdown__details"}
+                              >
+                                <summary
+                                  style={{}}
+                                >
+                                  <span
+                                    className={"openapi-schema__container"}
+                                  >
+                                    <strong
+                                      className={"openapi-schema__property"}
+                                    >
+                                      feePayerSignatures
+                                    </strong><span
+                                      className={"openapi-schema__name"}
+                                    >
+                                       object[]
+                                    </span>
+                                  </span>
+                                </summary><div
+                                  style={{"marginLeft":"1rem"}}
+                                >
+                                  <div
+                                    style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                                  >
+                                    
+                                    
+                                    (optional) An array of fee payer's signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.
+                                    
+                                    
+                                  </div><li>
+                                    <div
+                                      style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                                    >
+                                      Array [
+                                    </div>
+                                  </li><SchemaItem
+                                    collapsible={false}
+                                    name={"V"}
+                                    required={true}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string"}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"R"}
+                                    required={true}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string"}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"S"}
+                                    required={true}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string"}}
+                                  >
+                                    
+                                  </SchemaItem><li>
+                                    <div
+                                      style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                                    >
+                                      ]
+                                    </div>
+                                  </li>
+                                </div>
+                              </details>
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"feeRatio"}
+                              required={false}
+                              schemaName={"hex"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"hex","description":"(optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"from"}
+                              required={true}
+                              schemaName={"20-byte DATA"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"20-byte DATA","description":"Address of the sender."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"gas"}
+                              required={true}
+                              schemaName={"hex"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"hex","description":"Gas provided by the sender."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"gasPrice"}
+                              required={true}
+                              schemaName={"hex"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"hex","description":"Gas price provided by the sender in peb."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"hash"}
+                              required={true}
+                              schemaName={"32-byte DATA"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"32-byte DATA","description":"Hash of the transaction."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"humanReadable"}
+                              required={false}
+                              schemaName={"boolean"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"boolean","description":"(optional) true if the address is humanReadable, false if the address is not humanReadable."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"key"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"(optional) Key of the newly created account."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"input"}
+                              required={false}
+                              schemaName={"DATA"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"DATA","description":"(optional) The data sent along with the transaction."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"nonce"}
+                              required={true}
+                              schemaName={"hex"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"hex","description":"The number of transactions made by the sender prior to this one."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"senderTxHash"}
+                              required={true}
+                              schemaName={"32-byte DATA"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"32-byte DATA","description":"Hash of a transaction that is signed only by the sender. See SenderTxHash. This value is always the same as hash for non fee-delegated transactions."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={true}
+                              className={"schemaItem"}
+                            >
+                              <details
+                                style={{}}
+                                className={"openapi-markdown__details"}
+                              >
+                                <summary
+                                  style={{}}
+                                >
+                                  <span
+                                    className={"openapi-schema__container"}
+                                  >
+                                    <strong
+                                      className={"openapi-schema__property"}
+                                    >
+                                      signatures
+                                    </strong><span
+                                      className={"openapi-schema__name"}
+                                    >
+                                       object[]
+                                    </span><span
+                                      className={"openapi-schema__divider"}
+                                    >
+                                      
+                                    </span><span
+                                      className={"openapi-schema__required"}
+                                    >
+                                      required
+                                    </span>
+                                  </span>
+                                </summary><div
+                                  style={{"marginLeft":"1rem"}}
+                                >
+                                  <div
+                                    style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                                  >
+                                    
+                                    
+                                    An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s
+                                    
+                                    
+                                  </div><li>
+                                    <div
+                                      style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                                    >
+                                      Array [
+                                    </div>
+                                  </li><SchemaItem
+                                    collapsible={false}
+                                    name={"V"}
+                                    required={true}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string"}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"R"}
+                                    required={true}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string"}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"S"}
+                                    required={true}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string"}}
+                                  >
+                                    
+                                  </SchemaItem><li>
+                                    <div
+                                      style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                                    >
+                                      ]
+                                    </div>
+                                  </li>
+                                </div>
+                              </details>
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"to"}
+                              required={true}
+                              schemaName={"20-byte DATA"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"20-byte DATA","description":"Address of the receiver. null when it is a contract creation transaction."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"transactionIndex"}
+                              required={true}
+                              schemaName={"hex"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"hex","description":"Integer of the transactions index position in the block. null when it is pending."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"type"}
+                              required={true}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"A string representing the type of the transaction."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"typeInt"}
+                              required={true}
+                              schemaName={"number"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"number","description":"An integer representing the type of the transaction."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"value"}
+                              required={true}
+                              schemaName={"hex"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"hex","description":"Value transferred in peb."}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"jsonrpc\": \"2.0\",\n  \"id\": 0,\n  \"error\": {\n    \"code\": -32700,\n    \"message\": \"Parse error\",\n    \"data\": \"string\"\n  },\n  \"result\": {\n    \"blockHash\": \"0x4d97cf1f686a925ed4f1ad42c635cedb54974fe23a2941c7825e1ed3163c0e41\",\n    \"blockNumber\": \"0x7008\",\n    \"feePayer\": \"0xa9d2cc2bb853163b6eadfb6f962d72f7e00bc2e6\",\n    \"feePayerSignatures\": [\n      {\n        \"V\": \"0x4e44\",\n        \"R\": \"0xa665e17d92e1c671c8b062cecb19790d49138a21854fc15c460c91035b1884e\",\n        \"S\": \"0x17165688acc01736f1221a39399e3aac7e1ece14731fcab31631e3e4a59b7441\"\n      }\n    ],\n    \"from\": \"0xab0833d744a8943fe3c783f9cc70c13cbd70fcf4\",\n    \"gas\": \"0xdbba0\",\n    \"gasPrice\": \"0x5d21dba00\",\n    \"hash\": \"0xaca5d9a1ed8b86b1ef61431b2bedfc99a66eaefc3a7e1cffdf9ff53653956a67\",\n    \"nonce\": \"0x26\",\n    \"senderTxHash\": \"0x18fe9e1007da7d20aad77778557fb8acc58c80054daba65124c8c843aadd3478\",\n    \"signatures\": [\n      {\n        \"V\": \"0x4e44\",\n        \"R\": \"0x1b6bb3d996d903d0528565d13e8d9d122b2220ed09c5baf384114193a6977027\",\n        \"S\": \"0x20c506ce9f1bdd42183c40c44f414a3930f339f856e8be3cfcdf5ca0852fd378\"\n      }\n    ],\n    \"to\": \"0x15a9119104e1bf0ec6d408b3cc188685e4402a2c\",\n    \"transactionIndex\": \"0x0\",\n    \"type\": \"TxTypeFeeDelegatedValueTransfer\",\n    \"typeInt\": 9,\n    \"value\": \"0x1\"\n  }\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

@@ -1,0 +1,560 @@
+openapi: 3.0.2
+info:
+  title: web3rpc
+  version: 0.9.0
+  contact:
+    name: API support
+    url: https://forum.klaytn.foundation/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+x-tagGroups:
+  - name: namespaces
+    tags:
+      - net
+servers:
+  - url: http://localhost:8551
+  - url: https://api.baobab.klaytn.net:8651
+  - url: https://public-en-cypress.klaytn.net
+paths:
+  /net/listening:
+    post:
+      operationId: listening
+      summary: net_listening
+      description: |
+        Returns true if the client is actively listening for network connections.
+
+        **JSONRPC:** `net_listening`
+      tags:
+        - net
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/JsonRpcRequest'
+                - type: object
+                  properties:
+                    method:
+                      type: string
+                      default: net_listening
+      responses:
+        '200':
+          description: Returns true if the client is actively listening for network connections.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/JsonRpcResponse'
+                  - type: object
+                    properties:
+                      result:
+                        type: boolean
+                        description: true when listening, otherwise false.
+                        example: true
+      x-codeSamples:
+        - lang: curl
+          label: Curl
+          source: |
+            curl -X 'POST' \
+              'https://api.baobab.klaytn.net:8651/net/listening' \
+              -H 'accept: application/json' \
+              -H 'Content-Type: application/json' \
+              -d '{
+              "method": "net_listening",
+              "id": 1,
+              "jsonrpc": "2.0",
+              "params": []
+            }'
+        - lang: java
+          label: Java
+          source: |
+
+            import org.web3j.protocol.core.methods.response.NetListening;
+            import org.web3j.protocol.http.HttpService;
+            import org.web3j.protocol.klaytn.Web3j;
+            import java.io.IOException;
+
+            public class NetListeningExample {
+                private Web3j w3 = Web3j.build(new HttpService("https://public-en-baobab.klaytn.net"));
+                void netListeningExample() throws IOException {
+                    NetListening response = w3.netListening().send();
+                    response.getResult();
+                }
+                
+            }
+        - lang: javascript
+          label: Javascript
+          source: |
+            const { JsonRpcProvider } = require("@klaytn/ethers-ext");
+            (() => {
+              const provider = new JsonRpcProvider("https://public-en-baobab.klaytn.net");
+
+              provider.net
+                .listening({}, (err, data, response) => {})
+                .then((data) => {
+                  console.log(data);
+                });
+            })();
+        - lang: python
+          label: Python
+          source: |
+            from web3 import Web3
+            from web3py_ext import extend
+
+            host = "https://api.baobab.klaytn.net:8651"
+
+            w3 = Web3(Web3.HTTPProvider(host))
+            net_response = w3.net.listening()
+
+            print(net_response)
+  /net/networkID:
+    post:
+      operationId: networkID
+      summary: net_networkID
+      description: |
+        Returns the network identifier (network ID).
+
+        **JSONRPC:** `net_networkID`
+      tags:
+        - net
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/JsonRpcRequest'
+                - type: object
+                  properties:
+                    method:
+                      type: string
+                      default: net_networkID
+      responses:
+        '200':
+          description: Returns the network identifier (network ID).
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/JsonRpcResponse'
+                  - type: object
+                    properties:
+                      result:
+                        type: string
+                        format: hex
+                        description: The integer of the network identifier. "1001" Klaytn Baobab testnet."8217" Klaytn Cypress mainnet.
+                        example: '1001'
+      x-codeSamples:
+        - lang: curl
+          label: Curl
+          source: |
+            curl -X 'POST' \
+              'https://api.baobab.klaytn.net:8651/net/networkID' \
+              -H 'accept: application/json' \
+              -H 'Content-Type: application/json' \
+              -d '{
+              "method": "net_networkID",
+              "id": 1,
+              "jsonrpc": "2.0",
+              "params": []
+            }'
+        - lang: java
+          label: Java
+          source: |
+
+            import org.web3j.protocol.klaytn.core.method.response.NetNetworkIDResponse;
+            import org.web3j.protocol.http.HttpService;
+            import org.web3j.protocol.klaytn.Web3j;
+
+            import java.io.IOException;
+
+            public class NetNetworkIDExample {
+                private Web3j w3 = Web3j.build(new HttpService("https://public-en-baobab.klaytn.net"));
+                void whenRequestValid_ThenCall200ResponseReturns() throws IOException {
+                    NetNetworkIDResponse response = w3.netNetworkID().send();
+                    response.getResult();
+                }
+            }
+        - lang: javascript
+          label: Javascript
+          source: |
+            const { JsonRpcProvider } = require("@klaytn/ethers-ext");
+            (() => {
+              const provider = new JsonRpcProvider("https://public-en-baobab.klaytn.net");
+
+              provider.net
+                .networkID({}, (err, data, response) => {})
+                .then((data) => {
+                  console.log(data);
+                });
+            })();
+        - lang: python
+          label: Python
+          source: |
+            from web3 import Web3
+            from web3py_ext import extend
+
+            host = "https://api.baobab.klaytn.net:8651"
+
+            w3 = Web3(Web3.HTTPProvider(host))
+            net_response = w3.net.network_id()
+
+            print(net_response)
+  /net/peerCount:
+    post:
+      operationId: peerCount
+      summary: net_peerCount
+      description: |
+        Returns the number of peers currently connected to the client.
+
+        **JSONRPC:** `net_peerCount`
+      tags:
+        - net
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/JsonRpcRequest'
+                - type: object
+                  properties:
+                    method:
+                      type: string
+                      default: net_peerCount
+      responses:
+        '200':
+          description: Returns the number of peers currently connected to the client.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/JsonRpcResponse'
+                  - type: object
+                    properties:
+                      result:
+                        type: string
+                        format: hex
+                        description: Integer of the number of connected peers.
+                        example: '0x3'
+      x-codeSamples:
+        - lang: curl
+          label: Curl
+          source: |
+            curl -X 'POST' \
+              'https://api.baobab.klaytn.net:8651/net/peerCount' \
+              -H 'accept: application/json' \
+              -H 'Content-Type: application/json' \
+              -d '{
+              "method": "net_peerCount",
+              "id": 1,
+              "jsonrpc": "2.0",
+              "params": []
+            }'
+        - lang: java
+          label: Java
+          source: |
+
+            import org.web3j.protocol.core.methods.response.NetPeerCount;
+            import org.web3j.protocol.http.HttpService;
+            import org.web3j.protocol.klaytn.Web3j;
+
+            import java.io.IOException;
+
+            public class NetPeerCountExample {
+                private Web3j w3 = Web3j.build(new HttpService("https://public-en-baobab.klaytn.net"));
+                void netPeerCountExample() throws IOException {
+                    NetPeerCount response = w3.netPeerCount().send();
+                    response.getResult();
+
+                }
+            }
+        - lang: javascript
+          label: Javascript
+          source: |
+            const { JsonRpcProvider } = require("@klaytn/ethers-ext");
+            (() => {
+              const provider = new JsonRpcProvider("https://public-en-baobab.klaytn.net");
+
+              provider.net
+                .peerCount({}, (err, data, response) => {})
+                .then((data) => {
+                  console.log(data);
+                });
+            })();
+        - lang: python
+          label: Python
+          source: |
+            from web3 import Web3
+            from web3py_ext import extend
+
+            host = "https://api.baobab.klaytn.net:8651"
+
+            w3 = Web3(Web3.HTTPProvider(host))
+            net_response = w3.net.peer_count()
+
+            print(net_response)
+  /net/peerCountByType:
+    post:
+      operationId: peerCountByType
+      summary: net_peerCountByType
+      description: |
+        Returns the number of connected nodes by type and the total number of connected nodes with key/value pairs.
+
+        **JSONRPC:** `net_peerCountByType`
+      tags:
+        - net
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/JsonRpcRequest'
+                - type: object
+                  properties:
+                    method:
+                      type: string
+                      default: net_peerCountByType
+      responses:
+        '200':
+          description: Returns the number of connected nodes by type and the total number of connected nodes with key/value pairs.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/JsonRpcResponse'
+                  - type: object
+                    properties:
+                      result:
+                        type: object
+                        required:
+                          - en
+                          - pn
+                          - total
+                        description: The number of connected peers by type as well as the total number of connected peers.
+                        properties:
+                          en:
+                            type: integer
+                          pn:
+                            type: integer
+                          total:
+                            type: integer
+                        example:
+                          en: 3
+                          pn: 2
+                          total: 5
+      x-codeSamples:
+        - lang: curl
+          label: Curl
+          source: |
+            curl -X 'POST' \
+              'https://api.baobab.klaytn.net:8651/net/peerCountByType' \
+              -H 'accept: application/json' \
+              -H 'Content-Type: application/json' \
+              -d '{
+              "method": "net_peerCountByType",
+              "id": 1,
+              "jsonrpc": "2.0",
+              "params": []
+            }'
+        - lang: java
+          label: Java
+          source: |
+
+            import org.web3j.protocol.klaytn.core.method.response.NetPeerCountByTypeResponse;
+            import org.web3j.protocol.http.HttpService;
+            import org.web3j.protocol.klaytn.Web3j;
+
+            import java.io.IOException;
+
+            public class NetPeerCountByTypeExample {
+                private Web3j w3 = Web3j.build(new HttpService("https://public-en-baobab.klaytn.net"));    void whenRequestValid_ThenCall200ResponseReturns() throws IOException {
+                    NetPeerCountByTypeResponse response = w3.netPeerCountByType().send();
+                    response.getResult();
+                }
+            }
+        - lang: javascript
+          label: Javascript
+          source: |
+            const { JsonRpcProvider } = require("@klaytn/ethers-ext");
+            (() => {
+              const provider = new JsonRpcProvider("https://public-en-baobab.klaytn.net");
+
+              provider.net
+                .peerCountByType({}, (err, data, response) => {})
+                .then((data) => {
+                  console.log(data);
+                });
+            })();
+        - lang: python
+          label: Python
+          source: |
+            from web3 import Web3
+            from web3py_ext import extend
+
+            host = "https://api.baobab.klaytn.net:8651"
+
+            w3 = Web3(Web3.HTTPProvider(host))
+            net_response = w3.net.peer_count_by_type()
+
+            print(net_response)
+  /net/version:
+    post:
+      operationId: version
+      summary: net_version
+      description: |
+        Return the current klaytn protocol version.
+
+        **JSONRPC:** `net_version`
+      tags:
+        - net
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/JsonRpcRequest'
+                - type: object
+                  properties:
+                    method:
+                      type: string
+                      default: net_version
+      responses:
+        '200':
+          description: Return the current klaytn protocol version.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/JsonRpcResponse'
+                  - type: object
+                    properties:
+                      result:
+                        type: string
+                        format: hex
+                        description: The integer of the klaytn protocol version. "1001" Klaytn Baobab testnet."8217" Klaytn Cypress mainnet.
+                        example: '1001'
+      x-codeSamples:
+        - lang: curl
+          label: Curl
+          source: |
+            curl -X 'POST' \
+              'https://api.baobab.klaytn.net:8651/net/version' \
+              -H 'accept: application/json' \
+              -H 'Content-Type: application/json' \
+              -d '{
+              "method": "net_version",
+              "id": 1,
+              "jsonrpc": "2.0",
+              "params": []
+            }'
+        - lang: java
+          label: Java
+          source: |
+
+            import org.web3j.protocol.core.methods.response.NetVersion;
+            import org.web3j.protocol.http.HttpService;
+            import org.web3j.protocol.klaytn.Web3j;
+
+            import java.io.IOException;
+
+            public class NetVersionExample {
+                private Web3j w3 = Web3j.build(new HttpService("https://public-en-baobab.klaytn.net"));
+                void whenRequestValid_ThenCall200ResponseReturns() throws IOException {
+                    NetVersion response = w3.netVersion().send();
+                    response.getResult();
+                }
+            }
+        - lang: javascript
+          label: Javascript
+          source: |
+            const { JsonRpcProvider } = require("@klaytn/ethers-ext");
+            (() => {
+              const provider = new JsonRpcProvider("https://public-en-baobab.klaytn.net");
+
+              provider.net
+                .version({}, (err, data, response) => {})
+                .then((data) => {
+                  console.log(data);
+                });
+            })();
+        - lang: python
+          label: Python
+          source: |
+            from web3 import Web3
+            from web3py_ext import extend
+
+            host = "https://api.baobab.klaytn.net:8651"
+
+            w3 = Web3(Web3.HTTPProvider(host))
+            net_response = w3.net.version()
+
+            print(net_response)
+components:
+  schemas:
+    JsonRpcRequest:
+      type: object
+      required:
+        - method
+        - id
+        - jsonrpc
+      properties:
+        method:
+          type: string
+          description: Method name
+        id:
+          type: integer
+          default: 1
+          format: int64
+          description: Request ID, Random or Auto incrementation
+        jsonrpc:
+          type: string
+          default: '2.0'
+          description: JSON-RPC Version (2.0)
+        params:
+          type: array
+          items: {}
+    ErrorMember:
+      type: object
+      title: ErrorMember
+      required:
+        - code
+      properties:
+        code:
+          type: integer
+          format: int64
+          example: -32700
+          description: |
+            A Number that indicates the error type that occurred.
+            This MUST be an integer.
+
+            | code | message | description |
+            |-----|-----|-------|
+            | -32700   | Parse error   | invalid JSON was received by the server. An error occurred on the server while parsing the JSON text. |
+            |-32602 | Invalid params | Invalid method parameter(s). |
+        message:
+          type: string
+          example: Parse error
+          description: |
+            A String providing a short description of the error.
+            The message SHOULD be limited to a concise single sentence.
+        data:
+          type: string
+          description: |
+            A Primitive or Structured value that contains additional information about the error.
+            This may be omitted.
+            The value of this member is defined by the Server (e.g. detailed error information, nested errors etc.).
+    JsonRpcResponse:
+      type: object
+      required:
+        - jsonrpc
+        - id
+      properties:
+        jsonrpc:
+          type: string
+          default: '2.0'
+        id:
+          type: integer
+          format: int64
+        error:
+          $ref: '#/components/schemas/ErrorMember'
+        result: {}

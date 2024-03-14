@@ -1,0 +1,491 @@
+---
+id: estimate-computation-cost
+title: "[Transaction] klay_estimateComputationCost"
+description: "Generates and returns an estimate of how much computation cost will be spent to execute the transaction. Klaytn limits the computation cost of a transaction to 100000000 currently not to take too much time by a single transaction. The transaction will not be added to the blockchain like klay_estimateGas"
+sidebar_label: " klay_estimateComputationCost"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: docs/references/json-rpc/klay/web-3-rpc
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  [Transaction] klay_estimateComputationCost
+</h1>
+
+
+
+
+
+Generates and returns an estimate of how much computation cost will be spent to execute the transaction. Klaytn limits the computation cost of a transaction to 100000000 currently not to take too much time by a single transaction. The transaction will not be added to the blockchain like klay_estimateGas
+
+**JSONRPC:** `klay_estimateComputationCost`
+
+
+## Request
+
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"method"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"Method name","default":"klay_estimateComputationCost"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"id"}
+          required={true}
+          schemaName={"int64"}
+          qualifierMessage={undefined}
+          schema={{"type":"integer","default":1,"format":"int64","description":"Request ID, Random or Auto incrementation"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"jsonrpc"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","default":"2.0","description":"JSON-RPC Version (2.0)"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={true}
+          className={"schemaItem"}
+        >
+          <details
+            style={{}}
+            className={"openapi-markdown__details"}
+          >
+            <summary
+              style={{}}
+            >
+              <span
+                className={"openapi-schema__container"}
+              >
+                <strong
+                  className={"openapi-schema__property"}
+                >
+                  params
+                </strong><span
+                  className={"openapi-schema__name"}
+                >
+                   undefined[]
+                </span><span
+                  className={"openapi-schema__divider"}
+                >
+                  
+                </span><span
+                  className={"openapi-schema__required"}
+                >
+                  required
+                </span>
+              </span>
+            </summary><div
+              style={{"marginLeft":"1rem"}}
+            >
+              <li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                >
+                  Array [
+                </div>
+              </li><SchemaItem
+                collapsible={true}
+                className={"schemaItem"}
+              >
+                <details
+                  style={{}}
+                  className={"openapi-markdown__details"}
+                >
+                  <summary
+                    style={{}}
+                  >
+                    <span
+                      className={"openapi-schema__container"}
+                    >
+                      <strong
+                        className={"openapi-schema__property"}
+                      >
+                        CallObject
+                      </strong><span
+                        className={"openapi-schema__name"}
+                      >
+                         object
+                      </span>
+                    </span>
+                  </summary><div
+                    style={{"marginLeft":"1rem"}}
+                  >
+                    <div
+                      style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                    >
+                      
+                      
+                      The transaction call object. See the next table for the object's properties.
+                      
+                      
+                    </div><SchemaItem
+                      collapsible={false}
+                      name={"from"}
+                      required={false}
+                      schemaName={"20-byte DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"20-byte DATA","description":"(optional) The address the transaction is sent from."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"to"}
+                      required={false}
+                      schemaName={"20-byte DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"20-byte DATA","description":"(optional when testing the deployment of a new contract) The address the transaction is directed to."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"gas"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional) Integer of the gas provided for the transaction execution. klay_call consumes zero gas, but this parameter may be needed by some executions."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"gasPrice"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional) Integer of the gasPrice used for each paid gas."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"value"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional) Integer of the value sent with this transaction."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"input"}
+                      required={false}
+                      schemaName={"DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"DATA","description":"(optional) Hash of the method signature and encoded parameters. It replaces data field, but 'data` field is still supported for backward compatibility."}}
+                    >
+                      
+                    </SchemaItem>
+                  </div>
+                </details>
+              </SchemaItem><SchemaItem
+                collapsible={true}
+                className={"schemaItem"}
+              >
+                <details
+                  style={{}}
+                  className={"openapi-markdown__details"}
+                >
+                  <summary
+                    style={{}}
+                  >
+                    <strong>
+                      BlockNumberOrHashOrTag
+                    </strong><span
+                      style={{"opacity":"0.6"}}
+                    >
+                       object
+                    </span>
+                  </summary><div
+                    style={{"marginLeft":"1rem"}}
+                  >
+                    <div
+                      style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                    >
+                      
+                      
+                      (optional) A block number, blockhash or the block tag string (latest or earliest). If omitted, latest will be used.
+                      
+                      
+                    </div>
+                  </div><div>
+                    <span
+                      className={"badge badge--info"}
+                    >
+                      oneOf
+                    </span><SchemaTabs>
+                      <TabItem
+                        label={"IntegerBlockNumber"}
+                        value={"0-item-properties"}
+                      >
+                        <div
+                          style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}
+                        >
+                          
+                          
+                          number
+                          
+                          
+                        </div>
+                      </TabItem><TabItem
+                        label={"HexadecimalBlockNumber"}
+                        value={"1-item-properties"}
+                      >
+                        <div
+                          style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}
+                        >
+                          
+                          
+                          string
+                          
+                          
+                        </div>
+                      </TabItem><TabItem
+                        label={"BlockTag"}
+                        value={"2-item-properties"}
+                      >
+                        <div
+                          style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}
+                        >
+                          
+                          
+                          string
+                          
+                          
+                        </div>
+                      </TabItem><TabItem
+                        label={"BlockHash"}
+                        value={"3-item-properties"}
+                      >
+                        <div
+                          style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}
+                        >
+                          
+                          
+                          string
+                          
+                          
+                        </div>
+                      </TabItem>
+                    </SchemaTabs>
+                  </div>
+                </details>
+              </SchemaItem><li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                >
+                  ]
+                </div>
+              </li>
+            </div>
+          </details>
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Return the amount of computation cost used.
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"jsonrpc"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","default":"2.0"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={true}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                error
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={false}
+                              name={"code"}
+                              required={true}
+                              schemaName={"int64"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int64","example":-32700,"description":"A Number that indicates the error type that occurred.\nThis MUST be an integer.\n\n| code | message | description |\n|-----|-----|-------|\n| -32700   | Parse error   | invalid JSON was received by the server. An error occurred on the server while parsing the JSON text. |\n|-32602 | Invalid params | Invalid method parameter(s). |\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"message"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","example":"Parse error","description":"A String providing a short description of the error.\nThe message SHOULD be limited to a concise single sentence.\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"data"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"A Primitive or Structured value that contains additional information about the error.\nThis may be omitted.\nThe value of this member is defined by the Server (e.g. detailed error information, nested errors etc.).\n"}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"result"}
+                        required={false}
+                        schemaName={"hex"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","format":"hex","description":"The amount of computation cost used.","example":"0x1e8b0ad"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"jsonrpc\": \"2.0\",\n  \"id\": 0,\n  \"error\": {\n    \"code\": -32700,\n    \"message\": \"Parse error\",\n    \"data\": \"string\"\n  },\n  \"result\": \"0x1e8b0ad\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

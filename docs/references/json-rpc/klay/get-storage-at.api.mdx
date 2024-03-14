@@ -1,0 +1,411 @@
+---
+id: get-storage-at
+title: "[Block] klay_getStorageAt"
+description: "Returns the value from a storage position at a given address."
+sidebar_label: " klay_getStorageAt"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: docs/references/json-rpc/klay/web-3-rpc
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  [Block] klay_getStorageAt
+</h1>
+
+
+
+
+
+Returns the value from a storage position at a given address.
+
+**NOTE:** *In versions earlier than Klaytn v1.7.0, only integer block number, the string "earliest" and "latest" are available.*
+
+**JSONRPC:** `klay_getStorageAt`
+
+
+## Request
+
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"method"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"Method name","default":"klay_getStorageAt"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"id"}
+          required={true}
+          schemaName={"int64"}
+          qualifierMessage={undefined}
+          schema={{"type":"integer","default":1,"format":"int64","description":"Request ID, Random or Auto incrementation"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"jsonrpc"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","default":"2.0","description":"JSON-RPC Version (2.0)"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={true}
+          className={"schemaItem"}
+        >
+          <details
+            style={{}}
+            className={"openapi-markdown__details"}
+          >
+            <summary
+              style={{}}
+            >
+              <span
+                className={"openapi-schema__container"}
+              >
+                <strong
+                  className={"openapi-schema__property"}
+                >
+                  params
+                </strong><span
+                  className={"openapi-schema__name"}
+                >
+                   undefined[]
+                </span><span
+                  className={"openapi-schema__divider"}
+                >
+                  
+                </span><span
+                  className={"openapi-schema__required"}
+                >
+                  required
+                </span>
+              </span>
+            </summary><div
+              style={{"marginLeft":"1rem"}}
+            >
+              <li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                >
+                  Array [
+                </div>
+              </li><SchemaItem
+                collapsible={false}
+                name={"StorageAddress"}
+                required={false}
+                schemaName={"20-byte DATA"}
+                qualifierMessage={undefined}
+                schema={{"type":"string","title":"StorageAddress","format":"20-byte DATA","description":"Address of the storage."}}
+              >
+                
+              </SchemaItem><SchemaItem
+                collapsible={false}
+                name={"Position"}
+                required={false}
+                schemaName={"hex"}
+                qualifierMessage={undefined}
+                schema={{"type":"string","title":"Position","format":"hex","description":"Integer of the position in the storage."}}
+              >
+                
+              </SchemaItem><SchemaItem
+                collapsible={true}
+                className={"schemaItem"}
+              >
+                <details
+                  style={{}}
+                  className={"openapi-markdown__details"}
+                >
+                  <summary
+                    style={{}}
+                  >
+                    <strong>
+                      BlockNumberOrHashOrTag
+                    </strong><span
+                      style={{"opacity":"0.6"}}
+                    >
+                       object
+                    </span>
+                  </summary><div
+                    style={{"marginLeft":"1rem"}}
+                  >
+                    
+                  </div><div>
+                    <span
+                      className={"badge badge--info"}
+                    >
+                      oneOf
+                    </span><SchemaTabs>
+                      <TabItem
+                        label={"IntegerBlockNumber"}
+                        value={"0-item-properties"}
+                      >
+                        <div
+                          style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}
+                        >
+                          
+                          
+                          number
+                          
+                          
+                        </div>
+                      </TabItem><TabItem
+                        label={"HexadecimalBlockNumber"}
+                        value={"1-item-properties"}
+                      >
+                        <div
+                          style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}
+                        >
+                          
+                          
+                          string
+                          
+                          
+                        </div>
+                      </TabItem><TabItem
+                        label={"BlockTag"}
+                        value={"2-item-properties"}
+                      >
+                        <div
+                          style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}
+                        >
+                          
+                          
+                          string
+                          
+                          
+                        </div>
+                      </TabItem><TabItem
+                        label={"BlockHash"}
+                        value={"3-item-properties"}
+                      >
+                        <div
+                          style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}
+                        >
+                          
+                          
+                          string
+                          
+                          
+                        </div>
+                      </TabItem>
+                    </SchemaTabs>
+                  </div>
+                </details>
+              </SchemaItem><li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                >
+                  ]
+                </div>
+              </li>
+            </div>
+          </details>
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Returns the value from a storage position at a given address.
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"jsonrpc"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","default":"2.0"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={true}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                error
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={false}
+                              name={"code"}
+                              required={true}
+                              schemaName={"int64"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int64","example":-32700,"description":"A Number that indicates the error type that occurred.\nThis MUST be an integer.\n\n| code | message | description |\n|-----|-----|-------|\n| -32700   | Parse error   | invalid JSON was received by the server. An error occurred on the server while parsing the JSON text. |\n|-32602 | Invalid params | Invalid method parameter(s). |\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"message"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","example":"Parse error","description":"A String providing a short description of the error.\nThe message SHOULD be limited to a concise single sentence.\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"data"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"A Primitive or Structured value that contains additional information about the error.\nThis may be omitted.\nThe value of this member is defined by the Server (e.g. detailed error information, nested errors etc.).\n"}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"result"}
+                        required={false}
+                        schemaName={"DATA"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","format":"DATA","description":"The value at this storage position.","example":"0x00000000000000000000000000000000000000000000000000000000000004d2"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"jsonrpc\": \"2.0\",\n  \"id\": 0,\n  \"error\": {\n    \"code\": -32700,\n    \"message\": \"Parse error\",\n    \"data\": \"string\"\n  },\n  \"result\": \"0x00000000000000000000000000000000000000000000000000000000000004d2\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

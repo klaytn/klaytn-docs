@@ -1,0 +1,449 @@
+---
+id: get-block-with-consensus-info-by-hash
+title: "[Block] klay_getBlockWithConsensusInfoByHash"
+description: "Returns a block with consensus information that matches the given hash."
+sidebar_label: " klay_getBlockWithConsensusInfoByHash"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: docs/references/json-rpc/klay/web-3-rpc
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  [Block] klay_getBlockWithConsensusInfoByHash
+</h1>
+
+
+
+
+
+Returns a block with consensus information that matches the given hash.
+
+**JSONRPC:** `klay_getBlockWithConsensusInfoByHash`
+
+
+## Request
+
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"method"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"Method name","default":"klay_getBlockWithConsensusInfoByHash"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"id"}
+          required={true}
+          schemaName={"int64"}
+          qualifierMessage={undefined}
+          schema={{"type":"integer","default":1,"format":"int64","description":"Request ID, Random or Auto incrementation"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"jsonrpc"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","default":"2.0","description":"JSON-RPC Version (2.0)"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"params"}
+          required={true}
+          schemaName={"32-byte DATA[]"}
+          qualifierMessage={undefined}
+          schema={{"type":"array","description":"Hash of a block.","example":["0xba647d41423faeebe8a7c64737d284fc2eba6f0388a3e1ebf6243db509ec1577"],"items":{"title":"BlockHash","type":"string","format":"32-byte DATA","description":"the block hash"}}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Returns a block with consensus information that matches the given hash.
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"jsonrpc"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","default":"2.0"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={true}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                error
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={false}
+                              name={"code"}
+                              required={true}
+                              schemaName={"int64"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int64","example":-32700,"description":"A Number that indicates the error type that occurred.\nThis MUST be an integer.\n\n| code | message | description |\n|-----|-----|-------|\n| -32700   | Parse error   | invalid JSON was received by the server. An error occurred on the server while parsing the JSON text. |\n|-32602 | Invalid params | Invalid method parameter(s). |\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"message"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","example":"Parse error","description":"A String providing a short description of the error.\nThe message SHOULD be limited to a concise single sentence.\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"data"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"A Primitive or Structured value that contains additional information about the error.\nThis may be omitted.\nThe value of this member is defined by the Server (e.g. detailed error information, nested errors etc.).\n"}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                result
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={false}
+                              name={"blockScore"}
+                              required={true}
+                              schemaName={"hex"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"hex","description":"Former difficulty. Always 1 in the BFT consensus engine"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"totalBlockScore"}
+                              required={true}
+                              schemaName={"hex"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"hex","description":"Integer of the total blockScore of the chain until this block."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"committee"}
+                              required={true}
+                              schemaName={"string[]"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"array","description":"Array of addresses of committee members of this block. The committee is a subset of validators participated in the consensus protocol for this block.","items":{"type":"string"}}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"committers"}
+                              required={true}
+                              schemaName={"string[]"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"array","description":"Array of addresses of committer members of this block.","items":{"type":"string"}}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"gasUsed"}
+                              required={true}
+                              schemaName={"hex"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"hex","description":"The total used gas by all transactions in this block."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"hash"}
+                              required={true}
+                              schemaName={"32-byte DATA"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"32-byte DATA","description":"Hash of the block. null when it is pending block."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"number"}
+                              required={true}
+                              schemaName={"hex"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"hex","description":"The block number. null when it is pending block."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"parentHash"}
+                              required={true}
+                              schemaName={"32-byte DATA"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"32-byte DATA","description":"Hash of the parent block."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"proposer"}
+                              required={true}
+                              schemaName={"20-byte DATA"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"20-byte DATA","description":"Address of the proposer."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"receiptsRoot"}
+                              required={true}
+                              schemaName={"32-byte DATA"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"32-byte DATA","description":"The root of the receipts trie of the block."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"sigHash"}
+                              required={true}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"signature hash of block"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"size"}
+                              required={true}
+                              schemaName={"hex"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"hex","description":"Integer the size of this block in bytes."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"stateRoot"}
+                              required={true}
+                              schemaName={"32-byte DATA"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"32-byte DATA","description":"The root of the final state trie of the block."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"timestamp"}
+                              required={true}
+                              schemaName={"hex"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"hex","description":"The Unix timestamp for when the block was collated."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"timestampFoS"}
+                              required={true}
+                              schemaName={"hex"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"hex","description":"The fraction of a second of the timestamp for when the block was collated."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"transactions"}
+                              required={true}
+                              schemaName={"object[]"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"array","description":"Array of transaction objects.","items":{"type":"object"}}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"transactionsRoot"}
+                              required={true}
+                              schemaName={"32-byte DATA"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"32-byte DATA","description":"The root of the transaction trie of the block."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"baseFeePerGas"}
+                              required={true}
+                              schemaName={"hex"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"hex","description":"The base fee per gas. It has a meaningful value when EthTxTypeCompatible and Magma hardforks are activated."}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"jsonrpc\": \"2.0\",\n  \"id\": 0,\n  \"error\": {\n    \"code\": -32700,\n    \"message\": \"Parse error\",\n    \"data\": \"string\"\n  },\n  \"result\": {\n    \"blockScore\": \"0x1\",\n    \"committee\": [\n      \"0x571e53df607be97431a5bbefca1dffe5aef56f4d\",\n      \"0x5cb1a7dccbd0dc446e3640898ede8820368554c8\",\n      \"0x99fb17d324fa0e07f23b49d09028ac0919414db6\",\n      \"0xb74ff9dea397fe9e231df545eb53fe2adf776cb2\"\n    ],\n    \"committers\": [\n      \"0x99fb17d324fa0e07f23b49d09028ac0919414db6\",\n      \"0x5cb1a7dccbd0dc446e3640898ede8820368554c8\",\n      \"0x571e53df607be97431a5bbefca1dffe5aef56f4d\"\n    ],\n    \"extraData\": \"0xd883010101846b6c617988676f312e31322e35856c696e757800000000000000f90164f85494571e53df607be97431a5bbefca1dffe5aef56f4d945cb1a7dccbd0dc446e3640898ede8820368554c89499fb17d324fa0e07f23b49d09028ac0919414db694b74ff9dea397fe9e231df545eb53fe2adf776cb2b84151d4282c17c8120b540abbd61a0e090fe6916bbbd03f512d91f21a125ac49c206c4d4507e73658bd127c72ec984d6d633cc5e855688c7b95393ab842581aca3401f8c9b84155a6d22d344c4c948d46afc30e9dd94cfd1d8831b055a1bafce61bec941a7d5229615e20c1bb91da709b6dbed19b9e78fe0baec36288bb1eb0995162b211c71601b841875e354683c7b42c7fb330ade9f77bf4400567c0a0784cec37e9b42a64c279952f9f7e6a0a59bc5a1dfc8ab9dfe48acbb8fc541c8685d47a8a6f8ec7a1ae7c3a00b841783cf3e5fc3a23c8eeca37615b99ef1648a0fa287347136564488817ca7e81615f78849245d9daa645851f180ed7dd4c8ea874b05a090bbd80e122c00cbe95e401\",\n    \"gasUsed\": \"0x0\",\n    \"governanceData\": \"0x\",\n    \"hash\": \"0x841276e1b90bd72ae10106be921ce1ba57447b45b6e40d9cdcedf434b1258636\",\n    \"logsBloom\": \"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\",\n    \"number\": \"0x6e0431\",\n    \"originProposer\": \"0x99fb17d324fa0e07f23b49d09028ac0919414db6\",\n    \"parentHash\": \"0x846f639da23ecddb08e4de21ade579271b3e7e8269e8b999f5279ba39e34d238\",\n    \"proposer\": \"0x99fb17d324fa0e07f23b49d09028ac0919414db6\",\n    \"receiptsRoot\": \"0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470\",\n    \"reward\": \"0xb2bd3178affccd9f9f5189457f1cad7d17a01c9d\",\n    \"round\": 0,\n    \"sigHash\": \"0xfc1eb3094c465f0ba1a34e9b52aa3595a7e4d6a56df2c4f05f0f78522d869d17\",\n    \"size\": \"0x33b\",\n    \"stateRoot\": \"0xb011dd6dcfbc7ec95b82f8a2a5a070945a68e9ae203713c8313350751f1df556\",\n    \"timestamp\": \"0x5d814d00\",\n    \"timestampFoS\": \"0x26\",\n    \"totalBlockScore\": \"0x6e0432\",\n    \"transactions\": [],\n    \"transactionsRoot\": \"0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470\",\n    \"voteData\": \"0x\"\n  }\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

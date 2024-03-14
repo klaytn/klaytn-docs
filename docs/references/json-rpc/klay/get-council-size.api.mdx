@@ -1,0 +1,380 @@
+---
+id: get-council-size
+title: "[Block] klay_getCouncilSize"
+description: "Returns the size of the council at the specified block. If the parameter is not set, returns the size of the council at the latest block."
+sidebar_label: " klay_getCouncilSize"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: docs/references/json-rpc/klay/web-3-rpc
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  [Block] klay_getCouncilSize
+</h1>
+
+
+
+
+
+Returns the size of the council at the specified block. If the parameter is not set, returns the size of the council at the latest block.
+
+**NOTE:** *In versions earlier than Klaytn v1.7.0, only integer block number, the string "earliest" and "latest" are available.*
+
+**JSONRPC:** `klay_getCouncilSize`
+
+
+## Request
+
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"method"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"Method name","default":"klay_getCouncilSize"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"id"}
+          required={true}
+          schemaName={"int64"}
+          qualifierMessage={undefined}
+          schema={{"type":"integer","default":1,"format":"int64","description":"Request ID, Random or Auto incrementation"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"jsonrpc"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","default":"2.0","description":"JSON-RPC Version (2.0)"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={true}
+          className={"schemaItem"}
+        >
+          <details
+            style={{}}
+            className={"openapi-markdown__details"}
+          >
+            <summary
+              style={{}}
+            >
+              <span
+                className={"openapi-schema__container"}
+              >
+                <strong
+                  className={"openapi-schema__property"}
+                >
+                  params
+                </strong><span
+                  className={"openapi-schema__name"}
+                >
+                   undefined[]
+                </span><span
+                  className={"openapi-schema__divider"}
+                >
+                  
+                </span><span
+                  className={"openapi-schema__required"}
+                >
+                  required
+                </span>
+              </span>
+            </summary><div
+              style={{"marginLeft":"1rem"}}
+            >
+              <li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                >
+                  Array [
+                </div>
+              </li><SchemaItem
+                collapsible={true}
+                className={"schemaItem"}
+              >
+                <details
+                  style={{}}
+                  className={"openapi-markdown__details"}
+                >
+                  <summary
+                    style={{}}
+                  >
+                    <strong>
+                      BlockNumberOrTag
+                    </strong><span
+                      style={{"opacity":"0.6"}}
+                    >
+                       object
+                    </span>
+                  </summary><div
+                    style={{"marginLeft":"1rem"}}
+                  >
+                    
+                  </div><div>
+                    <span
+                      className={"badge badge--info"}
+                    >
+                      oneOf
+                    </span><SchemaTabs>
+                      <TabItem
+                        label={"IntegerBlockNumber"}
+                        value={"0-item-properties"}
+                      >
+                        <div
+                          style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}
+                        >
+                          
+                          
+                          number
+                          
+                          
+                        </div>
+                      </TabItem><TabItem
+                        label={"HexadecimalBlockNumber"}
+                        value={"1-item-properties"}
+                      >
+                        <div
+                          style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}
+                        >
+                          
+                          
+                          string
+                          
+                          
+                        </div>
+                      </TabItem><TabItem
+                        label={"BlockTag"}
+                        value={"2-item-properties"}
+                      >
+                        <div
+                          style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}
+                        >
+                          
+                          
+                          string
+                          
+                          
+                        </div>
+                      </TabItem>
+                    </SchemaTabs>
+                  </div>
+                </details>
+              </SchemaItem><li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                >
+                  ]
+                </div>
+              </li>
+            </div>
+          </details>
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Integer - The size of the council, or -1 when no council was found
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"jsonrpc"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","default":"2.0"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={true}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                error
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={false}
+                              name={"code"}
+                              required={true}
+                              schemaName={"int64"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int64","example":-32700,"description":"A Number that indicates the error type that occurred.\nThis MUST be an integer.\n\n| code | message | description |\n|-----|-----|-------|\n| -32700   | Parse error   | invalid JSON was received by the server. An error occurred on the server while parsing the JSON text. |\n|-32602 | Invalid params | Invalid method parameter(s). |\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"message"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","example":"Parse error","description":"A String providing a short description of the error.\nThe message SHOULD be limited to a concise single sentence.\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"data"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"A Primitive or Structured value that contains additional information about the error.\nThis may be omitted.\nThe value of this member is defined by the Server (e.g. detailed error information, nested errors etc.).\n"}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"result"}
+                        required={false}
+                        schemaName={"number"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"number","description":"The size of the council","example":4}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"jsonrpc\": \"2.0\",\n  \"id\": 0,\n  \"error\": {\n    \"code\": -32700,\n    \"message\": \"Parse error\",\n    \"data\": \"string\"\n  },\n  \"result\": 4\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

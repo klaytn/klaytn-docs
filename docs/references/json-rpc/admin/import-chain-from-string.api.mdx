@@ -1,0 +1,266 @@
+---
+id: import-chain-from-string
+title: "admin_importChainFromString"
+description: "The importChainFromString is an administrative method that imports a chain from a RLP-encoded string of blocks into a Klaytn node. This only works if there is no existing chain in a Klaytn node. This method does not delete any data of the existing chain."
+sidebar_label: "admin_importChainFromString"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: docs/references/json-rpc/admin/web-3-rpc
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  admin_importChainFromString
+</h1>
+
+
+
+
+
+The importChainFromString is an administrative method that imports a chain from a RLP-encoded string of blocks into a Klaytn node. This only works if there is no existing chain in a Klaytn node. This method does not delete any data of the existing chain.       
+
+**JSONRPC:** `admin_importChainFromString`
+
+
+## Request
+
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"method"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"Method name","default":"admin_importChainFromString"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"id"}
+          required={true}
+          schemaName={"int64"}
+          qualifierMessage={undefined}
+          schema={{"type":"integer","default":1,"format":"int64","description":"Request ID, Random or Auto incrementation"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"jsonrpc"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","default":"2.0","description":"JSON-RPC Version (2.0)"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"params"}
+          required={true}
+          schemaName={"BlockRlp[]"}
+          qualifierMessage={undefined}
+          schema={{"type":"array","description":"the RLP-encoded string that represents the blocks to be imported. (equals to the return value of debug.getBlockRlp)","example":["f9071...080c0"],"items":{"title":"BlockRlp","type":"string"}}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          true if chain was imported, false if not.
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"jsonrpc"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","default":"2.0"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={true}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                error
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={false}
+                              name={"code"}
+                              required={true}
+                              schemaName={"int64"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int64","example":-32700,"description":"A Number that indicates the error type that occurred.\nThis MUST be an integer.\n\n| code | message | description |\n|-----|-----|-------|\n| -32700   | Parse error   | invalid JSON was received by the server. An error occurred on the server while parsing the JSON text. |\n|-32602 | Invalid params | Invalid method parameter(s). |\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"message"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","example":"Parse error","description":"A String providing a short description of the error.\nThe message SHOULD be limited to a concise single sentence.\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"data"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"A Primitive or Structured value that contains additional information about the error.\nThis may be omitted.\nThe value of this member is defined by the Server (e.g. detailed error information, nested errors etc.).\n"}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"result"}
+                        required={false}
+                        schemaName={"boolean"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"boolean","description":"true if chain was imported, false if not.","example":true}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"jsonrpc\": \"2.0\",\n  \"id\": 0,\n  \"error\": {\n    \"code\": -32700,\n    \"message\": \"Parse error\",\n    \"data\": \"string\"\n  },\n  \"result\": true\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

@@ -1,0 +1,338 @@
+---
+id: sign
+title: "personal_sign"
+description: "The sign method calculates a Klaytn-specific signature with: sign(keccak256('\x19Klaytn Signed Message:\n' + len(message) + message)))"
+sidebar_label: "personal_sign"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: docs/references/json-rpc/personal/web-3-rpc
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  personal_sign
+</h1>
+
+
+
+
+
+The sign method calculates a Klaytn-specific signature with: sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))
+
+Adding a prefix to the message makes the calculated signature recognizable as a Klaytn-specific signature. This prevents misuse where a malicious DApp can sign arbitrary data (e.g., transaction) and use the signature to impersonate the victim.
+
+See personal_ecRecover to verify the signature.
+
+**JSONRPC:** `personal_sign`
+
+
+## Request
+
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"method"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"Method name","default":"personal_sign"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"id"}
+          required={true}
+          schemaName={"int64"}
+          qualifierMessage={undefined}
+          schema={{"type":"integer","default":1,"format":"int64","description":"Request ID, Random or Auto incrementation"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"jsonrpc"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","default":"2.0","description":"JSON-RPC Version (2.0)"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={true}
+          className={"schemaItem"}
+        >
+          <details
+            style={{}}
+            className={"openapi-markdown__details"}
+          >
+            <summary
+              style={{}}
+            >
+              <span
+                className={"openapi-schema__container"}
+              >
+                <strong
+                  className={"openapi-schema__property"}
+                >
+                  params
+                </strong><span
+                  className={"openapi-schema__name"}
+                >
+                   undefined[]
+                </span><span
+                  className={"openapi-schema__divider"}
+                >
+                  
+                </span><span
+                  className={"openapi-schema__required"}
+                >
+                  required
+                </span>
+              </span>
+            </summary><div
+              style={{"marginLeft":"1rem"}}
+            >
+              <li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                >
+                  Array [
+                </div>
+              </li><SchemaItem
+                collapsible={false}
+                name={"Message"}
+                required={false}
+                schemaName={"Message"}
+                qualifierMessage={undefined}
+                schema={{"type":"string","title":"Message","description":"A message to sign."}}
+              >
+                
+              </SchemaItem><SchemaItem
+                collapsible={false}
+                name={"Account"}
+                required={false}
+                schemaName={"Account"}
+                qualifierMessage={undefined}
+                schema={{"type":"string","title":"Account","description":"The account address."}}
+              >
+                
+              </SchemaItem><SchemaItem
+                collapsible={false}
+                name={"Password"}
+                required={false}
+                schemaName={"Password"}
+                qualifierMessage={undefined}
+                schema={{"type":"string","title":"Password","description":"The pass phrase used for signing."}}
+              >
+                
+              </SchemaItem><li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                >
+                  ]
+                </div>
+              </li>
+            </div>
+          </details>
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Return the a signature.
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"jsonrpc"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","default":"2.0"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={true}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                error
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={false}
+                              name={"code"}
+                              required={true}
+                              schemaName={"int64"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int64","example":-32700,"description":"A Number that indicates the error type that occurred.\nThis MUST be an integer.\n\n| code | message | description |\n|-----|-----|-------|\n| -32700   | Parse error   | invalid JSON was received by the server. An error occurred on the server while parsing the JSON text. |\n|-32602 | Invalid params | Invalid method parameter(s). |\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"message"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","example":"Parse error","description":"A String providing a short description of the error.\nThe message SHOULD be limited to a concise single sentence.\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"data"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"A Primitive or Structured value that contains additional information about the error.\nThis may be omitted.\nThe value of this member is defined by the Server (e.g. detailed error information, nested errors etc.).\n"}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"result"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"A signature.","example":"0xa3f20717a250c2b0b729b7e5becbff67fdaef7e0699da4de7ca5895b02a170a12d887fd3b17bfdce3481f10bea41f45ba9f709d39ce8325427b57afcfc994cee1b"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"jsonrpc\": \"2.0\",\n  \"id\": 0,\n  \"error\": {\n    \"code\": -32700,\n    \"message\": \"Parse error\",\n    \"data\": \"string\"\n  },\n  \"result\": \"0xa3f20717a250c2b0b729b7e5becbff67fdaef7e0699da4de7ca5895b02a170a12d887fd3b17bfdce3481f10bea41f45ba9f709d39ce8325427b57afcfc994cee1b\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

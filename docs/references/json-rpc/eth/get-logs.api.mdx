@@ -1,0 +1,728 @@
+---
+id: get-logs
+title: "[Filter] eth_getLogs"
+description: "Returns an array of all logs matching a given filter object."
+sidebar_label: " eth_getLogs"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: docs/references/json-rpc/eth/web-3-rpc
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  [Filter] eth_getLogs
+</h1>
+
+
+
+
+
+Returns an array of all logs matching a given filter object.
+
+The execution of this API can be limited by two node configurations to manage resources of Klaytn node safely.
+
+- The number of maximum returned results in a single query (Default: 10,000).
+
+- The execution duration limit of a single query (Default: 10 seconds).
+
+**JSONRPC:** `eth_getLogs`
+
+
+## Request
+
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"method"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"Method name","default":"eth_getLogs"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"id"}
+          required={true}
+          schemaName={"int64"}
+          qualifierMessage={undefined}
+          schema={{"type":"integer","default":1,"format":"int64","description":"Request ID, Random or Auto incrementation"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"jsonrpc"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","default":"2.0","description":"JSON-RPC Version (2.0)"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={true}
+          className={"schemaItem"}
+        >
+          <details
+            style={{}}
+            className={"openapi-markdown__details"}
+          >
+            <summary
+              style={{}}
+            >
+              <span
+                className={"openapi-schema__container"}
+              >
+                <strong
+                  className={"openapi-schema__property"}
+                >
+                  params
+                </strong><span
+                  className={"openapi-schema__name"}
+                >
+                   object[]
+                </span>
+              </span>
+            </summary><div
+              style={{"marginLeft":"1rem"}}
+            >
+              <div
+                style={{"marginTop":".5rem","marginBottom":".5rem"}}
+              >
+                
+                
+                The filter options.
+                
+                
+              </div><li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                >
+                  Array [
+                </div>
+              </li><SchemaItem
+                collapsible={true}
+                className={"schemaItem"}
+              >
+                <details
+                  style={{}}
+                  className={"openapi-markdown__details"}
+                >
+                  <summary
+                    style={{}}
+                  >
+                    <strong>
+                      fromBlock
+                    </strong><span
+                      style={{"opacity":"0.6"}}
+                    >
+                       object
+                    </span>
+                  </summary><div
+                    style={{"marginLeft":"1rem"}}
+                  >
+                    <div
+                      style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                    >
+                      
+                      
+                      (optional, default "latest") Integer or hexadecimal block number, or the string "earliest", "latest" or "pending" as in the default block parameter.
+                      
+                      
+                    </div>
+                  </div><div>
+                    <span
+                      className={"badge badge--info"}
+                    >
+                      oneOf
+                    </span><SchemaTabs>
+                      <TabItem
+                        label={"IntegerBlockNumber"}
+                        value={"0-item-properties"}
+                      >
+                        <div
+                          style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}
+                        >
+                          
+                          
+                          number
+                          
+                          
+                        </div>
+                      </TabItem><TabItem
+                        label={"HexadecimalBlockNumber"}
+                        value={"1-item-properties"}
+                      >
+                        <div
+                          style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}
+                        >
+                          
+                          
+                          string
+                          
+                          
+                        </div>
+                      </TabItem><TabItem
+                        label={"BlockTag"}
+                        value={"2-item-properties"}
+                      >
+                        <div
+                          style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}
+                        >
+                          
+                          
+                          string
+                          
+                          
+                        </div>
+                      </TabItem>
+                    </SchemaTabs>
+                  </div>
+                </details>
+              </SchemaItem><SchemaItem
+                collapsible={true}
+                className={"schemaItem"}
+              >
+                <details
+                  style={{}}
+                  className={"openapi-markdown__details"}
+                >
+                  <summary
+                    style={{}}
+                  >
+                    <strong>
+                      toBlock
+                    </strong><span
+                      style={{"opacity":"0.6"}}
+                    >
+                       object
+                    </span>
+                  </summary><div
+                    style={{"marginLeft":"1rem"}}
+                  >
+                    <div
+                      style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                    >
+                      
+                      
+                      (optional, default "latest") Integer or hexadecimal block number, or the string "earliest", "latest" or "pending" as in the default block parameter.
+                      
+                      
+                    </div>
+                  </div><div>
+                    <span
+                      className={"badge badge--info"}
+                    >
+                      oneOf
+                    </span><SchemaTabs>
+                      <TabItem
+                        label={"IntegerBlockNumber"}
+                        value={"0-item-properties"}
+                      >
+                        <div
+                          style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}
+                        >
+                          
+                          
+                          number
+                          
+                          
+                        </div>
+                      </TabItem><TabItem
+                        label={"HexadecimalBlockNumber"}
+                        value={"1-item-properties"}
+                      >
+                        <div
+                          style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}
+                        >
+                          
+                          
+                          string
+                          
+                          
+                        </div>
+                      </TabItem><TabItem
+                        label={"BlockTag"}
+                        value={"2-item-properties"}
+                      >
+                        <div
+                          style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}
+                        >
+                          
+                          
+                          string
+                          
+                          
+                        </div>
+                      </TabItem>
+                    </SchemaTabs>
+                  </div>
+                </details>
+              </SchemaItem><SchemaItem
+                collapsible={true}
+                className={"schemaItem"}
+              >
+                <details
+                  style={{}}
+                  className={"openapi-markdown__details"}
+                >
+                  <summary
+                    style={{}}
+                  >
+                    <strong>
+                      address
+                    </strong><span
+                      style={{"opacity":"0.6"}}
+                    >
+                       object
+                    </span>
+                  </summary><div
+                    style={{"marginLeft":"1rem"}}
+                  >
+                    <div
+                      style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                    >
+                      
+                      
+                      (optional) Contract address or a list of addresses from which logs should originate.
+                      
+                      
+                    </div>
+                  </div><div>
+                    <span
+                      className={"badge badge--info"}
+                    >
+                      oneOf
+                    </span><SchemaTabs>
+                      <TabItem
+                        label={"Address"}
+                        value={"0-item-properties"}
+                      >
+                        <div
+                          style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}
+                        >
+                          
+                          
+                          string
+                          
+                          
+                        </div>
+                      </TabItem><TabItem
+                        label={"ArrayOfAddress"}
+                        value={"1-item-properties"}
+                      >
+                        <li>
+                          <div
+                            style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                          >
+                            Array [
+                          </div>
+                        </li><div
+                          style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}
+                        >
+                          
+                          
+                          string
+                          
+                          
+                        </div><li>
+                          <div
+                            style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                          >
+                            ]
+                          </div>
+                        </li>
+                      </TabItem>
+                    </SchemaTabs>
+                  </div>
+                </details>
+              </SchemaItem><SchemaItem
+                collapsible={false}
+                name={"topics"}
+                required={false}
+                schemaName={"32-byte DATA[]"}
+                qualifierMessage={undefined}
+                schema={{"type":"array","description":"(optional) Array of 32-byte DATA topics. Topics are order-dependent. Each topic can also be an array of DATA with “or” options.","items":{"type":"string","format":"32-byte DATA"}}}
+              >
+                
+              </SchemaItem><SchemaItem
+                collapsible={false}
+                name={"blockHash"}
+                required={false}
+                schemaName={"32-byte DATA"}
+                qualifierMessage={undefined}
+                schema={{"type":"string","format":"32-byte DATA","description":"(optional) A filter option that restricts the logs returned to the single block with the 32-byte hash blockHash. Using blockHash is equivalent to fromBlock = toBlock = the block number with hash blockHash. If blockHash is present in in the filter criteria, then neither fromBlock nor toBlock are allowed"}}
+              >
+                
+              </SchemaItem><li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                >
+                  ]
+                </div>
+              </li>
+            </div>
+          </details>
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Returns an array of all logs matching a given filter object.
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"jsonrpc"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","default":"2.0"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={true}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                error
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={false}
+                              name={"code"}
+                              required={true}
+                              schemaName={"int64"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int64","example":-32700,"description":"A Number that indicates the error type that occurred.\nThis MUST be an integer.\n\n| code | message | description |\n|-----|-----|-------|\n| -32700   | Parse error   | invalid JSON was received by the server. An error occurred on the server while parsing the JSON text. |\n|-32602 | Invalid params | Invalid method parameter(s). |\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"message"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","example":"Parse error","description":"A String providing a short description of the error.\nThe message SHOULD be limited to a concise single sentence.\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"data"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"A Primitive or Structured value that contains additional information about the error.\nThis may be omitted.\nThe value of this member is defined by the Server (e.g. detailed error information, nested errors etc.).\n"}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                result
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object[]
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <div
+                              style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                            >
+                              
+                              
+                              Array of log objects, or an empty array if nothing has changed since last poll.
+                              
+                              
+                            </div><li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                              >
+                                Array [
+                              </div>
+                            </li><div>
+                              <span
+                                className={"badge badge--info"}
+                              >
+                                anyOf
+                              </span><SchemaTabs>
+                                <TabItem
+                                  label={"BlockHash"}
+                                  value={"0-item-properties"}
+                                >
+                                  <div
+                                    style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}
+                                  >
+                                    
+                                    
+                                    string
+                                    
+                                    
+                                  </div>
+                                </TabItem><TabItem
+                                  label={"TransactionHash"}
+                                  value={"1-item-properties"}
+                                >
+                                  <div
+                                    style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}
+                                  >
+                                    
+                                    
+                                    string
+                                    
+                                    
+                                  </div>
+                                </TabItem><TabItem
+                                  label={"LogObject"}
+                                  value={"2-item-properties"}
+                                >
+                                  <SchemaItem
+                                    collapsible={false}
+                                    name={"removed"}
+                                    required={true}
+                                    schemaName={"boolean"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"boolean","description":"true when the log was removed, due to a chain reorganization. false if its a valid log."}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"logIndex"}
+                                    required={true}
+                                    schemaName={"hex"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string","format":"hex","description":"Integer of the log index position in the block. null when it is a pending log."}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"transactionIndex"}
+                                    required={true}
+                                    schemaName={"hex"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string","format":"hex","description":"Integer of the transactions index position log was created from. null when pending."}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"transactionHash"}
+                                    required={true}
+                                    schemaName={"32-byte DATA"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string","format":"32-byte DATA","description":"Hash of the transactions this log was created from. null when pending."}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"blockHash"}
+                                    required={true}
+                                    schemaName={"32-byte DATA"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string","format":"32-byte DATA","description":"Hash of the block where this log was in. null when pending."}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"blockNumber"}
+                                    required={true}
+                                    schemaName={"hex"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string","format":"hex","description":"The block number where this log was in. null when pending."}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"address"}
+                                    required={true}
+                                    schemaName={"20-byte DATA"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string","format":"20-byte DATA","description":"Address from which this log originated."}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"data"}
+                                    required={true}
+                                    schemaName={"DATA"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string","format":"DATA","description":"Contains the non-indexed arguments of the log."}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"topics"}
+                                    required={true}
+                                    schemaName={"32-byte DATA[]"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"array","description":"Array of 0 to 4 32-byte DATA of indexed log arguments. (In Solidity The first topic is the hash of the signature of the event (e.g., Deposit(address,bytes32,uint256)), except you declared the event with the anonymous specifier.).","items":{"type":"string","format":"32-byte DATA"}}}
+                                  >
+                                    
+                                  </SchemaItem>
+                                </TabItem>
+                              </SchemaTabs>
+                            </div><li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                              >
+                                ]
+                              </div>
+                            </li>
+                          </div>
+                        </details>
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"jsonrpc\": \"2.0\",\n  \"id\": 0,\n  \"error\": {\n    \"code\": -32700,\n    \"message\": \"Parse error\",\n    \"data\": \"string\"\n  },\n  \"result\": [\n    {\n      \"address\": \"0x87ac99835e67168d4f9a40580f8f5c33550ba88b\",\n      \"topics\": [\n        \"0xd596fdad182d29130ce218f4c1590c4b5ede105bee36690727baa6592bd2bfc8\"\n      ],\n      \"data\": \"0x0000000000000000000000000000000000000000000000000000000000000064000000000000000000000000000000000000000000000000000000000000007b\",\n      \"blockNumber\": \"0x54\",\n      \"transactionHash\": \"0xcd4703cd62bd930d4652999bce8dcb75b7ade49d922fa42dc11e568c52a5fa6f\",\n      \"transactionIndex\": \"0x0\",\n      \"blockHash\": \"0x9a49f30f1d1876ff3913bd0aa58f328822e7a369cb13e0640b82234f26e781bb\",\n      \"logIndex\": \"0x0\",\n      \"removed\": false\n    }\n  ]\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

@@ -1,0 +1,266 @@
+---
+id: anchoring
+title: "subbridge_anchoring"
+description: "The subbridge_anchoring can enable/disable the anchoring feature of the service chain."
+sidebar_label: "subbridge_anchoring"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFV21v2zYQ/isEvyQNbNlJ167zNy8N0BRtEsTJMKAuVko622wlUiOpuIbr/747kpKVRM1aYMBswKZ4L7yX546nLXdiafnkA7d1mhqZL4F/HHBdgRFOanWe8wkXKltpI9WSD3gONjOyIhpSblbAWsG/Wj6WCcVAibSAUS4t/TOHrHuGBQhXG2B64QkWzJ3MgGUrIVUyV3N1dPR2dnlxfXU6OTpin3rO+DRXaI6Bv2uw7nedb/hkyzOtHChHS1FVhcy8E6PPlqzdcputoBSeWhSXC3R7y92mAvREp58hc1GjNJBTTEpwK53jpqQf0mKqjOJTGYqQk2BJWWSbtMqs643We8/HlCiB77zSvYhEw5dgvMxC1AX6cDzgC21K4QL55S+PFF4H79n56wG7FirXJdOGTWunmVSZgRJj4SNAxzXm95oZj+QnyfjRKZSIIWaC/QHG4hY7RK5npLISRpS2o1EYIzYULwd+f7dDLiddQcS3aMB1lUWjUf4Hgx9P+amwN/70AOdJw+977kwNEce2H8ADthCFBRZRbpl0Scf/R5Y1sTjzSskU+CrKivY+0GkfuwGbNqdhyPgOSUQ0YCutbAjByXhMfz1Wy8UDg9fCRlfyxmiNHGYtLZDJ/3HpNGjzMH+Uuh/G4vfL5EFpUCSN0abD29rVBp0Y3kOZegVdazOdw2Mr/e4PnN1J4vD5ya/j8UMcTdlFTadiSoTD0swpuhFS3mpGRwSqzrLaoFnYBW9W0rL3t7MbllImWTTA98dvjKxj31gJ1oolrTpnsm/IMaRP9xf/STDYyBiKXAljGxPoWao7UcicUcl7xBjIQN5BztJN26jRAjZVUaoxl+Ghewa2Xkns+VhmlrBHBK/SwVeXBOOen7wcn+CR5/HIUJKdjVDeYR8cmEP7zItSqqPTffhpU8E7zj2q7CmbeQGGGb+TOa0Es1gq7l4Y4/XkdfiEQBvv2ZvL23evKTOFLLHec4ZdV2BWVIYVxcjvgsJBVZVBEuzOhRP/fk9M2ZUhnRh46udoaZ1Rs8kZRqaOOKF6xcvSMpHnkgRFgekLyCTTRapr98B6hFMpNmSzRvUuggyiWu8ssfgKYbjCWpRqn/xZyO0hJMsEaXg8NpOIg87RA6awvzcU7DouS575AMT+5ct723s1hN7Wezfcr81WTcOXal2AUP09/Ke7YYsiEv9OT7ZVbMpI/jqkcpx5IeubYyEwsxOO1VGgvkKkUODjaXi0ujYZRDIb/skOri5nNwdsPp8rxg5WzlV2MhqJSiap0KlIky+F2DiVKHCTVy9fHI/ai23UOtWID9+wA5FlULkJe9jKuzynoeMPbzCAT3Dm7GBLi3m8cOd8guuei3XOB4FPep7j+BR7fRDDnt6yhYqn/XD1zdXugFDycdBe7bzS1udeuBU+9XlN0fS4DGGn+E44BRDjV+hMFCtUMXn14sWxR9We/nSAe5irOsUIDUENs02F+LMdGW81eXq9H0jPGgztR5XeeSRcccedCS2OYc2UEicD5MMi85CPYFxD+jxcsndhNMO9cfKbF/b9IfMV4gdOhO7VOQ7rVYVNDun3fcPircvGn4WuVR6QQE0LnQYqyo6mSuA4wIKV9xWt1+tEeHKizXIUZe3o3fnp2cXsbIgyycqVBaeqoeyWQnU098fnXkV3pvz///0jNh+610ZVgcIUMB+RbQRt981q0HmVQrwQMolhu02FhVtT7Ha0jQAy+DbzAZd3wkg/KOITKl6ByHEAIZx/gQ21k04JEwqoj9M0+3CAIzAHialvDE/yduuP2hIyp/H9qvQTETdiTQMU/k74HL+c3hhJQ2jNtB8aYO0vaR700ucfjoL0fg==
+sidebar_class_name: "post api-method"
+info_path: docs/references/json-rpc/subbridge/web-3-rpc
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  subbridge_anchoring
+</h1>
+
+
+
+
+
+The subbridge_anchoring can enable/disable the anchoring feature of the service chain.
+
+**JSONRPC:** `subbridge_anchoring`
+
+
+## Request
+
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"method"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"Method name","default":"subbridge_anchoring"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"id"}
+          required={true}
+          schemaName={"int64"}
+          qualifierMessage={undefined}
+          schema={{"type":"integer","default":1,"format":"int64","description":"Request ID, Random or Auto incrementation"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"jsonrpc"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","default":"2.0","description":"JSON-RPC Version (2.0)"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"params"}
+          required={true}
+          schemaName={"Enable[]"}
+          qualifierMessage={undefined}
+          schema={{"type":"array","description":"true enables the anchoring feature, false disables it.","example":[true],"items":{"type":"string","title":"Enable"}}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          true if the anchoring was enabled, false otherwise.
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"jsonrpc"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","default":"2.0"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={true}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                error
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={false}
+                              name={"code"}
+                              required={true}
+                              schemaName={"int64"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int64","example":-32700,"description":"A Number that indicates the error type that occurred.\nThis MUST be an integer.\n\n| code | message | description |\n|-----|-----|-------|\n| -32700   | Parse error   | invalid JSON was received by the server. An error occurred on the server while parsing the JSON text. |\n|-32602 | Invalid params | Invalid method parameter(s). |\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"message"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","example":"Parse error","description":"A String providing a short description of the error.\nThe message SHOULD be limited to a concise single sentence.\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"data"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"A Primitive or Structured value that contains additional information about the error.\nThis may be omitted.\nThe value of this member is defined by the Server (e.g. detailed error information, nested errors etc.).\n"}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"result"}
+                        required={false}
+                        schemaName={"boolean"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"boolean","description":"true if the anchoring was enabled, false otherwise.","example":true}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"jsonrpc\": \"2.0\",\n  \"id\": 0,\n  \"error\": {\n    \"code\": -32700,\n    \"message\": \"Parse error\",\n    \"data\": \"string\"\n  },\n  \"result\": true\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

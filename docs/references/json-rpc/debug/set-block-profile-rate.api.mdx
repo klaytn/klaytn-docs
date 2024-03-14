@@ -1,0 +1,266 @@
+---
+id: set-block-profile-rate
+title: "[Profiling] debug_setBlockProfileRate"
+description: "Sets the rate (in samples/sec) of goroutine block profile data collection. A non-zero rate enables block profiling, setting it to zero stops the profile. Collected profile data can be written using debug_writeBlockProfile."
+sidebar_label: " debug_setBlockProfileRate"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: docs/references/json-rpc/debug/web-3-rpc
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  [Profiling] debug_setBlockProfileRate
+</h1>
+
+
+
+
+
+Sets the rate (in samples/sec) of goroutine block profile data collection. A non-zero rate enables block profiling, setting it to zero stops the profile. Collected profile data can be written using debug_writeBlockProfile.
+
+**JSONRPC:** `debug_setBlockProfileRate`
+
+
+## Request
+
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"method"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"Method name","default":"debug_setBlockProfileRate"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"id"}
+          required={true}
+          schemaName={"int64"}
+          qualifierMessage={undefined}
+          schema={{"type":"integer","default":1,"format":"int64","description":"Request ID, Random or Auto incrementation"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"jsonrpc"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","default":"2.0","description":"JSON-RPC Version (2.0)"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"params"}
+          required={false}
+          schemaName={"Rate[]"}
+          qualifierMessage={undefined}
+          schema={{"type":"array","description":"The profiling rate in samples/sec.","example":[3],"items":{"title":"Rate","type":"integer"}}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Sets the rate (in samples/sec) of goroutine block profile data collection.
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"jsonrpc"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","default":"2.0"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={true}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                error
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={false}
+                              name={"code"}
+                              required={true}
+                              schemaName={"int64"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int64","example":-32700,"description":"A Number that indicates the error type that occurred.\nThis MUST be an integer.\n\n| code | message | description |\n|-----|-----|-------|\n| -32700   | Parse error   | invalid JSON was received by the server. An error occurred on the server while parsing the JSON text. |\n|-32602 | Invalid params | Invalid method parameter(s). |\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"message"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","example":"Parse error","description":"A String providing a short description of the error.\nThe message SHOULD be limited to a concise single sentence.\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"data"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"A Primitive or Structured value that contains additional information about the error.\nThis may be omitted.\nThe value of this member is defined by the Server (e.g. detailed error information, nested errors etc.).\n"}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"result"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","example":null}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"jsonrpc\": \"2.0\",\n  \"id\": 0,\n  \"error\": {\n    \"code\": -32700,\n    \"message\": \"Parse error\",\n    \"data\": \"string\"\n  },\n  \"result\": null\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

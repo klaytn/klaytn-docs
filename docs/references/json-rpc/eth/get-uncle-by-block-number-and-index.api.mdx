@@ -1,0 +1,379 @@
+---
+id: get-uncle-by-block-number-and-index
+title: "[Block] eth_getUncleByBlockNumberAndIndex"
+description: "Returns information about a uncle of a block by number and the uncle's index position. As there are no uncles in Klaytn, it always returns null."
+sidebar_label: " eth_getUncleByBlockNumberAndIndex"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: docs/references/json-rpc/eth/web-3-rpc
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  [Block] eth_getUncleByBlockNumberAndIndex
+</h1>
+
+
+
+
+
+Returns information about a uncle of a block by number and the uncle's index position. As there are no uncles in Klaytn, it always returns null.
+
+**JSONRPC:** `eth_getUncleByBlockNumberAndIndex`
+
+
+## Request
+
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"method"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"Method name","default":"eth_getUncleByBlockNumberAndIndex"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"id"}
+          required={true}
+          schemaName={"int64"}
+          qualifierMessage={undefined}
+          schema={{"type":"integer","default":1,"format":"int64","description":"Request ID, Random or Auto incrementation"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"jsonrpc"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","default":"2.0","description":"JSON-RPC Version (2.0)"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={true}
+          className={"schemaItem"}
+        >
+          <details
+            style={{}}
+            className={"openapi-markdown__details"}
+          >
+            <summary
+              style={{}}
+            >
+              <span
+                className={"openapi-schema__container"}
+              >
+                <strong
+                  className={"openapi-schema__property"}
+                >
+                  params
+                </strong><span
+                  className={"openapi-schema__name"}
+                >
+                   undefined[]
+                </span>
+              </span>
+            </summary><div
+              style={{"marginLeft":"1rem"}}
+            >
+              <li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                >
+                  Array [
+                </div>
+              </li><SchemaItem
+                collapsible={true}
+                className={"schemaItem"}
+              >
+                <details
+                  style={{}}
+                  className={"openapi-markdown__details"}
+                >
+                  <summary
+                    style={{}}
+                  >
+                    <strong>
+                      BlockNumberOrTag
+                    </strong><span
+                      style={{"opacity":"0.6"}}
+                    >
+                       object
+                    </span>
+                  </summary><div
+                    style={{"marginLeft":"1rem"}}
+                  >
+                    
+                  </div><div>
+                    <span
+                      className={"badge badge--info"}
+                    >
+                      oneOf
+                    </span><SchemaTabs>
+                      <TabItem
+                        label={"IntegerBlockNumber"}
+                        value={"0-item-properties"}
+                      >
+                        <div
+                          style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}
+                        >
+                          
+                          
+                          number
+                          
+                          
+                        </div>
+                      </TabItem><TabItem
+                        label={"HexadecimalBlockNumber"}
+                        value={"1-item-properties"}
+                      >
+                        <div
+                          style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}
+                        >
+                          
+                          
+                          string
+                          
+                          
+                        </div>
+                      </TabItem><TabItem
+                        label={"BlockTag"}
+                        value={"2-item-properties"}
+                      >
+                        <div
+                          style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}
+                        >
+                          
+                          
+                          string
+                          
+                          
+                        </div>
+                      </TabItem>
+                    </SchemaTabs>
+                  </div>
+                </details>
+              </SchemaItem><SchemaItem
+                collapsible={false}
+                name={"UncleIndex"}
+                required={false}
+                schemaName={"hex"}
+                qualifierMessage={undefined}
+                schema={{"title":"UncleIndex","description":"The uncle's index position.","type":"string","format":"hex"}}
+              >
+                
+              </SchemaItem><li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                >
+                  ]
+                </div>
+              </li>
+            </div>
+          </details>
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Return value null.
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"jsonrpc"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","default":"2.0"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={true}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                error
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={false}
+                              name={"code"}
+                              required={true}
+                              schemaName={"int64"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int64","example":-32700,"description":"A Number that indicates the error type that occurred.\nThis MUST be an integer.\n\n| code | message | description |\n|-----|-----|-------|\n| -32700   | Parse error   | invalid JSON was received by the server. An error occurred on the server while parsing the JSON text. |\n|-32602 | Invalid params | Invalid method parameter(s). |\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"message"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","example":"Parse error","description":"A String providing a short description of the error.\nThe message SHOULD be limited to a concise single sentence.\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"data"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"A Primitive or Structured value that contains additional information about the error.\nThis may be omitted.\nThe value of this member is defined by the Server (e.g. detailed error information, nested errors etc.).\n"}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"result"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","nullable":true,"default":null}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"jsonrpc\": \"2.0\",\n  \"id\": 0,\n  \"error\": {\n    \"code\": -32700,\n    \"message\": \"Parse error\",\n    \"data\": \"string\"\n  },\n  \"result\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

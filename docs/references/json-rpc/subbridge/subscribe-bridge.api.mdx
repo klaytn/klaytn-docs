@@ -1,0 +1,325 @@
+---
+id: subscribe-bridge
+title: "subbridge_subscribeBridge"
+description: "The subbridge_subscribeBridge subscribes to the registered bridge contracts in the parent and child chains. If the sub-bridge node is subscribed to the bridge contract pair, cross-chain value-transfer requests are handled automatically by the sub-bridge."
+sidebar_label: "subbridge_subscribeBridge"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: docs/references/json-rpc/subbridge/web-3-rpc
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  subbridge_subscribeBridge
+</h1>
+
+
+
+
+
+The subbridge_subscribeBridge subscribes to the registered bridge contracts in the parent and child chains. If the sub-bridge node is subscribed to the bridge contract pair, cross-chain value-transfer requests are handled automatically by the sub-bridge.
+
+**JSONRPC:** `subbridge_subscribeBridge`
+
+
+## Request
+
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"method"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"Method name","default":"subbridge_subscribeBridge"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"id"}
+          required={true}
+          schemaName={"int64"}
+          qualifierMessage={undefined}
+          schema={{"type":"integer","default":1,"format":"int64","description":"Request ID, Random or Auto incrementation"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"jsonrpc"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","default":"2.0","description":"JSON-RPC Version (2.0)"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={true}
+          className={"schemaItem"}
+        >
+          <details
+            style={{}}
+            className={"openapi-markdown__details"}
+          >
+            <summary
+              style={{}}
+            >
+              <span
+                className={"openapi-schema__container"}
+              >
+                <strong
+                  className={"openapi-schema__property"}
+                >
+                  params
+                </strong><span
+                  className={"openapi-schema__name"}
+                >
+                   undefined[]
+                </span><span
+                  className={"openapi-schema__divider"}
+                >
+                  
+                </span><span
+                  className={"openapi-schema__required"}
+                >
+                  required
+                </span>
+              </span>
+            </summary><div
+              style={{"marginLeft":"1rem"}}
+            >
+              <li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                >
+                  Array [
+                </div>
+              </li><SchemaItem
+                collapsible={false}
+                name={"ChildAccount"}
+                required={false}
+                schemaName={"20-byte DATA"}
+                qualifierMessage={undefined}
+                schema={{"title":"ChildAccount","type":"string","format":"20-byte DATA","description":"Address of bridge contract on child chain."}}
+              >
+                
+              </SchemaItem><SchemaItem
+                collapsible={false}
+                name={"ParentAccount"}
+                required={false}
+                schemaName={"20-byte DATA"}
+                qualifierMessage={undefined}
+                schema={{"title":"ParentAccount","type":"string","format":"20-byte DATA","description":"Address of bridge contract on parent chain."}}
+              >
+                
+              </SchemaItem><li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                >
+                  ]
+                </div>
+              </li>
+            </div>
+          </details>
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          The subbridge_subscribeBridge subscribes to the registered bridge contracts in the parent and child chains.
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"jsonrpc"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","default":"2.0"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={true}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                error
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={false}
+                              name={"code"}
+                              required={true}
+                              schemaName={"int64"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int64","example":-32700,"description":"A Number that indicates the error type that occurred.\nThis MUST be an integer.\n\n| code | message | description |\n|-----|-----|-------|\n| -32700   | Parse error   | invalid JSON was received by the server. An error occurred on the server while parsing the JSON text. |\n|-32602 | Invalid params | Invalid method parameter(s). |\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"message"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","example":"Parse error","description":"A String providing a short description of the error.\nThe message SHOULD be limited to a concise single sentence.\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"data"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"A Primitive or Structured value that contains additional information about the error.\nThis may be omitted.\nThe value of this member is defined by the Server (e.g. detailed error information, nested errors etc.).\n"}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"result"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","example":null}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"jsonrpc\": \"2.0\",\n  \"id\": 0,\n  \"error\": {\n    \"code\": -32700,\n    \"message\": \"Parse error\",\n    \"data\": \"string\"\n  },\n  \"result\": null\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

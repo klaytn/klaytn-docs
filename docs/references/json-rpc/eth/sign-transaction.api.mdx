@@ -1,0 +1,621 @@
+---
+id: sign-transaction
+title: "[Transaction] eth_signTransaction"
+description: "Signs a transaction that can be submitted to the network at a later time using with eth_sendRawTransaction."
+sidebar_label: " eth_signTransaction"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: docs/references/json-rpc/eth/web-3-rpc
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  [Transaction] eth_signTransaction
+</h1>
+
+
+
+
+
+Signs a transaction that can be submitted to the network at a later time using with eth_sendRawTransaction.
+
+`eth_signTransaction` will be failed to baobab/cypress network because it is signed in the EN node, which means that the EN must have the key that you want to sign with.
+Steps to test `eth_signTransaction`.
+  - Step 1: Setup a local EN node
+  - Step 2: <a href="#tag/personal/operation/newAccount" target="_blank">Create an account</a> into the EN node
+  - Step 3: <a href="#tag/personal/operation/unlockAccount" target="_blank">Unlock the account</a> for using in signing
+
+**JSONRPC:** `eth_signTransaction`
+
+
+## Request
+
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"method"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"Method name","default":"eth_signTransaction"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"id"}
+          required={true}
+          schemaName={"int64"}
+          qualifierMessage={undefined}
+          schema={{"type":"integer","default":1,"format":"int64","description":"Request ID, Random or Auto incrementation"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"jsonrpc"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","default":"2.0","description":"JSON-RPC Version (2.0)"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={true}
+          className={"schemaItem"}
+        >
+          <details
+            style={{}}
+            className={"openapi-markdown__details"}
+          >
+            <summary
+              style={{}}
+            >
+              <span
+                className={"openapi-schema__container"}
+              >
+                <strong
+                  className={"openapi-schema__property"}
+                >
+                  params
+                </strong><span
+                  className={"openapi-schema__name"}
+                >
+                   object[]
+                </span>
+              </span>
+            </summary><div
+              style={{"marginLeft":"1rem"}}
+            >
+              <li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                >
+                  Array [
+                </div>
+              </li><SchemaItem
+                collapsible={false}
+                name={"from"}
+                required={true}
+                schemaName={"20-byte DATA"}
+                qualifierMessage={undefined}
+                schema={{"type":"string","format":"20-byte DATA","description":"The address from which the transaction is sent."}}
+              >
+                
+              </SchemaItem><SchemaItem
+                collapsible={false}
+                name={"to"}
+                required={false}
+                schemaName={"20-byte DATA"}
+                qualifierMessage={undefined}
+                schema={{"type":"string","format":"20-byte DATA","description":"(not required when creating a new contract) The address to which the transaction is directed."}}
+              >
+                
+              </SchemaItem><SchemaItem
+                collapsible={false}
+                name={"gas"}
+                required={true}
+                schemaName={"hex"}
+                qualifierMessage={undefined}
+                schema={{"type":"string","format":"hex","description":"The integer of the gas provided for the transaction's execution. It will return unused gas."}}
+              >
+                
+              </SchemaItem><SchemaItem
+                collapsible={false}
+                name={"maxFeePerGas"}
+                required={true}
+                schemaName={"hex"}
+                qualifierMessage={undefined}
+                schema={{"type":"string","format":"hex","description":"The maximum amount to pay for the transaction's execution. Since Klaytn uses a fixed gas price, it must be set to 250 ston (Gpeb in Ethereum)."}}
+              >
+                
+              </SchemaItem><SchemaItem
+                collapsible={false}
+                name={"maxPriorityFeePerGas"}
+                required={true}
+                schemaName={"hex"}
+                qualifierMessage={undefined}
+                schema={{"type":"string","format":"hex","description":"Gas tip cap for dynamic fee transaction in peb. Since Klaytn uses a fixed gas price, it must be set to 250 ston (Gpeb in Ethereum)."}}
+              >
+                
+              </SchemaItem><SchemaItem
+                collapsible={false}
+                name={"input"}
+                required={false}
+                schemaName={"DATA"}
+                qualifierMessage={undefined}
+                schema={{"type":"string","format":"DATA","description":"(optional) The hash of the method signature and the encoded parameter. It replaces data field, but 'data` field is still supported for backward compatibility."}}
+              >
+                
+              </SchemaItem><SchemaItem
+                collapsible={false}
+                name={"value"}
+                required={false}
+                schemaName={"hex"}
+                qualifierMessage={undefined}
+                schema={{"type":"string","format":"hex","description":"(optional) The integer of values sent with this transaction."}}
+              >
+                
+              </SchemaItem><SchemaItem
+                collapsible={false}
+                name={"nonce"}
+                required={true}
+                schemaName={"hex"}
+                qualifierMessage={undefined}
+                schema={{"type":"string","format":"hex","description":"The integer of a nonce."}}
+              >
+                
+              </SchemaItem><li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                >
+                  ]
+                </div>
+              </li>
+            </div>
+          </details>
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Return the signed transaction object.
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"jsonrpc"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","default":"2.0"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={true}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                error
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={false}
+                              name={"code"}
+                              required={true}
+                              schemaName={"int64"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int64","example":-32700,"description":"A Number that indicates the error type that occurred.\nThis MUST be an integer.\n\n| code | message | description |\n|-----|-----|-------|\n| -32700   | Parse error   | invalid JSON was received by the server. An error occurred on the server while parsing the JSON text. |\n|-32602 | Invalid params | Invalid method parameter(s). |\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"message"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","example":"Parse error","description":"A String providing a short description of the error.\nThe message SHOULD be limited to a concise single sentence.\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"data"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"A Primitive or Structured value that contains additional information about the error.\nThis may be omitted.\nThe value of this member is defined by the Server (e.g. detailed error information, nested errors etc.).\n"}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                result
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={false}
+                              name={"raw"}
+                              required={true}
+                              schemaName={"DATA"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"DATA","description":"A rawTransaction string (a RLP-encoded transaction string)."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={true}
+                              className={"schemaItem"}
+                            >
+                              <details
+                                style={{}}
+                                className={"openapi-markdown__details"}
+                              >
+                                <summary
+                                  style={{}}
+                                >
+                                  <span
+                                    className={"openapi-schema__container"}
+                                  >
+                                    <strong
+                                      className={"openapi-schema__property"}
+                                    >
+                                      tx
+                                    </strong><span
+                                      className={"openapi-schema__name"}
+                                    >
+                                       object
+                                    </span><span
+                                      className={"openapi-schema__divider"}
+                                    >
+                                      
+                                    </span><span
+                                      className={"openapi-schema__required"}
+                                    >
+                                      required
+                                    </span>
+                                  </span>
+                                </summary><div
+                                  style={{"marginLeft":"1rem"}}
+                                >
+                                  <SchemaItem
+                                    collapsible={false}
+                                    name={"type"}
+                                    required={true}
+                                    schemaName={"hex"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string","format":"hex","description":"An integer representing the type of the transaction."}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"nonce"}
+                                    required={true}
+                                    schemaName={"hex"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string","format":"hex","description":"The block number where this transaction was in."}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"gasPrice"}
+                                    required={true}
+                                    schemaName={"hex"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string","format":"hex","nullable":true,"description":"Gas price provided by the sender in peb. null when it is not a legacy transaction."}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"maxFeePerGas"}
+                                    required={true}
+                                    schemaName={"hex"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string","format":"hex","nullable":true,"description":"A maximum amount to pay for the transaction to execute. null when it is a legacy transaction."}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"maxPriorityFeePerGas"}
+                                    required={true}
+                                    schemaName={"hex"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string","format":"hex","nullable":true,"description":"Gas tip cap for dynamic fee transaction in peb. null when it is a legacy transaction."}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"gas"}
+                                    required={true}
+                                    schemaName={"hex"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string","format":"hex","description":"Gas provided by the sender."}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"value"}
+                                    required={true}
+                                    schemaName={"hex"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string","format":"hex","description":"Integer of values sent with this transaction."}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"v"}
+                                    required={true}
+                                    schemaName={"hex"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string","format":"hex","description":"ECDSA recovery id."}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"r"}
+                                    required={true}
+                                    schemaName={"32-byte DATA"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string","format":"32-byte DATA","description":"ECDSA recovery r."}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"s"}
+                                    required={true}
+                                    schemaName={"32-byte DATA"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string","format":"32-byte DATA","description":"ECDSA recovery s."}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"chainId"}
+                                    required={true}
+                                    schemaName={"hex"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string","format":"hex","description":"Chain id set on the requested node."}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={true}
+                                    className={"schemaItem"}
+                                  >
+                                    <details
+                                      style={{}}
+                                      className={"openapi-markdown__details"}
+                                    >
+                                      <summary
+                                        style={{}}
+                                      >
+                                        <span
+                                          className={"openapi-schema__container"}
+                                        >
+                                          <strong
+                                            className={"openapi-schema__property"}
+                                          >
+                                            accessList
+                                          </strong><span
+                                            className={"openapi-schema__name"}
+                                          >
+                                             object[]
+                                          </span><span
+                                            className={"openapi-schema__divider"}
+                                          >
+                                            
+                                          </span><span
+                                            className={"openapi-schema__required"}
+                                          >
+                                            required
+                                          </span>
+                                        </span>
+                                      </summary><div
+                                        style={{"marginLeft":"1rem"}}
+                                      >
+                                        <li>
+                                          <div
+                                            style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                                          >
+                                            Array [
+                                          </div>
+                                        </li><SchemaItem
+                                          collapsible={false}
+                                          name={"address"}
+                                          required={true}
+                                          schemaName={"string"}
+                                          qualifierMessage={undefined}
+                                          schema={{"type":"string"}}
+                                        >
+                                          
+                                        </SchemaItem><SchemaItem
+                                          collapsible={false}
+                                          name={"storageKeys"}
+                                          required={true}
+                                          schemaName={"string[]"}
+                                          qualifierMessage={undefined}
+                                          schema={{"type":"array","items":{"type":"string"}}}
+                                        >
+                                          
+                                        </SchemaItem><li>
+                                          <div
+                                            style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                                          >
+                                            ]
+                                          </div>
+                                        </li>
+                                      </div>
+                                    </details>
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"hash"}
+                                    required={true}
+                                    schemaName={"32-byte DATA"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string","format":"32-byte DATA","description":"Hash of the transaction."}}
+                                  >
+                                    
+                                  </SchemaItem>
+                                </div>
+                              </details>
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"jsonrpc\": \"2.0\",\n  \"id\": 0,\n  \"error\": {\n    \"code\": -32700,\n    \"message\": \"Parse error\",\n    \"data\": \"string\"\n  },\n  \"result\": {\n    \"raw\": \"0x02f86f8302edaf048505d21dba008505d21dba00829999948c9f4468ae04fb3d79c80f6eacf0e4e1dd21deee0180c001a0b6e16781d247b505aa8eaf363a6ea61e7c23c77ad64846ffda28e73e31304884a05a296904cd009506cb5ed006af016d2c5dab255966af9ba6f8fc352f75e9b079\",\n    \"tx\": {\n      \"type\": \"0x2\",\n      \"nonce\": \"0x4\",\n      \"gasPrice\": null,\n      \"maxPriorityFeePerGas\": \"0x5d21dba00\",\n      \"maxFeePerGas\": \"0x5d21dba00\",\n      \"gas\": \"0x9999\",\n      \"value\": \"0x1\",\n      \"input\": \"0x\",\n      \"v\": \"0x1\",\n      \"r\": \"0xb6e16781d247b505aa8eaf363a6ea61e7c23c77ad64846ffda28e73e31304884\",\n      \"s\": \"0x5a296904cd009506cb5ed006af016d2c5dab255966af9ba6f8fc352f75e9b079\",\n      \"to\": \"0x8c9f4468ae04fb3d79c80f6eacf0e4e1dd21deee\",\n      \"chainId\": \"0x2edaf\",\n      \"accessList\": [],\n      \"hash\": \"0x9cfbea4942b334050660ec7207f3323ee13e3196b06279f922404384acbf7b47\"\n    }\n  }\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

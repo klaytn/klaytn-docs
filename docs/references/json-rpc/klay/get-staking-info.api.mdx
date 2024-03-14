@@ -1,0 +1,389 @@
+---
+id: get-staking-info
+title: "[Miscellaneous] klay_getStakingInfo"
+description: "The getStakingInfo returns staking information at a specific block. The result includes the following information."
+sidebar_label: " klay_getStakingInfo"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: docs/references/json-rpc/klay/web-3-rpc
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  [Miscellaneous] klay_getStakingInfo
+</h1>
+
+
+
+
+
+The getStakingInfo returns staking information at a specific block. The result includes the following information.
+- BlockNum: The block number at which the staking information is given.
+- CouncilNodeAddrs: The addresses of the consensus node.
+- CouncilRewardAddrs: The addresses to which the block reward of the associated nodes is sent.
+- CouncilStakingAddrs: The contract addresses in which the associated nodes deploy for staking.
+- CouncilStakingAmounts: The amount of KLAY which the associated nodes stake.
+- Gini: Gini coefficient.
+- KIRAddr: The contract address of KIR.
+- PoCAddr: The contract address of KGF. PoC is the previous name of KGF.
+- UseGini: The boolean value whether or not the Gini coefficient is used.
+
+Note that the order of all addresses and the staking amounts are matched.
+
+**JSONRPC:** `klay_getStakingInfo`
+
+
+## Request
+
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"method"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"Method name","default":"klay_getStakingInfo"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"id"}
+          required={true}
+          schemaName={"int64"}
+          qualifierMessage={undefined}
+          schema={{"type":"integer","default":1,"format":"int64","description":"Request ID, Random or Auto incrementation"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"jsonrpc"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","default":"2.0","description":"JSON-RPC Version (2.0)"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={true}
+          className={"schemaItem"}
+        >
+          <details
+            style={{}}
+            className={"openapi-markdown__details"}
+          >
+            <summary
+              style={{}}
+            >
+              <span
+                className={"openapi-schema__container"}
+              >
+                <strong
+                  className={"openapi-schema__property"}
+                >
+                  params
+                </strong><span
+                  className={"openapi-schema__name"}
+                >
+                   undefined[]
+                </span><span
+                  className={"openapi-schema__divider"}
+                >
+                  
+                </span><span
+                  className={"openapi-schema__required"}
+                >
+                  required
+                </span>
+              </span>
+            </summary><div
+              style={{"marginLeft":"1rem"}}
+            >
+              <li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                >
+                  Array [
+                </div>
+              </li><SchemaItem
+                collapsible={true}
+                className={"schemaItem"}
+              >
+                <details
+                  style={{}}
+                  className={"openapi-markdown__details"}
+                >
+                  <summary
+                    style={{}}
+                  >
+                    <strong>
+                      BlockNumberOrTag
+                    </strong><span
+                      style={{"opacity":"0.6"}}
+                    >
+                       object
+                    </span>
+                  </summary><div
+                    style={{"marginLeft":"1rem"}}
+                  >
+                    
+                  </div><div>
+                    <span
+                      className={"badge badge--info"}
+                    >
+                      oneOf
+                    </span><SchemaTabs>
+                      <TabItem
+                        label={"IntegerBlockNumber"}
+                        value={"0-item-properties"}
+                      >
+                        <div
+                          style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}
+                        >
+                          
+                          
+                          number
+                          
+                          
+                        </div>
+                      </TabItem><TabItem
+                        label={"HexadecimalBlockNumber"}
+                        value={"1-item-properties"}
+                      >
+                        <div
+                          style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}
+                        >
+                          
+                          
+                          string
+                          
+                          
+                        </div>
+                      </TabItem><TabItem
+                        label={"BlockTag"}
+                        value={"2-item-properties"}
+                      >
+                        <div
+                          style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}
+                        >
+                          
+                          
+                          string
+                          
+                          
+                        </div>
+                      </TabItem>
+                    </SchemaTabs>
+                  </div>
+                </details>
+              </SchemaItem><li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                >
+                  ]
+                </div>
+              </li>
+            </div>
+          </details>
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Returns staking information at a specific block
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"jsonrpc"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","default":"2.0"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={true}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                error
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={false}
+                              name={"code"}
+                              required={true}
+                              schemaName={"int64"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int64","example":-32700,"description":"A Number that indicates the error type that occurred.\nThis MUST be an integer.\n\n| code | message | description |\n|-----|-----|-------|\n| -32700   | Parse error   | invalid JSON was received by the server. An error occurred on the server while parsing the JSON text. |\n|-32602 | Invalid params | Invalid method parameter(s). |\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"message"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","example":"Parse error","description":"A String providing a short description of the error.\nThe message SHOULD be limited to a concise single sentence.\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"data"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"A Primitive or Structured value that contains additional information about the error.\nThis may be omitted.\nThe value of this member is defined by the Server (e.g. detailed error information, nested errors etc.).\n"}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"result"}
+                        required={false}
+                        schemaName={"object"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"object","description":"Staking information","example":{"BlockNum":57801600,"CouncilNodeAddrs":["0x99fb17d324fa0e07f23b49d09028ac0919414db6","0x571e53df607be97431a5bbefca1dffe5aef56f4d","0xb74ff9dea397fe9e231df545eb53fe2adf776cb2","0x5cb1a7dccbd0dc446e3640898ede8820368554c8","0x776817c0ef3d06d794cf01ae9afa33d7397b9b40","0xc180ca565b34b5b63877674f5fe647e7da079022","0x03497f51c31fe8b402df0bde90fd5a85f87aa943"],"CouncilRewardAddrs":["0xb2bd3178affccd9f9f5189457f1cad7d17a01c9d","0x6559a7b6248b342bc11fbcdf9343212bbc347edc","0x82829a60c6eac4e3e9d6ed00891c69e88537fd4d","0xa86fd667c6a340c53cc5d796ba84dbe1f29cb2f7","0x6e22cbe2b8bbd1df9f1d3c8ebae6d7ff5414a734","0x24e593fb29731e54905025c230727dc28d229f77","0x2b2a7a1d29a203f60e0a964fc64231265a49cd97"],"CouncilStakingAddrs":["0x12fa1ab4c3e17c1c08c1b5a945c864c8e8bf707e","0xfd56604f1a20268ff7a0eab2ab48e25ee1e0f653","0x1e0f6aaa9baa6081dc4910a854eebf8854c262ab","0x5e6988415ebe0f6b088f5a676003ba60f572875a","0xbb44998c2af35b8faee694cffe216558056d747e","0x68cba498b7175cde9de08fc2e85ad3e9c8caefa8","0x98efb31eeccafe35d53a6926e2a54c0858d9eebc"],"CouncilStakingAmounts":[5000000,5000000,5000000,5000000,5000000,5000000,5000000],"Gini":0,"KIRAddr":"0x716f89d9bc333286c79db4ebb05516897c8d208a","PoCAddr":"0x2bcf9d3e4a846015e7e3152a614c684de16f37c6","UseGini":true}}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"jsonrpc\": \"2.0\",\n  \"id\": 0,\n  \"error\": {\n    \"code\": -32700,\n    \"message\": \"Parse error\",\n    \"data\": \"string\"\n  },\n  \"result\": {\n    \"BlockNum\": 57801600,\n    \"CouncilNodeAddrs\": [\n      \"0x99fb17d324fa0e07f23b49d09028ac0919414db6\",\n      \"0x571e53df607be97431a5bbefca1dffe5aef56f4d\",\n      \"0xb74ff9dea397fe9e231df545eb53fe2adf776cb2\",\n      \"0x5cb1a7dccbd0dc446e3640898ede8820368554c8\",\n      \"0x776817c0ef3d06d794cf01ae9afa33d7397b9b40\",\n      \"0xc180ca565b34b5b63877674f5fe647e7da079022\",\n      \"0x03497f51c31fe8b402df0bde90fd5a85f87aa943\"\n    ],\n    \"CouncilRewardAddrs\": [\n      \"0xb2bd3178affccd9f9f5189457f1cad7d17a01c9d\",\n      \"0x6559a7b6248b342bc11fbcdf9343212bbc347edc\",\n      \"0x82829a60c6eac4e3e9d6ed00891c69e88537fd4d\",\n      \"0xa86fd667c6a340c53cc5d796ba84dbe1f29cb2f7\",\n      \"0x6e22cbe2b8bbd1df9f1d3c8ebae6d7ff5414a734\",\n      \"0x24e593fb29731e54905025c230727dc28d229f77\",\n      \"0x2b2a7a1d29a203f60e0a964fc64231265a49cd97\"\n    ],\n    \"CouncilStakingAddrs\": [\n      \"0x12fa1ab4c3e17c1c08c1b5a945c864c8e8bf707e\",\n      \"0xfd56604f1a20268ff7a0eab2ab48e25ee1e0f653\",\n      \"0x1e0f6aaa9baa6081dc4910a854eebf8854c262ab\",\n      \"0x5e6988415ebe0f6b088f5a676003ba60f572875a\",\n      \"0xbb44998c2af35b8faee694cffe216558056d747e\",\n      \"0x68cba498b7175cde9de08fc2e85ad3e9c8caefa8\",\n      \"0x98efb31eeccafe35d53a6926e2a54c0858d9eebc\"\n    ],\n    \"CouncilStakingAmounts\": [\n      5000000,\n      5000000,\n      5000000,\n      5000000,\n      5000000,\n      5000000,\n      5000000\n    ],\n    \"Gini\": 0,\n    \"KIRAddr\": \"0x716f89d9bc333286c79db4ebb05516897c8d208a\",\n    \"PoCAddr\": \"0x2bcf9d3e4a846015e7e3152a614c684de16f37c6\",\n    \"UseGini\": true\n  }\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

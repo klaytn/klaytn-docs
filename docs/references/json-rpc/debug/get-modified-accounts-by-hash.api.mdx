@@ -1,0 +1,325 @@
+---
+id: get-modified-accounts-by-hash
+title: "[Inspection] debug_getModifiedAccountsByHash"
+description: "Returns all accounts that have changed between the two blocks specified by their block hashes. Changes made in endBlockHash are included, but changes made in startBlockHash are not. If endBlockHash is not given, it returns the accounts modified in the startBlockHash. A change is defined as a difference in nonce, balance, code hash, or storage hash."
+sidebar_label: " debug_getModifiedAccountsByHash"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: docs/references/json-rpc/debug/web-3-rpc
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  [Inspection] debug_getModifiedAccountsByHash
+</h1>
+
+
+
+
+
+Returns all accounts that have changed between the two blocks specified by their block hashes. Changes made in endBlockHash are included, but changes made in startBlockHash are not. If endBlockHash is not given, it returns the accounts modified in the startBlockHash. A change is defined as a difference in nonce, balance, code hash, or storage hash.
+
+**JSONRPC:** `debug_getModifiedAccountsByHash`
+
+
+## Request
+
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"method"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"Method name","default":"debug_getModifiedAccountsByHash"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"id"}
+          required={true}
+          schemaName={"int64"}
+          qualifierMessage={undefined}
+          schema={{"type":"integer","default":1,"format":"int64","description":"Request ID, Random or Auto incrementation"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"jsonrpc"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","default":"2.0","description":"JSON-RPC Version (2.0)"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={true}
+          className={"schemaItem"}
+        >
+          <details
+            style={{}}
+            className={"openapi-markdown__details"}
+          >
+            <summary
+              style={{}}
+            >
+              <span
+                className={"openapi-schema__container"}
+              >
+                <strong
+                  className={"openapi-schema__property"}
+                >
+                  params
+                </strong><span
+                  className={"openapi-schema__name"}
+                >
+                   undefined[]
+                </span><span
+                  className={"openapi-schema__divider"}
+                >
+                  
+                </span><span
+                  className={"openapi-schema__required"}
+                >
+                  required
+                </span>
+              </span>
+            </summary><div
+              style={{"marginLeft":"1rem"}}
+            >
+              <li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                >
+                  Array [
+                </div>
+              </li><SchemaItem
+                collapsible={false}
+                name={"StartBlockHash"}
+                required={false}
+                schemaName={"32-byte DATA"}
+                qualifierMessage={undefined}
+                schema={{"type":"string","format":"32-byte DATA","title":"StartBlockHash","description":"The first block number of the range to check."}}
+              >
+                
+              </SchemaItem><SchemaItem
+                collapsible={false}
+                name={"EndBlockHash"}
+                required={false}
+                schemaName={"32-byte DATA"}
+                qualifierMessage={undefined}
+                schema={{"type":"string","format":"32-byte DATA","title":"EndBlockHash","description":"(optional) The last block number of the range."}}
+              >
+                
+              </SchemaItem><li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                >
+                  ]
+                </div>
+              </li>
+            </div>
+          </details>
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Return the list of addresses modified between the given range.
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"jsonrpc"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","default":"2.0"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={true}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                error
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={false}
+                              name={"code"}
+                              required={true}
+                              schemaName={"int64"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int64","example":-32700,"description":"A Number that indicates the error type that occurred.\nThis MUST be an integer.\n\n| code | message | description |\n|-----|-----|-------|\n| -32700   | Parse error   | invalid JSON was received by the server. An error occurred on the server while parsing the JSON text. |\n|-32602 | Invalid params | Invalid method parameter(s). |\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"message"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","example":"Parse error","description":"A String providing a short description of the error.\nThe message SHOULD be limited to a concise single sentence.\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"data"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"A Primitive or Structured value that contains additional information about the error.\nThis may be omitted.\nThe value of this member is defined by the Server (e.g. detailed error information, nested errors etc.).\n"}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"result"}
+                        required={false}
+                        schemaName={"20-byte DATA[]"}
+                        qualifierMessage={undefined}
+                        schema={{"title":"Addresses","type":"array","description":"The list of addresses modified between the given range.","example":["0x31b93ca83b5ad17582e886c400667c6f698b8ccd","0xb7fe15c42e66bd71835b07dc6e7daee7729f6235","0xe31a0edb11357dba71377e625fc6174da4ef4321","0x16b11cf9c2186a117b0da38315b42b1eaa03bbe5","0xd3ec3c7e4cad042dbdcb6a7e0fdbc55a92276f12","0xa4e0d726ce51572e66295756ad93206592c43a59","0xf65e07b6626ab43ecea744803fa46bd4a89bfdb6","0xaac56dfe44f9894d4f536cd17acfbc44bf81a843","0x3855407fa65c4c5104648b3a9e495072df62b585","0x61a7cbdd597848494fa85cbb76f9c63ad9c06cad","0xa4845491cb0dad5bd6707a33c02af0d9db435c15","0x026e8f70a26b6e5c8bec25e23869846edfdd6728","0x3cf3e8caea91501321feee0f0692fcd98f1c6292","0x18822790d7baf2fa6bbca6ad8baa46985abeb81b"],"items":{"title":"Address","type":"string","format":"20-byte DATA","description":"Address"}}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"jsonrpc\": \"2.0\",\n  \"id\": 0,\n  \"error\": {\n    \"code\": -32700,\n    \"message\": \"Parse error\",\n    \"data\": \"string\"\n  },\n  \"result\": [\n    \"0x31b93ca83b5ad17582e886c400667c6f698b8ccd\",\n    \"0xb7fe15c42e66bd71835b07dc6e7daee7729f6235\",\n    \"0xe31a0edb11357dba71377e625fc6174da4ef4321\",\n    \"0x16b11cf9c2186a117b0da38315b42b1eaa03bbe5\",\n    \"0xd3ec3c7e4cad042dbdcb6a7e0fdbc55a92276f12\",\n    \"0xa4e0d726ce51572e66295756ad93206592c43a59\",\n    \"0xf65e07b6626ab43ecea744803fa46bd4a89bfdb6\",\n    \"0xaac56dfe44f9894d4f536cd17acfbc44bf81a843\",\n    \"0x3855407fa65c4c5104648b3a9e495072df62b585\",\n    \"0x61a7cbdd597848494fa85cbb76f9c63ad9c06cad\",\n    \"0xa4845491cb0dad5bd6707a33c02af0d9db435c15\",\n    \"0x026e8f70a26b6e5c8bec25e23869846edfdd6728\",\n    \"0x3cf3e8caea91501321feee0f0692fcd98f1c6292\",\n    \"0x18822790d7baf2fa6bbca6ad8baa46985abeb81b\"\n  ]\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

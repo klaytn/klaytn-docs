@@ -1,0 +1,362 @@
+---
+id: export-chain
+title: "admin_exportChain"
+description: "The exportChain is an administrative method that exports the blockchain to a file."
+sidebar_label: "admin_exportChain"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: docs/references/json-rpc/admin/web-3-rpc
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  admin_exportChain
+</h1>
+
+
+
+
+
+The exportChain is an administrative method that exports the blockchain to a file.
+
+**JSONRPC:** `admin_exportChain`
+
+
+## Request
+
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"method"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"Method name","default":"admin_exportChain"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"id"}
+          required={true}
+          schemaName={"int64"}
+          qualifierMessage={undefined}
+          schema={{"type":"integer","default":1,"format":"int64","description":"Request ID, Random or Auto incrementation"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"jsonrpc"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","default":"2.0","description":"JSON-RPC Version (2.0)"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={true}
+          className={"schemaItem"}
+        >
+          <details
+            style={{}}
+            className={"openapi-markdown__details"}
+          >
+            <summary
+              style={{}}
+            >
+              <span
+                className={"openapi-schema__container"}
+              >
+                <strong
+                  className={"openapi-schema__property"}
+                >
+                  params
+                </strong><span
+                  className={"openapi-schema__name"}
+                >
+                   object[]
+                </span><span
+                  className={"openapi-schema__divider"}
+                >
+                  
+                </span><span
+                  className={"openapi-schema__required"}
+                >
+                  required
+                </span>
+              </span>
+            </summary><div
+              style={{"marginLeft":"1rem"}}
+            >
+              <div
+                style={{"marginTop":".5rem","marginBottom":".5rem"}}
+              >
+                
+                
+                the fully qualified path to the file where the blockchain must be exported.
+                
+                
+              </div><li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                >
+                  Array [
+                </div>
+              </li><div>
+                <span
+                  className={"badge badge--info"}
+                >
+                  anyOf
+                </span><SchemaTabs>
+                  <TabItem
+                    label={"FileName"}
+                    value={"0-item-properties"}
+                  >
+                    <div
+                      style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}
+                    >
+                      
+                      
+                      string
+                      
+                      
+                    </div>
+                  </TabItem><TabItem
+                    label={"FirstBlock"}
+                    value={"1-item-properties"}
+                  >
+                    <div
+                      style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}
+                    >
+                      
+                      
+                      number
+                      
+                      
+                    </div>
+                  </TabItem><TabItem
+                    label={"LastBlock"}
+                    value={"2-item-properties"}
+                  >
+                    <div
+                      style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}
+                    >
+                      
+                      
+                      number
+                      
+                      
+                    </div>
+                  </TabItem>
+                </SchemaTabs>
+              </div><li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                >
+                  ]
+                </div>
+              </li>
+            </div>
+          </details>
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          true if chain was exported, false if not.
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"jsonrpc"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","default":"2.0"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={true}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                error
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={false}
+                              name={"code"}
+                              required={true}
+                              schemaName={"int64"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int64","example":-32700,"description":"A Number that indicates the error type that occurred.\nThis MUST be an integer.\n\n| code | message | description |\n|-----|-----|-------|\n| -32700   | Parse error   | invalid JSON was received by the server. An error occurred on the server while parsing the JSON text. |\n|-32602 | Invalid params | Invalid method parameter(s). |\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"message"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","example":"Parse error","description":"A String providing a short description of the error.\nThe message SHOULD be limited to a concise single sentence.\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"data"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"A Primitive or Structured value that contains additional information about the error.\nThis may be omitted.\nThe value of this member is defined by the Server (e.g. detailed error information, nested errors etc.).\n"}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"result"}
+                        required={false}
+                        schemaName={"boolean"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"boolean","description":"true if chain was exported, false if not.","example":true}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"jsonrpc\": \"2.0\",\n  \"id\": 0,\n  \"error\": {\n    \"code\": -32700,\n    \"message\": \"Parse error\",\n    \"data\": \"string\"\n  },\n  \"result\": true\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

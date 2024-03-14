@@ -1,0 +1,266 @@
+---
+id: write-mutex-profile
+title: "[Profiling] debug_writeMutexProfile"
+description: "Writes a goroutine blocking profile to the given file."
+sidebar_label: " debug_writeMutexProfile"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: docs/references/json-rpc/debug/web-3-rpc
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  [Profiling] debug_writeMutexProfile
+</h1>
+
+
+
+
+
+Writes a goroutine blocking profile to the given file.
+
+**JSONRPC:** `debug_writeMutexProfile`
+
+
+## Request
+
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"method"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"Method name","default":"debug_writeMutexProfile"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"id"}
+          required={true}
+          schemaName={"int64"}
+          qualifierMessage={undefined}
+          schema={{"type":"integer","default":1,"format":"int64","description":"Request ID, Random or Auto incrementation"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"jsonrpc"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","default":"2.0","description":"JSON-RPC Version (2.0)"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"params"}
+          required={false}
+          schemaName={"File[]"}
+          qualifierMessage={undefined}
+          schema={{"type":"array","description":"The filename for the profiling output.","example":["mutex.profile"],"items":{"title":"File","type":"string"}}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Writes a goroutine blocking profile to the given file.
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"jsonrpc"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","default":"2.0"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={true}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                error
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={false}
+                              name={"code"}
+                              required={true}
+                              schemaName={"int64"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int64","example":-32700,"description":"A Number that indicates the error type that occurred.\nThis MUST be an integer.\n\n| code | message | description |\n|-----|-----|-------|\n| -32700   | Parse error   | invalid JSON was received by the server. An error occurred on the server while parsing the JSON text. |\n|-32602 | Invalid params | Invalid method parameter(s). |\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"message"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","example":"Parse error","description":"A String providing a short description of the error.\nThe message SHOULD be limited to a concise single sentence.\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"data"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"A Primitive or Structured value that contains additional information about the error.\nThis may be omitted.\nThe value of this member is defined by the Server (e.g. detailed error information, nested errors etc.).\n"}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"result"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","nullable":true,"default":null}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"jsonrpc\": \"2.0\",\n  \"id\": 0,\n  \"error\": {\n    \"code\": -32700,\n    \"message\": \"Parse error\",\n    \"data\": \"string\"\n  },\n  \"result\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

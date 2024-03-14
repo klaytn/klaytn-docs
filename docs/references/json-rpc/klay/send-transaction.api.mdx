@@ -1,0 +1,2753 @@
+---
+id: send-transaction
+title: "[Transaction] klay_sendTransaction"
+description: "Constructs a transaction with given parameters, signs the transaction with a sender's private key and propagates the transaction to Klaytn network."
+sidebar_label: " klay_sendTransaction"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: docs/references/json-rpc/klay/web-3-rpc
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  [Transaction] klay_sendTransaction
+</h1>
+
+
+
+
+
+Constructs a transaction with given parameters, signs the transaction with a sender's private key and propagates the transaction to Klaytn network.
+
+`klay_sendTransaction` will be failed to baobab/cypress network because it is signed in the EN node, which means that the EN must have the key that you want to sign with.
+Steps to test `klay_sendTransaction`.
+  - Step 1: Setup a local EN node
+  - Step 2: <a href="#tag/personal/operation/newAccount" target="_blank">Create an account</a> into the EN node
+  - Step 3: <a href="#tag/personal/operation/unlockAccount" target="_blank">Unlock the account</a> for using in signing
+
+**JSONRPC:** `klay_sendTransaction`
+
+
+## Request
+
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"method"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"Method name","default":"klay_sendTransaction"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"id"}
+          required={true}
+          schemaName={"int64"}
+          qualifierMessage={undefined}
+          schema={{"type":"integer","default":1,"format":"int64","description":"Request ID, Random or Auto incrementation"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"jsonrpc"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","default":"2.0","description":"JSON-RPC Version (2.0)"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={true}
+          className={"schemaItem"}
+        >
+          <details
+            style={{}}
+            className={"openapi-markdown__details"}
+          >
+            <summary
+              style={{}}
+            >
+              <span
+                className={"openapi-schema__container"}
+              >
+                <strong
+                  className={"openapi-schema__property"}
+                >
+                  params
+                </strong><span
+                  className={"openapi-schema__name"}
+                >
+                   object[]
+                </span><span
+                  className={"openapi-schema__divider"}
+                >
+                  
+                </span><span
+                  className={"openapi-schema__required"}
+                >
+                  required
+                </span>
+              </span>
+            </summary><div
+              style={{"marginLeft":"1rem"}}
+            >
+              <li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                >
+                  Array [
+                </div>
+              </li><div>
+                <span
+                  className={"badge badge--info"}
+                >
+                  oneOf
+                </span><SchemaTabs>
+                  <TabItem
+                    label={"TxTypeLegacyTransaction"}
+                    value={"0-item-properties"}
+                  >
+                    <SchemaItem
+                      collapsible={false}
+                      name={"from"}
+                      required={true}
+                      schemaName={"20-byte DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"20-byte DATA","description":"The address from which the transaction is sent."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"to"}
+                      required={false}
+                      schemaName={"20-byte DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"20-byte DATA","description":"(optional when creating a new contract) The address to which the transaction is directed."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"gas"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional, default 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"gasPrice"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional, default 25000000000 Peb) Integer of the gasPrice. The transaction fee is calculated by the multiplication of gas and gasPrice."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"value"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional) Integer of the value sent with this transaction."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"data"}
+                      required={true}
+                      schemaName={"DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"DATA","description":"The compiled byte code of a contract to deploy or data (function indicator and parameter values) required to call a contract."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"nonce"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional) Integer of a nonce."}}
+                    >
+                      
+                    </SchemaItem>
+                  </TabItem><TabItem
+                    label={"TxTypeValueTransfer"}
+                    value={"1-item-properties"}
+                  >
+                    <SchemaItem
+                      collapsible={false}
+                      name={"typeInt"}
+                      required={true}
+                      schemaName={"integer"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"number","format":"integer","description":"The integer indicating TxTypeValueTransfer 8"}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"from"}
+                      required={true}
+                      schemaName={"20-byte DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"20-byte DATA","description":"The address from which the transaction is sent."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"to"}
+                      required={true}
+                      schemaName={"20-byte DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"20-byte DATA","description":"The address to which the transaction is directed."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"gas"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional, default 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"gasPrice"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional, default 25000000000 Peb) Integer of the gasPrice. The transaction fee is calculated by the multiplication of gas and gasPrice."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"nonce"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional) Integer of a nonce."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"value"}
+                      required={true}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"Integer of the value sent with this transaction."}}
+                    >
+                      
+                    </SchemaItem>
+                  </TabItem><TabItem
+                    label={"TxTypeFeeDelegatedValueTransfer"}
+                    value={"2-item-properties"}
+                  >
+                    <SchemaItem
+                      collapsible={false}
+                      name={"typeInt"}
+                      required={true}
+                      schemaName={"integer"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"number","format":"integer","description":"The integer indicating TxTypeFeeDelegatedValueTransfer 9"}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"from"}
+                      required={true}
+                      schemaName={"20-byte DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"20-byte DATA","description":"The address from which the transaction is sent."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"to"}
+                      required={true}
+                      schemaName={"20-byte DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"20-byte DATA","description":"The address to which the transaction is directed."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"gas"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional, default 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"gasPrice"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional, default 25000000000 Peb) Integer of the gasPrice. The transaction fee is calculated by the multiplication of gas and gasPrice."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"nonce"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional) Integer of a nonce."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"value"}
+                      required={true}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"Integer of the value sent with this transaction."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"feePayer"}
+                      required={true}
+                      schemaName={"20-byte DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"20-byte DATA","description":"The address which pays the transaction fee."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={true}
+                      className={"schemaItem"}
+                    >
+                      <details
+                        style={{}}
+                        className={"openapi-markdown__details"}
+                      >
+                        <summary
+                          style={{}}
+                        >
+                          <span
+                            className={"openapi-schema__container"}
+                          >
+                            <strong
+                              className={"openapi-schema__property"}
+                            >
+                              signatures
+                            </strong><span
+                              className={"openapi-schema__name"}
+                            >
+                               object[]
+                            </span>
+                          </span>
+                        </summary><div
+                          style={{"marginLeft":"1rem"}}
+                        >
+                          <div
+                            style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                          >
+                            
+                            
+                            (optional - only for klay_sendTransactionAsFeePayer API) An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.
+                            
+                            
+                          </div><li>
+                            <div
+                              style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                            >
+                              Array [
+                            </div>
+                          </li><SchemaItem
+                            collapsible={false}
+                            name={"V"}
+                            required={true}
+                            schemaName={"string"}
+                            qualifierMessage={undefined}
+                            schema={{"type":"string"}}
+                          >
+                            
+                          </SchemaItem><SchemaItem
+                            collapsible={false}
+                            name={"R"}
+                            required={true}
+                            schemaName={"string"}
+                            qualifierMessage={undefined}
+                            schema={{"type":"string"}}
+                          >
+                            
+                          </SchemaItem><SchemaItem
+                            collapsible={false}
+                            name={"S"}
+                            required={true}
+                            schemaName={"string"}
+                            qualifierMessage={undefined}
+                            schema={{"type":"string"}}
+                          >
+                            
+                          </SchemaItem><li>
+                            <div
+                              style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                            >
+                              ]
+                            </div>
+                          </li>
+                        </div>
+                      </details>
+                    </SchemaItem>
+                  </TabItem><TabItem
+                    label={"TxTypeFeeDelegatedValueTransferWithRatio"}
+                    value={"3-item-properties"}
+                  >
+                    <SchemaItem
+                      collapsible={false}
+                      name={"typeInt"}
+                      required={true}
+                      schemaName={"integer"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"number","format":"integer","description":"The integer indicating TxTypeFeeDelegatedValueTransferWithRatio 10"}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"from"}
+                      required={true}
+                      schemaName={"20-byte DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"20-byte DATA","description":"The address from which the transaction is sent."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"to"}
+                      required={true}
+                      schemaName={"20-byte DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"20-byte DATA","description":"The address to which the transaction is directed."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"gas"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional, default 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"gasPrice"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional, default 25000000000 Peb) Integer of the gasPrice used for each paid gas."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"nonce"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional) Integer of a nonce."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"value"}
+                      required={true}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"Integer of the value sent with this transaction."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"feePayer"}
+                      required={true}
+                      schemaName={"20-byte DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"20-byte DATA","description":"The fee payer address of the transaction."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"feeRatio"}
+                      required={true}
+                      schemaName={"integer"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"number","format":"integer","description":"Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender. The range of fee ratio is 1 ~ 99, if it is out of range, the transaction will not be accepted."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={true}
+                      className={"schemaItem"}
+                    >
+                      <details
+                        style={{}}
+                        className={"openapi-markdown__details"}
+                      >
+                        <summary
+                          style={{}}
+                        >
+                          <span
+                            className={"openapi-schema__container"}
+                          >
+                            <strong
+                              className={"openapi-schema__property"}
+                            >
+                              signatures
+                            </strong><span
+                              className={"openapi-schema__name"}
+                            >
+                               object[]
+                            </span>
+                          </span>
+                        </summary><div
+                          style={{"marginLeft":"1rem"}}
+                        >
+                          <div
+                            style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                          >
+                            
+                            
+                            (optional - only for klay_sendTransactionAsFeePayer API) An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.
+                            
+                            
+                          </div><li>
+                            <div
+                              style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                            >
+                              Array [
+                            </div>
+                          </li><SchemaItem
+                            collapsible={false}
+                            name={"V"}
+                            required={true}
+                            schemaName={"string"}
+                            qualifierMessage={undefined}
+                            schema={{"type":"string"}}
+                          >
+                            
+                          </SchemaItem><SchemaItem
+                            collapsible={false}
+                            name={"R"}
+                            required={true}
+                            schemaName={"string"}
+                            qualifierMessage={undefined}
+                            schema={{"type":"string"}}
+                          >
+                            
+                          </SchemaItem><SchemaItem
+                            collapsible={false}
+                            name={"S"}
+                            required={true}
+                            schemaName={"string"}
+                            qualifierMessage={undefined}
+                            schema={{"type":"string"}}
+                          >
+                            
+                          </SchemaItem><li>
+                            <div
+                              style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                            >
+                              ]
+                            </div>
+                          </li>
+                        </div>
+                      </details>
+                    </SchemaItem>
+                  </TabItem><TabItem
+                    label={"TxTypeValueTransferMemo"}
+                    value={"4-item-properties"}
+                  >
+                    <SchemaItem
+                      collapsible={false}
+                      name={"typeInt"}
+                      required={true}
+                      schemaName={"integer"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"number","format":"integer","description":"The integer indicating TxTypeValueTransferMemo 16"}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"from"}
+                      required={true}
+                      schemaName={"20-byte DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"20-byte DATA","description":"The address from which the transaction is sent."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"to"}
+                      required={true}
+                      schemaName={"20-byte DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"20-byte DATA","description":"The address to which the transaction is directed."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"gas"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional, default 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"gasPrice"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional, default 25000000000 Peb) Integer of the gasPrice. The transaction fee is calculated by the multiplication of gas and gasPrice."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"nonce"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional) Integer of a nonce."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"value"}
+                      required={true}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"Integer of the value sent with this transaction."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"input"}
+                      required={true}
+                      schemaName={"DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"DATA","description":"The data sent along with the transaction."}}
+                    >
+                      
+                    </SchemaItem>
+                  </TabItem><TabItem
+                    label={"TxTypeFeeDelegatedValueTransferMemo"}
+                    value={"5-item-properties"}
+                  >
+                    <SchemaItem
+                      collapsible={false}
+                      name={"typeInt"}
+                      required={true}
+                      schemaName={"integer"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"number","format":"integer","description":"The integer indicating TxTypeFeeDelegatedValueTransferMemo 17"}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"from"}
+                      required={true}
+                      schemaName={"20-byte DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"20-byte DATA","description":"The address from which the transaction is sent."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"to"}
+                      required={true}
+                      schemaName={"20-byte DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"20-byte DATA","description":"The address to which the transaction is directed."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"gas"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional, default 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"gasPrice"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional, default 25000000000 Peb) Integer of the gasPrice used for each paid gas."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"nonce"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional) Integer of a nonce."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"value"}
+                      required={true}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"Integer of the value sent with this transaction."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"input"}
+                      required={true}
+                      schemaName={"DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"DATA","description":"The data sent along with the transaction."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"feePayer"}
+                      required={true}
+                      schemaName={"20-byte DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"20-byte DATA","description":"The fee payer address of the transaction."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={true}
+                      className={"schemaItem"}
+                    >
+                      <details
+                        style={{}}
+                        className={"openapi-markdown__details"}
+                      >
+                        <summary
+                          style={{}}
+                        >
+                          <span
+                            className={"openapi-schema__container"}
+                          >
+                            <strong
+                              className={"openapi-schema__property"}
+                            >
+                              signatures
+                            </strong><span
+                              className={"openapi-schema__name"}
+                            >
+                               object[]
+                            </span>
+                          </span>
+                        </summary><div
+                          style={{"marginLeft":"1rem"}}
+                        >
+                          <div
+                            style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                          >
+                            
+                            
+                            (optional - only for klay_sendTransactionAsFeePayer API) An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.
+                            
+                            
+                          </div><li>
+                            <div
+                              style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                            >
+                              Array [
+                            </div>
+                          </li><SchemaItem
+                            collapsible={false}
+                            name={"V"}
+                            required={true}
+                            schemaName={"string"}
+                            qualifierMessage={undefined}
+                            schema={{"type":"string"}}
+                          >
+                            
+                          </SchemaItem><SchemaItem
+                            collapsible={false}
+                            name={"R"}
+                            required={true}
+                            schemaName={"string"}
+                            qualifierMessage={undefined}
+                            schema={{"type":"string"}}
+                          >
+                            
+                          </SchemaItem><SchemaItem
+                            collapsible={false}
+                            name={"S"}
+                            required={true}
+                            schemaName={"string"}
+                            qualifierMessage={undefined}
+                            schema={{"type":"string"}}
+                          >
+                            
+                          </SchemaItem><li>
+                            <div
+                              style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                            >
+                              ]
+                            </div>
+                          </li>
+                        </div>
+                      </details>
+                    </SchemaItem>
+                  </TabItem><TabItem
+                    label={"TxTypeFeeDelegatedValueTransferMemoWithRatio"}
+                    value={"6-item-properties"}
+                  >
+                    <SchemaItem
+                      collapsible={false}
+                      name={"typeInt"}
+                      required={true}
+                      schemaName={"integer"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"number","format":"integer","description":"The integer indicating TxTypeFeeDelegatedValueTransferMemoWithRatio 18"}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"from"}
+                      required={true}
+                      schemaName={"20-byte DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"20-byte DATA","description":"The address from which the transaction is sent."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"to"}
+                      required={true}
+                      schemaName={"20-byte DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"20-byte DATA","description":"The address to which the transaction is directed."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"gas"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional, default 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"gasPrice"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional, default 25000000000 Peb) Integer of the gasPrice used for each paid gas."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"nonce"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional) Integer of a nonce."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"value"}
+                      required={true}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"Integer of the value sent with this transaction."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"input"}
+                      required={true}
+                      schemaName={"DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"DATA","description":"The data sent along with the transaction."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"feePayer"}
+                      required={true}
+                      schemaName={"20-byte DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"20-byte DATA","description":"The fee payer address of the transaction."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"feeRatio"}
+                      required={true}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender. The range of fee ratio is 1 ~ 99, if it is out of range, the transaction will not be accepted."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={true}
+                      className={"schemaItem"}
+                    >
+                      <details
+                        style={{}}
+                        className={"openapi-markdown__details"}
+                      >
+                        <summary
+                          style={{}}
+                        >
+                          <span
+                            className={"openapi-schema__container"}
+                          >
+                            <strong
+                              className={"openapi-schema__property"}
+                            >
+                              signatures
+                            </strong><span
+                              className={"openapi-schema__name"}
+                            >
+                               object[]
+                            </span>
+                          </span>
+                        </summary><div
+                          style={{"marginLeft":"1rem"}}
+                        >
+                          <div
+                            style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                          >
+                            
+                            
+                            (optional - only for klay_sendTransactionAsFeePayer API) An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.
+                            
+                            
+                          </div><li>
+                            <div
+                              style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                            >
+                              Array [
+                            </div>
+                          </li><SchemaItem
+                            collapsible={false}
+                            name={"V"}
+                            required={true}
+                            schemaName={"string"}
+                            qualifierMessage={undefined}
+                            schema={{"type":"string"}}
+                          >
+                            
+                          </SchemaItem><SchemaItem
+                            collapsible={false}
+                            name={"R"}
+                            required={true}
+                            schemaName={"string"}
+                            qualifierMessage={undefined}
+                            schema={{"type":"string"}}
+                          >
+                            
+                          </SchemaItem><SchemaItem
+                            collapsible={false}
+                            name={"S"}
+                            required={true}
+                            schemaName={"string"}
+                            qualifierMessage={undefined}
+                            schema={{"type":"string"}}
+                          >
+                            
+                          </SchemaItem><li>
+                            <div
+                              style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                            >
+                              ]
+                            </div>
+                          </li>
+                        </div>
+                      </details>
+                    </SchemaItem>
+                  </TabItem><TabItem
+                    label={"TxTypeAccountUpdate"}
+                    value={"7-item-properties"}
+                  >
+                    <SchemaItem
+                      collapsible={false}
+                      name={"typeInt"}
+                      required={true}
+                      schemaName={"integer"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"number","format":"integer","description":"The integer indicating TxTypeAccountUpdate 32"}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"from"}
+                      required={true}
+                      schemaName={"20-byte DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"20-byte DATA","description":"The address from which the transaction is sent."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"gas"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional, default 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"gasPrice"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional, default 25000000000 Peb) Integer of the gasPrice used for each paid gas."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"nonce"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional) Integer of a nonce."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"key"}
+                      required={true}
+                      schemaName={"DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"DATA","description":"The new account key of the from account in RLP encoded format. For more information about the account key, see Account Key."}}
+                    >
+                      
+                    </SchemaItem>
+                  </TabItem><TabItem
+                    label={"TxTypeFeeDelegatedAccountUpdate"}
+                    value={"8-item-properties"}
+                  >
+                    <SchemaItem
+                      collapsible={false}
+                      name={"typeInt"}
+                      required={true}
+                      schemaName={"integer"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"number","format":"integer","description":"The integer indicating TxTypeFeeDelegatedAccountUpdate 33"}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"from"}
+                      required={true}
+                      schemaName={"20-byte DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"20-byte DATA","description":"The address from which the transaction is sent."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"gas"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional, default 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"gasPrice"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional, default 25000000000 Peb) Integer of the gasPrice used for each paid gas."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"nonce"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional) Integer of a nonce."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"key"}
+                      required={true}
+                      schemaName={"DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"DATA","description":"The new account key of the from account in RLP encoded format. For more information about the account key, see Account Key."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"feePayer"}
+                      required={true}
+                      schemaName={"20-byte DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"20-byte DATA","description":"The fee payer address of the transaction."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={true}
+                      className={"schemaItem"}
+                    >
+                      <details
+                        style={{}}
+                        className={"openapi-markdown__details"}
+                      >
+                        <summary
+                          style={{}}
+                        >
+                          <span
+                            className={"openapi-schema__container"}
+                          >
+                            <strong
+                              className={"openapi-schema__property"}
+                            >
+                              signatures
+                            </strong><span
+                              className={"openapi-schema__name"}
+                            >
+                               object[]
+                            </span>
+                          </span>
+                        </summary><div
+                          style={{"marginLeft":"1rem"}}
+                        >
+                          <div
+                            style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                          >
+                            
+                            
+                            (optional - only for klay_sendTransactionAsFeePayer API) An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.
+                            
+                            
+                          </div><li>
+                            <div
+                              style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                            >
+                              Array [
+                            </div>
+                          </li><SchemaItem
+                            collapsible={false}
+                            name={"V"}
+                            required={true}
+                            schemaName={"string"}
+                            qualifierMessage={undefined}
+                            schema={{"type":"string"}}
+                          >
+                            
+                          </SchemaItem><SchemaItem
+                            collapsible={false}
+                            name={"R"}
+                            required={true}
+                            schemaName={"string"}
+                            qualifierMessage={undefined}
+                            schema={{"type":"string"}}
+                          >
+                            
+                          </SchemaItem><SchemaItem
+                            collapsible={false}
+                            name={"S"}
+                            required={true}
+                            schemaName={"string"}
+                            qualifierMessage={undefined}
+                            schema={{"type":"string"}}
+                          >
+                            
+                          </SchemaItem><li>
+                            <div
+                              style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                            >
+                              ]
+                            </div>
+                          </li>
+                        </div>
+                      </details>
+                    </SchemaItem>
+                  </TabItem><TabItem
+                    label={"TxTypeFeeDelegatedAccountUpdateWithRatio"}
+                    value={"9-item-properties"}
+                  >
+                    <SchemaItem
+                      collapsible={false}
+                      name={"typeInt"}
+                      required={true}
+                      schemaName={"number"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"number","description":"The integer indicating TxTypeFeeDelegatedAccountUpdateWithRatio: 34"}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"from"}
+                      required={true}
+                      schemaName={"20-byte DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"20-byte DATA","description":"The address from which the transaction is sent."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"gas"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"gasPrice"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"nonce"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional) Integer of a nonce."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"key"}
+                      required={true}
+                      schemaName={"DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"DATA","description":"The new account key of the from account in RLP encoded format. For more information about the account key, see Account Key."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"feePayer"}
+                      required={true}
+                      schemaName={"20-byte DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"20-byte DATA","description":"The fee payer address of the transaction."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"feeRatio"}
+                      required={true}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender. The range of fee ratio is 1 ~ 99, if it is out of range, the transaction will not be accepted."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={true}
+                      className={"schemaItem"}
+                    >
+                      <details
+                        style={{}}
+                        className={"openapi-markdown__details"}
+                      >
+                        <summary
+                          style={{}}
+                        >
+                          <span
+                            className={"openapi-schema__container"}
+                          >
+                            <strong
+                              className={"openapi-schema__property"}
+                            >
+                              signatures
+                            </strong><span
+                              className={"openapi-schema__name"}
+                            >
+                               object[]
+                            </span>
+                          </span>
+                        </summary><div
+                          style={{"marginLeft":"1rem"}}
+                        >
+                          <div
+                            style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                          >
+                            
+                            
+                            (optional - only for klay_sendTransactionAsFeePayer API) An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.
+                            
+                            
+                          </div><li>
+                            <div
+                              style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                            >
+                              Array [
+                            </div>
+                          </li><SchemaItem
+                            collapsible={false}
+                            name={"V"}
+                            required={true}
+                            schemaName={"string"}
+                            qualifierMessage={undefined}
+                            schema={{"type":"string"}}
+                          >
+                            
+                          </SchemaItem><SchemaItem
+                            collapsible={false}
+                            name={"R"}
+                            required={true}
+                            schemaName={"string"}
+                            qualifierMessage={undefined}
+                            schema={{"type":"string"}}
+                          >
+                            
+                          </SchemaItem><SchemaItem
+                            collapsible={false}
+                            name={"S"}
+                            required={true}
+                            schemaName={"string"}
+                            qualifierMessage={undefined}
+                            schema={{"type":"string"}}
+                          >
+                            
+                          </SchemaItem><li>
+                            <div
+                              style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                            >
+                              ]
+                            </div>
+                          </li>
+                        </div>
+                      </details>
+                    </SchemaItem>
+                  </TabItem><TabItem
+                    label={"TxTypeSmartContractDeploy"}
+                    value={"10-item-properties"}
+                  >
+                    <SchemaItem
+                      collapsible={false}
+                      name={"typeInt"}
+                      required={true}
+                      schemaName={"number"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"number","description":"The integer indicating TxTypeSmartContractDeploy: 40"}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"from"}
+                      required={true}
+                      schemaName={"20-byte DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"20-byte DATA","description":"The address from which the transaction is sent."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"to"}
+                      required={true}
+                      schemaName={"20-byte DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"20-byte DATA","description":"The address to which the transaction is directed."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"gas"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"gasPrice"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"nonce"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional) Integer of a nonce."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"value"}
+                      required={true}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"Integer of the value sent with this transaction."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"input"}
+                      required={true}
+                      schemaName={"DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"DATA","description":"The data sent along with the transaction."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"humanReadable"}
+                      required={true}
+                      schemaName={"boolean"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"boolean","description":"true if the address is humanReadable, false if the address is not humanReadable. Currently, the value should be false. Human-readable addresses will be supported later."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"codeFormat"}
+                      required={true}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"The code format of smart contract code. The value 0 indicates EVM."}}
+                    >
+                      
+                    </SchemaItem>
+                  </TabItem><TabItem
+                    label={"TxTypeFeeDelegatedSmartContractDeploy"}
+                    value={"11-item-properties"}
+                  >
+                    <SchemaItem
+                      collapsible={false}
+                      name={"typeInt"}
+                      required={true}
+                      schemaName={"number"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"number","description":"The integer indicating TxTypeFeeDelegatedSmartContractDeploy: 41"}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"from"}
+                      required={true}
+                      schemaName={"20-byte DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"20-byte DATA","description":"The address from which the transaction is sent."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"to"}
+                      required={true}
+                      schemaName={"20-byte DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"20-byte DATA","description":"The address to which the transaction is directed."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"gas"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"gasPrice"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"nonce"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional) Integer of a nonce."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"value"}
+                      required={true}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"Integer of the value sent with this transaction."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"input"}
+                      required={true}
+                      schemaName={"DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"DATA","description":"The data sent along with the transaction."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"humanReadable"}
+                      required={true}
+                      schemaName={"boolean"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"boolean","description":"true if the address is humanReadable, false if the address is not humanReadable. Currently, the value should be false. Human-readable addresses will be supported later."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"codeFormat"}
+                      required={true}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"The code format of smart contract code. The value 0 indicates EVM."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"feePayer"}
+                      required={true}
+                      schemaName={"20-byte DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"20-byte DATA","description":"The fee payer address of the transaction."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={true}
+                      className={"schemaItem"}
+                    >
+                      <details
+                        style={{}}
+                        className={"openapi-markdown__details"}
+                      >
+                        <summary
+                          style={{}}
+                        >
+                          <span
+                            className={"openapi-schema__container"}
+                          >
+                            <strong
+                              className={"openapi-schema__property"}
+                            >
+                              signatures
+                            </strong><span
+                              className={"openapi-schema__name"}
+                            >
+                               object[]
+                            </span>
+                          </span>
+                        </summary><div
+                          style={{"marginLeft":"1rem"}}
+                        >
+                          <div
+                            style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                          >
+                            
+                            
+                            (optional - only for klay_sendTransactionAsFeePayer API) An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.
+                            
+                            
+                          </div><li>
+                            <div
+                              style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                            >
+                              Array [
+                            </div>
+                          </li><SchemaItem
+                            collapsible={false}
+                            name={"V"}
+                            required={true}
+                            schemaName={"string"}
+                            qualifierMessage={undefined}
+                            schema={{"type":"string"}}
+                          >
+                            
+                          </SchemaItem><SchemaItem
+                            collapsible={false}
+                            name={"R"}
+                            required={true}
+                            schemaName={"string"}
+                            qualifierMessage={undefined}
+                            schema={{"type":"string"}}
+                          >
+                            
+                          </SchemaItem><SchemaItem
+                            collapsible={false}
+                            name={"S"}
+                            required={true}
+                            schemaName={"string"}
+                            qualifierMessage={undefined}
+                            schema={{"type":"string"}}
+                          >
+                            
+                          </SchemaItem><li>
+                            <div
+                              style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                            >
+                              ]
+                            </div>
+                          </li>
+                        </div>
+                      </details>
+                    </SchemaItem>
+                  </TabItem><TabItem
+                    label={"TxTypeFeeDelegatedSmartContractDeployWithRatio"}
+                    value={"12-item-properties"}
+                  >
+                    <SchemaItem
+                      collapsible={false}
+                      name={"typeInt"}
+                      required={true}
+                      schemaName={"number"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"number","description":"The integer indicating TxTypeFeeDelegatedSmartContractDeployWithRatio: 42"}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"from"}
+                      required={true}
+                      schemaName={"20-byte DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"20-byte DATA","description":"The address from which the transaction is sent."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"to"}
+                      required={true}
+                      schemaName={"20-byte DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"20-byte DATA","description":"The address to which the transaction is directed."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"gas"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"gasPrice"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"nonce"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional) Integer of a nonce."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"value"}
+                      required={true}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"Integer of the value sent with this transaction."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"input"}
+                      required={true}
+                      schemaName={"DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"DATA","description":"The data sent along with the transaction."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"humanReadable"}
+                      required={true}
+                      schemaName={"boolean"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"boolean","description":"true if the address is humanReadable, false if the address is not humanReadable. Currently, the value should be false. Human-readable addresses will be supported later."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"codeFormat"}
+                      required={true}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"The code format of smart contract code. The value 0 indicates EVM."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"feePayer"}
+                      required={true}
+                      schemaName={"20-byte DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"20-byte DATA","description":"The fee payer address of the transaction."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={true}
+                      className={"schemaItem"}
+                    >
+                      <details
+                        style={{}}
+                        className={"openapi-markdown__details"}
+                      >
+                        <summary
+                          style={{}}
+                        >
+                          <span
+                            className={"openapi-schema__container"}
+                          >
+                            <strong
+                              className={"openapi-schema__property"}
+                            >
+                              signatures
+                            </strong><span
+                              className={"openapi-schema__name"}
+                            >
+                               object[]
+                            </span>
+                          </span>
+                        </summary><div
+                          style={{"marginLeft":"1rem"}}
+                        >
+                          <div
+                            style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                          >
+                            
+                            
+                            (optional - only for klay_sendTransactionAsFeePayer API) An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.
+                            
+                            
+                          </div><li>
+                            <div
+                              style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                            >
+                              Array [
+                            </div>
+                          </li><SchemaItem
+                            collapsible={false}
+                            name={"V"}
+                            required={true}
+                            schemaName={"string"}
+                            qualifierMessage={undefined}
+                            schema={{"type":"string"}}
+                          >
+                            
+                          </SchemaItem><SchemaItem
+                            collapsible={false}
+                            name={"R"}
+                            required={true}
+                            schemaName={"string"}
+                            qualifierMessage={undefined}
+                            schema={{"type":"string"}}
+                          >
+                            
+                          </SchemaItem><SchemaItem
+                            collapsible={false}
+                            name={"S"}
+                            required={true}
+                            schemaName={"string"}
+                            qualifierMessage={undefined}
+                            schema={{"type":"string"}}
+                          >
+                            
+                          </SchemaItem><li>
+                            <div
+                              style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                            >
+                              ]
+                            </div>
+                          </li>
+                        </div>
+                      </details>
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"feeRatio"}
+                      required={true}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender. The range of fee ratio is 1 ~ 99, if it is out of range, the transaction will not be accepted."}}
+                    >
+                      
+                    </SchemaItem>
+                  </TabItem><TabItem
+                    label={"TxTypeSmartContractExecution"}
+                    value={"13-item-properties"}
+                  >
+                    <SchemaItem
+                      collapsible={false}
+                      name={"typeInt"}
+                      required={true}
+                      schemaName={"number"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"number","description":"The integer indicating TxTypeSmartContractExecution: 48"}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"from"}
+                      required={true}
+                      schemaName={"20-byte DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"20-byte DATA","description":"The address from which the transaction is sent."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"to"}
+                      required={true}
+                      schemaName={"20-byte DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"20-byte DATA","description":"The address to which the transaction is directed."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"gas"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"gasPrice"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"nonce"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional) Integer of a nonce."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"value"}
+                      required={true}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"Integer of the value sent with this transaction."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"input"}
+                      required={true}
+                      schemaName={"DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"DATA","description":"The data sent along with the transaction."}}
+                    >
+                      
+                    </SchemaItem>
+                  </TabItem><TabItem
+                    label={"TxTypeFeeDelegatedSmartContractExecution"}
+                    value={"14-item-properties"}
+                  >
+                    <SchemaItem
+                      collapsible={false}
+                      name={"typeInt"}
+                      required={true}
+                      schemaName={"number"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"number","description":"The integer indicating TxTypeFeeDelegatedSmartContractExecution: 49"}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"from"}
+                      required={true}
+                      schemaName={"20-byte DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"20-byte DATA","description":"The address from which the transaction is sent."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"to"}
+                      required={true}
+                      schemaName={"20-byte DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"20-byte DATA","description":"The address to which the transaction is directed."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"gas"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"gasPrice"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"nonce"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional) Integer of a nonce."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"value"}
+                      required={true}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"Integer of the value sent with this transaction."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"input"}
+                      required={true}
+                      schemaName={"DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"DATA","description":"The data sent along with the transaction."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"feePayer"}
+                      required={true}
+                      schemaName={"20-byte DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"20-byte DATA","description":"The fee payer address of the transaction."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={true}
+                      className={"schemaItem"}
+                    >
+                      <details
+                        style={{}}
+                        className={"openapi-markdown__details"}
+                      >
+                        <summary
+                          style={{}}
+                        >
+                          <span
+                            className={"openapi-schema__container"}
+                          >
+                            <strong
+                              className={"openapi-schema__property"}
+                            >
+                              signatures
+                            </strong><span
+                              className={"openapi-schema__name"}
+                            >
+                               object[]
+                            </span>
+                          </span>
+                        </summary><div
+                          style={{"marginLeft":"1rem"}}
+                        >
+                          <div
+                            style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                          >
+                            
+                            
+                            (optional - only for klay_sendTransactionAsFeePayer API) An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.
+                            
+                            
+                          </div><li>
+                            <div
+                              style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                            >
+                              Array [
+                            </div>
+                          </li><SchemaItem
+                            collapsible={false}
+                            name={"V"}
+                            required={true}
+                            schemaName={"string"}
+                            qualifierMessage={undefined}
+                            schema={{"type":"string"}}
+                          >
+                            
+                          </SchemaItem><SchemaItem
+                            collapsible={false}
+                            name={"R"}
+                            required={true}
+                            schemaName={"string"}
+                            qualifierMessage={undefined}
+                            schema={{"type":"string"}}
+                          >
+                            
+                          </SchemaItem><SchemaItem
+                            collapsible={false}
+                            name={"S"}
+                            required={true}
+                            schemaName={"string"}
+                            qualifierMessage={undefined}
+                            schema={{"type":"string"}}
+                          >
+                            
+                          </SchemaItem><li>
+                            <div
+                              style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                            >
+                              ]
+                            </div>
+                          </li>
+                        </div>
+                      </details>
+                    </SchemaItem>
+                  </TabItem><TabItem
+                    label={"TxTypeFeeDelegatedSmartContractExecutionWithRatio"}
+                    value={"15-item-properties"}
+                  >
+                    <SchemaItem
+                      collapsible={false}
+                      name={"typeInt"}
+                      required={true}
+                      schemaName={"number"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"number","description":"The integer indicating TxTypeFeeDelegatedSmartContractExecutionWithRatio: 50"}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"from"}
+                      required={true}
+                      schemaName={"20-byte DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"20-byte DATA","description":"The address from which the transaction is sent."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"to"}
+                      required={true}
+                      schemaName={"20-byte DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"20-byte DATA","description":"The address to which the transaction is directed."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"gas"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"gasPrice"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"nonce"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional) Integer of a nonce."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"value"}
+                      required={true}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"Integer of the value sent with this transaction."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"input"}
+                      required={true}
+                      schemaName={"DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"DATA","description":"The data sent along with the transaction."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"feePayer"}
+                      required={true}
+                      schemaName={"20-byte DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"20-byte DATA","description":"The fee payer address of the transaction."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"feeRatio"}
+                      required={true}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender. The range of fee ratio is 1 ~ 99, if it is out of range, the transaction will not be accepted."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={true}
+                      className={"schemaItem"}
+                    >
+                      <details
+                        style={{}}
+                        className={"openapi-markdown__details"}
+                      >
+                        <summary
+                          style={{}}
+                        >
+                          <span
+                            className={"openapi-schema__container"}
+                          >
+                            <strong
+                              className={"openapi-schema__property"}
+                            >
+                              signatures
+                            </strong><span
+                              className={"openapi-schema__name"}
+                            >
+                               object[]
+                            </span>
+                          </span>
+                        </summary><div
+                          style={{"marginLeft":"1rem"}}
+                        >
+                          <div
+                            style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                          >
+                            
+                            
+                            (optional - only for klay_sendTransactionAsFeePayer API) An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.
+                            
+                            
+                          </div><li>
+                            <div
+                              style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                            >
+                              Array [
+                            </div>
+                          </li><SchemaItem
+                            collapsible={false}
+                            name={"V"}
+                            required={true}
+                            schemaName={"string"}
+                            qualifierMessage={undefined}
+                            schema={{"type":"string"}}
+                          >
+                            
+                          </SchemaItem><SchemaItem
+                            collapsible={false}
+                            name={"R"}
+                            required={true}
+                            schemaName={"string"}
+                            qualifierMessage={undefined}
+                            schema={{"type":"string"}}
+                          >
+                            
+                          </SchemaItem><SchemaItem
+                            collapsible={false}
+                            name={"S"}
+                            required={true}
+                            schemaName={"string"}
+                            qualifierMessage={undefined}
+                            schema={{"type":"string"}}
+                          >
+                            
+                          </SchemaItem><li>
+                            <div
+                              style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                            >
+                              ]
+                            </div>
+                          </li>
+                        </div>
+                      </details>
+                    </SchemaItem>
+                  </TabItem><TabItem
+                    label={"TxTypeCancel"}
+                    value={"16-item-properties"}
+                  >
+                    <SchemaItem
+                      collapsible={false}
+                      name={"typeInt"}
+                      required={true}
+                      schemaName={"number"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"number","description":"The integer indicating TxTypeCancel: 56"}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"from"}
+                      required={true}
+                      schemaName={"20-byte DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"20-byte DATA","description":"The address from which the transaction is sent."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"gas"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"gasPrice"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"nonce"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional) Integer of a nonce."}}
+                    >
+                      
+                    </SchemaItem>
+                  </TabItem><TabItem
+                    label={"TxTypeFeeDelegatedCancel"}
+                    value={"17-item-properties"}
+                  >
+                    <SchemaItem
+                      collapsible={false}
+                      name={"typeInt"}
+                      required={true}
+                      schemaName={"number"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"number","description":"The integer indicating TxTypeFeeDelegatedCancel: 57"}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"from"}
+                      required={true}
+                      schemaName={"20-byte DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"20-byte DATA","description":"The address from which the transaction is sent."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"gas"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"gasPrice"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"nonce"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional) Integer of a nonce."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"feePayer"}
+                      required={true}
+                      schemaName={"20-byte DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"20-byte DATA","description":"The fee payer address of the transaction."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={true}
+                      className={"schemaItem"}
+                    >
+                      <details
+                        style={{}}
+                        className={"openapi-markdown__details"}
+                      >
+                        <summary
+                          style={{}}
+                        >
+                          <span
+                            className={"openapi-schema__container"}
+                          >
+                            <strong
+                              className={"openapi-schema__property"}
+                            >
+                              signatures
+                            </strong><span
+                              className={"openapi-schema__name"}
+                            >
+                               object[]
+                            </span>
+                          </span>
+                        </summary><div
+                          style={{"marginLeft":"1rem"}}
+                        >
+                          <div
+                            style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                          >
+                            
+                            
+                            (optional - only for klay_sendTransactionAsFeePayer API) An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.
+                            
+                            
+                          </div><li>
+                            <div
+                              style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                            >
+                              Array [
+                            </div>
+                          </li><SchemaItem
+                            collapsible={false}
+                            name={"V"}
+                            required={true}
+                            schemaName={"string"}
+                            qualifierMessage={undefined}
+                            schema={{"type":"string"}}
+                          >
+                            
+                          </SchemaItem><SchemaItem
+                            collapsible={false}
+                            name={"R"}
+                            required={true}
+                            schemaName={"string"}
+                            qualifierMessage={undefined}
+                            schema={{"type":"string"}}
+                          >
+                            
+                          </SchemaItem><SchemaItem
+                            collapsible={false}
+                            name={"S"}
+                            required={true}
+                            schemaName={"string"}
+                            qualifierMessage={undefined}
+                            schema={{"type":"string"}}
+                          >
+                            
+                          </SchemaItem><li>
+                            <div
+                              style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                            >
+                              ]
+                            </div>
+                          </li>
+                        </div>
+                      </details>
+                    </SchemaItem>
+                  </TabItem><TabItem
+                    label={"TxTypeFeeDelegatedCancelWithRatio"}
+                    value={"18-item-properties"}
+                  >
+                    <SchemaItem
+                      collapsible={false}
+                      name={"typeInt"}
+                      required={true}
+                      schemaName={"number"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"number","description":"The integer indicating TxTypeFeeDelegatedCancelWithRatio: 58"}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"from"}
+                      required={true}
+                      schemaName={"20-byte DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"20-byte DATA","description":"The address from which the transaction is sent."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"gas"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional, default: 90000) Integer of the gas provided for the transaction execution. Unused gas will be refunded to the sender. If the specified gas is not enough to execute the transaction, the transaction is reverted."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"gasPrice"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional, default: 25000000000 Peb) Integer of the gasPrice used for each paid gas."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"nonce"}
+                      required={false}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"(optional) Integer of a nonce."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"feePayer"}
+                      required={true}
+                      schemaName={"20-byte DATA"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"20-byte DATA","description":"The fee payer address of the transaction."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"feeRatio"}
+                      required={true}
+                      schemaName={"hex"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","format":"hex","description":"Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender. The range of fee ratio is 1 ~ 99, if it is out of range, the transaction will not be accepted."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={true}
+                      className={"schemaItem"}
+                    >
+                      <details
+                        style={{}}
+                        className={"openapi-markdown__details"}
+                      >
+                        <summary
+                          style={{}}
+                        >
+                          <span
+                            className={"openapi-schema__container"}
+                          >
+                            <strong
+                              className={"openapi-schema__property"}
+                            >
+                              signatures
+                            </strong><span
+                              className={"openapi-schema__name"}
+                            >
+                               object[]
+                            </span>
+                          </span>
+                        </summary><div
+                          style={{"marginLeft":"1rem"}}
+                        >
+                          <div
+                            style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                          >
+                            
+                            
+                            (optional - only for klay_sendTransactionAsFeePayer API) An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.
+                            
+                            
+                          </div><li>
+                            <div
+                              style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                            >
+                              Array [
+                            </div>
+                          </li><SchemaItem
+                            collapsible={false}
+                            name={"V"}
+                            required={true}
+                            schemaName={"string"}
+                            qualifierMessage={undefined}
+                            schema={{"type":"string"}}
+                          >
+                            
+                          </SchemaItem><SchemaItem
+                            collapsible={false}
+                            name={"R"}
+                            required={true}
+                            schemaName={"string"}
+                            qualifierMessage={undefined}
+                            schema={{"type":"string"}}
+                          >
+                            
+                          </SchemaItem><SchemaItem
+                            collapsible={false}
+                            name={"S"}
+                            required={true}
+                            schemaName={"string"}
+                            qualifierMessage={undefined}
+                            schema={{"type":"string"}}
+                          >
+                            
+                          </SchemaItem><li>
+                            <div
+                              style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                            >
+                              ]
+                            </div>
+                          </li>
+                        </div>
+                      </details>
+                    </SchemaItem>
+                  </TabItem>
+                </SchemaTabs>
+              </div><li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                >
+                  ]
+                </div>
+              </li>
+            </div>
+          </details>
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Returns the transaction hash.
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"jsonrpc"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","default":"2.0"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={true}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                error
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={false}
+                              name={"code"}
+                              required={true}
+                              schemaName={"int64"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int64","example":-32700,"description":"A Number that indicates the error type that occurred.\nThis MUST be an integer.\n\n| code | message | description |\n|-----|-----|-------|\n| -32700   | Parse error   | invalid JSON was received by the server. An error occurred on the server while parsing the JSON text. |\n|-32602 | Invalid params | Invalid method parameter(s). |\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"message"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","example":"Parse error","description":"A String providing a short description of the error.\nThe message SHOULD be limited to a concise single sentence.\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"data"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"A Primitive or Structured value that contains additional information about the error.\nThis may be omitted.\nThe value of this member is defined by the Server (e.g. detailed error information, nested errors etc.).\n"}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"result"}
+                        required={false}
+                        schemaName={"32-byte DATA"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","format":"32-byte DATA","description":"The transaction hash","example":"0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"jsonrpc\": \"2.0\",\n  \"id\": 0,\n  \"error\": {\n    \"code\": -32700,\n    \"message\": \"Parse error\",\n    \"data\": \"string\"\n  },\n  \"result\": \"0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

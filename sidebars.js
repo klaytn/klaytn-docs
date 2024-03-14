@@ -426,15 +426,6 @@ const sidebars = {
         require("./web3rpc/web3rpc-sidebar").subbridgeSidebarFormatted,
       ],
     },
-    {
-      type: 'category',
-      label: 'Service Chain API Reference',
-      link: {type: 'doc', id: 'references/service-chain-api/service-chain-api'},
-      items: [
-        'references/service-chain-api/mainbridge',
-        'references/service-chain-api/subbridge',          
-      ],
-    },
     'references/transaction-error-codes',
     {
       type: 'category',

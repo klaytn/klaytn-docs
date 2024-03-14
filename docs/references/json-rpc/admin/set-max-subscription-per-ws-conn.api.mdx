@@ -1,0 +1,266 @@
+---
+id: set-max-subscription-per-ws-conn
+title: "admin_setMaxSubscriptionPerWSConn"
+description: "The setMaxSubscriptionPerWSConn is an administrative method that sets the maximum allowed number of subscriptions per single WebSocket connection. For example, if the maximum number is set to five and a user requests more than five subscriptions through the klay_subscribe API, an error message 'Maximum 5 subscriptions are allowed for a WebSocket connection' will be displayed. This feature is supported since Klaytn 1.6.0."
+sidebar_label: "admin_setMaxSubscriptionPerWSConn"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: docs/references/json-rpc/admin/web-3-rpc
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  admin_setMaxSubscriptionPerWSConn
+</h1>
+
+
+
+
+
+The setMaxSubscriptionPerWSConn is an administrative method that sets the maximum allowed number of subscriptions per single WebSocket connection. For example, if the maximum number is set to five and a user requests more than five subscriptions through the klay_subscribe API, an error message "Maximum 5 subscriptions are allowed for a WebSocket connection" will be displayed. This feature is supported since Klaytn 1.6.0.
+
+**JSONRPC:** `admin_setMaxSubscriptionPerWSConn`
+
+
+## Request
+
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"method"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"Method name","default":"admin_setMaxSubscriptionPerWSConn"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"id"}
+          required={true}
+          schemaName={"int64"}
+          qualifierMessage={undefined}
+          schema={{"type":"integer","default":1,"format":"int64","description":"Request ID, Random or Auto incrementation"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"jsonrpc"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","default":"2.0","description":"JSON-RPC Version (2.0)"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"params"}
+          required={true}
+          schemaName={"Limit[]"}
+          qualifierMessage={undefined}
+          schema={{"type":"array","description":"The maximum allowed number of subscriptions per single WebSocket connection.","items":{"type":"integer","title":"Limit","example":5}}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Return null if the limit is set successfully; otherwise, it returns an error message.
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"jsonrpc"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","default":"2.0"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={true}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                error
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={false}
+                              name={"code"}
+                              required={true}
+                              schemaName={"int64"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int64","example":-32700,"description":"A Number that indicates the error type that occurred.\nThis MUST be an integer.\n\n| code | message | description |\n|-----|-----|-------|\n| -32700   | Parse error   | invalid JSON was received by the server. An error occurred on the server while parsing the JSON text. |\n|-32602 | Invalid params | Invalid method parameter(s). |\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"message"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","example":"Parse error","description":"A String providing a short description of the error.\nThe message SHOULD be limited to a concise single sentence.\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"data"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"A Primitive or Structured value that contains additional information about the error.\nThis may be omitted.\nThe value of this member is defined by the Server (e.g. detailed error information, nested errors etc.).\n"}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"result"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","nullable":true,"description":"null if the limit is set successfully; otherwise, it returns an error message.","default":null}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"jsonrpc\": \"2.0\",\n  \"id\": 0,\n  \"error\": {\n    \"code\": -32700,\n    \"message\": \"Parse error\",\n    \"data\": \"string\"\n  },\n  \"result\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

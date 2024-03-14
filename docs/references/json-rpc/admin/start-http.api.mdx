@@ -1,0 +1,347 @@
+---
+id: start-http
+title: "admin_startHTTP"
+description: "The startHTTP is an administrative method that starts an HTTP based JSON RPC API webserver to handle client requests."
+sidebar_label: "admin_startHTTP"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: docs/references/json-rpc/admin/web-3-rpc
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  admin_startHTTP
+</h1>
+
+
+
+
+
+The startHTTP is an administrative method that starts an HTTP based JSON RPC API webserver to handle client requests.
+
+The method returns a boolean flag specifying whether the HTTP RPC listener was opened or not. Please note, only one HTTP endpoint is allowed to be active at any time.
+
+**NOTE:** *This API replaces admin_startRPC. The admin_startRPC will be deprecated soon.*
+
+**JSONRPC:** `admin_startHTTP`
+
+
+## Request
+
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"method"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"Method name","default":"admin_startHTTP"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"id"}
+          required={true}
+          schemaName={"int64"}
+          qualifierMessage={undefined}
+          schema={{"type":"integer","default":1,"format":"int64","description":"Request ID, Random or Auto incrementation"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"jsonrpc"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","default":"2.0","description":"JSON-RPC Version (2.0)"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={true}
+          className={"schemaItem"}
+        >
+          <details
+            style={{}}
+            className={"openapi-markdown__details"}
+          >
+            <summary
+              style={{}}
+            >
+              <span
+                className={"openapi-schema__container"}
+              >
+                <strong
+                  className={"openapi-schema__property"}
+                >
+                  params
+                </strong><span
+                  className={"openapi-schema__name"}
+                >
+                   undefined[]
+                </span><span
+                  className={"openapi-schema__divider"}
+                >
+                  
+                </span><span
+                  className={"openapi-schema__required"}
+                >
+                  required
+                </span>
+              </span>
+            </summary><div
+              style={{"marginLeft":"1rem"}}
+            >
+              <li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                >
+                  Array [
+                </div>
+              </li><SchemaItem
+                collapsible={false}
+                name={"Host"}
+                required={false}
+                schemaName={"Host"}
+                qualifierMessage={undefined}
+                schema={{"type":"string","title":"Host","description":"(optional) network interface to open the listener socket on (default \"localhost\")."}}
+              >
+                
+              </SchemaItem><SchemaItem
+                collapsible={false}
+                name={"Port"}
+                required={false}
+                schemaName={"Port"}
+                qualifierMessage={undefined}
+                schema={{"type":"integer","title":"Port","description":"(optional) network port to open the listener socket on (default 8551)."}}
+              >
+                
+              </SchemaItem><SchemaItem
+                collapsible={false}
+                name={"Cors"}
+                required={false}
+                schemaName={"Cors"}
+                qualifierMessage={undefined}
+                schema={{"type":"string","title":"Cors","description":"(optional) cross-origin resource sharing header to use (default \"\")."}}
+              >
+                
+              </SchemaItem><SchemaItem
+                collapsible={false}
+                name={"APIs"}
+                required={false}
+                schemaName={"Apis"}
+                qualifierMessage={undefined}
+                schema={{"type":"string","title":"Apis","description":"(optional) API modules to offer over this interface (default \"klay,net,rpc\")."}}
+              >
+                
+              </SchemaItem><li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                >
+                  ]
+                </div>
+              </li>
+            </div>
+          </details>
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Return true if the HTTP RPC listener was opened, false if not.
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"jsonrpc"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","default":"2.0"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={true}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                error
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={false}
+                              name={"code"}
+                              required={true}
+                              schemaName={"int64"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int64","example":-32700,"description":"A Number that indicates the error type that occurred.\nThis MUST be an integer.\n\n| code | message | description |\n|-----|-----|-------|\n| -32700   | Parse error   | invalid JSON was received by the server. An error occurred on the server while parsing the JSON text. |\n|-32602 | Invalid params | Invalid method parameter(s). |\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"message"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","example":"Parse error","description":"A String providing a short description of the error.\nThe message SHOULD be limited to a concise single sentence.\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"data"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"A Primitive or Structured value that contains additional information about the error.\nThis may be omitted.\nThe value of this member is defined by the Server (e.g. detailed error information, nested errors etc.).\n"}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"result"}
+                        required={false}
+                        schemaName={"boolean"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"boolean","description":"true if the HTTP RPC listener was opened, false if not.","example":true}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"jsonrpc\": \"2.0\",\n  \"id\": 0,\n  \"error\": {\n    \"code\": -32700,\n    \"message\": \"Parse error\",\n    \"data\": \"string\"\n  },\n  \"result\": true\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

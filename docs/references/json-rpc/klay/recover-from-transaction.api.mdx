@@ -1,0 +1,388 @@
+---
+id: recover-from-transaction
+title: "[Miscellaneous] klay_recoverFromTransaction"
+description: "Using this API, users can recover from transaction data."
+sidebar_label: " klay_recoverFromTransaction"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: docs/references/json-rpc/klay/web-3-rpc
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  [Miscellaneous] klay_recoverFromTransaction
+</h1>
+
+
+
+
+
+Using this API, users can recover from transaction data.
+
+
+**JSONRPC:** `klay_recoverFromTransaction`
+
+
+## Request
+
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"method"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"Method name","default":"klay_recoverFromTransaction"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"id"}
+          required={true}
+          schemaName={"int64"}
+          qualifierMessage={undefined}
+          schema={{"type":"integer","default":1,"format":"int64","description":"Request ID, Random or Auto incrementation"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"jsonrpc"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","default":"2.0","description":"JSON-RPC Version (2.0)"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={true}
+          className={"schemaItem"}
+        >
+          <details
+            style={{}}
+            className={"openapi-markdown__details"}
+          >
+            <summary
+              style={{}}
+            >
+              <span
+                className={"openapi-schema__container"}
+              >
+                <strong
+                  className={"openapi-schema__property"}
+                >
+                  params
+                </strong><span
+                  className={"openapi-schema__name"}
+                >
+                   undefined[]
+                </span><span
+                  className={"openapi-schema__divider"}
+                >
+                  
+                </span><span
+                  className={"openapi-schema__required"}
+                >
+                  required
+                </span>
+              </span>
+            </summary><div
+              style={{"marginLeft":"1rem"}}
+            >
+              <li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                >
+                  Array [
+                </div>
+              </li><SchemaItem
+                collapsible={false}
+                name={"RLPEncodedTransaction"}
+                required={false}
+                schemaName={"N-byte DATA"}
+                qualifierMessage={undefined}
+                schema={{"title":"RLPEncodedTransaction","description":"RLP Encoded Transaction.","type":"string","format":"N-byte DATA"}}
+              >
+                
+              </SchemaItem><SchemaItem
+                collapsible={true}
+                className={"schemaItem"}
+              >
+                <details
+                  style={{}}
+                  className={"openapi-markdown__details"}
+                >
+                  <summary
+                    style={{}}
+                  >
+                    <strong>
+                      BlockNumberOrTag
+                    </strong><span
+                      style={{"opacity":"0.6"}}
+                    >
+                       object
+                    </span>
+                  </summary><div
+                    style={{"marginLeft":"1rem"}}
+                  >
+                    
+                  </div><div>
+                    <span
+                      className={"badge badge--info"}
+                    >
+                      oneOf
+                    </span><SchemaTabs>
+                      <TabItem
+                        label={"IntegerBlockNumber"}
+                        value={"0-item-properties"}
+                      >
+                        <div
+                          style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}
+                        >
+                          
+                          
+                          number
+                          
+                          
+                        </div>
+                      </TabItem><TabItem
+                        label={"HexadecimalBlockNumber"}
+                        value={"1-item-properties"}
+                      >
+                        <div
+                          style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}
+                        >
+                          
+                          
+                          string
+                          
+                          
+                        </div>
+                      </TabItem><TabItem
+                        label={"BlockTag"}
+                        value={"2-item-properties"}
+                      >
+                        <div
+                          style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}
+                        >
+                          
+                          
+                          string
+                          
+                          
+                        </div>
+                      </TabItem>
+                    </SchemaTabs>
+                  </div>
+                </details>
+              </SchemaItem><li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                >
+                  ]
+                </div>
+              </li>
+            </div>
+          </details>
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          The result of recover from transaction.
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"jsonrpc"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","default":"2.0"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={true}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                error
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={false}
+                              name={"code"}
+                              required={true}
+                              schemaName={"int64"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int64","example":-32700,"description":"A Number that indicates the error type that occurred.\nThis MUST be an integer.\n\n| code | message | description |\n|-----|-----|-------|\n| -32700   | Parse error   | invalid JSON was received by the server. An error occurred on the server while parsing the JSON text. |\n|-32602 | Invalid params | Invalid method parameter(s). |\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"message"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","example":"Parse error","description":"A String providing a short description of the error.\nThe message SHOULD be limited to a concise single sentence.\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"data"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"A Primitive or Structured value that contains additional information about the error.\nThis may be omitted.\nThe value of this member is defined by the Server (e.g. detailed error information, nested errors etc.).\n"}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"result"}
+                        required={false}
+                        schemaName={"hex"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","format":"hex","example":"0xe15cd70a41dfb05e7214004d7d054801b2a2f06b"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"jsonrpc\": \"2.0\",\n  \"id\": 0,\n  \"error\": {\n    \"code\": -32700,\n    \"message\": \"Parse error\",\n    \"data\": \"string\"\n  },\n  \"result\": \"0xe15cd70a41dfb05e7214004d7d054801b2a2f06b\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

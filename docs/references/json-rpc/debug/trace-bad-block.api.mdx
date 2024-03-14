@@ -1,0 +1,531 @@
+---
+id: trace-bad-block
+title: "[Trace] debug_traceBadBlock"
+description: "The traceBadBlock method will return a full stack trace of all invoked opcodes of all transactions that were included in this block."
+sidebar_label: " debug_traceBadBlock"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: docs/references/json-rpc/debug/web-3-rpc
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  [Trace] debug_traceBadBlock
+</h1>
+
+
+
+
+
+The traceBadBlock method will return a full stack trace of all invoked opcodes of all transactions that were included in this block.
+
+**NOTE:** the parent of this block must be present or it will fail.
+
+**JSONRPC:** `debug_traceBadBlock`
+
+
+## Request
+
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"method"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"Method name","default":"debug_traceBadBlock"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"id"}
+          required={true}
+          schemaName={"int64"}
+          qualifierMessage={undefined}
+          schema={{"type":"integer","default":1,"format":"int64","description":"Request ID, Random or Auto incrementation"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"jsonrpc"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","default":"2.0","description":"JSON-RPC Version (2.0)"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={true}
+          className={"schemaItem"}
+        >
+          <details
+            style={{}}
+            className={"openapi-markdown__details"}
+          >
+            <summary
+              style={{}}
+            >
+              <span
+                className={"openapi-schema__container"}
+              >
+                <strong
+                  className={"openapi-schema__property"}
+                >
+                  params
+                </strong><span
+                  className={"openapi-schema__name"}
+                >
+                   undefined[]
+                </span>
+              </span>
+            </summary><div
+              style={{"marginLeft":"1rem"}}
+            >
+              <li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                >
+                  Array [
+                </div>
+              </li><SchemaItem
+                collapsible={false}
+                name={"Hash"}
+                required={false}
+                schemaName={"32-byte DATA"}
+                qualifierMessage={undefined}
+                schema={{"title":"Hash","type":"string","format":"32-byte DATA","description":"Hash of a block."}}
+              >
+                
+              </SchemaItem><SchemaItem
+                collapsible={true}
+                className={"schemaItem"}
+              >
+                <details
+                  style={{}}
+                  className={"openapi-markdown__details"}
+                >
+                  <summary
+                    style={{}}
+                  >
+                    <span
+                      className={"openapi-schema__container"}
+                    >
+                      <strong
+                        className={"openapi-schema__property"}
+                      >
+                        TracingOptions
+                      </strong><span
+                        className={"openapi-schema__name"}
+                      >
+                         object
+                      </span>
+                    </span>
+                  </summary><div
+                    style={{"marginLeft":"1rem"}}
+                  >
+                    <SchemaItem
+                      collapsible={false}
+                      name={"disableStorage"}
+                      required={false}
+                      schemaName={"boolean"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"boolean","description":"Setting this to true will disable storage capture (default = false).","default":false}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"disableMemory"}
+                      required={false}
+                      schemaName={"boolean"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"boolean","description":"Setting this to true will disable memory capture (default = false).","default":false}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"disableStack"}
+                      required={false}
+                      schemaName={"boolean"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"boolean","description":"Setting this to true will disable stack capture (default = false).","default":false}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"timeout"}
+                      required={false}
+                      schemaName={"string"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string","description":"Overrides the default timeout of 5 seconds for JavaScript-based tracing calls. A duration string is a possibly signed sequence of decimal numbers, each with optional fraction and a unit suffix, such as \"300ms\", \"-1.5h\" or \"2h45m\". Valid time units are \"ns\", \"us\" (or \"µs\"), \"ms\", \"s\", \"m\", \"h\"."}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"trace"}
+                      required={false}
+                      schemaName={"string"}
+                      qualifierMessage={"**Possible values:** [`4byteTracer`, `callTracer`, `fastCallTracer`, `evmdisTracer`, `noopTracer`, `opcountTracer`, `prestateTracer`, `revertTracer`, `unigramTracer`, `bigramTracer`, `trigramTracer`]"}
+                      schema={{"type":"string","enum":["4byteTracer","callTracer","fastCallTracer","evmdisTracer","noopTracer","opcountTracer","prestateTracer","revertTracer","unigramTracer","bigramTracer","trigramTracer"],"description":"Setting this will enable JavaScript-based transaction tracing, described in the next section. If set, the previous four arguments will be ignored. The predefined tracers can also be used as the following table.\n| Tracer Name | Description |\n|-----|-----|\n| 4byteTracer | 4byteTracer searches for 4byte-identifiers, and collects them for post-processing. It collects the methods identifiers along with the size of the supplied data, so a reversed signature can be matched against the size of the data. |\n| callTracer | callTracer is a full-blown transaction tracer that extracts and reports all the internal calls made by a transaction, along with any useful information. |\n| fastCallTracer | fastCallTracer is a Go-native version of callTracer. Since it is not executed on JavaScript VM, it shows more than 10x speedup compared to callTracer. Please use fastCallTracer instead of callTracer if the performance is the matter of the first importance. |\n| evmdisTracer | evmdisTracer returns sufficient information from a trace to perform evmdis-style disassembly. |\n| noopTracer | noopTracer is just the barebone boilerplate code required from a JavaScript object to be usable as a transaction tracer. |\n| opcountTracer | opcountTracer is a sample tracer that just counts the number of instructions executed by the KLVM before the transaction terminated. |\n| prestateTracer | prestateTracer outputs sufficient information to create a local execution of the transaction from a custom assembled genesis block. |\n| revertTracer | revertTracer outputs the error string of REVERT. If the execution is not reverted, it outputs an empty string. |\n| unigramTracer | unigramTracer returns the number of occurrences of each opcode. |\n| bigramTracer | bigramTracer returns the number of occurrences of two consecutive opcodes. |\n| trigramTracer | trigramTracer returns the number of occurrences of three consecutive opcodes. |\n"}}
+                    >
+                      
+                    </SchemaItem>
+                  </div>
+                </details>
+              </SchemaItem><li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                >
+                  ]
+                </div>
+              </li>
+            </div>
+          </details>
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          The structured logs created during the execution of KLVM.
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"jsonrpc"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","default":"2.0"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={true}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                error
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={false}
+                              name={"code"}
+                              required={true}
+                              schemaName={"int64"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int64","example":-32700,"description":"A Number that indicates the error type that occurred.\nThis MUST be an integer.\n\n| code | message | description |\n|-----|-----|-------|\n| -32700   | Parse error   | invalid JSON was received by the server. An error occurred on the server while parsing the JSON text. |\n|-32602 | Invalid params | Invalid method parameter(s). |\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"message"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","example":"Parse error","description":"A String providing a short description of the error.\nThe message SHOULD be limited to a concise single sentence.\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"data"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"A Primitive or Structured value that contains additional information about the error.\nThis may be omitted.\nThe value of this member is defined by the Server (e.g. detailed error information, nested errors etc.).\n"}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                result
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object[]
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <div
+                              style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                            >
+                              
+                              
+                              The structured logs created during the execution of KLVM.
+                              
+                              
+                            </div><li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                              >
+                                Array [
+                              </div>
+                            </li><SchemaItem
+                              collapsible={false}
+                              name={"failed"}
+                              required={false}
+                              schemaName={"boolean"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"boolean"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"gas"}
+                              required={false}
+                              schemaName={"integer"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"returnValue"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={true}
+                              className={"schemaItem"}
+                            >
+                              <details
+                                style={{}}
+                                className={"openapi-markdown__details"}
+                              >
+                                <summary
+                                  style={{}}
+                                >
+                                  <span
+                                    className={"openapi-schema__container"}
+                                  >
+                                    <strong
+                                      className={"openapi-schema__property"}
+                                    >
+                                      structLogs
+                                    </strong><span
+                                      className={"openapi-schema__name"}
+                                    >
+                                       object[]
+                                    </span>
+                                  </span>
+                                </summary><div
+                                  style={{"marginLeft":"1rem"}}
+                                >
+                                  <li>
+                                    <div
+                                      style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                                    >
+                                      Array [
+                                    </div>
+                                  </li><SchemaItem
+                                    collapsible={false}
+                                    name={"gas"}
+                                    required={false}
+                                    schemaName={"integer"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"integer"}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"failed"}
+                                    required={false}
+                                    schemaName={"boolean"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"boolean"}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"returnValue"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string"}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"structLogs"}
+                                    required={false}
+                                    schemaName={"object[]"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"array","items":{"type":"object"}}}
+                                  >
+                                    
+                                  </SchemaItem><li>
+                                    <div
+                                      style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                                    >
+                                      ]
+                                    </div>
+                                  </li>
+                                </div>
+                              </details>
+                            </SchemaItem><li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                              >
+                                ]
+                              </div>
+                            </li>
+                          </div>
+                        </details>
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"jsonrpc\": \"2.0\",\n  \"id\": 0,\n  \"error\": {\n    \"code\": -32700,\n    \"message\": \"Parse error\",\n    \"data\": \"string\"\n  },\n  \"result\": [\n    {\n      \"result\": {\n        \"failed\": false,\n        \"gas\": 67100,\n        \"returnValue\": \"\",\n        \"structLogs\": []\n      }\n    },\n    {\n      \"result\": {\n        \"failed\": false,\n        \"gas\": 195179,\n        \"returnValue\": \"\",\n        \"structLogs\": [\n          {\n            \"gas\": 67100,\n            \"failed\": false,\n            \"returnValue\": \"\",\n            \"structLogs\": []\n          },\n          {\n            \"...\": null\n          }\n        ]\n      }\n    }\n  ]\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

@@ -1,0 +1,329 @@
+---
+id: start-p-prof
+title: "[Profiling] debug_startPProf"
+description: "Starts the pprof HTTP server. The running pprof server can be accessed by (when the default configuration, i.e., localhost:6060, is used):"
+sidebar_label: " debug_startPProf"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: docs/references/json-rpc/debug/web-3-rpc
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  [Profiling] debug_startPProf
+</h1>
+
+
+
+
+
+Starts the pprof HTTP server. The running pprof server can be accessed by (when the default configuration, i.e., localhost:6060, is used):
+ * http://localhost:6060/debug/pprof (for the pprof results)
+ * http://localhost:6060/memsize/ (for the memory size reports)
+ * http://localhost:6060/debug/vars (for the metrics)
+
+
+**JSONRPC:** `debug_startPProf`
+
+
+## Request
+
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"method"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"Method name","default":"debug_startPProf"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"id"}
+          required={true}
+          schemaName={"int64"}
+          qualifierMessage={undefined}
+          schema={{"type":"integer","default":1,"format":"int64","description":"Request ID, Random or Auto incrementation"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"jsonrpc"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","default":"2.0","description":"JSON-RPC Version (2.0)"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={true}
+          className={"schemaItem"}
+        >
+          <details
+            style={{}}
+            className={"openapi-markdown__details"}
+          >
+            <summary
+              style={{}}
+            >
+              <span
+                className={"openapi-schema__container"}
+              >
+                <strong
+                  className={"openapi-schema__property"}
+                >
+                  params
+                </strong><span
+                  className={"openapi-schema__name"}
+                >
+                   undefined[]
+                </span><span
+                  className={"openapi-schema__divider"}
+                >
+                  
+                </span><span
+                  className={"openapi-schema__required"}
+                >
+                  required
+                </span>
+              </span>
+            </summary><div
+              style={{"marginLeft":"1rem"}}
+            >
+              <li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                >
+                  Array [
+                </div>
+              </li><SchemaItem
+                collapsible={false}
+                name={"Address"}
+                required={false}
+                schemaName={"Address"}
+                qualifierMessage={undefined}
+                schema={{"title":"Address","description":"pprof HTTP server listening interface","type":"string"}}
+              >
+                
+              </SchemaItem><SchemaItem
+                collapsible={false}
+                name={"Port"}
+                required={false}
+                schemaName={"Port"}
+                qualifierMessage={undefined}
+                schema={{"title":"Port","description":"pprof HTTP server listening port","type":"integer"}}
+              >
+                
+              </SchemaItem><li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                >
+                  ]
+                </div>
+              </li>
+            </div>
+          </details>
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Return value null
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"jsonrpc"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","default":"2.0"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={true}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                error
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={false}
+                              name={"code"}
+                              required={true}
+                              schemaName={"int64"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","format":"int64","example":-32700,"description":"A Number that indicates the error type that occurred.\nThis MUST be an integer.\n\n| code | message | description |\n|-----|-----|-------|\n| -32700   | Parse error   | invalid JSON was received by the server. An error occurred on the server while parsing the JSON text. |\n|-32602 | Invalid params | Invalid method parameter(s). |\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"message"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","example":"Parse error","description":"A String providing a short description of the error.\nThe message SHOULD be limited to a concise single sentence.\n"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"data"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"A Primitive or Structured value that contains additional information about the error.\nThis may be omitted.\nThe value of this member is defined by the Server (e.g. detailed error information, nested errors etc.).\n"}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"result"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","example":null}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"jsonrpc\": \"2.0\",\n  \"id\": 0,\n  \"error\": {\n    \"code\": -32700,\n    \"message\": \"Parse error\",\n    \"data\": \"string\"\n  },\n  \"result\": null\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      
