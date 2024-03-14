@@ -107,7 +107,7 @@ const config = {
           web3rpcKlay: {
             // template: "api.mustache",
             specPath: "./web3rpc/yaml/web3rpc-klay.yaml",
-            outputDir: "docs/klaytn-json-rpc/klay",
+            outputDir: "docs/references/json-rpc/klay",
             sidebarOptions: { // optional, instructs plugin to generate sidebar.js
               groupPathsBy: "tag", // group sidebar items by operation "tag"
               categoryLinkSource: "tag",
@@ -115,7 +115,7 @@ const config = {
           },
           web3rpcEth: {
             specPath: "./web3rpc/yaml/web3rpc-eth.yaml",
-            outputDir: "docs/klaytn-json-rpc/eth",
+            outputDir: "docs/references/json-rpc/eth",
             sidebarOptions: { // optional, instructs plugin to generate sidebar.js
               groupPathsBy: "tag", // group sidebar items by operation "tag"
               categoryLinkSource: "tag",
@@ -123,7 +123,7 @@ const config = {
           },
           web3rpcDebug: {
             specPath: "./web3rpc/yaml/web3rpc-debug.yaml",
-            outputDir: "docs/klaytn-json-rpc/debug",
+            outputDir: "docs/references/json-rpc/debug",
             sidebarOptions: { // optional, instructs plugin to generate sidebar.js
               groupPathsBy: "tag", // group sidebar items by operation "tag"
               categoryLinkSource: "tag",
@@ -131,7 +131,7 @@ const config = {
           },
           web3rpcAdmin: {
             specPath: "./web3rpc/yaml/web3rpc-admin.yaml",
-            outputDir: "docs/klaytn-json-rpc/admin",
+            outputDir: "docs/references/json-rpc/admin",
             sidebarOptions: { // optional, instructs plugin to generate sidebar.js
               groupPathsBy: "tag", // group sidebar items by operation "tag"
               categoryLinkSource: "tag",
@@ -139,7 +139,7 @@ const config = {
           },
           web3rpcPersonal: {
             specPath: "./web3rpc/yaml/web3rpc-personal.yaml",
-            outputDir: "docs/klaytn-json-rpc/personal",
+            outputDir: "docs/references/json-rpc/personal",
             sidebarOptions: { // optional, instructs plugin to generate sidebar.js
               groupPathsBy: "tag", // group sidebar items by operation "tag"
               categoryLinkSource: "tag",
@@ -147,7 +147,7 @@ const config = {
           },
           web3rpcNet: {
             specPath: "./web3rpc/yaml/web3rpc-net.yaml",
-            outputDir: "docs/klaytn-json-rpc/net",
+            outputDir: "docs/references/json-rpc/net",
             sidebarOptions: { // optional, instructs plugin to generate sidebar.js
               groupPathsBy: "tag", // group sidebar items by operation "tag"
               categoryLinkSource: "tag",
@@ -155,7 +155,7 @@ const config = {
           },
           web3rpcGovernance: {
             specPath: "./web3rpc/yaml/web3rpc-governance.yaml",
-            outputDir: "docs/klaytn-json-rpc/governance",
+            outputDir: "docs/references/json-rpc/governance",
             sidebarOptions: { // optional, instructs plugin to generate sidebar.js
               groupPathsBy: "tag", // group sidebar items by operation "tag"
               categoryLinkSource: "tag",
@@ -163,7 +163,7 @@ const config = {
           },
           web3rpcTxpool: {
             specPath: "./web3rpc/yaml/web3rpc-txpool.yaml",
-            outputDir: "docs/klaytn-json-rpc/txpool",
+            outputDir: "docs/references/json-rpc/txpool",
             sidebarOptions: { // optional, instructs plugin to generate sidebar.js
               groupPathsBy: "tag", // group sidebar items by operation "tag"
               categoryLinkSource: "tag",
@@ -171,7 +171,7 @@ const config = {
           },
           web3rpcMainbridge: {
             specPath: "./web3rpc/yaml/web3rpc-mainbridge.yaml",
-            outputDir: "docs/klaytn-json-rpc/mainbridge",
+            outputDir: "docs/references/json-rpc/mainbridge",
             sidebarOptions: { // optional, instructs plugin to generate sidebar.js
               groupPathsBy: "tag", // group sidebar items by operation "tag"
               categoryLinkSource: "tag",
@@ -179,7 +179,7 @@ const config = {
           },
           web3rpcSubbridge: {
             specPath: "./web3rpc/yaml/web3rpc-subbridge.yaml",
-            outputDir: "docs/klaytn-json-rpc/subbridge",
+            outputDir: "docs/references/json-rpc/subbridge",
             sidebarOptions: { // optional, instructs plugin to generate sidebar.js
               groupPathsBy: "tag", // group sidebar items by operation "tag"
               categoryLinkSource: "tag",

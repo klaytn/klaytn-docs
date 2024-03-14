@@ -79,7 +79,7 @@ attach command connects to the running node, while console command launches a no
 
 ### Module APIs
 
-If you type the module name on the console prompt, you will see the available properties and functions of the module. For the details of functions, please see [Klaytn API](../../references/json-rpc/json-rpc.md).
+If you type the module name on the console prompt, you will see the available properties and functions of the module. For the details of functions, please see [Klaytn API](../../../references/json-rpc/klay/account-created).
 
 ```javascript
 > personal
