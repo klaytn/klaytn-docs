@@ -573,4 +573,4 @@ Lỗi này xảy ra khi bạn sử dụng webpack phiên bản 5. Trong phiên b
 
 ## Bước tiếp theo
 
-Để biết thêm các hướng dẫn chuyên sâu về Web3Modal, vui lòng tham khảo [Web3Modal Docs](https://docs.walletconnect.com/2.0/web3modal/about) và [Kho lưu trữ Web3Modal GitHub](https://github.com/klaytn/klaytn-web3modal). Ngoài ra, bạn có thể tìm thấy việc triển khai đầy đủ mã cho hướng dẫn này trên [GitHub](https://github.com/klaytn/examples/tree/main/wallet-libraries/web3Modal-sample).
+Để biết thêm các hướng dẫn chuyên sâu về Web3Modal, vui lòng tham khảo [Web3Modal Docs](https://docs.walletconnect.com/2.0/web3modal/about) và [Kho lưu trữ Web3Modal GitHub](https://github.com/klaytn/klaytn-web3modal). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/klaytn/examples/tree/main/tools/wallet-libraries/web3Modal-sample).
