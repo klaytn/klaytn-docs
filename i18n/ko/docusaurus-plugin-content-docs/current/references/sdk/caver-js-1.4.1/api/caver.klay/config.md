@@ -146,7 +146,7 @@ caver.klay.isSenderTxHashIndexingEnabled([callback])
 
 **리턴 값**
 
-`Promise`는 `boolean`을 반환합니다 - `true`는 노드가 수수료 납부자가 서명한 트랜잭션을 찾기 위해 발신자 트랜잭션 해시를 인덱싱하고 있다는 의미입니다. 자세한 내용은 [Klaytn 플랫폼 API - klay_getTransactionBySenderTxHash](../../../../json-rpc/klay/transaction.md#klay_gettransactionbysendertxhash) 및 [Klaytn 트랜잭션 - 수수료 위임과 SenderTxHash](../../../../../learn/transactions/transactions.md#fee-delegation) 을 참고하시기 바랍니다.
+`Promise`는 `boolean`을 반환합니다 - `true`는 노드가 수수료 납부자가 서명한 트랜잭션을 찾기 위해 발신자 트랜잭션 해시를 인덱싱하고 있다는 의미입니다. For detailed information, please see [Klaytn Platform API - klay_getTransactionBySenderTxHash](../../../../../json-rpc/klay/get-transaction-by-sender-tx-hash) and [Klaytn Transactions - Fee Delegation and SenderTxHash](../../../../../learn/transactions/transactions.md#fee-delegation).
 
 **예시**
 
