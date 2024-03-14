@@ -94,7 +94,7 @@ Mạng thử nghiệm Baobab:
 ## Có SDK Klaytn nào không? Bằng những ngôn ngữ nào? <a id="klaytn-sdks"></a>
 
 SDK Klaytn chính thức được cung cấp bằng ngôn ngữ JavaScript và Java.
-Tham khảo [caver-js](../references/sdk/caver-js/caver-js.md) và [caver-java](../references/sdk/caver-java/caver-java.md). Chúng tôi luôn hoan ngênh mọi đóng góp của cộng đồng để cung cấp [các API của Klaytn](../references/json-rpc/json-rpc.md) bằng các ngôn ngữ khác.
+Tham khảo [caver-js](../references/sdk/caver-js/caver-js.md) và [caver-java](../references/sdk/caver-java/caver-java.md). Community contributions are always welcome in providing [Klaytn APIs](../../references/json-rpc/klay/account-created) in other languages.
 
 Để tìm hiểu về cách xây dựng dApp bằng cách sử dụng SDK Klaytn, tham khảo [Tài liệu hướng dẫn](../build/tutorials/tutorials.md).
 
