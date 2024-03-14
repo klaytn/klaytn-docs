@@ -30,7 +30,7 @@
 
 ### SenderTxHash <a id="sendertxhash"></a>
 
-SenderTxHash는 수수료 납부자의 주소와 서명이 없는 트랜잭션의 해시입니다. 수수료 대납 트랜잭션의 트랜잭션 해시는 수수료 납부자가 트랜잭션에 서명할 때까지 아직 결정되지 않습니다. 수수료 위임 거래를 추적하려면 발신자는 발신자와 수수료 납부자 모두의 서명이 포함된 전체 거래에서 파생된 트랜잭션 해시를 얻어야 합니다. 발신자가 트랜잭션 해시를 얻는 것은 매우 어렵기 때문에 Klaytn은 트랜잭션 해시뿐만 아니라 SenderTxHash를 제공합니다. 클레이튼 네트워크에서 완전한 수수료 대납 트랜잭션을 찾으려면, 발신자는 SenderTxHash를 생성하고 [klay_getTransactionBySenderTxHash](../../references/json-rpc/klay/transaction.md#klay_gettransactionbysendertxhash)를 통해 트랜잭션 객체를 요청하면 됩니다. SenderTxHash를 가져오는 방법은 각 트랜잭션 유형에 따라 다르며, 각 트랜잭션 유형의 설명에 설명되어 있습니다.
+SenderTxHash는 수수료 납부자의 주소와 서명이 없는 트랜잭션의 해시입니다. 수수료 대납 트랜잭션의 트랜잭션 해시는 수수료 납부자가 트랜잭션에 서명할 때까지 아직 결정되지 않습니다. 수수료 위임 거래를 추적하려면 발신자는 발신자와 수수료 납부자 모두의 서명이 포함된 전체 거래에서 파생된 트랜잭션 해시를 얻어야 합니다. 발신자가 트랜잭션 해시를 얻는 것은 매우 어렵기 때문에 Klaytn은 트랜잭션 해시뿐만 아니라 SenderTxHash를 제공합니다. To find the complete fee-delegated transaction in the Klaytn network, the sender generates the SenderTxHash and requests a transaction object via [klay_getTransactionBySenderTxHash](../../references/json-rpc/klay/get-transaction-by-sender-tx-hash/). SenderTxHash를 가져오는 방법은 각 트랜잭션 유형에 따라 다르며, 각 트랜잭션 유형의 설명에 설명되어 있습니다.
 
 각 거래 유형에 대해 자세히 설명합니다:
 
