@@ -134,7 +134,7 @@ UTC--2019-06-24T11-20-15.590879000Z--75a59b94889a05c03c66c3c84e9d2f8308ca4abd
 
 Để mở khóa một tài khoản đã tạo, hãy thực thi lệnh sau. Lệnh này sẽ mở khóa tài khoản trong 300 giây.
 
-**Lưu ý**: Nếu bạn muốn đặt thời gian mở khóa theo cách thủ công, hãy tham khảo [liên kết](../../../references/json-rpc/personal.md#personal_unlockaccount) này.
+**Note**: If you want to manually set the unlock duration, refer to this [link](../../../../references/json-rpc/personal/unlock-account).
 
 **`CẢNH BÁO`**: Việc mở khóa một tài khoản có thể rất nguy hiểm nếu không được thực hiện thận trọng. Có khả năng token của bạn sẽ bị hacker lấy mất nếu hacker xâm nhập được EN của bạn. Để sử dụng phương pháp an toàn hơn, hãy tham khảo mục [hướng dẫn triển khai bằng mã khóa riêng tư](../../tutorials/count-dapp/deploy-contracts.md#deploy-method-1-by-private-key)
 
