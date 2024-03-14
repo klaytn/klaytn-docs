@@ -1,6 +1,6 @@
 # JSON-RPC API
 
-엔드포인트 노드는 JSON-RPC API를 노출합니다. API는 다음과 같이 활성화/비활성화할 수 있습니다. 자세한 API 명세는 [JSON-RPC APIs](../../references/json-rpc/json-rpc.md)를 참고하세요.
+엔드포인트 노드는 JSON-RPC API를 노출합니다. API는 다음과 같이 활성화/비활성화할 수 있습니다. For the detailed API specification, please refer to the [JSON-RPC APIs](../../../references/json-rpc/klay/account-created).
 
 **참고**: HTTP(`rpc`) 또는 웹소켓(`ws`) 인터페이스를 통해 API를 제공하면 모든 사용자가 이 인터페이스에 액세스할 수 있는 API(디앱, 브라우저 탭 등)에 액세스할 수 있습니다. 어떤 API를 활성화할지 활성화할 때 주의하세요. 기본적으로 클레이튼은 `ipc` 인터페이스를 통해 모든 API를 활성화하지만, `rpc`와 `ws`의 경우 필수 모듈을 명시적으로 활성화해야 합니다.
 
@@ -72,7 +72,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"rp
 
 활성화된 API는 다음과 같습니다:
 
-- [VM Tracing](../../references/json-rpc/debug/tracing.md) API(기능이 제한됨) (단, [사전 정의된 추적기](../../references/json-rpc/debug/tracing.md#tracing-options)만 허용됨)
+- [VM Tracing](../../../references/json-rpc/debug/trace-bad-block) APIs, however with limited functionality (only [pre-defined tracers](../../../references/json-rpc/debug/trace-bad-block) are allowed. See params/tracingOptions)
 - debug_dumpBlock, debug_dumpStateTrie, debug_getBlockRlp, debug_getModifiedAccountsByHash, debug_getModifiedAccountsByNumber, debug_getBadBlocks, debug_getModifiedStorageNodesByNumber
 - debug_metrics
 
