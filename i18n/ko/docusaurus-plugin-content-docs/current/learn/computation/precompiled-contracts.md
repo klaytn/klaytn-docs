@@ -192,7 +192,7 @@ function callKzg(bytes memory data) public returns (bytes memory) {
 
 ## 주소 0x3fd: vmLog(str) <a id="address-0x-3fc-vmlog-str"></a>
 
-0x3FD 주소는 지정된 문자열 `str`을 특정 파일에 인쇄하거나 로거 모듈에 전달합니다. 자세한 내용은 [debug_setVMLogTarget](../../references/json-rpc/debug/logging.md#debug_setvmlogtarget)을 참조하세요. 이 사전 컴파일된 컨트랙트는 디버깅 목적으로만 사용해야 하며, 클레이튼 노드가 시작될 때 `--vmlog` 옵션을 활성화해야 한다는 점에 유의하세요. 또한, Klaytn 노드의 로그 레벨이 4 이상이어야 vmLog의 출력을 볼 수 있습니다. 이 사전 컴파일된 컨트랙트는 Solidity 컴파일러에서 지원되지 않습니다. 다음 코드를 사용하여 이 미리 컴파일된 컨트랙트를 호출할 수 있습니다.
+0x3FD 주소는 지정된 문자열 `str`을 특정 파일에 인쇄하거나 로거 모듈에 전달합니다. For more information, see [debug_setVMLogTarget](../../../references/json-rpc/debug/set-vm-log-target). 이 사전 컴파일된 컨트랙트는 디버깅 목적으로만 사용해야 하며, 클레이튼 노드가 시작될 때 `--vmlog` 옵션을 활성화해야 한다는 점에 유의하세요. 또한, Klaytn 노드의 로그 레벨이 4 이상이어야 vmLog의 출력을 볼 수 있습니다. 이 사전 컴파일된 컨트랙트는 Solidity 컴파일러에서 지원되지 않습니다. 다음 코드를 사용하여 이 미리 컴파일된 컨트랙트를 호출할 수 있습니다.
 
 ```text
 function callVmLog(bytes memory str) public {
