@@ -94,7 +94,7 @@ Baobab testnet:
 ## Are there any Klaytn SDKs? In what languages? <a id="klaytn-sdks"></a>
 
 Official Klaytn SDKs are provided in JavaScript and Java.
-See [caver-js](../references/sdk/caver-js/caver-js.md) and [caver-java](../references/sdk/caver-java/caver-java.md). Community contributions are always welcome in providing [Klaytn APIs](../references/json-rpc/json-rpc.md) in other languages.
+See [caver-js](../references/sdk/caver-js/caver-js.md) and [caver-java](../references/sdk/caver-java/caver-java.md). Community contributions are always welcome in providing [Klaytn APIs](../../references/json-rpc/klay/account-created) in other languages.
 
 To learn about how to build dApps using Klaytn SDK, see [Tutorials](../build/tutorials/tutorials.md).
 
