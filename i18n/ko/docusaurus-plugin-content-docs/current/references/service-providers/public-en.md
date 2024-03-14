@@ -69,5 +69,5 @@
 
 - ChainID : Baobab: 1001 (0x3E9), Cypress: 8217 (0x2019)
 
-- 가스 가격: [25, 750] 범위 내에서 동적으로 조정됩니다. 범위는 온체인 거버넌스를 통해 변경할 수 있습니다. 자세한 내용은 [Governance](../json-rpc/governance.md)를 참조하세요.
+- 가스 가격: [25, 750] 범위 내에서 동적으로 조정됩니다. 범위는 온체인 거버넌스를 통해 변경할 수 있습니다. For more information, refer to [governance](../../json-rpc/governance/chain-config).
   [Transaction Fees](../../learn/transaction-fees/transaction-fees.md)
