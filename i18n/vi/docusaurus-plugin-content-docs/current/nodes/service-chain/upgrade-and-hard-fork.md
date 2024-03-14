@@ -166,7 +166,7 @@ Phần này mô tả một số thông số cho một hard fork cụ thể.
 
 Hard fork Magma giới thiệu KIP-71, phí gas linh động. Bao gồm giới hạn trên và dưới của giá gas.
 
-Theo mặc định, giới hạn trên được đặt là `750000000000` và giới hạn dưới là `25000000000`. Bạn có thể thay đổi các giới hạn đó trong bảng điều khiển Javascript của các nút SCN bằng cách sử dụng [API quản trị](../../references/json-rpc/governance.md). Hiển nhiên, giới hạn dưới không thể vượt quá giới hạn trên.
+Theo mặc định, giới hạn trên được đặt là `750000000000` và giới hạn dưới là `25000000000`. You can change those bounds in the Javascript console of SCN nodes using the [governance APIs](../../../references/json-rpc/governance/chain-config). Hiển nhiên, giới hạn dưới không thể vượt quá giới hạn trên.
 
 Để đặt giá gas thành một giá trị tĩnh, bạn phải đặt giới hạn trên và dưới của giá gas thành cùng một giá trị. Ví dụ: bạn có thể đặt giá gas thành `0` bằng cách sử dụng API `governance.vote` trong bảng điều khiển Javascript của các nút SCN.
 
