@@ -239,4 +239,4 @@ node interact.js
 
 If the transaction was successful, you'll see the transaction hash and the value stored in your terminal
 
-ethers.js에 대한 자세한 가이드는 [ethers.js 문서](https://docs.ethers.org/)를 참조하시기 바랍니다. 또한, 이 가이드의 전체 코드 구현은 [GitHub](https://github.com/klaytn/examples/tree/main/sdk-and-libraries-for-interacting-with-klaytn-node/ethers-js)에서 확인할 수 있습니다.
+ethers.js에 대한 자세한 가이드는 [ethers.js 문서](https://docs.ethers.org/)를 참조하시기 바랍니다. Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/klaytn/examples/tree/main/tools/sdk-and-libraries-for-interacting-with-klaytn-node/ethers-js)
