@@ -484,11 +484,11 @@ caver.rpc.klay.getTransactionCount(address [, blockNumber] [, callback])
 
 **매개변수**
 
-| 이름          | 유형               | 설명                                                                                                                                                                                                       |
-| ----------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address     | string           | 트랜잭션 수를 가져올 주소입니다.                                                                                                                                                                                       |
-| blockNumber | number \| string | (선택 사항) 블록 번호, 보류 중인 nonce에 대한 문자열 `pending` 또는 [기본 블록 매개변수](../../../../json-rpc/klay/block.md#the-default-block-parameter)에서처럼 `earliest` 또는 `latest` 문자열입니다. 생략하면 `latest`가 사용됩니다. |
-| callback    | Function         | (선택 사항) 선택적 콜백으로, 첫 번째 파라미터로 오류 객체를 반환하고 두 번째 파라미터로 결과를 반환합니다.                                                                                                                        |
+| 이름          | 유형               | 설명                                                                                                                                                                                      |
+| ----------- | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address     | string           | 트랜잭션 수를 가져올 주소입니다.                                                                                                                                                                      |
+| blockNumber | number \| string | (optional) A block number, the string `pending` for the pending nonce, or the string `earliest` or `latest` as in the default block parameter. 생략하면 `latest`가 사용됩니다. |
+| callback    | Function         | (선택 사항) 선택적 콜백으로, 첫 번째 파라미터로 오류 객체를 반환하고 두 번째 파라미터로 결과를 반환합니다.                                                                                                       |
 
 **리턴 값**
 
@@ -545,9 +545,9 @@ true
 caver.rpc.klay.sign(address, message [, blockNumber] [, callback])
 ```
 
-클레이튼에 특화된 서명된 데이터를 생성합니다. 서명이 어떻게 생성되는지 알고 싶으시다면 [Klaytn 플랫폼 API - klay_sign](../../../../json-rpc/klay/account.md#klay_sign)을 참고하세요.
+클레이튼에 특화된 서명된 데이터를 생성합니다. Refer to [Klaytn Platform API - klay_sign](../../../../../json-rpc/klay/sign) to know how the signature is generated.
 
-**참고**: 이 API는 클레이튼 노드에서 [가져온 계정](../../../../json-rpc/personal.md#personal_importrawkey)을 사용하여 메시지에 서명하는 기능을 제공합니다. 노드에서 가져온 계정은 [잠금해제](../../../../json-rpc/personal.md#personal_unlockaccount) 상태여야 메시지에 서명할 수 있습니다. 클레이튼 노드에서 가져온 계정으로 트랜잭션에 서명하려면 [caver.rpc.klay.signTransaction](#caver-rpc-klay-signtransaction)을 사용하세요.
+**NOTE**: This API provides the function to sign a message using an [imported account](../../../../../json-rpc/personal/import-raw-key) in your Klaytn node. The imported account in your node must be [unlocked](../../../../../json-rpc/personal/unlock-account) to sign the message. 클레이튼 노드에서 가져온 계정으로 트랜잭션에 서명하려면 [caver.rpc.klay.signTransaction](#caver-rpc-klay-signtransaction)을 사용하세요.
 
 **매개변수**
 
@@ -1411,12 +1411,12 @@ caver.rpc.klay.getStorageAt(address, position [, blockNumber] [, callback])
 
 **매개변수**
 
-| 이름          | 유형               | 설명                                                                                                                                          |
-| ----------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| address     | string           | 저장소를 가져올 주소입니다.                                                                                                                             |
-| location    | number           | 스토리지의 인덱스 위치입니다. '위치 계산'에 대한 자세한 내용은 [klay_getStorageAt](../../../../json-rpc/klay/block.md#klay_getstorageat)를 참고하세요. |
-| blockNumber | number \| string | (선택 사항) 블록 번호 또는 `latest` 또는 `earliest` 문자열입니다. 생략하면 `latest`이 사용됩니다.                                                    |
-| callback    | Function         | (선택 사항) 선택적 콜백으로, 첫 번째 매개변수로 오류 객체를 반환하고 두 번째 매개변수로 결과를 반환합니다.                                                           |
+| 이름          | 유형               | 설명                                                                                                                                                                   |
+| ----------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address     | string           | 저장소를 가져올 주소입니다.                                                                                                                                                      |
+| location    | number           | 스토리지의 인덱스 위치입니다. For more information on `calculating the position`, refer to [klay_getStorageAt](../../../../../json-rpc/klay/get-storage-at). |
+| blockNumber | number \| string | (선택 사항) 블록 번호 또는 `latest` 또는 `earliest` 문자열입니다. 생략하면 `latest`이 사용됩니다.                                                                             |
+| callback    | Function         | (선택 사항) 선택적 콜백으로, 첫 번째 매개변수로 오류 객체를 반환하고 두 번째 매개변수로 결과를 반환합니다.                                                                                    |
 
 **리턴 값**
 
@@ -2069,7 +2069,7 @@ caver.rpc.klay.sendTransaction(transaction [, callback])
 
 각 트랜잭션 유형에 대한 자세한 내용은 [트랜잭션](../caver-transaction/caver-transaction.md#class)을 참조하세요.
 
-**참고**: 이 API는 클레이튼 노드에서 [가져온 계정](../../../../json-rpc/personal.md#personal_importrawkey)을 사용하여 트랜잭션에 서명하는 기능을 제공합니다. 트랜잭션에 서명하려면 노드에서 가져온 계정이 [잠금해제](../../../../json-rpc/personal.md#personal_unlockaccount) 상태여야 합니다.
+**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../../json-rpc/personal/import-raw-key) in your Klaytn node. The imported account in your node must be [unlocked](../../../../../json-rpc/personal/unlock-account) to sign a transaction.
 
 **파라미터**
 
@@ -2139,7 +2139,7 @@ caver.rpc.klay.sendTransactionAsFeePayer(transaction [, callback])
 
 각 트랜잭션 유형에 대한 자세한 내용은 [트랜잭션](../caver-transaction/caver-transaction.md#class)을 참조하세요.
 
-**참고**: 이 API는 클레이튼 노드에서 [가져온 계정](../../../../json-rpc/personal.md#personal_importrawkey)을 사용하여 트랜잭션에 서명하는 기능을 제공합니다. 트랜잭션에 서명하려면 노드에서 가져온 계정이 [잠금해제](../../../../json-rpc/personal.md#personal_unlockaccount) 상태여야 합니다.
+**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../../json-rpc/personal/import-raw-key) in your Klaytn node. The imported account in your node must be [unlocked](../../../../../json-rpc/personal/unlock-account) to sign a transaction.
 
 **파라미터**
 
@@ -2218,7 +2218,7 @@ caver.rpc.klay.signTransaction(transaction [, callback])
 
 각 트랜잭션 유형에 대한 자세한 내용은 [트랜잭션](../caver-transaction/caver-transaction.md#class)을 참고하세요.
 
-**참고**: 이 API는 클레이튼 노드에서 [가져온 계정](../../../../json-rpc/personal.md#personal_importrawkey)을 사용하여 트랜잭션에 서명하는 기능을 제공합니다. 트랜잭션에 서명하려면 노드에서 가져온 계정이 [잠금해제](../../../../json-rpc/personal.md#personal_unlockaccount) 상태여야 합니다.
+**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../../json-rpc/personal/import-raw-key) in your Klaytn node. The imported account in your node must be [unlocked](../../../../../json-rpc/personal/unlock-account) to sign a transaction.
 
 **매개변수**
 
@@ -2274,7 +2274,7 @@ caver.rpc.klay.signTransactionAsFeePayer(transaction [, callback])
 
 각 트랜잭션 유형에 대한 자세한 내용은 [트랜잭션](../caver-transaction/caver-transaction.md#class)을 참고하세요.
 
-**참고**: 이 API는 클레이튼 노드에서 [가져온 계정](../../../../json-rpc/personal.md#personal_importrawkey)을 사용하여 트랜잭션에 서명하는 기능을 제공합니다. 트랜잭션에 서명하려면 노드에서 가져온 계정이 [잠금해제](../../../../json-rpc/personal.md#personal_unlockaccount) 상태여야 합니다.
+**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../../json-rpc/personal/import-raw-key) in your Klaytn node. The imported account in your node must be [unlocked](../../../../../json-rpc/personal/unlock-account) to sign a transaction.
 
 **매개변수**
 
@@ -2965,7 +2965,7 @@ caver.rpc.klay.newFilter(options [, callback])
 - 상태가 변경되었는지 확인하려면 [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges)를 호출합니다.
 - `newFilter`로 생성한 필터와 일치하는 모든 로그를 얻으려면 [caver.rpc.klay.getFilterLogs](#caver-rpc-klay-getfilterlogs)를 호출합니다.
 
-필터 오브젝트의 항목에 대한 자세한 내용은 [Klaytn 플랫폼 API - klay_newFilter](../../../../json-rpc/klay/filter.md#klay_newfilter)를 참고하시기 바랍니다.
+For detailed information about the topics in the filter object, please see [Klaytn Platform API - klay_newFilter](../../../../../json-rpc/klay/new-filter).
 
 **매개변수**
 
