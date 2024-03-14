@@ -357,4 +357,4 @@ cast call $oUSDC \
 
 ![](/img/build/get-started/oUsdcHolderAfter.png)
 
-Để được hướng dẫn sâu hơn về foundry, vui lòng tham khảo [Tài liệu Foundry](https://book.getfoundry.sh/). Ngoài ra, bạn có thể tìm thấy cách triển khai mã đầy đủ cho hướng dẫn này trên [GitHub](https://github.com/klaytn/examples/tree/main/foundry).
+Để được hướng dẫn sâu hơn về foundry, vui lòng tham khảo [Tài liệu Foundry](https://book.getfoundry.sh/). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/klaytn/examples/tree/main/tools/foundry).
