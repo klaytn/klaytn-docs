@@ -79,7 +79,7 @@ Lệnh `attach` kết nối với nút đang chạy, trong khi lệnh `console` 
 
 ### API mô-đun <a id="module-apis"></a>
 
-Nếu bạn nhập tên mô-đun trên dấu nhắc bảng điều khiển, bạn sẽ thấy các thuộc tính và chức năng có sẵn của mô-đun. Để biết chi tiết các chức năng, vui lòng tham khảo [API Klaytn](../../references/json-rpc/json-rpc.md).
+Nếu bạn nhập tên mô-đun trên dấu nhắc bảng điều khiển, bạn sẽ thấy các thuộc tính và chức năng có sẵn của mô-đun. For the details of functions, please see [Klaytn API](../../../references/json-rpc/klay/account-created).
 
 ```javascript
 > personal
