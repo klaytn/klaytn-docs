@@ -133,7 +133,7 @@ UTC--2019-06-24T11-20-15.590879000Z--75a59b94889a05c03c66c3c84e9d2f8308ca4abd
 
 생성한 계정을 잠금 해제하려면 다음 명령을 실행합니다. 300초 동안 계정이 잠금 해제됩니다.
 
-**참고**: 잠금 해제 시간을 수동으로 설정하려면 이 [링크](../../../references/json-rpc/personal.md#personal_unlockaccount)를 참조하세요.
+**Note**: If you want to manually set the unlock duration, refer to this [link](../../../../references/json-rpc/personal/unlock-account).
 
 **`경고`**: 계정 잠금 해제는 신중하게 수행하지 않으면 매우 위험할 수 있습니다. 해커가 EN을 해킹하면 해커가 토큰을 탈취할 가능성이 있습니다. 더 안전한 방법을 사용하려면 [개인키를 사용한 배포 가이드](../../tutorials/count-dapp/deploy-contracts.md#deploy-method-1-by-private-key)를 참조하세요.
 
