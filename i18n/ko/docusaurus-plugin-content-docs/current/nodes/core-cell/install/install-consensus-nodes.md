@@ -307,7 +307,7 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
  >
 ```
 
-사용 가능한 명령어는 [API 문서](../../../references/json-rpc/json-rpc.md)에서 확인하실 수 있습니다.
+You can check the usable commands on [API Document](../../../../references/json-rpc/klay/account-created)
 
 CN의 상태를 확인하는 데 유용한 API입니다:
 
