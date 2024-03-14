@@ -524,4 +524,4 @@ return (
 
 ## 다음 단계
 
-For additional guides regarding Particle Network (Particle Connect, Particle Auth, and other SDKs), please refer to the [Particle Network docs](https://developers.particle.network) and the [Particle Network GitHub account](https://github.com/Particle-Network). 또한, Particle Network의 서비스, 향후 릴리스 및 기술 스택에 대한 자세한 내용은 [Particle Network 블로그](https://blog.particle.network)를 참조하시기 바랍니다. 또한, 이 가이드에 사용된 코드의 전체 구현은 [GitHub](https://github.com/klaytn/examples/tree/main/wallet-libraries/particle-sample)에서 확인할 수 있습니다.
+For additional guides regarding Particle Network (Particle Connect, Particle Auth, and other SDKs), please refer to the [Particle Network docs](https://developers.particle.network) and the [Particle Network GitHub account](https://github.com/Particle-Network). 또한, Particle Network의 서비스, 향후 릴리스 및 기술 스택에 대한 자세한 내용은 [Particle Network 블로그](https://blog.particle.network)를 참조하시기 바랍니다. Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/klaytn/examples/tree/main/tools/wallet-libraries/particle-sample).
