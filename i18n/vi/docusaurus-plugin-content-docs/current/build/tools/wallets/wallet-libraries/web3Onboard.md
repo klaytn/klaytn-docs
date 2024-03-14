@@ -493,4 +493,4 @@ Lỗi này xảy ra khi bạn sử dụng webpack phiên bản 5. Trong phiên b
 
 ## Bước tiếp theo
 
-Để biết thêm các hướng dẫn chuyên sâu trên Web3-Onboard, vui lòng tham khảo [Tài liệu Blocknative](https://docs.blocknative.com/onboard) và [Kho lưu trữ GitHub Blocknative](https://github.com/blocknative/onboard). Ngoài ra, bạn có thể tìm thấy việc triển khai đầy đủ mã cho hướng dẫn này trên [GitHub](https://github.com/klaytn/examples/tree/main/wallet-libraries/web3Onboard-sample).
+Để biết thêm các hướng dẫn chuyên sâu trên Web3-Onboard, vui lòng tham khảo [Tài liệu Blocknative](https://docs.blocknative.com/onboard) và [Kho lưu trữ GitHub Blocknative](https://github.com/blocknative/onboard). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/klaytn/examples/tree/main/tools/wallet-libraries/web3Onboard-sample).
