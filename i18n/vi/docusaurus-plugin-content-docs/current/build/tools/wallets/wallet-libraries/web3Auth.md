@@ -600,4 +600,4 @@ Lỗi này xảy ra khi bạn sử dụng webpack phiên bản 5. Trong phiên b
 
 ## Bước tiếp theo
 
-Để biết thêm các hướng dẫn chuyên sâu trên Web3Auth, vui lòng tham khảo [Web3Auth Docs](https://web3auth.io/docs/connect-blockchain/klaytn) và Kho lưu trữ [Web3Auth Github](https://github.com/web3auth). Ngoài ra, bạn có thể tìm thấy việc triển khai đầy đủ mã trong hướng dẫn này trên [GitHub](https://github.com/klaytn/examples/tree/main/wallet-libraries/web3Auth-sample).
+Để biết thêm các hướng dẫn chuyên sâu trên Web3Auth, vui lòng tham khảo [Web3Auth Docs](https://web3auth.io/docs/connect-blockchain/klaytn) và Kho lưu trữ [Web3Auth Github](https://github.com/web3auth). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/klaytn/examples/tree/main/tools/wallet-libraries/web3Auth-sample).
