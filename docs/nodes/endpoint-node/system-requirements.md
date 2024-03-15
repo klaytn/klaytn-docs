@@ -12,7 +12,7 @@ For the ENs, the following specifications are recommended.
 
 | vCPU | Memory (GiB) | Storage (GiB) | Disk Bandwidth (Mbps) | Network Bandwidth (Gbps) |
 | :--- | :--- | :--- | :--- | :--- |
-| 8 | 64 | > 3,000 | 4,000 | Up to 10 |
+| 8 | 64 | > 4,000 | 3,500 | Up to 10 |
 
 ### Bare-metal Machine <a id="bare-metal-machine"></a>
 
