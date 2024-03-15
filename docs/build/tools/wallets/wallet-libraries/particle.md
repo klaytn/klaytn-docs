@@ -8,7 +8,7 @@ sidebar_label: Particle Network
 
 ## Introduction
 
-[Particle Network](https://particle.network) is the intent-centric, modular access layer of Web3. With Particle's Smart Wallet-as-a-Service, developers can curate a seamless user experience through modular and customizable EOA/AA embedded wallet components. Using MPC-TSS for key management, Particle can streamline user onboarding via their Web2 accounts –such as Google accounts, email addresses, and phone numbers.
+[Particle Network](https://particle.network)'s Wallet Abstraction services enable universal, Web2-adjacent onboarding and interactions. Its core technology, [Smart Wallet-as-a-Service](https://blog.particle.network/announcing-our-smart-wallet-as-a-service-modular-stack-upgrading-waas-with-erc-4337) (WaaS) aims to onboard users into MPC-secured smart accounts supporting any chain. It also allows developers to offer an improved user experience through modular, fully customizable EOA/AA embedded wallets. Particle supports its Smart Wallet-as-a-Service through a Modular L1 powering chain abstraction, acting as a settlement layer across chains for a seamless multi-chain experience.
 
 Through APIs and SDKs available on both mobile and desktop platforms, developers can integrate Particle’s Wallet-as-a-Service across a variety of scenarios, with the capacity to be customized and implemented in a way that matches the specific needs of a given application.
 
