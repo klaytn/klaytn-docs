@@ -42,8 +42,7 @@ The information above is from [https://aws.amazon.com/ec2/instance-types/](https
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | CN | D32s v5 | 32 | 128 | P50 (4096) | 7500 | 1.888 |
 | PN | D16s v5 | 16 | 64 | P50 (4096) | 7500 | 0.944 |
-| Optional For Using Live Pruning DB |
-| PN | D8s v5 | 8 | 32 | P50 (4096) | 7500 | 0.472 |
+| PN (with Live Pruning DB) | D8s v5 | 8 | 32 | P50 (4096) | 7500 | 0.472 |
 
 This storage specification is derived from Azure Premium Disk specification. 
 
