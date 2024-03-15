@@ -27,8 +27,7 @@ Note that this is a recommended hardware specification for CNs and PNs, not an e
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | CN | m6i.8xlarge  | 32 | 128 | 4,000 (Minimum) | 9,000 | 1.888 |
 | PN | m6i.4xlarge  | 16 | 64 | 4,000 (Minimum) | 9,000 | 0.944 |
-| Optional For Using Live Pruning DB |
-| PN | m6i.2xlarge  | 8 | 32 | 3,500 (Minimum) | 9,000 | 0.472 |
+| PN (with Live Pruning DB) | m6i.2xlarge  | 8 | 32 | 3,500 (Minimum) | 9,000 | 0.472 |
 
 
 This storage specification is derived from AWS EBS SSD (gp3) specification. 
