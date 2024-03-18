@@ -8,7 +8,7 @@ sidebar_label: Particle Network
 
 ## 소개
 
-[Particle Network](https://particle.network)는 웹3.0의 인텐트 중심 모듈형 액세스 레이어입니다. 개발자는 Particle의 스마트 월렛 서비스(Smart Wallet-as-a-Service)를 통해 모듈형 커스터마이징이 가능한 EOA/AA 임베디드 월렛 구성요소를 통해 원활한 사용자 경험을 큐레이션할 수 있습니다. Particle은 키 관리에 MPC-TSS를 사용하여 Google 계정, 이메일 주소, 전화번호와 같은 웹2.0 계정을 통해 사용자 온보딩을 간소화할 수 있습니다.
+[Particle Network](https://particle.network)'s Wallet Abstraction services enable universal, Web2-adjacent onboarding and interactions. Its core technology, [Smart Wallet-as-a-Service](https://blog.particle.network/announcing-our-smart-wallet-as-a-service-modular-stack-upgrading-waas-with-erc-4337) (WaaS) aims to onboard users into MPC-secured smart accounts supporting any chain. It also allows developers to offer an improved user experience through modular, fully customizable EOA/AA embedded wallets. Particle supports its Smart Wallet-as-a-Service through a Modular L1 powering chain abstraction, acting as a settlement layer across chains for a seamless multi-chain experience.
 
 개발자는 모바일과 데스크톱 플랫폼 모두에서 사용할 수 있는 API와 SDK를 통해 다양한 시나리오에 걸쳐 Particle의 서비스형 월렛을 통합할 수 있으며, 특정 애플리케이션의 특정 요구 사항에 맞는 방식으로 맞춤화 및 구현할 수 있습니다.
 
