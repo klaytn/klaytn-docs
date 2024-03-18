@@ -11,6 +11,7 @@ const subbridgeSidebar = require("../docs/references/json-rpc/subbridge/sidebar.
 
 // Function to find the common prefix of labels
 const findCommonLabelPrefix = (sidebar, categories) => {
+    if (categories.length <= 1) return categories
     categories.map(category => {
         let parentCategory = {}
         category.items.map(item => {
