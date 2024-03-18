@@ -281,6 +281,7 @@ As mentioned earlier, the current KLVM is based on EVM; thus, its specification 
 
 - KLVM uses Klaytn's gas units, such as peb, ston, or KLAY.
 - KLVM does not accept a gas price from the user; instead, it uses a platform-defined value as the gas price.
+- KLVM provides extra precompiled contracts in addition to those of EVM.
 
 The Klaytn team will try to maintain compatibility between KLVM and EVM, but as Klaytn becomes increasingly implemented and evolves, the KLVM specification will be updated, and there will probably be more differences compared to EVM.
 
