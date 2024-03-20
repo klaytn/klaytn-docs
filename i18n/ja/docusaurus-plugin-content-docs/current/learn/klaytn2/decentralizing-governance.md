@@ -14,7 +14,7 @@ In addition to traditional enterprises, by bringing the two decentralized entiti
 
 ## Voting Power that Scales with Community Support <a href="#voting-power-that-scales-with-community-support" id="voting-power-that-scales-with-community-support"></a>
 
-A stake-based governance model will be introduced to enable governance participants who can gather more support from Klaytn Communities to shape Klaytn in line with their preference. The Gini Coefficient will be discontinued soon. Entities who can make a proper decision in a Metaversified world will have more influence in the Klaytn GC. We believe DAOs and builders will lead the scene in the future.
+A stake-based governance model has been introduced to enable governance participants who can gather more support from Klaytn Communities to shape Klaytn in line with their preference. The Gini Coefficient has been discontinued as part of the efforts to promote fairness and decentralization within the Klaytn ecosystem. Entities who can make proper decisions in a Metaversified world will have more influence in the Klaytn GC. We believe DAOs and builders will lead the scene in the future.
 
 ## Ultimate Goal of Decentralization <a href="#ultimate-goal-of-decentralization" id="ultimate-goal-of-decentralization"></a>
 
