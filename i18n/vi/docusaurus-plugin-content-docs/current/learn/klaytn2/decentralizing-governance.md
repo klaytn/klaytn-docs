@@ -14,7 +14,7 @@ Ngoài các doanh nghiệp truyền thống, nhờ việc đưa hai thực thể
 
 ## Quyền biểu quyết ngày càng mạnh mẽ với sự hỗ trợ của cộng đồng <a href="#voting-power-that-scales-with-community-support" id="voting-power-that-scales-with-community-support"></a>
 
-Mô hình quản trị dựa trên hoạt động stake sẽ được áp dụng để cho phép những người tham gia quản trị nhận được thêm sự hỗ trợ từ Cộng đồng Klaytn nhằm định hình Klaytn phù hợp với mong muốn của họ. Hệ số Gini sẽ ngừng hoạt động trong nay mai. Các thực thể có thể đưa ra quyết định phù hợp trong một thế giới được vũ trụ ảo hóa sẽ có tầm ảnh hưởng lớn hơn tròng Klaytn GC. Chúng tôi tin rằng DAO và các nhà xây dựng sẽ dẫn dắt lĩnh vực này trong tương lai.
+A stake-based governance model has been introduced to enable governance participants who can gather more support from Klaytn Communities to shape Klaytn in line with their preference. The Gini Coefficient has been discontinued as part of the efforts to promote fairness and decentralization within the Klaytn ecosystem. Entities who can make proper decisions in a Metaversified world will have more influence in the Klaytn GC. Chúng tôi tin rằng DAO và các nhà xây dựng sẽ dẫn dắt lĩnh vực này trong tương lai.
 
 ## Mục tiêu tối thượng của cơ chế phi tập trung <a href="#ultimate-goal-of-decentralization" id="ultimate-goal-of-decentralization"></a>
 
