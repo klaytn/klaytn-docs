@@ -26,10 +26,6 @@ For every block, a Committee composed of randomly selected Council members is fo
 
 As long as the minimum 5 million KLAY staking requirement is met, Klaytn Governance Council members can freely stake or unstake his or her own KLAY. Staking information is updated every 86,400 blocks, and newly staked KLAY comes info effect two update cycles later from when the staking is completed. Withdrawing staked KLAY requires one week of delay to prevent malicious members from immediately exiting.
 
-To prevent monopolized claiming of Klaytn Governance Council Reward by small groups of highly invested Council members, Gini coefficient may be used to adjust the effective amount of staked KLAY. The application formula is as follows, where G stands for gini coefficient of Governance Council's KLAY staking distribution:
-
-- _Adjusted staking amount = (Council member's staking amount)^(1/1+G)_
-
 ### Penalty for Misbehaving Council Members <a id="penalty-for-misbehaving-council-members"></a>
 
 A Council member may be subject to penalties for conducting misbehaviors defined below. In the future, more penalty rules can be established and refined through the Klaytn Governance Process.
