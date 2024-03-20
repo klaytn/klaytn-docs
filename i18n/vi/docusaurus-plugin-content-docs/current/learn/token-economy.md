@@ -26,10 +26,6 @@ Hội đồng quản trị của Klaytn là nhóm tập thể các Người vậ
 
 Miễn đáp ứng được yêu cầu về mức nắm giữ tối thiểu là 5 triệu KLAY, các thành viên Hội đồng quản trị KLAY có thể tự do nắm giữ hoặc hủy nắm giữ KLAY của mình. Thông tin nắm giữ sẽ được cập nhật sau mỗi 86.400 khối và KLAY mới được nắm giữ sẽ có hiệu lực sau hai chu kỳ cập nhật kể từ thời điểm hoàn tất quá trình nắm giữ. Việc rút phần KLAY đã nắm giữ cần đến một tuần chờ đợi để ngăn chặn việc các thành viên ác ý rút lui ngay lập tức.
 
-Để ngăn chặn tình trạng các nhóm nhỏ gồm các thành viên Hội đồng có mức đầu tư cao độc quyền nhận phần thưởng cho Hội đồng quản trị của Klaytn, hệ số Gini có thể được sử dụng để điều chỉnh số tiền KLAY thực tế được nắm giữ. Công thức áp dụng như sau, trong đó G là viết tắt của hệ số Gini trong việc phân phối phần KLAY được nắm giữ của Hội đồng quản trị:
-
-- _Số lượng nắm giữ đã điều chỉnh = (Số lượng nắm giữ của thành viên hội đồng quản trị)^(1/1+G)_
-
 ### Hình phạt cho các Thành viên hội đồng có hành vi sai trái <a id="penalty-for-misbehaving-council-members"></a>
 
 Thành viên hội đồng có thể bị phạt nếu thực hiện các hành vi sai trái theo định nghĩa dưới đây. Trong tương lai, nhiều quy tắc phạt hơn có thể sẽ được thiết lập và hoàn thiện thông qua Quy trình quản trị của Klaytn.
