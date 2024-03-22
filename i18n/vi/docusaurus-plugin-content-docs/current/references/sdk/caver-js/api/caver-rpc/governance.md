@@ -18,7 +18,7 @@ Gửi một phiếu bầu mới. Nếu nút có quyền biểu quyết dựa tr�
 | giá trị  | chuỗi \| số \| boolean | Các loại giá trị khác nhau cho từng khóa.                                                                                         |
 | callback | hàm                    | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
 
-Để biết thêm chi tiết về `khóa` và `giá trị` cho `caver.rpc.governance.vote`, vui lòng tham khảo [governance_vote](../../../../json-rpc/governance.md#governance_vote).
+For more details about the `key` and `value` for `caver.rpc.governance.vote`, please refer to [governance_vote](../../../../../json-rpc/governance/vote).
 
 **Giá trị trả về**
 
@@ -498,9 +498,9 @@ Trả về thông tin nắm giữ tại một khối cụ thể.
 
 `Promise` trả về `đối tượng`
 
-| Loại     | Mô tả                                                                                                                                                                        |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| đối tượng | Thông tin nắm giữ. Tham khảo [governance_getStakingInfo](../../../../json-rpc/governance.md#governance_getstakinginfo) để biết mô tả về kết quả trả về. |
+| Loại     | Mô tả                                                                                                                                                                     |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| đối tượng | Thông tin nắm giữ. Refer to [governance_getStakingInfo](../../../../../json-rpc/governance/get-staking-info) for a description of the return result. |
 
 **Ví dụ**
 

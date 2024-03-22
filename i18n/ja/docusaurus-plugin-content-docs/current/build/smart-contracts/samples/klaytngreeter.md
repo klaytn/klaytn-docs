@@ -43,5 +43,4 @@ contract KlaytnGreeter is Mortal {
 For the details of contract deployment and the Remix Online IDE usage guideline, please refer to the following documents.
 
 - [Remix Online IDE](../../smart-contracts/ide-and-tools/ide-and-tools.md#klaytn-ide)
-- [Truffle](../../smart-contracts/ide-and-tools/ide-and-tools.md##truffle)
 - [Deploy Guide](../deploy/deploy.md)

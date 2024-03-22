@@ -1,6 +1,6 @@
 # API JSON-RPC
 
-Nút điểm cuối thể hiện các API JSON-RPC. Bạn có thể kích hoạt/vô hiệu hóa các API như sau. Để biết thông số API chi tiết, vui lòng tham khảo [API JSON-RPC](../../references/json-rpc/json-rpc.md).
+Nút điểm cuối thể hiện các API JSON-RPC. Bạn có thể kích hoạt/vô hiệu hóa các API như sau. For the detailed API specification, please refer to the [JSON-RPC APIs](../../../references/json-rpc/klay/account-created).
 
 **LƯU Ý**: Việc cung cấp API qua giao diện HTTP (`rpc`) hoặc WebSocket (`ws`) sẽ cấp cho mọi người quyền truy cập vào các API có thể truy cập giao diện này (DApps, trình duyệt tab, v. v).
 access to the APIs who can access this interface (DApps, browser tabs, etc). Hãy thận trọng với những API bạn kích hoạt.
@@ -76,7 +76,7 @@ that are unsafe/unappropriate to be opened to the public and enable only a subse
 
 The enabled APIs are as follows:
 
-- [VM Tracing](../../references/json-rpc/debug/tracing.md) APIs, however with limited functionality (only [pre-defined tracers](../../references/json-rpc/debug/tracing.md#tracing-options) are allowed)
+- [VM Tracing](../../../references/json-rpc/debug/trace-bad-block) APIs, however with limited functionality (only [pre-defined tracers](../../../references/json-rpc/debug/trace-bad-block) are allowed. See params/tracingOptions)
 - debug_dumpBlock, debug_dumpStateTrie, debug_getBlockRlp, debug_getModifiedAccountsByHash, debug_getModifiedAccountsByNumber, debug_getBadBlocks, debug_getModifiedStorageNodesByNumber
 - debug_metrics
 

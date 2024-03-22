@@ -8,7 +8,7 @@
 **Nút điểm cuối**
 
 - Bạn cần có [Nút điểm cuối](../../nodes/endpoint-node/endpoint-node.md) để kết nối với mạng lưới Klaytn và để thực hiện cuộc gọi qua API hoặc gửi một giao dịch.
-- `ken` là một nhị phân Nút điểm cuối của Klaytn. `ken` hiển thị hai giao diện, [giao diện dòng lệnh](../../nodes/endpoint-node/ken-cli-commands.md) và [JSON-RPC API](../../references/json-rpc/json-rpc.md). `ken` chạy trên Linux và MacOS.
+- `ken` là một nhị phân Nút điểm cuối của Klaytn. `ken` exposes two interfaces, a [command-line interface](../../nodes/endpoint-node/ken-cli-commands.md) and the [JSON-RPC APIs](../../../references/json-rpc/klay/account-created). `ken` chạy trên Linux và MacOS.
 - `ken` CLI đi kèm với một số chức năng quản lý nút và tiện ích.
 
 **Phát triển hợp đồng thông minh**

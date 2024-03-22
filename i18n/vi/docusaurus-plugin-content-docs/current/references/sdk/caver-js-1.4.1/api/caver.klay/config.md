@@ -146,7 +146,7 @@ Trả về giá trị `true` nếu nút đang lập chỉ mục hàm băm giao d
 
 **Giá trị trả về**
 
-`Promise` trả về `Boolean` - Giá trị `true` nghĩa là nút đang lập chỉ mục hàm băm giao dịch của người gửi để tìm kiếm giao dịch người trả phí đã ký. Để biết thông tin chi tiết, hãy tham khảo [API Nền tảng Klaytn - klay_getTransactionBySenderTxHash](../../../../json-rpc/klay/transaction.md#klay_gettransactionbysendertxhash) và [Giao dịch Klaytn - Ủy thác phí và SenderTxHash](../../../../../learn/transactions/transactions.md#fee-delegation).
+`Promise` trả về `Boolean` - Giá trị `true` nghĩa là nút đang lập chỉ mục hàm băm giao dịch của người gửi để tìm kiếm giao dịch người trả phí đã ký. For detailed information, please see [Klaytn Platform API - klay_getTransactionBySenderTxHash](../../../../../json-rpc/klay/get-transaction-by-sender-tx-hash) and [Klaytn Transactions - Fee Delegation and SenderTxHash](../../../../../learn/transactions/transactions.md#fee-delegation).
 
 **Ví dụ**
 

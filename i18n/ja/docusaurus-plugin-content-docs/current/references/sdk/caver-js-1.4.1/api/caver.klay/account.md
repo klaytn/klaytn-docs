@@ -365,7 +365,7 @@ false
 caver.klay.sign(message, address [, callback])
 ```
 
-Generates signed data specific to the Klaytn network. Refer to [Klaytn Platform API - klay_sign](../../../../../references/json-rpc/klay/account.md#klay_sign) to know how the signature is generated.
+Generates signed data specific to the Klaytn network. Refer to [Klaytn Platform API - klay_sign](../../../../../../references/json-rpc/klay/sign) to know how the signature is generated.
 
 **NOTE**: This API provides the function to sign a message using an account that exists in your node. The account in the node must be unlocked to sign the message. To sign a transaction, use [caver.klay.signTransaction](./transaction/transaction.md#signtransaction).
 

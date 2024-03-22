@@ -37,6 +37,7 @@
 - 트랜잭션 수수료는 안정적이어야 하며, 주변 요인이 아닌 트랜잭션 복잡성 자체에 따라 결정되어야 합니다.
 - [합리적인 스마트 컨트랙트 실행 비용](computation/klaytn-smart-contract.md#affordable-smart-contract-execution-cost) 및 [트랜잭션 수수료](./transaction-fees/transaction-fees.md)를 참조하세요. 가스 가격이 250 ston인 경우, KLAY 전송에는 0.00525 KLAY의 고정 비용이 발생합니다. (21,000 KLAY 전송 gas x (250 x 10^-9) == 0.00525 KLAY)
 
+
 ### 빠른 개발 <a id="rapid-development"></a>
 
 #### 이더리움 호환성 <a id="ethereum-compatibility"></a>

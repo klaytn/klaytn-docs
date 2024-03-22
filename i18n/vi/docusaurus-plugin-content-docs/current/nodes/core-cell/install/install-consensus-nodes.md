@@ -307,7 +307,7 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
  >
 ```
 
-Bạn có thể kiểm tra các lệnh có thể sử dụng trên [Tài liệu API](../../../references/json-rpc/json-rpc.md)
+You can check the usable commands on [API Document](../../../../references/json-rpc/klay/account-created)
 
 API hữu dụng để kiểm tra trạng thái của CN:
 

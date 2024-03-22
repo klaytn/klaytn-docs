@@ -69,5 +69,5 @@ Không sử dụng điểm cuối vì mục đích thương mại do chúng tôi
 
 - ChainID : Baobab: 1001 (0x3E9), Cypress: 8217 (0x2019)
 
-- Giá gas: được điều chỉnh linh hoạt trong khoảng [25, 750]. Phạm vi có thể được thay đổi qua quản trị trên chuỗi. Để biết thêm thông tin, hãy tham khảm [governance](../json-rpc/governance.md).
+- Giá gas: được điều chỉnh linh hoạt trong khoảng [25, 750]. Phạm vi có thể được thay đổi qua quản trị trên chuỗi. For more information, refer to [governance](../../json-rpc/governance/chain-config).
   [Phí giao dịch](../../learn/transaction-fees.md)

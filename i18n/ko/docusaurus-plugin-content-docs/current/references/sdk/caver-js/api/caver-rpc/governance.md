@@ -18,7 +18,7 @@ caver.rpc.governance.vote(key, value [, callback])
 | value    | string \| number \| boolean | 각 키에 대한 다양한 유형의 값입니다.                                                              |
 | callback | Function                    | (선택 사항) 첫 번째 매개 변수로 오류 객체를 반환하고 두 번째 매개 변수로 결과를 반환하는 선택적 콜백입니다. |
 
-`caver.rpc.governance.vote`의 `key`와 `value`에 대한 자세한 내용은 [governance_vote](../../../../json-rpc/governance.md#governance_vote)를 참고하시기 바랍니다.
+For more details about the `key` and `value` for `caver.rpc.governance.vote`, please refer to [governance_vote](../../../../../json-rpc/governance/vote).
 
 **리턴 값**
 
@@ -498,9 +498,9 @@ caver.rpc.governance.getStakingInfo([blockNumberOrTag] [, callback])
 
 `promise`는 `object`를 반환합니다.
 
-| 유형     | 설명                                                                                                                                            |
-| ------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| object | 스테이킹 정보. 반환 결과에 대한 설명은 [governance_getStakingInfo](../../../../json-rpc/governance.md#governance_getstakinginfo)를 참조하세요. |
+| 유형     | 설명                                                                                                                                                              |
+| ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| object | 스테이킹 정보. Refer to [governance_getStakingInfo](../../../../../json-rpc/governance/get-staking-info) for a description of the return result. |
 
 **예시**
 

@@ -258,4 +258,4 @@ node interact.js
 
 Nếu giao dịch thành công, trong giao diện dòng lệnh của mình, bạn sẽ thấy hàm băm của giao dịch và giá trị được lưu trữ.
 
-Để được hướng dẫn sâu hơn về web3.js, vui lòng tham khảo [tài liệu về web3.js](https://web3js.readthedocs.io/). Ngoài ra, bạn có thể tìm thấy cách triển khai mã đầy đủ cho hướng dẫn này trên [GitHub](https://github.com/klaytn/examples/tree/main/sdk-and-libraries-for-interacting-with-klaytn-node/web3-js)
+Để được hướng dẫn sâu hơn về web3.js, vui lòng tham khảo [tài liệu về web3.js](https://web3js.readthedocs.io/). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/klaytn/examples/tree/main/tools/sdk-and-libraries-for-interacting-with-klaytn-node/web3-js)

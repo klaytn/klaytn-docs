@@ -600,4 +600,4 @@ BREAKING CHANGES: webpack<5 used to include polyfills for node.js core modules b
 
 ## 다음 단계
 
-Web3Auth에 대한 자세한 가이드는 [Web3Auth 문서](https://web3auth.io/docs/connect-blockchain/klaytn) 및 [Web3Auth Github 리포지토리](https://github.com/web3auth)를 참조하세요. 또한 이 가이드에 사용된 코드의 전체 구현은 [GitHub](https://github.com/klaytn/examples/tree/main/wallet-libraries/web3Auth-sample)에서 확인할 수 있습니다.
+Web3Auth에 대한 자세한 가이드는 [Web3Auth 문서](https://web3auth.io/docs/connect-blockchain/klaytn) 및 [Web3Auth Github 리포지토리](https://github.com/web3auth)를 참조하세요. Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/klaytn/examples/tree/main/tools/wallet-libraries/web3Auth-sample).

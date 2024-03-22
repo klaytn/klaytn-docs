@@ -447,5 +447,6 @@ return (
 );
 ```
 
-Next Steps
-For more in-depth guides on Privy, please refer to the [Privy Docs](https://docs.privy.io/) and [Privy Github repository](https://github.com/privy-io). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/klaytn/examples/tree/main/wallet-libraries/privy-auth-sample).
+## Next Steps
+
+For more in-depth guides on Privy, please refer to the [Privy Docs](https://docs.privy.io/) and [Privy Github repository](https://github.com/privy-io). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/klaytn/examples/tree/main/tools/wallet-libraries/privy-auth-sample).

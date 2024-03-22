@@ -43,5 +43,4 @@ contract KlaytnGreeter is Mortal {
 컨트랙트 배포에 대한 자세한 내용과 Remix Online IDE 사용 가이드라인은 다음 문서를 참조하세요.
 
 - [Remix 온라인 IDE](../../smart-contracts/ide-and-tools/ide-and-tools.md#klaytn-ide)
-- [Truffle](../../smart-contracts/ide-and-tools/ide-and-tools.md##truffle)
 - [디플로이 가이드](../deploy/deploy.md)

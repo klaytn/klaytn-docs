@@ -187,7 +187,7 @@ caver.klay.newFilter(options [, callback])
 - 상태가 변경되었는지 확인하려면 [getFilterChanges](#getfilterchanges)를 호출합니다.
 - `newFilter`에 의해 생성된 필터와 일치하는 모든 로그를 가져오려면, [getFilterLogs](#getfilterlogs)를 호출합니다.
 
-토픽 필터에 대한 자세한 내용은 [Klaytn 플랫폼 API - klay_newFilter](../../../../json-rpc/klay/filter.md#klay_newfilter)를 참고하시기 바랍니다.
+For detailed information about topic filters, please see [Klaytn Platform API - klay_newFilter](../../../../../json-rpc/klay/new-filter).
 
 **매개변수**
 

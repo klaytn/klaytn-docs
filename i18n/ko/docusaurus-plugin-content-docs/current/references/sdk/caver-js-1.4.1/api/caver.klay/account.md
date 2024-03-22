@@ -364,7 +364,7 @@ false
 caver.klay.sign(message, address [, callback])
 ```
 
-클레이튼 네트워크에 특화된 서명된 데이터를 생성합니다. 서명이 어떻게 생성되는지 알고 싶으시다면 [Klaytn 플랫폼 API - klay_sign](../../../../../references/json-rpc/klay/account.md#klay_sign)을 참고하세요.
+클레이튼 네트워크에 특화된 서명된 데이터를 생성합니다. Refer to [Klaytn Platform API - klay_sign](../../../../../../references/json-rpc/klay/sign) to know how the signature is generated.
 
 **참고**: 이 API는 노드에 존재하는 계정을 사용하여 메시지에 서명하는 기능을 제공합니다. 메시지에 서명하려면 노드에 있는 계정의 잠금이 해제되어 있어야 합니다. 트랜잭션에 서명하려면 [caver.klay.signTransaction](./transaction/transaction.md#signtransaction)을 사용하세요.
 

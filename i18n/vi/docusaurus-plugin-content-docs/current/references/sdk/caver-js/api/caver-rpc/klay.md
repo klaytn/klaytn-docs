@@ -484,11 +484,11 @@ Trả về tổng số lượng giao dịch đã gửi từ một địa chỉ.
 
 **Tham số**
 
-| Tên         | Loại       | Mô tả                                                                                                                                                                                                                                                                                               |
-| ----------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address     | chuỗi       | Địa chỉ nơi để nhận số lượng giao dịch.                                                                                                                                                                                                                                                             |
-| blockNumber | số \| chuỗi | (tùy chọn) Số khối, chuỗi `đang chờ xử lý` để lấy số dùng một lần đang chờ xử lý, hoặc chuỗi `cũ nhất` hoặc `mới nhất` giống như trong [tham số khối mặc định](../../../../json-rpc/klay/block.md#the-default-block-parameter). Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng. |
-| callback    | hàm         | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                                                                                                                                                   |
+| Tên         | Loại       | Mô tả                                                                                                                                                                                                              |
+| ----------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| address     | chuỗi       | Địa chỉ nơi để nhận số lượng giao dịch.                                                                                                                                                                            |
+| blockNumber | số \| chuỗi | (optional) A block number, the string `pending` for the pending nonce, or the string `earliest` or `latest` as in the default block parameter. Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng. |
+| callback    | hàm         | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                                                                  |
 
 **Giá trị trả về**
 
@@ -545,9 +545,9 @@ true
 caver.rpc.klay.sign(address, message [, blockNumber] [, callback])
 ```
 
-Tạo dữ liệu đã ký dành riêng cho Klaytn. Tham khảo [API Nền tảng Klaytn - klay_sign](../../../../json-rpc/klay/account.md#klay_sign) để biết cách tạo chữ ký.
+Tạo dữ liệu đã ký dành riêng cho Klaytn. Refer to [Klaytn Platform API - klay_sign](../../../../../json-rpc/klay/sign) to know how the signature is generated.
 
-**LƯU Ý**: API này cung cấp chức năng ký thông báo bằng cách sử dụng [tài khoản đã nhập](../../../../json-rpc/personal.md#personal_importrawkey) trong nút Klaytn của bạn. Tài khoản đã nhập trong nút của bạn phải được [mở khóa](../../../../json-rpc/personal.md#personal_unlockaccount) để ký thông báo. Để ký giao dịch bằng tài khoản đã nhập trong nút Klaytn của bạn, hãy sử dụng [caver.rpc.klay.signTransaction](#caver-rpc-klay-signtransaction).
+**NOTE**: This API provides the function to sign a message using an [imported account](../../../../../json-rpc/personal/import-raw-key) in your Klaytn node. The imported account in your node must be [unlocked](../../../../../json-rpc/personal/unlock-account) to sign the message. Để ký giao dịch bằng tài khoản đã nhập trong nút Klaytn của bạn, hãy sử dụng [caver.rpc.klay.signTransaction](#caver-rpc-klay-signtransaction).
 
 **Tham số**
 
@@ -1411,12 +1411,12 @@ Trả về giá trị từ vị trí lưu trữ tại một địa chỉ đã ch
 
 **Tham số**
 
-| Tên         | Loại       | Mô tả                                                                                                                                                                                          |
-| ----------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address     | chuỗi       | Địa chỉ nơi để nhận bộ nhớ lưu trữ.                                                                                                                                                            |
-| vị trí      | số          | Vị trí chỉ mục của bộ nhớ lưu trữ. Để biết thêm thông tin về `tính toán vị trí`, hãy tham khảo [klay_getStorageAt](../../../../json-rpc/klay/block.md#klay_getstorageat). |
-| blockNumber | số \| chuỗi | (tùy chọn) Số khối hoặc chuỗi `mới nhất` hoặc `cũ nhất`. Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng.                                                                   |
-| callback    | hàm         | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                                              |
+| Tên         | Loại       | Mô tả                                                                                                                                                                                  |
+| ----------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address     | chuỗi       | Địa chỉ nơi để nhận bộ nhớ lưu trữ.                                                                                                                                                    |
+| vị trí      | số          | Vị trí chỉ mục của bộ nhớ lưu trữ. For more information on `calculating the position`, refer to [klay_getStorageAt](../../../../../json-rpc/klay/get-storage-at). |
+| blockNumber | số \| chuỗi | (tùy chọn) Số khối hoặc chuỗi `mới nhất` hoặc `cũ nhất`. Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng.                                                           |
+| callback    | hàm         | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai.                                                      |
 
 **Giá trị trả về**
 
@@ -2069,7 +2069,7 @@ Ký giao dịch với tư cách là `người gửi` giao dịch bằng "khóa r
 
 Để biết thêm thông tin về từng loại giao dịch, hãy tham khảo [Giao dịch](../caver-transaction/caver-transaction.md#class).
 
-**LƯU Ý**: API này cung cấp hàm để ký một giao dịch bằng [tài khoản đã nhập](../../../../json-rpc/personal.md#personal_importrawkey) trong nút Klaytn của bạn. Tài khoản đã nhập trong nút của bạn phải được [mở khóa](../../../../json-rpc/personal.md#personal_unlockaccount) để ký giao dịch.
+**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../../json-rpc/personal/import-raw-key) in your Klaytn node. The imported account in your node must be [unlocked](../../../../../json-rpc/personal/unlock-account) to sign a transaction.
 
 **Tham số**
 
@@ -2139,7 +2139,7 @@ Trước khi sử dụng `sendTransaction` với tư cách người trả phí, 
 
 Để biết thêm thông tin về từng loại giao dịch, hãy tham khảo [Giao dịch](../caver-transaction/caver-transaction.md#class).
 
-**LƯU Ý**: API này cung cấp hàm để ký một giao dịch bằng [tài khoản đã nhập](../../../../json-rpc/personal.md#personal_importrawkey) trong nút Klaytn của bạn. Tài khoản đã nhập trong nút của bạn phải được [mở khóa](../../../../json-rpc/personal.md#personal_unlockaccount) để ký giao dịch.
+**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../../json-rpc/personal/import-raw-key) in your Klaytn node. The imported account in your node must be [unlocked](../../../../../json-rpc/personal/unlock-account) to sign a transaction.
 
 **Tham số**
 
@@ -2218,7 +2218,7 @@ Ký giao dịch với tư cách là người gửi giao dịch bằng "khóa ri�
 
 Để biết thêm thông tin về từng loại giao dịch, hãy tham khảo [Giao dịch](../caver-transaction/caver-transaction.md#class).
 
-**LƯU Ý**: API này cung cấp hàm để ký một giao dịch bằng [tài khoản đã nhập](../../../../json-rpc/personal.md#personal_importrawkey) trong nút Klaytn của bạn. Tài khoản đã nhập trong nút của bạn phải được [mở khóa](../../../../json-rpc/personal.md#personal_unlockaccount) để ký giao dịch.
+**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../../json-rpc/personal/import-raw-key) in your Klaytn node. The imported account in your node must be [unlocked](../../../../../json-rpc/personal/unlock-account) to sign a transaction.
 
 **Tham số**
 
@@ -2274,7 +2274,7 @@ Ký giao dịch với tư cách là người trả phí giao dịch bằng "khó
 
 Để biết thêm thông tin về từng loại giao dịch, hãy tham khảo [Giao dịch](../caver-transaction/caver-transaction.md#class).
 
-**LƯU Ý**: API này cung cấp hàm để ký một giao dịch bằng [tài khoản đã nhập](../../../../json-rpc/personal.md#personal_importrawkey) trong nút Klaytn của bạn. Tài khoản đã nhập trong nút của bạn phải được [mở khóa](../../../../json-rpc/personal.md#personal_unlockaccount) để ký giao dịch.
+**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../../json-rpc/personal/import-raw-key) in your Klaytn node. The imported account in your node must be [unlocked](../../../../../json-rpc/personal/unlock-account) to sign a transaction.
 
 **Tham số**
 
@@ -2965,7 +2965,7 @@ Tạo đối tượng bộ lọc sử dụng các tùy chọn bộ lọc nhất 
 - Để kiểm tra xem trạng thái đã thay đổi hay chưa, hãy gọi ra [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges).
 - Để có được tất cả các bản ghi khớp với bộ lọc được tạo bởi `newFilter`, hãy gọi [caver.rpc.klay.getFilterLogs](#caver-rpc-klay-getfilterlogs).
 
-Để biết thông tin chi tiết về các chủ đề trong đối tượng bộ lọc, vui lòng tham khảo [API nền tảng Klaytn - klay_newFilter](../../../../json-rpc/klay/filter.md#klay_newfilter).
+For detailed information about the topics in the filter object, please see [Klaytn Platform API - klay_newFilter](../../../../../json-rpc/klay/new-filter).
 
 **Tham số**
 

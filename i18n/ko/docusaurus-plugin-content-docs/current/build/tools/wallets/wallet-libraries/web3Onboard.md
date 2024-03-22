@@ -493,4 +493,4 @@ BREAKING CHANGES: webpack<5 used to include polyfills for node.js core modules b
 
 ## 다음 단계
 
-Web3-Onboard에 대한 자세한 가이드는 [블록네이티브 문서](https://docs.blocknative.com/onboard) 및 [블록네이티브 GitHub 리포지토리](https://github.com/blocknative/onboard)를 참고하시기 바랍니다. 또한 이 가이드의 전체 코드 구현은 [GitHub](https://github.com/klaytn/examples/tree/main/wallet-libraries/web3Onboard-sample)에서 확인할 수 있습니다.
+Web3-Onboard에 대한 자세한 가이드는 [블록네이티브 문서](https://docs.blocknative.com/onboard) 및 [블록네이티브 GitHub 리포지토리](https://github.com/blocknative/onboard)를 참고하시기 바랍니다. Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/klaytn/examples/tree/main/tools/wallet-libraries/web3Onboard-sample).

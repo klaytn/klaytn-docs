@@ -22,13 +22,11 @@
 
 ### 클레이튼 거버넌스 카운슬 보상 메커니즘 <a id="klaytn-governance-council-reward-mechanism"></a>
 
-모든 블록마다 무작위로 선정된 카운슬 멤버로 구성된 위원회가 구성됩니다. 각 위원회에는 제안자 역할을 맡은 한 명의 위원이 있으며, 다른 모든 위원회 위원은 검증자 역할을 맡습니다. 블록이 성공적으로 생성되어 클레이튼 블록체인에 추가되면 해당 블록의 제안자는 블록 보상의 100%를 보상받게 됩니다. 카운슬 멤버가 제안자로 선정될 확률은 해당 멤버가 스테이킹한 KLAY의 양에 비례합니다.
+For each block in the Klaytn blockchain, a Committee is formed by randomly selecting members from the Klaytn Governance Council (GC). This Committee consists of a single member who is assigned the role of Proposer, while the remaining Committee members take on the role of Validators. Once a block is successfully created and appended to the Klaytn blockchain, the block reward is distributed among the Council members and various funds according to the previously mentioned ratios.
+
+All Council members have an equal probability of being selected as the Proposer for a given block, and the block proposer reward is distributed evenly among them. However, the GC staking reward is allocated proportionally based on the amount of KLAY staked by each member, minus the minimum requirement of 5 million KLAY. This means that Council members who stake a larger amount of KLAY beyond the minimum threshold will receive a greater share of the staking reward compared to those who stake less. As a result, Council members are incentivized to stake more KLAY to maximize their potential rewards from the GC staking award portion of the block reward distribution.
 
 최소 5백만 KLAY 스테이킹 요건을 충족하는 한, Klaytn 거버넌스 카운슬 멤버는 자신의 KLAY를 자유롭게 스테이킹하거나 스테이킹을 해제할 수 있습니다. 스테이킹 정보는 86,400 블록마다 업데이트되며, 새로 스테이킹된 KLAY는 스테이킹이 완료된 시점으로부터 두 번의 업데이트 주기 후에 정보가 적용됩니다. 악의적인 회원의 즉각적인 탈퇴를 방지하기 위해 스테이킹된 KLAY를 철회하려면 1주일의 지연 시간이 필요합니다.
-
-많이 투자한 소수의 카운슬 멤버들이 클레이튼 거버넌스 카운슬 보상을 독점적으로 청구하는 것을 방지하기 위해, Gini 계수를 사용하여 스테이킹된 KLAY의 유효량을 조정할 수 있습니다. 적용 공식은 다음과 같으며, 여기서 G는 거버넌스 카운슬의 KLAY 스테이킹 분포의 Gini 계수를 나타냅니다:
-
-- _조정된 스테이킹 금액 = (카운슬 멤버의 스테이킹 금액)^(1/1+G)_
 
 ### 잘못된 행동을 한 카운슬 멤버에 대한 페널티 <a id="penalty-for-misbehaving-council-members"></a>
 

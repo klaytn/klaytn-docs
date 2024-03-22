@@ -94,7 +94,7 @@ Baobab 테스트넷:
 ## 클레이튼 SDK가 있나요? 어떤 언어로 제공되나요? <a id="klaytn-sdks"></a>
 
 공식 클레이튼 SDK는 JavaScript와 자바로 제공됩니다.
-[caver-js](../references/sdk/caver-js/caver-js.md) 및 [caver-java](../references/sdk/caver-java/caver-java.md)를 참조하세요. 다른 언어로 [Klaytn APIs](../references/json-rpc/json-rpc.md)를 제공하는 커뮤니티 기여는 언제나 환영합니다.
+[caver-js](../references/sdk/caver-js/caver-js.md) 및 [caver-java](../references/sdk/caver-java/caver-java.md)를 참조하세요. Community contributions are always welcome in providing [Klaytn APIs](../../references/json-rpc/klay/account-created) in other languages.
 
 클레이튼 SDK를 사용해 dApp을 빌드하는 방법에 대한 자세한 내용은 [튜토리얼](../build/tutorials/tutorials.md)을 참고하세요.
 

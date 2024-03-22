@@ -8,7 +8,7 @@
 **엔드포인트 노드**
 
 - 클레이튼 네트워크에 연결하고 API 호출을 하거나 트랜잭션을 전송하려면 [엔드포인트 노드](../../nodes/endpoint-node/endpoint-node.md)가 필요합니다.
-- `ken`은 클레이튼 엔드포인트 노드 바이너리입니다. `ken`은 두 가지 인터페이스, 즉 [명령줄 인터페이스](../../nodes/endpoint-node/ken-cli-commands.md)와 [JSON-RPC API](../../references/json-rpc/json-rpc.md)를 노출합니다. `ken`은 Linux와 MacOS에서 실행됩니다.
+- `ken`은 클레이튼 엔드포인트 노드 바이너리입니다. `ken` exposes two interfaces, a [command-line interface](../../nodes/endpoint-node/ken-cli-commands.md) and the [JSON-RPC APIs](../../../references/json-rpc/klay/account-created). `ken`은 Linux와 MacOS에서 실행됩니다.
 - `ken` CLI는 여러 유틸리티 및 노드 관리 기능과 함께 제공됩니다.
 
 **스마트 컨트랙트 개발**

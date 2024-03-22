@@ -12,7 +12,7 @@
 
 마지막 접근 방식은 트랜잭션의 계산 비용을 제한하는 것입니다. 실제 실행 시간을 기준으로 각 EVM 연산 코드의 계산 비용을 모델링하고 트랜잭션의 계산 비용 합계를 제한합니다. 이 접근 방식을 사용하면 다른 요소를 제거하고 정규화된 실행 시간 단위만 계산하므로 노드들도 합의에 도달할 수 있습니다.
 
-따라서 저희는 클레이튼에 세 번째 옵션을 선택했습니다. The computation cost limit was 100,000,000, but as CPU computing performance has increased, the limit has been raised to 150,000,000 after Cancun EVM hardfork. This limit value is determined by the platform, so the developers should be aware of the computation cost of a transaction. 트랜잭션의 계산 비용을 계산하기 위해 Klaytn은 [klay_estimateComputationCost](../../references/json-rpc/klay/transaction.md#klay_estimatecomputationcost) 함수를 제공합니다. 사용법은 [klay_estimateGas](../../references/json-rpc/klay/transaction.md#klay_estimategas)와 거의 동일합니다.
+따라서 저희는 클레이튼에 세 번째 옵션을 선택했습니다. The computation cost limit was 100,000,000, but as CPU computing performance has increased, the limit has been raised to 150,000,000 after Cancun EVM hardfork. This limit value is determined by the platform, so the developers should be aware of the computation cost of a transaction. To calculate the computation cost of a transaction, Klaytn provides [klay_estimateComputationCost](../../../references/json-rpc/klay/estimate-computation-cost). The usage is almost the same as [klay_estimateGas](../../../references/json-rpc/klay/estimate-gas).
 
 :::note
 

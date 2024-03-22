@@ -2,14 +2,47 @@
 
 Trang này trình bày tất cả các lần hard fork cho chuỗi khối Klaytn.
 
-## KIP-103 <a id="kip-103"></a>
+## Randao
 
 | \`\`         | Baobab                        | Cypress                       |
 | ------------ | ----------------------------- | ----------------------------- |
-| Date         | Apr 06, 2023 04:25:03 / UTC+9 | Apr 17, 2023 01:24:48 / UTC+9 |
-| Block number | `#119,145,600`                | `#119,750,400`                |
+| Date         | Dec 19, 2023 10:05:01 / UTC+9 | Mar 04, 2024 10:25:34 / UTC+9 |
+| Block number | `#141,367,000`                | `#147,534,000`                |
 
 ### Summary
+
+Randao hardfork was introduced with the [v1.12.0 release](https://github.com/klaytn/klaytn/releases/tag/v1.12.0). It implements an optional hardfork implementing the Randao on-chain randomness according to [KIP-113](https://kips.klaytn.foundation/KIPs/kip-113), [KIP-114](https://kips.klaytn.foundation/KIPs/kip-114), [KIP-146](https://kips.klaytn.foundation/KIPs/kip-146).
+
+## Cancun
+
+| \`\`    | Baobab                        | Cypress                       |
+| ------- | ----------------------------- | ----------------------------- |
+| Ngày    | Dec 19, 2023 10:05:01 / UTC+9 | Mar 04, 2024 10:25:34 / UTC+9 |
+| Số khối | `#141,367,000`                | `#147,534,000`                |
+
+### Tóm tắt
+
+Ethereum's Cancun hardfork items were introduced with the [v1.12.0 release](https://github.com/klaytn/klaytn/releases/tag/v1.12.0). For specific information, please see the release note. In addition, AccessList transaction type(introduced in [EIP-2930](https://eips.ethereum.org/EIPS/eip-2930)) became fully supported ([#1955](https://github.com/klaytn/klaytn/pull/1955)).
+
+## Shanghai
+
+| \`\`    | Baobab                        | Cypress                       |
+| ------- | ----------------------------- | ----------------------------- |
+| Ngày    | Apr 28, 2023 10:30:31 / UTC+9 | Oct 16, 2023 10:50:24 / UTC+9 |
+| Số khối | `#131,608,000`                | `#135,456,000`                |
+
+### Tóm tắt
+
+Ethereum's Shanghai hardfork items were introduced with the [v1.11.0 release](https://github.com/klaytn/klaytn/releases/tag/v1.11.0). It includes the features equivalent to Ethereum Shanghai hardfork([#1883](https://github.com/klaytn/klaytn/pull/1883), [#1861](https://github.com/klaytn/klaytn/pull/1861), [#1888](https://github.com/klaytn/klaytn/pull/1888)) and fixed to allow a new contract account to be created by overwriting an EOA ([#1904](https://github.com/klaytn/klaytn/pull/1904)).
+
+## KIP-103 <a id="kip-103"></a>
+
+| \`\`    | Baobab                        | Cypress                       |
+| ------- | ----------------------------- | ----------------------------- |
+| Ngày    | Apr 06, 2023 04:25:03 / UTC+9 | Apr 17, 2023 01:24:48 / UTC+9 |
+| Số khối | `#119,145,600`                | `#119,750,400`                |
+
+### Tóm tắt
 
 KIP-103 hardfork was introduced with the [v1.10.2 release](https://eips.ethereum.org/EIPS/eip-1844). It includes an implementation of [KIP-103](https://eips.ethereum.org/EIPS/eip-2200) that is a technical specification of treasury rebalance([KGP-6](https://eips.ethereum.org/EIPS/eip-152)).
 
@@ -35,40 +68,40 @@ Kore hardfork was introduced with the [v1.10.0 release](https://eips.ethereum.or
 
 ## Magma <a id="magma"></a>
 
-| \`\`    | Baobab                        | Cypress                       |
-| ------- | ----------------------------- | ----------------------------- |
-| Ngày    | Aug 08, 2022 11:01:20 / UTC+9 | Aug 29, 2022 11:51:00 / UTC+9 |
-| Số khối | `#98,347,376`                 | `#99,841,497`                 |
+| \`\`         | Baobab                        | Cypress                       |
+| ------------ | ----------------------------- | ----------------------------- |
+| Date         | Aug 08, 2022 11:01:20 / UTC+9 | Aug 29, 2022 11:51:00 / UTC+9 |
+| Block number | `#98,347,376`                 | `#99,841,497`                 |
 
-### Tóm tắt
+### Summary
 
 Magma hardfork was introduced with the [v1.9.0 release](https://eips.ethereum.org/EIPS/eip-2200). It includes dynamic gas fee pricing mechanism, [#1493](https://eips.ethereum.org/EIPS/eip-152)) and is an implementation of [KIP-71](https://eips.ethereum.org/EIPS/eip-1108).
 
 ## EthTxType <a id="eth-tx-type"></a>
 
-| \`\`    | Baobab                        | Cypress                     |
-| ------- | ----------------------------- | --------------------------- |
-| Ngày    | Mar 27, 2022 23:56:31 / UTC+9 | 31/03/2022 12:14:39 / UTC+9 |
-| Số khối | `#86,513,895`                 | `#86,816,005`               |
+| ` `          | Baobab                        | Cypress                     |
+| ------------ | ----------------------------- | --------------------------- |
+| Date         | Mar 27, 2022 23:56:31 / UTC+9 | 31/03/2022 12:14:39 / UTC+9 |
+| Block number | `#86,513,895`                 | `#86,816,005`               |
 
-### Tóm tắt
+### Summary
 
 Ethereum's EthTxType changes were introduced with the [v1.8.0 release](https://eips.ethereum.org/EIPS/eip-1344). It includes new transactions types to support Ethereum transaction types: TxTypeEthereumAccessListand TxTypeEthereumDynamicFee ([#1142](https://eips.ethereum.org/EIPS/eip-1844), [#1158](https://eips.ethereum.org/EIPS/eip-2200)).
 
 ## London EVM <a id="london-evm"></a>
 
-| \`\`    | Baobab                        | Cypress                       |
-| ------- | ----------------------------- | ----------------------------- |
-| Ngày    | Jan 14, 2022 11:02:55 / UTC+9 | Mar 31, 2022 12:14:39 / UTC+9 |
-| Số khối | `#80,295,291`                 | `#86,816,005`                 |
+| ` `          | Baobab                        | Cypress                       |
+| ------------ | ----------------------------- | ----------------------------- |
+| Date         | Jan 14, 2022 11:02:55 / UTC+9 | Mar 31, 2022 12:14:39 / UTC+9 |
+| Block number | `#80,295,291`                 | `#86,816,005`                 |
 
-### Tóm tắt
+### Summary
 
 Ethereum's London hard fork items were introduced with the [v1.7.3 release](https://eips.ethereum.org/EIPS/eip-152), which includes BaseFee EVM opcode for Ethereum London EVM compatibility ([#1065](https://eips.ethereum.org/EIPS/eip-1108), [#1066](https://eips.ethereum.org/EIPS/eip-1344), [#1096](https://eips.ethereum.org/EIPS/eip-1844)).
 
 ## Istanbul EVM <a id="istanbul-evm"></a>
 
-| \`\`         | Baobab                        | Cypress                       |
+| ` `          | Baobab                        | Cypress                       |
 | ------------ | ----------------------------- | ----------------------------- |
 | Date         | Nov 17, 2021 23:42:13 / UTC+9 | Mar 31, 2022 12:14:39 / UTC+9 |
 | Block number | `#75,373,312`                 | `#86,816,005`                 |

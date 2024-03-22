@@ -39,4 +39,4 @@ kni://a979...163c@10.0.0.1:32323?subport=32324&discport=30301   # multi-channel 
 ```
 
 Nếu bạn muốn biết cách tạo KNI của một nút, vui lòng tham khảo phần [Tạo khóa nút & nút URI](../nodes/core-cell/install/before-you-install.md#node-key-node-uri-creation).
-Lược đồ KNI được dùng trong giao thức khám phá nút, [thiết lập `static-nodes.json`](../nodes/core-cell/install/install-proxy-nodes.md#install-static-nodes-json), [API addPeer](../references/json-rpc/admin.md#admin_addpeer), [tùy chọn nút ban đầu](../misc/operation/configuration.md#properties), v.v.
+The KNI scheme is used in node discovery protocol, [setting `static-nodes.json` file](../nodes/core-cell/install/install-proxy-nodes.md#install-static-nodes-json), [addPeer API](../references/json-rpc/admin/add-peer), [bootnodes option](../misc/operation/configuration.md#properties) and etc.

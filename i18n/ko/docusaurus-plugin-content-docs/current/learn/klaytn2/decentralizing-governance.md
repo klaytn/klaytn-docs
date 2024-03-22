@@ -14,7 +14,7 @@
 
 ## 커뮤니티의 지지에 따라 확장되는 투표권 <a href="#voting-power-that-scales-with-community-support" id="voting-power-that-scales-with-community-support"></a>
 
-클레이튼 커뮤니티에서 더 많은 지지를 얻을 수 있는 거버넌스 참여자들이 각자의 선호에 따라 클레이튼을 만들어갈 수 있도록 지분 기반 거버넌스 모델이 도입될 예정입니다. Gini 계수는 곧 중단될 예정입니다. 메타버스화된 세상에서 올바른 결정을 내릴 수 있는 주체가 Klaytn GC에서 더 많은 영향력을 갖게 될 것입니다. 저희는 DAO와 빌더들이 앞으로 이 분야를 주도할 것이라고 믿습니다.
+A stake-based governance model has been introduced to enable governance participants who can gather more support from Klaytn Communities to shape Klaytn in line with their preference. The Gini Coefficient has been discontinued as part of the efforts to promote fairness and decentralization within the Klaytn ecosystem. Entities who can make proper decisions in a Metaversified world will have more influence in the Klaytn GC. 저희는 DAO와 빌더들이 앞으로 이 분야를 주도할 것이라고 믿습니다.
 
 ## 탈중앙화의 궁극적인 목표 <a href="#ultimate-goal-of-decentralization" id="ultimate-goal-of-decentralization"></a>
 

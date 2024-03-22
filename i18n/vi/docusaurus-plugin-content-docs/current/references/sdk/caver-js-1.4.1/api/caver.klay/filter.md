@@ -188,7 +188,7 @@ Tạo đối tượng bộ lọc sử dụng các tùy chọn bộ lọc nhất 
 - Để kiểm tra xem trạng thái có thay đổi hay không, hãy gọi ra [getFilterChanges](#getfilterchanges).
 - Để có được tất cả các bản ghi khớp với bộ lọc được tạo bởi `newFilter`, hãy gọi ra [getFilterLogs](#getfilterlogs).
 
-Để biết thông tin chi tiết về các bộ lọc theo chủ đề, hãy tham khảo [API Nền tảng Klaytn - klay_newFilter](../../../../json-rpc/klay/filter.md#klay_newfilter).
+For detailed information about topic filters, please see [Klaytn Platform API - klay_newFilter](../../../../../json-rpc/klay/new-filter).
 
 **Tham số**
 

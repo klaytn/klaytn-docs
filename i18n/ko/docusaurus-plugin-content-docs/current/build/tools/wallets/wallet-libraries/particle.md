@@ -8,11 +8,11 @@ sidebar_label: Particle Network
 
 ## 소개
 
-[Particle Network](https://particle.network)는 웹3.0의 인텐트 중심 모듈형 액세스 레이어입니다. 개발자는 Particle의 스마트 월렛 서비스(Smart Wallet-as-a-Service)를 통해 모듈형 커스터마이징이 가능한 EOA/AA 임베디드 월렛 구성요소를 통해 원활한 사용자 경험을 큐레이션할 수 있습니다. Particle은 키 관리에 MPC-TSS를 사용하여 Google 계정, 이메일 주소, 전화번호와 같은 웹2.0 계정을 통해 사용자 온보딩을 간소화할 수 있습니다.
+[Particle Network](https://particle.network)'s Wallet Abstraction services enable universal, Web2-adjacent onboarding and interactions. Its core technology, [Smart Wallet-as-a-Service](https://blog.particle.network/announcing-our-smart-wallet-as-a-service-modular-stack-upgrading-waas-with-erc-4337) (WaaS) aims to onboard users into MPC-secured smart accounts supporting any chain. It also allows developers to offer an improved user experience through modular, fully customizable EOA/AA embedded wallets. Particle supports its Smart Wallet-as-a-Service through a Modular L1 powering chain abstraction, acting as a settlement layer across chains for a seamless multi-chain experience.
 
 개발자는 모바일과 데스크톱 플랫폼 모두에서 사용할 수 있는 API와 SDK를 통해 다양한 시나리오에 걸쳐 Particle의 서비스형 월렛을 통합할 수 있으며, 특정 애플리케이션의 특정 요구 사항에 맞는 방식으로 맞춤화 및 구현할 수 있습니다.
 
-안드로이드, iOS, 리액트 네이티브, 플러터, 유니티 등 다른 플랫폼에서 Particle Network를 활용하려면 Particle의 [문서](https://docs.particle.network)를 참조하시기 바랍니다.
+To leverage Particle Network on alternative platforms, such as Android, iOS, React Native, Flutter, & Unity, kindly refer to Particle’s [documentation](https://developers.particle.network/reference/introduction-to-api-sdk-reference).
 
 ## 전제 조건
 
@@ -37,7 +37,7 @@ npm install --save ethers
 
 ```js
 import { ModalProvider } from '@particle-network/connectkit';
-import { Klaytn } from '@particle-network/chains';
+import { Klaytn, KlaytnTestnet } from '@particle-network/chains';
 import { evmWallets } from '@particle-network/connectors';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
@@ -49,12 +49,12 @@ root.render(
                 clientKey: 'replace with your clientKey',
                 appId: 'replace with your appId',
                 chains: [
-                    Klaytn
+                    KlaytnTestnet, Klaytn
                 ],
                 wallet: {    // optional: Wallet modal configuration
                     visible: true, // Display wallet modal
                     supportChains:[
-                        Klaytn
+                        KlaytnTestnet, Klaytn
                     ],
                     customStyle: {}, // optional: Custom wallet style
                 },
@@ -104,12 +104,11 @@ const provider = useParticleProvider();
 const [address, setAddress] = useState("");
 const [balance, setBalance] = useState("");
 
-const connectWallet = async() => {
+const getWalletAndBalance = async() => {
 	// this guide uses ethers version 6.3.0.
     const ethersProvider = new ethers.BrowserProvider(provider);
     // for ethers version below 6.3.0.
     // const provider = new ethers.providers.Web3Provider(web3authProvider);
-    const ethersProvider = new ethers.BrowserProvider(provider);
 
     const signer = await ethersProvider.getSigner();
 
@@ -126,7 +125,7 @@ const connectWallet = async() => {
 
 return (
     <div className="App">
-        <button onClick={connectWallet}>Connect Wallet</button>  
+        <button onClick={getWalletAndBalance}>Get Wallet Account and Balance</button>  
         <div>Wallet Address: ${address} Balance: ${balance}</div>
     </div>
   );
@@ -181,7 +180,7 @@ const getUserInfo = async () => {
 return (
     <div className="App">
         <button onClick={getUserInfo}>Get User Info</button>  
-        <div> { userData ? `User Email: ${userData.email}, User Name: ${userData.name}` :  ""} </div>
+        <p> User Email: { userData ? ` ${userData.google_email}` :  "Nil"} </p>
     </div>
   );
 ```
@@ -525,4 +524,4 @@ return (
 
 ## 다음 단계
 
-Particle Network(Particle 커넥트, Particle 인증 및 기타 SDK)에 관한 추가 가이드는 [Particle Network 문서](https://docs.particle.network) 및 [Particle Network 깃허브 계정](https://github.com/Particle-Network)을 참조하세요. 또한, Particle Network의 서비스, 향후 릴리스 및 기술 스택에 대한 자세한 내용은 [Particle Network 블로그](https://blog.particle.network)를 참조하시기 바랍니다. 또한, 이 가이드에 사용된 코드의 전체 구현은 [GitHub](https://github.com/klaytn/examples/tree/main/wallet-libraries/particle-sample)에서 확인할 수 있습니다.
+For additional guides regarding Particle Network (Particle Connect, Particle Auth, and other SDKs), please refer to the [Particle Network docs](https://developers.particle.network) and the [Particle Network GitHub account](https://github.com/Particle-Network). 또한, Particle Network의 서비스, 향후 릴리스 및 기술 스택에 대한 자세한 내용은 [Particle Network 블로그](https://blog.particle.network)를 참조하시기 바랍니다. Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/klaytn/examples/tree/main/tools/wallet-libraries/particle-sample).

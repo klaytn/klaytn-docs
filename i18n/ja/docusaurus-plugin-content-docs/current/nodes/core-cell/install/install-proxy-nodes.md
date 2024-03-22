@@ -284,7 +284,7 @@ Please execute the following command and check out the result.
   >
 ```
 
-You can check the usable commands on [API Document](../../../references/json-rpc/json-rpc.md)
+You can check the usable commands on [API Document](../../../references/json-rpc/klay/account-created)
 
 The useful APIs to check the status of a PN:
 

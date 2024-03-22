@@ -365,7 +365,7 @@ false
 caver.klay.sign(message, address [, callback])
 ```
 
-Tạo dữ liệu đã ký cụ thể cho mạng lưới Klaytn. Tham khảo [API Nền tảng Klaytn - klay_sign](../../../../../references/json-rpc/klay/account.md#klay_sign) để biết cách tạo chữ ký.
+Tạo dữ liệu đã ký cụ thể cho mạng lưới Klaytn. Refer to [Klaytn Platform API - klay_sign](../../../../../../references/json-rpc/klay/sign) to know how the signature is generated.
 
 **LƯU Ý**: API này hỗ trợ chức năng ký thông báo bằng cách sử dụng tài khoản đã tồn tại trên nút của bạn. Tài khoản trong nút phải ở trạng thái mở khóa để ký thông báo. Sử dụng hàm [caver.klay.signTransaction](./transaction/transaction.md#signtransaction) để ký giao dịch.
 

@@ -356,4 +356,4 @@ cast call $oUSDC \
 
 ![](/img/build/get-started/oUsdcHolderAfter.png)
 
-Foundry에 대한 더 자세한 가이드는 [Foundry 문서](https://book.getfoundry.sh/)를 참조하세요. 또한 이 가이드에 사용된 코드의 전체 구현은 [GitHub](https://github.com/klaytn/examples/tree/main/foundry)에서 확인할 수 있습니다.
+Foundry에 대한 더 자세한 가이드는 [Foundry 문서](https://book.getfoundry.sh/)를 참조하세요. Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/klaytn/examples/tree/main/tools/foundry).
