@@ -8,7 +8,7 @@ sidebar_label: Particle Network
 
 ## Introduction
 
-[Particle Network](https://particle.network) is the intent-centric, modular access layer of Web3. With Particle's Smart Wallet-as-a-Service, developers can curate a seamless user experience through modular and customizable EOA/AA embedded wallet components. Using MPC-TSS for key management, Particle can streamline user onboarding via their Web2 accounts –such as Google accounts, email addresses, and phone numbers.
+[Particle Network](https://particle.network)'s Wallet Abstraction services enable universal, Web2-adjacent onboarding and interactions. Its core technology, [Smart Wallet-as-a-Service](https://blog.particle.network/announcing-our-smart-wallet-as-a-service-modular-stack-upgrading-waas-with-erc-4337) (WaaS) aims to onboard users into MPC-secured smart accounts supporting any chain. It also allows developers to offer an improved user experience through modular, fully customizable EOA/AA embedded wallets. Particle supports its Smart Wallet-as-a-Service through a Modular L1 powering chain abstraction, acting as a settlement layer across chains for a seamless multi-chain experience.
 
 Through APIs and SDKs available on both mobile and desktop platforms, developers can integrate Particle’s Wallet-as-a-Service across a variety of scenarios, with the capacity to be customized and implemented in a way that matches the specific needs of a given application.
 
@@ -37,7 +37,7 @@ After successfully installing the aforementioned libraries, you'll need to head 
 
 ```js
 import { ModalProvider } from '@particle-network/connectkit';
-import { Klaytn } from '@particle-network/chains';
+import { Klaytn, KlaytnTestnet } from '@particle-network/chains';
 import { evmWallets } from '@particle-network/connectors';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
@@ -49,12 +49,12 @@ root.render(
                 clientKey: 'replace with your clientKey',
                 appId: 'replace with your appId',
                 chains: [
-                    Klaytn
+                    KlaytnTestnet, Klaytn
                 ],
                 wallet: {    // optional: Wallet modal configuration
                     visible: true, // Display wallet modal
                     supportChains:[
-                        Klaytn
+                        KlaytnTestnet, Klaytn
                     ],
                     customStyle: {}, // optional: Custom wallet style
                 },
@@ -105,12 +105,11 @@ const provider = useParticleProvider();
 const [address, setAddress] = useState("");
 const [balance, setBalance] = useState("");
 
-const connectWallet = async() => {
+const getWalletAndBalance = async() => {
 	// this guide uses ethers version 6.3.0.
     const ethersProvider = new ethers.BrowserProvider(provider);
     // for ethers version below 6.3.0.
     // const provider = new ethers.providers.Web3Provider(web3authProvider);
-    const ethersProvider = new ethers.BrowserProvider(provider);
 
     const signer = await ethersProvider.getSigner();
 
@@ -127,7 +126,7 @@ const connectWallet = async() => {
 
 return (
     <div className="App">
-        <button onClick={connectWallet}>Connect Wallet</button>  
+        <button onClick={getWalletAndBalance}>Get Wallet Account and Balance</button>  
         <div>Wallet Address: ${address} Balance: ${balance}</div>
     </div>
   );
@@ -182,7 +181,7 @@ const getUserInfo = async () => {
 return (
     <div className="App">
         <button onClick={getUserInfo}>Get User Info</button>  
-        <div> { userData ? `User Email: ${userData.email}, User Name: ${userData.name}` :  ""} </div>
+        <p> User Email: { userData ? ` ${userData.google_email}` :  "Nil"} </p>
     </div>
   );
 ```
@@ -526,4 +525,4 @@ Without using the wallet itself, purely the provider, read-only methods can be c
 
 ## Next Steps
 
-For additional guides regarding Particle Network (Particle Connect, Particle Auth, and other SDKs), please refer to the [Particle Network docs](https://developers.particle.network) and the [Particle Network GitHub account](https://github.com/Particle-Network). Additionally, you may want to visit the [Particle Network blog](https://blog.particle.network) for additional information on Particle Network's services, upcoming releases, and tech stack. Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/klaytn/examples/tree/main/wallet-libraries/particle-sample).
+For additional guides regarding Particle Network (Particle Connect, Particle Auth, and other SDKs), please refer to the [Particle Network docs](https://developers.particle.network) and the [Particle Network GitHub account](https://github.com/Particle-Network). Additionally, you may want to visit the [Particle Network blog](https://blog.particle.network) for additional information on Particle Network's services, upcoming releases, and tech stack. Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/klaytn/examples/tree/main/tools/wallet-libraries/particle-sample).

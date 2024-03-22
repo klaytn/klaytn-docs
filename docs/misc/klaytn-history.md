@@ -2,6 +2,33 @@
 
 This page shows all the hard forks to the Klaytn blockchain.
 
+## Randao
+| ` ` | Baobab                        | Cypress                       |
+| --------------- |-------------------------------|-------------------------------|
+| Date | Dec 19, 2023 10:05:01 / UTC+9 | Mar 04, 2024 10:25:34 / UTC+9 |
+| Block number  | `#141,367,000`                | `#147,534,000`                |
+
+### Summary
+Randao hardfork was introduced with the [v1.12.0 release](https://github.com/klaytn/klaytn/releases/tag/v1.12.0). It implements an optional hardfork implementing the Randao on-chain randomness according to [KIP-113](https://kips.klaytn.foundation/KIPs/kip-113), [KIP-114](https://kips.klaytn.foundation/KIPs/kip-114), [KIP-146](https://kips.klaytn.foundation/KIPs/kip-146).
+
+## Cancun
+| ` ` | Baobab                        | Cypress                       |
+| --------------- |-------------------------------|-------------------------------|
+| Date | Dec 19, 2023 10:05:01 / UTC+9 | Mar 04, 2024 10:25:34 / UTC+9 |
+| Block number  | `#141,367,000`                | `#147,534,000`                |
+
+### Summary
+Ethereum's Cancun hardfork items were introduced with the [v1.12.0 release](https://github.com/klaytn/klaytn/releases/tag/v1.12.0). For specific information, please see the release note. In addition, AccessList transaction type(introduced in [EIP-2930](https://eips.ethereum.org/EIPS/eip-2930)) became fully supported ([#1955](https://github.com/klaytn/klaytn/pull/1955)).  
+
+## Shanghai
+| ` ` | Baobab                        | Cypress                       |
+| --------------- |-------------------------------|-------------------------------|
+| Date | Apr 28, 2023 10:30:31 / UTC+9 | Oct 16, 2023 10:50:24 / UTC+9 |
+| Block number  | `#131,608,000`                | `#135,456,000`                |
+
+### Summary
+Ethereum's Shanghai hardfork items were introduced with the [v1.11.0 release](https://github.com/klaytn/klaytn/releases/tag/v1.11.0). It includes the features equivalent to Ethereum Shanghai hardfork([#1883](https://github.com/klaytn/klaytn/pull/1883), [#1861](https://github.com/klaytn/klaytn/pull/1861), [#1888](https://github.com/klaytn/klaytn/pull/1888)) and fixed to allow a new contract account to be created by overwriting an EOA ([#1904](https://github.com/klaytn/klaytn/pull/1904)).
+
 ## KIP-103 <a id="kip-103"></a>
 
 | ` ` | Baobab | Cypress |
@@ -33,7 +60,6 @@ KIP-103 hardfork was introduced with the [v1.10.2 release](https://github.com/kl
 ### Summary
 
 Kore hardfork was introduced with the [v1.10.0 release](https://github.com/klaytn/klaytn/releases/tag/v1.10.0). It is an implementation of the on-chain governance voting method ([KIP-81](https://kips.klaytn.foundation/KIPs/kip-81)), a new GC reward structure ([KIP-82](https://kips.klaytn.foundation/KIPs/kip-82)), and EVM changes.
-
 
 
 ## Magma <a id="magma"></a>

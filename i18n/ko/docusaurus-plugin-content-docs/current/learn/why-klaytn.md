@@ -35,14 +35,15 @@
 
 - 최종 사용자는 기존 시스템에서 요구하는 것 이상으로 높은 트랜잭션 수수료를 부담해서는 안 됩니다.
 - 트랜잭션 수수료는 안정적이어야 하며, 주변 요인이 아닌 트랜잭션 복잡성 자체에 따라 결정되어야 합니다.
-- [합리적인 스마트 컨트랙트 실행 비용](computation/klaytn-smart-contract.md#affordable-smart-contract-execution-cost) 및 [트랜잭션 수수료](./transaction-fees.md)를 참조하세요. 가스 가격이 250 ston인 경우, KLAY 전송에는 0.00525 KLAY의 고정 비용이 발생합니다. (21,000 KLAY 전송 gas x (250 x 10^-9) == 0.00525 KLAY)
+- [합리적인 스마트 컨트랙트 실행 비용](computation/klaytn-smart-contract.md#affordable-smart-contract-execution-cost) 및 [트랜잭션 수수료](./transaction-fees/transaction-fees.md)를 참조하세요. 가스 가격이 250 ston인 경우, KLAY 전송에는 0.00525 KLAY의 고정 비용이 발생합니다. (21,000 KLAY 전송 gas x (250 x 10^-9) == 0.00525 KLAY)
+
 
 ### 빠른 개발 <a id="rapid-development"></a>
 
 #### 이더리움 호환성 <a id="ethereum-compatibility"></a>
 
 - 개발 도구: 이더리움에서 실행할 수 있는 모든 툴은 인터페이스와 실행 관점에서 기존 이더리움의 기술 스택과 클레이튼의 기술 스택을 동등하게 만들어 클레이튼 생태계 내에서 원활하게 실행됩니다. 클레이튼 생태계에서 만들어진 새로운 툴링은 이더리움 생태계 내에서 상호적으로 채택될 수 있습니다.
-- EVM과 API: 기존 이더리움 스택을 기반으로 구축함으로써 EVM과 지원 라이브러리의 오픈소스 코드베이스에 대한 모든 개선 사항을 계승합니다. Klaytn EVM 환경에서 이와 동등한 Opcode와 스택 로직을 지원하면 실행 동작이 동등하게 보장되며, 동등한 엔드포인트 페이로드 구문을 가진 JSON-RPC API 세트를 지원하면 완전한 이더리움 인터페이스 동등성이 보장됩니다. See [Solidity-Smart Contract Language], and [Migrating Ethereum App to Klaytn].
+- EVM과 API: 기존 이더리움 스택을 기반으로 구축함으로써 EVM과 지원 라이브러리의 오픈소스 코드베이스에 대한 모든 개선 사항을 계승합니다. Klaytn EVM 환경에서 이와 동등한 Opcode와 스택 로직을 지원하면 실행 동작이 동등하게 보장되며, 동등한 엔드포인트 페이로드 구문을 가진 JSON-RPC API 세트를 지원하면 완전한 이더리움 인터페이스 동등성이 보장됩니다. [Solidity-스마트 컨트랙트 언어](../build/smart-contracts/solidity-smart-contract-language.md), [이더리움 앱을 클레이튼으로 마이그레이션하기](../build/tutorials/migrating-ethereum-app-to-klaytn.md)를 참고하세요.
 - 핵심 개발 기여: 이더리움 동등성을 지원하는 것은 클레이튼과 이더리움 생태계 모두에 상호 이익을 가져다줍니다. 이더리움 개선 제안(EIP)의 대부분은 클레이튼 핵심 개발 아젠다로 마이그레이션되어 채택될 수 있으며, 결과적으로 클레이튼 개선 제안(KIP)은 이더리움과 EVM의 발전에 기여할 수 있습니다. 개발 커뮤니티가 한 생태계에 기여하면 실제로 두 생태계 모두에 기여하는 것입니다.
   ​
 

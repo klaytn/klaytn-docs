@@ -247,4 +247,4 @@ node interact.js
 
 If the transaction was successful, you'll see the transaction hash and the value stored in your terminal 
 
-For more in-depth guide on ethers.js, please refer to [ethers.js docs](https://docs.ethers.org/). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/klaytn/examples/tree/main/sdk-and-libraries-for-interacting-with-klaytn-node/ethers-js)
+For more in-depth guide on ethers.js, please refer to [ethers.js docs](https://docs.ethers.org/). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/klaytn/examples/tree/main/tools/sdk-and-libraries-for-interacting-with-klaytn-node/ethers-js)

@@ -22,13 +22,11 @@ Klaytn Governance Council is the collective group of Core Cell Operators \(CCOs\
 
 ### Klaytn Governance Council Reward Mechanism <a id="klaytn-governance-council-reward-mechanism"></a>
 
-For every block, a Committee composed of randomly selected Council members is formed. Each Committee has one member assigned the role of Proposer; all other Committee members assume the role of Validators. When a block is successfully created and added to the Klaytn blockchain, the Proposer of the said block is rewarded with 100% of the block reward. The probability of a Council member being selected a Proposer is proportional to the amount of KLAY staked by the member; that is, the more KLAY a member stakes, the more likely that the member will be selected as a Proposer and potentially claim the block reward.
+For each block in the Klaytn blockchain, a Committee is formed by randomly selecting members from the Klaytn Governance Council (GC). This Committee consists of a single member who is assigned the role of Proposer, while the remaining Committee members take on the role of Validators. Once a block is successfully created and appended to the Klaytn blockchain, the block reward is distributed among the Council members and various funds according to the previously mentioned ratios.
+
+All Council members have an equal probability of being selected as the Proposer for a given block, and the block proposer reward is distributed evenly among them. However, the GC staking reward is allocated proportionally based on the amount of KLAY staked by each member, minus the minimum requirement of 5 million KLAY. This means that Council members who stake a larger amount of KLAY beyond the minimum threshold will receive a greater share of the staking reward compared to those who stake less. As a result, Council members are incentivized to stake more KLAY to maximize their potential rewards from the GC staking award portion of the block reward distribution.
 
 As long as the minimum 5 million KLAY staking requirement is met, Klaytn Governance Council members can freely stake or unstake his or her own KLAY. Staking information is updated every 86,400 blocks, and newly staked KLAY comes info effect two update cycles later from when the staking is completed. Withdrawing staked KLAY requires one week of delay to prevent malicious members from immediately exiting.
-
-To prevent monopolized claiming of Klaytn Governance Council Reward by small groups of highly invested Council members, Gini coefficient may be used to adjust the effective amount of staked KLAY. The application formula is as follows, where G stands for gini coefficient of Governance Council's KLAY staking distribution:
-
-* _Adjusted staking amount = \(Council member's staking amount\)^\(1/1+G\)_
 
 
 ### Penalty for Misbehaving Council Members <a id="penalty-for-misbehaving-council-members"></a>

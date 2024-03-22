@@ -189,7 +189,7 @@ function callKzg(bytes memory data) public returns (bytes memory) {
 
 ## Address 0x3fd: vmLog\(str\) <a id="address-0x-3fc-vmlog-str"></a>
 
-The address 0x3FD prints the specified string `str` to a specific file or passes it to the logger module. For more information, see [debug_setVMLogTarget](../../references/json-rpc/debug/logging.md#debug_setvmlogtarget). Note that this precompiled contract should be used only for debugging purposes, and it is required to enable the `--vmlog` option when the Klaytn node starts. Also, the log level of the Klaytn node should be 4 or more to see the output of vmLog. This precompiled contract is not supported by the Solidity compiler. The following code can be used to call this precompiled contract.
+The address 0x3FD prints the specified string `str` to a specific file or passes it to the logger module. For more information, see [debug_setVMLogTarget](../../../references/json-rpc/debug/set-vm-log-target). Note that this precompiled contract should be used only for debugging purposes, and it is required to enable the `--vmlog` option when the Klaytn node starts. Also, the log level of the Klaytn node should be 4 or more to see the output of vmLog. This precompiled contract is not supported by the Solidity compiler. The following code can be used to call this precompiled contract.
 
 ```text
 function callVmLog(bytes memory str) public {

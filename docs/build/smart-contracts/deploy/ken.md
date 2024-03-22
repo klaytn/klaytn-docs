@@ -133,7 +133,7 @@ UTC--2019-06-24T11-20-15.590879000Z--75a59b94889a05c03c66c3c84e9d2f8308ca4abd
 
 To unlock the created account, execute the following command. It unlocks the account for 300 seconds.
 
-**Note**: If you want to manually set the unlock duration, refer to this [link](../../../references/json-rpc/personal.md#personal_unlockaccount).
+**Note**: If you want to manually set the unlock duration, refer to this [link](../../../../references/json-rpc/personal/unlock-account).
 
 **`WARNING`**: Unlocking an account could be very dangerous if not done carefully. There are chances that your tokens will be taken away by hackers if your EN is hacked by a hacker. To use safer method, refer to this [deployment guide using private key](../../tutorials/count-dapp/deploy-contracts.md#deploy-method-1-by-private-key)
 

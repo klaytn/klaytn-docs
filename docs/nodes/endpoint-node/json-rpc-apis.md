@@ -1,6 +1,6 @@
 # JSON-RPC APIs
 
-Endpoint Node exposes JSON-RPC APIs. You can enable/disable APIs as follows. For the detailed API specification, please refer to the [JSON-RPC APIs](../../references/json-rpc/json-rpc.md). 
+Endpoint Node exposes JSON-RPC APIs. You can enable/disable APIs as follows. For the detailed API specification, please refer to the [JSON-RPC APIs](../../../references/json-rpc/klay/account-created). 
 
 **NOTE**: Offering an API over the HTTP (`rpc`) or WebSocket (`ws`) interfaces will give everyone
 access to the APIs who can access this interface (DApps, browser tabs, etc). Be careful about which APIs
@@ -76,7 +76,7 @@ that are unsafe/unappropriate to be opened to the public and enable only a subse
 
 The enabled APIs are as follows:
 
-- [VM Tracing](../../references/json-rpc/debug/tracing.md) APIs, however with limited functionality (only [pre-defined tracers](../../references/json-rpc/debug/tracing.md#tracing-options) are allowed)
+- [VM Tracing](../../../references/json-rpc/debug/trace-bad-block) APIs, however with limited functionality (only [pre-defined tracers](../../../references/json-rpc/debug/trace-bad-block) are allowed. See params/tracingOptions)
 - debug_dumpBlock, debug_dumpStateTrie, debug_getBlockRlp, debug_getModifiedAccountsByHash, debug_getModifiedAccountsByNumber, debug_getBadBlocks, debug_getModifiedStorageNodesByNumber
 - debug_metrics
 
