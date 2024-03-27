@@ -44,7 +44,7 @@ Mặc dù mô hình địa chỉ (ví dụ: "0x0fe2e20716753082222b52e753854f40a
 
 ### Các loại tài khoản Klaytn <a id="klaytn-account-types"></a>
 
-Có hai loại tài khoản trong Klaytn: tài khoản sở hữu bên ngoài (\EOA) và tài khoản hợp đồng thông minh (SCA).
+There are two types of accounts in Klaytn: <LinkWithTooltip to="../glossary#externally-owned-account-eoa" tooltip="User-controlled blockchain accounts for transactions,<br /> secured by a private key.">externally owned accounts</LinkWithTooltip> (EOAs), and <LinkWithTooltip to="../glossary#smart-contract-account-sca" tooltip="Blockchain account with programmable logic <br />for automated transactions.">smart contract accounts</LinkWithTooltip> (SCAs).
 
 #### Tài khoản sở hữu bên ngoài (EOAs) <a id="externally-owned-accounts-eoas"></a>
 
@@ -202,7 +202,7 @@ LƯU Ý: Logic xác thực multiGig sau đây đã thay đổi với quá trình
 | :----------------- | :------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------ |
 | Loại              | uint8 (Go)                                                                                                                      | Loại AccountKeyWeightedMultiSig. Giá trị này phải là **0x04**.                                                                  |
 | Ngưỡng             | uint (Go)                                                                                                                       | Ngưỡng xác thực. Để được coi là giao dịch hợp lệ thì tổng trọng số của các chữ ký phải lớn hơn hoặc bằng ngưỡng này.            |
-| WeightedPublicKeys | []\{uint, [33]byte} (Go) | Một danh sách khóa công khai có trọng số. Một khóa công khai có trọng số có chứa khóa công khai đã được nén và trọng số của nó. |
+| WeightedPublicKeys | []{uint, [33]byte} (Go) | Một danh sách khóa công khai có trọng số. Một khóa công khai có trọng số có chứa khóa công khai đã được nén và trọng số của nó. |
 
 #### Mã hóa RLP <a id="rlp-encoding"></a>
 
@@ -237,7 +237,7 @@ AccountKeyRoleBased tương ứng với một khóa theo vai trò. Các vai trò
 | Thuộc tính | Loại                                                                                      | Mô tả                                                                                                                                                            |
 | :--------- | :----------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Loại      | uint8 (Go)                                                              | Loại AccountKeyRoleBased. Giá trị này phải là **0x05**.                                                                                                          |
-| Khóa       | []`{AccountKey}` (Go) | Một danh sách các khóa. Khóa có thể là bất kỳ khóa nào trong số AccountKeyNil, AccountKeyLegacy, AccountKeyPublic, AccountKeyFail và AccountKeyWeightedMultiSig. |
+| Khóa       | []{AccountKey} (Go) | Một danh sách các khóa. Khóa có thể là bất kỳ khóa nào trong số AccountKeyNil, AccountKeyLegacy, AccountKeyPublic, AccountKeyFail và AccountKeyWeightedMultiSig. |
 
 #### Vai trò <a id="roles"></a>
 
