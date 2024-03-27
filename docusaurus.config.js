@@ -97,6 +97,8 @@ const config = {
     ],
   ],
 
+  scripts: [{src: 'https://analytics.us.umami.is/script.js', async: true, 'data-website-id': 'aa08aa8e-7b56-4974-b396-f8083764aa4e'}],
+
   plugins: [
     [
       'docusaurus-plugin-openapi-docs',
