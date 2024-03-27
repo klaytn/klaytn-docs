@@ -44,7 +44,7 @@ This format is currently supported in [Klaytn Wallet](../build/tools/wallets/kla
 
 ### Klaytn Account Types <a id="klaytn-account-types"></a>
 
-There are two types of accounts in Klaytn: externally owned accounts (EOAs), and smart contract accounts (SCAs).
+There are two types of accounts in Klaytn: <LinkWithTooltip to="../glossary#externally-owned-account-eoa" tooltip="User-controlled blockchain accounts for transactions,<br /> secured by a private key.">externally owned accounts</LinkWithTooltip> (EOAs), and <LinkWithTooltip to="../glossary#smart-contract-account-sca" tooltip="Blockchain account with programmable logic <br />for automated transactions.">smart contract accounts</LinkWithTooltip> (SCAs).
 
 #### Externally Owned Accounts (EOAs) <a id="externally-owned-accounts-eoas"></a>
 
