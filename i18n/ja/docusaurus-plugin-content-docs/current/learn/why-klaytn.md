@@ -29,7 +29,7 @@ As per this principle, Klaytn has been designed to meet the following requiremen
 
 #### Scalability <a id="scalability"></a>
 
-- Service chain is the default L2 solution for Klaytn 2.0 that is customizable and easily deployable. The service chain can have its own governance and connect to the Klaytn main chain to anchor data or transfer assets.
+- Service chain is the default <LinkWithTooltip tooltip="L2 (level 2) blockchains act as an additional<br />  layer that helps the main blockchain handle<br />  more transactions more efficiently.">L2</LinkWithTooltip> solution for Klaytn 2.0 that is customizable and easily deployable. The service chain can have its own governance and connect to the Klaytn main chain to anchor data or transfer assets.
 - See [Service Chain]. Enterprises or large networks often want to have their own dedicated execution environment. With the service chain, they can maintain an isolated high-performing execution environment that is not affected by other blockchain applications.
 - Other scalability solutions will be available in the near future, such as sharding or rollups.
   ​
@@ -38,7 +38,7 @@ As per this principle, Klaytn has been designed to meet the following requiremen
 
 - End-users should not be burdened with any higher transaction fee beyond what the traditional systems require.
 - Transaction fee should be stable and be determined by the transaction complexity itself, and not the surrounding factors.
-- See [Affordable Smart Contract Execution Cost] and [Transaction Fees]. For a gas price of 250 ston, a KLAY transfer would incur a fixed cost of 0.00525 KLAY. (21,000 Gas for KLAY transfer x (250 x 10^-9) == 0.00525 KLAY)
+- See [Affordable Smart Contract Execution Cost] and [Transaction Fees]. For a gas price of 250 ston, a <LinkWithTooltip tooltip="The native token of the Klaytn blockchain.">KLAY</LinkWithTooltip> transfer would incur a fixed cost of 0.00525 KLAY. (21,000 Gas for KLAY transfer x (250 x 10^-9) == 0.00525 KLAY)
   ​
 
 ### Rapid Development <a id="rapid-development"></a>
