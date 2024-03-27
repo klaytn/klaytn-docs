@@ -15,7 +15,7 @@ Klaytn khởi chạy mạng chính thức [Cypress](https://scope.klaytn.com/) c
 - 4.000 giao dịch mỗi giây.
 - Giá gas thấp, gần bằng 1/10 Ethereum.
 - Chạy EVM (Máy ảo Ethereum) và hỗ trợ thực thi các hợp đồng Solidity.
-- 19 tập đoàn uy tín trên toàn thế giới đã thành lập Hội đồng quản trị của Klaytn từ ban đầu để vận hành các nút đồng thuận. Số lượng nút đồng thuận hiện tại được nêu trong [Klaytnscope](https://scope.klaytn.com/).
+- 19 reputable corporations worldwide initially formed <LinkWithTooltip to="./glossary#klaytn-governance-council-kgc" tooltip="A consortium governing Klaytn blockchain development and operations.">Klaytn Governance Council</LinkWithTooltip> to operate <LinkWithTooltip to="./glossary#consensus-node-cn" tooltip="Consensus node (CN) validates transactions, builds blocks,<br />  and achieves network agreement.">consensus nodes</LinkWithTooltip>. Số lượng nút đồng thuận hiện tại được nêu trong [Klaytnscope](https://scope.klaytn.com/).
 - Hơn 50 đối tác dịch vụ ban đầu đã cam kết khởi chạy các ứng dụng chuỗi khối trên Klaytn.
 
 ## Klaytn: Bức tranh toàn cảnh <a id="klaytn-the-big-picture"></a>
@@ -117,9 +117,8 @@ may be influenced by network traffic and node operation conditions.
 
 #### Lựa chọn ủy bạn và người đề xuất <a id="proposer-and-committee-selection"></a>
 
-Trong mỗi vòng, Klaytn ngẫu nhiên nhưng chắc chắn chọn một Nút đồng thuận (CN) làm người đề xuất khối được tạo, sau đó chọn một nhóm CN làm ủy ban cho vòng đó.
-(CN) as the proposer for the block to be created, and then selects a group of
-CNs as the committee for the given round. Klaytn không liên quan trực tiếp đến việc chọn người đề xuất hay ủy ban; thay vào đó, mỗi CN sử dụng một con số ngẫu nhiên lấy từ tiêu đề của khối gần đây nhất để chạy một hoạt động mã hóa, tạo bằng chứng rằng CN đã (hoặc chưa) được chọn cho vòng này.
+In each round, Klaytn randomly but deterministically selects a Consensus Node
+(CN) as the <LinkWithTooltip to="./glossary#proposer" tooltip="A randomly chosen consensus node for block creation.">proposer</LinkWithTooltip> for the block to be created, and then selects a group of CNs as the committee for the given round. Klaytn không liên quan trực tiếp đến việc chọn người đề xuất hay ủy ban; thay vào đó, mỗi CN sử dụng một con số ngẫu nhiên lấy từ tiêu đề của khối gần đây nhất để chạy một hoạt động mã hóa, tạo bằng chứng rằng CN đã (hoặc chưa) được chọn cho vòng này.
 the selection of either the proposer or committee; instead, each CN uses a
 random number derived from the most recent block header to run a cryptographic
 operation which yields proof that the CN has (or has not) been selected for
@@ -178,7 +177,7 @@ end-user requests regardless of intermittent network traffic spikes.
 
 ## Phần thưởng khối <a id="block-rewards"></a>
 
-Đối với mỗi vòng, phần thưởng khối (tổng của 6,4 KLAY mới tạo và phí giao dịch được trả để xử lý khối) sẽ được phân bổ cho những người tham gia mạng theo tỷ lệ phân phối đặt trước.
+For each round, block reward (which is the sum of 6.4 newly minted <LinkWithTooltip tooltip="The native token of the Klaytn blockchain.">KLAY</LinkWithTooltip> and
 transaction fees paid to process the block) will be distributed to
 the network participants according to preset distribution ratios. Người đề xuất của khối mới được tạo sẽ nhận được 100% phần thưởng được trao cho các CN, còn ủy ban sẽ không nhận được gì.
 of the newly created block will receive 100% of the reward to be awarded to

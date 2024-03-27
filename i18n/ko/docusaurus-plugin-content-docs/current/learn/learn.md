@@ -15,7 +15,7 @@
 - 초당 4,000건의 트랜잭션.
 - 이더리움의 1/10에 불과한 낮은 가스 가격.
 - EVM(이더리움 가상 머신)을 실행하고 Solidity 컨트랙트 실행을 지원합니다.
-- 초기에 전 세계 19개의 유명 기업들이 클레이튼 거버넌스 카운슬을 구성하여 합의 노드를 운영했습니다. 현재 컨센서스 노드 수는 [Klaytnscope](https://scope.klaytn.com/)에서 확인할 수 있습니다.
+- 19 reputable corporations worldwide initially formed <LinkWithTooltip to="./glossary#klaytn-governance-council-kgc" tooltip="A consortium governing Klaytn blockchain development and operations.">Klaytn Governance Council</LinkWithTooltip> to operate <LinkWithTooltip to="./glossary#consensus-node-cn" tooltip="Consensus node (CN) validates transactions, builds blocks,<br />  and achieves network agreement.">consensus nodes</LinkWithTooltip>. 현재 컨센서스 노드 수는 [Klaytnscope](https://scope.klaytn.com/)에서 확인할 수 있습니다.
 - 50개 이상의 초기 서비스 파트너들이 클레이튼에서 블록체인 애플리케이션을 출시하기로 약속했습니다.
 
 ## 클레이튼: 개관 <a id="klaytn-the-big-picture"></a>
@@ -108,7 +108,8 @@ PNN은 PN으로 구성됩니다.
 
 #### 제안자 및 위원회 선정 <a id="proposer-and-committee-selection"></a>
 
-각 라운드에서 클레이튼은 무작위적이지만 결정론적으로 합의 노드(CN)를 블록 생성 제안자로 선택한 다음, 해당 라운드의 위원회로 CN 그룹을 해당 라운드의 위원회로 선택합니다. 클레이튼은 제안자나 위원회 선정에 직접 관여하지 않으며, 대신 각 CN은 가장 최근의 블록에서 파생된 가장 최근의 블록 헤더에서 파생된 난수를 사용하여 암호화 연산을 실행하여 해당 CN이 이번 라운드에 선택되었는지 여부를 증명합니다. CNN의 크기가 작으면 제안자를 제외한 모든 CN을
+In each round, Klaytn randomly but deterministically selects a Consensus Node
+(CN) as the <LinkWithTooltip to="./glossary#proposer" tooltip="A randomly chosen consensus node for block creation.">proposer</LinkWithTooltip> for the block to be created, and then selects a group of CNs as the committee for the given round. 클레이튼은 제안자나 위원회 선정에 직접 관여하지 않으며, 대신 각 CN은 가장 최근의 블록에서 파생된 가장 최근의 블록 헤더에서 파생된 난수를 사용하여 암호화 연산을 실행하여 해당 CN이 이번 라운드에 선택되었는지 여부를 증명합니다. CNN의 크기가 작으면 제안자를 제외한 모든 CN을
 위원으로 선정될 수 있습니다.
 
 #### 블록 제안 및 검증 <a id="block-proposal-and-validation"></a>
@@ -134,4 +135,6 @@ PNN은 PN으로 구성됩니다.
 
 ## 블록 보상 <a id="block-rewards"></a>
 
-각 라운드마다 블록 보상(새로 발행된 6.4 KLAY와 블록을 처리하기 위해 지불한 트랜잭션 수수료의 합계)이 미리 설정된 분배 비율에 따라 네트워크 참여자에게 분배됩니다. 새로 생성된 블록의 제안자는 CN에게 지급되는 보상의 100%를 받게 되는 반면, 위원회는 아무것도 받지 못합니다. 제안자로 선정될 확률은 CN이 스테이킹한 KLAY의 양에 영향을 받으며, 이는 플랫폼에 더 많은 KLAY를 투자한 CN이 확률적으로 더 많은 보상을 받을 수 있다는 것을 의미합니다. 블록 보상 분배에 대한 자세한 내용은 [클레이튼 토큰 이코노미](./token-economy.md) 섹션에서 확인할 수 있습니다.
+For each round, block reward (which is the sum of 6.4 newly minted <LinkWithTooltip tooltip="The native token of the Klaytn blockchain.">KLAY</LinkWithTooltip> and
+transaction fees paid to process the block) will be distributed to
+the network participants according to preset distribution ratios. 새로 생성된 블록의 제안자는 CN에게 지급되는 보상의 100%를 받게 되는 반면, 위원회는 아무것도 받지 못합니다. 제안자로 선정될 확률은 CN이 스테이킹한 KLAY의 양에 영향을 받으며, 이는 플랫폼에 더 많은 KLAY를 투자한 CN이 확률적으로 더 많은 보상을 받을 수 있다는 것을 의미합니다. 블록 보상 분배에 대한 자세한 내용은 [클레이튼 토큰 이코노미](./token-economy.md) 섹션에서 확인할 수 있습니다.
