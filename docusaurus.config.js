@@ -69,7 +69,12 @@ const config = {
         },
         docs: {
           beforeDefaultRemarkPlugins: [
-            [remarkCodeHike, { theme: "monokai" }],
+            [
+              remarkCodeHike, { 
+                theme: "dracula",
+                showCopyButton: true,
+              }
+            ],
           ],
           sidebarPath: require.resolve('./sidebars.js'),
           sidebarCollapsible: true,
