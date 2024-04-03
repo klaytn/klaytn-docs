@@ -1,0 +1,4 @@
+:root {
+  --feedback-primary-color: #e1573b;
+  --feedback-button-dark-bg-color: var(--feedback-primary-color);
+}
