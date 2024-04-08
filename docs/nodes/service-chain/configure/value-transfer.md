@@ -77,7 +77,7 @@ instance: Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X
 "0x5C1C757a6Cb6c6FcEFE398674D8209FDA2A74Df4"
 ```
 
-You can refer to the [subbridge API](../../../references/service-chain-api/subbridge.md#subbridge_parentOperator) for more details.
+You can refer to the [subbridge API](../../../references/json-rpc/subbridge/parent-operator) for more details.
 
 ### Send KLAY to Bridge Operators <a id="send-klay-to-bridge-operators"></a>
 Like anchoring, the parent chain bridge operator needs KLAY to make a value-transfer transaction.
@@ -142,7 +142,7 @@ instance: Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X
 }]
 ```
 
-You can refer to the [subbridge API](../../../references/service-chain-api/subbridge.md#subbridge_deployBridge) for more details.
+You can refer to the [subbridge API](../../..references/json-rpc/subbridge/deploy-bridge) for more details.
 
 `subbridge_listBridge` shows the bridge contract addresses and their subscription status.
 Sub-bridge saves the list of bridge contract addresses in a file. On reboot, sub-bridge reloads the bridge contract list from the file.
@@ -195,7 +195,7 @@ Each value means like below
 
 ### RPC API <a id="rpc-api"></a>
 You can check the status of a bridge contract like below.
-You can refer to the [subbridge API](../../../references/service-chain-api/subbridge.md#subbridge_getBridgeInformation) for more details.
+You can refer to the [subbridge API](../../../references/json-rpc/subbridge/get-bridge-information) for more details.
 
 ```javascript
 > subbridge.getBridgeInformation("0x27caeba831d98b5fbb1d81ce0ed20801702f443a")
@@ -231,7 +231,7 @@ null
 
 This command registers the child chain token ("0x376b72abe1b29cace831bd3f5acdfa967814c9cd") with the child chain bridge contract ("0x27caeba831d98b5fbb1d81ce0ed20801702f443a"). And the parent chain token ("0x53160735f7cc6ff75e48619f368bb94daff66a1b") with the parent chain bridge contract ("0x22c41ae528627b790233d2e59ea520be12350eb5").
 
-You can refer to the [Service Chain API](../../../references/service-chain-api/subbridge.md#subbridge_registerToken) for more details.
+You can refer to the [Service Chain API](../../../references/json-rpc/subbridge/register-token) for more details.
 
 ## Request Value Transfer <a id="request-value-transfer"></a>
 This section explains the contract methods that will be invoked by a user to request a value transfer.
