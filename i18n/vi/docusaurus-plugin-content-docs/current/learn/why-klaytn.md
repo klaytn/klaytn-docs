@@ -79,7 +79,7 @@ Theo nguyên tắc này, Klaytn đã được thiết kế để đáp ứng nh�
 
 - Ngoài thiết kế giao thức, Klaytn sẽ mở rộng lĩnh vực của mình thông việc cùng xây dựng cộng đồng; trong đó bao gồm các loại cộng đồng như hội nhóm trò chơi, DAO đầu tư, DAO cộng đồng, liên minh với người chơi toàn cầu, v.v.
   ​
-Lastly, the ground rules:
+Lastly, the ground rules.
 
 :::note
 
