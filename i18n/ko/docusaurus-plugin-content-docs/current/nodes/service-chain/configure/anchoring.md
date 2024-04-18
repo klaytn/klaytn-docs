@@ -43,7 +43,7 @@ KLAY를 전송한 후 아래와 같이 잔액을 확인할 수 있습니다.
 ```
 
 이후 아래와 같이 RPC API인 `subbridge.anchoring`을 통해 앵커링을 활성화할 수 있습니다.
-자세한 내용은 [서브브릿지 API](../../../references/service-chain-api/subbridge.md#subbridge_anchoring)를 참고하시기 바랍니다.
+You can refer to [subbridge APIs](../../../references/json-rpc/subbridge/anchoring) for more details.
 
 ```
 > subbridge.anchoring(true)
@@ -58,7 +58,7 @@ true
 ### 하위 브리지 <a id="sub-bridge"></a>
 
 서브 브리지에서는 아래와 같이 최신 앵커 블록 번호를 확인할 수 있습니다.
-자세한 내용은 [서브브릿지 API](../../../references/service-chain-api/subbridge.md#subbridge_latestAnchoredBlockNumber)를 참고하시기 바랍니다.
+You can refer to [subbridge APIs](../../../references/json-rpc/subbridge/latest-anchored-block-number) for more details.
 
 ```javascript
 > subbridge.latestAnchoredBlockNumber
@@ -75,7 +75,7 @@ true
 ### Main-Bridge <a id="sub-bridge"></a>
 
 메인 브리지에서 체인 인덱싱 옵션이 활성화된 경우 아래와 같이 서비스 체인 블록 해시로 앵커링 tx 해시를 찾을 수 있습니다.
-자세한 내용은 [메인 브리지 API](../../../references/service-chain-api/mainbridge.md#mainbridge_convertChildChainBlockHashToParentChainTxHash)를 참고하시기 바랍니다.
+You can refer to [mainbridge APIs](../../../references/json-rpc/mainbridge/convert-child-chain-block-hash-to-parent-chain-tx-hash) for more details.
 
 ```javascript
 > mainbridge.convertChildChainBlockHashToParentChainTxHash("0xeadc6a3a29a20c13824b5df1ba05cca1ed248d046382a4f2792aac8a6e0d1880")
