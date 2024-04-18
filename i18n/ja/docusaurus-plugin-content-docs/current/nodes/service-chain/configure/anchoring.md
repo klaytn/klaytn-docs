@@ -43,7 +43,7 @@ After sending KLAY, you can check the balance like below.
 ```
 
 Then you can enable anchoring via RPC API, `subbridge.anchoring`, like below.
-You can refer to [subbridge APIs](../../../references/service-chain-api/subbridge.md#subbridge_anchoring) for more details.
+You can refer to [subbridge APIs](../../../references/json-rpc/subbridge/anchoring) for more details.
 
 ```
 > subbridge.anchoring(true)
@@ -58,7 +58,7 @@ You can check the anchored data like below.
 ### Sub-Bridge <a id="sub-bridge"></a>
 
 In Sub-Bridge, You can check the latest anchored block number like below.
-You can refer to [subbridge APIs](../../../references/service-chain-api/subbridge.md#subbridge_latestAnchoredBlockNumber) for more details.
+You can refer to [subbridge APIs](../../../references/json-rpc/subbridge/latest-anchored-block-number) for more details.
 
 ```javascript
 > subbridge.latestAnchoredBlockNumber
@@ -75,7 +75,7 @@ Also, you can find the anchoring transaction hash by the service chain block num
 ### Main-Bridge <a id="sub-bridge"></a>
 
 In Main-Bridge, if chain indexing option is enabled, you can find the anchoring tx hash by a service chain block hash like below.
-You can refer to [mainbridge APIs](../../../references/service-chain-api/mainbridge.md#mainbridge_convertChildChainBlockHashToParentChainTxHash) for more details.
+You can refer to [mainbridge APIs](../../../references/json-rpc/mainbridge/convert-child-chain-block-hash-to-parent-chain-tx-hash) for more details.
 
 ```javascript
 > mainbridge.convertChildChainBlockHashToParentChainTxHash("0xeadc6a3a29a20c13824b5df1ba05cca1ed248d046382a4f2792aac8a6e0d1880")
