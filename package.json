@@ -24,6 +24,7 @@
     "docusaurus-plugin-openapi-docs": "3.0.0-beta.4",
     "docusaurus-theme-openapi-docs": "^3.0.0-beta.4",
     "prism-react-renderer": "^2.1.0",
+    "pushfeedback-react": "^0.1.28",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-tooltip": "^5.26.3",
