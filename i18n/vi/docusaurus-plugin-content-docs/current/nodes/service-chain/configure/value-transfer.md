@@ -84,7 +84,7 @@ instance: Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X
 "0x5C1C757a6Cb6c6FcEFE398674D8209FDA2A74Df4"
 ```
 
-Bạn có thể tham khảo [API cầu nối con](../../../references/service-chain-api/subbridge.md#subbridge_parentOperator) để biết thêm chi tiết.
+You can refer to the [subbridge API](../../../references/json-rpc/subbridge/parent-operator) for more details.
 
 ### Gửi KLAY đến Người vận hành cầu nối <a id="send-klay-to-bridge-operators"></a>
 
@@ -152,7 +152,7 @@ instance: Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X
 }]
 ```
 
-Bạn có thể tham chiếu [API cầu nối con](../../../references/service-chain-api/subbridge.md#subbridge_deployBridge) để biết thêm chi tiết.
+You can refer to the [subbridge API](../../..references/json-rpc/subbridge/deploy-bridge) for more details.
 
 `subbridge_listBridge` thể hiện địa chỉ hợp đồng cầu nối và trạng thái đăng ký của chúng.
 Cầu nối con lưu danh sách các địa chỉ hợp đồng cầu nối trong một tập tin. Khi khởi động lại hệ thống, cầu nối con tải lại danh sách hợp đồng cầu nối từ tập tin đó.
@@ -213,7 +213,7 @@ Mỗi giá trị có ý nghĩa như sau
 ### RPC API <a id="rpc-api"></a>
 
 Bạn có thể kiểm tra trạng thái của hợp đồng cầu nối như sau.
-Bạn có thể tham chiếu [API cầu nối con](../../../references/service-chain-api/subbridge.md#subbridge_getBridgeInformation) để biết thêm chi tiết.
+You can refer to the [subbridge API](../../../references/json-rpc/subbridge/get-bridge-information) for more details.
 
 ```javascript
 > subbridge.getBridgeInformation("0x27caeba831d98b5fbb1d81ce0ed20801702f443a")
@@ -253,7 +253,7 @@ null
 
 Lệnh này đăng ký token chuỗi con ("0x376b72abe1b29cace831bd3f5acdfa967814c9cd") với hợp đồng cầu nối chuỗi con ("0x27caeba831d98b5fbb1d81ce0ed20801702f443a"). Và token chuỗi mẹ ("0x53160735f7cc6ff75e48619f368bb94daff66a1b") với hợp đồng cầu nối chuỗi mẹ ("0x22c41ae528627b790233d2e59ea520be12350eb5").
 
-Bạn có thể tham chiếu [API chuỗi dịch vụ](../../../references/service-chain-api/subbridge.md#subbridge_registerToken) để biết thêm chi tiết.
+You can refer to the [Service Chain API](../../../references/json-rpc/subbridge/register-token) for more details.
 
 ## Yêu cầu chuyển giá trị <a id="request-value-transfer"></a>
 
