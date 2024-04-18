@@ -10,8 +10,8 @@ You should enable main-bridge by configuring `kend.conf`.
 
 The `kend.conf` contains the following main-bridge properties.
 
-| Name                                                           | Description                                                                                               |
-| :------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------- |
+| Name                                                           | Description                                                                                                                               |
+| :------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------- |
 | MAIN_BRIDGE                               | Enable bridge service as main bridge for service chain. 1 to enable.                                      |
 | MAIN_BRIDGE_PORT     | Bridge listen port. Default: 50505                                                                        |
 | MAIN_BRIDGE_INDEXING | Enable indexing of service chain transaction hash for fast access to the service chain data. 1 to enable. |
@@ -77,7 +77,7 @@ at block: 11573551 (Wed, 13 Feb 2019 07:12:52 UTC)
 
 #### Get the EN's KNI <a id="get-the-ens-kni"></a>
 
-After attaching to the process via IPC, you can check the EN's main-bridge KNI like below. You can refer to [Service Chain API](../../../references/service-chain-api/subbridge.md).
+After attaching to the process via IPC, you can check the EN's main-bridge KNI like below. You can refer to [Service Chain API](../../../references/json-rpc/subbridge/add-peer).
 
 ```javascript
 > mainbridge.nodeInfo
