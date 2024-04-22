@@ -147,7 +147,7 @@ To verify a single contract and multi-part contracts on Klaytnscope, follow the 
 
 #### 1.1 Verifying a single contract
 
-1. Goto the search bar of [Klaytnscope](https://baobab.scope.klaytn.com/) and paste the deployed contract address.
+1. Goto the search bar of [Klaytnscope](https://baobab.klaytnscope.com) and paste the deployed contract address.
 2. Navigate to the **contract tab** on that page.
 3. Click on the **Match Contract Source Code** link to submit contract code for verification.
 

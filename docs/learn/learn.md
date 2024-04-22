@@ -9,13 +9,13 @@ Key design goals are;
 - Lower the barriers to entry for end-users.
 - Ease the technology adoption process for industry.
 
-Klaytn launched its mainnet, [Cypress](https://scope.klaytn.com/), on Jun/27/2019 with the following specifications.
+Klaytn launched its mainnet, [Cypress](https://klaytnscope.com), on Jun/27/2019 with the following specifications.
 
 - 1-second block generation and confirmation time.
 - 4,000 transactions per second.
 - Low gas price that is almost 1/10 of Ethereum.
 - Runs EVM (Ethereum Virtual Machine) and supports the execution of Solidity contracts.  
-- 19 reputable corporations worldwide initially formed <LinkWithTooltip to="./glossary#klaytn-governance-council-kgc" tooltip="A consortium governing Klaytn blockchain development and operations.">Klaytn Governance Council</LinkWithTooltip> to operate <LinkWithTooltip to="./glossary#consensus-node-cn" tooltip="Consensus node (CN) validates transactions, builds blocks,<br />  and achieves network agreement.">consensus nodes</LinkWithTooltip>. The current number of consensus nodes is shown in the [Klaytnscope](https://scope.klaytn.com/).
+- 19 reputable corporations worldwide initially formed <LinkWithTooltip to="./glossary#klaytn-governance-council-kgc" tooltip="A consortium governing Klaytn blockchain development and operations.">Klaytn Governance Council</LinkWithTooltip> to operate <LinkWithTooltip to="./glossary#consensus-node-cn" tooltip="Consensus node (CN) validates transactions, builds blocks,<br />  and achieves network agreement.">consensus nodes</LinkWithTooltip>. The current number of consensus nodes is shown in the [Klaytnscope](https://klaytnscope.com).
 - More than 50 initial service partners have committed to launch Blockchain Applications on Klaytn.
 
 ## Klaytn: The Big Picture <a id="klaytn-the-big-picture"></a>

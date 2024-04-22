@@ -84,4 +84,4 @@ In your terminal you should see the source code for your contract was successful
 ## Useful links
 
 * [Configuration for Hardhat Verify Plugin](https://docs.klaytnscope.com/contract/configuration-for-hardhat-verify-plugin)
-* [Verifying contracts using Hardhat on Klaytnscope](#)
+* [Verifying contracts using Hardhat on Klaytnscope](https://klaytn.foundation/verifying-contracts-using-hardhat-on-klaytnscope)

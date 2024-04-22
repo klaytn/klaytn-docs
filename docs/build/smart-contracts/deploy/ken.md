@@ -107,7 +107,7 @@ Welcome to the Klaytn JavaScript console
  >
 ```
 
-**NOTE**: You must wait until it downloads all the blocks. Enter `klay.blockNumber` in a console and check whether it matches the current block number [here](https://baobab.scope.klaytn.com/) 
+**NOTE**: You must wait until it downloads all the blocks. Enter `klay.blockNumber` in a console and check whether it matches the current block number [here](https://baobab.klaytnscope.com/) 
 
 **NOTE**: Type `klay` or `personal` to get the list of available functions.
 

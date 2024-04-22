@@ -2,8 +2,8 @@
 
 Klaytnscope is the block explorer for the Klaytn Network. Klaytnscope gives you an insight about the Klaytn network by monitoring the network health and providing various statistics of Klaytn network. You can also explore the block and transaction data and the list of smart contracts on the Klaytn network.
 
-* For the Baobab network, visit [https://baobab.scope.klaytn.com](https://baobab.scope.klaytn.com)
-* For the Mainnet, visit [https://scope.klaytn.com](https://scope.klaytn.com)
+* For the Baobab network, visit [https://baobab.klaytnscope.com](https://baobab.klaytnscope.com)
+* For the Mainnet, visit [https://klaytnscope.com/](https://klaytnscope.com/)
 
 ![](/img/build/tools/scope_01_main.png)
 

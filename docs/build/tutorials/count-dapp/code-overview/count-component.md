@@ -436,4 +436,4 @@ try{
 ![check-transaction](/img/build/tutorials/tutorial-check-your-transaction.gif)
 
 After sending a transaction, you can check your transaction detail using Klaytnscope.\
-Check it in `https://baobab.scope.klaytn.com/tx/${txHash}`.
+Check it in `https://baobab.klaytnscope.com/tx/${txHash}`.

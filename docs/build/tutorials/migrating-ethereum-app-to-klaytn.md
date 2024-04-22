@@ -389,7 +389,7 @@ class Count extends Component {
             </p>
             <a
               target="_blank"
-              href={`https://scope.klaytn.com/transaction/${txHash}`}
+              href={`https://klaytnscope.com/tx/${txHash}`}
               className="Count__lastTransactionLink"
             >
               {txHash}
