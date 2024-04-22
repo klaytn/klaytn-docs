@@ -102,7 +102,7 @@ const config = {
     ],
   ],
 
-  scripts: [{src: 'https://analytics.us.umami.is/script.js', async: true, 'data-website-id': 'aa08aa8e-7b56-4974-b396-f8083764aa4e'}],
+  scripts: [{src: 'https://umami.lkw1615.synology.me/script.js', async: true, 'data-website-id': '7dc4d49d-3f21-4dd2-8dd7-90a2cc948dc6'}],
 
   plugins: [
     [
