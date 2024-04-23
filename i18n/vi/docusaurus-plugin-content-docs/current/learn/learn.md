@@ -9,13 +9,13 @@ Các mục tiêu thiết kế chính là;
 - Giảm thiểu các rào cản tham gia cho người dùng cuối.
 - Đơn giản hóa quá trình áp dụng công nghệ trong ngành.
 
-Klaytn khởi chạy mạng chính thức [Cypress](https://scope.klaytn.com/) của mình vào ngày 27 tháng 6 năm 2019 với các thông số kỹ thuật sau.
+Klaytn launched its mainnet, [Cypress](https://klaytnscope.com), on Jun/27/2019 with the following specifications.
 
 - Thời gian tạo và xác nhận khối 1 giây.
 - 4.000 giao dịch mỗi giây.
 - Giá gas thấp, gần bằng 1/10 Ethereum.
 - Chạy EVM (Máy ảo Ethereum) và hỗ trợ thực thi các hợp đồng Solidity.
-- 19 reputable corporations worldwide initially formed <LinkWithTooltip to="./glossary#klaytn-governance-council-kgc" tooltip="A consortium governing Klaytn blockchain development and operations.">Klaytn Governance Council</LinkWithTooltip> to operate <LinkWithTooltip to="./glossary#consensus-node-cn" tooltip="Consensus node (CN) validates transactions, builds blocks,<br />  and achieves network agreement.">consensus nodes</LinkWithTooltip>. Số lượng nút đồng thuận hiện tại được nêu trong [Klaytnscope](https://scope.klaytn.com/).
+- 19 reputable corporations worldwide initially formed <LinkWithTooltip to="./glossary#klaytn-governance-council-kgc" tooltip="A consortium governing Klaytn blockchain development and operations.">Klaytn Governance Council</LinkWithTooltip> to operate <LinkWithTooltip to="./glossary#consensus-node-cn" tooltip="Consensus node (CN) validates transactions, builds blocks,<br />  and achieves network agreement.">consensus nodes</LinkWithTooltip>. The current number of consensus nodes is shown in the [Klaytnscope](https://klaytnscope.com).
 - Hơn 50 đối tác dịch vụ ban đầu đã cam kết khởi chạy các ứng dụng chuỗi khối trên Klaytn.
 
 ## Klaytn: Bức tranh toàn cảnh <a id="klaytn-the-big-picture"></a>
