@@ -52,7 +52,7 @@ Bây giờ, bạn cần gửi `senderRawTransaction` cho người trả phí. C�
 
 Khi `fee payer` nhận `senderRawTransaction`, `fee payer` ký lại `senderRawTransaction` bằng khóa riêng tư của mình và gửi giao dịch đến Klaytn. Đoạn mã dưới đây minh họa quá trình đó. Phương thức `klay.sendTransaction` ký giao dịch bằng khóa riêng tư của tài khoản đã cho trước khi gửi giao dịch. Trước khi chạy mã, hãy thay thế `"FEEPAYER_ADDRESS"` và `"PRIVATE_KEY"` bằng các giá trị thật.
 
-Chú ý rằng khi `fee payer` đại diện cho `sender` gửi giao dịch đến Klaytn, loại `senderRawTransaction` phải là một `FEE_DELEATED` loại giao dịch. Ví dụ dưới đây gọi ra phương pháp [sendTransaction(FEE_DELEGATED_VALUE_TRANSFER)](../../references/sdk/caver-js-1.4.1/api/caver.klay/transaction/sendtx-value-transfer.md#sendtransaction-fee_delegated_value_transfer), vì `senderRawTransaction` nguyên bản do người gửi tạo là [TxTypeFeeDelegatedValueTransfer](../../learn/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfer).
+Chú ý rằng khi `fee payer` đại diện cho `sender` gửi giao dịch đến Klaytn, loại `senderRawTransaction` phải là một `FEE_DELEATED` loại giao dịch. Ví dụ dưới đây gọi ra phương pháp [sendTransaction(FEE\_DELEGATED\_VALUE\_TRANSFER)](../../references/sdk/caver-js-1.4.1/api/caver.klay/transaction/sendtx-value-transfer.md#sendtransaction-fee_delegated_value_transfer), vì `senderRawTransaction` nguyên bản do người gửi tạo là [TxTypeFeeDelegatedValueTransfer](../../learn/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfer).
 
 ```
 const feePayerAddress = "FEEPAYER_ADDRESS";
@@ -279,7 +279,7 @@ receipt { blockHash:
 
 ### 4.4 Phạm vi Klaytn <a href="#4-4-klaytn-scope" id="4-4-klaytn-scope"></a>
 
-Bạn cũng có thể tìm thấy giao dịch trên tại [Klaytn scope](https://baobab.scope.klaytn.com).
+You can also find the above transaction on the [Klaytnscope](https://baobab.klaytnscope.com).
 
 Nó cho thấy giao dịch là `TxTypeFeeDelegatedValueTransfer` và `Fee payer` là `0x2645ba5be42ffee907ca8e9d88f6ee6dad8c1410` hoặc `feepayerAddress` mà bạn đã nhập, đồng thời `From` là một địa chỉ khác lẽ ra phải là `senderAddress` trong ví dụ trên.
 
