@@ -81,15 +81,15 @@ Dưới đây là thông tin liên quan đến mỗi mạng lưới.
 Mạng chính thức Cypress:
 
 - Tải xuống EN : Chọn gói Cypress từ [trang tải xuống](../nodes/downloads/downloads.md).
-- Klaytnscope : https\://scope.klaytn.com
-- Ví Klaytn : https\://wallet.klaytn.com
+- Klaytnscope : https://klaytnscope.com
+- Ví Klaytn : https://wallet.klaytn.com
 
 Mạng thử nghiệm Baobab:
 
 - Tải xuống EN : Chọn gói Baobab từ [trang tải xuống](../nodes/downloads/downloads.md).
-- Klaytnscope : https\://baobab.scope.klaytn.com
-- Ví Klaytn : https\://baobab.wallet.klaytn.foundation
-- Baobab Faucet : https\://baobab.wallet.klaytn.foundation/faucet
+- Klaytnscope : https://baobab.klaytnscope.com
+- Ví Klaytn : https://baobab.wallet.klaytn.foundation
+- Baobab Faucet : https://baobab.wallet.klaytn.foundation/faucet
 
 ## Có SDK Klaytn nào không? Bằng những ngôn ngữ nào? <a id="klaytn-sdks"></a>
 
