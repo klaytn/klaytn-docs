@@ -28,14 +28,19 @@
 
 > 간단한 방법은 다음과 같습니다. [지갑을 클레이튼 Cypress 네트워크(메인넷)에 연결](https://chainlist.org/chain/8217).
 
-- 이더리움 메인넷 상단에 있는 네트워크 탭을 클릭하고 [네트워크 추가]를 선택합니다.
+- 이더리움 메인넷 상단에 있는 네트워크 탭을 클릭하고 \[네트워크 추가]를 선택합니다.
 - 클레이튼 체인의 엔드포인트 노드(EN) 데이터를 입력합니다.
-  - Cypress
-    - 네트워크 이름을 입력합니다: Klaytn Cypress
-    - 새 RPC URL을 입력합니다: (기본값: [https://public-en-cypress.klaytn.net](https://public-en-cypress.klaytn.net))
-    - 탐색기 URL 차단: [https://scope.klaytn.com/](https://scope.klaytn.com/)
-    - 체인 ID: 8217
-    - 통화 기호: KLAY
+
+### Cypress Network Configuration
+
+| Network Config Item | Value                                  |
+| ------------------- | -------------------------------------- |
+| Network Name        | Klaytn Cypress                         |
+| New RPC URL         | `https://public-en-cypress.klaytn.net` |
+| Block Explorer URL  | `https://klaytnscope.com`              |
+| Chain ID            | 8217                                   |
+| Currency Symbol     | KLAY                                   |
+
 - **Save**를 클릭하여 클레이튼 Cypress 네트워크를 추가합니다.
 
 ![네트워크 설정 및 커스텀 RPC](/img/build/tutorials/metamask-add-cypress-1.png) ![네트워크 설정 및 커스텀 RPC](/img/build/tutorials/metamask-add-cypress-2.png)
@@ -44,7 +49,7 @@
 
 **참고**: 다음 단계는 KLAY가 필요합니다.
 
-- 메인 페이지에서 [send]를 클릭하고 수취인 주소와 KLAY 금액을 입력합니다.
+- 메인 페이지에서 \[send]를 클릭하고 수취인 주소와 KLAY 금액을 입력합니다.
 
 ![KLAY 1 보내기](/img/build/tutorials/metamask-send-klay-1.png)
 
@@ -52,8 +57,8 @@
 
 - 클레이튼 v1.9.0부터 [동적 가스비 메커니즘](https://medium.com/klaytn/dynamic-gas-fee-pricing-mechanism-1dac83d2689)이 기존의 고정 가격 정책을 대체했습니다.
 - 따라서 고정 가스비를 수동으로 설정할 필요가 없습니다.
-- 송금할 금액과 트랜잭션 수수료를 확인하고 [확인]을 클릭하면 KLAY 송금이 완료되며, 이후 메인 페이지로 리디렉션됩니다.
-- 메인 페이지에서 [활동]을 클릭하면 거래 내역을 확인할 수 있습니다.
+- 송금할 금액과 트랜잭션 수수료를 확인하고 \[확인]을 클릭하면 KLAY 송금이 완료되며, 이후 메인 페이지로 리디렉션됩니다.
+- 메인 페이지에서 \[활동]을 클릭하면 거래 내역을 확인할 수 있습니다.
 
 ![KLAY 2 보내기](/img/build/tutorials/metamask-send-klay-2.png)
 
@@ -65,12 +70,16 @@
 
 > 간단한 방법은 다음과 같습니다. [클레이튼 Baobab 네트워크(테스트넷)에 지갑을 연결합니다](https://chainlist.org/chain/1001).
 
-- Baobab
-  - 네트워크 이름: Klaytn Baobab
-  - 새 RPC URL: [https://public-en-baobab.klaytn.net](https://public-en-baobab.klaytn.net)
-  - 블록 익스플로러 URL: [https://baobab.scope.klaytn.com/](https://baobab.scope.klaytn.com/)
-  - 체인 ID: 1001
-  - 통화 기호: KLAY
+### Baobab Network Configuration
+
+| Network Config Item | Value                                 |
+| ------------------- | ------------------------------------- |
+| Network Name        | Klaytn Baobab                         |
+| New RPC URL         | `https://public-en-baobab.klaytn.net` |
+| Block Explorer URL  | `https://baobab.klaytnscope.com `     |
+| Chain ID            | 1001                                  |
+| Currency Symbol     | KLAY                                  |
+
 - **Save**를 클릭하여 클레이튼 Baobab 네트워크를 추가합니다.
 
 ![네트워크 설정](/img/build/tutorials/connect-testnet-1.png)
