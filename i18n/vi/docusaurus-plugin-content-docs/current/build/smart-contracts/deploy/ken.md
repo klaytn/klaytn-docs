@@ -4,13 +4,13 @@
 
 Trước khi bắt đầu, hãy làm quen với một số thuật ngữ riêng của Klaytn.
 
-- **Nút điểm cuối (EN)**: Nút xử lý các yêu cầu API JSON-RPC gửi đến mạng lưới Klaytn. Nút điểm cuối không tham gia vào thuật toán đồng thuận.
+- **Nút điểm cuối \(EN\)**: Nút xử lý các yêu cầu API JSON-RPC gửi đến mạng lưới Klaytn. Nút điểm cuối không tham gia vào thuật toán đồng thuận.
 - **KLAY**: đồng tiền mặc định của Klaytn.
 - **caver-js**: Triển khai JavaScript của API JSON-RPC của Klaytn.
 - **Baobab**: mạng thử nghiệm của Klaytn
 - **Cypress**: mạng chính thức của Klaytn
 
-Hướng dẫn từng bước này sẽ hỗ trợ bạn trong quá trình khởi chạy Nút điểm cuối (EN) của mạng thử nghiệm Baobab và xây dựng hợp đồng thông minh cơ bản bằng tài khoản mới của bạn. Hướng dẫn này bao gồm hai phần, thiết lập một EN và triển khai một hợp đồng thông mình qua EN của bạn.
+Hướng dẫn từng bước này sẽ hỗ trợ bạn trong quá trình khởi chạy Nút điểm cuối \(EN\) của mạng thử nghiệm Baobab và xây dựng hợp đồng thông minh cơ bản bằng tài khoản mới của bạn. Hướng dẫn này bao gồm hai phần, thiết lập một EN và triển khai một hợp đồng thông mình qua EN của bạn.
 
 > Hướng dẫn này sử dụng mạng thử nghiệm **Baobab** bởi vì việc triển khai hợp đồng thông minh và gửi giao dịch sẽ cần đến phí giao dịch tính bằng KLAY. Vì mục đích phát triển, bạn có thể nhận KLAY cho mạng thử nghiệm từ [vòi Baobab](https://baobab.wallet.klaytn.foundation/faucet).
 
@@ -108,7 +108,7 @@ Welcome to the Klaytn JavaScript console
  >
 ```
 
-**LƯU Ý**: Bạn phải đợi đến khi đã tải về tất cả các khối. Nhập `klay.blockNumber` vào bảng điều khiển và kiểm tra xem nó có khớp với số khối hiện tại hay không [tại đây](https://baobab.scope.klaytn.com/)
+**LƯU Ý**: Bạn phải đợi đến khi đã tải về tất cả các khối. Enter `klay.blockNumber` in a console and check whether it matches the current block number [here](https://baobab.klaytnscope.com/)
 
 **LƯU Ý**: Gõ `klay` hoặc`personal` để nhận danh sách các hàm có sẵn.
 
@@ -163,7 +163,7 @@ true
 
 Để xem số dư của tài khoản, hãy thực thi lệnh sau.
 
-Đơn vị mặc định là peb (1 KLAY = 10^18 peb). Bạn có thể tìm hiểu thêm thông tin về các đơn vị của KLAY trong phần [Các đơn vị của KLAY](../../../learn/klaytn-native-coin-klay.md#units-of-klay).
+Đơn vị mặc định là peb \(1 KLAY = 10^18 peb\). Bạn có thể tìm hiểu thêm thông tin về các đơn vị của KLAY trong phần [Các đơn vị của KLAY](../../../learn/klaytn-native-coin-klay.md#units-of-klay).
 
 ```javascript
 > klay.getBalance('75a59b94889a05c03c66c3c84e9d2f8308ca4abd') # enter your account address
@@ -191,7 +191,7 @@ $ mkdir $HOME/klaytn
 
 > Bạn cần cài đặt `npm` và `node.js` để tiếp tục. Vui lòng tham khảo [get-npm](https://www.npmjs.com/get-npm) và [node.js](https://nodejs.org/en/) để xem cách cài đặt trên hệ thống của bạn.
 
-[caver-js](../../../references/sdk/caver-js/caver-js.md) là bộ khung RPC JSON dành cho mạng lưới Klaytn (tương đương với web3.js trong Ethereum). Trước khi cài đặt caver-js, bạn phải tạo tập tin `package.json` qua lệnh `npm init`, sau đó gõ `npm install caver-js` để cài đặt caver-js.
+[caver-js](../../../references/sdk/caver-js/caver-js.md) là bộ khung RPC JSON dành cho mạng lưới Klaytn \(tương đương với web3.js trong Ethereum\). Trước khi cài đặt caver-js, bạn phải tạo tập tin `package.json` qua lệnh `npm init`, sau đó gõ `npm install caver-js` để cài đặt caver-js.
 
 ```bash
 $ npm init # initialize npm at the klaytn project directory
@@ -223,9 +223,9 @@ $ rm /Users/username/klaytn/node_modules/websocket/.git
 
 **Lưu ý:** Đối với tất cả các chức năng gọi ra hàm bắt đầu bằng `web3.eth...` in web3.js, nên được thay thế bằng `caver.klay...`.
 
-`web3.eth.sendTransaction({ ... })` (X)
+`web3.eth.sendTransaction({ ... })` \(X\)
 
-`caver.klay.sendTransaction({ ... })` (O)
+`caver.klay.sendTransaction({ ... })` \(O\)
 
 ### Cài đặt Truffle <a id="installing-truffle"></a>
 
@@ -266,7 +266,7 @@ vvisp là một công cụ/bộ khung cli dễ sử dụng để phát triển c
 Ở đây, chúng tôi giới thiệu cách cài đặt vvisp và sử dụng công cụ này để thiết lập môi trường phát triển Klaytn dApp.
 
 - kho lưu trữ vvisp - [https://github.com/HAECHI-LABS/vvisp](https://github.com/HAECHI-LABS/vvisp)
-- tài liệu vvisp - [https://github.com/HAECHI-LABS/vvisp/blob/dev/README_KLAYTN.md](https://github.com/HAECHI-LABS/vvisp/blob/dev/README_KLAYTN.md)
+- tài liệu vvisp - [https://github.com/HAECHI-LABS/vvisp/blob/dev/README\_KLAYTN.md](https://github.com/HAECHI-LABS/vvisp/blob/dev/README_KLAYTN.md)
 
 bạn có thể dễ dàng cài đặt vvisp nếu có npm hoặc yarn bằng cách thực thi lệnh sau:
 
@@ -390,7 +390,7 @@ module.exports = function(deployer) {
 
 Nhập thông tin mạng của Klaytn vào truffle.js.
 
-**`WARNING`**: Hiện tại, gasPrice của mạng Baobab Klaytn được đặt cố định là 25 Gpeb (**Kết quả trả về là lỗi nếu bạn cố gắng dùng số khác**).
+**`WARNING`**: Hiện tại, gasPrice của mạng Baobab Klaytn được đặt cố định là 25 Gpeb \(**Kết quả trả về là lỗi nếu bạn cố gắng dùng số khác**\).
 
 ```bash
 $ cd ..
@@ -426,7 +426,7 @@ Triển khai hợp đồng bằng lệnh sau.
 
 **LƯU Ý**: Đảm bảo rằng nút Klaytn của bạn đang chạy.
 
-Địa chỉ hợp đồng của bạn được hiển thị sau \`KlaytnGreeter:
+Địa chỉ hợp đồng của bạn được hiển thị sau \\`KlaytnGreeter:
 
 ```bash
 $ truffle deploy --network klaytn --reset
@@ -499,7 +499,7 @@ $ node test-klaytn.js
 
 Dùng JavaScript để gọi ra`greet()` trong hợp đồng.
 
-**LƯU Ý**: Để gọi ra các hàm cụ thể trong hợp đồng thông minh, bạn cần tập tin ABI (Giao dịch nhị phân ứng dụng). Khi triển khai hợp đồng của bạn, Truffle sẽ tự động tạo một tập tin .json tại `./build/contracts/` trong đó có chứa thuộc tính `abi`.
+**LƯU Ý**: Để gọi ra các hàm cụ thể trong hợp đồng thông minh, bạn cần tập tin ABI \(Giao dịch nhị phân ứng dụng\). Khi triển khai hợp đồng của bạn, Truffle sẽ tự động tạo một tập tin .json tại `./build/contracts/` trong đó có chứa thuộc tính `abi`.
 
 Nối các dòng sau vào mã kiểm tra được viết ở trên.
 
