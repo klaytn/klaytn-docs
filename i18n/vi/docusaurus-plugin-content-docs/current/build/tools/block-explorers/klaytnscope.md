@@ -2,8 +2,8 @@
 
 Klaytnscope là trình khám phá khối cho mạng lưới Klaytn. Klaytnscope cung cấp cho bạn thông tin chi tiết về mạng lưới Klaytn bằng cách theo dõi tình trạng mạng và cung cấp các số liệu thống kê khác nhau về mạng lưới Klaytn. Bạn cũng có thể khám phá dữ liệu khối và giao dịch cũng như danh sách các hợp đồng thông minh trên mạng lưới Klaytn.
 
-- Đối với mạng Baobab, hãy truy cập [https://baobab.scope.klaytn.com](https://baobab.scope.klaytn.com)
-- Đối với mạng chính, hãy truy cập [https://scope.klaytn.com](https://scope.klaytn.com)
+- For the Baobab network, visit [https://baobab.klaytnscope.com](https://baobab.klaytnscope.com)
+- For the Mainnet, visit [https://klaytnscope.com/](https://klaytnscope.com/)
 
 ![](/img/build/tools/scope_01_main.png)
 
@@ -29,10 +29,10 @@ Thông tin mạng được biểu thị trong bảng điều khiển. Thông tin
 - Chiều cao khối: Chiều cao khối mới nhất. Thông tin này cho biết số lượng khối đã được tạo từ thời điểm khởi nguyên.
 - Hiệu suất mạng: Cho biết hiệu suất mạng của Klaytn với bốn chỉ số.
   - Nút đồng thuận: Hình trên cho thấy 15 nút được tham gia vào quá trình đồng thuận.
-  - Thời gian tạo khối trung bình (1 giờ): Hiển thị thời gian tạo khối trung bình trong một giờ qua.
-  - Thời gian tạo khối trung bình (24 giờ): Hiển thị thời gian tạo khối trung bình trong 24 giờ qua.
-  - TX trung bình trên mỗi khối (24 giờ): Số lượng giao dịch trung bình được đưa vào một khối trong 24 giờ qua.
-- Lịch sử giao dịch (14 ngày): Biểu đồ hiển thị số lượng giao dịch hàng ngày trong 14 ngày qua. Bạn có thể xem xu hướng về khối lượng giao dịch trong hai tuần qua.
+  - Thời gian tạo khối trung bình \(1 giờ\): Hiển thị thời gian tạo khối trung bình trong một giờ qua.
+  - Thời gian tạo khối trung bình \(24 giờ\): Hiển thị thời gian tạo khối trung bình trong 24 giờ qua.
+  - TX trung bình trên mỗi khối \(24 giờ\): Số lượng giao dịch trung bình được đưa vào một khối trong 24 giờ qua.
+- Lịch sử giao dịch \(14 ngày\): Biểu đồ hiển thị số lượng giao dịch hàng ngày trong 14 ngày qua. Bạn có thể xem xu hướng về khối lượng giao dịch trong hai tuần qua.
 
 ### Khối & giao dịch gần đây <a id="recent-blocks-transactions"></a>
 
@@ -63,11 +63,11 @@ Nếu muốn xem kỹ hơn trạng thái của mạng lưới Klaytn, bạn có 
 
 Danh sách các khối được tạo gần đây. Để cập nhật thông tin, vui lòng nhấp vào refresh.
 
-- Khối: Số duy nhất của khối. Bắt đầu từ số không (khối khởi nguyên), nó được đưa ra tuần tự mỗi khi một khối được tạo.
+- Khối: Số duy nhất của khối. Bắt đầu từ số không \(khối khởi nguyên\), nó được đưa ra tuần tự mỗi khi một khối được tạo.
 - Thời gian: Khoảng thời gian kể từ khi khối được tạo. Bạn có thể kiểm tra ngày giờ chính xác bằng cách di chuột vào đây.
 - Tổng số TX: Tổng số giao dịch có trong khối.
 - Người đề xuất khối: Nút đồng thuận được chọn ngẫu nhiên nhưng có tính quyết định đã đề xuất khối. Bằng cách nhấp vào địa chỉ, bạn có thể dễ dàng đi đến trang thông tin chi tiết.
-- Phần thưởng: Tổng hợp KLAY (6,4 KLAY) mới được tạo và phí giao dịch được sử dụng trong khối. Danh sách này chỉ hiển thị tổng Phần thưởng của Hội đồng quản trị của Klaytn, Bằng chứng đóng góp và Khoản dự trữ cải tiến của Klaytn. Di chuột vào mục phần thưởng khối trên trang thông tin chi tiết khối để xem thông tin chi tiết. Bạn có thể tìm thêm thông tin chi tiết về hệ thống phân phối phần thưởng khối trong \[Nền kinh tế token Klaytn]\[].
+- Phần thưởng: Tổng hợp KLAY \(6,4 KLAY\) mới được tạo và phí giao dịch được sử dụng trong khối. Danh sách này chỉ hiển thị tổng Phần thưởng của Hội đồng quản trị của Klaytn, Bằng chứng đóng góp và Khoản dự trữ cải tiến của Klaytn. Di chuột vào mục phần thưởng khối trên trang thông tin chi tiết khối để xem thông tin chi tiết. Bạn có thể tìm thêm thông tin chi tiết về hệ thống phân phối phần thưởng khối trong \[Nền kinh tế token Klaytn]\[].
 - Kích thước: Kích thước của các khối được đo bằng Byte. Giao dịch được đưa vào càng nhiều, kích thước khối càng lớn.
 
 ### Giao dịch <a id="transactions"></a>
@@ -77,7 +77,7 @@ Danh sách các khối được tạo gần đây. Để cập nhật thông tin
 Danh sách các giao dịch được thực hiện gần đây. Để cập nhật thông tin, vui lòng nhấp vào refresh.
 
 - Hàm băm TX: Mã định danh duy nhất của giao dịch. Để biết thêm thông tin, hãy nhấp vào hàm băm để chuyển đến trang thông tin chi tiết. Nếu giao dịch không thành công, một dấu chấm than màu đỏ sẽ xuất hiện bên cạnh nó.
-- Khối #: Số khối chứa giao dịch này. Nhấp vào số khối sẽ đưa bạn đến trang thông tin chi tiết của khối.
+- Khối \#: Số khối chứa giao dịch này. Nhấp vào số khối sẽ đưa bạn đến trang thông tin chi tiết của khối.
 - Thời gian: Khoảng thời gian kể từ khi giao dịch được thực hiện. Bạn có thể kiểm tra ngày giờ chính xác bằng cách di chuột vào đây.
 - Từ -&gt; Đến: Địa chỉ của người gửi và người nhận. Bằng cách nhấp vào địa chỉ, bạn có thể dễ dàng đi đến trang thông tin chi tiết. Nếu biểu tượng tệp hiển thị bên cạnh một địa chỉ, điều đó có nghĩa là địa chỉ đó là một hợp đồng.
 - Loại TX: Loại giao dịch. Bạn có thể áp dụng bộ lọc để nhận các giao dịch thuộc một loại cụ thể. Để biết thêm thông tin, vui lòng xem phần \[Giao dịch]\[].
@@ -100,7 +100,7 @@ Thông tin tổng quan về khối.
 - Hàm băm: Mã định danh duy nhất của khối. Bằng cách nhấn nút Copy, bạn có thể dễ dàng sao chép hàm băm.
 - Hàm băm cha: Mã định danh duy nhất của khối trước đó. Nhấp vào hàm băm sẽ đưa bạn đến chế độ xem chi tiết của hàm băm cha.
 - Tổng số TX: Tổng số giao dịch có trong khối.
-- Phần thưởng khối: Tổng hợp KLAY (6,4 KLAY) mới được tạo và phí giao dịch thu được trong khối. Nếu di chuột, bạn sẽ tìm thấy thông tin chi tiết về Phần thưởng của Hội đồng quản trị của Klaytn, Bằng chứng đóng góp và Khoản dự trữ cải tiến của Klaytn. Bạn có thể tìm thêm thông tin chi tiết về hệ thống phân phối phần thưởng khối trong \[Nền kinh tế token Klaytn]\[].
+- Phần thưởng khối: Tổng hợp KLAY \(6,4 KLAY\) mới được tạo và phí giao dịch thu được trong khối. Nếu di chuột, bạn sẽ tìm thấy thông tin chi tiết về Phần thưởng của Hội đồng quản trị của Klaytn, Bằng chứng đóng góp và Khoản dự trữ cải tiến của Klaytn. Bạn có thể tìm thêm thông tin chi tiết về hệ thống phân phối phần thưởng khối trong \[Nền kinh tế token Klaytn]\[].
 - Kích thước khối: Kích thước của khối được đo bằng Byte. Giao dịch được đưa vào càng nhiều, kích thước khối càng lớn.
 
 #### Uỷ ban <a id="committee"></a>
@@ -124,7 +124,7 @@ Thông tin tổng quan về giao dịch.
 
 - Chỉ báo trạng thái: Ở góc trên bên phải. Chỉ báo báo giao dịch có thành công hay không.
 - Loại TX: Loại giao dịch. Để biết thêm thông tin, vui lòng xem phần \[Giao dịch]\[].
-- Khối #: Số khối chứa giao dịch này. Nhấp vào số khối sẽ đưa bạn đến chế độ xem chi tiết khối.
+- Khối \#: Số khối chứa giao dịch này. Nhấp vào số khối sẽ đưa bạn đến chế độ xem chi tiết khối.
 - Từ -&gt; Đến: Địa chỉ của người gửi và người nhận. Bằng cách nhấp vào địa chỉ, bạn có thể chuyển đến chế độ xem chi tiết tài khoản. Nếu biểu tượng tệp hiển thị bên cạnh địa chỉ, điều đó có nghĩa là địa chỉ đó là hợp đồng.
 - Người trả phí: Được hiển thị khi loại TX là Phí được ủy thác hoặc Phí được ủy thác theo tỷ lệ. Khi nhấp vào địa chỉ của người trả phí, bạn có thể chuyển đến chế độ xem chi tiết tài khoản.
 - Thời gian: Thời gian đã trôi qua kể từ khi giao dịch được thực hiện.
@@ -149,10 +149,10 @@ Dữ liệu bổ sung do người gửi hoặc hợp đồng cung cấp.
 
 Thông tin tổng quan về tài khoản.
 
-- Địa chỉ (Hex): Địa chỉ duy nhất của tài khoản.
+- Địa chỉ \(Hex\): Địa chỉ duy nhất của tài khoản.
 - Số dư: Tổng số KLAY mà tài khoản này có.
 - Tổng số TX: Tổng số giao dịch mà tài khoản này đã gửi hoặc nhận.
-- HRA: Cho biết loại tài khoản này có phải là HRA hay không. (TBD)
+- HRA: Cho biết loại tài khoản này có phải là HRA hay không. \(TBD\)
 
 #### Giao dịch <a id="transactions"></a>
 
@@ -166,12 +166,12 @@ Danh sách các giao dịch liên quan đến tài khoản này. Màu của mũi
 
 Thông tin tổng quan về hợp đồng.
 
-- Tài khoản (Hex): Địa chỉ duy nhất của hợp đồng.
+- Tài khoản \(Hex\): Địa chỉ duy nhất của hợp đồng.
 - Số dư: Tổng số KLAY mà hợp đồng này có.
 - Người tạo hợp đồng: Tài khoản đã triển khai hợp đồng này. Bằng cách nhấp vào địa chỉ, bạn có thể chuyển đến chế độ xem chi tiết tài khoản.
 - Tổng số TX: Tổng số giao dịch mà hợp đồng này đã nhận.
 - Hợp đồng đã tạo TX: Giao dịch đã triển khai hợp đồng này. Nhấp vào hàm băm sẽ đưa bạn đến chế độ xem chi tiết giao dịch.
-- HRA: Cho biết loại tài khoản hợp đồng có phải là HRA hay không. (TBD)
+- HRA: Cho biết loại tài khoản hợp đồng có phải là HRA hay không. \(TBD\)
 
 #### Giao dịch <a id="transactions"></a>
 
@@ -187,10 +187,10 @@ Thông qua Klaytnscope, bạn có thể tìm kiếm thông tin về tài khoản
 
 Trong phiên bản mạng chính, các từ khóa có thể tìm kiếm như sau:
 
-- Khối #
+- Khối \#
 - Hàm băm TX
-- Địa chỉ (Tài khoản, Hợp đồng)
-- Địa chỉ mà con người đọc được (.klaytn) (TBD)
+- Địa chỉ \(Tài khoản, Hợp đồng\)
+- Địa chỉ mà con người đọc được \(.klaytn\) \(TBD\)
 
 ### Định dạng từ khóa <a id="keyword-format"></a>
 
@@ -198,23 +198,23 @@ Các đặc điểm duy nhất giúp phân biệt từng từ khóa như sau:
 
 #### Khối <a id="block"></a>
 
-- Chỉ các số thập phân [0\~9]
+- Chỉ các số thập phân \[0~9\]
 
 #### Hàm băm TX <a id="tx-hash"></a>
 
 - dài 66 ký tự
 - Bắt đầu bằng tiền tố `0x`
-- Chỉ số thập lục phân [0\~9, a\~f]
+- Chỉ số thập lục phân \[0~9, a~f\]
 
 #### Địa chỉ <a id="address"></a>
 
 - dài 42 ký tự
 - Bắt đầu bằng tiền tố `0x`
-- Chỉ số thập lục phân [0\~9, a\~f]
+- Chỉ số thập lục phân \[0~9, a~f\]
 
-#### Địa chỉ mà con người đọc được (TBD) <a id="human-readable-address-tbd"></a>
+#### Địa chỉ mà con người đọc được \(TBD\) <a id="human-readable-address-tbd"></a>
 
-- dài 12\~20 ký tự
+- dài 12~20 ký tự
 - Kết thúc bằng `.klaytn`
 
 ### Lỗi tìm kiếm <a id="search-errors"></a>
@@ -223,17 +223,16 @@ Các đặc điểm duy nhất giúp phân biệt từng từ khóa như sau:
 
 Nếu bạn tìm kiếm một từ khóa không phù hợp với định dạng được chỉ định hoặc thông tin chưa được tạo thì sẽ không xuất hiện trang kết quả nào.
 
-#### Sai định dạng (Hàm băm TX / Địa chỉ) <a id="wrong-format-tx-hash-address"></a>
+#### Sai định dạng \(Hàm băm TX / Địa chỉ\) <a id="wrong-format-tx-hash-address"></a>
 
 - Sai số ký tự
 - Không bắt đầu bằng tiền tố `0x`
-- Chứa các ký tự đặc biệt hoặc ký tự không phải hệ thập lục phân [g\~z]
+- Chứa các ký tự đặc biệt hoặc ký tự không phải hệ thập lục phân \[g~z\]
 
 #### Không tồn tại <a id="doesn-t-exist"></a>
 
-- Các khối chưa được tạo (nếu số khối đã nhập cao hơn số khối được tạo gần đây)
+- Các khối chưa được tạo \(nếu số khối đã nhập cao hơn số khối được tạo gần đây\)
 - Hàm băm TX không tồn tại
 
 [Transactions]: ../../../learn/transactions/transactions.md
-
 [Klaytn Token Economy]: ../../../learn/token-economy.md
