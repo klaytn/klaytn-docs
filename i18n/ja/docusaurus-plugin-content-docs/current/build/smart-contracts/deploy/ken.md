@@ -4,13 +4,13 @@
 
 Before you start, let's get familiar with several Klaytn-specific terms.
 
-- **Endpoint Node (EN)**: A node that handles the JSON-RPC API requests to the Klaytn network. Endpoint Node does not participate in the consensus.
+- **Endpoint Node \(EN\)**: A node that handles the JSON-RPC API requests to the Klaytn network. Endpoint Node does not participate in the consensus.
 - **KLAY**: Klaytn native coin.
 - **caver-js**: A JavaScript implementation of Klaytn JSON-RPC APIs.
 - **Baobab**: Klaytn testnet
 - **Cypress**: Klaytn mainnet
 
-This step by step guide will walk you through the process of launching an Endpoint Node (EN) of Baobab testnet and building a basic smart contract with your new account. The tutorial consists of two parts, setting up an EN and deploying a smart contract through your EN.
+This step by step guide will walk you through the process of launching an Endpoint Node \(EN\) of Baobab testnet and building a basic smart contract with your new account. The tutorial consists of two parts, setting up an EN and deploying a smart contract through your EN.
 
 > This guide uses the **Baobab** testnet because deploying a smart contract and submitting a transaction require transaction fees in KLAY. For the development purpose, testnet KLAY can be obtained from the [Baobab faucet](https://baobab.wallet.klaytn.foundation/faucet).
 
@@ -107,7 +107,7 @@ Welcome to the Klaytn JavaScript console
  >
 ```
 
-**NOTE**: You must wait until it downloads all the blocks. Enter `klay.blockNumber` in a console and check whether it matches the current block number [here](https://baobab.scope.klaytn.com/)
+**NOTE**: You must wait until it downloads all the blocks. Enter `klay.blockNumber` in a console and check whether it matches the current block number [here](https://baobab.klaytnscope.com/)
 
 **NOTE**: Type `klay` or `personal` to get the list of available functions.
 
@@ -162,7 +162,7 @@ true
 
 To see the balance of your account, execute the following command.
 
-The default unit is peb (1 KLAY = 10^18 peb). More information about KLAY units can be found at [Units of KLAY](../../../learn/klaytn-native-coin-klay.md#units-of-klay).
+The default unit is peb \(1 KLAY = 10^18 peb\). More information about KLAY units can be found at [Units of KLAY](../../../learn/klaytn-native-coin-klay.md#units-of-klay).
 
 ```javascript
 > klay.getBalance('75a59b94889a05c03c66c3c84e9d2f8308ca4abd') # enter your account address
@@ -190,7 +190,7 @@ $ mkdir $HOME/klaytn
 
 > You need `npm` and `node.js` installed to proceed. Please refer to [get-npm](https://www.npmjs.com/get-npm) and [node.js](https://nodejs.org/en/) for installation on your system.
 
-​[caver-js](../../../references/sdk/caver-js/caver-js.md) is a JSON RPC framework for the Klaytn network (equivalent to web3.js in Ethereum). Before installing caver-js, you must generate `package.json` file via `npm init` command, and then type `npm install caver-js` to install caver-js.
+​[caver-js](../../../references/sdk/caver-js/caver-js.md) is a JSON RPC framework for the Klaytn network \(equivalent to web3.js in Ethereum\). Before installing caver-js, you must generate `package.json` file via `npm init` command, and then type `npm install caver-js` to install caver-js.
 
 ```bash
 $ npm init # initialize npm at the klaytn project directory
@@ -222,9 +222,9 @@ $ rm /Users/username/klaytn/node_modules/websocket/.git
 
 **Note:** For all the function calls that begin with `web3.eth...` in web3.js, should be replaced with `caver.klay...`.
 
-`web3.eth.sendTransaction({ ... })` (X)
+`web3.eth.sendTransaction({ ... })` \(X\)
 
-`caver.klay.sendTransaction({ ... })` (O)
+`caver.klay.sendTransaction({ ... })` \(O\)
 
 ### Installing Truffle <a id="installing-truffle"></a>
 
@@ -389,7 +389,7 @@ module.exports = function(deployer) {
 
 Enter Klaytn's network information into truffle.js.
 
-**`WARNING`**: Currently Klaytn Baobab network's gasPrice is fixed to 25 Gpeb (**It returns an error if you attempt to use any other number**).
+**`WARNING`**: Currently Klaytn Baobab network's gasPrice is fixed to 25 Gpeb \(**It returns an error if you attempt to use any other number**\).
 
 ```bash
 $ cd ..
@@ -498,7 +498,7 @@ $ node test-klaytn.js
 
 Use JavaScript to call the `greet()` in the contract.
 
-**NOTE**: In order to call specific functions in smart contracts, you need an ABI (Application Binary Interface) file. When Truffle deploys your contract, it automatically creates .json file at `./build/contracts/` which contains `abi` property.
+**NOTE**: In order to call specific functions in smart contracts, you need an ABI \(Application Binary Interface\) file. When Truffle deploys your contract, it automatically creates .json file at `./build/contracts/` which contains `abi` property.
 
 Append the following lines to the test code written above.
 
