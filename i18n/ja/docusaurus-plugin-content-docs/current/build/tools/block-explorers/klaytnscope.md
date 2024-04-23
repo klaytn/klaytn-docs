@@ -2,8 +2,8 @@
 
 Klaytnscope is the block explorer for the Klaytn Network. Klaytnscope gives you an insight about the Klaytn network by monitoring the network health and providing various statistics of Klaytn network. You can also explore the block and transaction data and the list of smart contracts on the Klaytn network.
 
-- For the Baobab network, visit [https://baobab.scope.klaytn.com](https://baobab.scope.klaytn.com)
-- For the Mainnet, visit [https://scope.klaytn.com](https://scope.klaytn.com)
+- For the Baobab network, visit [https://baobab.klaytnscope.com](https://baobab.klaytnscope.com)
+- For the Mainnet, visit [https://klaytnscope.com/](https://klaytnscope.com/)
 
 ![](/img/build/tools/scope_01_main.png)
 
@@ -29,10 +29,10 @@ Network information is presented in the dashboard. The information includes aver
 - Block Height: The latest block height. It shows that how many blocks have been generated since the genesis.
 - Network Performance: It shows Klaytn's network performance with four indicators.
   - Consensus Nodes: Above picture shows that 15 nodes are participated in the consensus process.
-  - Avg Block Time (1 hour): It shows the average block generation time over the last hour.
-  - Avg Block Time (24 hours): It shows the average block generation time over the last 24 hours.
-  - Avg TX Per Block (24 hours): The average number of transactions included in one block over the last 24 hours.
-- Transaction History (14 days): The graphs show the number of daily transactions over the last 14 days. You can see the trend in the transaction volume over the last two weeks.
+  - Avg Block Time \(1 hour\): It shows the average block generation time over the last hour.
+  - Avg Block Time \(24 hours\): It shows the average block generation time over the last 24 hours.
+  - Avg TX Per Block \(24 hours\): The average number of transactions included in one block over the last 24 hours.
+- Transaction History \(14 days\): The graphs show the number of daily transactions over the last 14 days. You can see the trend in the transaction volume over the last two weeks.
 
 ### Recent Blocks & Transactions <a id="recent-blocks-transactions"></a>
 
@@ -63,11 +63,11 @@ If you want to get a closer look at the status of the Klaytn network, you can ch
 
 A list of recently generated blocks. To update the information, please click the refresh.
 
-- Block: The unique number of the block. Starting from zero (the genesis block), it is given sequentially each time a block is generated.
+- Block: The unique number of the block. Starting from zero \(the genesis block\), it is given sequentially each time a block is generated.
 - Time: Duration of time since the block was generated. You can check the exact date and time by hovering this.
 - Total TXs: The total number of transactions included in the block.
 - Block Proposer: Randomly but deterministically selected Consensus Node that proposed the block. By clicking the address, you can easily go to the details page.
-- Reward: Aggregation of newly minted KLAY (6.4 KLAY) and transaction fees used in the block. The list displays only the sum of Klaytn Governance Council Reward, Proof of Contribution, and Klaytn Improvement Reserve. Hover the block reward section on the block detail page to see detailed information. More details about the block reward distribution system can be found in the [Klaytn Token Economy].
+- Reward: Aggregation of newly minted KLAY \(6.4 KLAY\) and transaction fees used in the block. The list displays only the sum of Klaytn Governance Council Reward, Proof of Contribution, and Klaytn Improvement Reserve. Hover the block reward section on the block detail page to see detailed information. More details about the block reward distribution system can be found in the [Klaytn Token Economy].
 - Size: The size of blocks measured in Byte. The more transactions are included, the larger the block size.
 
 ### Transactions <a id="transactions"></a>
@@ -77,7 +77,7 @@ A list of recently generated blocks. To update the information, please click the
 A list of recently executed transactions. To update the information, please click the refresh.
 
 - TX Hash: The unique identifier of the transaction. For more information, click the hash to go to the detail page. If the transaction fails, a red exclamation mark appears next to it.
-- Block #: Number of the block which contains this transaction. Clicking on the number takes you to the details page of the block.
+- Block \#: Number of the block which contains this transaction. Clicking on the number takes you to the details page of the block.
 - Time: Duration of time since the transaction was executed. You can check the exact date and time by hovering this.
 - From -&gt; To: The addresses of sender and receiver. By clicking the address, you can easily go to the details page. If the file icon displays next to an address, it means that the address is a contract.
 - TX Type: Type of the transaction. You can apply a filter to get the transactions of a specific type. For more information, please visit [Transactions].
@@ -100,7 +100,7 @@ Overall information about the block.
 - Hash: The unique identifier of the block. By pressing the copy button, you can easily copy the hash.
 - Parent Hash: The unique identifier of the previous block. Clicking on the hash takes you to the detail view of the parent hash.
 - Total TXs: The total number of transactions included in the block.
-- Block Reward: Aggregation of the newly minted KLAY (6.4 KLAY) and the transaction fees collected in the block. If you hover, you will find detailed information on Klaytn Governance Council Reward, Proof of Contribution and Klaytn Improvement Reserve. More details about block reward distribution system can be found in the [Klaytn Token Economy].
+- Block Reward: Aggregation of the newly minted KLAY \(6.4 KLAY\) and the transaction fees collected in the block. If you hover, you will find detailed information on Klaytn Governance Council Reward, Proof of Contribution and Klaytn Improvement Reserve. More details about block reward distribution system can be found in the [Klaytn Token Economy].
 - Block Size: The size of block measured in Byte. The more transactions are included, the larger the block size.
 
 #### Committee <a id="committee"></a>
@@ -124,7 +124,7 @@ Overall information about the transaction.
 
 - Status indicator: On the upper-right corner. The indicator whether the transaction succeeded or not.
 - TX Type: Type of the transaction. For more information, please see [Transactions].
-- Block #: Number of the block which contains this transaction. Clicking on the number takes you to the detail view of the block.
+- Block \#: Number of the block which contains this transaction. Clicking on the number takes you to the detail view of the block.
 - From -&gt; To: The addresses of sender and receiver. By clicking the address, you can go to the detail view of the account. If a file icon displays next to the address, it means that address is contract.
 - Fee Payer: Displayed when TX type is either Fee Delegated or Fee Delegated with Ratio. When you click the address of fee payer you can go to the detailed view of the account.
 - Time: Elapsed time since the transaction was executed.
@@ -149,10 +149,10 @@ Extra data provided by the sender or contract.
 
 Overall information about the account.
 
-- Address (Hex): The unique address of the account.
+- Address \(Hex\): The unique address of the account.
 - Balance: The total amount of KLAY that this account has.
 - Total TXs: The total number of transactions that this account sent or received.
-- HRA: It informs whether this account type is HRA or not. (TBD)
+- HRA: It informs whether this account type is HRA or not. \(TBD\)
 
 #### Transactions <a id="transactions"></a>
 
@@ -166,12 +166,12 @@ The list of transactions related to this account. The color of the arrow indicat
 
 Overall information about the contract.
 
-- Account (Hex): The unique address of the contract.
+- Account \(Hex\): The unique address of the contract.
 - Balance: The total amount of KLAY that this contract has.
 - Contract Creator: The account that deployed this contract. By clicking the address, you can go to the detail view of the account.
 - Total TXs: The total number of transactions that this contract received.
 - Contract Created TX: The transaction that deployed this contract. Clicking on the hash takes you to the detail view of the transaction.
-- HRA: It informs whether the contract account type is HRA or not. (TBD)
+- HRA: It informs whether the contract account type is HRA or not. \(TBD\)
 
 #### Transactions <a id="transactions"></a>
 
@@ -187,10 +187,10 @@ Through Klaytnscope, you can search for the information about account, contract,
 
 In the mainnet version, searchable keywords are as follows:
 
-- Block #
+- Block \#
 - TX Hash
-- Address (Account, Contract)
-- Human Readable Address (.klaytn) (TBD)
+- Address \(Account, Contract\)
+- Human Readable Address \(.klaytn\) \(TBD\)
 
 ### Keyword Format <a id="keyword-format"></a>
 
@@ -198,23 +198,23 @@ The unique characteristics that distinguish each keyword are as follows:
 
 #### Block <a id="block"></a>
 
-- Decimal numbers only [0\~9]
+- Decimal numbers only \[0~9\]
 
 #### TX Hash <a id="tx-hash"></a>
 
 - 66 characters long
 - Starts with a prefix `0x`
-- Hexadecimal number only [0\~9, a\~f]
+- Hexadecimal number only \[0~9, a~f\]
 
 #### Address <a id="address"></a>
 
 - 42 characters long
 - Start with a prefix `0x`
-- Hexadecimal number only [0\~9, a\~f]
+- Hexadecimal number only \[0~9, a~f\]
 
-#### Human Readable Address (TBD) <a id="human-readable-address-tbd"></a>
+#### Human Readable Address \(TBD\) <a id="human-readable-address-tbd"></a>
 
-- 12\~20 characters long
+- 12~20 characters long
 - Ends in `.klaytn`
 
 ### Search Errors <a id="search-errors"></a>
@@ -223,17 +223,16 @@ The unique characteristics that distinguish each keyword are as follows:
 
 If you search for a keyword that doesn't fit in the specified format or information hasn't yet been generated, no result page will appear.
 
-#### Wrong Format (TX Hash / Address) <a id="wrong-format-tx-hash-address"></a>
+#### Wrong Format \(TX Hash / Address\) <a id="wrong-format-tx-hash-address"></a>
 
 - Wrong number of characters
 - Doesn't start with a prefix `0x`
-- Contains special characters or non-hexadecimal characters [g\~z]
+- Contains special characters or non-hexadecimal characters \[g~z\]
 
 #### Doesn't Exist <a id="doesn-t-exist"></a>
 
-- Blocks not yet generated (if the block number entered was higher than recently generated block number)
+- Blocks not yet generated \(if the block number entered was higher than recently generated block number\)
 - Non-existent TX Hash
 
 [Transactions]: ../../../learn/transactions/transactions.md
-
 [Klaytn Token Economy]: ../../../learn/token-economy.md
