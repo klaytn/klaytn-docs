@@ -26,6 +26,6 @@
 
 **클레이튼 툴킷**
 
-- [Klaytnscope](https://scope.klaytn.com/) - 블록 및 트랜잭션 탐색기.
+- [Klaytnscope](https://klaytnscope.com/) - A block and transaction explorer.
 - [Klaytn Wallet](https://wallet.klaytn.com/) - 브라우저 기반 계정 관리 도구.
 - [Klaytn Contracts Wizard](https://wizard.klaytn.foundation/) - 스마트 컨트랙트를 부트스트랩하고 클레이튼 컨트랙트에 대해 알아볼 수 있는 대화형 생성기입니다.
