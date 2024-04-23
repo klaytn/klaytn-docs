@@ -81,15 +81,15 @@ Cypress는 Klaytn 메인넷, Baobab은 테스트넷입니다.
 Cypress 메인넷:
 
 - EN 다운로드 : [다운로드 페이지](../nodes/downloads/downloads.md)에서 Cypress 패키지를 선택합니다.
-- Klaytnscope : https\://scope.klaytn.com
-- 클레이튼 지갑 : https\://wallet.klaytn.com
+- Klaytnscope : https://klaytnscope.com
+- 클레이튼 지갑 : https://wallet.klaytn.com
 
 Baobab 테스트넷:
 
 - EN 다운로드 : [다운로드 페이지](../nodes/downloads/downloads.md)에서 Baobab 패키지를 선택합니다.
-- Klaytnscope : https\://baobab.scope.klaytn.com
-- 클레이튼 지갑 : https\://baobab.wallet.klaytn.foundation
-- Baobab Faucet : https\://baobab.wallet.klaytn.foundation/faucet
+- Klaytnscope : https://baobab.klaytnscope.com
+- 클레이튼 지갑 : https://baobab.wallet.klaytn.foundation
+- Baobab Faucet : https://baobab.wallet.klaytn.foundation/faucet
 
 ## 클레이튼 SDK가 있나요? 어떤 언어로 제공되나요? <a id="klaytn-sdks"></a>
 
