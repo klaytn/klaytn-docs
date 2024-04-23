@@ -162,7 +162,7 @@ forge create --rpc-url https://klaytn-baobab-rpc.allthatnode.com:8551/qtKkeUE8ZE
 
 ![](/img/build/get-started/foundry-create.png)
 
-**Bước 2**: Mở [Klaytnscope](https://baobab.scope.klaytn.com/tx/0x669e39c9661fdab59aa34989b58b3f89376a93f846a0c71d2858918f58a307e2?tabId=internalTx) để kiểm tra xem hợp đồng đối ứng có được triển khai thành công không.
+**Step 2**: Open [Klaytnscope](https://baobab.klaytnscope.com/tx/0x669e39c9661fdab59aa34989b58b3f89376a93f846a0c71d2858918f58a307e2?tabId=internalTx) to check if the counter contract deployed successfully.
 
 **Bước 3**: Sao chép và dán hàm băm của giao dịch vào trường tìm kiếm và nhấn Enter. Bạn sẽ thấy hợp đồng vừa được triển khai.
 
