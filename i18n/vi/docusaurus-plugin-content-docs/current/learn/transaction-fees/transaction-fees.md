@@ -1,14 +1,14 @@
-# Transaction Fees
+# Phí giao dịch
 
-The transaction fee of one transaction is calculated as follows:
+Phí giao dịch của một giao dịch được tính như sau:
 
 ```text
-Transaction fee := (Gas used) x (GasPrice)
+Phí giao dịch := (Lượng Gas đã dùng) x (Giá Gas)
 ```
 
-As an easy-to-understand analogy in this regard, suppose you're filling up gas at a gas station. The gas price is determined by the refinery every day, and today's price is $2. If you fill 15L up, then you would pay $30 = 15L x $2/1L for it, and the $30 will be paid out of your bank account. Also, the transaction will be recorded in the account book.
+Có một sự tương đồng dễ hiểu ở đây, giả sử bạn đang đổ xăng ở một trạm xăng. Giá xăng được nhà máy quyết định hàng ngày, và hôm nay giá xăng là $2. Nếu bạn đổ 15 lít xăng thì bạn sẽ cần phải trả $30 = 15L x $2/1L và $30 đó sẽ được thanh toán từ tài khoản ngân hàng của bạn. Ngoài ra, thông tin giao dịch sẽ được lưu lại ở sổ kế toán.
 
-Transaction fee works just the same as above. The network determines the gas price for every block. Suppose the gas price for the current block is 30 ston. If a transaction submitted by `from` account was charged 21000 gas, then 630000 ston = (21000 gas \* 30 ston) would be paid out of the `from` account. Also, the transaction will be recorded in the block, and it will be applied in the state of all blockchain nodes.
+Phí giao dịch hoạt động tương tự như trên. The network determines the gas price for every block. Suppose the gas price for the current block is 30 ston. If a transaction submitted by `from` account was charged 21000 gas, then 630000 ston = (21000 gas \* 30 ston) would be paid out of the `from` account. Also, the transaction will be recorded in the block, and it will be applied in the state of all blockchain nodes.
 
 Summing it up again, this calculated transaction fee is subtracted from the sender's or fee payer's account. However, the fee can be deducted from the balance only if the transaction is created by klay_sendTransaction/eth_sendTransaction. Because the other transactions cannot change the state since they cannot be included in the block. They are just a simulation in some way.
 
@@ -27,10 +27,10 @@ Every action that changes the state of the blockchain requires gas. While proces
 
 Unlike the ethereum, Klaytn used the fixed gas price, called `unitPrice` at first. However, since magma hardfork, Klaytn started to use dynamic gas price which concept is newly redesigned by modifying the Ethereum's basefee, so called `Effective Gas Price`. Since there have been many changes about gas price, it can be pretty confusing on what value to set for gasPrice. So, we've made a guide on how to set the gas price below.
 
-| Network  | Before BaseFee                                                                                                                    | After BaseFee                                                                                                                                                                                                                     |
-| :------- | :-------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| klaytn   | tx parameter gasPrice: network-defined. must be set as the `unitPrice` <br/> <br/> gasPrice: use the tx parameter gasPrice        | tx parameter gasPrice: user-defined. It means the price the most you can pay  (e.g. suggestGasPrice = 2\*latestBlock.baseFee ) <br/> <br/> gasPrice: dynamic gasPrice, `baseFee`, which is defined by network. |
-| Ethereum | tx parameter gasPrice: user-defined. it means the price the most you can pay. <br/> <br/> gasPrice: use the tx parameter gasPrice | tx parameter gasPrice: user-defined. It means the price the most you can pay. <br/> <br/> gasPrice: dynamic gasPrice, `baseFee+tip`, which is defined by network.                                                                 |
+| Network  | Before BaseFee                                                                                                                                                                                    | After BaseFee                                                                                                                                                                                                                                                                                                                                     |
+| :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| klaytn   | tx parameter gasPrice: network-defined. must be set as the `unitPrice` <br/> <br/> gasPrice: use the tx parameter gasPrice                        | tx parameter gasPrice: user-defined. It means the price the most you can pay  (e.g. suggestGasPrice = 2\*latestBlock.baseFee ) <br/> <br/> gasPrice: dynamic gasPrice, `baseFee`, which is defined by network. |
+| Ethereum | tx parameter gasPrice: user-defined. it means the price the most you can pay. <br/> <br/> gasPrice: use the tx parameter gasPrice | tx parameter gasPrice: user-defined. It means the price the most you can pay. <br/> <br/> gasPrice: dynamic gasPrice, `baseFee+tip`, which is defined by network.                                                                                                 |
 
 ## Dynamic Gas Fee Mechanism <a id="dynamic-gas-fee-mechanism"></a>
 
