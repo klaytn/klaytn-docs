@@ -1,8 +1,13 @@
 # Precompiled Contracts
 
-Klaytn provides several useful precompiled contracts. 
-These contracts are implemented in the platform itself as a native implementation.
+Klaytn provides several useful precompiled contracts, none of which are state changing.
+These contracts are implemented in the platform itself as a native implementation which means they part of the Klaytn client specifications. 
 The precompiled contracts from address 0x01 through 0x0A are the same as those in Ethereum. 
+The utility of precompiles falls into fours major categories:
+    . Elliptic curve digital signature recovery.
+    . Hash Methods
+    . Memory copying
+    . Methods to enable elliptic curve maths for zk proofs. 
 Klaytn additionally implements precompiled contracts from 0x3FD through 0x3FF to support new Klaytn features.
 
 :::note
@@ -17,18 +22,41 @@ Precompiled contracts related hardfork changes can be found at the bottom of thi
 
 ## Address 0x01: ecrecover\(hash, v, r, s\) <a id="address-0x-01-ecrecover-hash-v-r-s"></a>
 
-The address 0x01 implements ecrecover. It returns the address from the given signature by calculating a recovery function of ECDSA. Its function prototype is as follows:
+The address 0x01 implements ecrecover. It returns the address from the given signature by calculating a recovery function of ECDSA. It is the only precompile that comes with a solidity wrapper. Its function prototype is as follows:
 
 ```text
-function ecrecover(bytes32 hash, bytes8 v, bytes32 r, bytes32 s) returns (address);
+function ecRecover(bytes32 hash, uint8 v, bytes32 r, bytes32 s) public view returns (address) {
+        address r = ecrecover(hash, v, r, s); // prototype function 
+        require(r != address(0), "signature is invalid");
+} // solidity wrapper
 ```
 
 ## Address 0x02: sha256\(data\) <a id="address-0x-02-sha-256-data"></a>
 
-The address 0x02 implements SHA256 hash. It returns a SHA256 hash from the given data. Its function prototype is as follows:
+The address 0x02 implements SHA256 hash. It returns a SHA256 hash from the given data. It is mostly used by Bitcoin and Zcash as Ethereum uses Keccak256. Its function prototype is as follows:
 
 ```text
-function sha256(bytes data) returns (bytes32);
+function sha256(uint256 numberToHash) public view returns (bytes32 hash) {
+		(bool ok, bytes memory hashData) = address(0x02).staticcall(abi.encode(numberToHash));
+		require(ok);
+		hash = abi.decode(hashData, (bytes32));
+}
+```
+
+using Yul Assembly:
+
+```text
+function sha256Yul(uint256 numberToHash) public view returns (bytes32) {
+		assembly {
+			mstore(0, numberToHash) // store number in the zeroth memory word
+
+			let ok := staticcall(gas(), 2, 0, 32, 0, 32)
+			if iszero(ok) {
+				revert(0,0)
+			}
+			return(0, 32)
+		}
+	}
 ```
 
 ## Address 0x03: ripemd160\(data\) <a id="address-0x-03-ripemd-160-data"></a>
@@ -36,7 +64,11 @@ function sha256(bytes data) returns (bytes32);
 The address 0x03 implements RIPEMD160 hash. It returns a RIPEMD160 hash from the given data. Its function prototype is as follows:
 
 ```text
-function ripemd160(bytes data) returns (bytes32);
+function RIPEMD160(bytes calldata data) public view returns (bytes20 h) {
+	(bool ok, bytes memory out) = address(0x03).staticcall(data);
+	require(ok);
+	h = bytes20(abi.decode(out, (bytes32)) << 96);
+}
 ```
 
 ## Address 0x04: datacopy\(data\) <a id="address-0x-04-datacopy-data"></a>
