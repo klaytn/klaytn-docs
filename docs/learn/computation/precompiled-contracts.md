@@ -47,16 +47,16 @@ usage in Yul / Inline Assembly:
 
 ```text
 function sha256Yul(uint256 numberToHash) public view returns (bytes32) {
-		assembly {
-			mstore(0, numberToHash) // store number in the zeroth memory word
+    assembly {
+	mstore(0, numberToHash) // store number in the zeroth memory word
 
-			let ok := staticcall(gas(), 2, 0, 32, 0, 32)
-			if iszero(ok) {
-				revert(0,0)
-			}
-			return(0, 32)
-		}
+	let ok := staticcall(gas(), 2, 0, 32, 0, 32)
+	if iszero(ok) {
+		revert(0,0)
 	}
+	        return(0, 32)
+	}
+}
 ```
 
 ## Address 0x03: ripemd160\(data\) <a id="address-0x-03-ripemd-160-data"></a>
