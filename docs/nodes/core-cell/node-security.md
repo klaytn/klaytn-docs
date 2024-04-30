@@ -1,4 +1,4 @@
-# Securing nodes
+# Node Security
 
 Node security is a critical aspect of a secure blockchain network. Depending on the type of node, the operator needs to pay attention to security.
 
@@ -6,7 +6,7 @@ Node security is a critical aspect of a secure blockchain network. Depending on 
 - Proxy Node (PN): PNs communicate with nodes on the Internet on behalf of CNs. While a PN does not sign blocks by itself, a security breach of a PN can damage the network. Its p2p key can be used to connect to the CN's restrictive network. A compromised PN can also neutralise the transaction filtering such as the spam filter.
 - Endpoint Node (EN): ENs provide public access to the network for the applications. While an EN has no authority to manipulate the blocks, a security breach of an EN can pose trust issues. A compromised EN can serve false information including block data and account states. It can drop or censor incoming transactions if the app is directly connected to the EN.
 
-## Node security
+## Operation security
 
 Follow the security best practices whenever possible. To list a few:
 
