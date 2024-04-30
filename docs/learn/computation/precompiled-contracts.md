@@ -37,9 +37,9 @@ The address 0x02 implements SHA256 hash. It returns a SHA256 hash from the given
 
 ```text
 function sha256(uint256 numberToHash) public view returns (bytes32 hash) {
-		(bool ok, bytes memory hashData) = address(0x02).staticcall(abi.encode(numberToHash));
-		require(ok);
-		hash = abi.decode(hashData, (bytes32));
+      (bool ok, bytes memory hashData) = address(0x02).staticcall(abi.encode(numberToHash));
+      require(ok);
+      hash = abi.decode(hashData, (bytes32));
 }
 ```
 
@@ -47,13 +47,13 @@ usage in Yul / Inline Assembly:
 
 ```text
 function sha256Yul(uint256 numberToHash) public view returns (bytes32) {
-    assembly {
-	mstore(0, numberToHash) // store number in the zeroth memory word
+        assembly {
+	    mstore(0, numberToHash) // store number in the zeroth memory word
 
-	let ok := staticcall(gas(), 2, 0, 32, 0, 32)
-	if iszero(ok) {
+	    let ok := staticcall(gas(), 2, 0, 32, 0, 32)
+	    if iszero(ok) {
 		revert(0,0)
-	}
+	    }
 	        return(0, 32)
 	}
 }
