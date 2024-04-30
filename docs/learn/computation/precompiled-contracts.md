@@ -1,7 +1,7 @@
 # Precompiled Contracts
 
-Klaytn provides several useful precompiled contracts, none of which are state changing.
-These contracts are implemented in the platform itself as a native implementation which means they are part of the Klaytn client specifications. 
+Klaytn provides several useful precompiled contracts, none of which are state-changing.
+These contracts are implemented in the platform itself as a native implementation, which means they are part of the Klaytn client specifications. 
 The precompiled contracts from address 0x01 through 0x0A are the same as those in Ethereum. 
 The utility of precompiles falls into four major categories:
     . Elliptic curve digital signature recovery.
