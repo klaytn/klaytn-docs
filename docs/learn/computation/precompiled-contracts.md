@@ -1,9 +1,9 @@
 # Precompiled Contracts
 
 Klaytn provides several useful precompiled contracts, none of which are state changing.
-These contracts are implemented in the platform itself as a native implementation which means they part of the Klaytn client specifications. 
+These contracts are implemented in the platform itself as a native implementation which means they are part of the Klaytn client specifications. 
 The precompiled contracts from address 0x01 through 0x0A are the same as those in Ethereum. 
-The utility of precompiles falls into fours major categories:
+The utility of precompiles falls into four major categories:
     . Elliptic curve digital signature recovery.
     . Hash Methods
     . Memory copying
@@ -43,7 +43,7 @@ function sha256(uint256 numberToHash) public view returns (bytes32 hash) {
 }
 ```
 
-using Yul Assembly:
+usage in Yul / Inline Assembly:
 
 ```text
 function sha256Yul(uint256 numberToHash) public view returns (bytes32) {
