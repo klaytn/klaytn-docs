@@ -335,7 +335,8 @@ const sidebars = {
           ],
         },
         'nodes/core-cell/monitoring-setup',
-        'nodes/core-cell/h-a-setup',            
+        'nodes/core-cell/h-a-setup',
+        'nodes/core-cell/node-security',
       ],
     },
     {
