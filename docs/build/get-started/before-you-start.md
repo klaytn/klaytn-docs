@@ -29,3 +29,11 @@
 * [Klaytnscope](https://klaytnscope.com/) - A block and transaction explorer.
 * [Klaytn Wallet](https://wallet.klaytn.com/) - A browser-based account management tool.
 * [Klaytn Contracts Wizard](https://wizard.klaytn.foundation/) - An interactive generator to bootstrap your smart contract and learn about Klaytn Contracts.
+
+
+**Glossary**
+This glossary defines terms you may encounter throughout this documentation.
+
+* dApp (Decentralized Application): An application that runs on a decentralized network like blockchain,  independent of a single server controlled by a company. dApps are potentially more secure, transparent, and resistant to censorship.
+
+* JSON-RPC APIs:  A communication method that uses JSON (a data format) to send requests and receive responses. It allows developer tools and applications to interact with the Klaytn network, read data, or send transactions.  Imagine JSON-RPC APIs as a remote control with buttons for specific actions on the Klaytn network (the machine).
