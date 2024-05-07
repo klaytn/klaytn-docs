@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - main
+      - Fix/edit-workflows-add-upgrade-package-step
 
 jobs:
   deploy:
@@ -30,7 +31,7 @@ jobs:
 
       - name: Installing dependencies
         run: |
-          yarn install
+          yarn install && yarn upgrade @docusaurus/preset-classic @docusaurus/core --latest
       - name: Clone web3klaytn
         run: |
           git clone -b dev https://github.com/klaytn/web3klaytn.git
