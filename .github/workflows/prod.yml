@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - main
-      - Fix/edit-workflows-add-upgrade-package-step
 
 jobs:
   deploy:
