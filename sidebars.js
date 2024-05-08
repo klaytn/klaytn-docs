@@ -112,7 +112,6 @@ const sidebars = {
         'learn/klaytn2/metaverse-package',
       ],
     },
-    'learn/glossary',
     ...commonSidebar,
   ],
   buildSidebar: [
