@@ -40,6 +40,7 @@ const commonSidebar = [
     ],
   },
   'misc/klaytn-history',
+  'misc/glossary',
   'misc/faq',
   'misc/opensource',
   'misc/terms-of-use',
