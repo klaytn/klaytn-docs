@@ -25,6 +25,7 @@ To get started, you need to create a project directory to house the files to be 
 ```bash
 mkdir web3-js
 cd web3-js
+npm init -y
 ```
 
 ### Install web3.js
@@ -77,19 +78,28 @@ const url = "RPC URL"
 const web3 = new Web3(url);
 
 async function getLatestBlock() {
-    const latestBlock = await web3.eth.getBlockNumber();
-    console.log(latestBlock.toString());
+    try {
+        const latestBlock = await web3.eth.getBlockNumber();
+        console.log(latestBlock.toString());
+    } catch (error) {
+        console.error("Error occurred while fetching latest block:", error);
+    }
 }
 
 async function getKlayBalance() {
-    const klayBalance  = await web3.eth.getBalance("Paste wallet address");
-    const formatBalance = await web3.utils.fromWei(klayBalance, 'ether');
-    console.log(`You have ${formatBalance} KLAY`);
+    try {
+        const klayBalance  = await web3.eth.getBalance("Paste wallet address");
+        const formatBalance = await web3.utils.fromWei(klayBalance, 'ether');
+        console.log(`You have ${formatBalance} KLAY`);
+    } catch (error) {
+        console.error("Error occurred while fetching KLAY balance:", error);
+    }
 }
 
 // call the following functions
 getLatestBlock();
 getKlayBalance();
+
 
 ```
 
@@ -127,21 +137,26 @@ const senderAddr = "Paste sender address";
 const recipientAddr = "Paste recipient address";
 
 async function sendTx() {
-    const tx = await web3.eth.accounts.signTransaction({
-        from: senderAddr,
-        to: recipientAddr,
-        value: 90000000000,
-        maxFeePerGas: 250000000000,
-        maxPriorityFeePerGas: 250000000000,
-        gas: 21000,
-    }, privateKey);
+    try {
+        const tx = await web3.eth.accounts.signTransaction({
+            from: senderAddr,
+            to: recipientAddr,
+            value: '90000000000', // Value should be passed as string
+            maxFeePerGas: '250000000000', // Gas prices should be passed as string
+            maxPriorityFeePerGas: '250000000000', // Gas prices should be passed as string
+            gas: 21000,
+        }, senderPrivateKey); // Corrected the variable name privateKey to senderPrivateKey
 
-    const receipt = await web3.eth.sendSignedTransaction(tx.rawTransaction);
-    console.log(receipt);
+        const receipt = await web3.eth.sendSignedTransaction(tx.rawTransaction);
+        console.log(receipt);
+    } catch (error) {
+        console.error("Error occurred while sending transaction:", error);
+    }
 }
 
 // call function
 sendTx();
+
 ```
 **Output**
 
@@ -173,7 +188,7 @@ To see this in action, paste the following code in your `interact.js`.
 ```js
 const { Web3 } = require('web3');
 
-const url = "RPC URL"  
+const url = "RPC URL";
 const web3 = new Web3(url);
 
 const privateKey = "Paste private key";
@@ -207,47 +222,54 @@ const abi = [
         "type": "function"
     }
 ]
-    
-    // replace with your contract address
-    const contractAddress = "0x472a1226796b6a0918DC78d40b87d750881fdbDC"
-    
-    const contract = new web3.eth.Contract(abi, contractAddress);
-    
-    // Can replace `10` with any value you want to store
-    const storeTx = contract.methods.store(10);
-    
-    // send transaction to smart contract
-    // modify contract
-    async function setValue() {
-        
-     // Sign Tx with private key
-    const createTransaction = await web3.eth.accounts.signTransaction(
-        {
-          to: contractAddress,
-          data: storeTx.encodeABI(),
-          gas: await storeTx.estimateGas(),
-          maxFeePerGas: 250000000000,
-          maxPriorityFeePerGas: 250000000000,
-        },
-        privateKey
-      );
-    
-      // Send Tx and Wait for Receipt
-      const createReceipt = await web3.eth.sendSignedTransaction(createTransaction.rawTransaction);
-      console.log(`Tx hash: ${createReceipt.transactionHash}`);
 
-      }
+// replace with your contract address
+const contractAddress = "0x472a1226796b6a0918DC78d40b87d750881fdbDC"
 
-      // read contract data
-      async function retrieveValue() {
+const contract = new web3.eth.Contract(abi, contractAddress);
+
+// Can replace `10` with any value you want to store
+const storeTx = contract.methods.store(10);
+
+// send transaction to smart contract
+// modify contract
+async function setValue() {
+    try {
+        // Sign Tx with private key
+        const createTransaction = await web3.eth.accounts.signTransaction(
+            {
+                to: contractAddress,
+                data: storeTx.encodeABI(),
+                gas: await storeTx.estimateGas(),
+                maxFeePerGas: '250000000000', // Gas prices should be passed as string
+                maxPriorityFeePerGas: '250000000000', // Gas prices should be passed as string
+            },
+            privateKey
+        );
+
+        // Send Tx and Wait for Receipt
+        const createReceipt = await web3.eth.sendSignedTransaction(createTransaction.rawTransaction);
+        console.log(`Tx hash: ${createReceipt.transactionHash}`);
+    } catch (error) {
+        console.error("Error occurred while setting value:", error);
+    }
+}
+
+// read contract data
+async function retrieveValue() {
+    try {
         // read from contract
         const tx = await contract.methods.retrieve().call();
         console.log(tx);
-      }
-      
-      // call functions
-      setValue();
-      retrieveValue();
+    } catch (error) {
+        console.error("Error occurred while retrieving value:", error);
+    }
+}
+
+// call functions
+setValue();
+retrieveValue();
+
 
 ```
 
