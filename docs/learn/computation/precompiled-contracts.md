@@ -1,9 +1,9 @@
 # Precompiled Contracts
 
-Klaytn provides several useful precompiled contracts, none of which are state changing.
-These contracts are implemented in the platform itself as a native implementation which means they part of the Klaytn client specifications. 
+Klaytn provides several useful precompiled contracts, none of which are state-changing.
+These contracts are implemented in the platform itself as a native implementation, which means they are part of the Klaytn client specifications. 
 The precompiled contracts from address 0x01 through 0x0A are the same as those in Ethereum. 
-The utility of precompiles falls into fours major categories:
+The utility of precompiles falls into four major categories:
     . Elliptic curve digital signature recovery.
     . Hash Methods
     . Memory copying
@@ -37,26 +37,26 @@ The address 0x02 implements SHA256 hash. It returns a SHA256 hash from the given
 
 ```text
 function sha256(uint256 numberToHash) public view returns (bytes32 hash) {
-		(bool ok, bytes memory hashData) = address(0x02).staticcall(abi.encode(numberToHash));
-		require(ok);
-		hash = abi.decode(hashData, (bytes32));
+      (bool ok, bytes memory hashData) = address(0x02).staticcall(abi.encode(numberToHash));
+      require(ok);
+      hash = abi.decode(hashData, (bytes32));
 }
 ```
 
-using Yul Assembly:
+usage in Yul / Inline Assembly:
 
 ```text
 function sha256Yul(uint256 numberToHash) public view returns (bytes32) {
-		assembly {
-			mstore(0, numberToHash) // store number in the zeroth memory word
+        assembly {
+	    mstore(0, numberToHash) // store number in the zeroth memory word
 
-			let ok := staticcall(gas(), 2, 0, 32, 0, 32)
-			if iszero(ok) {
-				revert(0,0)
-			}
-			return(0, 32)
-		}
+	    let ok := staticcall(gas(), 2, 0, 32, 0, 32)
+	    if iszero(ok) {
+		revert(0,0)
+	    }
+	        return(0, 32)
 	}
+}
 ```
 
 ## Address 0x03: ripemd160\(data\) <a id="address-0x-03-ripemd-160-data"></a>
