@@ -94,6 +94,10 @@ A design document providing information to Klaytn stakeholders regarding new fea
 
 Some of typical examples of KIP are [KIP-7](http://kips.klaytn.foundation/KIPs/kip-7), [KIP-17](http://kips.klaytn.foundation/KIPs/kip-17), and [KIP-37](http://kips.klaytn.foundation/KIPs/kip-37).
 
+### Klaytn State
+
+This is the world state of accounts in Klaytn containing the balances, storage variables of the account and the hash of the code or bytecode depending on if the account is an EOA or SCA.
+
 ### Klaytn virtual machine (KLVM)
 
 A virtual state machine that executes Klaytn smart contracts. It is a quasi-Turing-complete stack-based virtual machine that is derived from the Ethereum Virtual Machine (EVM). The KLVM is responsible for processing and executing smart contracts on the Klaytn blockchain.
@@ -143,6 +147,14 @@ See also [consensus node (CN)](#consensus-node-cn), [service chain](#service-cha
 A node in a Klaytn service chain that provides a public interface for interacting with the service chain.
 
 See also [endpoint node (EN)](#endpoint-node-en), [service chain](#service-chain).
+
+### state migration
+
+This process involves removing unnecessary or outdated data from the blockchain to reduce the amount of required storage space and improve efficiency.
+
+### transaction pool
+
+A critical component for managing pending and queued transactions awaiting inclusion in the next blocks within the network.
 
 ### validator
 
