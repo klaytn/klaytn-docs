@@ -94,6 +94,10 @@
 
 KIP의 대표적인 예로는 [KIP-7](http://kips.klaytn.foundation/KIPs/kip-7), [KIP-17](http://kips.klaytn.foundation/KIPs/kip-17), [KIP-37](http://kips.klaytn.foundation/KIPs/kip-37)이 있습니다.
 
+### Klaytn State
+
+This is the world state of accounts in Klaytn containing the balances, storage variables of the account and the hash of the code or bytecode depending on if the account is an EOA or SCA.
+
 ### 클레이튼 가상머신(KLVM, Klaytn virtual machine)
 
 클레이튼 스마트 컨트랙트를 실행하는 가상 상태 머신입니다. 이더리움 가상머신(EVM)에서 파생된 준 튜링 완전 스택 기반 가상머신입니다. KLVM은 클레이튼 블록체인에서 스마트 컨트랙트를 처리하고 실행하는 역할을 담당합니다.
@@ -143,6 +147,14 @@ Web3 생태계에서 개인의 정체성과 업적을 나타내는 양도 불가
 서비스체인과 상호작용할 수 있는 퍼블릭 인터페이스를 제공하는 클레이튼 서비스체인의 노드입니다.
 
 [엔드포인트 노드(EN)](#endpoint-node-en), [서비스 체인](#service-chain)도 참조하세요.
+
+### state migration
+
+This process involves removing unnecessary or outdated data from the blockchain to reduce the amount of required storage space and improve efficiency.
+
+### transaction pool
+
+A critical component for managing pending and queued transactions awaiting inclusion in the next blocks within the network.
 
 ### 검증자
 
