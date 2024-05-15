@@ -8,7 +8,7 @@
 
 ## Introduction
 
-[Kaikas](https://docs.kaikas.io) is a blockchain wallet, similar to [Metamask](https://metamask.io), with additional support for Klaytn-specific [Transactions](https://docs.klaytn.foundation/docs/learn/transactions) & [Accounts](https://docs.klaytn.foundation/docs/learn/accounts). This article will guide you through integrating [Kaikas](https://docs.kaikas.io) with a decentralized application (dApp), from High-level (abstract) to Low-level (fine-grained) implementations.
+[Kaikas](https://docs.kaikas.io) is a non-custodial wallet, similar to [Metamask](https://metamask.io), with additional support for Klaytn-specific [Transactions](https://docs.klaytn.foundation/docs/learn/transactions) & [Accounts](https://docs.klaytn.foundation/docs/learn/accounts). This article will guide you through integrating [Kaikas](https://docs.kaikas.io) with a decentralized application (dApp), from High-level (abstract) to Low-level (fine-grained) implementations.
 
 For the sake of this guide, we will be dividing Kaikas dApp integration into three main categories:
 
@@ -18,7 +18,7 @@ For the sake of this guide, we will be dividing Kaikas dApp integration into thr
 
 :::note
 
-The aforementioned libraries use `Providers` under the hood. 
+The aforementioned libraries use `Providers` under the hood.
 
 :::
 
@@ -33,7 +33,7 @@ While most UI libraries have built-in support for Metamask, integrating Kaikas i
 - [Web3Modal](#1.1-web3modal-example)
 - [Web3-Onboard](#1.2-web3-onboard-example)
 
-### 1.1 Web3Modal example
+### 1.1. Web3Modal example
 
 ![Web3Modal Hero Banner](https://web3modal.com/images/hero-banner.png)
 
@@ -53,7 +53,7 @@ Example Code: [kaikas-web3modal](https://github.com/klaytn/examples/tree/main/to
 
 :::
 
-### 1.2 Web3-Onboard example
+### 1.2. Web3-Onboard example
 
 ![Web3-Onboard Graphic](https://onboard.blocknative.com/_app/immutable/assets/connect-modal.b7439c5e.svg)
 
@@ -76,7 +76,7 @@ Example Code: [kaikas-web3onboard-react](https://github.com/klaytn/examples/tree
 
 ## 2. Utility Libraries
 
-Libraries like [caver-js](#2.1-caver-js) & [ethers.js](#2.2-ethersjs-example) abstract just enough to streamline blockchain interactions while still being able to call [Provider](#3-providers) APIs directly.
+Libraries like [web3klaytn](#2.1-web3klaytn) & [ethers.js](#2.2-ethersjs-example) abstract just enough to streamline blockchain interactions while still being able to call [Provider](#3-providers) APIs directly.
 
 Using Utility Libraries to connect an account or send native tokens (e.g., KLAY/ETH) will be no different, _in terms of syntax & lines of code_, from calling Providers directly. Where libraries mainly improve are in the following areas:
 
@@ -86,22 +86,22 @@ Using Utility Libraries to connect an account or send native tokens (e.g., KLAY/
   - string error codes/messages are mapped to error Classes with custom properties & methods.
 - Documentation & Type-safety
 
-### 2.1 caver-js
+### 2.1. web3klaytn
 
-[caver-js](https://github.com/klaytn/caver-js) provides first-party support for [Klaytn-specific methods](https://docs.klaytn.foundation/docs/references/json-rpc):
+[web3klaytn](https://github.com/klaytn/web3klaytn) is a set of drop-in extensions for other Utility Libraries, like [ethers.js](https://docs.ethers.io/v6) & [web3.js](https://web3js.org). It allows you to use your preferred library while exposing first-party support for [Klaytn-specific methods](https://docs.klaytn.foundation/docs/references/json-rpc):
 
 - Transaction, Account, & Account Key types
 - Fee Delegation
 
 :::note
 
-Example Code: [kaikas-caverjs](https://github.com/klaytn/examples/tree/main/tools/wallet-libraries/kaikas-caverjs)
+Example Code: [kaikas-web3klaytn](https://github.com/klaytn/examples/tree/main/tools/wallet-libraries/kaikas-web3klaytn)
 
 :::
 
-### 2.2 ethers.js example
+### 2.2. ethers.js example
 
-[ethers.js](https://docs.ethers.io/v6) is the [most popular](https://npmtrends.com/caver-js-vs-ethers-vs-viem-vs-web3) JavaScript Utility Library for interacting with the blockchain. It aims to be:
+[ethers.js](https://docs.ethers.io/v6) is the [most popular](https://npmtrends.com/web3klaytn-vs-ethers-vs-viem-vs-web3) JavaScript Utility Library for interacting with the blockchain. It aims to be:
 
 - Extensive: support for multiple wallet formats, languages, & functions
 - Robust: comprehensive tests, documentation, & typing
