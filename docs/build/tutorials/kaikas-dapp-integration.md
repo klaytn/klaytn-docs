@@ -7,7 +7,7 @@
 3. [Providers](#3-providers)
 
 ## Introduction
-[Kaikas](https://docs.kaikas.io) is a blockchain wallet, similar to [Metamask](https://metamask.io), with additional support for Klaytn-specific [Transactions](https://docs.klaytn.foundation/docs/learn/transactions) & [Accounts](https://docs.klaytn.foundation/docs/learn/accounts). This article will guide you through integrating [Kaikas](https://docs.kaikas.io) with a decentralized application (dApp), from High-level (abstract) to Low-level (fine-grained) implementations.
+[Kaikas](https://docs.kaikas.io) is a non-custodial wallet, similar to [Metamask](https://metamask.io), with additional support for Klaytn-specific [Transactions](https://docs.klaytn.foundation/docs/learn/transactions) & [Accounts](https://docs.klaytn.foundation/docs/learn/accounts). This article will guide you through integrating [Kaikas](https://docs.kaikas.io) with a decentralized application (dApp), from High-level (abstract) to Low-level (fine-grained) implementations.
 
 For the sake of this guide, we will be dividing Kaikas dApp integration into three main categories:
 
