@@ -15,7 +15,7 @@ Klaytn launched its mainnet, [Cypress](https://klaytnscope.com), on Jun/27/2019 
 - 초당 4,000건의 트랜잭션.
 - 이더리움의 1/10에 불과한 낮은 가스 가격.
 - EVM(이더리움 가상 머신)을 실행하고 Solidity 컨트랙트 실행을 지원합니다.
-- 19 reputable corporations worldwide initially formed <LinkWithTooltip to="./glossary#klaytn-governance-council-kgc" tooltip="A consortium governing Klaytn blockchain development and operations.">Klaytn Governance Council</LinkWithTooltip> to operate <LinkWithTooltip to="./glossary#consensus-node-cn" tooltip="Consensus node (CN) validates transactions, builds blocks,<br />  and achieves network agreement.">consensus nodes</LinkWithTooltip>. The current number of consensus nodes is shown in the [Klaytnscope](https://klaytnscope.com).
+- 19 reputable corporations worldwide initially formed <LinkWithTooltip to="../misc/glossary#klaytn-governance-council-kgc" tooltip="A consortium governing Klaytn blockchain development and operations.">Klaytn Governance Council</LinkWithTooltip> to operate <LinkWithTooltip to="../misc/glossary#consensus-node-cn" tooltip="Consensus node (CN) validates transactions, builds blocks,<br />  and achieves network agreement.">consensus nodes</LinkWithTooltip>. The current number of consensus nodes is shown in the [Klaytnscope](https://klaytnscope.com).
 - 50개 이상의 초기 서비스 파트너들이 클레이튼에서 블록체인 애플리케이션을 출시하기로 약속했습니다.
 
 ## 클레이튼: 개관 <a id="klaytn-the-big-picture"></a>
@@ -109,7 +109,7 @@ PNN은 PN으로 구성됩니다.
 #### 제안자 및 위원회 선정 <a id="proposer-and-committee-selection"></a>
 
 In each round, Klaytn randomly but deterministically selects a Consensus Node
-(CN) as the <LinkWithTooltip to="./glossary#proposer" tooltip="A randomly chosen consensus node for block creation.">proposer</LinkWithTooltip> for the block to be created, and then selects a group of CNs as the committee for the given round. 클레이튼은 제안자나 위원회 선정에 직접 관여하지 않으며, 대신 각 CN은 가장 최근의 블록에서 파생된 가장 최근의 블록 헤더에서 파생된 난수를 사용하여 암호화 연산을 실행하여 해당 CN이 이번 라운드에 선택되었는지 여부를 증명합니다. CNN의 크기가 작으면 제안자를 제외한 모든 CN을
+(CN) as the <LinkWithTooltip to="../misc/glossary#proposer" tooltip="A randomly chosen consensus node for block creation.">proposer</LinkWithTooltip> for the block to be created, and then selects a group of CNs as the committee for the given round. 클레이튼은 제안자나 위원회 선정에 직접 관여하지 않으며, 대신 각 CN은 가장 최근의 블록에서 파생된 가장 최근의 블록 헤더에서 파생된 난수를 사용하여 암호화 연산을 실행하여 해당 CN이 이번 라운드에 선택되었는지 여부를 증명합니다. CNN의 크기가 작으면 제안자를 제외한 모든 CN을
 위원으로 선정될 수 있습니다.
 
 #### 블록 제안 및 검증 <a id="block-proposal-and-validation"></a>
