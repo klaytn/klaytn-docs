@@ -37,6 +37,10 @@ A node that is responsible for generating and propagating blocks, and for reachi
 The public mainnet of the Klaytn platform. It is the production environment for Klaytn applications and services. 
 
 See also Klaytn Testnet [Baobab](#baobab).
+### dApp (Decentralized Application)
+
+An application that runs on a decentralized network like blockchain,  independent of a single server controlled by a company. dApps are potentially more secure, transparent, and resistant to censorship.
+
 
 ### endpoint node (EN)
 
@@ -102,6 +106,11 @@ A virtual state machine that executes Klaytn smart contracts. It is a quasi-Turi
 ### Klaytn network identifier (KNI)
 
 A unique resource identifier scheme to identify a Klaytn node. It consists of nodeID, hostname, port, and discport.
+
+### JSON-RPC APIs
+
+A communication method that uses JSON (a data format) to send requests and receive responses. It allows developer tools and applications to interact with the Klaytn network, read data, or send transactions.  Imagine JSON-RPC APIs as a remote control with buttons for specific actions on the Klaytn network (the machine).
+
 
 ### proposer
 
