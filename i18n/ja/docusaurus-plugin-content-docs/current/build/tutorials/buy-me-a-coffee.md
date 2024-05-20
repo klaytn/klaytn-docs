@@ -1,4 +1,4 @@
-# Build a Buy-Me-A-Coffee dApp
+# Build a Buy-Me-A-Coffee DApp
 
 ## Table of Contents <a href="#table-of-contents" id="table-of-contents"></a>
 

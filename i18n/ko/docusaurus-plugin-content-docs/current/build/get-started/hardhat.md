@@ -180,7 +180,7 @@ contract SoulBoundToken is KIP17, Ownable {
 
 **코드 연습**
 
-이것이 여러분의 첫 스마트 컨트랙트입니다. **1줄**은 Hardhat이 Solidity 버전 0.8.7 이상을 사용한다는 것을 보여줍니다. 그 외에는 KIP17.sol 및 기타 지원 컨트랙트를 가져옵니다. **6\~12줄**에서는 KIP17을 계승하는 스마트 컨트랙트가 생성되었습니다. 또한 생성자에서 토큰 이름과 심볼이 전달되었습니다.
+이것이 여러분의 첫 스마트 컨트랙트입니다. **1줄**은 Hardhat이 Solidity 버전 0.8.7 이상을 사용한다는 것을 보여줍니다. 그 외에는 KIP17.sol 및 기타 지원 컨트랙트를 가져옵니다. **6~12줄**에서는 KIP17을 계승하는 스마트 컨트랙트가 생성되었습니다. 또한 생성자에서 토큰 이름과 심볼이 전달되었습니다.
 
 위 코드에서 볼 수 있듯이 토큰 이름과 심볼은 각각 **SoulBoundToken**과 **SBT**로 설정되어 있습니다. 토큰 이름과 심볼은 원하는 대로 변경할 수 있습니다.
 
@@ -326,7 +326,7 @@ async function main() {
   await sbtContract.waitForDeployment();
 
 console.log(`Congratulations! You have just successfully deployed your soul bound tokens.`);
-console.log(`SBT contract address is ${sbtContract.target}. You can verify on https://baobab.scope.klaytn.com/account/${sbtContract.target}`);
+console.log(`SBT contract address is ${sbtContract.target}. You can verify on https://baobab.klaytnscope.com/account/${sbtContract.target}`);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
@@ -345,7 +345,7 @@ npx hardhat run scripts/sbtDeploy.js --network baobab
 
 ![](/img/build/get-started/sbtDeploy.png)
 
-**4단계**: [Klaytnscope](https://baobab.scope.klaytn.com/)를 열어 SBT 토큰이 성공적으로 배포되었는지 확인합니다.
+**Step 4**: Open [Klaytnscope](https://baobab.klaytnscope.com/) to check if the SBT token has been deployed successfully.
 
 **5단계**: 검색 필드에 배포된 컨트랙트 주소를 복사하여 붙여넣고 Enter 키를 누릅니다. 최근에 배포된 컨트랙트가 표시됩니다.
 
@@ -395,7 +395,7 @@ curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H
 
 ![](/img/build/get-started/hardhat-fork-bn.png)
 
-출력은 위와 같이 16진수입니다. 16진수에서 블록 번호를 얻으려면 이 [도구](https://www.rapidtables.com/convert/number/hex-to-decimal.html)를 사용하여 16진수를 10진수로 변환합니다. 네트워크를 포크한 시점의 최신 블록 번호를 얻어야 합니다. 블록 번호는 [klaytnscope](https://scope.klaytn.com/)에서 확인할 수 있습니다.
+출력은 위와 같이 16진수입니다. 16진수에서 블록 번호를 얻으려면 이 [도구](https://www.rapidtables.com/convert/number/hex-to-decimal.html)를 사용하여 16진수를 10진수로 변환합니다. 네트워크를 포크한 시점의 최신 블록 번호를 얻어야 합니다. You can confirm the block number on [klaytnscope](https://klaytnscope.com/).
 
 ### 블록에서 포크하기
 

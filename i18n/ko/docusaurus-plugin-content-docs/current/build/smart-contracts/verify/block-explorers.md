@@ -52,7 +52,7 @@ contract Counter {
 
 :::note
 
-You can check this page for a tutorial on deploying smart contracts using [libraries](../../references/sdk/sdk.md) on Klaytn Baobab Testnet. You may also use a developer tool such as [Hardhat](../get-started/hardhat.md), [Foundry](../smart-contracts/deploy/foundry.md), [Remix](../smart-contracts/deploy/deploy.md#remix-ide)  or another tool if preferred, to deploy the smart contract to Klaytn Baobab Testnet.
+You can check this page for a tutorial on deploying smart contracts using [libraries](../../../references/sdk/sdk.md) on Klaytn Baobab Testnet. You may also use a developer tool such as [Hardhat](../../get-started/hardhat.md), [Foundry](../deploy/foundry.md), [Remix](../deploy/deploy.md#remix-ide)  or another tool if preferred, to deploy the smart contract to Klaytn Baobab Testnet.
 
 :::
 
@@ -150,7 +150,7 @@ To verify a single contract and multi-part contracts on Klaytnscope, follow the 
 
 #### 1.1 Verifying a single contract
 
-1. Goto the search bar of [Klaytnscope](https://baobab.scope.klaytn.com/) and paste the deployed contract address.
+1. Goto the search bar of [Klaytnscope](https://baobab.klaytnscope.com) and paste the deployed contract address.
 2. Navigate to the **contract tab** on that page.
 3. Click on the **Match Contract Source Code** link to submit contract code for verification.
 

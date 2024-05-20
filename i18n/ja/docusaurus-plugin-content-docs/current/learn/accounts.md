@@ -28,9 +28,9 @@ As described before, when the private key is stolen, exposed, or somehow comprom
 
 By utilizing Klaytn account’s role-based multi-key support, end-users can better handle real-life security risk situations such as private key mismanagement. For example, when a user realizes that his or her private key has been exposed, the user can simply replace the compromised private key by removing the exposed key pair from his or her account and creating a new key pair to replace them. This could be achieved by using a dedicated key used for updating account information, created in advance and stored separately from the compromised private key.
 
-### Human-Readable Address (HRA) <a id="human-readable-address-hra"></a>
+### Human-Readable Address \(HRA\) <a id="human-readable-address-hra"></a>
 
-Although the address scheme (e.g., "0x0fe2e20716753082222b52e753854f40afddffd2") has its own strengths in that it efficiently protects the privacy of account holders, it also proposes major problems in terms of end-user experience. First, it is very difficult for a human brain to memorize, or even recognize, such addresses, making them prone to input mistakes and various human errors that often lead to non-trivial financial damages. Second, such scheme takes away from end-users the power to choose one’s own preferred identity handle that’s easier to memorize or use. Combined, these problems are among the toughest usability hurdles that cause dApp user experience for typical end-users (who are more accustomed to the simpler, frictionless user experience offered by legacy mobile apps or services) to be perceived as alien, incomprehensible, and severely inconvenient. To overcome such challenges without undergoing architectural modifications at large-scale and while preserving backward compatibility, Klaytn opts to provide a mapping between a 20-byte address to a 20-byte length text string that end-users could assign their own preferred values to. This feature in Klaytn is called human-readable address (HRA). Currently, this feature is under development, and we will provide more information when it is ready.
+Although the address scheme \(e.g., "0x0fe2e20716753082222b52e753854f40afddffd2"\) has its own strengths in that it efficiently protects the privacy of account holders, it also proposes major problems in terms of end-user experience. First, it is very difficult for a human brain to memorize, or even recognize, such addresses, making them prone to input mistakes and various human errors that often lead to non-trivial financial damages. Second, such scheme takes away from end-users the power to choose one’s own preferred identity handle that’s easier to memorize or use. Combined, these problems are among the toughest usability hurdles that cause dApp user experience for typical end-users \(who are more accustomed to the simpler, frictionless user experience offered by legacy mobile apps or services\) to be perceived as alien, incomprehensible, and severely inconvenient. To overcome such challenges without undergoing architectural modifications at large-scale and while preserving backward compatibility, Klaytn opts to provide a mapping between a 20-byte address to a 20-byte length text string that end-users could assign their own preferred values to. This feature in Klaytn is called human-readable address \(HRA\). Currently, this feature is under development, and we will provide more information when it is ready.
 
 ### Klaytn Wallet Key Format <a id="klaytn-wallet-key-format"></a>
 
@@ -44,39 +44,39 @@ This format is currently supported in [Klaytn Wallet](../build/tools/wallets/kla
 
 ### Klaytn Account Types <a id="klaytn-account-types"></a>
 
-There are two types of accounts in Klaytn: externally owned accounts (EOAs), and smart contract accounts (SCAs).
+There are two types of accounts in Klaytn: <LinkWithTooltip to="../../misc/glossary#externally-owned-account-eoa" tooltip="User-controlled blockchain accounts for transactions,<br /> secured by a private key.">externally owned accounts</LinkWithTooltip> \(EOAs\), and <LinkWithTooltip to="../../misc/glossary#smart-contract-account-sca" tooltip="Blockchain account with programmable logic <br />for automated transactions.">smart contract accounts</LinkWithTooltip> \(SCAs\).
 
-#### Externally Owned Accounts (EOAs) <a id="externally-owned-accounts-eoas"></a>
+#### Externally Owned Accounts \(EOAs\) <a id="externally-owned-accounts-eoas"></a>
 
 Externally owned accounts have information such as nonce and balance. This type of accounts does not have code or storage. EOAs are controlled by private keys and do not have code associated with them. An EOA can be created using key pairs and subsequently controlled by anyone with the key pairs. The account key is described in the section [Account Key](#account-key).
 
 **Attributes**
 
-| Attribute     | Type                              | Description                                                                                                                                                                                                                                                                                                                                    |
-| :------------ | :-------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type          | uint8 (Go)     | The type of externally owned accounts. It must be **0x1** for EOAs.                                                                                                                                                                                                                                                                            |
-| nonce         | uint64 (Go)    | A sequence number used to determine the order of transactions. The transaction to be processed next has the same nonce with this value.                                                                                                                                                                                                        |
-| balance       | \*big.Int (Go) | The amount of KLAY the account has.                                                                                                                                                                                                                                                                                                            |
-| humanReadable | bool (Go)      | A boolean value indicating that the account is associated with a human-readable address. Since [HRA](#human-readable-address-hra) is under development, this value is false for all accounts.                                                                                                                                                  |
-| key           | [AccountKey](#account-key)        | The key associated with this account. This field can be any of [AccountKeyLegacy](#accountkeylegacy), [AccountKeyPublic](#accountkeypublic), [AccountKeyFail](#accountkeyfail), [AccountKeyWeightedMultisig](#accountkeyweightedmultisig), [AccountKeyRoleBased](#accountkeyrolebased). Signatures in transactions are verified with this key. |
+| Attribute     | Type                                                  | Description                                                                                                                                                                                                                                                                                                                                                                                    |
+| :------------ | :---------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type          | uint8 \(Go\)                     | The type of externally owned accounts. It must be **0x1** for EOAs.                                                                                                                                                                                                                                                                                            |
+| nonce         | uint64 \(Go\)                    | A sequence number used to determine the order of transactions. The transaction to be processed next has the same nonce with this value.                                                                                                                                                                                                                        |
+| balance       | \*big.Int \(Go\) | The amount of KLAY the account has.                                                                                                                                                                                                                                                                                                                                            |
+| humanReadable | bool \(Go\)                      | A boolean value indicating that the account is associated with a human-readable address. Since [HRA](#human-readable-address-hra) is under development, this value is false for all accounts.                                                                                                                                                                  |
+| key           | [AccountKey](#account-key)                            | The key associated with this account. This field can be any of [AccountKeyLegacy](#accountkeylegacy), [AccountKeyPublic](#accountkeypublic), [AccountKeyFail](#accountkeyfail), [AccountKeyWeightedMultisig](#accountkeyweightedmultisig), [AccountKeyRoleBased](#accountkeyrolebased). Signatures in transactions are verified with this key. |
 
-#### Smart Contract Accounts (SCAs) <a id="smart-contract-accounts-scas"></a>
+#### Smart Contract Accounts \(SCAs\) <a id="smart-contract-accounts-scas"></a>
 
 In contrast to EOAs, SCAs have code associated with them and are controlled by their code. SCAs are created by smart contract deployment transactions; once deployed, an SCA cannot initiate new transactions by itself and must be triggered by another account, either by an EOA or another SCA.
 
 **Attributes**
 
-| Attribute     | Type                                                                                 | Description                                                                                                                                                                                                                                                                                                                                    |
-| :------------ | :----------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type          | uint8 (Go)                                                        | The type of smart contract accounts. It must be **0x2** for SCAs.                                                                                                                                                                                                                                                                              |
-| nonce         | uint64 (Go)                                                       | A sequence number used to determine the order of transactions. The transaction to be processed next has the same nonce with this value.                                                                                                                                                                                                        |
-| balance       | \*big.Int (Go)                                                    | The amount of KLAY the account has.                                                                                                                                                                                                                                                                                                            |
-| humanReadable | bool (Go)                                                         | A boolean value indicating that the account is associated with a human-readable address. Since [HRA](#human-readable-address-hra) is under development, this value is false for all accounts.                                                                                                                                                  |
-| key           | [AccountKey](#account-key)                                                           | The key associated with this account. This field can be any of [AccountKeyLegacy](#accountkeylegacy), [AccountKeyPublic](#accountkeypublic), [AccountKeyFail](#accountkeyfail), [AccountKeyWeightedMultisig](#accountkeyweightedmultisig), [AccountKeyRoleBased](#accountkeyrolebased). Signatures in transactions are verified with this key. |
-| codeHash      | []byte (Go)   | The hash of the account's smart contract code. This value is immutable, which means it is set only when the smart contract is created.                                                                                                                                                                                                         |
-| storageRoot   | [32]byte (Go) | A 256-bit hash of the root of the Merkle Patricia Trie that contains the values of all the storage variables in the account.                                                                                                                                                                                                                   |
-| codeFormat    | uint8 (Go)                                                        | Supporting interpreter version. Up to 16 can be set. Currently, it supports EVM(0x00) only.                                                                                                                                                                                                                                 |
-| vmVersion     | uint8 (Go)                                                        | The protocol upgrade (hard fork) information at contract deployment time (ex. 0x0(constantinople), 0x1(istanbul,london,...)). Up to 16 can be used. It is automatically created with the contract.                                                                 |
+| Attribute     | Type                                                                                         | Description                                                                                                                                                                                                                                                                                                                                                                                    |
+| :------------ | :------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type          | uint8 \(Go\)                                                            | The type of smart contract accounts. It must be **0x2** for SCAs.                                                                                                                                                                                                                                                                                              |
+| nonce         | uint64 \(Go\)                                                           | A sequence number used to determine the order of transactions. The transaction to be processed next has the same nonce with this value.                                                                                                                                                                                                                        |
+| balance       | \*big.Int \(Go\)                                        | The amount of KLAY the account has.                                                                                                                                                                                                                                                                                                                                            |
+| humanReadable | bool \(Go\)                                                             | A boolean value indicating that the account is associated with a human-readable address. Since [HRA](#human-readable-address-hra) is under development, this value is false for all accounts.                                                                                                                                                                  |
+| key           | [AccountKey](#account-key)                                                                   | The key associated with this account. This field can be any of [AccountKeyLegacy](#accountkeylegacy), [AccountKeyPublic](#accountkeypublic), [AccountKeyFail](#accountkeyfail), [AccountKeyWeightedMultisig](#accountkeyweightedmultisig), [AccountKeyRoleBased](#accountkeyrolebased). Signatures in transactions are verified with this key. |
+| codeHash      | \[\]byte \(Go\)   | The hash of the account's smart contract code. This value is immutable, which means it is set only when the smart contract is created.                                                                                                                                                                                                                         |
+| storageRoot   | \[32\]byte \(Go\) | A 256-bit hash of the root of the Merkle Patricia Trie that contains the values of all the storage variables in the account.                                                                                                                                                                                                                                                   |
+| codeFormat    | uint8 \(Go\)                                                            | Supporting interpreter version. Up to 16 can be set. Currently, it supports EVM\(0x00\) only.                                                                                                                                                                                                                             |
+| vmVersion     | uint8 \(Go\)                                                            | The protocol upgrade (hard fork) information at contract deployment time (ex. 0x0(constantinople), 0x1(istanbul,london,...)). Up to 16 can be used. It is automatically created with the contract. |
 
 :::note
 
@@ -115,7 +115,7 @@ No attributes for AccountKeyNil.
 
 ### AccountKeyLegacy <a id="accountkeylegacy"></a>
 
-AccountKeyLegacy is used for the account having an address derived from the corresponding key pair. If an account has AccountKeyLegacy, the transaction validation process is done like below (as typical Blockchain platforms did):
+AccountKeyLegacy is used for the account having an address derived from the corresponding key pair. If an account has AccountKeyLegacy, the transaction validation process is done like below \(as typical Blockchain platforms did\):
 
 - Get the public key from `ecrecover(txhash, txsig)`.
 - Get the address of the public key.
@@ -123,9 +123,9 @@ AccountKeyLegacy is used for the account having an address derived from the corr
 
 #### Attributes <a id="attributes"></a>
 
-| Attribute | Type                          | Description                                          |
-| :-------- | :---------------------------- | :--------------------------------------------------- |
-| Type      | uint8 (Go) | The type of AccountKeyLegacy. This must be **0x01**. |
+| Attribute | Type                              | Description                                                                          |
+| :-------- | :-------------------------------- | :----------------------------------------------------------------------------------- |
+| Type      | uint8 \(Go\) | The type of AccountKeyLegacy. This must be **0x01**. |
 
 #### RLP Encoding <a id="rlp-encoding"></a>
 
@@ -143,10 +143,10 @@ If an account has an AccountKeyPublic object, the transaction validation process
 
 #### Attributes <a id="attributes"></a>
 
-| Attribute | Type                                                                                 | Description                                          |
-| :-------- | :----------------------------------------------------------------------------------- | :--------------------------------------------------- |
-| Type      | uint8 (Go)                                                        | The type of AccountKeyPublic. This must be **0x02**. |
-| Key       | [33]byte (Go) | Key should be a compressed public key on S256 curve. |
+| Attribute | Type                                                                                         | Description                                                                          |
+| :-------- | :------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------- |
+| Type      | uint8 \(Go\)                                                            | The type of AccountKeyPublic. This must be **0x02**. |
+| Key       | \[33\]byte \(Go\) | Key should be a compressed public key on S256 curve.                 |
 
 #### RLP Encoding <a id="rlp-encoding"></a>
 
@@ -154,7 +154,7 @@ If an account has an AccountKeyPublic object, the transaction validation process
 
 **NOTE**: CompressedPubKey is a public key in a compressed format defined in [SEC1](https://www.secg.org/SEC1-Ver-1.0.pdf). In short, 0x02`{PubkeyX}` if PubkeyY is an even number or 0x03`{PubkeyX}` otherwise.
 
-#### RLP Encoding (Example) <a id="rlp-encoding-example"></a>
+#### RLP Encoding \(Example\) <a id="rlp-encoding-example"></a>
 
 ```javascript
 prvkey 0xf8cc7c3813ad23817466b1802ee805ee417001fcce9376ab8728c92dd8ea0a6b
@@ -170,9 +170,9 @@ If an account has the key AccountKeyFail, the transaction validation process alw
 
 #### Attributes <a id="attributes"></a>
 
-| Attribute | Type                          | Description                                       |
-| :-------- | :---------------------------- | :------------------------------------------------ |
-| Type      | uint8 (Go) | The type of AcccountKeyFail. It must be **0x03**. |
+| Attribute | Type                              | Description                                                                       |
+| :-------- | :-------------------------------- | :-------------------------------------------------------------------------------- |
+| Type      | uint8 \(Go\) | The type of AcccountKeyFail. It must be **0x03**. |
 
 #### RLP Encoding <a id="rlp-encoding"></a>
 
@@ -198,17 +198,17 @@ The following multiSig validation logic has been added with the [IstanbulEVM](do
 
 #### Attributes <a id="attributes"></a>
 
-| Attribute          | Type                                                                                                                                               | Description                                                                                                                    |
-| :----------------- | :------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------- |
-| Type               | uint8 (Go)                                                                                                                      | The type of AccountKeyWeightedMultiSig. This must be **0x04**.                                                                 |
-| Threshold          | uint (Go)                                                                                                                       | Validation threshold. To be a valid transaction, the weight sum of signatures should be larger than or equal to the threshold. |
-| WeightedPublicKeys | []{uint, [33]byte} (Go) | A list of weighted public keys. A weighted public key contains a compressed public key and its weight.                         |
+| Attribute          | Type                                                                                                                                                               | Description                                                                                                                                                    |
+| :----------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Type               | uint8 \(Go\)                                                                                                                                  | The type of AccountKeyWeightedMultiSig. This must be **0x04**.                                                                 |
+| Threshold          | uint \(Go\)                                                                                                                                   | Validation threshold. To be a valid transaction, the weight sum of signatures should be larger than or equal to the threshold. |
+| WeightedPublicKeys | \[\]\{uint, \[33\]byte\} \(Go\) | A list of weighted public keys. A weighted public key contains a compressed public key and its weight.                         |
 
 #### RLP Encoding <a id="rlp-encoding"></a>
 
 `0x04 + encode([threshold, [[weight, CompressedPubKey1], [weight2, CompressedPubKey2]]])`
 
-#### RLP Encoding (Example) <a id="rlp-encoding-example"></a>
+#### RLP Encoding \(Example\) <a id="rlp-encoding-example"></a>
 
 ```javascript
 Threshold 3
@@ -234,17 +234,17 @@ AccountKeyRoleBased represents a role-based key. The roles are specified at [Rol
 
 #### Attributes <a id="attributes"></a>
 
-| Attribute | Type                                                                                         | Description                                                                                                                            |
-| :-------- | :------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------- |
-| Type      | uint8 (Go)                                                                | The type of AccountKeyRoleBased. It must be **0x05**.                                                                                  |
-| Keys      | []`{AccountKey}` (Go) | A list of keys. A key can be any of AccountKeyNil, AccountKeyLegacy, AccountKeyPublic, AccountKeyFail, and AccountKeyWeightedMultiSig. |
+| Attribute | Type                                                                                                 | Description                                                                                                                                                            |
+| :-------- | :--------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Type      | uint8 \(Go\)                                                                    | The type of AccountKeyRoleBased. It must be **0x05**.                                                                                  |
+| Keys      | \[\]`{AccountKey}` \(Go\) | A list of keys. A key can be any of AccountKeyNil, AccountKeyLegacy, AccountKeyPublic, AccountKeyFail, and AccountKeyWeightedMultiSig. |
 
 #### Roles <a id="roles"></a>
 
 Roles of AccountKeyRoleBased are defined as below:
 
-| Role              | Description                                                                                                                                                                                                                        |
-| :---------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Role              | Description                                                                                                                                                                                                                                                                        |
+| :---------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | RoleTransaction   | Index 0. Default key. Transactions other than TxTypeAccountUpdate should be signed by the key of this role.                                                                                                                        |
 | RoleAccountUpdate | Index 1. TxTypeAccountUpdate transaction should be signed by this key. If this key is not present in the account, TxTypeAccountUpdate transaction is validated using RoleTransaction key.                                          |
 | RoleFeePayer      | Index 2. If this account wants to send tx fee instead of the sender, the transaction should be signed by this key.  If this key is not present in the account, a fee-delegated transaction is validated using RoleTransaction key. |
@@ -253,7 +253,7 @@ Roles of AccountKeyRoleBased are defined as below:
 
 `0x05 + encode([key1, key2, key3])`
 
-Note that key1, key2, and key3 can be any of above keys (AccountKeyNil, AccountKeyLegacy, AccountKeyPublic, AccountKeyFail, and AccountKeyWeightedMultiSig).
+Note that key1, key2, and key3 can be any of above keys \(AccountKeyNil, AccountKeyLegacy, AccountKeyPublic, AccountKeyFail, and AccountKeyWeightedMultiSig\).
 
 #### Omissible and Expandable Roles <a id="omissible-and-expandable-roles"></a>
 
@@ -261,7 +261,7 @@ The roles can be omitted from the last index, and the omitted roles are mapped t
 
 This feature allows for more roles to be added in the future. If a new role is provided, the new role of accounts already created with old roles is mapped to the first role.
 
-#### RLP Encoding (Example) <a id="rlp-encoding-example"></a>
+#### RLP Encoding \(Example\) <a id="rlp-encoding-example"></a>
 
 ```javascript
 RoleTransaction Key

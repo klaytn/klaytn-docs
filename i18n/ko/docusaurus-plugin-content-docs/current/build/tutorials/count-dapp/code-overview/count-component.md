@@ -431,4 +431,5 @@ try{
 
 ![거래 확인](/img/build/tutorials/tutorial-check-your-transaction.gif)
 
-`https://baobab.scope.klaytn.com/tx/${txHash}`에서 확인할 수 있습니다.
+After sending a transaction, you can check your transaction detail using Klaytnscope.\
+Check it in `https://baobab.klaytnscope.com/tx/${txHash}`.

@@ -150,7 +150,7 @@ Klaytnscope에서 단일 컨트랙트와 다중 파트 컨트랙트를 확인하
 
 #### 1.1 단일 컨트랙트 검증하기
 
-1. [Klaytnscope](https://baobab.scope.klaytn.com/)의 검색창에 배포된 컨트랙트 주소를 붙여넣습니다.
+1. Goto the search bar of [Klaytnscope](https://baobab.klaytnscope.com) and paste the deployed contract address.
 2. 해당 페이지의 **contract 탭**으로 이동합니다.
 3. **Match Contract Source Code** 링크를 클릭하여 확인을 위해 컨트랙트 코드를 제출합니다.
 

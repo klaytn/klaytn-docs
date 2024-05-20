@@ -4,13 +4,13 @@
 
 시작하기 전에 몇 가지 클레이튼 관련 용어에 대해 알아봅시다.
 
-- **엔드포인트 노드 (EN)**: 클레이튼 네트워크에 대한 JSON-RPC API 요청을 처리하는 노드입니다. 엔드포인트 노드는 컨센서스에 참여하지 않습니다.
+- **엔드포인트 노드 \(EN\)**: 클레이튼 네트워크에 대한 JSON-RPC API 요청을 처리하는 노드입니다. 엔드포인트 노드는 컨센서스에 참여하지 않습니다.
 - **KLAY**: 클레이튼 네이티브 코인.
 - **caver-js**: 클레이튼 JSON-RPC API의 JavaScript 구현.
 - **Baobab**: 클레이튼 테스트넷
 - **Cypress**: 클레이튼 메인넷
 
-이 단계별 가이드는 Baobab 테스트넷의 엔드포인트 노드 (EN)을 시작하고 새 계정으로 기본 스마트 컨트랙트를 구축하는 과정을 단계별로 안내합니다. 이 튜토리얼은 EN을 설정하는 방법과 EN을 통해 스마트 컨트랙트를 배포하는 방법의 두 부분으로 구성되어 있습니다.
+이 단계별 가이드는 Baobab 테스트넷의 엔드포인트 노드 \(EN\)을 시작하고 새 계정으로 기본 스마트 컨트랙트를 구축하는 과정을 단계별로 안내합니다. 이 튜토리얼은 EN을 설정하는 방법과 EN을 통해 스마트 컨트랙트를 배포하는 방법의 두 부분으로 구성되어 있습니다.
 
 > 스마트 컨트랙트를 배포하고 트랜잭션을 제출하려면 KLAY에서 트랜잭션 수수료가 필요하기 때문에 본 가이드에서는 **Baobab** 테스트넷을 사용합니다. 개발 목적으로 테스트넷 KLAY는 [Baobab Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 받을 수 있습니다.
 
@@ -107,7 +107,7 @@ Welcome to the Klaytn JavaScript console
  >
 ```
 
-**참고**: 모든 블록을 다운로드할 때까지 기다려야 합니다. 콘솔에 `klay.blockNumber`를 입력하고 현재 블록 번호와 일치하는지 [여기](https://baobab.scope.klaytn.com/)에서 확인합니다 .
+**참고**: 모든 블록을 다운로드할 때까지 기다려야 합니다. Enter `klay.blockNumber` in a console and check whether it matches the current block number [here](https://baobab.klaytnscope.com/)
 
 **참고**: 사용 가능한 기능 목록을 보려면 `klay` 또는 `personal`을 입력하세요.
 
@@ -162,7 +162,7 @@ true
 
 계정 잔액을 확인하려면 다음 명령을 실행하세요.
 
-기본 단위는 peb (1 KLAY = 10^18 peb)입니다. KLAY 단위에 대한 자세한 정보는 [KLAY 단위](../../../learn/klaytn-native-coin-klay.md#units-of-klay)에서 확인할 수 있습니다.
+기본 단위는 peb \(1 KLAY = 10^18 peb\)입니다. KLAY 단위에 대한 자세한 정보는 [KLAY 단위](../../../learn/klaytn-native-coin-klay.md#units-of-klay)에서 확인할 수 있습니다.
 
 ```javascript
 > klay.getBalance('75a59b94889a05c03c66c3c84e9d2f8308ca4abd') # enter your account address
@@ -222,9 +222,9 @@ $ rm /Users/username/klaytn/node_modules/websocket/.git
 
 **참고:** web3.js에서 `web3.eth...`로 시작하는 모든 함수 호출의 경우 `caver.klay...`로 대체해야 합니다.
 
-`web3.eth.sendTransaction({ ... })` (X)
+`web3.eth.sendTransaction({ ... })` \(X\)
 
-`caver.klay.sendTransaction({ ... })` (O)
+`caver.klay.sendTransaction({ ... })` \(O\)
 
 ### Truffle 설치하기 <a id="installing-truffle"></a>
 
@@ -389,7 +389,7 @@ module.exports = function(deployer) {
 
 Truffle.js에 클레이튼의 네트워크 정보를 입력합니다.
 
-**`경고`**: 현재 Klaytn Baobab 네트워크의 가스 가격은 25Gpeb (**다른 숫자를 사용하려고 하면 오류를 반환합니다**)로 고정되어 있습니다.
+**`경고`**: 현재 Klaytn Baobab 네트워크의 가스 가격은 25Gpeb \(**다른 숫자를 사용하려고 하면 오류를 반환합니다**\)로 고정되어 있습니다.
 
 ```bash
 $ cd ..
@@ -498,7 +498,7 @@ $ node test-klaytn.js
 
 JavaScript를 사용하여 컨트랙트에서 `greet()`를 호출합니다.
 
-**참고**: 스마트 컨트랙트에서 특정 함수를 호출하기 위해서는 ABI (Application Binary Interface) 파일이 필요합니다. Truffle은 컨트랙트를 배포할 때 `./build/contracts/`에 `abi` 속성이 포함된 .json 파일을 자동으로 생성합니다.
+**참고**: 스마트 컨트랙트에서 특정 함수를 호출하기 위해서는 ABI \(Application Binary Interface\) 파일이 필요합니다. Truffle은 컨트랙트를 배포할 때 `./build/contracts/`에 `abi` 속성이 포함된 .json 파일을 자동으로 생성합니다.
 
 위에 작성한 테스트 코드에 다음 줄을 추가합니다.
 

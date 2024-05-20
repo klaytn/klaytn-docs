@@ -10,8 +10,8 @@ Bạn nên kích hoạt cầu nối chính bằng cách định cấu hình `ken
 
 `kend.conf` có các thuộc tính cầu nối chính sau đây.
 
-| Tên                                                            | Mô tả                                                                                                             |
-| :------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------- |
+| Tên                                                            | Mô tả                                                                                                                                             |
+| :------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------ |
 | MAIN_BRIDGE                               | Kích hoạt dịch vụ cầu nối làm cầu nối chính cho chuỗi dịch vụ. 1 để kích hoạt.                                    |
 | MAIN_BRIDGE_PORT     | Cổng nghe cầu nối. Mặc định: 50505                                                                                |
 | MAIN_BRIDGE_INDEXING | Cho phép lập chỉ mục hàm băm giao dịch chuỗi dịch vụ để truy cập nhanh vào dữ liệu chuỗi dịch vụ. 1 để kích hoạt. |
@@ -77,7 +77,7 @@ at block: 11573551 (Wed, 13 Feb 2019 07:12:52 UTC)
 
 #### Lấy KNI của EN <a id="get-the-ens-kni"></a>
 
-Sau khi gắn với quy trình qua IPC, bạn có thể kiểm tra KNI cầu nối chính của EN như bên dưới. Bạn có thể tham khảo [API Chuỗi dịch vụ](../../../references/service-chain-api/subbridge.md).
+Sau khi gắn với quy trình qua IPC, bạn có thể kiểm tra KNI cầu nối chính của EN như bên dưới. You can refer to [Service Chain API](../../../references/json-rpc/subbridge/add-peer).
 
 ```javascript
 > mainbridge.nodeInfo

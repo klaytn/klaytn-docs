@@ -84,7 +84,7 @@ instance: Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X
 "0x5C1C757a6Cb6c6FcEFE398674D8209FDA2A74Df4"
 ```
 
-자세한 내용은 [서브브리지 API](../../../references/service-chain-api/subbridge.md#subbridge_parentOperator)를 참조하세요.
+You can refer to the [subbridge API](../../../references/json-rpc/subbridge/parent-operator) for more details.
 
 ### 브리지 오퍼레이터에게 KLAY 보내기 <a id="send-klay-to-bridge-operators"></a>
 
@@ -152,7 +152,7 @@ instance: Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X
 }]
 ```
 
-자세한 내용은 [서브브릿지 API](../../../references/service-chain-api/subbridge.md#subbridge_deployBridge)를 참조하세요.
+You can refer to the [subbridge API](../../..references/json-rpc/subbridge/deploy-bridge) for more details.
 
 `subbridge_listBridge`는 브리지 컨트랙트 주소와 해당 컨트랙트의 구독 상태를 보여줍니다.
 서브브릿지는 브리지 컨트랙트 주소 목록을 파일에 저장합니다. 재부팅 시 서브브릿지는 파일에서 브리지 컨트랙트 목록을 다시 로드합니다.
@@ -213,7 +213,7 @@ INFO[10/16,19:37:40 +09] [45] VT : Child -> Parent Chain                request=
 ### RPC API <a id="rpc-api"></a>
 
 아래와 같이 브리지 컨트랙트의 상태를 확인할 수 있습니다.
-자세한 내용은 [서브브리지 API](../../../references/service-chain-api/subbridge.md#subbridge_getBridgeInformation)를 참고하시기 바랍니다.
+You can refer to the [subbridge API](../../../references/json-rpc/subbridge/get-bridge-information) for more details.
 
 ```javascript
 > subbridge.getBridgeInformation("0x27caeba831d98b5fbb1d81ce0ed20801702f443a")
@@ -253,7 +253,7 @@ null
 
 이 명령은 자식 체인 토큰("0x376b72abe1b29cace831bd3f5acdfa967814c9cd")을 자식 체인 브리지 컨트랙트("0x27caeba831d98b5fbb1d81ce0ed20801702f443a")와 함께 등록합니다. 이 단계에서는 부모 체인뿐만 아니라 자식 체인에 브리지 컨트랙트와 토큰 컨트랙트를 모두 배포합니다.
 
-자세한 내용은 [서비스 체인 API](../../../references/service-chain-api/subbridge.md#subbridge_registerToken)를 참조하시기 바랍니다.
+You can refer to the [Service Chain API](../../../references/json-rpc/subbridge/register-token) for more details.
 
 ## 밸류 전송 요청 <a id="request-value-transfer"></a>
 

@@ -6,7 +6,7 @@
 
 1\) Mã lệnh đầy đủ\
 2\) Vai trò của thành phần `Count`\
-3\) Cách tương tác với hợp đồng?\ 4) Tương tác với hợp đồng: phương pháp `getCount`\
+3\) Cách tương tác với hợp đồng?\ 4\) Tương tác với hợp đồng: phương pháp `getCount`\
 5\) Tương tác với hợp đồng: phương pháp `setPlus`\
 6\) Vòng đời giao dịch
 
@@ -428,9 +428,9 @@ try{
 }
 ```
 
-### Tôi kiểm tra giao dịch của mình trong blockchain thế nào? Sau khi gửi giao dịch, bạn có thể kiểm tra thông tin giao dịch bằng Klaytnscope. Kiểm tra giao dịch trong `https://baobab.scope.klaytn.com/tx/${txHash}`.&#xA;Kiểm tra giao dịch trong `https://baobab.scope.klaytn.com/tx/${txHash}`.
+### Tôi kiểm tra giao dịch của mình trong blockchain thế nào? Sau khi gửi giao dịch, bạn có thể kiểm tra thông tin giao dịch bằng Klaytnscope.\&#xA;Kiểm tra giao dịch trong `https://baobab.scope.klaytn.com/tx/${txHash}`.&#xA;Kiểm tra giao dịch trong `https://baobab.scope.klaytn.com/tx/${txHash}`.
 
 ![check-transaction](/img/build/tutorials/tutorial-check-your-transaction.gif)
 
-Sau khi gửi giao dịch, bạn có thể kiểm tra thông tin giao dịch bằng Klaytnscope.\
-Kiểm tra giao dịch trong `https://baobab.scope.klaytn.com/tx/${txHash}`.
+After sending a transaction, you can check your transaction detail using Klaytnscope.\
+Check it in `https://baobab.klaytnscope.com/tx/${txHash}`.

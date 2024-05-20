@@ -43,7 +43,7 @@ Sau khi gửi KLAY, bạn có thể kiểm tra số dư như bên dưới.
 ```
 
 Sau đó, bạn có thể kích hoạt neo thông qua API RPC, `subbridge.anchoring`, như bên dưới.
-Bạn có thể tham khảo [API cầu nối con](../../../references/service-chain-api/subbridge.md#subbridge_anchoring) để biết thêm chi tiết.
+You can refer to [subbridge APIs](../../../references/json-rpc/subbridge/anchoring) for more details.
 
 ```
 > subbridge.anchoring(true)
@@ -58,7 +58,7 @@ Bạn có thể kiểm tra dữ liệu được neo như bên dưới.
 ### Cầu nối con <a id="sub-bridge"></a>
 
 Trong cầu nối con, bạn có thể kiểm tra số khối được neo mới nhất như bên dưới.
-Bạn có thể tham khảo [API cầu nối con](../../../references/service-chain-api/subbridge.md#subbridge_latestAnchoredBlockNumber) để biết thêm chi tiết.
+You can refer to [subbridge APIs](../../../references/json-rpc/subbridge/latest-anchored-block-number) for more details.
 
 ```javascript
 > subbridge.latestAnchoredBlockNumber
@@ -75,7 +75,7 @@ Ngoài ra, bạn có thể tìm thấy hàm băm giao dịch neo theo số khố
 ### Cầu nối chính <a id="sub-bridge"></a>
 
 Trong Cầu nối chính, nếu tùy chọn lập chỉ mục chuỗi được bật, bạn có thể tìm hàm băm giao dịch neo bằng hàm băm khối chuỗi dịch vụ như bên dưới.
-Bạn có thể tham khảo [API cầu nối chính](../../../references/service-chain-api/mainbridge.md#mainbridge_convertChildChainBlockHashToParentChainTxHash) để biết thêm chi tiết.
+You can refer to [mainbridge APIs](../../../references/json-rpc/mainbridge/convert-child-chain-block-hash-to-parent-chain-tx-hash) for more details.
 
 ```javascript
 > mainbridge.convertChildChainBlockHashToParentChainTxHash("0xeadc6a3a29a20c13824b5df1ba05cca1ed248d046382a4f2792aac8a6e0d1880")

@@ -314,7 +314,7 @@ Sau khi kết nối thành công với ví, bạn có thể lưu trữ đối t�
 return (
     <div className="App">
         <button onClick={sendKlay}>Send Klay</button>
-        <div>Send-Klay Tx Hash :  {txHash ? <a href={`https://baobab.scope.klaytn.com/tx/${txHash}`} target="_blank">Klaytnscope</a> :  ' ' } </div>
+        <div>Send-Klay Tx Hash :  {txHash ? <a href={`https://baobab.klaytnscope.com/tx/${txHash}`} target="_blank">Klaytnscope</a> :  ' ' } </div>
     </div>
 );
 

@@ -326,7 +326,7 @@ async function main() {
   await sbtContract.waitForDeployment();
 
 console.log(`Congratulations! You have just successfully deployed your soul bound tokens.`);
-console.log(`SBT contract address is ${sbtContract.target}. You can verify on https://baobab.scope.klaytn.com/account/${sbtContract.target}`);
+console.log(`SBT contract address is ${sbtContract.target}. You can verify on https://baobab.klaytnscope.com/account/${sbtContract.target}`);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
@@ -345,7 +345,7 @@ npx hardhat run scripts/sbtDeploy.js --network baobab
 
 ![](/img/build/get-started/sbtDeploy.png)
 
-**Step 4**: Open [Klaytnscope](https://baobab.scope.klaytn.com/) to check if the SBT token has been deployed successfully.
+**Step 4**: Open [Klaytnscope](https://baobab.klaytnscope.com/) to check if the SBT token has been deployed successfully.
 
 **Step 5**: Copy and paste the deployed contract address in the search field and press Enter. You should see the recently deployed contract.
 
@@ -395,7 +395,7 @@ curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H
 
 ![](/img/build/get-started/hardhat-fork-bn.png)
 
-The output is an hexadecimal as seen above. To get the block number from the hex, convert the hex to a decimal using this [tool](https://www.rapidtables.com/convert/number/hex-to-decimal.html). You should get the latest block number from the time you forked the network. You can confirm the block number on [klaytnscope](https://scope.klaytn.com/).
+The output is an hexadecimal as seen above. To get the block number from the hex, convert the hex to a decimal using this [tool](https://www.rapidtables.com/convert/number/hex-to-decimal.html). You should get the latest block number from the time you forked the network. You can confirm the block number on [klaytnscope](https://klaytnscope.com/).
 
 ### Forking at a Block
 

@@ -1,4 +1,4 @@
-# Buy-Me-A-Coffee dApp 구축하기
+# Build a Buy-Me-A-Coffee DApp
 
 ## 목차 <a href="#table-of-contents" id="table-of-contents"></a>
 

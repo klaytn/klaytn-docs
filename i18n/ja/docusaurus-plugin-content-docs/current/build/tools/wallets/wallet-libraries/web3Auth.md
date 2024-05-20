@@ -55,7 +55,7 @@ useEffect(() => {
             chainId: "0x3e9", // hex of 1001, Klaytn Baobab testnet. 
             rpcTarget: "https://public-en-baobab.klaytn.net", // modify if mainnet
             displayName: "Klaytn Testnet", //  modify if mainnet
-            blockExplorer: "https://baobab.scope.klaytn.com/", // modify if mainnet
+            blockExplorer: "https://baobab.klaytnscope.com", // modify if mainnet
             ticker: "KLAY",
             tickerName: "KLAY",
           },
@@ -214,7 +214,7 @@ const switchChain = async () => {
     ticker: "KLAY",
     decimals: 18,
     rpcTarget: "https://public-en-cypress.klaytn.net",
-    blockExplorer: "https://scope.klaytn.com",
+    blockExplorer: "https://klaytnscope.com",
   });
   // switch chain
   await web3auth.switchChain({chainId: "0x2019"});
@@ -332,7 +332,7 @@ You can perform native transactions, like sending KLAY from one user to another.
 return (
     <div className="App">
         <button onClick={sendKlay}>Send Klay</button>
-        <div>Send-Klay Tx Hash :  {txHash ? <a href={`https://baobab.scope.klaytn.com/tx/${txHash}`} target="_blank">Klaytnscope</a> :  ' ' } </div>
+        <div>Send-Klay Tx Hash :  {txHash ? <a href={`https://baobab.klaytnscope.com/tx/${txHash}`} target="_blank">Klaytnscope</a> :  ' ' } </div>
     </div>
 );
 

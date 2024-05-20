@@ -81,15 +81,15 @@ Below is information relating to each network.
 Cypress mainnet:
 
 - EN download : Choose the Cypress package from the [download page](../nodes/downloads/downloads.md).
-- Klaytnscope : https\://scope.klaytn.com
-- Klaytn Wallet : https\://wallet.klaytn.com
+- Klaytnscope : https://klaytnscope.com
+- Klaytn Wallet : https://wallet.klaytn.com
 
 Baobab testnet:
 
 - EN download : Choose the Baobab package from the [download page](../nodes/downloads/downloads.md).
-- Klaytnscope : https\://baobab.scope.klaytn.com
-- Klaytn Wallet : https\://baobab.wallet.klaytn.foundation
-- Baobab Faucet : https\://baobab.wallet.klaytn.foundation/faucet
+- Klaytnscope : https://baobab.klaytnscope.com
+- Klaytn Wallet : https://baobab.wallet.klaytn.foundation
+- Baobab Faucet : https://baobab.wallet.klaytn.foundation/faucet
 
 ## Are there any Klaytn SDKs? In what languages? <a id="klaytn-sdks"></a>
 

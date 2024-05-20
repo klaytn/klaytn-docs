@@ -26,6 +26,6 @@
 
 **Các bộ công cụ của Klaytn**
 
-- [Klaytnscope](https://scope.klaytn.com/) - Trình khám phá khối và giao dịch.
+- [Klaytnscope](https://klaytnscope.com/) - A block and transaction explorer.
 - [Ví Klaytn](https://wallet.klaytn.com/) - Một công cụ quản lý tài khoản dựa trên trình duyệt.
 - [Klaytn Contracts Wizard](https://wizard.klaytn.foundation/) - An interactive generator to bootstrap your smart contract and learn about Klaytn Contracts.

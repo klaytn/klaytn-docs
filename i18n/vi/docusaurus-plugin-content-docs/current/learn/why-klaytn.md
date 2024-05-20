@@ -29,7 +29,7 @@ Theo nguyên tắc này, Klaytn đã được thiết kế để đáp ứng nh�
 
 #### Khả năng mở rộng <a id="scalability"></a>
 
-- Chuỗi dịch vụ là giải pháp L2 mặc định dành cho Klaytn 2.0, có thể tùy chỉnh và dễ dàng triển khai. Chuỗi dịch vụ có thể được quản trị riêng và kết nối với chuỗi chính của Klaytn để neo dữ liệu hoặc chuyển giao tài sản.
+- Service chain is the default <LinkWithTooltip tooltip="L2 (level 2) blockchains act as an additional<br />  layer that helps the main blockchain handle<br />  more transactions more efficiently.">L2</LinkWithTooltip> solution for Klaytn 2.0 that is customizable and easily deployable. Chuỗi dịch vụ có thể được quản trị riêng và kết nối với chuỗi chính của Klaytn để neo dữ liệu hoặc chuyển giao tài sản.
 - Xem phần [Chuỗi dịch vụ](./scaling-solutions.md#service-chain). Các doanh nghiệp hoặc mạng lưới quy mô lớn thường muốn có môi trường thực thi của riêng họ. Với chuỗi dịch vụ, họ có thể duy trì một môi trường thực thi hiệu suất cao và biệt lập, không bị ảnh hưởng bởi các ứng dụng chuỗi khối khác.
 - Các giải pháp khác về khả năng mở rộng sẽ được ra mắt trong tương lai gần, chẳng hạn như sharding (phân đoạn) hoặc rollup (cuộn).
   ​
@@ -38,7 +38,7 @@ Theo nguyên tắc này, Klaytn đã được thiết kế để đáp ứng nh�
 
 - Người dùng cuối không cần phải gánh bất kỳ khoản phí giao dịch nào cao hơn những gì hệ thống truyền thống yêu cầu.
 - Phí giao dịch phải ổn định và được xác định bởi chính độ phức tạp của giao dịch, không phải bởi các yếu tố xung quanh.
-- Xem phần [Chi phí thực thi hợp đồng thông minh hợp lý](computation/klaytn-smart-contract.md#affordable-smart-contract-execution-cost) và [Phí giao dịch](transaction-fees/transaction-fees.md). Đối với giá gas ở mức 250 ston, một giao dịch chuyển KLAY sẽ phát sinh chi phí cố định là 0,00525 KLAY. (21.000 gas cho giao dịch chuyển KLAY x (250 x 10^-9) == 0.00525 KLAY)
+- Xem phần [Chi phí thực thi hợp đồng thông minh hợp lý](computation/klaytn-smart-contract.md#affordable-smart-contract-execution-cost) và [Phí giao dịch](transaction-fees/transaction-fees.md). For a gas price of 250 ston, a <LinkWithTooltip tooltip="The native token of the Klaytn blockchain.">KLAY</LinkWithTooltip> transfer would incur a fixed cost of 0.00525 KLAY. (21.000 gas cho giao dịch chuyển KLAY x (250 x 10^-9) == 0.00525 KLAY)
   ​
 
 ### Phát triển nhanh chóng <a id="rapid-development"></a>
