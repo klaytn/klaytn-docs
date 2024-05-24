@@ -693,7 +693,7 @@ The Kaia Foundation will, in any event, incur no costs in regard to any issuance
 
 **IF YOU ARE IN ANY DOUBT AS TO THE ACTION YOU SHOULD TAKE, YOU SHOULD CONSULT YOUR LEGAL, FINANCIAL, TAX OR OTHER PROFESSIONAL ADVISOR(S).**
 
-## Appendix
+<!-- ## Appendix
 
 ### Ecosystem
 
@@ -726,4 +726,4 @@ The Kaia Foundation will, in any event, incur no costs in regard to any issuance
 
 In addition, it includes a cryptocurrency wallet built into the LINE messenger, Klip, a cryptocurrency wallet that integrates with Kakao Messenger, and supports over 400 dApps and partners.
 
-![](/img/misc/partners.jpg)
+![](/img/misc/partners.jpg) -->
