@@ -245,12 +245,6 @@ const config = {
             label: 'References',
           },
           {
-            to: "docs/kaiatech",
-            position: 'left',
-            sidebarid: 'kaiaSidebar',
-            label: 'Kaia Tech',
-          },
-          {
             type: 'docsVersionDropdown',
             position: 'right',
             dropdownActiveClassDisabled: true,
