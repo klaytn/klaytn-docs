@@ -1,9 +1,11 @@
-# Klaytn Docs
-
-Welcome to the Klaytn documentation repository! This repo contains the source files for the official Klaytn documentation available at https://docs.klaytn.foundation.
+# Klaytn Docs (Archived)
 
 > [!IMPORTANT]  
-> Attention content contributors! Klaytn docs has shifted platforms, migrating from Gitbook to **Docusaurus**. For key information about this transition and its impact on your contributions, please refer to [the Klaytn docs 2.0 announcement](https://klaytn.foundation/announcing-klaytn-docs-2-0-streamlined-searchable-and-community-powered/).
+> **This repository has been archived and is no longer accepting contributions.**
+> We appreciate all the contributions made by the community so far. For future development and contributions, please refer to [the new kaia docs repository](https://github.com/kaiachain/kaia-docs) which is expected to open to public after July 1st, 2024 (exact date to be confirmed). Please stay tuned for further announcements and updates.
+
+
+Welcome to the Klaytn documentation repository! This repo contains the source files for the official Klaytn documentation available at https://docs.klaytn.foundation.
 
 ## Contributing
 
