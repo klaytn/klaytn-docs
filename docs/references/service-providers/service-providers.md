@@ -28,7 +28,7 @@ All That Node aims to become trusty gateway to Web3 infrastructure allowing buil
 - Public Nodes & Faucets for the Ecosystem
 - Pay-As-You-Go-plan supported if you need more
 - Dedicated Nodes
-- 24+ Blockchains Supported
+- 50+ Blockchains Supported
 - Archival Data Available
 - Websocket API Available
 - Trace/Debug API Available
