@@ -213,6 +213,13 @@ const config = {
         apiKey: '3ae6c772dbecf845225e7ef3f4ac18be',
         indexName: 'klaytn',
       },
+      announcementBar: {
+        id: 'docs_archive',
+        content: '📢 <b>This documentation site is archived and no longer maintained due to the transition from Klaytn to Kaia blockchain. Visit <a target="_blank" href="https://docs.kaia.io">the new Kaia docs site</a> for the latest information.</b> 📁🔒',
+        backgroundColor: '#e1573b',
+        textColor: '#FFFFFF',
+        isCloseable: false,
+      },
       navbar: {
         title: 'Klaytn Docs',
         logo: {
