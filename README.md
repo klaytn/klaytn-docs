@@ -5,7 +5,7 @@
 > [!IMPORTANT]
 > Since the launch of Kaia Blockchain, this repository has been parked in favour of the new open-source projects in [Kaia's Github](https://github.com/kaiachain). Contributors have now moved there continuing with massive open-source contributions to our blockchain ecosystem. A big thank you to everyone who has contributed to this repository.
 >
-> For future development and contributions, please refer to the new [kaia docs repository](https://github.com/kaiachain/kaia-docs) which is expected to open to public after July 1st, 2024 (exact date to be confirmed).
+> For future development and contributions, please refer to the new [kaia docs repository](https://github.com/kaiachain/kaia-docs) which is expected to open to public during June 2024 (exact date to be confirmed).
 >
 > More information about Klaytn's chain merge with Finschia blockchain, please refer to the launching of Kaia blockchain [kaia.io](https://kaia.io).
 
